@@ -727,6 +727,23 @@
         </div>
       </el-collapse-item>
 
+      <el-collapse-item class="collapse-item" name="8" style="display: block">
+        <template slot="title">
+          <span class="collapse-item_title">搓玉计算</span>
+        </template>
+
+        <div class="gacha_unit" id="direction">
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px">
+              今日是xxx日，离活动还有xxx天，有月卡共有xxx理智，无月卡共有xxx理智，搬空商店约需xxx理智:
+            </div>
+          </div>
+
+
+          <!-- 填空模块End -->
+        </div>
+      </el-collapse-item>
+
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">致谢</span>
