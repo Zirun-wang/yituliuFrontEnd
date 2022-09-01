@@ -1,0 +1,35 @@
+.bg-4002icon{
+    width: 40px;
+    height: 40px;
+   
+    background: url('https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/sprite/gachaSprite.png') 120px 0px;
+    background-size: 163px,40px;
+}
+
+.bg-4003icon{
+    width: 40px;
+    height: 40px;
+  
+    background: url('https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/sprite/gachaSprite.png') -2px 0px;
+    background-size: 163px,40px;
+}
+
+.bg-7003icon{
+    width: 40px;
+    height: 40px;
+    background: url('https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/sprite/gachaSprite.png') 80px 0px;
+    background-size: 163px,40px;
+}
+
+.bg-7004icon{
+    width: 40px;
+    height: 40px;
+    background: url('https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/sprite/gachaSprite.png') 40px 0px;
+    background-size: 163px,40px;
+}
+
+
+.sprite_gacha{
+  
+}
+

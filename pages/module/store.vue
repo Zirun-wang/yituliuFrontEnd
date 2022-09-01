@@ -1,0 +1,391 @@
+<template>
+  <div>
+    <!-- 采购中心 -->
+    <div id="store">
+      <!-- 标题区域 -->
+      <div class="op_title">
+        <div class="op_title_text">
+          <div class="op_title_ctext">
+            采购中心
+          </div>
+          <div class="op_title_etext">
+            Store Rank
+          </div>
+        </div>
+        <div class="op_title_tag">
+          <img alt="" :class=tagColor[0] id="store_tag_0" :src="getImgUrl('资质凭证',4)" @click="switch_store('0')">
+          <img alt="" :class=tagColor[1] id="store_tag_1" :src="getImgUrl('高级凭证',4)" @click="switch_store('1')">
+          <img alt="" :class=tagColor[2] id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
+          <img alt="" :class=tagColor[3] id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
+          <img alt="" :class=tagColor[4] id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
+          <div class="tab_text">
+            *点击图标切换
+          </div>
+
+        </div>
+      </div>
+      <!-- 标题区域end -->
+      <!-- 内容区域 -->
+      <!-- 绿票商店 -->
+      <div class="store_content" id="store_0" :style="storeVisiable[0]">
+        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('资质凭证' ,4)">	
+        </div>
+        <div v-for="(m_data, index) in storeList[0]" class="store_unit" :key="index">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" >	
+          <p class="store_unit_text" :class="getColor(m_data.costPer, 1, 0.03)">{{getEfficiency(m_data.costPer, 2)}}</p>
+        </div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+      </div>
+      <!-- 黄票商店 -->
+      <div class="store_content" id="store_1" :style="storeVisiable[1]">
+        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('高级凭证' ,4)">	
+        </div>
+        <div v-for="(m_data, index) in storeList[3]" class="store_unit" :key="index">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
+          <p class="store_unit_text" :class="getColor(m_data.costPer, 12, 3)">{{getEfficiency(m_data.costPer, 2)}}</p>
+        </div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+      </div>
+      <!-- 橙票商店 -->
+      <div class="store_content" id="store_2" :style="storeVisiable[2]">
+        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('寻访参数模型' ,4)">	
+        </div>
+        <div v-for="(m_data, index) in storeList[1]" class="store_unit" :key="index">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
+          <p class="store_unit_text" :class="getColor(m_data.costPer, 1.6, 0.1)">{{getEfficiency(m_data.costPer, 2)}}</p>
+        </div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+      </div>
+      <!-- 紫票商店 -->
+      <div class="store_content" id="store_3" :style="storeVisiable[3]">
+        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('情报凭证' ,4)">	
+        </div>
+        <div v-for="(m_data, index) in storeList[2]" class="store_unit" :key="index">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
+          <p class="store_unit_text" :class="getColor(m_data.costPer, 2, 0.4)">{{getEfficiency(m_data.costPer, 2)}}</p>
+        </div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+      </div>
+      <!-- 信用商店 -->
+      <div class="store_content" id="store_4" :style="storeVisiable[4]">
+        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('信用' ,4)">	
+        </div>
+        <div v-for="(m_data, index) in storeList[4]" class="store_unit" :key="index">
+          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
+          <p class="store_unit_text" :class="getColor(m_data.costPer, 8, 2)">{{getEfficiency(m_data.costPer, 2)}}</p>
+        </div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+        <div class="store_unit" style="height:0;margin-top: 0px;margin-bottom: 0px;"></div>
+      </div>
+    </div>
+
+    <!-- 活动商店 -->
+    <div id="actStore">
+      <!-- 标题区域 -->
+      <div class="op_title">
+        <div class="op_title_text">
+          <div class="op_title_ctext">
+            活动商店
+          </div>
+          <div class="op_title_etext">
+            Activity
+          </div>
+        </div>
+      </div>
+      <!-- 标题区域end -->
+      <!-- 内容区域 -->
+      <div v-for="(singleAct, index) in actStoreList" :key="index">
+        <!-- banner -->
+        <div class="act_banner_background" :style="getBackground(singleAct.actImgUrl)">
+			    <div class="act_banner_img">
+				    <img class="act_img" :src="singleAct.actImgUrl" :alt="singleAct.actName">
+			    </div>
+		    </div>
+        <!-- Area 1 -->
+        <div class="act_content">
+          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <div class="act_card uni_shadow_2 act_area1_border" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)">
+            <div class="act_card_img">
+              <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
+            </div>
+            <div class="act_card_table">
+              <table class="act_table">
+                <tr class="act_table_r1">
+                  <td>{{(singleItem.itemName)}}</td>
+                </tr>
+                <tr class="act_table_r2" :class="getColor(singleItem.itemPPR, singleAct.actPPRBase, singleAct.actPPRStair)"> <!--故事集 合约 1.25 0.25  ss 3 1-->
+                  <td>{{getEfficiency(singleItem.itemPPR)}}</td>
+                </tr>
+                <tr class="act_table_r3">
+                  <td>{{(singleItem.itemPrice)}}代币</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div> 
+        <!-- Area 2 -->
+        <div class="act_content">
+          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <div class="act_card uni_shadow_2 act_area3_border" :class="getDivVisible(singleItem.itemArea - 1.5, singleItem.itemArea - 0.5)">
+            <div class="act_card_img">
+              <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
+            </div>
+            <div class="act_card_table">
+              <table class="act_table">
+                <tr class="act_table_r1">
+                  <td>{{(singleItem.itemName)}}</td>
+                </tr>
+                <tr class="act_table_r2" :class="getColor(singleItem.itemPPR, singleAct.actPPRBase, singleAct.actPPRStair)"> <!--故事集 合约 1.25 0.25  ss 3 1-->
+                  <td>{{getEfficiency(singleItem.itemPPR)}}</td>
+                </tr>
+                <tr class="act_table_r3">
+                  <td>{{(singleItem.itemPrice)}}代币</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div> 
+        <!-- Area 3 -->
+        <div class="act_content">
+          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <div class="act_card uni_shadow_2 act_area4_border" :class="getDivVisible(singleItem.itemArea - 2.5, singleItem.itemArea - 1.5)">
+            <div class="act_card_img">
+              <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
+            </div>
+            <div class="act_card_table">
+              <table class="act_table">
+                <tr class="act_table_r1">
+                  <td>{{(singleItem.itemName)}}</td>
+                </tr>
+                <tr class="act_table_r2" :class="getColor(singleItem.itemPPR, singleAct.actPPRBase, singleAct.actPPRStair)"> <!--故事集 合约 1.25 0.25  ss 3 1-->
+                  <td>{{getEfficiency(singleItem.itemPPR)}}</td>
+                </tr>
+                <tr class="act_table_r3">
+                  <td>{{(singleItem.itemPrice)}}代币</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div> 
+      <!-- 内容区域end -->
+      </div> 
+    </div>
+    <!-- 活动商店end -->
+
+  </div>
+</template>
+
+<script>
+import storeApi from "@/api/store";
+import cookie from "js-cookie";
+
+export default {
+  data() {
+    return {
+      storeList: [100],             //常驻商店性价比集合
+      actStoreList: [],   //活动商店的json
+      storeVisiable:["display:flex;","display:flex;","display:flex;","display:flex;","display:flex;"],
+      tagColor:["n","n","n","n","n"]
+    };
+  },
+  created() {
+    this.findPermStorePer();
+    this.getCookies();
+    this.finActStorePer()
+  },
+  methods: {
+
+    getCookies() {
+      if (cookie.get("store_0") == 0) {
+        this.tagColor[0]="uni_gray";
+        this.storeVisiable[0]="display:none;";
+      }
+      if (cookie.get("store_1") == 0) {
+        this.tagColor[1]="uni_gray";
+        this.storeVisiable[1]="display:none;";
+      }
+      if (cookie.get("store_2") == 0) {
+        this.tagColor[2]="uni_gray";
+        this.storeVisiable[2]="display:none;";
+      }
+      if (cookie.get("store_3") == 0) {
+        this.tagColor[3]="uni_gray";
+        this.storeVisiable[3]="display:none;";
+      }
+      if (cookie.get("store_4") == 0) {
+        this.tagColor[4]="uni_gray";
+        this.storeVisiable[4]="display:none;";
+      }
+    },
+
+
+
+    getImgUrl(img, source){
+      source = (typeof source !== 'undefined') ?  source : 1;
+      if (source > 4.1)
+        return ("/img/materials/道具_" + img + ".png");
+      else if (source > 3.1)
+      return ("/img/icon/图标_" + img + ".png");
+      else if (source > 2.1)
+        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/ activity_picture /" + img + ".png");
+      else if (source > 1.1)
+        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/" + img + ".png");
+      else if (source >0.1)
+        return ("/img/materials/" + img + ".png");
+      else
+        return ("https://cdn.jsdelivr.net/gh/zirun-wang/OnePicCDN/img/" + img + ".png");
+    },
+    getEfficiency(num, acc){
+      acc = (typeof acc !== 'undefined') ?  acc : 2;
+      return parseFloat(num).toFixed(acc);
+    },
+    getEfficiencyPlus(num){
+      num = num + 0.1;
+      return (parseFloat(num).toFixed(2));
+    },
+    getBackground(url){
+      return ("background: linear-gradient(rgba(144, 164, 174, 0.7), rgba(144, 164, 174, 0.7)), url(" + url + ") no-repeat 50% 50% /cover;");
+    },
+    getColor(color, dividing, tier){
+      tier = (typeof tier !== 'undefined') ?  tier : 1;
+      dividing = (typeof dividing !== 'undefined') ?  dividing : 4;
+      if (color < 0)
+        return "color_t6";
+      else if(color < (dividing - 3 * tier))
+        return "color_t1";
+      else if (color < (dividing - 2 * tier))
+        return "color_t2";
+      else if (color < (dividing - 1 * tier))
+        return "color_t3";		
+      else if (color < dividing)
+        return "color_t4";	
+      else
+        return "color_t5";	
+    },
+    getBorderColor(area){
+      area = (typeof area !== 'undefined') ?  area : 1;
+      if (area < 0.1)
+        return "act_area0_border";
+      else if(area < 1.1)
+        return "act_area1_border";
+      else if(area < 2.1)
+        return "act_area2_border";
+      else if(area < 3.1)
+        return "act_area3_border";
+      else if(area < 4.1)
+        return "act_area4_border";
+      else
+        return "act_area5_border";	
+    },
+    getDivVisible(index){
+        if (index<0 || index>1)
+          return"uni_invisible";
+    },
+
+    switch_store(index){
+      if (document.getElementById('store_tag_'+index.toString()).className == "n") {
+        document.getElementById('store_'+index.toString()).style.display = "none";
+        document.getElementById('store_tag_'+index.toString()).className = "uni_gray";
+        cookie.set("store_"+index, 0, { expires: 30 });
+      } else {
+        document.getElementById('store_'+index.toString()).style.display = "flex";
+        document.getElementById('store_tag_'+index.toString()).className = "n";
+        cookie.set("store_"+index, 1, { expires: 30 });
+      }
+	  },
+
+    findPermStorePer() {
+      storeApi.findPermStore().then((response) => {
+        this.storeList = [];
+        this.storeList = response.data;
+      });
+    },
+     finActStorePer() {
+      storeApi.findActStore().then((response) => {
+        this.actStoreList = [];
+        this.actStoreList = response.data;
+      });
+    },
+  },
+};
+</script>
+
+<style>
+</style>

@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item_pic_area{
+    margin: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap ; 
+    /* border: solid red 1px; */
+    border-bottom: solid white 1px ;
+}
+
+.item_pic_size{
+ 
+   width: 25px;
+   height: 26px;
+
+}
+
+
+
+.sprite_img div{
+   width: 42px; 
+   height: 42px;
+background-image: url('/sprite.png') ;
+background-size:600px 290px ;
+border: solid black 1px;
+/* transform: scale(0.3,0.3); */
+}
+
+.div_test{
+   background-position:-300px  -243px;
+}

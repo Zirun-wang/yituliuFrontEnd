@@ -1,0 +1,21 @@
+
+.sprite_type {
+    transform: scale(2.9);
+    margin-top: 30px;
+    margin-left: -38px;
+}
+
+.sprite_secondary {
+    transform: scale(0.5);
+    margin-top: -15px;
+    margin-left: -12px;
+}
+
+.sprite_secondary_div {
+    width: 35px;
+    height: 35px;
+    /* border: solid red 1px; */
+}
+
+
+

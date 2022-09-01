@@ -1,0 +1,297 @@
+/* 弹窗文字样式 */
+
+
+
+
+div.el-dialog {
+    border-radius: 10px;
+}
+
+.stage_dialog_details_light .el-dialog__header {
+    height: 45px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+   color: rgb(0, 0, 0);
+   background-color: rgb(230, 240, 245);
+}
+
+.stage_dialog_details_dark .el-dialog__header {
+    height: 45px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    background-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+}
+
+.stage_dialog_details_light .el-dialog__body {
+    padding: 0px 0px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(230, 240, 245);
+}
+
+.stage_dialog_details_dark .el-dialog__body {
+    padding: 0px 0px;
+    background-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+}
+
+.stage_dialog_details_light .el-dialog__headerbtn {
+    font-size: 40px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}
+
+.stage_dialog_details_light .el-dialog__headerbtn .el-dialog__close {
+    font-weight: 900;
+    color: rgb(66, 66, 66);
+}
+
+
+
+.stage_dialog_details_footer {
+    margin: 5px;
+}
+
+
+.dialog_title_area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+
+
+.stage_dialog_details_table {
+ 
+    border-collapse: collapse;
+    text-align: center;
+    width: 520px;
+    font-size: 0px;
+}
+
+.stage_dialog_details_table_tr_title {
+    border-bottom: 1px solid rgb(136, 136, 136);
+    font-size: 16px;
+    height: 45px;
+}
+
+
+.stage_dialog_details_table_tr {
+    border-bottom: 1px solid rgb(216, 216, 216);
+    height: 40px;
+}
+
+
+
+
+.stage_dialog_details_title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.stage_dialog_details_table_times {
+    width: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 70px;
+}
+
+.stage_dialog_details_table_times_warn {
+    color:rgb(155, 29, 20);
+    width: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 70px;
+}
+
+
+
+/* .el-dialog__header {
+    height: 80px;
+    padding: 10px 10px 1px;
+    border-bottom-style: ridge;
+    border-width: 2px;
+  }
+  
+  .el-dialog__body {
+    padding: 1px 10px;
+    color: #606266;
+    font-size: 14px;
+    word-break: break-all;
+  } */
+
+
+.stage_dialog_details_penguinLink {
+    color:rgb(124, 187, 255);
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+
+}
+
+
+.stage_dialog_details_table_font_size {
+    font-size: 16px;
+}
+
+
+
+.stage_dialog_stageAll .el-dialog__header {
+    height: 30px;
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.stage_dialog_stageAll .el-dialog__headerbtn {
+    font-size: 30px;
+    font-weight: 900;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+}
+
+.stage_dialog_stageAll .el-dialog__headerbtn .el-dialog__close {
+    font-weight: 900;
+    color: rgb(66, 66, 66);
+}
+
+.stage_dialog_stageAll_table {
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    border-collapse: collapse;
+    width: 420px;
+    text-align: center;
+
+}
+
+.stage_dialog_stageAll_table_tr_title {
+    border-bottom: 1px solid rgb(165, 165, 165);
+
+    color: rgb(105, 105, 105);
+    height: 40px;
+    font-weight: 600;
+}
+
+.stage_dialog_stageAll_table_tr {
+    font-size: 0%;
+    border-bottom: 2px solid rgb(165, 165, 165);
+    font-size: 20px;
+    color: rgb(43, 43, 43);
+    height: 50px;
+    font-weight: 600;
+}
+
+.stage_dialog_stageAll_table_td_name {
+    font-size: 20px;
+    color: rgb(43, 43, 43);
+    height: 50px;
+    text-align: left;
+}
+
+.stage_dialog_stageAll_table_td {
+    font-size: 12px;
+
+}
+
+.stage_dialog_stageAll_title_word {
+    color: rgba(0, 0, 0, 0.76);
+
+    font-weight: 600;
+    position: relative;
+    left: 1%;
+    text-align: center;
+
+}
+
+
+
+
+
+.dialog_pastActImg_size {
+    height: 110px;
+    width: 240px;
+}
+
+.dialog_pastMainImg_size {
+    height: 35px;
+}
+
+.dialog_pastAct_area {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    background-color: rgb(36, 35, 35);
+    color: rgb(220, 220, 220);
+}
+
+.stage_dialog_pastActivityivity {
+    text-align: left;
+}
+
+
+.stage_dialog_pastActivityivity .el-dialog__header {
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(220, 220, 220);
+}
+
+.stage_dialog_pastActivityivity .el-dialog__body {
+    padding: 0px 0px;
+
+}
+
+.stage_dialog_pastActivityivity .el-dialog__headerbtn {
+    font-size: 35px;
+    font-weight: 900;
+    position: absolute;
+    top: 0px;
+
+}
+
+.stage_dialog_pastActivityivity .el-dialog__headerbtn .el-dialog__close {
+    font-weight: 900;
+    color: rgb(220, 220, 220);
+}
+
+
+.stage_dialog_pastActivity_gery {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    -webkit-filter: grayscale(1);
+}
+
+.stage_dialog_pastActivity_table {
+    text-align: center;
+    font-size: 24px;
+}
+
+.stage_dialog_pastActivity_table_td_font {
+    text-align: center;
+    color: rgb(62, 191, 247);
+    border-collapse: collapse;
+    width: 300px;
+
+}
+
+
+
+
+.popover_color {
+    color: rgb(220, 2, 2);
+}
+
+
+.color_value_table {
+    border: 1px rgb(108, 147, 253);
+    border-collapse: collapse;
+}
+
+.example_td_word {
+    text-align: center;
+}

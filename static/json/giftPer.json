@@ -1,0 +1,23 @@
+[
+    {"name":"月卡","sells":"30","gachaTimes":"11.8","price":"2.542372881"},
+    {"name":"新人组合包","sells":"6","gachaTimes":"1","price":"6"},
+    {"name":"新人寻访组合包","sells":"128","gachaTimes":"20","price":"6.4"},
+    {"name":"双倍源石6元","sells":"6","originiumPrice":"2","gachaTimes":"0.9","price":"6.666666667"},
+    {"name":"夏日观光组合包","sells":"198","originiumPrice":"8.25","gachaTimes":"27.2","price":"7.279411765"},
+    {"name":"每月寻访组合包","sells":"168","originiumPrice":"4","gachaTimes":"22.6","price":"7.433628319"},
+    {"name":"双倍源石98元","sells":"98","originiumPrice":"2.45","gachaTimes":"12","price":"8.166666667"},
+    {"name":"双倍源石198元","sells":"198","originiumPrice":"2.475","gachaTimes":"24","price":"8.25"},
+    {"name":"双倍源石328元","sells":"328","originiumPrice":"2.484848485","gachaTimes":"39.6","price":"8.282828283"},
+    {"name":"双倍源石648元","sells":"648","originiumPrice":"2.492307692","gachaTimes":"78","price":"8.307692308"},
+    {"name":"双倍源石30元","sells":"30","originiumPrice":"2.5","gachaTimes":"3.6","price":"8.333333333"},
+    {"name":"夏日狂欢组合包","sells":"328","originiumPrice":"3.644444444","gachaTimes":"37","price":"8.864864865"},
+    {"name":"夏日养成包","sells":"68","originiumPrice":"0","gachaTimes":"7.5","price":"9.066666667"},
+    {"name":"普通源石648元","sells":"648","originiumPrice":"3.502702703","gachaTimes":"55.5","price":"11.67567568"},
+    {"name":"普通源石328元","sells":"328","originiumPrice":"3.644444444","gachaTimes":"27","price":"12.14814815"},
+    {"name":"普通源石198元","sells":"198","originiumPrice":"3.96","gachaTimes":"15","price":"13.2"},
+    {"name":"普通源石98元","sells":"98","originiumPrice":"4.083333333","gachaTimes":"7.2","price":"13.61111111"},
+    {"name":"普通源石30元","sells":"30","originiumPrice":"4.285714286","gachaTimes":"2.1","price":"14.28571429"},
+    {"name":"新人养成组合包","sells":"68","originiumPrice":"5.230769231","gachaTimes":"3.9","price":"17.43589744"},
+    {"name":"普通源石6元","sells":"6","originiumPrice":"6","gachaTimes":"0.3","price":"20"},
+    {"name":"新人家具组合包","sells":"68","originiumPrice":"11.33333333","gachaTimes":"1.8","price":"37.77777778"}
+    ]

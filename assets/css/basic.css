@@ -1,0 +1,249 @@
+.op_header{
+    height: 40px;
+    display: -webkit-flex;
+    background-color: rgb(52 68 104);
+    box-shadow: rgb(0 0 0) 0px 0px 10px;
+}
+
+.op_header_tab{
+    margin-left: 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    display: block;
+    white-space: nowrap;
+}
+
+.op_title{
+    border-left: 8px solid #6495ed;
+}
+
+.op_title_text {
+    /* color: white; */
+   
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.op_title_ctext {
+    display: block;
+    font-size: 36px;
+    font-weight: 600;
+    /* color: #ffffffdd; */
+    -webkit-text-stroke: 0px;
+    height: 36px;
+    /* border-left: 8px solid #6495ed; */
+    margin-top: -4px;
+    padding-right: 32px;
+}
+
+.op_title_etext {
+    -webkit-text-fill-color: transparent; 
+    font-size: 30px;
+    font-weight: 600;
+    display: inline-block;
+    /* color: #0000ffdd; */
+    /* position: absolute; */
+    margin-top: -36px;
+    margin-left: 36px;
+}
+
+.op_title_tag {
+    margin-left: 16px;
+    margin-top: -4px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+
+
+.op_tag_0 {
+    margin-left: 4px;
+    margin-top: 4px;
+    padding: 6px 12px;
+    height:16px;
+    line-height: 14px;
+    border-radius: 16px;
+    display: inline-block;
+    color:#808080;
+    font-size: 16px;
+    font-weight: 600;
+    vertical-align:middle;
+    background-color: #c0c0c060;
+    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+}
+
+
+.op_tag_1 {
+    margin-left: 4px;
+    margin-top: 4px;
+    padding: 5px 11px;
+    height:16px;
+    line-height: 14px;
+    border-radius: 16px;
+    border:1px solid #244e7ec0;
+    display: inline-block;
+    color:#244e7e;
+    font-size: 16px;
+    font-weight: 600;
+    vertical-align:middle;
+    background-color: #c0c0c060;
+    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+}
+
+
+.op_tag_0:hover{
+    cursor:pointer
+}
+
+.op_tag_1:hover{
+    cursor:pointer
+}
+
+.tab_text {
+    margin-left: 16px;
+    display: inline-block;
+    font-style: italic;
+    color: skyblue;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.op_content {
+    display: flex;
+    margin: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+
+.color_t6{
+	color:#ff0000;
+}
+.color_t5{
+	color: #e85d06;
+}
+.color_t4{
+	color: #a335ee;
+}
+.color_t3{
+	color: #0070dd;
+}
+.color_t2{
+	color: #00a2a2;
+}
+.color_t1{
+	color: #a0a0a0;
+}
+
+.uni_shadow_1{
+	box-shadow: 4px 4px 2px 0px rgb(0 0 0 / 16%);
+}
+
+.uni_shadow_2 {
+    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+}
+
+.uni_invisible {
+    display: none;
+}
+
+.uni_gray { 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.dark {
+    background-color: #222222;
+    color:#ffffff;
+    /* -webkit-text-stroke: 0.3px #ffffff; */
+}
+
+.light {
+    background-color: #f0f0f0;
+    color: rgb(39, 39, 39);
+    /* -webkit-text-stroke: 0.3px rgb(46, 46, 46); */
+}
+
+#foot_main {
+	display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left:12px;
+}
+
+.foot_unit {
+	display: inline;
+	top: 5px;
+	width: 180px;
+	float: left;
+	margin:10px;
+	white-space: nowrap;
+}
+
+.foot_unit_title{
+	font-size:15px;
+	font-weight:600;
+    color:#444444;
+}
+.foot_unit_content{
+    color:gray;
+	font-size:16px;
+	padding-left:5px;
+}
+.foot_unit_pic{
+	height: 32px;
+    width: 32px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.footlist {
+	display: inline;
+	top: 5px;
+	height: 80px;
+	width: 180px;
+	margin: auto;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+
+}
+#foot_warning {
+	border-top: 1px solid #dddddd;
+	overflow-x:hidden;
+	padding-left:12px;
+	
+}
+#foot_warning_text {
+    font-size: 12px;
+    /* display: inline; */
+    /* top: 5px; */
+    /* float: left; */
+    padding: 10px;
+    text-align: center}
+
+.foot_unit_button {
+    border: 1px solid #808080;
+    background-color: rgba(255, 253, 253, 0.08);
+    height: 40px;
+    width: 180px;
+    border-radius: 8px;
+    margin: 4px;
+    color:gray;
+}
+
+.foot_unit a {
+    text-decoration: none;
+}
