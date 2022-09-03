@@ -1296,19 +1296,46 @@
         this.cookieInit++;
 
 
-        if (typeof this.originium_exist !== "number") this.originium_exist = 0;
-        if (typeof this.orundum_exist !== "number") this.orundum_exist = 0;
-        if (typeof this.permit_exist !== "number") this.permit_exist = 0;
-        if (typeof this.permit10_exist !== "number") this.permit10_exist = 0;
-        if (typeof this.paradox !== "number") this.paradox = 0;
+        if (
+          this.originium_exist == "" ||
+          this.originium_exist == undefined ||
+          typeof this.originium_exist == "undefined"
+        )
+          this.originium_exist = 0;
+        if (
+          this.orundum_exist == "" ||
+          this.orundum_exist == undefined ||
+          typeof this.orundum_exist == "undefined"
+        )
+          this.orundum_exist = 0;
 
-        if (typeof this.originium_648 !== "number") this.originium_648 = 0;
-        if (typeof this.originium_328 !== "number") this.originium_328 = 0;
-        if (typeof this.originium_198 !== "number") this.originium_198 = 0;
-        if (typeof this.originium_98 !== "number") this.originium_98 = 0;
-        if (typeof this.originium_30 !== "number") this.originium_30 = 0;
-        if (typeof this.originium_6 !== "number") this.originium_6 = 0;
-        if (typeof this.customValue !== "number") this.customValue = 0;
+
+        if (
+          this.permit_exist == "" ||
+          this.permit_exist == undefined ||
+          typeof this.permit_exist == "undefined"
+        )
+          this.permit_exist = 0;
+        if (
+          this.permit10_exist == "" ||
+          this.permit10_exist == undefined ||
+          typeof this.permit10_exist == "undefined"
+        )
+          this.permit10_exist = 0;
+        if (
+          this.paradox == "" ||
+          this.paradox == undefined ||
+          typeof this.paradox == "undefined"
+        )
+          this.paradox = 0;
+
+        if (this.originium_648 == "") this.originium_648 = 0;
+        if (this.originium_328 == "") this.originium_328 = 0;
+        if (this.originium_198 == "") this.originium_198 = 0;
+        if (this.originium_98 == "") this.originium_98 = 0;
+        if (this.originium_30 == "") this.originium_30 = 0;
+        if (this.originium_6 == "") this.originium_6 = 0;
+        if (this.customValue == "") this.customValue = 0;
 
         this.originium_exist = parseInt(this.originium_exist);
         this.orundum_exist = parseInt(this.orundum_exist);
