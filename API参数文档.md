@@ -79,7 +79,7 @@ url:  /api/find/store/perm
 无参数
  ```
  ```
-类型String itemId;  //物品id
+类型String   名称 itemId;  //物品id
 类型String   名称 itemName; //物品名称
 类型Double   名称 itemValue;  //物品价值
 类型Double   名称 cost;     //单位售价  （比如5000龙门币卖7代币  单位售价是7/5000)
@@ -87,6 +87,33 @@ url:  /api/find/store/perm
 类型Double   名称 costPer;     //性价比
 类型String   名称 storeType;  //商店类型
  ```
+
+
+### 获取活动商店性价比(JsonArray)
+ ```
+url:  /api/find/store/act
+无参数
+ ```
+ ```
+名称actStartData  类型Long  活动开始时间
+名称actEndData  类型Long  活动结束时间
+名称actName   类型String  活动名称
+名称actTagAera  （暂且不用管）
+名称actPPRBase   类型Double  用于前端渲染颜色大于这个数值性价比颜色分级为橙  （顺序为橙，紫，蓝，绿，灰）
+名称actPPRStair   类型String  actPPRBase每降低一个actPPRStair，性价比颜色分级降一级
+
+名称actStore :
+{
+名称itemAra         类型Integer  区域索引，用于判断是无限池区还是有限池区
+名称itemName        类型String  材料名称
+名称itemPPR         类型Double   材料性价比
+名称itemitemPrice   类型Integer  商店售价
+名称itemQuantity    类型Integer  商店每次售卖个数
+名称itemStock       类型Integer  商店库存
+}
+
+ ```
+
 
 ### 获取所有物品价值(JsonArray)
  ```
