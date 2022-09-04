@@ -185,3 +185,11 @@
 .el-checkbox__input {
     position: static;
 }
+
+.el-radio-button__inner {
+    width:100%;
+}
+
+.el-radio-button--small .el-radio-button__inner {
+    padding: 9px 0px;
+}
