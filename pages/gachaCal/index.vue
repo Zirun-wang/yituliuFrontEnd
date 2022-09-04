@@ -20,7 +20,7 @@
         </template>
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:0 5%;">
+          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
             <el-radio-button label="(CN)感谢庆典(11.14)" style="width:34%;"></el-radio-button>
             <el-radio-button label="(CN)春节限定(02.05)" style="width:34%;"></el-radio-button>
             <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
