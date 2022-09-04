@@ -16,7 +16,7 @@
       >
         <template slot="title">
           <span class="collapse-item_title" style="color: purple"
-          >共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元</span
+            >共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元</span
           >
         </template>
         <div class="gacha_unit" id="total">
@@ -115,7 +115,7 @@
       <el-collapse-item name="1" style="display: block">
         <template slot="title">
           <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist) }}抽&emsp;(点击{{
+            >现有库存 {{ getFixed(gachaTimes_exist) }}抽&emsp;(点击{{
               getTitleWord(1)
             }})</span
           >
@@ -290,7 +290,7 @@
                     {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
                   </div></div
-                ></el-checkbox>
+              ></el-checkbox>
             </div>
           </el-checkbox-group>
 
@@ -347,7 +347,7 @@
               <div style="display: flex">
                 <div style="width: 70px">{{ monthsRemaining * 600 }}</div>
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div>{{ monthsRemaining * 4 }}</div>
+                <div>{{ monthsRemaining * 2 }}</div>
                 <div :class="getSpriteImg('7003icon', 0)"></div>
               </div>
             </div>
@@ -757,709 +757,710 @@
 
 
 <script>
-  import mainAndActivityJson from "static/json/mainAndActivity.json";
-  import repActivityJson from "static/json/repActivity.json";
-  import storeJson from "static/json/store.json";
-  import giftPerJson from "static/json/giftPer.json";
-  import permitStoreJson from "static/json/permitStore.json";
-  import actRewardJson from "static/json/actReward.json";
-  import otherRewardJson from "static/json/otherReward.json";
+import mainAndActivityJson from "static/json/mainAndActivity.json";
+import repActivityJson from "static/json/repActivity.json";
+import storeJson from "static/json/store.json";
+import giftPerJson from "static/json/giftPer.json";
+import permitStoreJson from "static/json/permitStore.json";
+import actRewardJson from "static/json/actReward.json";
+import otherRewardJson from "static/json/otherReward.json";
 
-  import toolApi from "@/api/tool";
-  import cookie from "js-cookie";
+import toolApi from "@/api/tool";
+import cookie from "js-cookie";
 
-  export default {
-    layout: "defaultGacha",
-    head: {
-      title: "一图流-感谢庆典攒抽规划",
-      meta: [
-        { charset: "utf-8" },
-        {
-          name: "viewport",
-          content:
-            "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
-        },
-        {
-          hid: "description",
-          name: "description",
-          content: "一图流-感谢庆典攒抽规划",
-        },
-      ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+export default {
+  layout: "defaultGacha",
+  head: {
+    title: "一图流-感谢庆典攒抽规划",
+    meta: [
+      { charset: "utf-8" },
+      {
+        name: "viewport",
+        content:
+          "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: "一图流-感谢庆典攒抽规划",
+      },
+    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+  },
+  data() {
+    return {
+      pageTheme: "light",
+      itemList: [],
+      checkBox: ["0", "7"],
+
+      startTime: "", //开始时间
+      endTime: "2022/11/15 03:59:00", //结束时间
+      mainAndActivity: mainAndActivityJson, //常驻活动和主线
+      mainAndActivityList: [],
+      repActivity: repActivityJson, //复刻活动
+      repActivityList: [],
+      store: storeJson, //商店礼包
+      storeList: [],
+
+      permitStore: permitStoreJson, //黄票兑换38抽
+      permitStoreList: [],
+      actReward: actRewardJson,
+      otherReward: otherRewardJson,
+
+      //计算结果
+      originium: 0, //源石
+      orundum: 0, //合成玉
+      permit: 0, //寻访
+      permit10: 0, //十连寻访
+      sellsCount: 0, //总氪金总和
+      gachaTimes: 0, //总抽卡次数
+
+      gachaTimes_exist: 0, //库存抽卡次数
+      gachaTimes_potential: 0, //潜在抽卡次数
+      gachaTimes_daily: 0, //日常抽卡次数
+      gachaTimes_gacha: 0, //氪金抽卡次数
+      gachaTimes_activity: 0, //活动抽卡次数
+      gachaTimes_other: 0, //其他抽卡次数
+
+      originium_exist: 0, //库存源石
+      orundum_exist: 0, //库存合成玉
+      permit_exist: 0, //库存寻访券
+      permit10_exist: 0, //库存十连寻访
+
+      originium_potential: 0, //常驻源石
+      orundum_potential: 0, //常驻合成玉
+      permit_potential: 0, //常驻寻访券
+      permit10_potential: 0, //常驻十连寻访
+      paradox: 0, //悖论模拟
+
+      originium_daily: 0, //日常源石
+      orundum_daily: 0, //日常合成玉
+      permit_daily: 0, //日常寻访券
+      permit10_daily: 0, //日常十连寻访
+
+      originium_gacha: 0, //氪金源石
+      orundum_gacha: 0, //氪金合成玉
+      permit_gacha: 0, //氪金寻访券
+      permit10_gacha: 0, //氪金十连寻访
+
+      originium_act: 0, //活动源石
+      orundum_act: 0, //活动合成玉
+      permit_act: 0, //活动寻访券
+      permit10_act: 0, //活动十连寻访
+
+      originium_other: 0, //活动源石
+      orundum_other: 0, //活动合成玉
+      permit_other: 0, //活动寻访券
+      permit10_other: 0, //活动十连寻访
+
+      originium_648: 0, //普通源石648
+      originium_328: 0, //普通源石328
+      originium_198: 0, //普通源石198
+      originium_98: 0, //普通源石98
+      originium_30: 0, //普通源石30
+      originium_6: 0, //普通源石6
+      monthlyCardNum: 0,
+
+      daysRemaining: 0, //剩余天数
+      weeksRemaining: 0, //剩余周数
+      monthsRemaining: 0, //剩余周数
+      SignInMonthsRemaining: 0,
+      countDown: 0, //限定池每日送抽倒计时
+      dailyRewards: 100, //每日奖励
+      weeklyRewards: 500, //周常奖励
+      weekStage: 1800, //剿灭奖励
+      gachaWall: 8500, //幸运墙奖励
+      originiumValue: true, //是否源石抽卡
+      weekStageValue: true, //是否完成剿灭
+      weekTaskValue: true, //是否完成周常
+      customValue: 0, //自定义值
+      giftTable: giftPerJson, //礼包性价比表
+      cookieInit: 0,
+    };
+  },
+  created() {
+    this.getDate();
+    this.getInterval();
+    this.getEveryreWard();
+    this.getCountDown();
+    this.compute();
+
+    this.getCookies();
+  },
+  mounted() {
+    this.updateVisits();
+  },
+  methods: {
+    getCookies() {
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme == "undefined") {
+        theme = "light";
+        cookie.set("theme", theme, { expires: 30 });
+      }
+      this.pageTheme = theme;
+      console.log("当前是", this.pageTheme, "色");
     },
-    data() {
-      return {
-        pageTheme: "light",
-        itemList: [],
-        checkBox: ["0", "7"],
 
-        startTime: "", //开始时间
-        endTime: "2022/11/15 03:59:00", //结束时间
-        mainAndActivity: mainAndActivityJson, //常驻活动和主线
-        mainAndActivityList: [],
-        repActivity: repActivityJson, //复刻活动
-        repActivityList: [],
-        store: storeJson, //商店礼包
-        storeList: [],
-
-        permitStore: permitStoreJson, //黄票兑换38抽
-        permitStoreList: [],
-        actReward: actRewardJson,
-        otherReward: otherRewardJson,
-
-        //计算结果
-        originium: 0, //源石
-        orundum: 0, //合成玉
-        permit: 0, //寻访
-        permit10: 0, //十连寻访
-        sellsCount: 0, //总氪金总和
-        gachaTimes: 0, //总抽卡次数
-
-        gachaTimes_exist: 0, //库存抽卡次数
-        gachaTimes_potential: 0, //潜在抽卡次数
-        gachaTimes_daily: 0, //日常抽卡次数
-        gachaTimes_gacha: 0, //氪金抽卡次数
-        gachaTimes_activity: 0, //活动抽卡次数
-        gachaTimes_other: 0, //其他抽卡次数
-
-        originium_exist: 0, //库存源石
-        orundum_exist: 0, //库存合成玉
-        permit_exist: 0, //库存寻访券
-        permit10_exist: 0, //库存十连寻访
-
-        originium_potential: 0, //常驻源石
-        orundum_potential: 0, //常驻合成玉
-        permit_potential: 0, //常驻寻访券
-        permit10_potential: 0, //常驻十连寻访
-        paradox: 0, //悖论模拟
-
-        originium_daily: 0, //日常源石
-        orundum_daily: 0, //日常合成玉
-        permit_daily: 0, //日常寻访券
-        permit10_daily: 0, //日常十连寻访
-
-        originium_gacha: 0, //氪金源石
-        orundum_gacha: 0, //氪金合成玉
-        permit_gacha: 0, //氪金寻访券
-        permit10_gacha: 0, //氪金十连寻访
-
-        originium_act: 0, //活动源石
-        orundum_act: 0, //活动合成玉
-        permit_act: 0, //活动寻访券
-        permit10_act: 0, //活动十连寻访
-
-        originium_other: 0, //活动源石
-        orundum_other: 0, //活动合成玉
-        permit_other: 0, //活动寻访券
-        permit10_other: 0, //活动十连寻访
-
-        originium_648: 0, //普通源石648
-        originium_328: 0, //普通源石328
-        originium_198: 0, //普通源石198
-        originium_98: 0, //普通源石98
-        originium_30: 0, //普通源石30
-        originium_6: 0, //普通源石6
-        monthlyCardNum: 0,
-
-        daysRemaining: 0, //剩余天数
-        weeksRemaining: 0, //剩余周数
-        monthsRemaining: 0, //剩余周数
-        SignInMonthsRemaining: 0,
-        countDown: 0, //限定池每日送抽倒计时
-        dailyRewards: 100, //每日奖励
-        weeklyRewards: 500, //周常奖励
-        weekStage: 1800, //剿灭奖励
-        gachaWall: 8500, //幸运墙奖励
-        originiumValue: true, //是否源石抽卡
-        weekStageValue: true, //是否完成剿灭
-        weekTaskValue: true, //是否完成周常
-        customValue: 0, //自定义值
-        giftTable: giftPerJson, //礼包性价比表
-        cookieInit: 0,
-      };
+    updateVisits() {
+      toolApi.updateVisits("zanchou").then((response) => {});
     },
-    created() {
-      this.getDate();
+
+    getSpriteImg(name, index) {
+      if (index == 0) return "bg-" + name + " sprite_gacha";
+
+      return "bg-" + name;
+    },
+
+    getDate() {
+      var date = new Date();
+      var y = date.getFullYear(); //年
+      var m = (date.getMonth() + 1).toString().padStart(2, "0"); //月
+      var d = date.getDate().toString().padStart(2, "0"); //日
+      var h = date.getHours().toString().padStart(2, "0"); //时
+      var mm = date.getMinutes().toString().padStart(2, "0"); //分
+      var s = date.getSeconds().toString().padStart(2, "0"); //秒
+      this.startTime = `${y}/${m}/${d} ${h}:${mm}:${s}`;
+      //  this.time = '2022-08-11'
+    },
+    //获取限定池和红包倒计时
+    getCountDown() {
+      var startDate = Date.parse(new Date(this.startTime)); //1642471535000
+      var endDate = Date.parse("2022/11/15 03:59:00"); //1642471500000
+      var num = parseInt((endDate - startDate) / 86400000);
+
+      if (num < 14) {
+        this.countDown = num - 14;
+      }
+
+      console.log("距离限定池结束还有" + this.countDown + "天");
+    },
+
+    //获取还有多少天
+    getInterval() {
+      var startDate = Date.parse(new Date(this.startTime)); //1642471535000
+      var endDate = Date.parse(this.endTime); //1642471500000
+      var num = parseInt((endDate - startDate) / 86400000);
+      for (let i = 1; i < num + 1; i++) {
+        if (new Date(startDate + 86400000 * i).getDay() == 1) {
+          this.weeksRemaining++;
+        }
+        if (new Date(startDate + 86400000 * i).getDate() == 10) {
+          this.monthsRemaining++;
+        }
+        if (new Date(startDate + 86400000 * i).getDate() == 17) {
+          this.SignInMonthsRemaining++;
+        }
+      }
+
+      console.log("距离限定池还有" + num + "天");
+      this.daysRemaining = num;
+    },
+
+    changeDateTime() {
       this.getInterval();
       this.getEveryreWard();
-      this.getCountDown();
       this.compute();
-
-      this.getCookies();
     },
-    mounted() {
-      this.updateVisits();
+    getEveryreWard() {
+      // console.log("运行了")
+      this.dailyRewards = 100 * this.daysRemaining;
+      this.weeklyRewards = 500 * this.weeksRemaining;
+      this.weekStage = 1800 * this.weeksRemaining;
+      console.log("距离限定池还有" + this.weeksRemaining, "周");
     },
-    methods: {
-      getCookies() {
-        let theme = cookie.get("theme");
-        if (typeof theme == "undefined" || theme == "undefined") {
-          theme = "light";
-          cookie.set("theme", theme, { expires: 30 });
-        }
-        this.pageTheme = theme;
-        console.log("当前是", this.pageTheme, "色");
-      },
 
-      updateVisits() {
-        toolApi.updateVisits("zanchou").then((response) => {});
-      },
+    compute(name) {
+      // console.log("计算开始", this.checkBox);
+      //初始化
 
-      getSpriteImg(name, index) {
-        if (index == 0) return "bg-" + name + " sprite_gacha";
+      this.valueInit();
 
-        return "bg-" + name;
-      },
+      //判断是否用源石抽卡
+      var flag_originium = 0;
+      if (this.originiumValue) {
+        flag_originium = 1;
+      }
 
-      getDate() {
-        var date = new Date();
-        var y = date.getFullYear(); //年
-        var m = (date.getMonth() + 1).toString().padStart(2, "0"); //月
-        var d = date.getDate().toString().padStart(2, "0"); //日
-        var h = date.getHours().toString().padStart(2, "0"); //时
-        var mm = date.getMinutes().toString().padStart(2, "0"); //分
-        var s = date.getSeconds().toString().padStart(2, "0"); //秒
-        this.startTime = `${y}/${m}/${d} ${h}:${mm}:${s}`;
-        //  this.time = '2022-08-11'
-      },
-      //获取限定池和红包倒计时
-      getCountDown() {
-        var startDate = Date.parse(new Date(this.startTime)); //1642471535000
-        var endDate = Date.parse("2022/11/15 03:59:00"); //1642471500000
-        var num = parseInt((endDate - startDate) / 86400000);
+      //判断是否完成周常日常
+      var flag_week_task = 1;
+      if (this.weekTaskValue) {
+        flag_week_task = 0;
+      }
+      //判断是否完成剿灭
+      var flag_week_stage = 1;
+      if (this.weekStageValue) {
+        flag_week_stage = 0;
+      }
 
-        if (num < 14) {
-          this.countDown = num - 14;
-        }
+      //库存计算（共计）
+      this.originium = this.originium + parseInt(this.originium_exist);
+      this.orundum = this.orundum + parseInt(this.orundum_exist);
+      this.permit = this.permit + parseInt(this.permit_exist);
+      this.permit10 = this.permit10 + parseInt(this.permit10_exist);
 
-        console.log("距离限定池结束还有" + this.countDown + "天");
-      },
+      //库存抽卡次数（单项）
+      this.gachaTimes_exist =
+        parseInt(this.originium_exist * 0.3) * flag_originium +
+        parseInt(this.orundum_exist) / 600 +
+        parseInt(this.permit_exist) +
+        parseInt(this.permit10_exist) * 10;
 
-      //获取还有多少天
-      getInterval() {
-        var startDate = Date.parse(new Date(this.startTime)); //1642471535000
-        var endDate = Date.parse(this.endTime); //1642471500000
-        var num = parseInt((endDate - startDate) / 86400000);
-        for (let i = 1; i < num + 1; i++) {
-          if (new Date(startDate + 86400000 * i).getDay() == 1) {
-            this.weeksRemaining++;
-          }
-          if (new Date(startDate + 86400000 * i).getDate() == 10) {
-            this.monthsRemaining++;
-          }
-          if (new Date(startDate + 86400000 * i).getDate() == 17) {
-            this.SignInMonthsRemaining++;
-          }
-        }
-
-        console.log("距离限定池还有" + num + "天");
-        this.daysRemaining = num;
-      },
-
-      changeDateTime() {
-        this.getInterval();
-        this.getEveryreWard();
-        this.compute();
-      },
-      getEveryreWard() {
-        // console.log("运行了")
-        this.dailyRewards = 100 * this.daysRemaining;
-        this.weeklyRewards = 500 * this.weeksRemaining;
-        this.weekStage = 1800 * this.weeksRemaining;
-        console.log("距离限定池还有" + this.weeksRemaining, "周");
-      },
-
-      compute(name) {
-        // console.log("计算开始", this.checkBox);
-        //初始化
-
-        this.valueInit();
-
-        //判断是否用源石抽卡
-        var flag_originium = 0;
-        if (this.originiumValue) {
-          flag_originium = 1;
-        }
-
-        //判断是否完成周常日常
-        var flag_week_task = 1;
-        if (this.weekTaskValue) {
-          flag_week_task = 0;
-        }
-        //判断是否完成剿灭
-        var flag_week_stage = 1;
-        if (this.weekStageValue) {
-          flag_week_stage = 0;
-        }
-
-        //库存计算（共计）
-        this.originium = this.originium + parseInt(this.originium_exist);
-        this.orundum = this.orundum + parseInt(this.orundum_exist);
-        this.permit = this.permit + parseInt(this.permit_exist);
-        this.permit10 = this.permit10 + parseInt(this.permit10_exist);
-
-        //库存抽卡次数（单项）
-        this.gachaTimes_exist =
-          parseInt(this.originium_exist * 0.3) * flag_originium +
-          parseInt(this.orundum_exist) / 600 +
-          parseInt(this.permit_exist) +
-          parseInt(this.permit10_exist) * 10;
-
-        //主线和常驻活动计算（共计）
-        for (let i = 0; i < this.mainAndActivityList.length; i++) {
-          this.originium =
-            this.originium +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].originium);
-          this.orundum =
-            this.orundum +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].orundum);
-          this.permit =
-            this.permit +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit);
-          this.permit10 =
-            this.permit10 +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit10);
-
-          this.originium_potential =
-            this.originium_potential +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].originium);
-          this.orundum_potential =
-            this.orundum_potential +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].orundum);
-          this.permit_potential =
-            this.permit_potential +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit);
-          this.permit10_potential =
-            this.permit10_potential +
-            parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit10);
-        }
-
-        //悖论模拟
-        this.orundum = this.orundum + parseInt(this.paradox * 200);
-
-        this.orundum_potential =
-          this.orundum_potential + parseInt(this.paradox * 200);
-
-        //主线和常驻活动抽卡次数（单项）
-        this.gachaTimes_potential =
-          parseInt(this.originium_potential * 0.3) * flag_originium +
-          parseInt(this.orundum_potential) / 600 +
-          parseInt(this.permit_potential) +
-          parseInt(this.permit10_potential) * 10;
-
-        //氪金项目计算（共计）
-        for (let i = 0; i < this.storeList.length; i++) {
-          console.log(this.storeList);
-          this.permit =
-            this.permit + parseInt(this.store[this.storeList[i]].permit);
-          this.permit10 =
-            this.permit10 + parseInt(this.store[this.storeList[i]].permit10);
-          if ("月卡" == this.store[this.storeList[i]].name) {
-            console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
-            this.orundum = this.orundum + this.daysRemaining * 200;
-            this.originium =
-              this.originium + Math.ceil(this.daysRemaining / 30) * 6;
-            this.sellsCount =
-              this.sellsCount + Math.ceil(this.daysRemaining / 30) * 30;
-          } else {
-            this.originium =
-              this.originium + parseInt(this.store[this.storeList[i]].originium);
-            this.orundum =
-              this.orundum + parseInt(this.store[this.storeList[i]].orundum);
-            this.sellsCount =
-              this.sellsCount + parseInt(this.store[this.storeList[i]].sells);
-          }
-
-          this.permit_gacha = this.permit_gacha =
-            this.permit_gacha + parseInt(this.store[this.storeList[i]].permit);
-          this.permit10_gacha =
-            this.permit10_gacha +
-            parseInt(this.store[this.storeList[i]].permit10);
-          if ("月卡" == this.store[this.storeList[i]].name) {
-            this.orundum_gacha = this.orundum_gacha + this.daysRemaining * 200;
-            this.originium_gacha =
-              this.originium_gacha + Math.ceil(this.daysRemaining / 30) * 6;
-          } else {
-            this.orundum_gacha =
-              this.orundum_gacha +
-              parseInt(this.store[this.storeList[i]].orundum);
-            this.originium_gacha =
-              this.originium_gacha +
-              parseInt(this.store[this.storeList[i]].originium);
-          }
-        }
-
-        //普通648
+      //主线和常驻活动计算（共计）
+      for (let i = 0; i < this.mainAndActivityList.length; i++) {
         this.originium =
           this.originium +
-          185 * this.originium_648 +
-          90 * this.originium_328 +
-          50 * this.originium_198 +
-          24 * this.originium_98 +
-          7 * this.originium_30 +
-          1 * this.originium_6;
-
-        //氪金项目抽卡次数（单项）
-        this.originium_gacha =
-          this.originium_gacha +
-          185 * this.originium_648 +
-          90 * this.originium_328 +
-          50 * this.originium_198 +
-          24 * this.originium_98 +
-          7 * this.originium_30 +
-          1 * this.originium_6;
-
-        this.gachaTimes_gacha =
-          parseInt(this.originium_gacha * 0.3) * flag_originium +
-          parseInt(this.orundum_gacha) / 600 +
-          parseInt(this.permit_gacha) +
-          parseInt(this.permit10_gacha) * 10;
-
-        //日常部分计算(总)
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].originium);
         this.orundum =
           this.orundum +
-          this.dailyRewards +
-          this.monthsRemaining * 600 +
-          this.weeklyRewards +
-          this.weekStage;
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].orundum);
         this.permit =
-          this.permit + this.monthsRemaining * 4 + this.SignInMonthsRemaining;
-        //黄票商店38抽计算
-        for (let i = 0; i < this.permitStoreList.length; i++) {
-          this.originium =
-            this.originium +
-            parseInt(this.permitStore[this.permitStoreList[i]].originium);
-          this.orundum =
-            this.orundum +
-            parseInt(this.permitStore[this.permitStoreList[i]].orundum);
-          this.permit =
-            this.permit +
-            parseInt(this.permitStore[this.permitStoreList[i]].permit);
-          this.permit10 =
-            this.permit10 +
-            parseInt(this.permitStore[this.permitStoreList[i]].permit10);
+          this.permit +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit);
+        this.permit10 =
+          this.permit10 +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit10);
 
-          this.originium_daily =
-            this.originium_daily +
-            parseInt(this.permitStore[this.permitStoreList[i]].originium);
-          this.orundum_daily =
-            this.orundum_daily +
-            parseInt(this.permitStore[this.permitStoreList[i]].orundum);
-          this.permit_daily =
-            this.permit_daily +
-            parseInt(this.permitStore[this.permitStoreList[i]].permit);
-          this.permit10_daily =
-            this.permit10_daily +
-            parseInt(this.permitStore[this.permitStoreList[i]].permit10);
+        this.originium_potential =
+          this.originium_potential +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].originium);
+        this.orundum_potential =
+          this.orundum_potential +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].orundum);
+        this.permit_potential =
+          this.permit_potential +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit);
+        this.permit10_potential =
+          this.permit10_potential +
+          parseInt(this.mainAndActivity[this.mainAndActivityList[i]].permit10);
+      }
+
+      //悖论模拟
+      this.orundum = this.orundum + parseInt(this.paradox * 200);
+
+      this.orundum_potential =
+        this.orundum_potential + parseInt(this.paradox * 200);
+
+      //主线和常驻活动抽卡次数（单项）
+      this.gachaTimes_potential =
+        parseInt(this.originium_potential * 0.3) * flag_originium +
+        parseInt(this.orundum_potential) / 600 +
+        parseInt(this.permit_potential) +
+        parseInt(this.permit10_potential) * 10;
+
+      //氪金项目计算（共计）
+      for (let i = 0; i < this.storeList.length; i++) {
+        console.log(this.storeList);
+        this.permit =
+          this.permit + parseInt(this.store[this.storeList[i]].permit);
+        this.permit10 =
+          this.permit10 + parseInt(this.store[this.storeList[i]].permit10);
+        if ("月卡" == this.store[this.storeList[i]].name) {
+          console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
+          this.orundum = this.orundum + this.daysRemaining * 200;
+          this.originium =
+            this.originium + Math.ceil(this.daysRemaining / 30) * 6;
+          this.sellsCount =
+            this.sellsCount + Math.ceil(this.daysRemaining / 30) * 30;
+        } else {
+          this.originium =
+            this.originium + parseInt(this.store[this.storeList[i]].originium);
+          this.orundum =
+            this.orundum + parseInt(this.store[this.storeList[i]].orundum);
+          this.sellsCount =
+            this.sellsCount + parseInt(this.store[this.storeList[i]].sells);
         }
 
+        this.permit_gacha = this.permit_gacha =
+          this.permit_gacha + parseInt(this.store[this.storeList[i]].permit);
+        this.permit10_gacha =
+          this.permit10_gacha +
+          parseInt(this.store[this.storeList[i]].permit10);
+        if ("月卡" == this.store[this.storeList[i]].name) {
+          this.orundum_gacha = this.orundum_gacha + this.daysRemaining * 200;
+          this.originium_gacha =
+            this.originium_gacha + Math.ceil(this.daysRemaining / 30) * 6;
+        } else {
+          this.orundum_gacha =
+            this.orundum_gacha +
+            parseInt(this.store[this.storeList[i]].orundum);
+          this.originium_gacha =
+            this.originium_gacha +
+            parseInt(this.store[this.storeList[i]].originium);
+        }
+      }
+
+      //普通648
+      this.originium =
+        this.originium +
+        185 * this.originium_648 +
+        90 * this.originium_328 +
+        50 * this.originium_198 +
+        24 * this.originium_98 +
+        7 * this.originium_30 +
+        1 * this.originium_6;
+
+      //氪金项目抽卡次数（单项）
+      this.originium_gacha =
+        this.originium_gacha +
+        185 * this.originium_648 +
+        90 * this.originium_328 +
+        50 * this.originium_198 +
+        24 * this.originium_98 +
+        7 * this.originium_30 +
+        1 * this.originium_6;
+
+      this.gachaTimes_gacha =
+        parseInt(this.originium_gacha * 0.3) * flag_originium +
+        parseInt(this.orundum_gacha) / 600 +
+        parseInt(this.permit_gacha) +
+        parseInt(this.permit10_gacha) * 10;
+
+      //日常部分计算(总)
+      this.orundum =
+        this.orundum +
+        this.dailyRewards +
+        this.monthsRemaining * 600 +
+        this.weeklyRewards +
+        this.weekStage;
+      this.permit =
+        this.permit + this.monthsRemaining * 2 + this.SignInMonthsRemaining;
+      //黄票商店38抽计算
+      for (let i = 0; i < this.permitStoreList.length; i++) {
+        this.originium =
+          this.originium +
+          parseInt(this.permitStore[this.permitStoreList[i]].originium);
+        this.orundum =
+          this.orundum +
+          parseInt(this.permitStore[this.permitStoreList[i]].orundum);
+        this.permit =
+          this.permit +
+          parseInt(this.permitStore[this.permitStoreList[i]].permit);
+        this.permit10 =
+          this.permit10 +
+          parseInt(this.permitStore[this.permitStoreList[i]].permit10);
+
+        this.originium_daily =
+          this.originium_daily +
+          parseInt(this.permitStore[this.permitStoreList[i]].originium);
         this.orundum_daily =
           this.orundum_daily +
-          this.dailyRewards +
-          this.weeklyRewards +
-          this.weekStage +
-          500 * flag_week_task +
-          1800 * flag_week_stage +
-          this.monthsRemaining * 600;
-
+          parseInt(this.permitStore[this.permitStoreList[i]].orundum);
         this.permit_daily =
           this.permit_daily +
-          this.monthsRemaining * 4 +
-          this.SignInMonthsRemaining;
+          parseInt(this.permitStore[this.permitStoreList[i]].permit);
+        this.permit10_daily =
+          this.permit10_daily +
+          parseInt(this.permitStore[this.permitStoreList[i]].permit10);
+      }
 
-        //日常资源抽卡次数(单项)
-        this.gachaTimes_daily =
-          this.originium_daily * 0.3 * flag_originium +
-          this.orundum_daily / 600 +
-          this.permit_daily +
-          this.permit10_daily * 10;
+   //日常资源抽卡次数(单项)
+      this.orundum_daily =
+        this.orundum_daily +
+        this.dailyRewards +
+        this.weeklyRewards +
+        this.weekStage +
+        500 * flag_week_task +
+        1800 * flag_week_stage +
+        this.monthsRemaining * 600;
 
-        //活动抽卡计算（共计）
-        for (let i = 0; i < this.actReward.length; i++) {
-          this.originium = this.originium + parseInt(this.actReward[i].originium);
-          this.orundum = this.orundum + parseInt(this.actReward[i].orundum);
-          this.permit = this.permit + parseInt(this.actReward[i].permit);
-          this.permit10 = this.permit10 + parseInt(this.actReward[i].permit10);
-          this.originium_act =
-            this.originium_act + parseInt(this.actReward[i].originium);
-          this.orundum_act =
-            this.orundum_act + parseInt(this.actReward[i].orundum);
-          this.permit_act = this.permit_act + parseInt(this.actReward[i].permit);
-          this.permit10_act =
-            this.permit10_act + parseInt(this.actReward[i].permit10);
-        }
+      this.permit_daily =
+        this.permit_daily +
+        this.monthsRemaining * 2 +
+        this.SignInMonthsRemaining;
 
-        for (let i = 0; i < this.repActivityList.length; i++) {
-          this.originium =
-            this.originium +
-            parseInt(this.repActivity[this.repActivityList[i]].originium);
-          this.orundum =
-            this.orundum +
-            parseInt(this.repActivity[this.repActivityList[i]].orundum);
-          this.permit =
-            this.permit +
-            parseInt(this.repActivity[this.repActivityList[i]].permit);
-          this.permit10 =
-            this.permit10 +
-            parseInt(this.repActivity[this.repActivityList[i]].permit10);
-          this.originium_act =
-            this.originium_act +
-            parseInt(this.repActivity[this.repActivityList[i]].originium);
-          this.orundum_act =
-            this.orundum_act +
-            parseInt(this.repActivity[this.repActivityList[i]].orundum);
-          this.permit_act =
-            this.permit_act +
-            parseInt(this.repActivity[this.repActivityList[i]].permit);
-          this.permit10_act =
-            this.permit10_act +
-            parseInt(this.repActivity[this.repActivityList[i]].permit10);
-        }
+   
+      this.gachaTimes_daily =
+        this.originium_daily * 0.3 * flag_originium +
+        this.orundum_daily / 600 +
+        this.permit_daily +
+        this.permit10_daily * 10;
 
-        //活动抽卡次数（单项）
-        this.gachaTimes_activity =
-          this.originium_act * 0.3 * flag_originium +
-          this.orundum_act / 600 +
-          this.permit_act +
-          this.permit10_act * 10;
+      //活动抽卡计算（共计）
+      for (let i = 0; i < this.actReward.length; i++) {
+        this.originium = this.originium + parseInt(this.actReward[i].originium);
+        this.orundum = this.orundum + parseInt(this.actReward[i].orundum);
+        this.permit = this.permit + parseInt(this.actReward[i].permit);
+        this.permit10 = this.permit10 + parseInt(this.actReward[i].permit10);
+        this.originium_act =
+          this.originium_act + parseInt(this.actReward[i].originium);
+        this.orundum_act =
+          this.orundum_act + parseInt(this.actReward[i].orundum);
+        this.permit_act = this.permit_act + parseInt(this.actReward[i].permit);
+        this.permit10_act =
+          this.permit10_act + parseInt(this.actReward[i].permit10);
+      }
 
-        //其他抽卡计算
-        for (let i = 0; i < this.otherReward.length; i++) {
-          this.originium =
-            this.originium + parseInt(this.otherReward[i].originium);
-          this.orundum = this.orundum + parseInt(this.otherReward[i].orundum);
-          this.permit = this.permit + parseInt(this.otherReward[i].permit);
-          this.permit10 = this.permit10 + parseInt(this.otherReward[i].permit10);
-          this.originium_other =
-            this.originium_other + parseInt(this.otherReward[i].originium);
-          this.orundum_other =
-            this.orundum_other + parseInt(this.otherReward[i].orundum);
-          this.permit_other =
-            this.permit_other + parseInt(this.otherReward[i].permit);
-          this.permit10_other =
-            this.permit10_other + parseInt(this.otherReward[i].permit10);
-        }
-
-        //自动扣除部分{
-        //合成玉=—周常—剿灭—幸运墙
+      for (let i = 0; i < this.repActivityList.length; i++) {
+        this.originium =
+          this.originium +
+          parseInt(this.repActivity[this.repActivityList[i]].originium);
         this.orundum =
           this.orundum +
-          500 * flag_week_task +
-          1800 * flag_week_stage +
-          this.countDown * (8500 / 14) +
-          parseInt(this.customValue);
+          parseInt(this.repActivity[this.repActivityList[i]].orundum);
+        this.permit =
+          this.permit +
+          parseInt(this.repActivity[this.repActivityList[i]].permit);
+        this.permit10 =
+          this.permit10 +
+          parseInt(this.repActivity[this.repActivityList[i]].permit10);
+        this.originium_act =
+          this.originium_act +
+          parseInt(this.repActivity[this.repActivityList[i]].originium);
+        this.orundum_act =
+          this.orundum_act +
+          parseInt(this.repActivity[this.repActivityList[i]].orundum);
+        this.permit_act =
+          this.permit_act +
+          parseInt(this.repActivity[this.repActivityList[i]].permit);
+        this.permit10_act =
+          this.permit10_act +
+          parseInt(this.repActivity[this.repActivityList[i]].permit10);
+      }
 
-        this.orundum_other = this.orundum_other + this.countDown * (8500 / 14);
+      //活动抽卡次数（单项）
+      this.gachaTimes_activity =
+        this.originium_act * 0.3 * flag_originium +
+        this.orundum_act / 600 +
+        this.permit_act +
+        this.permit10_act * 10;
 
-        this.permit_other = this.permit_other + this.countDown;
-        //寻访记录=减去倒计时}
+      //其他抽卡计算
+      for (let i = 0; i < this.otherReward.length; i++) {
+        this.originium =
+          this.originium + parseInt(this.otherReward[i].originium);
+        this.orundum = this.orundum + parseInt(this.otherReward[i].orundum);
+        this.permit = this.permit + parseInt(this.otherReward[i].permit);
+        this.permit10 = this.permit10 + parseInt(this.otherReward[i].permit10);
+        this.originium_other =
+          this.originium_other + parseInt(this.otherReward[i].originium);
+        this.orundum_other =
+          this.orundum_other + parseInt(this.otherReward[i].orundum);
+        this.permit_other =
+          this.permit_other + parseInt(this.otherReward[i].permit);
+        this.permit10_other =
+          this.permit10_other + parseInt(this.otherReward[i].permit10);
+      }
 
-        //其他抽卡次数
-        this.gachaTimes_other =
-          this.originium_other * 0.3 * flag_originium +
-          this.orundum_other / 600 +
-          this.permit_other +
-          this.permit10_other * 10;
+      //自动扣除部分{
+      //合成玉=—周常—剿灭—幸运墙
+      this.orundum =
+        this.orundum +
+        500 * flag_week_task +
+        1800 * flag_week_stage +
+        this.countDown * (8500 / 14) +
+        parseInt(this.customValue);
 
-        this.sellsCount =
-          this.sellsCount +
-          648 * parseInt(this.originium_648) +
-          328 * parseInt(this.originium_328) +
-          198 * parseInt(this.originium_198) +
-          98 * parseInt(this.originium_98) +
-          30 * parseInt(this.originium_30) +
-          6 * parseInt(this.originium_6);
+      this.orundum_other = this.orundum_other + this.countDown * (8500 / 14);
 
-        //抽卡次数
-        this.gachaTimes =
-          parseInt(this.originium * 0.3) * flag_originium +
-          parseInt(this.orundum) / 600 +
-          parseInt(this.permit) +
-          parseInt(this.permit10) * 10;
-      },
+      this.permit_other = this.permit_other + this.countDown;
+      //寻访记录=减去倒计时}
 
-      valueInit() {
-        if (this.cookieInit != 0) {
-          cookie.set("originium_exist", this.originium_exist, { expires: 30 });
-          cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
-          cookie.set("permit_exist", this.permit_exist, { expires: 30 });
-          cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
-          cookie.set("paradox", this.paradox, { expires: 30 });
-        } else {
-          this.originium_exist = cookie.get("originium_exist");
-          this.orundum_exist = cookie.get("orundum_exist");
-          this.permit_exist = cookie.get("permit_exist");
-          this.permit10_exist = cookie.get("permit10_exist");
-          this.paradox = cookie.get("paradox");
-        }
+      //其他抽卡次数
+      this.gachaTimes_other =
+        this.originium_other * 0.3 * flag_originium +
+        this.orundum_other / 600 +
+        this.permit_other +
+        this.permit10_other * 10;
 
-        this.cookieInit++;
+      this.sellsCount =
+        this.sellsCount +
+        648 * parseInt(this.originium_648) +
+        328 * parseInt(this.originium_328) +
+        198 * parseInt(this.originium_198) +
+        98 * parseInt(this.originium_98) +
+        30 * parseInt(this.originium_30) +
+        6 * parseInt(this.originium_6);
 
-
-        if (
-          this.originium_exist == "" ||
-          this.originium_exist == undefined ||
-          typeof this.originium_exist == "undefined"
-        )
-          this.originium_exist = 0;
-        if (
-          this.orundum_exist == "" ||
-          this.orundum_exist == undefined ||
-          typeof this.orundum_exist == "undefined"
-        )
-          this.orundum_exist = 0;
-
-
-        if (
-          this.permit_exist == "" ||
-          this.permit_exist == undefined ||
-          typeof this.permit_exist == "undefined"
-        )
-          this.permit_exist = 0;
-        if (
-          this.permit10_exist == "" ||
-          this.permit10_exist == undefined ||
-          typeof this.permit10_exist == "undefined"
-        )
-          this.permit10_exist = 0;
-        if (
-          this.paradox == "" ||
-          this.paradox == undefined ||
-          typeof this.paradox == "undefined"
-        )
-          this.paradox = 0;
-
-        if (this.originium_648 == "") this.originium_648 = 0;
-        if (this.originium_328 == "") this.originium_328 = 0;
-        if (this.originium_198 == "") this.originium_198 = 0;
-        if (this.originium_98 == "") this.originium_98 = 0;
-        if (this.originium_30 == "") this.originium_30 = 0;
-        if (this.originium_6 == "") this.originium_6 = 0;
-        if (this.customValue == "") this.customValue = 0;
-
-        this.originium_exist = parseInt(this.originium_exist);
-        this.orundum_exist = parseInt(this.orundum_exist);
-        this.permit_exist = parseInt(this.permit_exist);
-        this.permit10_exist = parseInt(this.permit10_exist);
-        this.paradox = parseInt(this.paradox);
-        this.originium_648 = parseInt(this.originium_648);
-        this.originium_328 = parseInt(this.originium_328);
-        this.originium_198 = parseInt(this.originium_198);
-        this.originium_98 = parseInt(this.originium_98);
-        this.originium_30 = parseInt(this.originium_30);
-        this.originium_6 = parseInt(this.originium_6);
-        this.customValue = parseInt(this.customValue);
-
-        this.originium = 0;
-        this.orundum = 0;
-        this.permit = 0;
-        this.permit10 = 0;
-        this.sellsCount = 0;
-        this.gachaTimes = 0;
-
-        this.originium_potential = 0;
-        this.orundum_potential = 0;
-        this.permit_potential = 0;
-        this.permit10_potential = 0;
-
-        this.originium_daily = 0;
-        this.orundum_daily = 0;
-        this.permit_daily = 0;
-        this.permit10_daily = 0;
-
-        this.originium_gacha = 0;
-        this.orundum_gacha = 0;
-        this.permit_gacha = 0;
-        this.permit10_gacha = 0;
-
-        this.originium_act = 0;
-        this.orundum_act = 0;
-        this.permit_act = 0;
-        this.permit10_act = 0;
-
-        this.originium_other = 0;
-        this.orundum_other = 0;
-        this.permit_other = 0;
-        this.permit10_other = 0;
-      },
-
-      originiumCheck() {
-        this.compute();
-      },
-
-      weeklyCheck() {
-        this.compute();
-      },
-
-      getChapterWidth(index) {
-        if (index % 2 == 0) return "width:180px;";
-        else return "width:60px;";
-      },
-      getFixed2(num) {
-        return parseFloat(num).toFixed(2);
-      },
-      getFixed(num) {
-        return parseInt(num);
-      },
-
-      getInteger(num) {
-        return parseInt(parseInt(num / 100) * 100);
-      },
-
-      getTitleWord(index) {
-        for (let i in this.checkBox) {
-          if (index == this.checkBox[i]) {
-            return "收起";
-          }
-        }
-        return "展开";
-      },
-
-      handleChange(val) {
-        console.log(val);
-      },
+      //抽卡次数
+      this.gachaTimes =
+        parseInt(this.originium * 0.3) * flag_originium +
+        parseInt(this.orundum) / 600 +
+        parseInt(this.permit) +
+        parseInt(this.permit10) * 10;
     },
-  };
+
+    valueInit() {
+      if (this.cookieInit != 0) {
+        cookie.set("originium_exist", this.originium_exist, { expires: 30 });
+        cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
+        cookie.set("permit_exist", this.permit_exist, { expires: 30 });
+        cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
+        cookie.set("paradox", this.paradox, { expires: 30 });
+      } else {
+        this.originium_exist = cookie.get("originium_exist");
+        this.orundum_exist = cookie.get("orundum_exist");
+        this.permit_exist = cookie.get("permit_exist");
+        this.permit10_exist = cookie.get("permit10_exist");
+        this.paradox = cookie.get("paradox");
+      }
+
+      this.cookieInit++;
+
+
+    if (
+        this.originium_exist == "" ||
+        this.originium_exist == undefined ||
+        typeof this.originium_exist == "undefined"
+      )
+        this.originium_exist = 0;
+      if (
+        this.orundum_exist == "" ||
+        this.orundum_exist == undefined ||
+        typeof this.orundum_exist == "undefined"
+      )
+        this.orundum_exist = 0;
+      
+
+      if (
+        this.permit_exist == "" ||
+        this.permit_exist == undefined ||
+        typeof this.permit_exist == "undefined"
+      )
+        this.permit_exist = 0;
+      if (
+        this.permit10_exist == "" ||
+        this.permit10_exist == undefined ||
+        typeof this.permit10_exist == "undefined"
+      )
+        this.permit10_exist = 0;
+      if (
+        this.paradox == "" ||
+        this.paradox == undefined ||
+        typeof this.paradox == "undefined"
+      )
+        this.paradox = 0;
+
+      if (this.originium_648 == "") this.originium_648 = 0;
+      if (this.originium_328 == "") this.originium_328 = 0;
+      if (this.originium_198 == "") this.originium_198 = 0;
+      if (this.originium_98 == "") this.originium_98 = 0;
+      if (this.originium_30 == "") this.originium_30 = 0;
+      if (this.originium_6 == "") this.originium_6 = 0;
+      if (this.customValue == "") this.customValue = 0;
+
+      this.originium_exist = parseInt(this.originium_exist);
+      this.orundum_exist = parseInt(this.orundum_exist);
+      this.permit_exist = parseInt(this.permit_exist);
+      this.permit10_exist = parseInt(this.permit10_exist);
+      this.paradox = parseInt(this.paradox);
+      this.originium_648 = parseInt(this.originium_648);
+      this.originium_328 = parseInt(this.originium_328);
+      this.originium_198 = parseInt(this.originium_198);
+      this.originium_98 = parseInt(this.originium_98);
+      this.originium_30 = parseInt(this.originium_30);
+      this.originium_6 = parseInt(this.originium_6);
+      this.customValue = parseInt(this.customValue);
+
+      this.originium = 0;
+      this.orundum = 0;
+      this.permit = 0;
+      this.permit10 = 0;
+      this.sellsCount = 0;
+      this.gachaTimes = 0;
+
+      this.originium_potential = 0;
+      this.orundum_potential = 0;
+      this.permit_potential = 0;
+      this.permit10_potential = 0;
+
+      this.originium_daily = 0;
+      this.orundum_daily = 0;
+      this.permit_daily = 0;
+      this.permit10_daily = 0;
+
+      this.originium_gacha = 0;
+      this.orundum_gacha = 0;
+      this.permit_gacha = 0;
+      this.permit10_gacha = 0;
+
+      this.originium_act = 0;
+      this.orundum_act = 0;
+      this.permit_act = 0;
+      this.permit10_act = 0;
+
+      this.originium_other = 0;
+      this.orundum_other = 0;
+      this.permit_other = 0;
+      this.permit10_other = 0;
+    },
+
+    originiumCheck() {
+      this.compute();
+    },
+
+    weeklyCheck() {
+      this.compute();
+    },
+
+    getChapterWidth(index) {
+      if (index % 2 == 0) return "width:180px;";
+      else return "width:60px;";
+    },
+    getFixed2(num) {
+      return parseFloat(num).toFixed(2);
+    },
+    getFixed(num) {
+      return parseInt(num);
+    },
+
+    getInteger(num) {
+      return parseInt(parseInt(num / 100) * 100);
+    },
+
+    getTitleWord(index) {
+      for (let i in this.checkBox) {
+        if (index == this.checkBox[i]) {
+          return "收起";
+        }
+      }
+      return "展开";
+    },
+
+    handleChange(val) {
+      console.log(val);
+    },
+  },
+};
 </script>
 
 
 
 
 <style scoped>
-  .el-collapse-item {
-    color: #222222;
-    margin: 12px;
-    background-color: #d8d8d8;
-    border-radius: 4px;
-    font-size: 20px;
-    box-shadow: 0px 1px 4px #a0a0a0b0;
-  }
-  .collapse-item_title {
-    font-size: 24px;
-    padding: 8px;
-    font-weight: 600;
-  }
+.el-collapse-item {
+  color: #222222;
+  margin: 12px;
+  background-color: #d8d8d8;
+  border-radius: 4px;
+  font-size: 20px;
+  box-shadow: 0px 1px 4px #a0a0a0b0;
+}
+.collapse-item_title {
+  font-size: 24px;
+  padding: 8px;
+  font-weight: 600;
+}
 
-  .el-collapse-item__wrap {
-    margin: 6px;
-    margin-left: 8px;
-    vertical-align: middle;
-    display: inline-block;
-    will-change: height;
-    border-bottom: 0px;
-    background-color: #d8d8d8;
-  }
+.el-collapse-item__wrap {
+  margin: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  will-change: height;
+  border-bottom: 0px;
+  background-color: #d8d8d8;
+}
 
-  .el-collapse-item__content {
-    padding-bottom: 0px;
-  }
+.el-collapse-item__content {
+  padding-bottom: 0px;
+}
 
-  .el-collapse-item__header {
-    background-color: #d8d8d8;
-  }
+.el-collapse-item__header {
+  background-color: #d8d8d8;
+}
 
-  .el-divider--horizontal {
-    margin: 6px 0;
-  }
+.el-divider--horizontal {
+  margin: 6px 0;
+}
 </style>
 

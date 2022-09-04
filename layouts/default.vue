@@ -20,19 +20,14 @@ import "~/assets/css/sprite_index.css";
 import "~/assets/css/sprite_gacha.css";
 
 
-import "~/assets/css/stage.css";
-import "~/assets/css/word.css";
-import "~/assets/css/title.css";
-import "~/assets/css/dialog.css";
+
+// 旧版css，待修改
 import "~/assets/css/item.css";
-import "~/assets/css/store.css";
-import "~/assets/css/foot.css";
-import "~/assets/css/storeAct.css";
+
 import "~/assets/css/calculator.css";
 import "~/assets/css/recruit.css";
 import "~/assets/css/building.css";
 
-import "~/assets/css/zanchou.css";
 
 
 import myheader from './myheader'

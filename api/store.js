@@ -1,11 +1,13 @@
 import request from '@/api/request'
+
 const api_name = `/api`
+
 export default {
 
     //查询所有材料价值
     findAllItem() {
         return request({
-            url: `${api_name}/find/item/itemValue`,
+            url: `${api_name}/find/item/value`,
             method: 'get',
         })
     },
@@ -19,15 +21,14 @@ export default {
 
     },
    
-    //根据活动商店类型查找
-    findActStore() {
-        return request({
-            url: `${api_name}/find/store/act`,
-            method: 'get',            
-        })
-    },
-
-
+ 
+   //查询活动商店性价比
+   findActStore() {
+    return request({
+        url: `${api_name}/find/store/act`,
+        method: 'get',            
+    })
+},
 
 
 }

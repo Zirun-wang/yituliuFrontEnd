@@ -370,6 +370,7 @@ export default {
         cookie.set("store_"+index, 1, { expires: 30 });
       }
 	  },
+    
 
     findPermStorePer() {
       storeApi.findPermStore().then((response) => {

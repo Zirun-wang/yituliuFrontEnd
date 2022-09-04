@@ -1,8 +1,6 @@
 <template>
-  <div :class="ligthOrDark(1)">
-    <div class="">
-
-    </div>
+  <div :class="DarkAndLightTypeValue" id="indexDiv">
+    <div class=""></div>
     <br />
 
     <div class="recruit_area_">
@@ -11,208 +9,48 @@
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
-            id="1"
-            @click="checkTag('新手', 1)"
+            :id="index"
+            v-for="(tag, index) in tagList.slice(0, 3)"
+            :key="index"
+            @click="checkTag(tag, index)"
           >
-            <a>新手</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="2"
-            @click="checkTag('资深干员', 2)"
-          >
-            <a>资深干员</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="3"
-            @click="checkTag('高级资深干员', 3)"
-          >
-            <a>高级资深干员</a>
+            <a>{{ tag }}</a>
           </div>
         </div>
         <div class="checkBox_recruit_title"><a>站位</a></div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
-            id="4"
-            @click="checkTag('近战位', 4)"
+            :id="index + 3"
+            v-for="(tag, index) in tagList.slice(3, 5)"
+            :key="index"
+            @click="checkTag(tag, index + 3)"
           >
-            <a>近战位</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="5"
-            @click="checkTag('远程位', 5)"
-          >
-            <a>远程位</a>
+            <a>{{ tag }}</a>
           </div>
         </div>
         <div class="checkBox_recruit_title"><a>职业</a></div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
-            id="6"
-            @click="checkTag('先锋干员', 6)"
+            :id="index + 5"
+            v-for="(tag, index) in tagList.slice(5, 13)"
+            :key="index"
+            @click="checkTag(tag, index + 5)"
           >
-            <a>先锋</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="7"
-            @click="checkTag('近卫干员', 7)"
-          >
-            <a>近卫</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="8"
-            @click="checkTag('狙击干员', 8)"
-          >
-            <a>狙击</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="9"
-            @click="checkTag('重装干员', 9)"
-          >
-            <a>重装</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="10"
-            @click="checkTag('医疗干员', 10)"
-          >
-            <a>医疗</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="11"
-            @click="checkTag('辅助干员', 11)"
-          >
-            <a>辅助</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="12"
-            @click="checkTag('术师干员', 12)"
-          >
-            <a>术师</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="13"
-            @click="checkTag('特种干员', 13)"
-          >
-            <a>特种</a>
+            <a>{{ tag }}</a>
           </div>
         </div>
         <div class="checkBox_recruit_title"><a>词条</a></div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
-            id="14"
-            @click="checkTag('治疗', 14)"
+            :id="index + 13"
+            v-for="(tag, index) in tagList.slice(13)"
+            :key="index"
+            @click="checkTag(tag, index + 13)"
           >
-            <a>治疗</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="15"
-            @click="checkTag('支援', 15)"
-          >
-            <a>支援</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="16"
-            @click="checkTag('输出', 16)"
-          >
-            <a>输出</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="17"
-            @click="checkTag('群攻', 17)"
-          >
-            <a>群攻</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="18"
-            @click="checkTag('减速', 18)"
-          >
-            <a>减速</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="19"
-            @click="checkTag('生存', 19)"
-          >
-            <a>生存</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="20"
-            @click="checkTag('防护', 20)"
-          >
-            <a>防护</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="21"
-            @click="checkTag('削弱', 21)"
-          >
-            <a>削弱</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="22"
-            @click="checkTag('位移', 22)"
-          >
-            <a>位移</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="23"
-            @click="checkTag('控场', 23)"
-          >
-            <a>控场</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="24"
-            @click="checkTag('爆发', 24)"
-          >
-            <a>爆发</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="25"
-            @click="checkTag('召唤', 25)"
-          >
-            <a>召唤</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="26"
-            @click="checkTag('快速复活', 26)"
-          >
-            <a>快速复活</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="27"
-            @click="checkTag('费用回复', 27)"
-          >
-            <a>费用回复</a>
-          </div>
-          <div
-            class="checkBox_recruit_word"
-            id="28"
-            @click="checkTag('支援机械', 28)"
-          >
-            <a>支援机械</a>
+            <a>{{ tag }}</a>
           </div>
         </div>
         <div class="checkBox_recruit_title">显示内容</div>
@@ -246,7 +84,7 @@
           </div>
         </div>
       </div>
-      <div v-for="(item, index) in itemList" :key="index"></div>
+
       <div class="result_recruit_title">
         当前选择TAG {{ checkList }} &nbsp;&nbsp; 计算结果 <br />
         <a class="result_recruit_tip_word" v-show="lessRarity > 3">
@@ -309,43 +147,45 @@ export default {
       no_recruit: false,
       recruit_role_type: 0,
       itemList: [],
-      indexAll: [1, 2, 3, 4, 5, 6, 7, 8, 10],
-      tagss: [
-        "新手1",
-        "资深干员1",
-        "高级资深干员1",
-        "近战位1",
-        "远程位1",
-        "先锋1",
-        "近卫1",
-        "狙击1",
-        "重装1",
-        "医疗1",
-        "辅助1",
-        "术师1",
-        "特种1",
-        "治疗1",
-        "支援1",
-        "输出1",
-        "群攻1",
-        "减速1",
-        "生存1",
-        "防护1",
-        "削弱1",
-        "位移1",
-        "控场1",
-        "爆发1",
-        "召唤1",
-        "快速复活1",
-        "费用回复1",
-        "支援机械1",
+      DarkAndLightTypeValue: "",
+      tagList: [
+        "新手",
+        "资深干员",
+        "高级资深干员",
+        "近战位",
+        "远程位",
+        "先锋干员",
+        "近卫干员",
+        "狙击干员",
+        "重装干员",
+        "医疗干员",
+        "辅助干员",
+        "术师干员",
+        "特种干员",
+        "治疗",
+        "支援",
+        "输出",
+        "群攻",
+        "减速",
+        "生存",
+        "防护",
+        "削弱",
+        "位移",
+        "控场",
+        "爆发",
+        "召唤",
+        "快速复活",
+        "费用回复",
+        "支援机械",
       ],
     };
   },
   created() {
     this.findAllItemValue();
   },
-  mounted() {},
+  mounted() {
+    this.getTypeValue();
+  },
   methods: {
     findAllItemValue() {
       storeApi.findAllItem().then((response) => {
@@ -361,42 +201,37 @@ export default {
         console.log(i);
       }
     },
-    ligthOrDark(location) {
+    getTypeValue() {
       let type = cookie.get("type");
-      //  console.log("样式类型——" + typeof type);
-      if (typeof type == "undefined") {
+      if (
+        typeof type == "undefined" ||
+        type == "undefined" ||
+        type == "" ||
+        type == null
+      ) {
         type = "_light";
+        var h = new Date().getHours(); //时
+        if (h > 17) {
+          type = "_dark";
+        }
+        cookie.set("type", type, { expires: 30 });
       }
-
-      if (location === 1) {
-        console.log("base" + type);
-        return "base" + type;
-      }
+      console.log("当前页获取的是", "base" + type);
+      this.DarkAndLightTypeValue = "base" + type;
     },
     img_display() {},
     //最低星级
     recruit_role_minRarity() {
-      if (this.minRarity > 2) {
-        this.minRarity = 1;
-      } else {
+      if (this.minRarityValue_type) {
         this.minRarity = 3;
-      }
-      this.findAllDataRec(this.recruit_role_type);
-    },
-    //可否招募
-    recruit_roleType() {
-      console.log("可招募");
-      if (this.no_recruit == false) {
-        this.recruit_role_type = 0;
-        console.log("可招募");
       } else {
-        this.recruit_role_type = 1;
-        console.log("不可招募");
-        this.findAllDataRec();
+        this.minRarity = 1;
       }
+      this.findAllDataRec();
     },
+
     reTag() {
-      for (var i = 1; i < 29; i++) {
+      for (var i = 0; i < 28; i++) {
         document.getElementById(i).style.color = "black";
         document.getElementById(i).style.backgroundColor = "rgb(228, 228, 228)";
       }
@@ -419,7 +254,7 @@ export default {
               "rgb(228, 228, 228)";
             this.checkList.splice(i, 1);
             console.log("删除后", this.checkList);
-            this.findAllDataRec(this.recruit_role_type);
+            this.findAllDataRec();
             return;
           }
         }
@@ -437,11 +272,11 @@ export default {
         return;
       }
       this.checkList.push(tag);
-      this.findAllDataRec(this.recruit_role_type);
+      this.findAllDataRec();
     },
 
     //获取结果
-    findAllDataRec(index) {
+    findAllDataRec() {
       this.lessRarity = 0;
 
       if (this.checkList.length < 1) {
@@ -452,7 +287,7 @@ export default {
       this.checkList.sort((a, b) => b.length - a.length);
 
       toolApi
-        .findAllDataRec(index, this.checkList, this.minRarity)
+        .findAllDataRec(0, this.checkList, this.minRarity)
         .then((response) => {
           this.recDataList = response.data;
 
@@ -495,6 +330,5 @@ export default {
       }
     },
   },
-
 };
 </script>
