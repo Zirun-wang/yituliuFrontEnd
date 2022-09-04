@@ -75,7 +75,7 @@ url:  /api/find/stage/t2
 
 ### 获取常驻商店性价比(JsonArray)
  ```
-url:  /find/store/perm
+url:  /api/find/store/perm
 无参数
  ```
  ```
@@ -88,9 +88,9 @@ url:  /find/store/perm
 类型String   名称 storeType;  //商店类型
  ```
 
-### 获取所有物品价值(json)
+### 获取所有物品价值(JsonArray)
  ```
-url:  /find/store/perm
+url:  /api/find/item/value
 无参数
  ```
  ```
@@ -103,7 +103,7 @@ url:  /find/store/perm
 
 ### 获取历史活动最优图(JsonArray)
  ```
-url:  /find/stage/activity/closed
+url:  /api/find/stage/activity/closed
 无参数
  ```
  ```
