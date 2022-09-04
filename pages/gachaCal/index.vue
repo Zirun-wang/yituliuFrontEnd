@@ -16,10 +16,15 @@
       >
         <template slot="title">
           <span class="collapse-item_title" style="color: purple"
-            >共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元</span
-          >
+            >共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元</span>
         </template>
         <div class="gacha_unit" id="total">
+          <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
+          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:0 5%;">
+            <el-radio-button label="(CN)感谢庆典(11.14)" style="width:34%;"></el-radio-button>
+            <el-radio-button label="(CN)春节限定(02.05)" style="width:34%;"></el-radio-button>
+            <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
+          </el-radio-group>
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
               现有 {{ getFixed(gachaTimes_exist) }} 抽
@@ -117,8 +122,7 @@
           <span class="collapse-item_title"
             >现有库存 {{ getFixed(gachaTimes_exist) }}抽&emsp;(点击{{
               getTitleWord(1)
-            }})</span
-          >
+            }})</span>
         </template>
         <div class="gacha_unit" id="wallet">
           <div class="gacha_unit_child">
@@ -212,8 +216,7 @@
           <span class="collapse-item_title">
             潜在资源 {{ getFixed(gachaTimes_potential) }}抽&emsp;(点击{{
               getTitleWord(2)
-            }})</span
-          >
+            }})</span>
         </template>
         <div class="gacha_unit" id="potential">
           <!-- 填空模块 -->
@@ -302,8 +305,7 @@
           <span class="collapse-item_title">
             日常积累 {{ getFixed(gachaTimes_daily) }}抽&emsp;(点击{{
               getTitleWord(3)
-            }})</span
-          >
+            }})</span>
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
@@ -396,8 +398,7 @@
           <span class="collapse-item_title">
             氪金资源 {{ getFixed(gachaTimes_gacha) }}抽&emsp;(点击{{
               getTitleWord(4)
-            }})</span
-          >
+            }})</span>
         </template>
 
         <div class="gacha_unit" id="charge">
@@ -580,8 +581,7 @@
           <span class="collapse-item_title">
             活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽&emsp;(点击{{
               getTitleWord(5)
-            }})</span
-          >
+            }})</span>
         </template>
         <div class="gacha_unit" id="activity">
           <!-- zxcvb -->
@@ -650,8 +650,7 @@
           <span class="collapse-item_title">
             其它资源（估算）{{ getFixed(gachaTimes_other) }}抽&emsp;(点击{{
               getTitleWord(6)
-            }})</span
-          >
+            }})</span>
         </template>
 
         <div class="gacha_unit" id="direction">
@@ -792,6 +791,8 @@ export default {
       pageTheme: "light",
       itemList: [],
       checkBox: ["0", "7"],
+
+      targetRadio:"(CN)感谢庆典(11.14)",
 
       startTime: "", //开始时间
       endTime: "2022/11/15 03:59:00", //结束时间
@@ -1427,6 +1428,9 @@ export default {
 
 
 <style scoped>
+.el-radio-button__inner {
+  width:100%;
+}
 .el-collapse-item {
   color: #222222;
   margin: 12px;
