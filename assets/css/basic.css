@@ -2,8 +2,43 @@ body {
     margin:0px;
 }
 
+
+.el-menu--horizontal>.el-menu-item {
+    height: 48px;
+    line-height: 48px;
+}
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+height: 48px;
+line-height: 48px;
+}
+
+.el-menu--horizontal>.el-menu-item:not(.is-disabled):focus, .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover, .el-menu--horizontal>.el-submenu .el-submenu__title:hover {
+    background-color: rgb(52 68 104);
+}
+
+.el-menu {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding-left: 0;
+    background-color: rgb(52 68 104);
+}
+
+.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-submenu__title {
+    background-color: rgb(52 68 104);
+    float: none;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    color: #909399;
+}
+
+.el-menu--collapse .el-menu .el-submenu, .el-menu--popup {
+    min-width: 120px;
+}
+
 .op_header{
-    height: 40px;
+    height: 48px;
     display: -webkit-flex;
     background-color: rgb(52 68 104);
     box-shadow: rgb(0 0 0) 0px 0px 10px;

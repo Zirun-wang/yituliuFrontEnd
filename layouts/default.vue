@@ -1,5 +1,11 @@
 <template>
-  <div class="app-container">
+  <el-container>
+    <el-header style="z-index: 100;height:48px;position:sticky;width:100%;top:0px;"><myheader /></el-header>
+    <el-main style="z-index: 10;"><nuxt /></el-main>
+    <el-footer style="z-index: 100;"><myfooter /></el-footer>
+  </el-container>
+
+  <!-- <div class="app-container">
     <myheader />
     <div class="main-container">
       <el-scrollbar class="page-component__scroll">
@@ -7,7 +13,7 @@
       </el-scrollbar>
     </div>
     <myfooter />
-  </div>
+  </div> -->
 </template>
 <script>
 
@@ -41,3 +47,16 @@ export default {
 
 };
 </script>
+
+<style scoped>
+  .el-main {
+    padding:0px;
+  }
+  .el-header {
+    padding:0px;
+  }
+
+  .el-menu.el-menu--horizontal{
+    border-bottom:none;
+  }
+</style>
