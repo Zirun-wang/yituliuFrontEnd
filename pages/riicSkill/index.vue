@@ -121,7 +121,7 @@
 
 
 <script >
-import buildingjson from "static/json/building.json";
+import buildingjson from "static/json/riic_skill.json";
 import cookie from "js-cookie";
 import storeApi from "@/api/store";
 

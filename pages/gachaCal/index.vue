@@ -26,6 +26,8 @@
             <el-radio-button label="(CN)春节限定(02.05)" style="width:34%;"></el-radio-button>
             <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
           </el-radio-group>
+          <el-divider></el-divider>
+
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
               现有 {{ getFixed(gachaTimes_exist) }} 抽
@@ -79,7 +81,7 @@
               </el-switch
               >源石是否全部抽卡
             </div>
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
+            <!-- <div @click="compute()" style="margin-left: 8px; width: 240px">
               <el-switch
                 v-model="storePermitValue"
                 active-color="#13ce66"
@@ -87,11 +89,11 @@
               >
               </el-switch
               >是否兑换绿票商店二层
-            </div>
+            </div> -->
           </div>
 
-          <el-divider></el-divider>
-          <div class="gacha_unit_child">
+          <!-- <el-divider></el-divider> -->
+          <!-- <div class="gacha_unit_child">
             规划截止活动
             <el-select
               v-model="end_TimeStampCheck"
@@ -106,7 +108,7 @@
               >
               </el-option>
             </el-select>
-          </div>
+          </div> -->
           <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
@@ -781,13 +783,13 @@
 
 
 <script>
-  import mainAndActivityJson from "static/json/mainAndActivity.json";
-  import repActivityJson from "static/json/repActivity.json";
-  import storeJson from "static/json/store.json";
-  import giftPerJson from "static/json/giftPer.json";
-  import permitStoreJson from "static/json/permitStore.json";
-  import actRewardJson from "static/json/actReward.json";
-  import otherRewardJson from "static/json/otherReward.json";
+  import mainAndActivityJson from "static/json/gacha_potential.json";
+  import repActivityJson from "static/json/gacha_actRe.json";
+  // import storeJson from "static/json/store.json";
+  import giftPerJson from "static/json/gacha_storePacks.json";
+  import permitStoreJson from "static/json/gacha_store258.json";
+  import actRewardJson from "static/json/gacha_actReward.json";
+  import otherRewardJson from "static/json/gacha_honeyCake.json";
 
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
@@ -817,6 +819,8 @@
         itemList: [],
         checkBox: ["0", "7"],
 
+        targetRadio:"(CN)感谢庆典(11.14)",
+
         startDate: "", //开始时间
         endDate: "2022/11/15 03:59:00", //结束时间
         start_TimeStamp: "",
@@ -827,7 +831,7 @@
         mainAndActivityList: [],
         repActivity: repActivityJson, //复刻活动
         repActivityList: [],
-        store: storeJson, //商店礼包
+        // store: storeJson, //商店礼包
         storeList: [],
 
         permitStore: permitStoreJson, //黄票兑换38抽
