@@ -1047,7 +1047,7 @@
 
         //库存抽卡次数（单项）
         this.gachaTimes_exist =
-          parseInt(this.originium_exist * 0.3) * parseInt(flag_originium) +
+          parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_exist) / 600 +
           parseInt(this.permit_exist) +
           parseInt(this.permit10_exist) * 10;
@@ -1088,7 +1088,7 @@
 
         //主线和常驻活动抽卡次数（单项）
         this.gachaTimes_potential =
-          parseInt(this.originium_potential * 0.3) * parseInt(flag_originium) +
+          parseInt(this.originium_potential) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_potential) / 600 +
           parseInt(this.permit_potential) +
           parseInt(this.permit10_potential) * 10;
@@ -1164,7 +1164,7 @@
           parseInt(this.originium_6) * 1;
 
         this.gachaTimes_gacha =
-          parseInt(this.originium_gacha * 0.3) * parseInt(flag_originium) +
+          parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_gacha) / 600 +
           parseInt(this.permit_gacha) +
           parseInt(this.permit10_gacha) * 10;
@@ -1357,7 +1357,7 @@
 
         //抽卡次数
         this.gachaTimes =
-          parseInt(this.originium * 0.3) * flag_originium +
+          parseInt(this.originium) * 0.3 * flag_originium +
           parseInt(this.orundum) / 600 +
           parseInt(this.permit) +
           parseInt(this.permit10) * 10;
