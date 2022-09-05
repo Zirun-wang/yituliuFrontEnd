@@ -93,7 +93,7 @@
     vertical-align: middle;
     font-size: 20px;
     width: 80px;
-    text-align: right;
+    text-align: left;
  }
 
  
@@ -128,7 +128,9 @@
     border-bottom: 0px;
 }
 
-
+.el-switch__core {
+    margin-bottom: 2px;
+}
 
 
 .el-checkbox {
