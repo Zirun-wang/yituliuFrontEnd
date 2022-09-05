@@ -116,15 +116,7 @@
               </el-switch
               >源石是否全部抽卡
             </div>
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
-              <el-switch
-                v-model="greenF2Value"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >兑换绿票商店二层
-            </div>
+
             <div @click="compute()" style="margin-left: 8px; width: 240px">
               <el-switch
                 v-model="greenF1Value"
@@ -136,6 +128,7 @@
             </div>
           </div>
 
+<<<<<<< HEAD
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             规划截止活动
@@ -153,6 +146,9 @@
               </el-option>
             </el-select>
           </div> -->
+=======
+
+>>>>>>> a3341e9ce831b498e6131faafd574f2c11283b50
           <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
@@ -964,7 +960,7 @@
         originiumValue: true, //是否源石抽卡
         weekStageValue: true, //是否完成剿灭
         weekTaskValue: true, //是否完成周常
-        greenF2Value: false, //是否兑换绿票商店二层
+        greenF2Value: true, //是否兑换绿票商店二层
         greenF1Value: false, //是否兑换绿票商店二层
         customValue: 0, //自定义值
         cookieInit: 0,
@@ -977,21 +973,13 @@
       this.getCountDown();
       this.compute();
 
-      this.getCookies();
+
     },
     mounted() {
       this.updateVisits();
     },
     methods: {
-      getCookies() {
-        let theme = cookie.get("theme");
-        if (typeof theme == "undefined" || theme === "undefined") {
-          theme = "light";
-          cookie.set("theme", theme, { expires: 30 });
-        }
-        this.pageTheme = theme;
-        console.log("当前是", this.pageTheme, "色");
-      },
+
 
       updateVisits() {
         toolApi.updateVisits("zanchou").then((response) => {});
@@ -1217,12 +1205,12 @@
         //普通648
         this.originium =
           this.originium +
-           parseInt(this.originium_648) *185+
-           parseInt(this.originium_328)*90 +
-           parseInt(this.originium_198)*50 +
-           parseInt(this.originium_98)*24 +
-           parseInt(this.originium_30)*7 +
-           parseInt(this.originium_6);
+          parseInt(this.originium_648) *185+
+          parseInt(this.originium_328)*90 +
+          parseInt(this.originium_198)*50 +
+          parseInt(this.originium_98)*24 +
+          parseInt(this.originium_30)*7 +
+          parseInt(this.originium_6);
 
         //氪金项目抽卡次数（单项）
         this.originium_gacha =
@@ -1249,10 +1237,12 @@
           parseInt(this.weekStage);
         this.permit =
           parseInt(this.permit) +
-          parseInt(this.monthsRemaining) * 2 -
+          parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-          parseInt(this.monthsRemaining) * 2 * parseInt(flag_greenF2) +
+
           parseInt(this.SignInMonthsRemaining);
+
+
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
           this.originium =
@@ -1294,9 +1284,9 @@
 
         this.permit_daily =
           parseInt(this.permit_daily) +
-          parseInt(this.monthsRemaining) * 2 -
+          parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-          parseInt(this.monthsRemaining) * 2 * parseInt(flag_greenF2) +
+
           parseInt(this.SignInMonthsRemaining);
 
         this.gachaTimes_daily =
