@@ -1,3 +1,10 @@
+#gacha {
+  max-width: 800px;
+  margin: auto;
+  min-height: 900px;
+  transform-style: preserve-3d;
+}
+
 .gacha_img {
   width: 36px;
   vertical-align: bottom;
@@ -63,7 +70,6 @@
   margin: 6px;
   margin-left: 8px;
   vertical-align: middle;
-  display: inline-block;
 }
 
 .gacha_unit_child_title {
@@ -100,7 +106,7 @@
   line-height: 36px;
   vertical-align: middle;
   font-size: 20px;
-  width: 80px;
+  width: 87px;
   text-align: left;
 }
 

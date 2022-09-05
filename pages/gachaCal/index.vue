@@ -1,14 +1,6 @@
 
 <template>
-  <div
-    id="gacha"
-    style="
-      max-width: 800px;
-      margin: auto;
-      min-height: 900px;
-      transform-style: preserve-3d;
-    "
-  >
+  <div id="gacha">
     <el-collapse v-model="checkBox" @change="handleChange">
       <el-collapse-item
         style="display: block; position: sticky; top: 16px"
@@ -217,8 +209,8 @@
             </div>
             <div class="gacha_unit_child_fixed" style="width: 105px">
               <div style="display: flex">
-                {{ paradox * 200 }} &nbsp;
                 <div :class="getSpriteImg('4003icon', 0)"></div>
+                {{ paradox * 200 }}
               </div>
             </div>
           </div>
@@ -229,18 +221,18 @@
               src="/img/website/ex.png"
             />主线、突袭、绝境
           </div>
-          <!-- 一个不太典型的复选模块，一行可以有多个 -->
+
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
               v-for="(item, index) in gacha_potential"
               :key="index"
               v-show="item.type == 'main'"
               class="gacha_unit_child"
+              style="display:inline-block;"
               @change="compute(item.name)"
             >
-              <!-- zxcvb -->
-              <!-- 这里交替输出两组控件，第一组是完整章节名，第二组省略章节名，只保留“突袭”“绝境”字样 -->
-              <el-checkbox :label="index">
+
+              <el-checkbox-button :label="index">
                 <div
                   class="gacha_unit_child_title"
                   :style="getChapterWidth(index)"
@@ -249,24 +241,24 @@
                 </div>
                 <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
-                    {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
+                    {{ item.originium }}
                   </div>
                 </div>
-              </el-checkbox>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
 
           <div class="gacha_unit_fold">
             <img class="gacha_img_small" src="/img/website/ex.png" />支线、别传
           </div>
-          <!-- 一个不太典型的复选模块，一行可以有多个 -->
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
               v-for="(item, index) in gacha_potential"
               :key="index"
               v-show="item.type == 'activity'"
               class="gacha_unit_child"
+              style="display:inline-block;"
               @change="compute(item.name)"
             >
               <el-checkbox :label="index">
@@ -275,8 +267,8 @@
                 </div>
                 <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
-                    {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
+                    {{ item.originium }}
                   </div></div
                 ></el-checkbox>
             </div>
