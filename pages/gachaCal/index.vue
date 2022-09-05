@@ -21,15 +21,31 @@
         </template>
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
+          <!-- <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
             <el-radio-button label="(CN)感谢庆典(11.14)" style="width:50%;"></el-radio-button>
             <el-radio-button label="(CN)春节限定(02.05)" style="width:50%;"></el-radio-button>
-            <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
-          </el-radio-group>
+            <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
+          </el-radio-group> -->
           <el-divider></el-divider>
           <div id="gacha_total_chart">
-            <div id="gacha_total_pie" ref="gacha_total_pie_data" style="vertical-align:top;height:200px;background:#3f51b5;width:60%;display: inline-block;">这来个饼图</div>     
-            <table id="gacha_total_table" style="height:200px;width:36%;display: inline-block;">
+            <div
+              id="gacha_total_pie"
+              ref="gacha_total_pie_data"
+              style="
+                vertical-align: top;
+                height: 200px;
+                background: #3f51b5;
+                width: 60%;
+                display: inline-block;
+              "
+            >
+              这来个饼图
+            </div>
+            <table
+              id="gacha_total_table"
+              style="height: 200px; width: 36%; display: inline-block"
+            >
+              <tbody>
               <tr class="gacha_total_table_tr">
                 <td>现有</td>
                 <td>{{ getFixed(gachaTimes_exist) }}</td>
@@ -60,95 +76,10 @@
                 <td>{{ getFixed(gachaTimes_other) }}</td>
                 <td>抽</td>
               </tr>
+              </tbody>
             </table>
           </div>
-  
-          <!-- <div class="gacha_unit_child" style="display: flex">
-            <div class="gacha_unit_child_title">
-              现有 {{ getFixed(gachaTimes_exist) }} 抽
-            </div>
-            <div class="gacha_unit_child_title">
-              潜在 {{ getFixed(gachaTimes_potential) }} 抽
-            </div>
-            <div class="gacha_unit_child_title">
-              日常 {{ getFixed(gachaTimes_daily) }} 抽
-            </div>
-            <div class="gacha_unit_child_title">
-              氪金 {{ getFixed(gachaTimes_gacha) }} 抽
-            </div>
-          </div> -->
-          <!-- <div class="gacha_unit_child" style="display: flex">
-            <div class="gacha_unit_child_title" style="width: 384px">
-              活动(估算) {{ getFixed(gachaTimes_activity) }} 抽
-            </div>
-            <div class="gacha_unit_child_title" style="width: 384px">
-              其它(估算) {{ getFixed(gachaTimes_other) }} 抽
-            </div>
-          </div> -->
-          <!-- <el-divider></el-divider>
-          <div class="gacha_unit_child" style="display: flex; flex-wrap: wrap">
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
-              <el-switch
-                v-model="weekTaskValue"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >本周周常是否完成
-            </div>
 
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
-              <el-switch
-                v-model="weekStageValue"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >本周剿灭是否完成
-            </div>
-
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
-              <el-switch
-                v-model="originiumValue"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >源石是否全部抽卡
-            </div>
-
-            <div @click="compute()" style="margin-left: 8px; width: 240px">
-              <el-switch
-                v-model="greenF1Value"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >绿票商店一层已换
-            </div>
-          </div>
-
-<<<<<<< HEAD
-          <el-divider></el-divider>
-          <div class="gacha_unit_child">
-            规划截止活动
-            <el-select
-              v-model="end_TimeStampCheck"
-              placeholder="选择攒抽活动"
-              @change="checkEndDate()"
-            >
-              <el-option
-                v-for="item in gacha_actReward"
-                :key="item.name"
-                :label="item.name"
-                :value="item.endDate"
-              >
-              </el-option>
-            </el-select>
-          </div> -->
-=======
-
->>>>>>> a3341e9ce831b498e6131faafd574f2c11283b50
           <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
@@ -363,7 +294,9 @@
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">日常 {{ daysRemaining }} 天 </div>
+            <div class="gacha_unit_child_title" style="width: 150px">
+              日常 {{ daysRemaining }} 天
+            </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -375,63 +308,104 @@
           <el-divider></el-divider>
 
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">周常 {{ weeksRemaining }} 周</div>
+            <div class="gacha_unit_child_title" style="width: 150px">
+              周常 {{ weeksRemaining }} 周
+            </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
                 <div style="width: 75px">{{ weeklyRewards }}</div>
               </div>
             </div>
-            <div @click="compute()" style="margin-left: 8px; width: 160px;display: inline-block;position: relative;top: 2px;">
+            <div
+              @click="compute()"
+              style="
+                margin-left: 8px;
+                width: 160px;
+                display: inline-block;
+                top: 2px;
+              "
+            >
               <el-switch
                 v-model="weekTaskValue"
                 active-color="#13ce66"
                 inactive-color="#ff4949"
               >
-              </el-switch>&nbsp;本周已完成
+              </el-switch
+              >&nbsp;本周已完成
             </div>
           </div>
 
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">剿灭 {{ weeksRemaining }} 周</div>
+            <div class="gacha_unit_child_title" style="width: 150px">
+              剿灭 {{ weeksRemaining }} 周
+            </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
                 <div style="width: 75px">{{ weekStage }}</div>
               </div>
             </div>
-            <div @click="compute()" style="margin-left: 8px; width: 160px;display: inline-block;position: relative;top: 2px;">
+            <div
+              @click="compute()"
+              style="
+                margin-left: 8px;
+                width: 160px;
+                display: inline-block;
+                top: 2px;
+              "
+            >
               <el-switch
                 v-model="weekStageValue"
                 active-color="#13ce66"
                 inactive-color="#ff4949"
               >
-              </el-switch>&nbsp;本周已完成
+              </el-switch
+              >&nbsp;本周已完成
             </div>
           </div>
           <!-- 周常月常分界线 -->
           <el-divider></el-divider>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">绿票商店 {{ monthsRemaining }} 月</div>
+            <div class="gacha_unit_child_title" style="width: 150px">
+              绿票商店 {{ monthsRemaining }} 月
+            </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
-                <div style="width: 40px" :class="getSpriteImg('4003icon', 0)"></div>
+                <div
+                  style="width: 40px"
+                  :class="getSpriteImg('4003icon', 0)"
+                ></div>
                 <div style="width: 72px">{{ monthsRemaining * 600 }}&nbsp;</div>
-                <div style="width: 40px" :class="getSpriteImg('7003icon', 0)"></div>
+                <div
+                  style="width: 40px"
+                  :class="getSpriteImg('7003icon', 0)"
+                ></div>
                 <div style="width: 22px">{{ monthsRemaining * 2 }}&nbsp;</div>
               </div>
             </div>
-            <div @click="compute()" style="margin-left: 8px; width: 150px;display: inline-block;position: relative;top: 2px;">
+            <div
+              @click="compute()"
+              style="
+                margin-left: 8px;
+                width: 150px;
+                display: inline-block;
+                top: 2px;
+              "
+            >
               <el-switch
-                v-model="greenF2Value"
+                v-model="greenF1Value"
                 active-color="#13ce66"
                 inactive-color="#ff4949"
               >
-              </el-switch>&nbsp;本月已换
+              </el-switch
+              >&nbsp;本月已换
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">每月签到 {{ SignInMonthsRemaining }} 月</div>
+            <div class="gacha_unit_child_title" style="width: 150px">
+              每月签到 {{ SignInMonthsRemaining }} 月
+            </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
@@ -448,12 +422,20 @@
               @change="compute(item.name)"
             >
               <el-checkbox :label="index">
-                <div class="gacha_unit_child_title" style="width: 128px">{{ item.name }}</div>
+                <div class="gacha_unit_child_title" style="width: 128px">
+                  {{ item.name }}
+                </div>
                 <div class="gacha_unit_child_fixed" style="width: 174px">
                   <div style="display: flex">
-                    <div style="width: 40px" :class="getSpriteImg('7004icon', 0)"></div>
+                    <div
+                      style="width: 40px"
+                      :class="getSpriteImg('7004icon', 0)"
+                    ></div>
                     <div style="width: 72px">{{ item.permit10 }}&nbsp;</div>
-                    <div style="width: 40px" :class="getSpriteImg('7003icon', 0)"></div>
+                    <div
+                      style="width: 40px"
+                      :class="getSpriteImg('7003icon', 0)"
+                    ></div>
                     <div style="width: 22px">{{ item.permit }}&nbsp;</div>
                   </div>
                 </div>
@@ -823,7 +805,6 @@
 
 
 <script>
-
   import gacha_potentialJson from "static/json/gacha_potential.json";
   import gacha_actReJson from "static/json/gacha_actRe.json";
   import gacha_storePacksJson from "static/json/gacha_storePacks.json";
@@ -833,9 +814,6 @@
 
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
-
-  import * as echarts from "echarts";
-
 
   export default {
     layout: "defaultGacha",
@@ -867,19 +845,6 @@
         start_TimeStamp: "",
         end_TimeStamp: "",
         end_TimeStampCheck: "2022感谢庆典",
-
-        targetRadio:"(CN)感谢庆典(11.14)",
-
-        
-        data_pie : [
-        {"value":323, "name":"现有"},
-        {"value":274, "name":"潜在"},
-        {"value":310, "name":"日常"},
-        {"value":335, "name":"氪金"},
-        {"value":335, "name":"活动(估算)"},
-        {"value":400, "name":"其它(估算)"}
-        ],
-    
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -972,15 +937,11 @@
       this.getEveryreWard();
       this.getCountDown();
       this.compute();
-
-
     },
     mounted() {
       this.updateVisits();
     },
     methods: {
-
-
       updateVisits() {
         toolApi.updateVisits("zanchou").then((response) => {});
       },
@@ -990,10 +951,6 @@
 
         return "bg-" + name;
       },
-
-
-
-
 
       getDate() {
         var date = new Date();
@@ -1159,8 +1116,12 @@
             parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit);
           this.permit10 =
             parseInt(this.permit10) +
-            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit10);
-          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
+            parseInt(
+              this.gacha_storePacks[this.gacha_storePacksList[i]].permit10
+            );
+          if (
+            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name
+          ) {
             console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
             this.orundum =
               parseInt(this.orundum) + parseInt(this.daysRemaining) * 200;
@@ -1171,10 +1132,14 @@
           } else {
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].originium);
+              parseInt(
+                this.gacha_storePacks[this.gacha_storePacksList[i]].originium
+              );
             this.orundum =
               parseInt(this.orundum) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].orundum);
+              parseInt(
+                this.gacha_storePacks[this.gacha_storePacksList[i]].orundum
+              );
             this.sellsCount =
               parseInt(this.sellsCount) +
               parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].sells);
@@ -1185,8 +1150,12 @@
             parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit);
           this.permit10_gacha =
             parseInt(this.permit10_gacha) +
-            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit10);
-          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
+            parseInt(
+              this.gacha_storePacks[this.gacha_storePacksList[i]].permit10
+            );
+          if (
+            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name
+          ) {
             this.orundum_gacha =
               parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
             this.originium_gacha =
@@ -1195,21 +1164,25 @@
           } else {
             this.orundum_gacha =
               parseInt(this.orundum_gacha) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].orundum);
+              parseInt(
+                this.gacha_storePacks[this.gacha_storePacksList[i]].orundum
+              );
             this.originium_gacha =
               parseInt(this.originium_gacha) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].originium);
+              parseInt(
+                this.gacha_storePacks[this.gacha_storePacksList[i]].originium
+              );
           }
         }
 
         //普通648
         this.originium =
           this.originium +
-          parseInt(this.originium_648) *185+
-          parseInt(this.originium_328)*90 +
-          parseInt(this.originium_198)*50 +
-          parseInt(this.originium_98)*24 +
-          parseInt(this.originium_30)*7 +
+          parseInt(this.originium_648) * 185 +
+          parseInt(this.originium_328) * 90 +
+          parseInt(this.originium_198) * 50 +
+          parseInt(this.originium_98) * 24 +
+          parseInt(this.originium_30) * 7 +
           parseInt(this.originium_6);
 
         //氪金项目抽卡次数（单项）
@@ -1220,7 +1193,7 @@
           parseInt(this.originium_198) * 50 +
           parseInt(this.originium_98) * 24 +
           parseInt(this.originium_30) * 7 +
-          parseInt(this.originium_6) ;
+          parseInt(this.originium_6);
 
         this.gachaTimes_gacha =
           parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
@@ -1239,9 +1212,7 @@
           parseInt(this.permit) +
           parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-
           parseInt(this.SignInMonthsRemaining);
-
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
@@ -1286,7 +1257,6 @@
           parseInt(this.permit_daily) +
           parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-
           parseInt(this.SignInMonthsRemaining);
 
         this.gachaTimes_daily =
@@ -1304,22 +1274,27 @@
           ) {
             // if(this.gacha_actReward[i].endDate<endDate)
             this.originium =
-              parseInt(this.originium) + parseInt(this.gacha_actReward[i].originium);
+              parseInt(this.originium) +
+              parseInt(this.gacha_actReward[i].originium);
             this.orundum =
               parseInt(this.orundum) + parseInt(this.gacha_actReward[i].orundum);
             this.permit =
               parseInt(this.permit) + parseInt(this.gacha_actReward[i].permit);
             this.permit10 =
-              parseInt(this.permit10) + parseInt(this.gacha_actReward[i].permit10);
+              parseInt(this.permit10) +
+              parseInt(this.gacha_actReward[i].permit10);
             this.originium_act =
               parseInt(this.originium_act) +
               parseInt(this.gacha_actReward[i].originium);
             this.orundum_act =
-              parseInt(this.orundum_act) + parseInt(this.gacha_actReward[i].orundum);
+              parseInt(this.orundum_act) +
+              parseInt(this.gacha_actReward[i].orundum);
             this.permit_act =
-              parseInt(this.permit_act) + parseInt(this.gacha_actReward[i].permit);
+              parseInt(this.permit_act) +
+              parseInt(this.gacha_actReward[i].permit);
             this.permit10_act =
-              parseInt(this.permit10_act) + parseInt(this.gacha_actReward[i].permit10);
+              parseInt(this.permit10_act) +
+              parseInt(this.gacha_actReward[i].permit10);
           }
         }
 
@@ -1364,14 +1339,16 @@
             this.gacha_honeyCake[i].endDate <= this.end_TimeStamp
           ) {
             this.originium =
-              parseInt(this.originium) + parseInt(this.gacha_honeyCake[i].originium);
+              parseInt(this.originium) +
+              parseInt(this.gacha_honeyCake[i].originium);
             this.orundum =
               parseInt(this.orundum) + parseInt(this.gacha_honeyCake[i].orundum);
             this.permit =
               parseInt(this.permit) + parseInt(this.gacha_honeyCake[i].permit);
 
             this.permit10 =
-              parseInt(this.permit10) + parseInt(this.gacha_honeyCake[i].permit10);
+              parseInt(this.permit10) +
+              parseInt(this.gacha_honeyCake[i].permit10);
             this.originium_other =
               parseInt(this.originium_other) +
               parseInt(this.gacha_honeyCake[i].originium);
@@ -1379,7 +1356,8 @@
               parseInt(this.orundum_other) +
               parseInt(this.gacha_honeyCake[i].orundum);
             this.permit_other =
-              parseInt(this.permit_other) + parseInt(this.gacha_honeyCake[i].permit);
+              parseInt(this.permit_other) +
+              parseInt(this.gacha_honeyCake[i].permit);
             this.permit10_other =
               parseInt(this.permit10_other) +
               parseInt(this.gacha_honeyCake[i].permit10);
@@ -1589,7 +1567,8 @@
   }
   .collapse-item_title {
     font-size: 24px;
-    padding: 8px 16px;
+    padding: 8px;
+    font-weight: 600;
   }
 
   .el-collapse-item__wrap {
@@ -1613,5 +1592,7 @@
   .el-divider--horizontal {
     margin: 6px 0;
   }
+
+
 </style>
 
