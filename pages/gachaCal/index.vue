@@ -21,12 +21,49 @@
         </template>
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <!-- <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
-            <el-radio-button label="(CN)感谢庆典(11.14)" style="width:34%;"></el-radio-button>
-            <el-radio-button label="(CN)春节限定(02.05)" style="width:34%;"></el-radio-button>
-            <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
-          </el-radio-group> -->
-          <div class="gacha_unit_child" style="display: flex">
+          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
+            <el-radio-button label="(CN)感谢庆典(11.14)" style="width:50%;"></el-radio-button>
+            <el-radio-button label="(CN)春节限定(02.05)" style="width:50%;"></el-radio-button>
+            <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
+          </el-radio-group>
+          <el-divider></el-divider>
+          <div id="gacha_total_chart">
+            <div id="gacha_total_pie" ref="gacha_total_pie_data" style="vertical-align:top;height:200px;background:#3f51b5;width:60%;display: inline-block;">这来个饼图</div>     
+            <table id="gacha_total_table" style="height:200px;width:36%;display: inline-block;">
+              <tr class="gacha_total_table_tr">
+                <td>现有</td>
+                <td>{{ getFixed(gachaTimes_exist) }}</td>
+                <td>抽</td>
+              </tr>
+              <tr class="gacha_total_table_tr">
+                <td>日常</td>
+                <td>{{ getFixed(gachaTimes_daily) }}</td>
+                <td>抽</td>
+              </tr>
+              <tr class="gacha_total_table_tr">
+                <td>潜在</td>
+                <td>{{ getFixed(gachaTimes_potential) }}</td>
+                <td>抽</td>
+              </tr>
+              <tr class="gacha_total_table_tr">
+                <td>氪金</td>
+                <td>{{ getFixed(gachaTimes_gacha) }}</td>
+                <td>抽</td>
+              </tr>
+              <tr class="gacha_total_table_tr">
+                <td>活动(估算)</td>
+                <td>{{ getFixed(gachaTimes_activity) }}</td>
+                <td>抽</td>
+              </tr>
+              <tr class="gacha_total_table_tr">
+                <td>其它(估算)</td>
+                <td>{{ getFixed(gachaTimes_other) }}</td>
+                <td>抽</td>
+              </tr>
+            </table>
+          </div>
+  
+          <!-- <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
               现有 {{ getFixed(gachaTimes_exist) }} 抽
             </div>
@@ -39,16 +76,16 @@
             <div class="gacha_unit_child_title">
               氪金 {{ getFixed(gachaTimes_gacha) }} 抽
             </div>
-          </div>
-          <div class="gacha_unit_child" style="display: flex">
+          </div> -->
+          <!-- <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title" style="width: 384px">
               活动(估算) {{ getFixed(gachaTimes_activity) }} 抽
             </div>
             <div class="gacha_unit_child_title" style="width: 384px">
               其它(估算) {{ getFixed(gachaTimes_other) }} 抽
             </div>
-          </div>
-          <el-divider></el-divider>
+          </div> -->
+          <!-- <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex; flex-wrap: wrap">
             <div @click="compute()" style="margin-left: 8px; width: 240px">
               <el-switch
@@ -115,7 +152,7 @@
               >
               </el-option>
             </el-select>
-          </div>
+          </div> -->
           <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
@@ -148,9 +185,7 @@
       <el-collapse-item name="1" style="display: block">
         <template slot="title">
           <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist) }}抽&emsp;(点击{{
-              getTitleWord(1)
-            }})</span
+          >现有库存 {{ getFixed(gachaTimes_exist) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="wallet">
@@ -201,7 +236,7 @@
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                寻访凭证
+                单抽
               </div>
             </div>
             <div
@@ -224,7 +259,7 @@
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                十连寻访凭证
+                十连
               </div>
             </div>
             <div class="gacha_unit_child_inputbox">
@@ -243,9 +278,7 @@
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            潜在资源 {{ getFixed(gachaTimes_potential) }}抽&emsp;(点击{{
-              getTitleWord(2)
-            }})</span
+            潜在资源 {{ getFixed(gachaTimes_potential) }}抽)</span
           >
         </template>
         <div class="gacha_unit" id="potential">
@@ -257,7 +290,7 @@
             <div class="gacha_unit_child_title" style="width: 120px">
               个悖论模拟
             </div>
-            <div class="gacha_unit_child_sum" style="width: 105px">
+            <div class="gacha_unit_child_fixed" style="width: 105px">
               <div style="display: flex">
                 {{ paradox * 200 }} &nbsp;
                 <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -290,7 +323,7 @@
                 >
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_sum">
+                <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
                     {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -318,7 +351,7 @@
                 <div class="gacha_unit_child_title" style="width: 159px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_sum">
+                <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
                     {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -333,16 +366,12 @@
       <el-collapse-item class="collapse-item" name="3" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            日常积累 {{ getFixed(gachaTimes_daily) }}抽&emsp;(点击{{
-              getTitleWord(3)
-            }})</span
+            日常积累 {{ getFixed(gachaTimes_daily) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
-              {{ daysRemaining }} 天 日常任务
-            </div>
+            <div class="gacha_unit_child_title" style="width: 150px">日常 {{ daysRemaining }} 天 </div>
             <div class="gacha_unit_child_fixed" style="width: 150px">
               <div style="display: flex">
                 <div style="width: 70px">{{ dailyRewards }}</div>
@@ -350,48 +379,70 @@
               </div>
             </div>
           </div>
+          <!-- 日常周常分界线 -->
+          <el-divider></el-divider>
+
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
-              {{ weeksRemaining }}周 周常
-            </div>
+            <div class="gacha_unit_child_title" style="width: 150px">周常 {{ weeksRemaining }} 周</div>
             <div class="gacha_unit_child_fixed" style="width: 150px">
               <div style="display: flex">
                 <div style="width: 70px">{{ weeklyRewards }}</div>
                 <div :class="getSpriteImg('4003icon', 0)"></div>
               </div>
             </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
-              {{ weeksRemaining }}周 剿灭
+            <div @click="compute()" style="margin-left: 8px; width: 160px;display: inline-block;">
+              <el-switch
+                v-model="weekTaskValue"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+              >
+              </el-switch>本周已完成
             </div>
+          </div>
+
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 150px">剿灭 {{ weeksRemaining }} 周</div>
             <div class="gacha_unit_child_fixed" style="width: 150px">
               <div style="display: flex">
                 <div style="width: 70px">{{ weekStage }}</div>
                 <div :class="getSpriteImg('4003icon', 0)"></div>
               </div>
             </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
-              {{ monthsRemaining }} 月 绿票商店
+            <div @click="compute()" style="margin-left: 8px; width: 160px;display: inline-block;">
+              <el-switch
+                v-model="weekStageValue"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+              >
+              </el-switch>本周已完成
             </div>
+          </div>
+          <!-- 周常月常分界线 -->
+          <el-divider></el-divider>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 150px">绿票商店 {{ monthsRemaining }} 月</div>
             <div class="gacha_unit_child_fixed" style="width: 180px">
               <div style="display: flex">
-                <div style="width: 70px">{{ monthsRemaining * 600 }}</div>
+                <div style="width: 70px">{{ monthsRemaining * 600 }}&nbsp;</div>
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div>{{ monthsRemaining * 2 }}</div>
+                <div style="width: 20px">{{ monthsRemaining * 2 }}&nbsp;</div>
                 <div :class="getSpriteImg('7003icon', 0)"></div>
               </div>
             </div>
+            <div @click="compute()" style="margin-left: 8px; width: 120px;display: inline-block;">
+              <el-switch
+                v-model="greenF2Value"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+              >
+              </el-switch>本月已换
+            </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 200px">
-              {{ SignInMonthsRemaining }} 月 签到(每月17号)
-            </div>
+            <div class="gacha_unit_child_title" style="width: 200px">签到(每月17号) {{ SignInMonthsRemaining }} 月</div>
             <div class="gacha_unit_child_fixed" style="width: 150px">
               <div style="display: flex">
-                <div style="width: 70px">{{ SignInMonthsRemaining }}</div>
+                <div style="width: 70px">{{ SignInMonthsRemaining }}&nbsp;</div>
                 <div :class="getSpriteImg('7003icon', 0)"></div>
               </div>
             </div>
@@ -408,14 +459,14 @@
                 <div class="gacha_unit_child_title">{{ item.name }}</div>
                 <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
-                    {{ item.permit }} &nbsp;
-                    <div :class="getSpriteImg('7003icon', 0)"></div>
+                    {{ item.permit10 }} &nbsp;
+                    <div :class="getSpriteImg('7004icon', 0)"></div>
                   </div>
                 </div>
                 <div class="gacha_unit_child_fixed">
                   <div style="display: flex">
-                    {{ item.permit10 }}&nbsp;
-                    <div :class="getSpriteImg('7004icon', 0)"></div>
+                    {{ item.permit }}&nbsp;
+                    <div :class="getSpriteImg('7003icon', 0)"></div>
                   </div>
                 </div>
               </el-checkbox>
@@ -427,9 +478,7 @@
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            氪金资源 {{ getFixed(gachaTimes_gacha) }}抽&emsp;(点击{{
-              getTitleWord(4)
-            }})</span
+            氪金资源 {{ getFixed(gachaTimes_gacha) }}抽</span
           >
         </template>
 
@@ -450,7 +499,7 @@
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_sum" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
                 </div>
               </el-checkbox>
@@ -473,7 +522,7 @@
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_sum" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox
               >
@@ -495,7 +544,7 @@
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_sum" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox
               >
@@ -518,7 +567,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石648元[11.68元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_648 * 185) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -536,7 +585,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石328元[12.15元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_328 * 90) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -554,7 +603,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石198元[13.20元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_198 * 50) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -568,7 +617,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石98元[13.61元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_98 * 24) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -582,7 +631,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石30元[14.29元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_30 * 7) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -596,7 +645,7 @@
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石6元[20.00元/抽]
             </div>
-            <div class="gacha_unit_child_sum">
+            <div class="gacha_unit_child_fixed">
               <div style="display: flex">
                 X{{ getFixed(originium_6 * 1) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -611,9 +660,7 @@
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽&emsp;(点击{{
-              getTitleWord(5)
-            }})</span
+            活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="activity">
@@ -633,7 +680,7 @@
                   {{ item.name }}
                 </div>
                 <div
-                  class="gacha_unit_child_sum"
+                  class="gacha_unit_child_fixed"
                   v-show="item.permit > 0"
                   style="width: 50px"
                 >
@@ -642,13 +689,13 @@
                     <div :class="getSpriteImg('7003icon', 0)"></div>
                   </div>
                 </div>
-                <div class="gacha_unit_child_sum" v-show="item.originium > 0">
+                <div class="gacha_unit_child_fixed" v-show="item.originium > 0">
                   <div style="display: flex">
                     {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
                   </div>
                 </div>
-                <div class="gacha_unit_child_sum" v-show="item.orundum > 0">
+                <div class="gacha_unit_child_fixed" v-show="item.orundum > 0">
                   <div style="display: flex">
                     {{ item.orundum }}
                     <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -681,9 +728,7 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            其它资源（估算）{{ getFixed(gachaTimes_other) }}抽&emsp;(点击{{
-              getTitleWord(6)
-            }})</span
+            其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span
           >
         </template>
 
@@ -801,6 +846,9 @@
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
 
+  import * as echarts from "echarts";
+
+
   export default {
     layout: "defaultGacha",
     head: {
@@ -831,6 +879,19 @@
         start_TimeStamp: "",
         end_TimeStamp: "",
         end_TimeStampCheck: "2022感谢庆典",
+
+        targetRadio:"(CN)感谢庆典(11.14)",
+
+        
+        data_pie : [
+        {"value":323, "name":"现有"},
+        {"value":274, "name":"潜在"},
+        {"value":310, "name":"日常"},
+        {"value":335, "name":"氪金"},
+        {"value":335, "name":"活动(估算)"},
+        {"value":400, "name":"其它(估算)"}
+        ],
+    
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -949,6 +1010,10 @@
 
         return "bg-" + name;
       },
+
+
+
+
 
       getDate() {
         var date = new Date();
@@ -1542,8 +1607,7 @@
   }
   .collapse-item_title {
     font-size: 24px;
-    padding: 8px;
-    font-weight: 600;
+    padding: 8px 16px;
   }
 
   .el-collapse-item__wrap {
