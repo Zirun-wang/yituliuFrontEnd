@@ -932,7 +932,7 @@
     methods: {
       getCookies() {
         let theme = cookie.get("theme");
-        if (typeof theme == "undefined" || theme == "undefined") {
+        if (typeof theme == "undefined" || theme === "undefined") {
           theme = "light";
           cookie.set("theme", theme, { expires: 30 });
         }
@@ -945,7 +945,7 @@
       },
 
       getSpriteImg(name, index) {
-        if (index == 0) return "bg-" + name + " sprite_gacha";
+        if (index === 0) return "bg-" + name + " sprite_gacha";
 
         return "bg-" + name;
       },
@@ -989,13 +989,13 @@
           (this.end_TimeStamp - this.start_TimeStamp) / 86400000
         );
         for (let i = 1; i < num + 1; i++) {
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDay() == 1) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() == 10) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 10) {
             this.monthsRemaining++;
           }
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() == 17) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
           }
         }
@@ -1115,7 +1115,7 @@
           this.permit10 =
             parseInt(this.permit10) +
             parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit10);
-          if ("月卡" == this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
+          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
             console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
             this.orundum =
               parseInt(this.orundum) + parseInt(this.daysRemaining) * 200;
@@ -1141,7 +1141,7 @@
           this.permit10_gacha =
             parseInt(this.permit10_gacha) +
             parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit10);
-          if ("月卡" == this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
+          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name) {
             this.orundum_gacha =
               parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
             this.originium_gacha =
@@ -1160,12 +1160,12 @@
         //普通648
         this.originium =
           this.originium +
-          185 * parseInt(this.originium_648) +
-          90 * parseInt(this.originium_328) +
-          50 * parseInt(this.originium_198) +
-          24 * parseInt(this.originium_98) +
-          7 * parseInt(this.originium_30) +
-          1 * parseInt(this.originium_6);
+           parseInt(this.originium_648) *185+
+           parseInt(this.originium_328)*90 +
+           parseInt(this.originium_198)*50 +
+           parseInt(this.originium_98)*24 +
+           parseInt(this.originium_30)*7 +
+           parseInt(this.originium_6);
 
         //氪金项目抽卡次数（单项）
         this.originium_gacha =
@@ -1175,7 +1175,7 @@
           parseInt(this.originium_198) * 50 +
           parseInt(this.originium_98) * 24 +
           parseInt(this.originium_30) * 7 +
-          parseInt(this.originium_6) * 1;
+          parseInt(this.originium_6) ;
 
         this.gachaTimes_gacha =
           parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
@@ -1387,7 +1387,7 @@
       },
 
       valueInit() {
-        if (this.cookieInit != 0) {
+        if (this.cookieInit !== 0) {
           cookie.set("originium_exist", this.originium_exist, { expires: 30 });
           cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
           cookie.set("permit_exist", this.permit_exist, { expires: 30 });
@@ -1404,44 +1404,44 @@
         this.cookieInit++;
 
         if (
-          this.originium_exist == "" ||
-          this.originium_exist == undefined ||
+          this.originium_exist === "" ||
+          this.originium_exist === undefined ||
           typeof this.originium_exist == "undefined"
         )
           this.originium_exist = 0;
         if (
-          this.orundum_exist == "" ||
-          this.orundum_exist == undefined ||
+          this.orundum_exist === "" ||
+          this.orundum_exist === undefined ||
           typeof this.orundum_exist == "undefined"
         )
           this.orundum_exist = 0;
 
         if (
-          this.permit_exist == "" ||
-          this.permit_exist == undefined ||
+          this.permit_exist === "" ||
+          this.permit_exist === undefined ||
           typeof this.permit_exist == "undefined"
         )
           this.permit_exist = 0;
         if (
-          this.permit10_exist == "" ||
-          this.permit10_exist == undefined ||
+          this.permit10_exist === "" ||
+          this.permit10_exist === undefined ||
           typeof this.permit10_exist == "undefined"
         )
           this.permit10_exist = 0;
         if (
-          this.paradox == "" ||
-          this.paradox == undefined ||
+          this.paradox === "" ||
+          this.paradox === undefined ||
           typeof this.paradox == "undefined"
         )
           this.paradox = 0;
 
-        if (this.originium_648 == "") this.originium_648 = 0;
-        if (this.originium_328 == "") this.originium_328 = 0;
-        if (this.originium_198 == "") this.originium_198 = 0;
-        if (this.originium_98 == "") this.originium_98 = 0;
-        if (this.originium_30 == "") this.originium_30 = 0;
-        if (this.originium_6 == "") this.originium_6 = 0;
-        if (this.customValue == "") this.customValue = 0;
+        if (this.originium_648 === "") this.originium_648 = 0;
+        if (this.originium_328 === "") this.originium_328 = 0;
+        if (this.originium_198 === "") this.originium_198 = 0;
+        if (this.originium_98 === "") this.originium_98 = 0;
+        if (this.originium_30 === "") this.originium_30 = 0;
+        if (this.originium_6 === "") this.originium_6 = 0;
+        if (this.customValue === "") this.customValue = 0;
 
         this.originium_exist = parseInt(this.originium_exist);
         this.orundum_exist = parseInt(this.orundum_exist);
@@ -1514,7 +1514,7 @@
 
       getTitleWord(index) {
         for (let i in this.checkBox) {
-          if (index == this.checkBox[i]) {
+          if (index === this.checkBox[i]) {
             return "收起";
           }
         }
