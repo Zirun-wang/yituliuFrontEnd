@@ -356,7 +356,7 @@
               <div style="display: flex">
                 <div style="width: 70px">{{ monthsRemaining * 600 }}</div>
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div>{{ monthsRemaining * 2 }}</div>
+                <div>{{ monthsRemaining * 4 }}</div>
                 <div :class="getSpriteImg('7003icon', 0)"></div>
               </div>
             </div>
@@ -1160,10 +1160,12 @@
           parseInt(this.weekStage);
         this.permit =
           parseInt(this.permit) +
-          parseInt(this.monthsRemaining) * 2 -
+          parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-          parseInt(this.monthsRemaining) * 2 * parseInt(flag_greenF2) +
+
           parseInt(this.SignInMonthsRemaining);
+
+
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
           this.originium =
@@ -1205,9 +1207,9 @@
 
         this.permit_daily =
           parseInt(this.permit_daily) +
-          parseInt(this.monthsRemaining) * 2 -
+          parseInt(this.monthsRemaining) * 4 -
           parseInt(flag_greenF1) +
-          parseInt(this.monthsRemaining) * 2 * parseInt(flag_greenF2) +
+
           parseInt(this.SignInMonthsRemaining);
 
         this.gachaTimes_daily =
