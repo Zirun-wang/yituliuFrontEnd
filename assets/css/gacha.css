@@ -1,12 +1,11 @@
-
-
-.gacha_img{
+.gacha_img {
   width: 36px;
   vertical-align: bottom;
   margin-left: 8px;
   margin-right: 8px;
 }
-.gacha_img_small{
+
+.gacha_img_small {
   width: 16px;
   vertical-align: middle;
   margin: 0px 4px 4px 4px;
@@ -17,33 +16,42 @@
   position: fixed;
   width: 100%;
   max-width: 800px;
+
 }
 
+#totalTable{
+  position: absolute;
+  z-index: 99;
+}
 
-#gacha_total_table{
+#gacha_total_table {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-}
-.gacha_total_table_tr td:nth-child(1) {
-  width:120px;
-}
-.gacha_total_table_tr td:nth-child(2) {
-  width:48px;
-}
-.gacha_total_table_tr td:nth-child(3) {
-  width:24px;
+
 }
 
-.gacha_unit{
-  color:#222222;
-  background-color:#f0f0f0;
+.gacha_total_table_tr td:nth-child(1) {
+  width: 120px;
+}
+
+.gacha_total_table_tr td:nth-child(2) {
+  width: 48px;
+}
+
+.gacha_total_table_tr td:nth-child(3) {
+  width: 24px;
+}
+
+.gacha_unit {
+  color: #222222;
+  background-color: #f0f0f0;
   border-radius: 4px;
   border: 1px solid #d8d8d8;
   font-size: 20px;
 }
 
-.gacha_unit_title{
+.gacha_unit_title {
   font-size: 24px;
   padding: 8px;
   background-color: #d8d8d8;
@@ -58,7 +66,7 @@
   display: inline-block;
 }
 
-.gacha_unit_child_title{
+.gacha_unit_child_title {
   width: 192px;
   height: 36px;
   line-height: 36px;
@@ -73,7 +81,7 @@
 
 }
 
-.gacha_unit_child_inputbox input{
+.gacha_unit_child_inputbox input {
   height: 24px;
   width: 72px;
   font-size: 20px;
@@ -81,12 +89,12 @@
   vertical-align: middle;
 }
 
-.gacha_unit_child_checkbox{
+.gacha_unit_child_checkbox {
   display: inline-block;
   background-color: rgb(118, 247, 176);
 }
 
-.gacha_unit_child_fixed{
+.gacha_unit_child_fixed {
   display: inline-block;
   height: 36px;
   line-height: 36px;
@@ -97,7 +105,7 @@
 }
 
 
-.gacha_unit_child_switch{
+.gacha_unit_child_switch {
   display: inline-block;
   background-color: rgb(247, 238, 118);
 }
@@ -115,7 +123,7 @@
   padding-bottom: 0px;
 }
 
-.el-collapse-item__wrap{
+.el-collapse-item__wrap {
   margin: 1px;
   vertical-align: middle;
   will-change: height;
@@ -123,7 +131,7 @@
   background-color: #d8d8d8;
 }
 
-.el-collapse-item__header{
+.el-collapse-item__header {
   background-color: #d8d8d8;
   border-bottom: 0px;
 }
@@ -133,24 +141,10 @@
 }
 
 
-.el-checkbox {
-  position: static;
-}
 
-.el-checkbox__inner {
-  position: static;
-}
-
-.el-checkbox__input {
-  position: static;
-}
-
-.el-switch__core {
-  position: static;
-}
 
 .el-radio-button__inner {
-  width:100%;
+  width: 100%;
 }
 
 .el-radio-button--small .el-radio-button__inner {

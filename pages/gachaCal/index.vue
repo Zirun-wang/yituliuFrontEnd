@@ -13,6 +13,7 @@
       <el-collapse-item
         style="display: block; position: sticky; top: 16px"
         name="0"
+        id="totalTable"
       >
         <template slot="title">
           <span class="collapse-item_title" style="color: purple"
