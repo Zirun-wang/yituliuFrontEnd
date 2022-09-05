@@ -31,17 +31,15 @@
           <div id="gacha_total_chart">
             <div
               id="gacha_total_pie"
-              ref="gacha_total_pie_data"
+              ref="gacha_total_pie"
               style="
                 vertical-align: top;
                 height: 200px;
-                background: #3f51b5;
-                width: 60%;
+                border:solid black 1px
+                width: 300px;
                 display: inline-block;
               "
-            >
-              这来个饼图
-            </div>
+            ></div>
             <table
               id="gacha_total_table"
               style="height: 200px; width: 36%; display: inline-block"
@@ -815,6 +813,7 @@
 
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
+  let echarts = require("echarts");
 
   export default {
     layout: "defaultGacha",
@@ -930,6 +929,15 @@
         greenF1Value: false, //是否兑换绿票商店二层
         customValue: 0, //自定义值
         cookieInit: 0,
+        pieData: [
+          //饼图数据
+          // { value: 0, name: "现有" },
+          // { value: 0, name: "潜在" },
+          // { value: 0, name: "日常" },
+          // { value: 0, name: "氪金" },
+          // { value: 0, name: "氪金" },
+          // { value: 0, name: "其它" },
+        ],
       };
     },
     created() {
@@ -941,6 +949,7 @@
     },
     mounted() {
       this.updateVisits();
+      this.pieChart(this.pieData);
     },
     methods: {
       updateVisits() {
@@ -1404,6 +1413,60 @@
           parseInt(this.permit) +
           parseInt(this.permit10) * 10;
 
+        this.pieData = []
+        var item = {};
+        if (this.gachaTimes_exist > 0) {
+          item.value = parseInt(this.gachaTimes_exist);
+          item.name = "现有";
+          this.pieData.push(item);
+        }
+        if (this.gachaTimes_potential > 0) {
+          item = {};
+          item.value = parseInt(this.gachaTimes_potential);
+          item.name = "潜在";
+          this.pieData.push(item);
+        }
+        if (this.gachaTimes_daily > 0) {
+          item = {};
+          item.value = parseInt(this.gachaTimes_daily);
+          item.name = "日常";
+          this.pieData.push(item);
+        }
+        if (this.gachaTimes_gacha > 0) {
+          item = {};
+          item.value = parseInt(this.gachaTimes_gacha);
+          item.name = "氪金";
+          this.pieData.push(item);
+        }
+        if (this.gachaTimes_activity > 0) {
+          item = {};
+          item.value = parseInt(this.gachaTimes_activity);
+          item.name = "活动";
+          this.pieData.push(item);
+        }
+        if (this.gachaTimes_other > 0) {
+          item = {};
+          item.value = parseInt(this.gachaTimes_other);
+          item.name = "其它";
+          this.pieData.push(item);
+        }
+
+        // this.pieData[0].value = parseInt(this.gachaTimes_exist);
+        // this.pieData[0].name = "现有";
+        // this.pieData[1].value =parseInt( this.gachaTimes_potential);
+        // this.pieData[1].name = "潜在";
+        // this.pieData[2].value =parseInt( this.gachaTimes_daily);
+        // this.pieData[2].name = "日常";
+        // this.pieData[3].value =parseInt( this.gachaTimes_gacha);
+        // this.pieData[3].name = "氪金";
+        // this.pieData[4].value =parseInt( this.gachaTimes_activity);
+        // this.pieData[4].name = "活动";
+        // this.pieData[5].value = parseInt(this.gachaTimes_other);
+        // this.pieData[5].name = "其它";
+
+        if (this.cookieInit > 1) {
+          this.pieChart(this.pieData);
+        }
         // console.log(this.permit_exist);
         // console.log(this.permit_potential);
         // console.log(this.permit_daily);
@@ -1527,9 +1590,7 @@
         if (index % 2 == 0) return "width:180px;";
         else return "width:60px;";
       },
-      getFixed2(num) {
-        return parseFloat(num).toFixed(2);
-      },
+
       getFixed(num) {
         return parseInt(num);
       },
@@ -1545,6 +1606,60 @@
           }
         }
         return "展开";
+      },
+
+      pieChart(data) {
+        console.log("触发了");
+
+        var chartDom = document.getElementById("gacha_total_pie");
+        var myChart = echarts.init(chartDom);
+
+        var option = {
+          tooltip: {
+            formatter: "{a} {b} : {c}抽,占 ({d}%)",
+            position: "inner",
+          },
+
+          series: [
+            {
+              name: "攒抽占比",
+              type: "pie",
+              radius: "70%",
+              center: ["50%", "50%"],
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: true,
+                    textStyle: { color: "#000000", fontSize: "16" },
+                    formatter: function (val) {
+                      //让series 中的文字进行换行
+                      return val.name.split("-").join("\n");
+                    },
+                  },
+                  labelLine: {
+                    show: true,
+                    lineStyle: { color: "#000000" },
+                  }, //线条颜色
+                }, //基本样式
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: "rgba(0, 0, 0, 0.5)", //鼠标放在区域边框颜色
+                  textColor: "#000",
+                }, //鼠标放在各个区域的样式
+              },
+              data: data,
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: "rgba(0, 0, 0, 0.5)",
+                },
+              },
+            },
+          ],
+        };
+        myChart.setOption(option);
       },
 
       handleChange(val) {
@@ -1594,6 +1709,8 @@
     margin: 6px 0;
   }
 
-
+  /* .el-switch__core{
+  position: static;
+    } */
 </style>
 
