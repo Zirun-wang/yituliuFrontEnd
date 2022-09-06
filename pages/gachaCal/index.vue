@@ -232,7 +232,7 @@
               @change="compute(item.name)"
             >
 
-              <el-checkbox-button :label="index">
+              <el-checkbox-button :label="index" size="small">
                 <div
                   class="gacha_unit_child_title"
                   :style="getChapterWidth(index)"
@@ -262,7 +262,7 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 159px">
+                <div class="gacha_unit_child_title" style="width: 144px">
                   {{ item.name }}
                 </div>
                 <div class="gacha_unit_child_fixed">
@@ -1700,6 +1700,7 @@
   .el-divider--horizontal {
     margin: 6px 0;
   }
+
 
   /* .el-switch__core{
   position: static;
