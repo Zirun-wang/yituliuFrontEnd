@@ -27,7 +27,7 @@
               style="
                 vertical-align: top;
                 height: 200px;
-                border:solid black 1px
+                border:solid black 1px;
                 width: 300px;
                 display: inline-block;
               "
@@ -261,7 +261,7 @@
               style="display:inline-block;"
               @change="compute(item.name)"
             >
-              <el-checkbox :label="index">
+              <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 159px">
                   {{ item.name }}
                 </div>
@@ -270,7 +270,7 @@
                     <div :class="getSpriteImg('4002icon', 0)"></div>
                     {{ item.originium }}
                   </div></div
-                ></el-checkbox>
+                ></el-checkbox-button>
             </div>
           </el-checkbox-group>
 
@@ -456,14 +456,14 @@
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
-              <el-checkbox :label="index">
+              <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
                 <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
                 </div>
-              </el-checkbox>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
           <!-- 折叠模块 -->
@@ -479,13 +479,13 @@
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
-              <el-checkbox :label="index">
+              <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
                 <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
-                </div></el-checkbox
+                </div></el-checkbox-button
               >
             </div>
           </el-checkbox-group>
@@ -501,13 +501,13 @@
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
-              <el-checkbox :label="index">
+              <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 150px">
                   {{ item.name }}
                 </div>
                 <div class="gacha_unit_child_fixed" style="width: 100px">
                   [{{ item.price }}元/抽]
-                </div></el-checkbox
+                </div></el-checkbox-button
               >
             </div>
           </el-checkbox-group>
