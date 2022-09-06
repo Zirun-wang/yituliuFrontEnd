@@ -35,7 +35,10 @@
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-
+  width: 36%;
+  display: inline-block;
+  position: relative;
+  top:10px;
 }
 
 .gacha_total_table_tr td:nth-child(1) {

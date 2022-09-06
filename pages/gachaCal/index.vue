@@ -19,7 +19,7 @@
             <el-radio-button label="(CN)春节限定(02.05)" style="width:50%;"></el-radio-button>
             <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
           </el-radio-group> -->
-          <el-divider></el-divider>
+          <!-- <el-divider></el-divider> -->
           <div id="gacha_total_chart">
             <div
               id="gacha_total_pie"
@@ -27,15 +27,12 @@
               style="
                 vertical-align: top;
                 height: 200px;
-                border:solid black 1px;
                 width: 300px;
                 display: inline-block;
+                top: 10px;
               "
             ></div>
-            <table
-              id="gacha_total_table"
-              style="height: 200px; width: 36%; display: inline-block"
-            >
+            <table id="gacha_total_table">
               <tbody>
               <tr class="gacha_total_table_tr">
                 <td>现有</td>
