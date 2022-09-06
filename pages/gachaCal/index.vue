@@ -107,7 +107,7 @@
           <div class="gacha_unit_child">
             <div
               class="gacha_unit_child_title"
-              style="width: 174px; display: inline-block"
+              style="width: 153px; display: inline-block"
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -127,7 +127,7 @@
           <div class="gacha_unit_child">
             <div
               class="gacha_unit_child_title"
-              style="width: 174px; display: inline-block"
+              style="width: 153px; display: inline-block"
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -147,7 +147,7 @@
           <div class="gacha_unit_child">
             <div
               class="gacha_unit_child_title"
-              style="width: 174px; display: inline-block"
+              style="width: 153px; display: inline-block"
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
@@ -170,7 +170,7 @@
           <div class="gacha_unit_child">
             <div
               class="gacha_unit_child_title"
-              style="width: 174px; display: inline-block"
+              style="width: 153px; display: inline-block"
             >
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
@@ -187,6 +187,33 @@
               />
             </div>
           </div>
+          <el-divider></el-divider>
+          <div class="gacha_unit_child" style="display:flex;">
+            <div class="gacha_unit_child_title" style="width: 153px;">
+              预留皮肤
+            </div>
+            <el-slider
+              v-model="value2"
+              :step="1"
+              :min="0"
+              :max="10"
+              show-stops
+              show-input
+              style="display: inline-block;flex-grow: 1;">
+            </el-slider>
+          </div>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 153px;">
+              搓玉 xxxxx 理智
+            </div>
+            <div class="gacha_unit_child_fixed" style="width: 105px">
+              <div style="display: flex">
+                <div :class="getSpriteImg('4003icon', 0)"></div>
+                {{ paradox * 200 }}
+              </div>
+            </div>
+          </div>
+
         </div>
       </el-collapse-item>
 
