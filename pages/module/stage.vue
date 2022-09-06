@@ -96,13 +96,15 @@
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
         <!-- <img class="popup_img" :src="getImgUrl(main)" :alt="main"> -->
-        <div :class="getSpriteImg(itemId, 3)"></div>
-        <div class="popup_header" >{{main}}</div>
-
-        <a :href="getPenguinUrl(itemId)" target="_blank">
-          <div class="t3" style="float: right;margin: 24px;">查看企鹅物流原始数据</div>
-        </a>
+        <div class="popup_header" >
+          <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div>
+          <div class="popup_header_text">{{main}}</div>
+          <a :href="getPenguinUrl(itemId)" target="_blank" class="popup_header_penguin">
+            <div class="t3" style="float: right;margin: 24px;font-size: 18px;font-weight: 500;">查看企鹅物流原始数据</div>
+          </a>
+        </div>
         <!-- 散装标题End -->
+        <el-divider></el-divider>
         <!-- 数据表Start -->
         <table class="popup_table">
           <tbody>
@@ -294,3 +296,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .el-divider--horizontal {
+    margin: 6px 0;
+  }
+</style>
