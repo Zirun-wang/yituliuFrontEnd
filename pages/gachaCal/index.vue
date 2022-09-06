@@ -212,6 +212,9 @@
                 {{ paradox * 200 }}
               </div>
             </div>
+            <div class="gacha_unit_child_fixed" style="width: 180px">
+              这里放参考和链接
+            </div>
           </div>
 
         </div>
