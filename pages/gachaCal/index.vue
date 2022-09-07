@@ -187,7 +187,7 @@
               />
             </div>
           </div>
-          <el-divider></el-divider>
+          <!-- <el-divider></el-divider>
           <div class="gacha_unit_child" style="display:flex;">
             <div class="gacha_unit_child_title" style="width: 153px;">
               预留皮肤
@@ -212,10 +212,7 @@
                 {{ paradox * 200 }}
               </div>
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 180px">
-              这里放参考和链接
-            </div>
-          </div>
+          </div> -->
 
         </div>
       </el-collapse-item>
