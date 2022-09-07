@@ -329,9 +329,7 @@
         </template>
         <div class="gacha_unit" id="potential">
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input type="number" @change="compute()" v-model="paradox" />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="paradox" />
             <div class="gacha_unit_child_title" style="width: 120px">
               个悖论模拟
             </div>
@@ -488,13 +486,7 @@
           <!-- 一个典型的复选模块 -->
 
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                @change="compute()"
-                v-model="originium_648"
-              />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_648"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石648元[11.68元/抽]
             </div>
@@ -506,13 +498,7 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                @change="compute()"
-                v-model="originium_328"
-              />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_328"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石328元[12.15元/抽]
             </div>
@@ -524,13 +510,7 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                @change="compute()"
-                v-model="originium_198"
-              />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_198"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石198元[13.20元/抽]
             </div>
@@ -542,9 +522,7 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input type="number" @change="compute()" v-model="originium_98" />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_98"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石98元[13.61元/抽]
             </div>
@@ -556,9 +534,7 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input type="number" @change="compute()" v-model="originium_30" />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_30"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石30元[14.29元/抽]
             </div>
@@ -570,9 +546,7 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input type="number" @change="compute()" v-model="originium_6" />
-            </div>
+            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_6"/>
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石6元[20.00元/抽]
             </div>
