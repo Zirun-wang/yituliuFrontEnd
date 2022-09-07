@@ -108,25 +108,45 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="orundum_exist"/>
+                <input
+                  type="text"
+                  @change="compute()"
+                  class="gacha_unit_child_inputbox"
+                  v-model="orundum_exist"
+                />
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
-                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="originium_exist"/>
+                <input
+                  type="text"
+                  @change="compute()"
+                  class="gacha_unit_child_inputbox"
+                  v-model="originium_exist"
+                />
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="permit_exist"/>
+                <input
+                  type="text"
+                  @change="compute()"
+                  class="gacha_unit_child_inputbox"
+                  v-model="permit_exist"
+                />
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="permit10_exist"/>
+                <input
+                  type="text"
+                  @change="compute()"
+                  class="gacha_unit_child_inputbox"
+                  v-model="permit10_exist"
+                />
               </div>
             </div>
           </div>
@@ -156,10 +176,8 @@
               </div>
             </div>
           </div> -->
-
         </div>
       </el-collapse-item>
-
 
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
@@ -184,12 +202,14 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              周常 {{ weeksRemaining }} 周
+              周常 {{ weeksRemaining + weekTaskValue }} 周
             </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 75px">{{ weeklyTaskRewards+weekTaskValue }}</div>
+                <div style="width: 75px">
+                  {{ weeklyTaskRewards + weekTaskValue * 500 }}
+                </div>
               </div>
             </div>
             <div
@@ -213,12 +233,14 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ weeksRemaining }} 周
+              剿灭 {{ weeksRemaining + weekStageValue }} 周
             </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 75px">{{ weeklyStageRewards+weekStageValue }}</div>
+                <div style="width: 75px">
+                  {{ weeklyStageRewards + weekStageValue * 1800 }}
+                </div>
               </div>
             </div>
             <div
@@ -243,7 +265,7 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              绿票商店 {{ monthsRemaining }} 月
+              绿票商店 {{ monthsRemaining - greenF1Value }} 月
             </div>
             <div class="gacha_unit_child_fixed" style="width: 174px">
               <div style="display: flex">
@@ -251,12 +273,16 @@
                   style="width: 40px"
                   :class="getSpriteImg('4003icon', 0)"
                 ></div>
-                <div style="width: 72px">{{ monthsRemaining * 600 }}&nbsp;</div>
+                <div style="width: 72px">
+                  {{ (monthsRemaining - greenF1Value) * 600 }}&nbsp;
+                </div>
                 <div
                   style="width: 40px"
                   :class="getSpriteImg('7003icon', 0)"
                 ></div>
-                <div style="width: 22px">{{ monthsRemaining * 4 -greenF1Value}}&nbsp;</div>
+                <div style="width: 22px">
+                  {{ (monthsRemaining - greenF1Value) * 4 }}&nbsp;
+                </div>
               </div>
             </div>
             <div
@@ -320,7 +346,6 @@
         </div>
       </el-collapse-item>
 
-
       <el-collapse-item class="collapse-item" name="3" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
@@ -329,7 +354,12 @@
         </template>
         <div class="gacha_unit" id="potential">
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="paradox" />
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="paradox"
+            />
             <div class="gacha_unit_child_title" style="width: 120px">
               个悖论模拟
             </div>
@@ -354,10 +384,9 @@
               :key="index"
               v-show="item.type == 'main'"
               class="gacha_unit_child"
-              style="display:inline-block;"
+              style="display: inline-block"
               @change="compute(item.name)"
             >
-
               <el-checkbox-button :label="index" size="small">
                 <div
                   class="gacha_unit_child_title"
@@ -384,7 +413,7 @@
               :key="index"
               v-show="item.type == 'activity'"
               class="gacha_unit_child"
-              style="display:inline-block;"
+              style="display: inline-block"
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
@@ -395,8 +424,9 @@
                   <div style="display: flex">
                     <div :class="getSpriteImg('4002icon', 0)"></div>
                     {{ item.originium }}
-                  </div></div
-                ></el-checkbox-button>
+                  </div>
+                </div></el-checkbox-button
+              >
             </div>
           </el-checkbox-group>
 
@@ -486,7 +516,12 @@
           <!-- 一个典型的复选模块 -->
 
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_648"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_648"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石648元[11.68元/抽]
             </div>
@@ -498,7 +533,12 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_328"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_328"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石328元[12.15元/抽]
             </div>
@@ -510,7 +550,12 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_198"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_198"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石198元[13.20元/抽]
             </div>
@@ -522,7 +567,12 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_98"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_98"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石98元[13.61元/抽]
             </div>
@@ -534,7 +584,12 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_30"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_30"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石30元[14.29元/抽]
             </div>
@@ -546,7 +601,12 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="number" @change="compute()" v-model="originium_6"/>
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model="originium_6"
+            />
             <div class="gacha_unit_child_title" style="width: 270px">
               普通源石6元[20.00元/抽]
             </div>
@@ -590,20 +650,20 @@
                   style="width: 50px"
                 >
                   <div style="display: flex">
-                    {{ item.permit }}
                     <div :class="getSpriteImg('7003icon', 0)"></div>
+                    {{ item.permit }}
                   </div>
                 </div>
                 <div class="gacha_unit_child_fixed" v-show="item.originium > 0">
                   <div style="display: flex">
-                    {{ item.originium }}
                     <div :class="getSpriteImg('4002icon', 0)"></div>
+                    {{ item.originium }}
                   </div>
                 </div>
                 <div class="gacha_unit_child_fixed" v-show="item.orundum > 0">
                   <div style="display: flex">
-                    {{ item.orundum }}
                     <div :class="getSpriteImg('4003icon', 0)"></div>
+                    {{ item.orundum }}
                   </div>
                 </div>
               </el-checkbox>
@@ -615,14 +675,14 @@
 
               <div class="gacha_unit_child_fixed" v-show="act.originium > 0">
                 <div style="display: flex">
-                  {{ act.originium }}
                   <div :class="getSpriteImg('4002icon', 0)"></div>
+                  {{ act.originium }}
                 </div>
               </div>
               <div class="gacha_unit_child_fixed" v-show="act.permit > 0">
                 <div style="display: flex">
-                  {{ act.permit }}
                   <div :class="getSpriteImg('7003icon', 0)"></div>
+                  {{ act.permit }}
                 </div>
               </div>
             </div>
@@ -650,8 +710,8 @@
                 style="width: 120px"
               >
                 <div style="display: flex">
-                  <div style="width: 50px">{{ other.orundum }}</div>
                   <div :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 50px">{{ other.orundum }}</div>
                 </div>
               </div>
               <div
@@ -660,8 +720,8 @@
                 style="width: 120px"
               >
                 <div style="display: flex">
-                  <div style="width: 50px">{{ other.originium }}</div>
                   <div :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 50px">{{ other.originium }}</div>
                 </div>
               </div>
               <div
@@ -670,8 +730,8 @@
                 style="width: 120px"
               >
                 <div style="display: flex">
-                  <div style="width: 50px">{{ other.permit }}</div>
                   <div :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 50px">{{ other.permit }}</div>
                 </div>
               </div>
               <div
@@ -680,8 +740,8 @@
                 style="width: 120px"
               >
                 <div style="display: flex">
-                  <div style="width: 50px">{{ other.permit10 }}</div>
                   <div :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 50px">{{ other.permit10 }}</div>
                 </div>
               </div>
             </div>
@@ -689,13 +749,8 @@
 
           <!-- 填空模块 -->
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                @change="compute()"
-                style="width: 150px"
-                v-model="customValue"
-              />
+            <div class="gacha_unit_child_inputbox" style="width: 150px">
+              <input type="text" @change="compute()" v-model="customValue" />
             </div>
             <div class="gacha_unit_child_title" style="width: auto">
               自定义修正值
@@ -773,7 +828,7 @@
       return {
         pageTheme: "light",
         itemList: [],
-        checkBox: ["0","1","2", "7"],
+        checkBox: ["0", "1", "2", "7"],
         endTime: [],
         startDate: "", //开始时间
         endDate: "2022/11/15 03:59:00", //结束时间
@@ -985,17 +1040,15 @@
 
         //判断是否完成周常日常
 
-        this.weekTaskValue = 500;
+        this.weekTaskValue = 1;
         if (this.weekTaskFlag) {
-          this.weekTaskValue = 0
-
+          this.weekTaskValue = 0;
         }
         //判断是否完成剿灭
 
-        this.weekStageValue = 1800;
+        this.weekStageValue = 1;
         if (this.weekStageFlag) {
           this.weekStageValue = 0;
-
         }
 
         var flag_greenF2 = 0;
@@ -1003,10 +1056,9 @@
           flag_greenF2 = 1;
         }
 
-
         this.greenF1Value = 0;
         if (this.greenF1Flag) {
-          this.greenF1Value = 2;
+          this.greenF1Value = 1;
         }
 
         //库存计算（共计）
@@ -1160,13 +1212,13 @@
         this.orundum =
           parseInt(this.orundum) +
           parseInt(this.dailyRewards) +
-          parseInt(this.monthsRemaining) * 600 +
+          parseInt(this.monthsRemaining - this.greenF1Value) * 600 +
           parseInt(this.weeklyTaskRewards) +
-          parseInt(this.weeklyStageRewards);
+          parseInt(this.weeklyStageRewards) ;
+
         this.permit =
           parseInt(this.permit) +
-          parseInt(this.monthsRemaining) * 4 -
-          parseInt(this.greenF1Value) +
+          parseInt(this.monthsRemaining - this.greenF1Value) * 4 +
           parseInt(this.SignInMonthsRemaining);
 
         //黄票商店38抽计算
@@ -1204,14 +1256,13 @@
           parseInt(this.dailyRewards) +
           parseInt(this.weeklyTaskRewards) +
           parseInt(this.weeklyStageRewards) +
-          parseInt(this.weekTaskValue) +
-          parseInt(this.weekStageValue) +
-          parseInt(this.monthsRemaining) * 600;
+          parseInt(this.weekTaskValue) * 500 +
+          parseInt(this.weekStageValue) * 1800 +
+          parseInt(this.monthsRemaining - this.greenF1Value) * 600;
 
         this.permit_daily =
           parseInt(this.permit_daily) +
-          parseInt(this.monthsRemaining) * 4 -
-          parseInt(this.greenF1Value) +
+          parseInt(this.monthsRemaining - this.greenF1Value) * 4 +
           parseInt(this.SignInMonthsRemaining);
 
         this.gachaTimes_daily =
@@ -1323,10 +1374,10 @@
         //合成玉=—周常—剿灭—幸运墙
         this.orundum =
           parseInt(this.orundum) +
-          parseInt(this.weekTaskValue) +
-          parseInt(this.weekStageValue) +
-          parseInt(this.countDown) * (8500 / 14) +
-          parseInt(this.customValue);
+          parseInt(this.weekTaskValue) * 500 +
+          parseInt(this.weekStageValue) * 1800
+        parseInt(this.countDown) * (8500 / 14) +
+        parseInt(this.customValue);
 
         this.orundum_other =
           parseInt(this.orundum_other) + parseInt(this.countDown) * (8500 / 14);
@@ -1358,7 +1409,7 @@
           parseInt(this.permit) +
           parseInt(this.permit10) * 10;
 
-        this.pieData = []
+        this.pieData = [];
         var item = {};
         if (this.gachaTimes_exist > 0) {
           item.value = parseInt(this.gachaTimes_exist);
@@ -1523,14 +1574,6 @@
         this.permit10_other = 0;
       },
 
-      originiumCheck() {
-        this.compute();
-      },
-
-      weeklyCheck() {
-        this.compute();
-      },
-
       getChapterWidth(index) {
         if (index % 2 == 0) return "width:200px;";
         else return "width:60px;";
@@ -1654,9 +1697,8 @@
     margin: 6px 0;
   }
 
-
   /* .el-switch__core{
-  position: static;
-    } */
+    position: static;
+      } */
 </style>
 
