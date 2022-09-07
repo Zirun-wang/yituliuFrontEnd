@@ -86,22 +86,15 @@
 }
 
 .gacha_unit_child_inputbox {
-  display: inline-block;
-
-}
-
-.gacha_unit_child_inputbox input {
   height: 24px;
   width: 72px;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 4px;
 }
 
-.gacha_unit_child_checkbox {
-  display: inline-block;
-  background-color: rgb(118, 247, 176);
-}
 
 .gacha_unit_child_fixed {
   display: inline-block;
@@ -113,11 +106,6 @@
   text-align: left;
 }
 
-
-.gacha_unit_child_switch {
-  display: inline-block;
-  background-color: rgb(247, 238, 118);
-}
 
 .gacha_unit_fold {
   background-color: #e8e8e8;

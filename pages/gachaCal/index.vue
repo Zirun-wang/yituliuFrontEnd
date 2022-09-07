@@ -104,87 +104,30 @@
           >
         </template>
         <div class="gacha_unit" id="wallet">
-          <div class="gacha_unit_child">
-            <div
-              class="gacha_unit_child_title"
-              style="width: 153px; display: inline-block"
-            >
+          <div class="gacha_unit_child" style="display: flex">
+            <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                合成玉
+                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="orundum_exist"/>
               </div>
             </div>
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                class=""
-                @change="compute()"
-                style="width: 100px"
-                v-model="orundum_exist"
-              />
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div
-              class="gacha_unit_child_title"
-              style="width: 153px; display: inline-block"
-            >
+            <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
-                源石
+                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="originium_exist"/>
               </div>
             </div>
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                class=""
-                @change="compute()"
-                style="width: 100px"
-                v-model="originium_exist"
-              />
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div
-              class="gacha_unit_child_title"
-              style="width: 153px; display: inline-block"
-            >
+            <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                单抽
+                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="permit_exist"/>
               </div>
             </div>
-            <div
-              class="gacha_unit_child_inputbox"
-              style="display: inline-block"
-            >
-              <input
-                type="number"
-                class=""
-                @change="compute()"
-                style="width: 100px"
-                v-model="permit_exist"
-              />
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div
-              class="gacha_unit_child_title"
-              style="width: 153px; display: inline-block"
-            >
+            <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                十连
+                <input type="number" @change="compute()" class="gacha_unit_child_inputbox" v-model="permit10_exist"/>
               </div>
-            </div>
-            <div class="gacha_unit_child_inputbox">
-              <input
-                type="number"
-                class=""
-                @change="compute()"
-                style="width: 100px"
-                v-model="permit10_exist"
-              />
             </div>
           </div>
           <!-- <el-divider></el-divider>
@@ -723,7 +666,6 @@
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
             <div class="gacha_unit_child">
-              <!-- <div class="gacha_unit_child_checkbox">复选</div> -->
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.name }}
               </div>
