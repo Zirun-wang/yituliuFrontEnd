@@ -1,0 +1,23 @@
+[
+    {"packType":"monthly","packName":"月卡","packShowName":"月卡","packPrice":30,"packDraw":11.8,"packOriginium":57.11,"packRmbPerDraw":2.542,"packRmbPerOriginium":0.525302049,"packPPRDraw":"4.59 ","packPPROriginium":"6.67 "},
+    {"packType":"once","packName":"新人组合包","packShowName":"新人组合包","packPrice":6,"packDraw":1,"packOriginium":3.33,"packRmbPerDraw":6,"packRmbPerOriginium":1.801801802,"packPPRDraw":"1.95 ","packPPROriginium":"1.94 "},
+    {"packType":"once","packName":"新人寻访组合包","packShowName":"新人寻访组合包","packPrice":128,"packDraw":20,"packOriginium":66.67,"packRmbPerDraw":6.4,"packRmbPerOriginium":1.919904005,"packPPRDraw":"1.82 ","packPPROriginium":"1.82 "},
+    {"packType":"year","packName":"双倍源石6元","packShowName":"双倍源石","packPrice":6,"packDraw":0.9,"packOriginium":3,"packRmbPerDraw":6.667,"packRmbPerOriginium":2,"packPPRDraw":"1.75 ","packPPROriginium":"1.75 "},
+    {"packType":"monthly","packName":"每月寻访组合包","packShowName":"每月寻访组合包","packPrice":168,"packDraw":22.6,"packOriginium":75.33,"packRmbPerDraw":7.434,"packRmbPerOriginium":2.230187176,"packPPRDraw":"1.57 ","packPPROriginium":"1.57 "},
+    {"packType":"limit","packName":"通用特训组合包","packShowName":"通用特训组合包","packPrice":128,"packDraw":16,"packOriginium":58.97,"packRmbPerDraw":8,"packRmbPerOriginium":2.170595218,"packPPRDraw":"1.46 ","packPPROriginium":"1.61 "},
+    {"packType":"year","packName":"双倍源石98元","packShowName":"双倍源石","packPrice":98,"packDraw":12,"packOriginium":40,"packRmbPerDraw":8.167,"packRmbPerOriginium":2.45,"packPPRDraw":"1.43 ","packPPROriginium":"1.43 "},
+    {"packType":"year","packName":"双倍源石198元","packShowName":"双倍源石","packPrice":198,"packDraw":24,"packOriginium":80,"packRmbPerDraw":8.25,"packRmbPerOriginium":2.475,"packPPRDraw":"1.42 ","packPPROriginium":"1.42 "},
+    {"packType":"year","packName":"双倍源石328元","packShowName":"双倍源石","packPrice":328,"packDraw":39.6,"packOriginium":132,"packRmbPerDraw":8.283,"packRmbPerOriginium":2.484848485,"packPPRDraw":"1.41 ","packPPROriginium":"1.41 "},
+    {"packType":"year","packName":"双倍源石648元","packShowName":"双倍源石","packPrice":648,"packDraw":78,"packOriginium":260,"packRmbPerDraw":8.308,"packRmbPerOriginium":2.492307692,"packPPRDraw":"1.41 ","packPPROriginium":"1.41 "},
+    {"packType":"year","packName":"双倍源石30元","packShowName":"双倍源石","packPrice":30,"packDraw":3.6,"packOriginium":12,"packRmbPerDraw":8.333,"packRmbPerOriginium":2.5,"packPPRDraw":"1.40 ","packPPROriginium":"1.40 "},
+    {"packType":"limit","packName":"通用强化升级包","packShowName":"通用强化升级包","packPrice":45,"packDraw":4.9,"packOriginium":22.35,"packRmbPerDraw":9.184,"packRmbPerOriginium":2.013422819,"packPPRDraw":"1.27 ","packPPROriginium":"1.74 "},
+    {"packType":"permanent","packName":"普通源石648元","packShowName":"普通源石","packPrice":648,"packDraw":55.5,"packOriginium":185,"packRmbPerDraw":11.676,"packRmbPerOriginium":3.502702703,"packPPRDraw":"1.00 ","packPPROriginium":"1.00 "},
+    {"packType":"permanent","packName":"普通源石328元","packShowName":"普通源石","packPrice":328,"packDraw":27,"packOriginium":90,"packRmbPerDraw":12.148,"packRmbPerOriginium":3.644444444,"packPPRDraw":"0.96 ","packPPROriginium":"0.96 "},
+    {"packType":"permanent","packName":"普通源石198元","packShowName":"普通源石","packPrice":198,"packDraw":15,"packOriginium":50,"packRmbPerDraw":13.2,"packRmbPerOriginium":3.96,"packPPRDraw":"0.88 ","packPPROriginium":"0.88 "},
+    {"packType":"permanent","packName":"普通源石98元","packShowName":"普通源石","packPrice":98,"packDraw":7.2,"packOriginium":24,"packRmbPerDraw":13.611,"packRmbPerOriginium":4.083333333,"packPPRDraw":"0.86 ","packPPROriginium":"0.86 "},
+    {"packType":"permanent","packName":"普通源石30元","packShowName":"普通源石","packPrice":30,"packDraw":2.1,"packOriginium":7,"packRmbPerDraw":14.286,"packRmbPerOriginium":4.285714286,"packPPRDraw":"0.82 ","packPPROriginium":"0.82 "},
+    {"packType":"once","packName":"新人养成组合包","packShowName":"新人养成组合包","packPrice":68,"packDraw":3.9,"packOriginium":13,"packRmbPerDraw":17.436,"packRmbPerOriginium":5.230769231,"packPPRDraw":"0.67 ","packPPROriginium":"0.67 "},
+    {"packType":"permanent","packName":"普通源石6元","packShowName":"普通源石","packPrice":6,"packDraw":0.3,"packOriginium":1,"packRmbPerDraw":20,"packRmbPerOriginium":6,"packPPRDraw":"0.58 ","packPPROriginium":"0.58 "},
+    {"packType":"once","packName":"新人家具组合包","packShowName":"新人家具组合包","packPrice":68,"packDraw":1.8,"packOriginium":6,"packRmbPerDraw":37.778,"packRmbPerOriginium":11.33333333,"packPPRDraw":"0.31 ","packPPROriginium":"0.31 "},
+    {"packType":"limit","packName":"寻路芯片礼包","packShowName":"寻路芯片礼包","packPrice":18,"packDraw":0,"packOriginium":8.12,"packRmbPerDraw":0,"packRmbPerOriginium":2.216748768,"packPPRDraw":"0","packPPROriginium":"1.58 "}
+]

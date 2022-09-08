@@ -1,13 +1,13 @@
 <template>
     <div id="pack">
-        <div class="pack_unit">
+        <div v-for="(pack, index) in packsPPRData" :key="index" class="pack_unit">
             <div class="pack_img" style="background:url(/img/packs/月卡.png) 00% 110% / cover no-repeat,#444444">
                 <div class="pack_img_text1">一二三四五六七  ￥300</div>
             </div>
 
             <div class="pack_info">
                 <div class="pack_info_text">
-                共11.4抽 <br><t1>￥5.14/抽</t1>
+                共{{pack.packDraw}}抽 <br><t1>￥{{pack.packRmbPerDraw}}/抽</t1>
                 </div>
                 <div class="pack_chart">
                     <div class="pack_chart_unit">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="pack_chart_unit">
                         <div class="pack_chart_unit_text">本礼包</div>
-                        <div class="pack_chart_unit_ppr bg_red" :style="getWidth(120,1)">120%</div>
+                        <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack.packPPRDraw*100,1)">120%</div>
                     </div>
                     <div class="pack_chart_unit">
                         <div class="pack_chart_unit_text">648源石</div>
@@ -120,7 +120,14 @@
 </style>
 
 <script>
+    import packsPPR from "static/json/pack_packsPPR.json";
+
     export default {
+        data(){
+            return {
+                packsPPRData:packsPPR,
+            }
+        },
         methods: {
             getWidth(num , scale) {
                 return "width:" + num*scale +"px";
