@@ -150,21 +150,43 @@
               </div>
             </div>
           </div>
-          <!-- <el-divider></el-divider>
-          <div class="gacha_unit_child" style="display:flex;">
-            <div class="gacha_unit_child_title" style="width: 153px;">
+          <el-divider></el-divider>
+          <div class="gacha_unit_child" style="display: flex">
+            <div
+              @click="compute()"
+              style="
+                margin-left: 8px;
+                width: 170px;
+                display: inline-block;
+                top: 2px;
+              "
+            >
+              <el-switch
+                v-model="originiumFlag"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+              >
+              </el-switch
+              >源石是否抽卡
+            </div>
+          </div>
+          <!-- <div class="gacha_unit_child" style="display: flex">
+            <div class="gacha_unit_child_title" style="width: 153px">
               预留皮肤
             </div>
             <el-slider
-              v-model="value2"
+              v-model="skinFlag"
               :step="1"
               :min="0"
               :max="10"
               show-stops
               show-input
-              style="display: inline-block;flex-grow: 1;">
+              @change="compute()"
+              style="display: inline-block; flex-grow: 1"
+            >
             </el-slider>
-          </div>
+          </div> -->
+          <!--
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 153px;">
               搓玉 xxxxx 理智
@@ -450,15 +472,17 @@
             <div
               v-for="(item, index) in gacha_storePacks"
               :key="index"
+              style="display: inline-block"
               v-show="item.type == 'monthly'"
               class="gacha_unit_child"
+
               @change="compute(item.name)"
             >
-              <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 150px">
+              <el-checkbox-button :label="index" >
+                <div class="gacha_unit_child_title" style="width: 160px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 110px">
                   [{{ item.price }}元/抽]
                 </div>
               </el-checkbox-button>
@@ -473,15 +497,16 @@
             <div
               v-for="(item, index) in gacha_storePacks"
               :key="index"
+              style="display: inline-block"
               v-show="item.type == 'gift'"
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 150px">
+                <div class="gacha_unit_child_title" style="width: 160px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 110px">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox-button
               >
@@ -495,15 +520,16 @@
             <div
               v-for="(item, index) in gacha_storePacks"
               :key="index"
+              style="display: inline-block"
               v-show="item.type == 'frist'"
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 150px">
+                <div class="gacha_unit_child_title" style="width: 160px">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 100px">
+                <div class="gacha_unit_child_fixed" style="width: 110px">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox-button
               >
@@ -917,11 +943,12 @@
         weekTaskFlag: true, //是否完成周常
         greenF2Flag: true, //是否兑换绿票商店二层
         greenF1Flag: false, //是否兑换绿票商店二层
-        originiumValue: true, //是否源石抽卡
-        weekStageValue: true, //是否完成剿灭
-        weekTaskValue: true, //是否完成周常
-        greenF2Value: true, //是否兑换绿票商店二层
-        greenF1Value: false, //是否兑换绿票商店二层
+        originiumValue: true,
+        weekStageValue: true,
+        weekTaskValue: true,
+        greenF2Value: true,
+        greenF1Value: false,
+        skinFlag: 0, //购买皮肤的数量
         customValue: 0, //自定义值
         cookieInit: 0,
         pieData: [
@@ -1214,7 +1241,7 @@
           parseInt(this.dailyRewards) +
           parseInt(this.monthsRemaining - this.greenF1Value) * 600 +
           parseInt(this.weeklyTaskRewards) +
-          parseInt(this.weeklyStageRewards) ;
+          parseInt(this.weeklyStageRewards);
 
         this.permit =
           parseInt(this.permit) +
@@ -1370,15 +1397,6 @@
           }
         }
 
-        //自动扣除部分{
-        //合成玉=—周常—剿灭—幸运墙
-        this.orundum =
-          parseInt(this.orundum) +
-          parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800
-        parseInt(this.countDown) * (8500 / 14) +
-        parseInt(this.customValue);
-
         this.orundum_other =
           parseInt(this.orundum_other) + parseInt(this.countDown) * (8500 / 14);
 
@@ -1393,6 +1411,23 @@
           parseInt(this.permit_other) +
           parseInt(this.permit10_other) * 10;
 
+        //自动扣除部分{
+        //合成玉=—周常—剿灭—幸运墙
+        this.orundum =
+          parseInt(this.orundum) +
+          parseInt(this.weekTaskValue) * 500 +
+          parseInt(this.weekStageValue) * 1800;
+        parseInt(this.countDown) * (8500 / 14) + parseInt(this.customValue);
+
+        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) >= 18) {
+          this.originium =
+            parseInt(this.originium) - parseInt(this.skinFlag) * 18;
+        } else {
+          this.$message.error("你的源石不足");
+        }
+
+        this.originium = parseInt(this.originium) * parseInt(flag_originium);
+
         this.sellsCount =
           this.sellsCount +
           648 * parseInt(this.originium_648) +
@@ -1404,7 +1439,7 @@
 
         //抽卡次数
         this.gachaTimes =
-          parseInt(this.originium) * 0.3 * flag_originium +
+          parseInt(this.originium) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum) / 600 +
           parseInt(this.permit) +
           parseInt(this.permit10) * 10;
