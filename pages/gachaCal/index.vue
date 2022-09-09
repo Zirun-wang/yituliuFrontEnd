@@ -2,15 +2,11 @@
 <template>
   <div id="gacha">
     <el-collapse v-model="checkBox" @change="handleChange">
-      <el-collapse-item
-        style="display: block; position: sticky; top: 16px;"
-        name="0"
-        id="totalTable"
-      >
+      <el-collapse-item style="display: block; position: sticky; top: 16px;" name="0" id="totalTable">
         <template slot="title">
-          <span class="collapse-item_title" style="color: purple"
-          >共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元</span
-          >
+          <span class="collapse-item_title" style="color: purple">
+            共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元
+          </span>
         </template>
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
@@ -97,6 +93,7 @@
           </div>
         </div>
       </el-collapse-item>
+      <!-- 现有库存 -->
       <el-collapse-item name="1" style="display: block">
         <template slot="title">
           <span class="collapse-item_title"
@@ -200,7 +197,7 @@
           </div> -->
         </div>
       </el-collapse-item>
-
+      <!-- 日常积累 -->
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
@@ -369,7 +366,7 @@
 
         </div>
       </el-collapse-item>
-
+      <!-- 氪金资源 -->
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
@@ -378,82 +375,85 @@
         </template>
 
         <div class="gacha_unit" id="charge">
-          <!-- 填空模块 -->
+          <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />月常礼包
+            <img class="gacha_img_small" src="/img/website/ex.png" />月常礼包 [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
-            <div
-              v-for="(item, index) in gacha_storePacks"
-              :key="index"
-              style="display: inline-block"
-              v-show="item.type == 'monthly'"
-              class="gacha_unit_child"
-
-              @change="compute(item.name)"
-            >
+            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'monthly'" class="gacha_unit_child" @change="compute(item.name)">
               <el-checkbox-button :label="index" >
-                <div class="gacha_unit_child_title" style="width: 160px;">
+                <div class="gacha_unit_child_title" style="width: 72px;font-weight: 600;">
+                  [{{ item.price }}]
+                </div>
+                <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_resources_unit" style="width: 110px;">
-                  [{{ item.price }}元/抽]
+                <div class="gacha_resources_unit" style="width: 192px;">
+                  <div style="width: 40px;" v-show="item.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.orundum !== '0'">{{item.orundum}}</div>
+                  <div style="width: 40px;" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.originium !== '0'">{{item.originium}}</div>
+                  <div style="width: 40px;" v-show="item.permit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit !== '0'">{{item.permit}}</div>
+                  <div style="width: 40px;" v-show="item.permit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit10 !== '0'">{{item.permit10}}</div>
                 </div>
               </el-checkbox-button>
             </div>
           </el-checkbox-group>
-          <!-- 折叠模块 -->
+          <!-- 限时、一次性礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />礼包
+            <img class="gacha_img_small" src="/img/website/ex.png" />限时/一次性礼包 [括号内为平均每抽价格(元)]
           </div>
-          <!-- 一个典型的复选模块 -->
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div
-              v-for="(item, index) in gacha_storePacks"
-              :key="index"
-              style="display: inline-block"
-              v-show="item.type == 'gift'"
-              class="gacha_unit_child"
-              @change="compute(item.name)"
-            >
+            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'gift'" class="gacha_unit_child" @change="compute(item.name)">
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 160px;">
+                <div class="gacha_unit_child_title" style="width: 72px;font-weight: 600;">
+                  [{{ item.price }}]
+                </div>
+                <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_resources_unit" style="width: 110px;">
-                  [{{ item.price }}元/抽]
-                </div></el-checkbox-button
-              >
+                <div class="gacha_resources_unit" style="width: 192px;">
+                  <div style="width: 40px;" v-show="item.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.orundum !== '0'">{{item.orundum}}</div>
+                  <div style="width: 40px;" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.originium !== '0'">{{item.originium}}</div>
+                  <div style="width: 40px;" v-show="item.permit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit !== '0'">{{item.permit}}</div>
+                  <div style="width: 40px;" v-show="item.permit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit10 !== '0'">{{item.permit10}}</div>
+                </div>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
-          <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />首充
-          </div>
+          <!-- 首充 -->
 
+          <div class="gacha_unit_fold">
+            <img class="gacha_img_small" src="/img/website/ex.png" />首充 [括号内为平均每抽价格(元)]
+          </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div
-              v-for="(item, index) in gacha_storePacks"
-              :key="index"
-              style="display: inline-block"
-              v-show="item.type == 'frist'"
-              class="gacha_unit_child"
-              @change="compute(item.name)"
-            >
+            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'first'" class="gacha_unit_child" @change="compute(item.name)">
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 160px;">
+                <div class="gacha_unit_child_title" style="width: 72px;font-weight: 600;">
+                  [{{ item.price }}]
+                </div>
+                <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_resources_unit" style="width: 110px;">
-                  [{{ item.price }}元/抽]
-                </div></el-checkbox-button
-              >
+                <div class="gacha_resources_unit" style="width: 192px;">
+                  <div style="width: 40px;" v-show="!item.orundum == '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="!item.orundum == '0'">1234</div>
+                  <div style="width: 40px;" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 22px;">12</div>
+                </div>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
 
           <div class="gacha_unit_fold">
             <img class="gacha_img_small" src="/img/website/ex.png" />非首充
           </div>
-          <!-- 一个典型的复选模块 -->
 
           <div class="gacha_unit_child">
             <input
@@ -561,7 +561,7 @@
           <!-- 复选模块End -->
         </div>
       </el-collapse-item>
-
+      <!-- 活动获得（估算） -->
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
@@ -629,7 +629,7 @@
           </div>
         </div>
       </el-collapse-item>
-
+      <!-- 其它资源（估算） -->
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
@@ -702,7 +702,7 @@
           <!-- 填空模块End -->
         </div>
       </el-collapse-item>
-
+      <!-- 致谢 -->
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">致谢</span>
