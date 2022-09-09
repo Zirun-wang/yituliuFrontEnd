@@ -72,7 +72,8 @@
 .gacha_unit_child {
   margin: 6px;
   margin-left: 8px;
-  vertical-align: middle;
+  vertical-align: top;
+  line-height: 40px;
 }
 
 .gacha_unit_child_title {
@@ -80,14 +81,14 @@
   height: 36px;
   line-height: 36px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: 20px;
   /* display: flex; */
 }
 
 .gacha_unit_child_inputbox {
   height: 24px;
-  width: 72px;
+  width: 66px;
   font-size: 18px;
   text-align: center;
   vertical-align: top;
@@ -96,16 +97,18 @@
 }
 
 
-.gacha_unit_child_fixed {
+.gacha_resources_unit {
   display: inline-block;
   height: 36px;
   line-height: 36px;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: 20px;
-  width: 87px;
   text-align: left;
 }
-
+.gacha_resources_unit div{
+  display: inline-block;
+  vertical-align: top;
+}
 
 .gacha_unit_fold {
   background-color: #e8e8e8;
@@ -148,5 +151,13 @@
   padding: 9px 0px;
 }
 .el-checkbox-button__inner{
-  padding:4px;
+  padding:2px;
+}
+.el-checkbox-button:last-child .el-checkbox-button__inner{
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.el-checkbox-button:first-child .el-checkbox-button__inner{
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }

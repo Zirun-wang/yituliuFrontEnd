@@ -3,7 +3,7 @@
   <div id="gacha">
     <el-collapse v-model="checkBox" @change="handleChange">
       <el-collapse-item
-        style="display: block; position: sticky; top: 16px"
+        style="display: block; position: sticky; top: 16px;"
         name="0"
         id="totalTable"
       >
@@ -171,7 +171,7 @@
             </div>
           </div>
           <!-- <div class="gacha_unit_child" style="display: flex">
-            <div class="gacha_unit_child_title" style="width: 153px">
+            <div class="gacha_unit_child_title" style="width: 153px;">
               预留皮肤
             </div>
             <el-slider
@@ -191,7 +191,7 @@
             <div class="gacha_unit_child_title" style="width: 153px;">
               搓玉 xxxxx 理智
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 105px">
+            <div class="gacha_resources_unit" style="width: 105px;">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
                 {{ paradox * 200 }}
@@ -209,133 +209,76 @@
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
+            <div class="gacha_unit_child_title" style="width: 150px;">
               日常 {{ daysRemaining }} 天
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 174px">
-              <div style="display: flex">
-                <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 75px">{{ dailyRewards }}</div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 174px;">
+              <div :class="getSpriteImg('4003icon', 0)"></div>
+              <div style="width: 75px;">{{ dailyRewards }}</div>
             </div>
           </div>
           <!-- 日常周常分界线 -->
           <el-divider></el-divider>
 
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
+            <div class="gacha_unit_child_title" style="width: 150px;">
               周常 {{ weeksRemaining + weekTaskValue }} 周
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 174px">
-              <div style="display: flex">
-                <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 75px">
-                  {{ weeklyTaskRewards + weekTaskValue * 500 }}
-                </div>
+            <div class="gacha_resources_unit" style="width: 186px;">
+              <div :class="getSpriteImg('4003icon', 0)"></div>
+              <div style="width: 75px;">
+                {{ weeklyTaskRewards + weekTaskValue * 500 }}
               </div>
             </div>
-            <div
-              @click="compute()"
-              style="
-                margin-left: 8px;
-                width: 160px;
-                display: inline-block;
-                top: 2px;
-              "
-            >
-              <el-switch
-                v-model="weekTaskFlag"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >&nbsp;本周已完成
+            <div @click="compute()" class="gacha_unit_child_title" style="width: 150px;line-height: 32px;">
+              <el-switch v-model="weekTaskFlag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+              本周已完成
             </div>
           </div>
 
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
+            <div class="gacha_unit_child_title" style="width: 150px;">
               剿灭 {{ weeksRemaining + weekStageValue }} 周
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 174px">
-              <div style="display: flex">
-                <div :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 75px">
-                  {{ weeklyStageRewards + weekStageValue * 1800 }}
-                </div>
+            <div class="gacha_resources_unit" style="width: 186px;">
+              <div :class="getSpriteImg('4003icon', 0)"></div>
+              <div style="width: 75px;">
+                {{ weeklyStageRewards + weekStageValue * 1800 }}
               </div>
             </div>
-            <div
-              @click="compute()"
-              style="
-                margin-left: 8px;
-                width: 160px;
-                display: inline-block;
-                top: 2px;
-              "
-            >
-              <el-switch
-                v-model="weekStageFlag"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >&nbsp;本周已完成
+            <div @click="compute()" class="gacha_unit_child_title" style="width: 150px;line-height: 32px;">
+              <el-switch v-model="weekStageFlag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+              本周已完成
             </div>
           </div>
           <!-- 周常月常分界线 -->
           <el-divider></el-divider>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
+            <div class="gacha_unit_child_title" style="width: 150px;">
               绿票商店 {{ monthsRemaining - greenF1Value }} 月
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 174px">
-              <div style="display: flex">
-                <div
-                  style="width: 40px"
-                  :class="getSpriteImg('4003icon', 0)"
-                ></div>
-                <div style="width: 72px">
-                  {{ (monthsRemaining - greenF1Value) * 600 }}&nbsp;
-                </div>
-                <div
-                  style="width: 40px"
-                  :class="getSpriteImg('7003icon', 0)"
-                ></div>
-                <div style="width: 22px">
-                  {{ (monthsRemaining - greenF1Value) * 4 }}&nbsp;
-                </div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 186px;">
+              <div style="width: 40px;" :class="getSpriteImg('4003icon', 0)"></div>
+              <div style="width: 66px;">{{ (monthsRemaining - greenF1Value) * 600 }}</div>
+              <div style="width: 40px;" :class="getSpriteImg('7003icon', 0)"></div>
+              <div style="width: 22px;">{{ (monthsRemaining - greenF1Value) * 4 }}</div>
             </div>
-            <div
-              @click="compute()"
-              style="
-                margin-left: 8px;
-                width: 150px;
-                display: inline-block;
-                top: 2px;
-              "
-            >
-              <el-switch
-                v-model="greenF1Flag"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >&nbsp;本月已换
+            <div @click="compute()" class="gacha_unit_child_title" style="width: 150px;line-height: 32px;">
+              <el-switch v-model="greenF1Flag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+              本月已换
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 150px">
+            <div class="gacha_unit_child_title" style="width: 150px;">
               每月签到 {{ SignInMonthsRemaining }} 月
             </div>
-            <div class="gacha_unit_child_fixed" style="width: 174px">
-              <div style="display: flex">
-                <div :class="getSpriteImg('7003icon', 0)"></div>
-                <div style="width: 75px">{{ SignInMonthsRemaining }}&nbsp;</div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 174px;">
+              <div :class="getSpriteImg('7003icon', 0)"></div>
+              <div style="width: 32px;">{{ SignInMonthsRemaining }}</div>
             </div>
           </div>
+          <!-- 258分界线 -->
+          <el-divider></el-divider>
           <el-checkbox-group v-model="gacha_store258List" class="">
             <div
               v-for="(item, index) in gacha_store258"
@@ -344,62 +287,41 @@
               class="gacha_unit_child"
               @change="compute(item.name)"
             >
-              <el-checkbox :label="index">
-                <div class="gacha_unit_child_title" style="width: 128px">
+              <el-checkbox-button :label="index">
+                <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 174px">
-                  <div style="display: flex">
-                    <div
-                      style="width: 40px"
-                      :class="getSpriteImg('7004icon', 0)"
-                    ></div>
-                    <div style="width: 72px">{{ item.permit10 }}&nbsp;</div>
-                    <div
-                      style="width: 40px"
-                      :class="getSpriteImg('7003icon', 0)"
-                    ></div>
-                    <div style="width: 22px">{{ item.permit }}&nbsp;</div>
-                  </div>
+                <div class="gacha_resources_unit">
+                  <div style="width: 40px;" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 32px;">{{ item.permit10 }}</div>
+                  <div style="width: 40px;" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 32px;">{{ item.permit }}</div>
                 </div>
-              </el-checkbox>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
         </div>
       </el-collapse-item>
-
+      <!-- 潜在资源 -->
       <el-collapse-item class="collapse-item" name="3" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title">
-            潜在资源 {{ getFixed(gachaTimes_potential) }}抽</span
-          >
+          <span class="collapse-item_title">潜在资源 {{ getFixed(gachaTimes_potential) }}抽</span>
         </template>
+
         <div class="gacha_unit" id="potential">
+          <!-- 悖论模拟 -->
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="paradox"
-            />
-            <div class="gacha_unit_child_title" style="width: 120px">
-              个悖论模拟
-            </div>
-            <div class="gacha_unit_child_fixed" style="width: 105px">
-              <div style="display: flex">
-                <div :class="getSpriteImg('4003icon', 0)"></div>
-                {{ paradox * 200 }}
-              </div>
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="paradox"/>
+            <div class="gacha_unit_child_title" style="width: 120px;">个悖论模拟</div>
+            <div class="gacha_resources_unit" style="width: 105px;">
+              <div :class="getSpriteImg('4003icon', 0)"></div>{{ paradox * 200 }}
             </div>
           </div>
-
+          <!-- 主线 -->
           <div class="gacha_unit_fold">
-            <img
-              class="gacha_img_small"
-              src="/img/website/ex.png"
-            />主线、突袭、绝境
+            <img class="gacha_img_small" src="/img/website/ex.png">
+            主线、突袭、绝境
           </div>
-
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
               v-for="(item, index) in gacha_potential"
@@ -410,22 +332,17 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index" size="small">
-                <div
-                  class="gacha_unit_child_title"
-                  :style="getChapterWidth(index)"
-                >
+                <div class="gacha_unit_child_title" :style="getChapterWidth(index)" style="padding-left:4px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed">
-                  <div style="display: flex">
-                    <div :class="getSpriteImg('4002icon', 0)"></div>
-                    {{ item.originium }}
-                  </div>
+                <div class="gacha_resources_unit">
+                  <div :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 36px;">{{ item.originium }}</div>
                 </div>
               </el-checkbox-button>
             </div>
           </el-checkbox-group>
-
+          <!-- Sidestory -->
           <div class="gacha_unit_fold">
             <img class="gacha_img_small" src="/img/website/ex.png" />支线、别传
           </div>
@@ -438,21 +355,18 @@
               style="display: inline-block"
               @change="compute(item.name)"
             >
-              <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 144px">
+              <el-checkbox-button :label="index" size="small">
+                <div class="gacha_unit_child_title" style="width: 144px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed">
-                  <div style="display: flex">
-                    <div :class="getSpriteImg('4002icon', 0)"></div>
-                    {{ item.originium }}
-                  </div>
-                </div></el-checkbox-button
-              >
+                <div class="gacha_resources_unit">
+                  <div :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 36px;">{{ item.originium }}</div>
+                </div>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
 
-          <!-- 复选模块End -->
         </div>
       </el-collapse-item>
 
@@ -479,10 +393,10 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index" >
-                <div class="gacha_unit_child_title" style="width: 160px">
+                <div class="gacha_unit_child_title" style="width: 160px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 110px">
+                <div class="gacha_resources_unit" style="width: 110px;">
                   [{{ item.price }}元/抽]
                 </div>
               </el-checkbox-button>
@@ -503,10 +417,10 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 160px">
+                <div class="gacha_unit_child_title" style="width: 160px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 110px">
+                <div class="gacha_resources_unit" style="width: 110px;">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox-button
               >
@@ -526,10 +440,10 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 160px">
+                <div class="gacha_unit_child_title" style="width: 160px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_unit_child_fixed" style="width: 110px">
+                <div class="gacha_resources_unit" style="width: 110px;">
                   [{{ item.price }}元/抽]
                 </div></el-checkbox-button
               >
@@ -548,10 +462,10 @@
               @change="compute()"
               v-model="originium_648"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石648元[11.68元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_648 * 185) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -565,10 +479,10 @@
               @change="compute()"
               v-model="originium_328"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石328元[12.15元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_328 * 90) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -582,10 +496,10 @@
               @change="compute()"
               v-model="originium_198"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石198元[13.20元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_198 * 50) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -599,10 +513,10 @@
               @change="compute()"
               v-model="originium_98"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石98元[13.61元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_98 * 24) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -616,10 +530,10 @@
               @change="compute()"
               v-model="originium_30"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石30元[14.29元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_30 * 7) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -633,10 +547,10 @@
               @change="compute()"
               v-model="originium_6"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               普通源石6元[20.00元/抽]
             </div>
-            <div class="gacha_unit_child_fixed">
+            <div class="gacha_resources_unit">
               <div style="display: flex">
                 X{{ getFixed(originium_6 * 1) }}
                 <div :class="getSpriteImg('4002icon', 0)"></div>
@@ -667,26 +581,26 @@
               @change="compute(item.name)"
             >
               <el-checkbox :label="index">
-                <div class="gacha_unit_child_title" style="width: 200px">
+                <div class="gacha_unit_child_title" style="width: 200px;">
                   {{ item.name }}
                 </div>
                 <div
-                  class="gacha_unit_child_fixed"
+                  class="gacha_resources_unit"
                   v-show="item.permit > 0"
-                  style="width: 50px"
+                  style="width: 50px;"
                 >
                   <div style="display: flex">
                     <div :class="getSpriteImg('7003icon', 0)"></div>
                     {{ item.permit }}
                   </div>
                 </div>
-                <div class="gacha_unit_child_fixed" v-show="item.originium > 0">
+                <div class="gacha_resources_unit" v-show="item.originium > 0">
                   <div style="display: flex">
                     <div :class="getSpriteImg('4002icon', 0)"></div>
                     {{ item.originium }}
                   </div>
                 </div>
-                <div class="gacha_unit_child_fixed" v-show="item.orundum > 0">
+                <div class="gacha_resources_unit" v-show="item.orundum > 0">
                   <div style="display: flex">
                     <div :class="getSpriteImg('4003icon', 0)"></div>
                     {{ item.orundum }}
@@ -699,13 +613,13 @@
             <div class="gacha_unit_child">
               <div class="gacha_unit_child_title">{{ act.name }}</div>
 
-              <div class="gacha_unit_child_fixed" v-show="act.originium > 0">
+              <div class="gacha_resources_unit" v-show="act.originium > 0">
                 <div style="display: flex">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
                   {{ act.originium }}
                 </div>
               </div>
-              <div class="gacha_unit_child_fixed" v-show="act.permit > 0">
+              <div class="gacha_resources_unit" v-show="act.permit > 0">
                 <div style="display: flex">
                   <div :class="getSpriteImg('7003icon', 0)"></div>
                   {{ act.permit }}
@@ -726,48 +640,48 @@
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
             <div class="gacha_unit_child">
-              <div class="gacha_unit_child_title" style="width: 240px">
+              <div class="gacha_unit_child_title" style="width: 240px;">
                 {{ other.name }}
               </div>
 
               <div
-                class="gacha_unit_child_fixed"
+                class="gacha_resources_unit"
                 v-show="other.orundum > 0"
-                style="width: 120px"
+                style="width: 120px;"
               >
                 <div style="display: flex">
                   <div :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 50px">{{ other.orundum }}</div>
+                  <div style="width: 50px;">{{ other.orundum }}</div>
                 </div>
               </div>
               <div
-                class="gacha_unit_child_fixed"
+                class="gacha_resources_unit"
                 v-show="other.originium > 0"
-                style="width: 120px"
+                style="width: 120px;"
               >
                 <div style="display: flex">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 50px">{{ other.originium }}</div>
+                  <div style="width: 50px;">{{ other.originium }}</div>
                 </div>
               </div>
               <div
-                class="gacha_unit_child_fixed"
+                class="gacha_resources_unit"
                 v-show="other.permit > 0"
-                style="width: 120px"
+                style="width: 120px;"
               >
                 <div style="display: flex">
                   <div :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 50px">{{ other.permit }}</div>
+                  <div style="width: 50px;">{{ other.permit }}</div>
                 </div>
               </div>
               <div
-                class="gacha_unit_child_fixed"
+                class="gacha_resources_unit"
                 v-show="other.permit10 > 0"
-                style="width: 120px"
+                style="width: 120px;"
               >
                 <div style="display: flex">
                   <div :class="getSpriteImg('7004icon', 0)"></div>
-                  <div style="width: 50px">{{ other.permit10 }}</div>
+                  <div style="width: 50px;">{{ other.permit10 }}</div>
                 </div>
               </div>
             </div>
@@ -775,7 +689,7 @@
 
           <!-- 填空模块 -->
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox" style="width: 150px">
+            <div class="gacha_unit_child_inputbox" style="width: 150px;">
               <input type="text" @change="compute()" v-model="customValue" />
             </div>
             <div class="gacha_unit_child_title" style="width: auto">
@@ -796,19 +710,19 @@
 
         <div class="gacha_unit" id="direction">
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
+            <div class="gacha_unit_child_title" style="width: 280px;">
               活动排期:
               <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊</a>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
+            <div class="gacha_unit_child_title" style="width: 280px;">
               数据参考: <a href="https://prts.wiki">prts.wiki</a>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx">攒抽规划反馈表</a>
+            <div class="gacha_unit_child_title" style="width: 280px;">
+              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx;">攒抽规划反馈表</a>
             </div>
           </div>
           <!-- 填空模块End -->
@@ -1610,7 +1524,7 @@
       },
 
       getChapterWidth(index) {
-        if (index % 2 == 0) return "width:200px;";
+        if (index % 2 == 0) return "width:216px;";
         else return "width:60px;";
       },
 
@@ -1731,6 +1645,7 @@
   .el-divider--horizontal {
     margin: 6px 0;
   }
+
 
   /* .el-switch__core{
     position: static;
