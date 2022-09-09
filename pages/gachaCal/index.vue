@@ -164,7 +164,7 @@
                 inactive-color="#ff4949"
               >
               </el-switch
-              >源石是否抽卡
+              >源石是否用于抽卡
             </div>
           </div>
           <!-- <div class="gacha_unit_child" style="display: flex">
@@ -414,6 +414,7 @@
                 <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
+                <!-- 一个通用的资源显示模块 -->
                 <div class="gacha_resources_unit" style="width: 192px;">
                   <div style="width: 40px;" v-show="item.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
                   <div style="width: 54px;" v-show="item.orundum !== '0'">{{item.orundum}}</div>
@@ -428,12 +429,11 @@
             </div>
           </el-checkbox-group>
           <!-- 首充 -->
-
           <div class="gacha_unit_fold">
             <img class="gacha_img_small" src="/img/website/ex.png" />首充 [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'first'" class="gacha_unit_child" @change="compute(item.name)">
+            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'frist'" class="gacha_unit_child" @change="compute(item.name)">
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 72px;font-weight: 600;">
                   [{{ item.price }}]
@@ -441,35 +441,26 @@
                 <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_resources_unit" style="width: 192px;">
-                  <div style="width: 40px;" v-show="!item.orundum == '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 54px;" v-show="!item.orundum == '0'">1234</div>
-                  <div style="width: 40px;" :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 22px;">12</div>
+                <div class="gacha_resources_unit" style="width: 126px;">
+                  <div style="width: 40px;" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.originium !== '0'">{{item.originium}}</div>
                 </div>
               </el-checkbox-button>
             </div>
           </el-checkbox-group>
-
+          <!-- 非首充 -->
           <div class="gacha_unit_fold">
             <img class="gacha_img_small" src="/img/website/ex.png" />非首充
           </div>
 
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_648"
-            />
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_648">
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石648元[11.68元/抽]
+              [11.68]普通源石648元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_648 * 185) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_648 * 185)}}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -480,13 +471,11 @@
               v-model="originium_328"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石328元[12.15元/抽]
+              [12.15]普通源石328元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_328 * 90) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_328 * 90)}}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -497,13 +486,11 @@
               v-model="originium_198"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石198元[13.20元/抽]
+              [13.20]普通源石198元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_198 * 50) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_198 * 50)}}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -514,13 +501,11 @@
               v-model="originium_98"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石98元[13.61元/抽]
+              [13.61]普通源石98元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_98 * 24) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_98 * 24)}}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -531,13 +516,11 @@
               v-model="originium_30"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石30元[14.29元/抽]
+              [14.29]普通源石30元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_30 * 7) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_30 * 7)}}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -548,13 +531,11 @@
               v-model="originium_6"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              普通源石6元[20.00元/抽]
+              [20.00]普通源石6元
             </div>
-            <div class="gacha_resources_unit">
-              <div style="display: flex">
-                X{{ getFixed(originium_6 * 1) }}
-                <div :class="getSpriteImg('4002icon', 0)"></div>
-              </div>
+            <div class="gacha_resources_unit" style="width: 126px;">
+              <div style="width: 40px;" :class="getSpriteImg('4002icon', 0)"></div>
+              <div style="width: 54px;">{{getFixed(originium_6 * 1)}}</div>
             </div>
           </div>
 
