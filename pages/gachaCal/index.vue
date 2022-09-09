@@ -149,22 +149,9 @@
           </div>
           <el-divider></el-divider>
           <div class="gacha_unit_child" style="display: flex">
-            <div
-              @click="compute()"
-              style="
-                margin-left: 8px;
-                width: 170px;
-                display: inline-block;
-                top: 2px;
-              "
-            >
-              <el-switch
-                v-model="originiumFlag"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
-              >
-              </el-switch
-              >源石是否用于抽卡
+            <div @click="compute()">
+              <el-switch v-model="originiumFlag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+              源石是否用于抽卡
             </div>
           </div>
           <!-- <div class="gacha_unit_child" style="display: flex">
@@ -441,7 +428,7 @@
                 <div class="gacha_unit_child_title" style="width: 168px;">
                   {{ item.name }}
                 </div>
-                <div class="gacha_resources_unit" style="width: 126px;">
+                <div class="gacha_resources_unit" style="width: 102px;">
                   <div style="width: 40px;" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                   <div style="width: 54px;" v-show="item.originium !== '0'">{{item.originium}}</div>
                 </div>
