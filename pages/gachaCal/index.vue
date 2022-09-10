@@ -147,13 +147,27 @@
               </div>
             </div>
           </div>
-          <el-divider></el-divider>
+
           <div class="gacha_unit_child" style="display: flex">
             <div @click="compute()">
               <el-switch v-model="originiumFlag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
               源石是否用于抽卡
             </div>
           </div>
+          <el-divider></el-divider>
+          <div class="gacha_unit_child">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="customValue"/>
+            <div class="gacha_unit_child_title" style="width: 270px;">自定义修正值(例如搓玉)</div>
+            <div class="gacha_resources_unit" style="width: 135px;">
+              <div :class="getSpriteImg('4003icon', 0)"></div>{{ customValue * 1 }}
+            </div>
+          </div>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 420px;">
+              搓玉比例：1理智=1玉 <a href="https://space.bilibili.com/8412516" style="margin-left:20px;">如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png" /></a>
+            </div>
+          </div>
+          <!-- 填空模块End -->
           <!-- <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title" style="width: 153px;">
               预留皮肤
@@ -420,7 +434,7 @@
             <img class="gacha_img_small" src="/img/website/ex.png" />首充 [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'frist'" class="gacha_unit_child" @change="compute(item.name)">
+            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.type == 'first'" class="gacha_unit_child" @change="compute(item.name)">
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 72px;font-weight: 600;">
                   [{{ item.price }}]
@@ -537,61 +551,39 @@
           >
         </template>
         <div class="gacha_unit" id="activity">
-          <!-- zxcvb -->
-          <!-- 这改成“ ‘长夜临光复刻’ 【】源石 【】紫票 ” -->
+          <!-- 长夜临光复刻 -->
           <div class="gacha_unit_child">长夜临光复刻</div>
           <el-checkbox-group v-model="gacha_actReList" class="">
-            <div
-              v-for="(item, index) in gacha_actRe"
-              :key="index"
-              v-show="item.type == 'activityper'"
-              class="gacha_unit_child"
-              @change="compute(item.name)"
-            >
-              <el-checkbox :label="index">
-                <div class="gacha_unit_child_title" style="width: 200px;">
-                  {{ item.name }}
+            <div v-for="(item, index) in gacha_actRe" :key="index" v-show="item.type == 'activityper'" class="gacha_unit_child" @change="compute(item.name)">
+              <el-checkbox-button :label="index">
+                <div class="gacha_unit_child_title" style="width: 200px;">{{ item.name }}</div>
+                <!-- 一个通用的资源显示模块 -->
+                <div class="gacha_resources_unit" style="width: 192px;">
+                  <div style="width: 40px;" v-show="item.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.orundum !== '0'">{{item.orundum}}</div>
+                  <div style="width: 40px;" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.originium !== '0'">{{item.originium}}</div>
+                  <div style="width: 40px;" v-show="item.permit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit !== '0'">{{item.permit}}</div>
+                  <div style="width: 40px;" v-show="item.permit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px;" v-show="item.permit10 !== '0'">{{item.permit10}}</div>
                 </div>
-                <div
-                  class="gacha_resources_unit"
-                  v-show="item.permit > 0"
-                  style="width: 50px;"
-                >
-                  <div style="display: flex">
-                    <div :class="getSpriteImg('7003icon', 0)"></div>
-                    {{ item.permit }}
-                  </div>
-                </div>
-                <div class="gacha_resources_unit" v-show="item.originium > 0">
-                  <div style="display: flex">
-                    <div :class="getSpriteImg('4002icon', 0)"></div>
-                    {{ item.originium }}
-                  </div>
-                </div>
-                <div class="gacha_resources_unit" v-show="item.orundum > 0">
-                  <div style="display: flex">
-                    <div :class="getSpriteImg('4003icon', 0)"></div>
-                    {{ item.orundum }}
-                  </div>
-                </div>
-              </el-checkbox>
+              </el-checkbox-button>
             </div>
           </el-checkbox-group>
           <div v-for="(act, index) in gacha_actReward" :key="index">
             <div class="gacha_unit_child">
               <div class="gacha_unit_child_title">{{ act.name }}</div>
-
-              <div class="gacha_resources_unit" v-show="act.originium > 0">
-                <div style="display: flex">
-                  <div :class="getSpriteImg('4002icon', 0)"></div>
-                  {{ act.originium }}
-                </div>
-              </div>
-              <div class="gacha_resources_unit" v-show="act.permit > 0">
-                <div style="display: flex">
-                  <div :class="getSpriteImg('7003icon', 0)"></div>
-                  {{ act.permit }}
-                </div>
+              <!-- 一个通用的资源显示模块 -->
+              <div class="gacha_resources_unit" style="width: 234px;">
+                <div style="width: 40px;" v-show="act.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                <div style="width: 54px;" v-show="act.orundum !== '0'">{{act.orundum}}</div>
+                <div style="width: 40px;" v-show="act.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                <div style="width: 54px;" v-show="act.originium !== '0'">{{act.originium}}</div>
+                <div style="width: 40px;" v-show="act.permit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 54px;" v-show="act.permit !== '0'">{{act.permit}}</div>
+                <div style="width: 40px;" v-show="act.permit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                <div style="width: 54px;" v-show="act.permit10 !== '0'">{{act.permit10}}</div>
               </div>
             </div>
           </div>
@@ -601,8 +593,8 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <span class="collapse-item_title">
-            其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span
-          >
+            其它资源（估算）{{ getFixed(gachaTimes_other) }}抽
+          </span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
@@ -612,62 +604,18 @@
                 {{ other.name }}
               </div>
 
-              <div
-                class="gacha_resources_unit"
-                v-show="other.orundum > 0"
-                style="width: 120px;"
-              >
-                <div style="display: flex">
-                  <div :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 50px;">{{ other.orundum }}</div>
-                </div>
-              </div>
-              <div
-                class="gacha_resources_unit"
-                v-show="other.originium > 0"
-                style="width: 120px;"
-              >
-                <div style="display: flex">
-                  <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 50px;">{{ other.originium }}</div>
-                </div>
-              </div>
-              <div
-                class="gacha_resources_unit"
-                v-show="other.permit > 0"
-                style="width: 120px;"
-              >
-                <div style="display: flex">
-                  <div :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 50px;">{{ other.permit }}</div>
-                </div>
-              </div>
-              <div
-                class="gacha_resources_unit"
-                v-show="other.permit10 > 0"
-                style="width: 120px;"
-              >
-                <div style="display: flex">
-                  <div :class="getSpriteImg('7004icon', 0)"></div>
-                  <div style="width: 50px;">{{ other.permit10 }}</div>
-                </div>
+              <div class="gacha_resources_unit" style="width: 234px;">
+                <div style="width: 40px;" v-show="other.orundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                <div style="width: 54px;" v-show="other.orundum !== '0'">{{other.orundum}}</div>
+                <div style="width: 40px;" v-show="other.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                <div style="width: 54px;" v-show="other.originium !== '0'">{{other.originium}}</div>
+                <div style="width: 40px;" v-show="other.permit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 54px;" v-show="other.permit !== '0'">{{other.permit}}</div>
+                <div style="width: 40px;" v-show="other.permit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                <div style="width: 54px;" v-show="other.permit10 !== '0'">{{other.permit10}}</div>
               </div>
             </div>
           </div>
-
-          <!-- 填空模块 -->
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_inputbox" style="width: 150px;">
-              <input type="text" @change="compute()" v-model="customValue" />
-            </div>
-            <div class="gacha_unit_child_title" style="width: auto">
-              自定义修正值
-            </div>
-            <div class="gacha_unit_child_title" style="width: auto">
-              *例：需要为某池子预留20抽，则可填入-12000
-            </div>
-          </div>
-          <!-- 填空模块End -->
         </div>
       </el-collapse-item>
       <!-- 致谢 -->
@@ -680,17 +628,23 @@
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px;">
               活动排期:
-              <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊</a>
+              <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px;">
-              数据参考: <a href="https://prts.wiki">prts.wiki</a>
+              搓玉计算:
+              <a href="https://space.bilibili.com/8412516">公孙长乐<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px;">
-              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx;">攒抽规划反馈表</a>
+              数据参考: <a href="https://prts.wiki">prts.wiki<img class="gacha_img_small" src="/img/website/el.png" /></a>
+            </div>
+          </div>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px;">
+              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx;">攒抽规划反馈表<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <!-- 填空模块End -->
@@ -971,9 +925,8 @@
         }
 
         //库存计算（共计）
-        this.originium =
-          parseInt(this.originium) + parseInt(this.originium_exist);
-        this.orundum = parseInt(this.orundum) + parseInt(this.orundum_exist);
+        this.originium = parseInt(this.originium) + parseInt(this.originium_exist);
+        this.orundum = parseInt(this.orundum) + parseInt(this.orundum_exist) + parseInt(this.customValue);
         this.permit = parseInt(this.permit) + parseInt(this.permit_exist);
         this.permit10 = parseInt(this.permit10) + parseInt(this.permit10_exist);
 
@@ -982,7 +935,8 @@
           parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_exist) / 600 +
           parseInt(this.permit_exist) +
-          parseInt(this.permit10_exist) * 10;
+          parseInt(this.permit10_exist) * 10+
+          parseInt(this.customValue)/ 600;
 
         //主线和常驻活动计算（共计）
         for (let i = 0; i < this.gacha_potentialList.length; i++) {
