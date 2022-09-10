@@ -185,6 +185,7 @@
 
 #popup_background{
 	z-index:128;
+    max-width: 1120px;
     display: none;
 	position: fixed;
     top: 0;
