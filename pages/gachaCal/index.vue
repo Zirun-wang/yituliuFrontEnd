@@ -659,7 +659,6 @@
   </div>
 </template>
 
-
 <script>
   import gacha_potentialJson from "static/json/gacha_potential.json";
   import gacha_actReJson from "static/json/gacha_actRe.json";
@@ -867,9 +866,10 @@
           if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 10) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
             this.monthsRemaining++;
           }
+
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
           }
@@ -899,6 +899,7 @@
         //初始化
 
         this.valueInit();
+        console.log("初始化数值");
 
         //判断是否用源石抽卡
         var flag_originium = 0;
@@ -930,8 +931,12 @@
         }
 
         //库存计算（共计）
-        this.originium = parseInt(this.originium) + parseInt(this.originium_exist);
-        this.orundum = parseInt(this.orundum) + parseInt(this.orundum_exist) + parseInt(this.customValue);
+        this.originium =
+          parseInt(this.originium) + parseInt(this.originium_exist);
+        this.orundum =
+          parseInt(this.orundum) +
+          parseInt(this.orundum_exist) +
+          parseInt(this.customValue);
         this.permit = parseInt(this.permit) + parseInt(this.permit_exist);
         this.permit10 = parseInt(this.permit10) + parseInt(this.permit10_exist);
 
@@ -940,8 +945,8 @@
           parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_exist) / 600 +
           parseInt(this.permit_exist) +
-          parseInt(this.permit10_exist) * 10+
-          parseInt(this.customValue)/ 600;
+          parseInt(this.permit10_exist) * 10 +
+          parseInt(this.customValue) / 600;
 
         //主线和常驻活动计算（共计）
         for (let i = 0; i < this.gacha_potentialList.length; i++) {
@@ -1257,8 +1262,8 @@
         this.orundum =
           parseInt(this.orundum) +
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800;
-        parseInt(this.countDown) * (8500 / 14) + parseInt(this.customValue);
+          parseInt(this.weekStageValue) * 1800 +
+          parseInt(this.countDown) * (8500 / 14);
 
         if (parseInt(this.originium - parseInt(this.skinFlag) * 18) >= 18) {
           this.originium =
@@ -1451,7 +1456,7 @@
       },
 
       getChapterWidth(index) {
-        if (index % 2 == 0) return "width:216px;";
+        if (index % 2 == 0) return "width:200px;";
         else return "width:60px;";
       },
 
@@ -1473,8 +1478,6 @@
       },
 
       pieChart(data) {
-        console.log("触发了");
-
         var chartDom = document.getElementById("gacha_total_pie");
         var myChart = echarts.init(chartDom);
 
@@ -1572,7 +1575,6 @@
   .el-divider--horizontal {
     margin: 6px 0;
   }
-
 
   /* .el-switch__core{
     position: static;
