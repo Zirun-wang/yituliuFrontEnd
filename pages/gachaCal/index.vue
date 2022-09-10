@@ -164,7 +164,7 @@
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 420px;">
-              搓玉比例：1理智=1玉 <a href="https://space.bilibili.com/8412516" style="margin-left:20px;">如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png" /></a>
+              搓玉比例：1理智=1玉 <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="margin-left:20px;">如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <!-- 填空模块End -->
@@ -634,12 +634,17 @@
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px;">
               搓玉计算:
-              <a href="https://space.bilibili.com/8412516">公孙长乐<img class="gacha_img_small" src="/img/website/el.png" /></a>
+              <a href="https://space.bilibili.com/22606843">公孙长乐<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px;">
               数据参考: <a href="https://prts.wiki">prts.wiki<img class="gacha_img_small" src="/img/website/el.png" /></a>
+            </div>
+          </div>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px;">
+              项目地址: <a href="https://github.com/Zirun-wang/yituliuFrontEnd">Github页面<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
