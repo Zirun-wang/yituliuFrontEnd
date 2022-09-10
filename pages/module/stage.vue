@@ -129,7 +129,8 @@
           </tbody>
         </table>
         <!-- 数据表End -->
-        <p style="padding:8px;" class="f12 t1">置信度：材料掉率在对关卡效率误差影响在3%前提下的可信程度范围<br> <a href="https://www.bilibili.com/video/BV1yL4y1P7K1">详细介绍</a>
+        <el-divider></el-divider>
+        <p style="padding:8px;color:#222222;" class="f12 t1">置信度：材料掉率在对关卡效率误差影响在3%前提下的可信程度范围<br> <a href="https://www.bilibili.com/video/BV1yL4y1P7K1">详细介绍</a>
         <br>SPM:1倍速下，假设最后出现的敌人被秒杀，每分钟消耗的理智量。
         <br>SPM受结算、网络等因素影响可能有出入，列出供参考。</p>
       </div>
