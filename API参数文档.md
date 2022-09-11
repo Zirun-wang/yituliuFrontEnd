@@ -11,30 +11,23 @@ url:  /api/find/stage/t3/{times}/{efficiency}
  ```
  ```
  类型String    名称 stageId  // 关卡id
- 类型String    名称 chapterName //章节名称
- 类型Integer   名称 code  //章节顺序
  类型Integer   名称 times  // 样本次数
  类型String    名称 itemId   //产物ID
  类型String    名称 itemName    //产物名称
  类型String    名称 stageName   // 关卡名称
- 类型Double    名称 probability   // 概率
- 类型Double    名称 request   // 单项结果
+ 类型Double    名称 probability   // 主产物概率
  类型Double    名称 expect // 期望理智
  类型String    名称 main // 主产物
- 类型Integer   名称 mainLevel // 主产物
- 类型String    名称 type  //材料类型
+ 类型String    名称 itemType  //材料类型
  类型String    名称 secondary // 副产物
- 类型String    名称 secondaryId
+ 类型String    名称 secondaryId // 副产物id
  类型Double    名称 efficiency  //绿票转化率
- 类型Integer   名称 isShow   // 是否显示
- 类型Integer   名称 isUseValue  //是否参与定价
- 类型Integer   名称 color  // 关卡标注颜色
+ 类型Integer   名称 color  // 关卡标注颜色 橙色:4 ,紫色:3 ,蓝色:2 ,绿色:1   红色:-1
  类型Double    名称 percentage    //理智转化率
  类型String    名称 updateDate  //更新时间
  类型String    名称 spm  //每分钟消耗理智
  类型String    名称 activityName //活动名称
  类型Double    名称 efficiencyEx  // 绿票转化率（ 理智小样
- 类型String    名称 extraItem //  理智小样
  类型Double    名称 confidence  // 样本置信度
  ```
 
@@ -46,30 +39,23 @@ url:  /api/find/stage/t2
  ```
  ```
  类型String    名称 stageId  // 关卡id
- 类型String    名称 chapterName //章节名称
- 类型Integer   名称 code  //章节顺序
  类型Integer   名称 times  // 样本次数
  类型String    名称 itemId   //产物ID
  类型String    名称 itemName    //产物名称
  类型String    名称 stageName   // 关卡名称
- 类型Double    名称 probability   // 概率
- 类型Double    名称 request   // 单项结果
+ 类型Double    名称 probability   // 主产物概率
  类型Double    名称 expect // 期望理智
  类型String    名称 main // 主产物
- 类型Integer   名称 mainLevel // 主产物
- 类型String    名称 type  //材料类型
+ 类型String    名称 itemType  //材料类型
  类型String    名称 secondary // 副产物
- 类型String    名称 secondaryId
+ 类型String    名称 secondaryId // 副产物id
  类型Double    名称 efficiency  //绿票转化率
- 类型Integer   名称 isShow   // 是否显示
- 类型Integer   名称 isUseValue  //是否参与定价
- 类型Integer   名称 color  // 关卡标注颜色
+ 类型Integer   名称 color  // 关卡标注颜色 橙色:4 ,紫色:3 ,蓝色:2 ,绿色:1   红色:-1
  类型Double    名称 percentage    //理智转化率
  类型String    名称 updateDate  //更新时间
  类型String    名称 spm  //每分钟消耗理智
  类型String    名称 activityName //活动名称
  类型Double    名称 efficiencyEx  // 绿票转化率（ 理智小样
- 类型String    名称 extraItem //  理智小样
  类型Double    名称 confidence  // 样本置信度
  ```
 
@@ -135,30 +121,23 @@ url:  /api/find/stage/activity/closed
  ```
  ```
  类型String    名称 stageId  // 关卡id
- 类型String    名称 chapterName //章节名称
- 类型Integer   名称 code  //章节顺序
  类型Integer   名称 times  // 样本次数
  类型String    名称 itemId   //产物ID
  类型String    名称 itemName    //产物名称
  类型String    名称 stageName   // 关卡名称
- 类型Double    名称 probability   // 概率
- 类型Double    名称 request   // 单项结果
+ 类型Double    名称 probability   // 主产物概率
  类型Double    名称 expect // 期望理智
  类型String    名称 main // 主产物
- 类型Integer   名称 mainLevel // 主产物
- 类型String    名称 type  //材料类型
+ 类型String    名称 itemType  //材料类型
  类型String    名称 secondary // 副产物
- 类型String    名称 secondaryId
+ 类型String    名称 secondaryId // 副产物id
  类型Double    名称 efficiency  //绿票转化率
- 类型Integer   名称 isShow   // 是否显示
- 类型Integer   名称 isUseValue  //是否参与定价
- 类型Integer   名称 color  // 关卡标注颜色
+ 类型Integer   名称 color  // 关卡标注颜色 橙色:4 ,紫色:3 ,蓝色:2 ,绿色:1   红色:-1
  类型Double    名称 percentage    //理智转化率
  类型String    名称 updateDate  //更新时间
  类型String    名称 spm  //每分钟消耗理智
  类型String    名称 activityName //活动名称
  类型Double    名称 efficiencyEx  // 绿票转化率（ 理智小样
- 类型String    名称 extraItem //  理智小样
  类型Double    名称 confidence  // 样本置信度
  ```
 
