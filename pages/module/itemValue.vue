@@ -12,10 +12,10 @@
           </div>
 
           <div class="op_title_tag">
-            <div id="nowActStageKey" class="op_tag_0" @click="switchUnit(1)">
+            <div id="value_switch_to_saint" :class="tag_class_sanity" @click="switchUnit(1)">
               等效理智
             </div>
-             <div id="nowActStageKey" class="op_tag_0" @click="switchUnit(2)">
+             <div id="value_switch_to_green" :class="tag_class_green" @click="switchUnit(2)">
               等效绿票
             </div>
             <div class="tab_text">
@@ -30,26 +30,13 @@
 
       <div class="value_content" style="display: flex;flex-wrap: wrap;">
         <div v-for="(card, index) in cardNum" :key="index" class="item_card">
-          <div
-            v-for="(item, index) in itemList"
-            :key="index"
-            class="item_width"
-          >
-            <div
-              :class="getItemValueCard(card, item.cardNum, item.type)"
-              v-show="item.id < 70"
-            >
+          <div v-for="(item, index) in itemList" :key="index" class="item_width">
+            <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
               <table>
                 <tr>
                   <td style="padding:0px;">
-                    <img
-                      class="item_img_size"
-                      :src="static_imgUrl(item.itemName)"
-                      :alt="getItemName(item.itemName)"
-                    />
-                    <img />
+                    <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/>
                   </td>
-
                   <td v-show="valueType == 'sanity'" class="item_card_value_font"  style="padding:0px;color: gray">
                     {{ getItemsanityValue(item.itemId, item.itemValue) }}
                   </td>
@@ -68,26 +55,6 @@
 
 
 
-
-    <div class="yituliu_title_moudule" style="display:none;">
-     
-      <div @click="switchUnit(1)" :class="itemTag_sanity_css">
-        单位:等效理智
-      </div>
-      <div @click="switchUnit(2)" :class="itemTag_green_css">
-        单位:等效绿票
-      </div>
-      <div class="yituliu_title_moudule_button_">
-        <a
-          class="href_color"
-          href="https://houduan.yituliu.site/item/exportItemData"
-          target="_blank"
-          >导出价值表
-        </a>
-      </div>
-    </div>
-
-
   </div>
 </template>
 
@@ -101,8 +68,8 @@ export default {
       cardNum: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       itemCardsanity: "",
       itemValueCard_css: "",
-      itemTag_green_css: "yituliu_title_moudule_button",
-      itemTag_sanity_css: "yituliu_title_moudule_button",
+      tag_class_green: "yituliu_title_moudule_button",
+      tag_class_sanity: "yituliu_title_moudule_button",
     };
   },
   created() {
@@ -155,11 +122,11 @@ export default {
     //切换价值单位tag样式
     changeItemTagColor(index) {
       if (index == 2) {
-        this.itemTag_green_css = "yituliu_title_moudule_button yituliu_title_moudule_button_color";
-        this.itemTag_sanity_css = "yituliu_title_moudule_button";
+        this.tag_class_green = "op_tag_1";
+        this.tag_class_sanity = "op_tag_0";
       } else if (index == 1) {
-        this.itemTag_sanity_css = "yituliu_title_moudule_button yituliu_title_moudule_button_color";
-        this.itemTag_green_css = "yituliu_title_moudule_button";
+        this.tag_class_green = "op_tag_0";
+        this.tag_class_sanity = "op_tag_1";
       }
     },
 
