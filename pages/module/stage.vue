@@ -98,9 +98,9 @@
         <!-- <img class="popup_img" :src="getImgUrl(main)" :alt="main"> -->
         <div class="popup_header" >
           <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div>
-          <div class="popup_header_text">{{main}}</div>
-          <a :href="getPenguinUrl(itemId)" target="_blank" class="popup_header_penguin">
-            <div class="t3" style="float: right;margin: 24px;font-size: 18px;font-weight: 500;">查看企鹅物流原始数据</div>
+          <div class="popup_header_text">main</div>
+          <a :href="getPenguinUrl(itemId)" target="_blank">
+            <div class="t3 popup_header_penguin">查看企鹅物流原始数据 <img style="width: 16px;vertical-align: middle;margin: 0px 4px 12px -2px;" src="/img/website/el.png" /></div>
           </a>
         </div>
         <!-- 散装标题End -->
@@ -115,11 +115,11 @@
             <td class="popup_table_c4" style="width:55px;">副产品</td>
             <td class="popup_table_c5" style="width:90px;">主产物掉率</td>
             <td class="popup_table_c6" style="width:90px;">主产物期望</td>
-            <td class="popup_table_c7" style="width:90px;">关卡效率<br>(百分比)</td>
+            <td class="popup_table_c7" style="width:90px;">关卡效率</td>
           </tr>
           <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.color)" class="stage_table_r">
             <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageName}}</td>
-            <td class="popup_table_c2">{{shrinkTimes(stage.times)}}<br>({{stage.confidence}}%)</td>
+            <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.times)}}<br>({{stage.confidence}}%)</td>
             <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
             <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
             <td class="popup_table_c5">{{getEfficiency(stage.probability*100, 1)}}%</td>
@@ -130,7 +130,7 @@
         </table>
         <!-- 数据表End -->
         <el-divider></el-divider>
-        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">置信度：掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1">详细介绍</a>
+        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">置信度：掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">详细介绍<img style="width: 16px;vertical-align: middle;margin: -2px 4px 0px 2px;" src="/img/website/el.png"></a>
         <br>SPM:1倍速下，假设最后出现的敌人被秒杀，每分钟消耗的理智量。
         <br>受动画、网络等因素影响可能有出入，列出供参考。</p>
       </div>
