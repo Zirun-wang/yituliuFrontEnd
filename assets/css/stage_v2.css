@@ -24,7 +24,10 @@
     /* left: -1%; */
     -webkit-filter: grayscale(0.1);
     filter: grayscale(0.1);
-    position: absolute;
+    /* position: absolute; */
+    /* margin-left: -1%; */
+    margin-left: calc(30% - 100px);
+    display: inline-block;
 }
 
 .stage_card_t3_img img {
@@ -47,13 +50,14 @@
     font-size: 20px;
     font-weight: 600;
     height: 90px;
-    width: 80%;
+    width: 82.5%;
     overflow: hidden;
     -webkit-backdrop-filter: blur(6px) grayscale(0.6);
     backdrop-filter: blur(18px) grayscale(0.6);
-    border-radius: 4px;
+    border-radius: 0px 4px 4px 0px;
     max-width: 210px;
     float: right;
+    margin-left: -100px;
 }
 
 .stage_card_t3_table table {

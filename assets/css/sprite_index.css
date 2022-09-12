@@ -6,7 +6,7 @@
 }
 
 .sprite_secondary {
-    transform: scale(0.5);
+    transform: scale(0.45);
     margin-top: -15px;
     margin-left: -12px;
 }
