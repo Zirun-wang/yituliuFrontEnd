@@ -20,7 +20,7 @@
             *点击卡片查看详情
             </div>
             <div class="tab_text">
-            <!-- *更新时间{{ stageRankT3[3][1].main}} -->
+            <!-- *更新时间{{ popupData}} -->
             *更新时间 2022-08-11
             </div>
           </div>
@@ -119,7 +119,7 @@
           </tr>
           <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.color)" class="stage_table_r">
             <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageName}}</td>
-            <td class="popup_table_c2">{{shrinkTimes(stage.times)}}<br>({{stage.confidence}})%</td>
+            <td class="popup_table_c2">{{shrinkTimes(stage.times)}}<br>({{stage.confidence}}%)</td>
             <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
             <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
             <td class="popup_table_c5">{{getEfficiency(stage.probability*100, 1)}}%</td>
@@ -130,9 +130,9 @@
         </table>
         <!-- 数据表End -->
         <el-divider></el-divider>
-        <p style="padding:8px;color:#222222;" class="f12 t1">置信度：材料掉率在对关卡效率误差影响在3%前提下的可信程度范围<br> <a href="https://www.bilibili.com/video/BV1yL4y1P7K1">详细介绍</a>
+        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">置信度：掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1">详细介绍</a>
         <br>SPM:1倍速下，假设最后出现的敌人被秒杀，每分钟消耗的理智量。
-        <br>SPM受结算、网络等因素影响可能有出入，列出供参考。</p>
+        <br>受动画、网络等因素影响可能有出入，列出供参考。</p>
       </div>
     </div>
     <!-- 弹窗End -->

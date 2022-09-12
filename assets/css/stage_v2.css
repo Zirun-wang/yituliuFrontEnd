@@ -3,7 +3,7 @@
     overflow: hidden;
     -webkit-transition: .3s;
     transition: .3s;
-    background: #80808020;
+    background: rgba(128,128,128,0.1);
     height: 110px;
     width: 240px;
     max-width: 330px;
@@ -15,15 +15,16 @@
 }
 
 .stage_card_t3_img {
-    width: 40%;
+    width: 110px;
     height: 110px;
-    float: left;
-    text-align: right;
-    overflow: hidden;
+    /* float: left; */
+    /* text-align: right; */
+    /* overflow: hidden; */
     opacity: 0.6;
-    position: relative;
-    left: -5%;
+    /* left: -1%; */
+    -webkit-filter: grayscale(0.1);
     filter: grayscale(0.1);
+    position: absolute;
 }
 
 .stage_card_t3_img img {
@@ -38,20 +39,21 @@
 }
 
 .stage_card_t3_table {
-    border:0px;
+    border: 0px;
     border-top: 10px solid;
     border-bottom: 10px solid;
+    -o-border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
     border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
-    margin-left: -20%;
     font-size: 20px;
     font-weight: 600;
     height: 90px;
     width: 80%;
     overflow: hidden;
-    display: inline-block;
-    position: relative;
-    backdrop-filter: blur(6px) grayscale(0.6);
+    -webkit-backdrop-filter: blur(6px) grayscale(0.6);
+    backdrop-filter: blur(18px) grayscale(0.6);
     border-radius: 4px;
+    max-width: 210px;
+    float: right;
 }
 
 .stage_card_t3_table table {

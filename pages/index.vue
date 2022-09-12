@@ -1,5 +1,5 @@
 <template>
-  <div id="indexDiv" :class="pageTheme" style="max-width:1120px;margin:auto;">
+  <div id="indexDiv" :class="pageTheme" style="max-width:1008px;margin:auto;">
     <stage></stage>
     <storeVue> </storeVue>
     <div class="title_null"></div>
