@@ -13,11 +13,11 @@
           </div>
         </div>
         <div class="op_title_tag">
-          <img alt="" :class=tagColor[0] id="store_tag_0" :src="getImgUrl('资质凭证',4)" @click="switch_store('0')">
-          <img alt="" :class=tagColor[1] id="store_tag_1" :src="getImgUrl('高级凭证',4)" @click="switch_store('1')">
-          <img alt="" :class=tagColor[2] id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
-          <img alt="" :class=tagColor[3] id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
-          <img alt="" :class=tagColor[4] id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
+          <img alt="绿票" :class=tagColor[0] class="store_tag_icon" id="store_tag_0" :src="getImgUrl('资质凭证',4)" @click="switch_store('0')">
+          <img alt="黄票" :class=tagColor[1] class="store_tag_icon" id="store_tag_1" :src="getImgUrl('高级凭证',4)" @click="switch_store('1')">
+          <img alt="橙票" :class=tagColor[2] class="store_tag_icon" id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
+          <img alt="紫票" :class=tagColor[3] class="store_tag_icon" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
+          <img alt="信用" :class=tagColor[4] class="store_tag_icon" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
           <div class="tab_text">
             *点击图标切换
           </div>
@@ -28,8 +28,8 @@
       <!-- 内容区域 -->
       <!-- 绿票商店 -->
       <div class="store_content" id="store_0" :style="storeVisiable[0]">
-        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
-          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('资质凭证' ,4)">	
+        <div class="store_unit">
+          <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('资质凭证' ,4)">	
         </div>
         <div v-for="(m_data, index) in storeList[0]" class="store_unit" :key="index">
           <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" >	
@@ -53,8 +53,8 @@
       </div>
       <!-- 黄票商店 -->
       <div class="store_content" id="store_1" :style="storeVisiable[1]">
-        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
-          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('高级凭证' ,4)">	
+        <div class="store_unit">
+          <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('高级凭证' ,4)">	
         </div>
         <div v-for="(m_data, index) in storeList[3]" class="store_unit" :key="index">
           <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
@@ -78,8 +78,8 @@
       </div>
       <!-- 橙票商店 -->
       <div class="store_content" id="store_2" :style="storeVisiable[2]">
-        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
-          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('寻访参数模型' ,4)">	
+        <div class="store_unit">
+          <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('寻访参数模型' ,4)">	
         </div>
         <div v-for="(m_data, index) in storeList[1]" class="store_unit" :key="index">
           <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
@@ -103,8 +103,8 @@
       </div>
       <!-- 紫票商店 -->
       <div class="store_content" id="store_3" :style="storeVisiable[3]">
-        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
-          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('情报凭证' ,4)">	
+        <div class="store_unit" style="margin:-6px -35px;">
+          <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('情报凭证' ,4)">	
         </div>
         <div v-for="(m_data, index) in storeList[2]" class="store_unit" :key="index">
           <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	
@@ -128,8 +128,8 @@
       </div>
       <!-- 信用商店 -->
       <div class="store_content" id="store_4" :style="storeVisiable[4]">
-        <div class="store_unit" style="position: absolute;margin: -16px -48px;">
-          <img class="store_unit_pic" alt="" title=""	:src="getImgUrl('信用' ,4)">	
+        <div class="store_unit">
+          <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('信用' ,4)">	
         </div>
         <div v-for="(m_data, index) in storeList[4]" class="store_unit" :key="index">
           <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" />	

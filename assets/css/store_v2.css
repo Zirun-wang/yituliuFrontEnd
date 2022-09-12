@@ -1,3 +1,7 @@
+.store_tag_icon{
+    margin: 0px 4px;
+}
+
 .store_content {
     display: flex;
     margin: 8px;
@@ -42,11 +46,19 @@
     flex-grow: 1;
 }
 
+.store_unit:first-child{
+    position: absolute;
+    margin:-8px -35px;
+}
+
 .store_unit_pic {
     height: 50px;
     width: 50px;
 }
-
+.store_unit_icon{
+    height: 25px;
+    width: 25px;
+}
 .store_unit_text {
     background-color: rgba(112, 112, 112,0.3);
     border-radius: 25px;
