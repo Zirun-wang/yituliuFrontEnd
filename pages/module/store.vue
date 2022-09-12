@@ -177,8 +177,8 @@
 		    </div>
         <!-- Area 1 -->
         <div class="act_content">
-          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
-          <div class="act_card uni_shadow_2 act_area1_border" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)">
+          <div class="act_card uni_shadow_2 act_area1_border" v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <!-- <div class="act_card uni_shadow_2 act_area1_border" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)"> -->
             <div class="act_card_img">
               <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
             </div>
@@ -195,13 +195,19 @@
                 </tr>
               </table>
             </div>
+          <!-- </div> -->
           </div>
-          </div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
         </div> 
         <!-- Area 2 -->
         <div class="act_content">
-          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
-          <div class="act_card uni_shadow_2 act_area3_border" :class="getDivVisible(singleItem.itemArea - 1.5, singleItem.itemArea - 0.5)">
+          <div class="act_card uni_shadow_2 act_area3_border" v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <!-- <div class="act_card uni_shadow_2 act_area3_border" :class="getDivVisible(singleItem.itemArea - 1.5, singleItem.itemArea - 0.5)"> -->
             <div class="act_card_img">
               <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
             </div>
@@ -218,13 +224,19 @@
                 </tr>
               </table>
             </div>
+          <!-- </div> -->
           </div>
-          </div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
         </div> 
         <!-- Area 3 -->
         <div class="act_content">
-          <div v-for="(singleItem, index) in singleAct.actStore" :key="index">
-          <div class="act_card uni_shadow_2 act_area4_border" :class="getDivVisible(singleItem.itemArea - 2.5, singleItem.itemArea - 1.5)">
+          <div class="act_card uni_shadow_2 act_area4_border" v-for="(singleItem, index) in singleAct.actStore" :key="index">
+          <!-- <div class="act_card uni_shadow_2 act_area4_border" :class="getDivVisible(singleItem.itemArea - 2.5, singleItem.itemArea - 1.5)"> -->
             <div class="act_card_img">
               <img class="level_img" :src="getImgUrl(singleItem.itemName, 1)" :alt="(singleItem.itemName)">
             </div>
@@ -241,8 +253,15 @@
                 </tr>
               </table>
             </div>
+          <!-- </div> -->
           </div>
-          </div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+          <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
+
         </div> 
       <!-- 内容区域end -->
       </div> 
