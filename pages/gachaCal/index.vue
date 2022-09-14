@@ -157,7 +157,7 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="customValue"/>
-            <div class="gacha_unit_child_title" style="width: 270px;">自定义修正值(例如搓玉)</div>
+            <div class="gacha_unit_child_title" style="width: 270px;">自定义修正值（例如搓玉）</div>
             <div class="gacha_resources_unit" style="width: 135px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>{{ customValue * 1 }}
             </div>
@@ -770,8 +770,8 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 0, //剩余月数
-        monthsRemainingSec: 0, //剩余月数（绿票二层
+        monthsRemaining: 3, //剩余月数
+
         SignInMonthsRemaining: 0,
         countDown: 0, //限定池每日送抽倒计时
         dailyRewards: 100, //每日奖励
@@ -781,24 +781,17 @@
         originiumFlag: true, //是否源石抽卡
         weekStageFlag: true, //是否完成剿灭
         weekTaskFlag: true, //是否完成周常
-        greenF2Flag: true, //是否兑换绿票商店二层
-        greenF1Flag: false, //是否兑换绿票商店二层
+        greenF1Flag: false, //是否兑换绿票商店
+        skinFlag: 0, //购买皮肤的数量
         originiumValue: true,
         weekStageValue: true,
         weekTaskValue: true,
-        greenF2Value: true,
-        greenF1Value: false,
-        skinFlag: 0, //购买皮肤的数量
+        greenF1Value: 0,
+        skinValue:0,
         customValue: 0, //自定义值
         cookieInit: 0,
         pieData: [
-          //饼图数据
-          // { value: 0, name: "现有" },
-          // { value: 0, name: "潜在" },
-          // { value: 0, name: "日常" },
-          // { value: 0, name: "氪金" },
-          // { value: 0, name: "氪金" },
-          // { value: 0, name: "其它" },
+
         ],
       };
     },
@@ -851,7 +844,7 @@
       getInterval() {
         console.log("今天是", this.startDate);
         this.weeksRemaining = 0;
-        this.monthsRemaining = 0;
+        // this.monthsRemaining = 0;
         this.SignInMonthsRemaining = 0;
 
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
@@ -866,9 +859,9 @@
           if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
-            this.monthsRemaining++;
-          }
+          // if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
+          //   this.monthsRemaining++;
+          // }
 
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
@@ -920,10 +913,7 @@
           this.weekStageValue = 0;
         }
 
-        var flag_greenF2 = 0;
-        if (this.greenF2Flag) {
-          flag_greenF2 = 1;
-        }
+
 
         this.greenF1Value = 0;
         if (this.greenF1Flag) {
@@ -1266,11 +1256,15 @@
           parseInt(this.countDown) * (8500 / 14);
 
         if (parseInt(this.originium - parseInt(this.skinFlag) * 18) >= 18) {
-          this.originium =
-            parseInt(this.originium) - parseInt(this.skinFlag) * 18;
+          this.skinValue = this.skinFlag
         } else {
           this.$message.error("你的源石不足");
         }
+
+
+        this.originium =
+          parseInt(this.originium) - parseInt(this.skinValue) * 18;
+
 
         this.originium = parseInt(this.originium) * parseInt(flag_originium);
 
