@@ -21,7 +21,7 @@
             </div>
             <div class="tab_text">
             <!-- *更新时间{{ popupData}} -->
-            *更新时间 2022-08-11
+            *更新时间 {{updateTime}}
             </div>
           </div>
         </div>
@@ -30,17 +30,17 @@
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].main)"></div>
+          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
           <div class="stage_card_t3_table">
             <table v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                 <tbody>
-              <tr v-show="stage.times > 100" :class="getColor(stage.color)" class="stage_table_r">
-                <td class="stage_table_c1">{{ stage.stageName }}</td>
+              <tr  :class="getColor(stage.stageColor)" class="stage_table_r">
+                <td class="stage_table_c1">{{ stage.stageCode }}</td>
                 <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                  <div class="sprite_secondary_div">
                       <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
                     </div>
-						    <td class="stage_table_c3">{{getEfficiency(stage.percentage,1)}}%</td>
+						    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
               </tr>
                 </tbody>
             </table>
@@ -59,14 +59,14 @@
       <div class="op_content" id="stage_t3_content_plus" style="display:none;">
         <!-- 扩展卡 -->
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].main)"></div>
+          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
           <div class="stage_card_t3_table">
             <table v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                 <tbody>
-              <tr v-show="stage.times > 100" :class="getColor(stage.color)" class="stage_table_r">
-                <td class="stage_table_c1">{{ stage.stageName }}</td>
+              <tr v-show="stage.times > 100" :class="getColor(stage.stageColor)" class="stage_table_r">
+                <td class="stage_table_c1">{{ stage.stageCode }}</td>
                 <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
-						    <td class="stage_table_c3">{{getEfficiency(stage.percentage,1)}}%</td>
+						    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
               </tr>
                 </tbody>
             </table>
@@ -98,7 +98,7 @@
         <!-- <img class="popup_img" :src="getImgUrl(main)" :alt="main"> -->
         <div class="popup_header" >
           <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div>
-          <div class="popup_header_text">main</div>
+          <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
             <div class="t3 popup_header_penguin">查看企鹅物流原始数据 <img style="width: 16px;vertical-align: middle;margin: 0px 4px 12px -2px;" src="/img/website/el.png" /></div>
           </a>
@@ -117,14 +117,14 @@
             <td class="popup_table_c6" style="width:90px;">主产物期望</td>
             <td class="popup_table_c7" style="width:90px;">关卡效率</td>
           </tr>
-          <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.color)" class="stage_table_r">
-            <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageName}}</td>
-            <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.times)}}<br>({{stage.confidence}}%)</td>
+          <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
+            <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
+            <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
             <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
             <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
-            <td class="popup_table_c5">{{getEfficiency(stage.probability*100, 1)}}%</td>
-            <td class="popup_table_c6">{{getEfficiency(stage.expect)}}</td>
-            <td class="popup_table_c7">{{getEfficiency(stage.percentage,1)}}%</td>
+            <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
+            <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
+            <td class="popup_table_c7">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
           </tr>
           </tbody>
         </table>
@@ -154,8 +154,8 @@ export default {
       stageRankT2: [], //关卡效率集合
       actStageOnly: 0,
       cardList:[0,1,2,3,4,5,6,7],
-      main:'',
-       mainId:'',
+      itemType:'',
+      updateTime:'2000-01-01 00:00:00',
       itemId:''
     };
   },
@@ -176,14 +176,14 @@ export default {
       if (index<100) {
         this.popupData = [];
         this.popupData = this.stageRankT3[index];
-        this.main = this.stageRankT3[index][0].type;
+        this.itemType = this.stageRankT3[index][0].itemType;
         this.itemId = this.stageRankT3[index][0].itemId;
       }
       else
       {
         this.popupData = [];
         this.popupData = this.stageRankT2[(index-100)];
-        this.main = this.stageRankT2[(index-100)][0].itemName;
+        this.itemType = this.stageRankT2[(index-100)][0].itemType;
         this.itemId = this.stageRankT2[(index-100)][0].itemId;
       }
     },
@@ -266,7 +266,7 @@ export default {
     },
 
     judgeActive(index){
-      if (this.stageRankT3[index][0].percentage>101)
+      if (this.stageRankT3[index][0].stageEfficiency>101)
         return "";
       return "display:none";
     },
@@ -287,6 +287,7 @@ export default {
       stageApi.findStageDateByTypeOrderByEfficiencyDesc(500, 0.6).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
+        this.updateTime = response.data[0][0].updateTime
       });
       stageApi.findStageDateByMainOrderByExpectDesc().then((response) => {
         this.stageRankT2 = [];

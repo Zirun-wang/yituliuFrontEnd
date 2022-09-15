@@ -33,6 +33,7 @@
           <div v-for="(item, index) in itemList" :key="index" class="item_width">
             <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
               <table>
+                <tbody>
                 <tr>
                   <td style="padding:0px;">
                     <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/>
@@ -44,6 +45,7 @@
                     {{ getItemGreenValue(item.itemId, item.itemValue) }}
                   </td>
                 </tr>
+                </tbody>
               </table>
             </div>
           </div>
