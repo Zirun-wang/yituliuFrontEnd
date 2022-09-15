@@ -45,6 +45,7 @@
 			<div class="tab_button_1">问题反馈</div>
 			</template>
 			<table class="help_table f16">
+				<tbody>
 				<tr style="height:48px;">
 					<td style="width:105px;">数据问题</td>
 					<td style="width:270px;">例如效率突变、数值离谱</td>
@@ -60,6 +61,7 @@
 					<td>任何问题，或者拿不准该问谁</td>
 					<td>QQ群:938710832</td>
 				</tr>
+				</tbody>
 			</table>
 			</el-popover>
 			<div class="tab_button_1" onclick="window.open('https://yituliu.site')">测试服</div>

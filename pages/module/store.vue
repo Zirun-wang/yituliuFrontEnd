@@ -184,6 +184,7 @@
             </div>
             <div class="act_card_table">
               <table class="act_table">
+                <tbody>
                 <tr class="act_table_r1">
                   <td>{{(singleItem.itemName)}}</td>
                 </tr>
@@ -193,6 +194,7 @@
                 <tr class="act_table_r3">
                   <td>{{(singleItem.itemPrice)}}代币</td>
                 </tr>
+                </tbody>
               </table>
             </div>
           <!-- </div> -->
@@ -213,6 +215,7 @@
             </div>
             <div class="act_card_table">
               <table class="act_table">
+                <tbody>
                 <tr class="act_table_r1">
                   <td>{{(singleItem.itemName)}}</td>
                 </tr>
@@ -221,7 +224,7 @@
                 </tr>
                 <tr class="act_table_r3">
                   <td>{{(singleItem.itemPrice)}}代币</td>
-                </tr>
+                </tr></tbody>
               </table>
             </div>
           <!-- </div> -->
@@ -242,6 +245,7 @@
             </div>
             <div class="act_card_table">
               <table class="act_table">
+                <tbody>
                 <tr class="act_table_r1">
                   <td>{{(singleItem.itemName)}}</td>
                 </tr>
@@ -250,7 +254,7 @@
                 </tr>
                 <tr class="act_table_r3">
                   <td>{{(singleItem.itemPrice)}}代币</td>
-                </tr>
+                </tr></tbody>
               </table>
             </div>
           <!-- </div> -->
