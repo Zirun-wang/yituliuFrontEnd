@@ -179,28 +179,29 @@
 			
 			<div class="foot_unit" style="width:264px;background-color: rgba(187,187,187,0.86667);padding-left: 16px;padding-bottom: 16px;">
 				<p class="foot_unit_title">-开发-</p>
+
+				
+				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-right: -3px;width: 90px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 20%);">
+				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+				前端</div>
+				</a>
+				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-left: -3px;width: 90px;border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
+				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+				后端</div>
+				</a>
 				<div style="width:252px;white-space: initial;">
 					本项目为无偿开源项目<br>
 					如有开发/数据分析/设计/美工经验<br>
 					欢迎一起提升方舟玩家游戏体验
 				</div>
-				
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-right: 0px;width: 90px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;">
-				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-				前端</div>
-				</a>
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-left: 0px;width: 90px;border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
-				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-				后端</div>
-				</a>
-				<div>
-					如有好的想法，也可来开发群一叙
-				</div>				
+			
 				<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 				<img class="foot_unit_pic" src="https://wiki.connect.qq.com/wp-content/uploads/2021/01/icon_for_ios7-374x1024.png" />
 				开发群</div>
 				</a>
-
+				<div>
+					如有好的想法，也可来开发群一叙
+				</div>	
 
 				
 
