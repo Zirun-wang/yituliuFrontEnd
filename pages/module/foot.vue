@@ -65,21 +65,21 @@
 		</div>
 
 		<div id="foot_main">
-			<div class="foot_unit" style="width:420px;">
-				<p class="foot_unit_title">-开发-</p>
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
-				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+			<div class="foot_unit" style="width:436px;">
+				<p class="foot_unit_title" style="margin-bottom: 11px;">-开发-</p>
+				<a href="https://github.com/Zirun-wang/yituliuFrontEnd"><div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
+				<img class="foot_unit_pic" src="/img/website/github.png"/>
 				前端</div>
 				</a>
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
-				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+				<a href="https://github.com/yamasakura/yituliuBackEnd"><div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
+				<img class="foot_unit_pic" src="/img/website/github.png"/>
 				后端</div>
 				</a>
-				<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="width: 180px;display: inline-block;">
-				<img class="foot_unit_pic" src="https://wiki.connect.qq.com/wp-content/uploads/2021/01/icon_for_ios7-374x1024.png" />
-				开发群</div>
+				<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="width: 192px;display: inline-block;">
+				<img class="foot_unit_pic" src="/img/website/qq.png" />
+				开发群938710832</div>
 				</a>
-				<div style="width:100%;white-space: initial;">
+				<div style="line-height: 28px;padding-left: 6px;">
 					本项目为无偿开源项目，致力于提升玩家体验<br>
 					如有开发/数据分析/设计/美工经验，欢迎加入我们<br>
 					如有好的想法，也欢迎来开发群一叙
@@ -234,10 +234,10 @@ export default {
 	.foot_unit_pic{
 		height: 32px;
 		width: 32px;
-		margin: 4px;
+		margin: 3px;
 		display: inline-block;
 		vertical-align: middle;
-		border-radius: 4px;
+		border-radius: 6px;
 	}
 
 	#foot_frontEnd{
@@ -247,6 +247,7 @@ export default {
 		border-bottom-right-radius: 0px;
 		border-top-right-radius: 0px;
 		box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 20%);
+		border-right-width: 0px;
 	}
 	#foot_backEnd{
 		display:inline-block;
@@ -283,10 +284,10 @@ export default {
 		text-align: center}
 
 	.foot_unit_button {
-		/* border: 1px solid #808080; */
+		border: 1px solid #808080;
 		background-color: rgba(255, 253, 253, 0.08);
-		height: 40px;
-		width: 180px;
+		height: 38px;
+		width: 178px;
 		border-radius: 8px;
 		margin: 4px;
 		color:gray;
