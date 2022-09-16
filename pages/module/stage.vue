@@ -62,11 +62,14 @@
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
           <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
           <div class="stage_card_t3_table">
-            <table v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+            <table>
                 <tbody>
-                  <tr v-show="stage.sampleSize > 100" :class="getColor(stage.stageColor)" class="stage_table_r">
+                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
-                    <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
+                    <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
+                    <div class="sprite_secondary_div">
+                      <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
+                    </div>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
                   </tr>
