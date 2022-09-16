@@ -183,11 +183,11 @@
 				<p class="foot_unit_title">-开发-</p>
 
 				
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-right: -3px;width: 90px;border-bottom-right-radius: 0px;border-top-right-radius: 0px;box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 20%);">
+				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
 				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 				前端</div>
 				</a>
-				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" style="display:inline-block;margin-left: -3px;width: 90px;border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
+				<a href="https://space.bilibili.com/10057492"><div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
 				<img class="foot_unit_pic" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
 				后端</div>
 				</a>
@@ -197,25 +197,14 @@
 					欢迎一起提升方舟玩家游戏体验
 				</div>
 			
-				<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+				<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="width: 216px;">
 				<img class="foot_unit_pic" src="https://wiki.connect.qq.com/wp-content/uploads/2021/01/icon_for_ios7-374x1024.png" />
 				开发群</div>
 				</a>
 				<div>
 					如有好的想法，也可来开发群一叙
-				</div>	
-
-				
-
+				</div>
 			</div>
-			<div class="foot_unit">
-				<p class="foot_unit_title">-游戏官网-</p>
-				<a href="https://ak.hypergryph.com/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="https://ak.hypergryph.com/favicon.ico"/>明日方舟</div></a>
-				
-				<p class="foot_unit_title">-数据源-</p>
-				<a href="https://penguin-stats.cn/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="/img/website/penguin_stats_logo.png"/>企鹅物流</div></a>
-			</div>
-
 			<div class="foot_unit">
 				<p class="foot_unit_title">-效率算法-</p>
 				<a href="https://www.bilibili.com/video/BV1pZ4y1g7QN">
@@ -245,12 +234,26 @@
 						一个资深的烧饼
 					</div>
 				</a>
+			</div>
+			<div class="foot_unit">
 				
-
+				<p class="foot_unit_title">-数据源-</p>
+				<a href="https://penguin-stats.cn/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="/img/website/penguin_stats_logo.png"/>企鹅物流</div></a>
+				
+				<p class="foot_unit_title">-UI协力-</p>
+				<a href="https://space.bilibili.com/12786648"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+				<img class="foot_unit_pic" src="/img/website/wmm.jpg" />
+				破碎無冕</div></a>
+			
 			</div>
 
 
+
+
 			<div class="foot_unit">
+				<p class="foot_unit_title">-游戏官网-</p>
+				<a href="https://ak.hypergryph.com/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="https://ak.hypergryph.com/favicon.ico"/>明日方舟</div></a>
+
 				<p class="foot_unit_title">-友情链接-</p>
 				<a href="https://space.bilibili.com/688411531"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 				<img class="foot_unit_pic" src="/img/website/rhodebasebeta.jpg" />
@@ -260,10 +263,6 @@
 				<img class="foot_unit_pic" src="/img/website/akdps.jpg" />
 				DPS计算器</div></a>
 
-				<p class="foot_unit_title">-UI协力-</p>
-				<a href="https://space.bilibili.com/12786648"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-				<img class="foot_unit_pic" src="/img/website/wmm.jpg" />
-				破碎無冕</div></a>
 			</div>
 		</div>
 	</div>
@@ -280,7 +279,7 @@ export default {
 
 <style>
 	#extra{
-		background-color: #dddddddd;
+		background-color: #dddddd10;
 		margin-top: 8px;
 		padding: 24px 0px;
 	}
@@ -327,6 +326,22 @@ export default {
 		display: inline-block;
 		vertical-align: middle;
 		border-radius: 4px;
+	}
+
+	#foot_frontEnd{
+		display:inline-block;
+		margin-right: -3px;
+		width: 108px;
+		border-bottom-right-radius: 0px;
+		border-top-right-radius: 0px;
+		box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 20%);
+	}
+	#foot_backEnd{
+		display:inline-block;
+		margin-left: -3px;
+		width: 108px;
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 0px;
 	}
 	.footlist {
 		display: inline;
