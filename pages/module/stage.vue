@@ -20,7 +20,7 @@
             *点击卡片查看详情
             </div>
             <div class="tab_text">
-            <!-- *更新时间{{ popupData}} -->
+            <!-- *更新时间{{ stageRankT3}} -->
             *更新时间 {{updateTime}}
             </div>
           </div>
@@ -32,16 +32,17 @@
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
           <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
           <div class="stage_card_t3_table">
-            <table v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+            <table>
                 <tbody>
-              <tr  :class="getColor(stage.stageColor)" class="stage_table_r">
-                <td class="stage_table_c1">{{ stage.stageCode }}</td>
-                <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                 <div class="sprite_secondary_div">
+                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+                    <td class="stage_table_c1">{{ stage.stageCode }}</td>
+                    <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
+                    <div class="sprite_secondary_div">
                       <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
                     </div>
-						    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-              </tr>
+                    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
+                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
+                  </tr>
                 </tbody>
             </table>
           </div>
@@ -63,21 +64,22 @@
           <div class="stage_card_t3_table">
             <table v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                 <tbody>
-              <tr v-show="stage.times > 100" :class="getColor(stage.stageColor)" class="stage_table_r">
-                <td class="stage_table_c1">{{ stage.stageCode }}</td>
-                <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
-						    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-              </tr>
+                  <tr v-show="stage.sampleSize > 100" :class="getColor(stage.stageColor)" class="stage_table_r">
+                    <td class="stage_table_c1">{{ stage.stageCode }}</td>
+                    <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
+                    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
+                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
+                  </tr>
                 </tbody>
             </table>
           </div>
         </div>
         <!-- 排版占位用卡片 -->
         <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-           <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-              <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-                 <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-                    <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
       </div>
       <!-- t2内容区域 -->
       <div class="op_content" id="stage_t2_content">
@@ -108,31 +110,35 @@
         <!-- 数据表Start -->
         <table class="popup_table">
           <tbody>
-          <tr class="popup_table_title">
-            <td class="popup_table_c1" style="width:55px;">关卡名</td>
-            <td class="popup_table_c2" style="width:65px;">样本数<br>(置信度)</td>
-            <td class="popup_table_c3" style="width:45px;">SPM</td>
-            <td class="popup_table_c4" style="width:55px;">副产品</td>
-            <td class="popup_table_c5" style="width:90px;">主产物掉率</td>
-            <td class="popup_table_c6" style="width:90px;">主产物期望</td>
-            <td class="popup_table_c7" style="width:90px;">关卡效率</td>
-          </tr>
-          <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
-            <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
-            <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
-            <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
-            <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
-            <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
-            <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
-            <td class="popup_table_c7">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-          </tr>
+            <tr class="popup_table_title">
+              <td class="popup_table_c1" style="width:55px;">关卡名</td>
+              <td class="popup_table_c2" style="width:65px;">样本数<br>(置信度)</td>
+              <td class="popup_table_c3" style="width:45px;">SPM</td>
+              <td class="popup_table_c4" style="width:55px;">副产品</td>
+              <td class="popup_table_c5" style="width:90px;">主产物掉率</td>
+              <td class="popup_table_c6" style="width:90px;">主产物期望</td>
+              <td class="popup_table_c7" style="width:90px;">关卡效率</td>
+            </tr>
+            <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
+              <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
+              <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
+              <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
+              <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
+              <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
+              <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
+              <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}%
+              <!-- <td class="popup_table_c7"><div style="width:75px;display: inline;">{{getEfficiency(stage.stageEfficiency,1)}}%</div>
+                <div style="width:15px;display: inline;"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></div> -->
+              </td>
+            </tr>
           </tbody>
         </table>
         <!-- 数据表End -->
         <el-divider></el-divider>
-        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">置信度：掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">详细介绍<img style="width: 16px;vertical-align: middle;margin: -2px 4px 0px 2px;" src="/img/website/el.png"></a>
-        <br>SPM:1倍速下，假设最后出现的敌人被秒杀，每分钟消耗的理智量。
-        <br>受动画、网络等因素影响可能有出入，列出供参考。</p>
+        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">
+          效率基准:<b>常驻图</b>中综合效率最高者<br>
+          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">详细介绍<img style="width: 16px;vertical-align: middle;margin: -2px 4px 0px 2px;" src="/img/website/el.png"></a>
+        <br>SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</p>
       </div>
     </div>
     <!-- 弹窗End -->
@@ -236,6 +242,12 @@ export default {
     getHardcoreMark(area){
       if (area == "tough_10")
         return ("background: url(" + "/static/img_website/hcbg.png" + ") no-repeat;");
+      else
+        return ("");
+    },
+    getUpMark(state){
+      if (state == "1")
+        return ("background: linear-gradient(#ffffff4a, rgba(144, 164, 174, 0)), url(/img/website/up.png) 106% 50% / 30% no-repeat;");
       else
         return ("");
     },
