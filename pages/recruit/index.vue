@@ -7,6 +7,7 @@
       <div class="checkBox_recruit_area">
         <div class="checkBox_recruit_title"><a>资历</a></div>
         <div class="checkBox_recruit_card">
+          
           <div
             class="checkBox_recruit_word"
             :id="index"

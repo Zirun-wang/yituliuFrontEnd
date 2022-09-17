@@ -14,7 +14,7 @@
                     calculator_downMenu_rarity_word_size
                   "
                 >
-                  {{ rarityStart }}
+                  {{ rarity_word }}
                   <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
 
@@ -389,7 +389,7 @@ export default {
       evoCost2: 0,
       AllData: [],
 
-      rarityStart: "⭐⭐⭐⭐⭐⭐",
+      rarity_word: "⭐⭐⭐⭐⭐⭐",
       rarity: 6,
       expStageNum: 0,
       expReasonCost: 0,
@@ -476,28 +476,28 @@ export default {
     checkRarity(index) {
       if (index == 6) {
         this.targetLevel = 90;
-        this.rarityStart = "⭐⭐⭐⭐⭐⭐";
+        this.rarity_word = "⭐⭐⭐⭐⭐⭐";
         this.rarity = 6;
       } else if (index == 5) {
         this.targetLevel = 80;
-        this.rarityStart = "⭐⭐⭐⭐⭐";
+        this.rarity_word = "⭐⭐⭐⭐⭐";
         this.rarity = 5;
       } else if (index == 4) {
         this.targetLevel = 70;
-        this.rarityStart = "⭐⭐⭐⭐";
+        this.rarity_word = "⭐⭐⭐⭐";
         this.rarity = 4;
       } else if (index == 3) {
         this.targetEvoLevel = 1;
         this.targetLevel = 55;
-        this.rarityStart = "⭐⭐⭐";
+        this.rarity_word = "⭐⭐⭐";
         this.rarity = 3;
       } else if (index == 2) {
         this.targetEvoLevel = 0;
         this.targetLevel = 30;
-        this.rarityStart = "⭐⭐";
+        this.rarity_word = "⭐⭐";
         this.rarity = 2;
       } else if (index == 1) {
-        this.rarityStart = "⭐";
+        this.rarity_word = "⭐";
         this.rarity = 1;
       }
 
