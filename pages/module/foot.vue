@@ -58,11 +58,11 @@
 				开发群：938710832 <img src="/img/website/el.png" style="width:12px;">
 			</a> -->
 		</div>
-		<div class="op_title_tag">
+		<!-- <div class="op_title_tag">
 			<div class="tab_text">
 			数据更新时间 {{updateTime}}
 			</div>
-		</div>
+		</div> -->
 
 		<div id="foot_main">
 			<div class="foot_unit" style="width:436px;">

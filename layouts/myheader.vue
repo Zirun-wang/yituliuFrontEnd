@@ -33,7 +33,12 @@ import cookie from "js-cookie";
 import Vue from "vue";
 
 export default {
-
+  data() {
+      return {
+        activeIndex: '1',
+        
+      };
+    },
   methods: {
     switchTheme() {
       if (cookie.get("theme") === "dark") {
@@ -75,6 +80,9 @@ export default {
       gachaCal() {
       window.location.href = "/gachaCal/";
     },
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
   },
 };
 </script>

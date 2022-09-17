@@ -1,5 +1,5 @@
 <template>
-  <div id="indexDiv" :class="pageTheme" style="max-width:1008px;margin:auto;">
+  <div id="indexDiv" :class="pageTheme" style="max-width: 1008px; margin: auto">
     <stage></stage>
     <storeVue> </storeVue>
     <div class="title_null"></div>
@@ -21,11 +21,10 @@ import stage from "@/pages/module/stage.vue";
 import cookie from "js-cookie";
 import toolApi from "@/api/tool";
 
-
 export default {
   data() {
     return {
-       pageTheme: "light",
+      pageTheme: "light",
     };
   },
   components: {
@@ -34,23 +33,24 @@ export default {
     storeVue,
     stage,
   },
-  created() {
-    this.getCookies();
+  created() {},
+  mounted() {
     this.updateVisits();
+    this.getCookies();
   },
-  mounted() {},
   methods: {
     updateVisits() {
       toolApi.updateVisits("yituliu").then((response) => {});
     },
     getCookies() {
       let theme = cookie.get("theme");
-      if (typeof theme == "undefined" || theme == "undefined") {
+      if (typeof theme == "undefined" || theme == undefined) {
         theme = "light";
         cookie.set("theme", theme, { expires: 30 });
       }
+      console.log(theme);
       this.pageTheme = theme;
-    }
+    },
   },
 };
 </script>
