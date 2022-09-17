@@ -63,7 +63,7 @@ min-height: 1200px;
     font-size: 16px;
     min-width: 60px;
    background-color: rgb(245, 245, 245);
-   color: rgb(0, 0, 0);
+   color: #000;
     font-weight: 600;
     box-shadow: rgb(116, 116, 116) 0px 0px 5px;
     height: auto;
@@ -83,7 +83,7 @@ min-height: 1200px;
 .checkBox_recruit_switch_re{
     background-color: #FEF0F0;
     margin: 3px;
-    color:#f8297c;
+    color:#b94962;
     margin-top: 15px;
     margin-left: 40px;
     margin-right: -25px;
