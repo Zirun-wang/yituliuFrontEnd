@@ -13,11 +13,11 @@
           </div>
         </div>
         <div class="op_title_tag">
-          <img alt="绿票" :class=tagColor[0] style="margin: 0px 4px;" id="store_tag_0" :src="getImgUrl('资质凭证',4)" @click="switch_store('0')">
-          <img alt="黄票" :class=tagColor[1] style="margin: 0px 4px;" id="store_tag_1" :src="getImgUrl('高级凭证',4)" @click="switch_store('1')">
-          <img alt="橙票" :class=tagColor[2] style="margin: 0px 4px;" id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
-          <img alt="紫票" :class=tagColor[3] style="margin: 0px 4px;" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
-          <img alt="信用" :class=tagColor[4] style="margin: 0px 4px;" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
+          <img alt="绿票" :class=tagColor[0] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_0" :src="getImgUrl('资质凭证',4)" @click="switch_store('0')">
+          <img alt="黄票" :class=tagColor[1] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_1" :src="getImgUrl('高级凭证',4)" @click="switch_store('1')">
+          <img alt="橙票" :class=tagColor[2] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
+          <img alt="紫票" :class=tagColor[3] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
+          <img alt="信用" :class=tagColor[4] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
           <div class="tab_text">
             *点击图标切换
           </div>

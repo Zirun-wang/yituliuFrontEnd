@@ -26,7 +26,7 @@
     filter: grayscale(0.1);
     /* position: absolute; */
     /* margin-left: -1%; */
-    margin-left: calc(30% - 100px);
+    margin-left: calc(40% - 144px);
     display: inline-block;
 }
 
@@ -50,10 +50,10 @@
     font-size: 20px;
     font-weight: 600;
     height: 90px;
-    width: 82.5%;
+    width: 85%;
     overflow: hidden;
     -webkit-backdrop-filter: blur(6px) grayscale(0.6);
-    backdrop-filter: blur(18px) grayscale(0.6);
+    backdrop-filter: blur(28px) grayscale(0.6);
     border-radius: 0px 4px 4px 0px;
     max-width: 210px;
     float: right;
@@ -197,7 +197,7 @@
 
 #popup_background{
 	z-index:128;
-    max-width: 1120px;
+    max-width: 1008px;
     display: none;
 	position: fixed;
     top: 0;
