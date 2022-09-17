@@ -181,7 +181,7 @@ export default {
 
 <style>
 	#extra{
-		background-color: #dddddd10;
+		background-color: #dedede;
 		margin-top: 8px;
 		padding: 24px 0px;
 	}

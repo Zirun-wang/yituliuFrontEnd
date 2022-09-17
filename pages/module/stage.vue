@@ -223,7 +223,7 @@ export default {
     },
 
     getCardBackground(url){
-      return ('background: linear-gradient(rgba(144, 164, 174, 0), rgba(144, 164, 174, 0)), url(\"/img/materials/' + url + '.png\") no-repeat 85% 50% /144%;');
+      return ('background: linear-gradient(rgba(144, 164, 174, 0), rgba(144, 164, 174, 0)), url(\"/img/materials/' + url + '.png\") no-repeat 85% 50% /140%;');
     },
     getEfficiency(num, acc){
       acc = (typeof acc !== 'undefined') ?  acc : 2;
