@@ -4,17 +4,18 @@
     <el-collapse v-model="checkBox" @change="handleChange">
       <el-collapse-item style="display: block; position: sticky; top: 16px;" name="0" id="totalTable">
         <template slot="title">
+          <div class="gacha_title_icon"></div>
           <span class="collapse-item_title" style="color: purple">
             共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元
           </span>
         </template>
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <!-- <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:2px 5%;">
-            <el-radio-button label="(CN)感谢庆典(11.14)" style="width:50%;"></el-radio-button>
-            <el-radio-button label="(CN)春节限定(02.05)" style="width:50%;"></el-radio-button>
-            <el-radio-button label="????" disabled style="width:32%;"></el-radio-button>
-          </el-radio-group> -->
+          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:6px 5%;">
+            <el-radio-button label="感谢庆典(11.14)" type="primary" style="width:50%;"></el-radio-button>
+            <el-radio-button label="春节限定(即将开放)" disabled style="width:50%;"></el-radio-button>
+            <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
+          </el-radio-group>
           <!-- <el-divider></el-divider> -->
           <div id="gacha_total_chart">
             <div
@@ -96,9 +97,8 @@
       <!-- 现有库存 -->
       <el-collapse-item name="1" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist) }}抽</span
-          >
+          <div class="gacha_title_icon"></div>
+          <span class="collapse-item_title">现有库存 {{ getFixed(gachaTimes_exist) }}抽</span>
         </template>
         <div class="gacha_unit" id="wallet">
           <div class="gacha_unit_child" style="display: flex">
@@ -201,9 +201,8 @@
       <!-- 日常积累 -->
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title">
-            日常积累 {{ getFixed(gachaTimes_daily) }}抽</span
-          >
+          <div class="gacha_title_icon"></div>
+          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily) }}抽</span>
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
@@ -303,6 +302,7 @@
       <!-- 潜在资源 -->
       <el-collapse-item class="collapse-item" name="3" style="display: block">
         <template slot="title">
+          <div class="gacha_title_icon"></div>
           <span class="collapse-item_title">潜在资源 {{ getFixed(gachaTimes_potential) }}抽</span>
         </template>
 
@@ -370,9 +370,8 @@
       <!-- 氪金资源 -->
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title">
-            氪金资源 {{ getFixed(gachaTimes_gacha) }}抽</span
-          >
+          <div class="gacha_title_icon"></div>
+          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="charge">
@@ -546,9 +545,8 @@
       <!-- 活动获得（估算） -->
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title">
-            活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span
-          >
+          <div class="gacha_title_icon"></div>
+          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span>
         </template>
         <div class="gacha_unit" id="activity">
           <!-- 长夜临光复刻 -->
@@ -592,9 +590,8 @@
       <!-- 其它资源（估算） -->
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
-          <span class="collapse-item_title">
-            其它资源（估算）{{ getFixed(gachaTimes_other) }}抽
-          </span>
+          <div class="gacha_title_icon"></div>
+          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
@@ -621,6 +618,7 @@
       <!-- 致谢 -->
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
+          <div class="gacha_title_icon"></div>
           <span class="collapse-item_title">致谢</span>
         </template>
 
@@ -1538,13 +1536,14 @@
     color: #222222;
     margin: 12px;
     background-color: #d8d8d8;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 20px;
-    box-shadow: 0px 1px 4px #a0a0a0b0;
+    /* box-shadow: 0px 1px 4px #a0a0a0b0; */
+    overflow: hidden;
   }
   .collapse-item_title {
     font-size: 24px;
-    padding: 8px;
+    padding: 8px 0px;
     font-weight: 600;
   }
 
