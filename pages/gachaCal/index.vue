@@ -9,9 +9,10 @@
             共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元
           </span>
         </template>
+        <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group v-model="targetRadio" size="small" style="width:90%;margin:6px 5%;">
+          <el-radio-group size="small" style="width:90%;margin:6px 5%;">
             <el-radio-button label="感谢庆典(11.14)" type="primary" style="width:50%;"></el-radio-button>
             <el-radio-button label="春节限定(即将开放)" disabled style="width:50%;"></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
@@ -254,11 +255,11 @@
             <div class="gacha_unit_child_title" style="width: 150px;">
               绿票商店 {{ monthsRemaining - greenF1Value }} 月
             </div>
-            <div class="gacha_resources_unit" style="width: 186px;">
+            <div class="gacha_resources_unit" style="width: 192px;">
               <div style="width: 40px;" :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px;">{{ (monthsRemaining - greenF1Value) * 600 }}</div>
               <div style="width: 40px;" :class="getSpriteImg('7003icon', 0)"></div>
-              <div style="width: 22px;">{{ (monthsRemaining - greenF1Value) * 4 }}</div>
+              <div style="width: 28px;">{{ (monthsRemaining - greenF1Value) * 4 }}</div>
             </div>
             <div @click="compute()" class="gacha_unit_child_title" style="width: 150px;line-height: 32px;">
               <el-switch v-model="greenF1Flag" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
@@ -285,7 +286,7 @@
               @change="compute(item.name)"
             >
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 168px;">
+                <div class="gacha_unit_child_title" style="width: 150px;">
                   {{ item.name }}
                 </div>
                 <div class="gacha_resources_unit">
@@ -633,6 +634,12 @@
             <div class="gacha_unit_child_title" style="width: 280px;">
               搓玉计算:
               <a href="https://space.bilibili.com/22606843">公孙长乐<img class="gacha_img_small" src="/img/website/el.png" /></a>
+            </div>
+          </div>
+          <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px;">
+              B站发布:
+              <a href="https://space.bilibili.com/688411531">罗德岛基建BETA<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -1566,7 +1573,8 @@
   }
 
   .el-divider--horizontal {
-    margin: 6px 0;
+    margin: 2px 6px;
+    width: calc(100% - 12px);
   }
 
   /* .el-switch__core{
