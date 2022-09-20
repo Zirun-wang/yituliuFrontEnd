@@ -1310,6 +1310,11 @@
               parseInt(this.orundum) + parseInt(this.daysRemaining) * 200;
             this.gacha_storePacks[this.gacha_storePacksList[i]].originium =
               parseInt(this.originium) + Math.ceil(this.daysRemaining / 30) * 6;
+            this.gacha_storePacks[this.gacha_storePacksList[i]].orundum =
+              parseInt(this.daysRemaining) * 200;
+            this.gacha_storePacks[this.gacha_storePacksList[i]].originium =
+              Math.ceil(this.daysRemaining / 30) * 6;
+
           } else {
             this.originium =
               parseInt(this.originium) +
