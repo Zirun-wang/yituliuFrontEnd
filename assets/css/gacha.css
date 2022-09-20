@@ -78,7 +78,7 @@
   margin: 8px;
   margin-left: 12px;
   vertical-align: top;
-  line-height: 40px
+  line-height: 36px;
 }
 
 .gacha_unit_child_title {
@@ -93,12 +93,13 @@
 
 .gacha_unit_child_inputbox {
   height: 24px;
-  width: 66px;
+  width: 64px;
   font-size: 18px;
   text-align: center;
   vertical-align: top;
   display: inline-block;
-  margin-top: 2px;
+  margin-top: 3px;
+  margin-left: 4px;
 }
 
 

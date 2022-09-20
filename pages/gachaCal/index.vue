@@ -4,7 +4,7 @@
     <el-collapse v-model="checkBox" @change="handleChange">
       <el-collapse-item style="display: block; position: sticky; top: 16px;" name="0" id="totalTable">
         <template slot="title">
-          <div class="gacha_title_icon"></div>
+          <div class="gacha_title_icon" style="background: chocolate;"></div>
           <span class="collapse-item_title" style="color: purple">
             共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元
           </span>
@@ -222,7 +222,7 @@
             <div class="gacha_unit_child_title" style="width: 150px;">
               周常 {{ weeksRemaining + weekTaskValue }} 周
             </div>
-            <div class="gacha_resources_unit" style="width: 186px;">
+            <div class="gacha_resources_unit" style="width: 192px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px;">
                 {{ weeklyTaskRewards + weekTaskValue * 500 }}
@@ -238,7 +238,7 @@
             <div class="gacha_unit_child_title" style="width: 150px;">
               剿灭 {{ weeksRemaining + weekStageValue }} 周
             </div>
-            <div class="gacha_resources_unit" style="width: 186px;">
+            <div class="gacha_resources_unit" style="width: 192px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px;">
                 {{ weeklyStageRewards + weekStageValue * 1800 }}
@@ -619,7 +619,7 @@
       <!-- 致谢 -->
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
-          <div class="gacha_title_icon"></div>
+          <div class="gacha_title_icon" style="background:#337fcb"></div>
           <span class="collapse-item_title">致谢</span>
         </template>
 
@@ -657,7 +657,7 @@
               <a href="https://www.wjx.cn/vm/QXIrwfN.aspx;">攒抽规划反馈表<img class="gacha_img_small" src="/img/website/el.png" /></a>
             </div>
           </div>
-          <!-- 填空模块End -->
+
         </div>
       </el-collapse-item>
     </el-collapse>
