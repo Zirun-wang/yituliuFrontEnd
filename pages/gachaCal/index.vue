@@ -1545,7 +1545,7 @@
     background-color: #d8d8d8;
     border-radius: 8px;
     font-size: 20px;
-    /* box-shadow: 0px 1px 4px #a0a0a0b0; */
+    box-shadow: 0px 2px 6px #a0a0a0b0;
     overflow: hidden;
   }
   .collapse-item_title {
