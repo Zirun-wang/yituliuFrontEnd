@@ -3,7 +3,7 @@
   <div id="gacha">
     <el-collapse v-model="checkBox" @change="handleChange">
       <el-collapse-item
-        style="display: block; position: sticky; top: 16px"
+        style="display: block; position: sticky; top: 60px;z-index: 99999999;"
         name="0"
         id="totalTable"
       >
@@ -16,7 +16,7 @@
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group size="small" style="width: 90%; margin: 6px 5%">
+          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector">
             <el-radio-button
               label="感谢庆典(11.14)"
               type="primary"
@@ -202,8 +202,8 @@
             </div>
           </div>
           <!-- 填空模块End -->
-          <!-- <div class="gacha_unit_child" style="display: flex">
-            <div class="gacha_unit_child_title" style="width: 153px;">
+          <div class="gacha_unit_child" style="display: flex">
+            <div class="gacha_unit_child_title" style="width: 108px;">
               预留皮肤
             </div>
             <el-slider
@@ -213,11 +213,12 @@
               :max="10"
               show-stops
               show-input
+
               @change="compute()"
               style="display: inline-block; flex-grow: 1"
             >
             </el-slider>
-          </div> -->
+          </div>
           <!--
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 153px;">
@@ -1012,6 +1013,7 @@
         start_TimeStamp: "",
         end_TimeStamp: "",
         end_TimeStampCheck: "2022感谢庆典",
+        timeSelector:"感谢庆典(11.14)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -1884,7 +1886,6 @@
     margin: 2px 6px;
     width: calc(100% - 12px);
   }
-
   /* .el-switch__core{
       position: static;
         } */

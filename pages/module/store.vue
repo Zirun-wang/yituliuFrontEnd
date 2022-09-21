@@ -8,7 +8,7 @@
           <div class="op_title_ctext">
             采购中心
           </div>
-          <div class="op_title_etext">
+          <div :class=opETextTheme>
             Store Rank
           </div>
         </div>
@@ -18,10 +18,7 @@
           <img alt="橙票" :class=tagColor[2] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
           <img alt="紫票" :class=tagColor[3] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
           <img alt="信用" :class=tagColor[4] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')">
-          <div class="tab_text">
-            *点击图标切换
-          </div>
-
+          <div class="tab_text">*点击图标切换</div>
         </div>
       </div>
       <!-- 标题区域end -->
@@ -161,7 +158,7 @@
           <div class="op_title_ctext">
             活动商店
           </div>
-          <div class="op_title_etext">
+          <div :class=opETextTheme>
             Activity
           </div>
         </div>
@@ -285,7 +282,8 @@ export default {
       storeList: [100],             //常驻商店性价比集合
       actStoreList: [],   //活动商店的json
       storeVisiable:["display:flex;","display:flex;","display:flex;","display:flex;","display:flex;"],
-      tagColor:["n","n","n","n","n"]
+      tagColor:["n","n","n","n","n"],
+      opETextTheme: "op_title_etext_light",
     };
   },
   created() {
@@ -316,6 +314,13 @@ export default {
         this.tagColor[4]="uni_gray";
         this.storeVisiable[4]="display:none;";
       }
+
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme == undefined) {
+        theme = "op_title_etext_light";
+      }
+      console.log(theme);
+      this.opETextTheme = "op_title_etext_" + theme;
     },
 
 

@@ -51,6 +51,7 @@ export default {
 <style scoped>
   .el-main {
     padding:0px;
+    overflow: inherit;
   }
   .el-header {
     padding:0px;
@@ -58,5 +59,9 @@ export default {
 
   .el-menu.el-menu--horizontal{
     border-bottom:none;
+  }
+
+  .el-slider__button-wrapper {
+    z-index: auto;
   }
 </style>

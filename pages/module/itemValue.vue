@@ -7,23 +7,22 @@
           <div class="op_title_ctext">
             价值一览
           </div>
-          <div class="op_title_etext">
+          <div :class=opETextTheme>
             Material Value
           </div>
-
-          <div class="op_title_tag">
-            <div id="value_switch_to_saint" :class="tag_class_sanity" @click="switchUnit(1)">
-              等效理智
-            </div>
-             <div id="value_switch_to_green" :class="tag_class_green" @click="switchUnit(2)">
-              等效绿票
-            </div>
-            <div class="tab_text">
-            导出Excel
-            </div>
-            <div class="tab_text">
-            导出Json
-            </div>
+        </div>
+        <div class="op_title_tag">
+          <div id="value_switch_to_saint" :class="tag_class_sanity" @click="switchUnit(1)">
+            等效理智
+          </div>
+            <div id="value_switch_to_green" :class="tag_class_green" @click="switchUnit(2)">
+            等效绿票
+          </div>
+          <div class="tab_text">
+          导出Excel
+          </div>
+          <div class="tab_text">
+          导出Json
           </div>
         </div>
       </div>
@@ -72,6 +71,7 @@ export default {
       itemValueCard_css: "",
       tag_class_green: "yituliu_title_moudule_button",
       tag_class_sanity: "yituliu_title_moudule_button",
+      opETextTheme: "op_title_etext_light",
     };
   },
   created() {
@@ -79,6 +79,14 @@ export default {
     this.findAllItemValue();
   },
   methods: {
+    getCookies() {
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme == undefined) {
+        theme = "op_title_etext_light";
+      }
+      console.log(theme);
+      this.opETextTheme = "op_title_etext_" + theme;
+    },
     findAllItemValue() {
       storeApi.findAllItem().then((response) => {
         this.itemList = [];

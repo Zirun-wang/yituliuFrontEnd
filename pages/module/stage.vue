@@ -8,21 +8,20 @@
           <div class="op_title_ctext">
             地图效率
           </div>
-          <div class="op_title_etext">
+          <div :class=opETextTheme>
             Best levels
           </div>
-
-          <div class="op_title_tag">
-            <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
-              只显示up
-            </div>
-            <div class="tab_text">
-            *点击卡片查看详情
-            </div>
-            <div class="tab_text">
-            <!-- *更新时间{{ stageRankT3}} -->
-            *更新时间 {{updateTime}}
-            </div>
+        </div>
+        <div class="op_title_tag">
+          <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
+            只显示up
+          </div>
+          <div class="tab_text">
+          *点击卡片查看详情
+          </div>
+          <div class="tab_text">
+          <!-- *更新时间{{ stageRankT3}} -->
+          *更新时间 {{updateTime}}
           </div>
         </div>
       </div>
@@ -165,7 +164,8 @@ export default {
       cardList:[0,1,2,3,4,5,6,7],
       itemType:'',
       updateTime:'2000-01-01 00:00:00',
-      itemId:''
+      itemId:'',
+      opETextTheme: "op_title_etext_light",
     };
   },
 
@@ -179,6 +179,14 @@ export default {
 
   },
   methods: {
+    getCookies() {
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme == undefined) {
+        theme = "op_title_etext_light";
+      }
+      console.log(theme);
+      this.opETextTheme = "op_title_etext_" + theme;
+    },
     showPopup(index){
       document.getElementById('popup_card').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
