@@ -153,11 +153,12 @@
 				</a>
 			</div>
 			<div class="foot_unit">
-				<p class="foot_unit_title">-友情链接-</p>
+				<p class="foot_unit_title">-B站发布-</p>
 				<a href="https://space.bilibili.com/688411531"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 				<img class="foot_unit_pic" src="/img/website/rhodebasebeta.jpg" />
 				罗德岛基建BETA</div></a>
 
+				<p class="foot_unit_title">-友情链接-</p>
 				<a href="https://viktorlab.cn/akdata"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 				<img class="foot_unit_pic" src="/img/website/akdps.jpg" />
 				DPS计算器</div></a>
