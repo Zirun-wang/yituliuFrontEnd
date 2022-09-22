@@ -80,7 +80,7 @@
 				开发群938710832</div>
 				</a>
 				<div style="line-height: 28px;padding-left: 6px;">
-					本项目为无偿开源项目，致力于提升玩家体验<br>
+					本项目为无偿开源项目，致力于方便明日方舟玩家<br>
 					如有开发/数据分析/设计/美工经验，欢迎加入我们<br>
 					如有好的想法，也欢迎来开发群一叙
 				</div>				
@@ -155,7 +155,7 @@
 			<div class="foot_unit">
 				<p class="foot_unit_title">-B站发布-</p>
 				<a href="https://space.bilibili.com/688411531"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-				<img class="foot_unit_pic" src="/img/website/rhodebasebeta.jpg" />
+				<img class="foot_unit_pic" src="/img/website/bilibili.png" />
 				罗德岛基建BETA</div></a>
 
 				<p class="foot_unit_title">-友情链接-</p>
@@ -173,8 +173,6 @@
 </template>
 
 <script>
-import stageApi from "@/api/stage";
-
 export default {
 
 };
@@ -184,7 +182,7 @@ export default {
 	#extra{
 		background-color: #dedede;
 		margin-top: 8px;
-		padding: 24px 0px;
+		padding: 12px 0px;
 	}
 
 	.extra_popver_p{

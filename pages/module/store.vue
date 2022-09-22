@@ -165,7 +165,8 @@
       </div>
       <!-- 标题区域end -->
       <!-- 内容区域 -->
-      <div v-for="(singleAct, index) in actStoreList" :key="index">
+      <div v-for="(singleAct, index) in actStoreList" :key="index" v-show="singleAct.actStartDate > 0.1">
+        <template>
         <!-- banner -->
         <div class="act_banner_background" :style="getBackground(singleAct.actImgUrl)">
 			    <div class="act_banner_img">
@@ -265,6 +266,7 @@
 
         </div> 
       <!-- 内容区域end -->
+        </template>
       </div> 
     </div>
     <!-- 活动商店end -->

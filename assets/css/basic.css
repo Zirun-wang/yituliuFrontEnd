@@ -54,6 +54,19 @@ line-height: 48px;
     display: block;
     white-space: nowrap;
 }
+.op_footer{
+    height: 36px;
+    margin: auto;
+    width: 460px;
+}
+.op_footer img{
+    height: 28px;
+    width: 28px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: middle;
+
+}
 
 .op_title{
     /* border-left: 8px solid #6495ed; */

@@ -2,7 +2,7 @@
   <el-container>
     <el-header style="z-index: 100;height:45px;position:sticky;width:100%;top:0px;"><myheader /></el-header>
     <el-main style="z-index: 10;"><nuxt /></el-main>
-    <el-footer style="z-index: 100;"><myfooter /></el-footer>
+    <el-footer style="z-index: 100;height:36px;padding:0px;background-color: rgb(52 68 104);"><myfooter /></el-footer>
   </el-container>
 
   <!-- <div class="app-container">
