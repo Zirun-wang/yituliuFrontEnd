@@ -16,61 +16,37 @@
 		{
 			"itemName":"晶体电子单元",
 			"itemQuantity":1,
-			"itemPrice":1,
+			"itemPrice":100,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":1
 		},
 		{
-			"itemName":"异铁块",
+			"itemName":"炽合金块",
 			"itemQuantity":1,
-			"itemPrice":1,
+			"itemPrice":35,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":1
 		},
 		{
-			"itemName":"酮阵列",
+			"itemName":"三水锰矿",
 			"itemQuantity":1,
-			"itemPrice":1,
+			"itemPrice":35,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":1
 		},
 		{
-			"itemName":"五水研磨石",
+			"itemName":"提纯源岩",
 			"itemQuantity":1,
-			"itemPrice":1,
+			"itemPrice":25,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":1
 		},
 		{
-			"itemName":"聚合凝胶",
-			"itemQuantity":1,
-			"itemPrice":1,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":1
-		},
-		{
-			"itemName":"全新装置",
-			"itemQuantity":1,
-			"itemPrice":15,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":2
-		},
-		{
-			"itemName":"扭转醇",
-			"itemQuantity":1,
-			"itemPrice":8,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":2
-		},
-		{
-			"itemName":"晶体元件",
+			"itemName":"异铁组",
 			"itemQuantity":1,
 			"itemPrice":10,
 			"itemPPR":0,
@@ -78,9 +54,9 @@
 			"itemArea":2
 		},
 		{
-			"itemName":"糖组",
+			"itemName":"炽合金",
 			"itemQuantity":1,
-			"itemPrice":8,
+			"itemPrice":10,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":2
@@ -133,23 +109,7 @@
 			"itemStock":0,
 			"itemArea":2
 		},
-			{"itemName":"固源岩",
-			"itemQuantity":1,
-			"itemPrice":2,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":3
-		},
-		{
-			"itemName":"糖",
-			"itemQuantity":1,
-			"itemPrice":3,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":3
-		},
-		{
-			"itemName":"聚酸酯",
+			{"itemName":"酮凝集",
 			"itemQuantity":1,
 			"itemPrice":3,
 			"itemPPR":0,
@@ -165,23 +125,15 @@
 			"itemArea":3
 		},
 		{
-			"itemName":"酮凝集",
+			"itemName":"固源岩",
 			"itemQuantity":1,
-			"itemPrice":3,
+			"itemPrice":2,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":3
 		},
 		{
-			"itemName":"装置",
-			"itemQuantity":1,
-			"itemPrice":4,
-			"itemPPR":0,
-			"itemStock":0,
-			"itemArea":3
-		},
-		{
-			"itemName":"术师芯片",
+			"itemName":"先锋芯片",
 			"itemQuantity":1,
 			"itemPrice":6,
 			"itemPPR":0,

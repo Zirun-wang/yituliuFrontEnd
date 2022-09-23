@@ -203,7 +203,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(127, 127, 127, 0.5);
+    background: rgb(96 96 96 / 50%);
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(4px);
@@ -212,7 +212,7 @@
 .popup_card{
 	display: none;
 	margin:0 auto;
-    background-color: #ffffffc2;
+    background-color: #ffffffd4;
 	width:540px;
 	margin-top:100px;
     border-radius: 6px;

@@ -289,7 +289,7 @@ export default {
     },
 
     judgeActive(index){
-      if (this.stageRankT3[index][0].stageEfficiency>101)
+      if (this.stageRankT3[index][0].stageState>0.1)
         return "";
       return "display:none";
     },
