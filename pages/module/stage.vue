@@ -16,6 +16,9 @@
           <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
             只显示up
           </div>
+          <div id="nowActStageKey" class="op_tag_0" @click="showRockAndDevice()">
+            搓玉版
+          </div>
           <div class="tab_text">
           *点击卡片查看详情
           </div>
@@ -56,14 +59,41 @@
         <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
         <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
       </div>
+      <!-- 扩展卡 -->
       <div class="op_content" id="stage_t3_content_plus" style="display:none;">
-        <!-- 扩展卡 -->
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
           <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
           <div class="stage_card_t3_table">
             <table>
                 <tbody>
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+                    <td class="stage_table_c1">{{ stage.stageCode }}</td>
+                    <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
+                    <div class="sprite_secondary_div">
+                      <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
+                    </div>
+                    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
+                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 排版占位用卡片 -->
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
+      </div>
+      <!-- 搓玉卡 -->
+      <div class="op_content" id="stage_t3_content_plus" style="display:none;">
+        <div v-for="(materialRankT2, index) in stageRankT2" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
+          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT2[1].itemType)"></div>
+          <div class="stage_card_t3_table">
+            <table>
+                <tbody>
+                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT2.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                     <div class="sprite_secondary_div">
