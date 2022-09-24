@@ -1,15 +1,49 @@
 <template>
   <div id="riic">
-    <!-- <div id="riic_controlPanel" >
-      控制面板 全局参数区<br />
-      此处设置名称、排班方案等
-    </div> -->
-    <div class="jsonData">
-      {{ scheduleJson }}
+    <div id="riic_controlPanel" >
+      <div class="riic_building">
+        <div class="riic_building_title">控制面板</div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作业名称</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">描述(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作者(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="yituliu"></el-input>
+        </div>
+
+        <div class="riic_building_parameter">
+          <div class="parameter_text">基建模式</div>
+          <el-radio-group size="small">
+            <el-radio-button style="width: 45px" label="243"></el-radio-button>
+            <el-radio-button style="width: 45px" label="153"></el-radio-button>
+            <el-radio-button style="width: 45px" label="333"></el-radio-button>
+            <el-radio-button style="width: 45px" label="252"></el-radio-button>
+          </el-radio-group>
+        </div>
+      </div>
+      <el-button size="medium" type="primary" round style="margin:12px;">导出</el-button>
     </div>
 
-    <div @click="maaBuildingJsonCreated()">生成</div>
-    <div><a :href="exportUrl">导出</a></div>
+    <div id="riic_jsonData">
+      <div class="riic_building building_uni">
+        <div class="riic_building_title">标题</div>
+        <el-input
+          type="textarea"
+          :rows="2"
+          placeholder="请输入内容"
+          v-model="buildingJson">
+        </el-input>
+        <!-- {{ buildingJson }} -->
+      </div>
+    </div>
+
+    <!-- <div @click="setJson()">生成</div> -->
+    <!-- <el-input v-model.number="buildingType" @input="setJson()"></el-input> -->
     <div class="riic_workerSet">
       A排班表
       <div class="riic_building building_uni">
@@ -2447,15 +2481,11 @@
 
 
 <script>
-import buildingApi from "@/api/building";
-
 export default {
   data() {
     return {
-      exportUrl: "http://127.0.0.1:10012/tool/building/export?uid=",
-      uid: 12345,
       buildingType: 243,
-      scheduleJson: { plans: [] },
+      buildingJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
       name: ["A+B 组", "A+C 组", "C+B 组"],
@@ -2567,26 +2597,10 @@ export default {
   },
   created() {
     this.setJson();
-    this.setExportUrl();
   },
   methods: {
-    setExportUrl() {
-      this.exportUrl = this.exportUrl+this.uid;
-    },
-
-    maaBuildingJsonCreated() {
-      buildingApi
-        .maaBuildingJsonCreated(this.scheduleJson, this.uid)
-        .then((response) => {
-          this.$message({
-            message: response.data,
-            type: "success",
-          });
-        });
-    },
-
     setJson() {
-      this.scheduleJson = { plans: [] };
+      this.buildingJson = { plans: [] };
       var plans_0 = {
         Fiammetta: { target: "" },
         drones: {},
@@ -2626,8 +2640,8 @@ export default {
           dormitory: [],
         },
       };
-      this.scheduleJson.title = this.title;
-      this.scheduleJson.description = this.descriptionH1;
+      this.buildingJson.title = this.title;
+      this.buildingJson.description = this.descriptionH1;
 
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
@@ -2689,7 +2703,7 @@ export default {
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
       if (153 === this.buildingType)
-        plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
+      plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
         operators: [this.power_plan0_0[0]],
@@ -2925,11 +2939,11 @@ export default {
 
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
 
-      this.scheduleJson.plans.push(plans_0);
-      this.scheduleJson.plans.push(plans_1);
-      this.scheduleJson.plans.push(plans_2);
+      this.buildingJson.plans.push(plans_0);
+      this.buildingJson.plans.push(plans_1);
+      this.buildingJson.plans.push(plans_2);
 
-      console.log(this.scheduleJson);
+      console.log(this.buildingJson);
     },
 
     getParamsValue(label) {
@@ -2970,24 +2984,24 @@ export default {
 
 <style>
 #riic_controlPanel {
-  background-color: aquamarine;
-  height: 100px;
-}
-
-.riic_workerSet {
-  /* background-color: yellow; */
   display: inline-block;
   width: 430px;
   margin: 20px;
-
   color: #222222;
-  margin: 12px;
+  /* margin: 12px; */
   /* background-color: #d8d8d8; */
   border-radius: 8px;
   font-size: 20px;
-  box-shadow: 0px 2px 6px rgb(160 160 160 / 69%);
+  /* box-shadow: 0px 2px 6px rgb(160 160 160 / 69%); */
   overflow: hidden;
-  /* height: 100px; */
+}
+
+.riic_workerSet{
+  width:432px;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0px 2px 6px rgb(160 160 160 / 69%);
+  margin: 12px;
 }
 
 .riic_building {
@@ -3044,11 +3058,11 @@ export default {
   top: -2px;
 }
 
-.jsonData {
-  margin-top: 2%;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100px;
+#riic_jsonData {
+  margin-top: 24px;
+  /* background-color: rgb(255, 255, 255); */
+  width: 444px;
+  height: 300px;
   overflow: auto;
 }
 </style>
