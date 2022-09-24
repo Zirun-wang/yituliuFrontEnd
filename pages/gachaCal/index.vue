@@ -978,7 +978,7 @@
   import gacha_store258Json from "static/json/gacha_store258.json";
   import gacha_actRewardJson from "static/json/gacha_actReward.json";
   import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
-
+  import "~/assets/css/gacha.css";
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
   let echarts = require("echarts");

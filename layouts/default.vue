@@ -20,7 +20,6 @@
 import "~/assets/css/basic.css";
 import "~/assets/css/stage_v2.css";
 import "~/assets/css/store_v2.css";
-import "~/assets/css/gacha.css";
 import "~/assets/css/sprite.css";
 import "~/assets/css/sprite_index.css";
 import "~/assets/css/sprite_gacha.css";
