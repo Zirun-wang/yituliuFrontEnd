@@ -9,6 +9,7 @@
     </div>
 
     <div @click="setJson()">生成</div>
+    <el-input v-model.number="buildingType" @input="setJson()"></el-input>
     <div class="riic_workerSet">
       A排班表
       <div class="riic_building building_uni">
@@ -218,7 +219,7 @@
           </el-switch>
         </div>
       </div>
-      <div class="riic_building building_trade">
+      <div class="riic_building building_trade" v-show="243 === buildingType">
         <div class="riic_building_title">贸易站2</div>
         <div class="riic_building_operatorArray">
           <el-input
@@ -481,6 +482,59 @@
           默认排班
           <el-switch
             v-model="switch_manufacture_plan0_3[1]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+        </div>
+      </div>
+      <div class="riic_building building_factory" v-show="153 === buildingType">
+        制造站5
+        <div class="riic_building_operatorArray">
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="1"
+            v-model="manufacture_plan0_4[0]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="2"
+            v-model="manufacture_plan0_4[1]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="3"
+            v-model="manufacture_plan0_4[2]"
+          ></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">产物</div>
+          <el-radio-group size="small" v-model="radio_manufacture_plan0[4]">
+            <el-radio-button
+              style="width: 75px"
+              label="作战记录"
+            ></el-radio-button>
+            <el-radio-button style="width: 75px" label="赤金"></el-radio-button>
+            <el-radio-button
+              style="width: 75px"
+              label="源石碎片"
+            ></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="riic_building_parameter">
+          是否按顺序入驻
+          <el-switch
+            v-model="switch_manufacture_plan0_4[0]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+          默认排班
+          <el-switch
+            v-model="switch_manufacture_plan0_4[1]"
             active-color="#13ce66"
             inactive-color="#ff4949"
           >
@@ -976,7 +1030,7 @@
           </el-switch>
         </div>
       </div>
-      <div class="riic_building building_trade">
+      <div class="riic_building building_trade" v-show="243 === buildingType">
         <div class="riic_building_title">贸易站2</div>
         <div class="riic_building_operatorArray">
           <el-input
@@ -1239,6 +1293,59 @@
           默认排班
           <el-switch
             v-model="switch_manufacture_plan1_3[1]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+        </div>
+      </div>
+      <div class="riic_building building_factory" v-show="153 === buildingType">
+        制造站5
+        <div class="riic_building_operatorArray">
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="1"
+            v-model="manufacture_plan1_4[0]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="2"
+            v-model="manufacture_plan1_4[1]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="3"
+            v-model="manufacture_plan1_4[2]"
+          ></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">产物</div>
+          <el-radio-group size="small" v-model="radio_manufacture_plan1[4]">
+            <el-radio-button
+              style="width: 75px"
+              label="作战记录"
+            ></el-radio-button>
+            <el-radio-button style="width: 75px" label="赤金"></el-radio-button>
+            <el-radio-button
+              style="width: 75px"
+              label="源石碎片"
+            ></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="riic_building_parameter">
+          是否按顺序入驻
+          <el-switch
+            v-model="switch_manufacture_plan1_4[0]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+          默认排班
+          <el-switch
+            v-model="switch_manufacture_plan1_4[1]"
             active-color="#13ce66"
             inactive-color="#ff4949"
           >
@@ -1734,7 +1841,7 @@
           </el-switch>
         </div>
       </div>
-      <div class="riic_building building_trade">
+      <div class="riic_building building_trade" v-show="243 === buildingType">
         <div class="riic_building_title">贸易站2</div>
         <div class="riic_building_operatorArray">
           <el-input
@@ -1997,6 +2104,59 @@
           默认排班
           <el-switch
             v-model="switch_manufacture_plan2_3[1]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+        </div>
+      </div>
+      <div class="riic_building building_factory" v-show="153 === buildingType">
+        制造站5
+        <div class="riic_building_operatorArray">
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="1"
+            v-model="manufacture_plan2_4[0]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="2"
+            v-model="manufacture_plan2_4[1]"
+          ></el-input>
+          <el-input
+            class="operator_inputbox"
+            size="small"
+            placeholder="3"
+            v-model="manufacture_plan2_4[2]"
+          ></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">产物</div>
+          <el-radio-group size="small" v-model="radio_manufacture_plan2[4]">
+            <el-radio-button
+              style="width: 75px"
+              label="作战记录"
+            ></el-radio-button>
+            <el-radio-button style="width: 75px" label="赤金"></el-radio-button>
+            <el-radio-button
+              style="width: 75px"
+              label="源石碎片"
+            ></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="riic_building_parameter">
+          是否按顺序入驻
+          <el-switch
+            v-model="switch_manufacture_plan2_4[0]"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+          >
+          </el-switch>
+          默认排班
+          <el-switch
+            v-model="switch_manufacture_plan2_4[1]"
             active-color="#13ce66"
             inactive-color="#ff4949"
           >
@@ -2290,18 +2450,16 @@
 export default {
   data() {
     return {
-      input: "",
+      buildingType: 243,
       buildingJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
       name: ["A+B 组", "A+C 组", "C+B 组"],
-      descriptionH2: ["111111111",
-      "2222222222222",
-      "3333333333333"],
+      descriptionH2: ["111111111", "2222222222222", "3333333333333"],
       radio_drones: ["贸易站(钱)", "贸易站(钱)", "贸易站(钱)"],
       radio_drones_index: [1, 1, 1],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
-      control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],// A换班参数
+      control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"], // A换班参数
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
       radio_trading_plan0: ["龙门币", "龙门币"],
@@ -2311,11 +2469,19 @@ export default {
       manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan0_3: ["砾", "槐琥", "迷迭香"],
-      radio_manufacture_plan0: ["作战记录", "作战记录", "赤金", "赤金"],
+      manufacture_plan0_4: ["默认", "默认", "默认"],
+      radio_manufacture_plan0: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
       switch_manufacture_plan0_0: [true, false],
       switch_manufacture_plan0_1: [true, false],
       switch_manufacture_plan0_2: [true, false],
       switch_manufacture_plan0_3: [true, false],
+      switch_manufacture_plan0_4: [true, false],
       power_plan0_0: ["承曦格雷伊", "澄闪", "炎狱炎熔"],
       switch_power_plan0_0: [true, false],
       switch_power_plan0_1: [true, false],
@@ -2326,7 +2492,7 @@ export default {
       switch_meeting_plan0_0: [true, false],
       dormitory_plan0_0: ["爱丽丝", "车尼尔"],
       switch_dormitory_plan0_0: [true, false],
-      control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],// B换班参数
+      control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"], // B换班参数
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
       radio_trading_plan1: ["龙门币", "龙门币"],
@@ -2336,11 +2502,19 @@ export default {
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan1_3: ["泡泡", "火神", "刻俄柏"],
-      radio_manufacture_plan1: ["作战记录", "作战记录", "赤金", "赤金"],
+      manufacture_plan1_4: ["默认1", "默认1", "默认1"],
+      radio_manufacture_plan1: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
       switch_manufacture_plan1_0: [true, false],
       switch_manufacture_plan1_1: [true, false],
       switch_manufacture_plan1_2: [true, false],
       switch_manufacture_plan1_3: [true, false],
+      switch_manufacture_plan1_4: [true, false],
       power_plan1_0: ["承曦格雷伊", "雷蛇", "炎狱炎熔"],
       switch_power_plan1_0: [true, false],
       switch_power_plan1_1: [true, false],
@@ -2351,7 +2525,7 @@ export default {
       switch_meeting_plan1_0: [true, false],
       dormitory_plan1_0: ["爱丽丝", "车尼尔"],
       switch_dormitory_plan1_0: [true, false],
-      control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"],// C换班参数
+      control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"], // C换班参数
       trading_plan2_0: ["孑", "银灰", "崖心"],
       trading_plan2_1: ["但书", "空弦", "黑键"],
       radio_trading_plan2: ["龙门币", "龙门币"],
@@ -2361,11 +2535,20 @@ export default {
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
       manufacture_plan2_3: ["砾", "槐琥", "迷迭香"],
-      radio_manufacture_plan2: ["作战记录", "作战记录", "赤金", "赤金"],
+      manufacture_plan2_4: ["默认2", "默认2", "默认2"],
+      radio_manufacture_plan2: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
       switch_manufacture_plan2_0: [true, false],
       switch_manufacture_plan2_1: [true, false],
       switch_manufacture_plan2_2: [true, false],
       switch_manufacture_plan2_3: [true, false],
+      switch_manufacture_plan2_4: [true, false],
+
       power_plan2_0: ["正义骑士号", "澄闪", "雷蛇"],
       switch_power_plan2_0: [true, false],
       switch_power_plan2_1: [true, false],
@@ -2447,7 +2630,8 @@ export default {
       };
 
       plans_0.rooms.trading[0] = trading_planMap0_0;
-      plans_0.rooms.trading[1] = trading_planMap0_1;
+      if (243 === this.buildingType)
+        plans_0.rooms.trading[1] = trading_planMap0_1;
 
       var manufacture_planMap0_0 = {
         operators: [this.manufacture_plan0_0],
@@ -2473,11 +2657,19 @@ export default {
         autofill: this.switch_manufacture_plan0_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[3]),
       };
+      var manufacture_planMap0_4 = {
+        operators: [this.manufacture_plan0_4],
+        sort: this.switch_manufacture_plan0_4[0],
+        autofill: this.switch_manufacture_plan0_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[4]),
+      };
 
       plans_0.rooms.manufacture[0] = manufacture_planMap0_0;
       plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
+      if (153 === this.buildingType)
+      plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
         operators: [this.power_plan0_0[0]],
@@ -2515,8 +2707,7 @@ export default {
 
       plans_0.rooms.meeting[0] = meeting_planMap0_0;
 
-
-// B换班表
+      // B换班表
       plans_1.name = this.name[1];
       plans_1.description = this.descriptionH2[1];
       plans_1.Fiammetta.target = this.Fiammetta[1];
@@ -2538,7 +2729,8 @@ export default {
       };
 
       plans_1.rooms.trading[0] = trading_planMap1_0;
-      plans_1.rooms.trading[1] = trading_planMap1_1;
+      if (243 === this.buildingType)
+        plans_1.rooms.trading[1] = trading_planMap1_1;
 
       var manufacture_planMap1_0 = {
         operators: [this.manufacture_plan1_0],
@@ -2564,11 +2756,19 @@ export default {
         autofill: this.switch_manufacture_plan1_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[3]),
       };
+      var manufacture_planMap1_4 = {
+        operators: [this.manufacture_plan1_4],
+        sort: this.switch_manufacture_plan1_4[0],
+        autofill: this.switch_manufacture_plan1_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[4]),
+      };
 
       plans_1.rooms.manufacture[0] = manufacture_planMap1_0;
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
+      if (153 === this.buildingType)
+        plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
 
       var power_planMap1_0 = {
         operators: [this.power_plan1_0[0]],
@@ -2606,9 +2806,7 @@ export default {
 
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
 
-
-
-// C换班表
+      // C换班表
       plans_2.name = this.name[2];
       plans_2.description = this.descriptionH2[2];
       plans_2.Fiammetta.target = this.Fiammetta[2];
@@ -2630,7 +2828,8 @@ export default {
       };
 
       plans_2.rooms.trading[0] = trading_planMap2_0;
-      plans_2.rooms.trading[1] = trading_planMap2_1;
+      if (243 === this.buildingType)
+        plans_2.rooms.trading[1] = trading_planMap2_1;
 
       var manufacture_planMap2_0 = {
         operators: [this.manufacture_plan2_0],
@@ -2656,11 +2855,19 @@ export default {
         autofill: this.switch_manufacture_plan2_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[3]),
       };
+      var manufacture_planMap2_4 = {
+        operators: [this.manufacture_plan2_4],
+        sort: this.switch_manufacture_plan2_4[0],
+        autofill: this.switch_manufacture_plan2_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[4]),
+      };
 
       plans_2.rooms.manufacture[0] = manufacture_planMap2_0;
       plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
       plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
       plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
+      if (153 === this.buildingType)
+        plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
 
       var power_planMap2_0 = {
         operators: [this.power_plan2_0[0]],
