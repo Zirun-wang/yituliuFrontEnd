@@ -36,7 +36,7 @@
           type="textarea"
           :rows="2"
           placeholder="请输入内容"
-          v-model="buildingJson">
+         >
         </el-input>
         <!-- {{ buildingJson }} -->
       </div>
@@ -2481,11 +2481,15 @@
 
 
 <script>
+import buildingApi from "@/api/building";
+
 export default {
   data() {
     return {
+      exportUrl: "http://127.0.0.1:10012/tool/building/export?uid=",
+      uid: 12345,
       buildingType: 243,
-      buildingJson: { plans: [] },
+      scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
       name: ["A+B 组", "A+C 组", "C+B 组"],
@@ -2597,10 +2601,26 @@ export default {
   },
   created() {
     this.setJson();
+    this.setExportUrl();
   },
   methods: {
+    setExportUrl() {
+      this.exportUrl = this.exportUrl+this.uid;
+    },
+
+    maaBuildingJsonCreated() {
+      buildingApi
+        .maaBuildingJsonCreated(this.scheduleJson, this.uid)
+        .then((response) => {
+          this.$message({
+            message: response.data,
+            type: "success",
+          });
+        });
+    },
+
     setJson() {
-      this.buildingJson = { plans: [] };
+      this.scheduleJson = { plans: [] };
       var plans_0 = {
         Fiammetta: { target: "" },
         drones: {},
@@ -2640,8 +2660,8 @@ export default {
           dormitory: [],
         },
       };
-      this.buildingJson.title = this.title;
-      this.buildingJson.description = this.descriptionH1;
+      this.scheduleJson.title = this.title;
+      this.scheduleJson.description = this.descriptionH1;
 
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
@@ -2703,7 +2723,7 @@ export default {
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
       if (153 === this.buildingType)
-      plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
+        plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
         operators: [this.power_plan0_0[0]],
@@ -2939,11 +2959,11 @@ export default {
 
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
 
-      this.buildingJson.plans.push(plans_0);
-      this.buildingJson.plans.push(plans_1);
-      this.buildingJson.plans.push(plans_2);
+      this.scheduleJson.plans.push(plans_0);
+      this.scheduleJson.plans.push(plans_1);
+      this.scheduleJson.plans.push(plans_2);
 
-      console.log(this.buildingJson);
+      console.log(this.scheduleJson);
     },
 
     getParamsValue(label) {
