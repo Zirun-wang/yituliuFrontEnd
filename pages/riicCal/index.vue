@@ -1,9 +1,32 @@
 <template>
   <div id="riic">
-    <!-- <div id="riic_controlPanel" >
-      控制面板 全局参数区<br />
-      此处设置名称、排班方案等
-    </div> -->
+    <div id="riic_controlPanel" >
+      <div class="riic_building">
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作业名称</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">描述(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作者(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="yituliu"></el-input>
+        </div>
+
+        <div class="riic_building_parameter">
+          <div class="parameter_text">基建模式</div>
+          <el-radio-group size="small">
+            <el-radio-button style="width: 45px" label="243"></el-radio-button>
+            <el-radio-button style="width: 45px" label="153"></el-radio-button>
+            <el-radio-button style="width: 45px" label="333"></el-radio-button>
+            <el-radio-button style="width: 45px" label="252"></el-radio-button>
+          </el-radio-group>
+        </div>
+      </div>
+      <el-button size="medium" type="primary" round style="margin:12px;">导出</el-button>
+    </div>
     <div class="jsonData">
       {{ buildingJson }}
     </div>
@@ -2950,8 +2973,17 @@ export default {
 
 <style>
 #riic_controlPanel {
-  background-color: aquamarine;
-  height: 100px;
+  display: inline-block;
+  width: 430px;
+  margin: 20px;
+  color: #222222;
+  margin: 12px;
+  /* background-color: #d8d8d8; */
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0px 2px 6px rgb(160 160 160 / 69%);
+  overflow: hidden;
+  /* height: 100px;
 }
 
 .riic_workerSet {
