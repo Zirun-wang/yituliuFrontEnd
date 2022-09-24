@@ -2,6 +2,7 @@
   <div id="riic">
     <div id="riic_controlPanel" >
       <div class="riic_building">
+        <div class="riic_building_title">控制面板</div>
         <div class="riic_building_parameter">
           <div class="parameter_text">作业名称</div>
           <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0"></el-input>
@@ -27,12 +28,22 @@
       </div>
       <el-button size="medium" type="primary" round style="margin:12px;">导出</el-button>
     </div>
-    <div class="jsonData">
-      {{ buildingJson }}
+
+    <div id="riic_jsonData">
+      <div class="riic_building building_uni">
+        <div class="riic_building_title">标题</div>
+        <el-input
+          type="textarea"
+          :rows="2"
+          placeholder="请输入内容"
+          v-model="buildingJson">
+        </el-input>
+        <!-- {{ buildingJson }} -->
+      </div>
     </div>
 
-    <div @click="setJson()">生成</div>
-    <el-input v-model.number="buildingType" @input="setJson()"></el-input>
+    <!-- <div @click="setJson()">生成</div> -->
+    <!-- <el-input v-model.number="buildingType" @input="setJson()"></el-input> -->
     <div class="riic_workerSet">
       A排班表
       <div class="riic_building building_uni">
@@ -2977,29 +2988,20 @@ export default {
   width: 430px;
   margin: 20px;
   color: #222222;
-  margin: 12px;
+  /* margin: 12px; */
   /* background-color: #d8d8d8; */
   border-radius: 8px;
   font-size: 20px;
-  box-shadow: 0px 2px 6px rgb(160 160 160 / 69%);
+  /* box-shadow: 0px 2px 6px rgb(160 160 160 / 69%); */
   overflow: hidden;
-  /* height: 100px;
 }
 
-.riic_workerSet {
-  /* background-color: yellow; */
-  display: inline-block;
-  width: 430px;
-  margin: 20px;
-
-  color: #222222;
-  margin: 12px;
-  /* background-color: #d8d8d8; */
+.riic_workerSet{
+  width:432px;
   border-radius: 8px;
   font-size: 20px;
   box-shadow: 0px 2px 6px rgb(160 160 160 / 69%);
-  overflow: hidden;
-  /* height: 100px; */
+  margin: 12px;
 }
 
 .riic_building {
@@ -3056,11 +3058,11 @@ export default {
   top: -2px;
 }
 
-.jsonData {
-  margin-top: 2%;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100px;
+#riic_jsonData {
+  margin-top: 24px;
+  /* background-color: rgb(255, 255, 255); */
+  width: 444px;
+  height: 300px;
   overflow: auto;
 }
 </style>
