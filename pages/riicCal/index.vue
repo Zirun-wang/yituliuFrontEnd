@@ -33,14 +33,14 @@
               <el-radio-button style="width: 45px" label="2班"></el-radio-button>
             </el-radio-group>
           </div>
-          <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">生成</el-button>
-          <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">导出</el-button>
+          <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;" @click="maaBuildingJsonCreated()">生成</el-button>
+         <a :href="exportUrl"><el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">导出</el-button></a> 
         </div>
       </div>
       <div style="height: 306px;margin-top: 16px;">
         <div class="riic_building building_uni" style="height: 256px;">
           <div class="riic_building_title">json内容</div>
-          <el-input type="textarea" :rows="10" placeholder="此处显示导出内容" style="width: 384px;height: 259px;margin: 12px;">
+          <el-input type="textarea" :rows="10" placeholder="此处显示导出内容" style="width: 384px;height: 259px;margin: 12px;" v-model="scheduleJson">
           </el-input>
           <!-- {{ buildingJson }} -->
         </div>
@@ -2205,18 +2205,31 @@ export default {
   },
   methods: {
     setExportUrl() {
-      this.exportUrl = this.exportUrl+this.uid;
+      
+      this.exportUrl = "http://127.0.0.1:10012/tool/building/export?uid="+this.uid;
     },
-
+    sleep(s){
+     return new Promise((resolve)=>setTimeout(resolve,s))
+    },
     maaBuildingJsonCreated() {
       buildingApi
-        .maaBuildingJsonCreated(this.scheduleJson, this.uid)
+        .maaBuildingJsonCreated(this.scheduleJson)
         .then((response) => {
+
+          this.sleep(2000)
           this.$message({
-            message: response.data,
+            message: response.data.message+'uid：'+response.data.uid,
             type: "success",
+            showClose: true,
+            duration:3000
           });
-        });
+          this.uid = response.data.uid
+          this.setExportUrl()
+        }); 
+
+
+
+      
     },
 
     setJson() {
