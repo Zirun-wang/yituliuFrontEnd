@@ -1,7 +1,7 @@
 <template>
   <div id="riic">
     <div id="riic_controlPanel">
-      <div style="height: 268px;margin-top: 16px;" >
+      <div style="height: 306px;margin-top: 16px;" >
         <div class="riic_building">
           <div class="riic_building_title">控制面板</div>
           <div class="riic_building_parameter">
@@ -26,13 +26,21 @@
               <el-radio-button style="width: 45px" label="252"></el-radio-button>
             </el-radio-group>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">换班次数</div>
+            <el-radio-group size="small">
+              <el-radio-button style="width: 45px" label="3班"></el-radio-button>
+              <el-radio-button style="width: 45px" label="2班"></el-radio-button>
+            </el-radio-group>
+          </div>
+          <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">生成</el-button> 
           <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">导出</el-button>
         </div>
       </div>
-      <div style="height: 268px;margin-top: 16px;">
-        <div class="riic_building building_uni" style="height: 212px;">
+      <div style="height: 306px;margin-top: 16px;">
+        <div class="riic_building building_uni" style="height: 256px;">
           <div class="riic_building_title">json内容</div>
-          <el-input type="textarea" :rows="8" placeholder="此处显示导出内容" style="width: 384px;height: 259px;margin: 12px;">
+          <el-input type="textarea" :rows="10" placeholder="此处显示导出内容" style="width: 384px;height: 259px;margin: 12px;">
           </el-input>
           <!-- {{ buildingJson }} -->
         </div>
@@ -40,8 +48,6 @@
     </div>
 
     <el-divider></el-divider>
-    <!-- <div @click="setJson()">生成</div> -->
-    <!-- <el-input v-model.number="buildingType" @input="setJson()"></el-input> -->
     <div id="riic_workerSets">
       <div class="riic_workerSet">
         <div class="riic_building building_uni">
@@ -55,7 +61,6 @@
               placeholder="例如：主力组A"
               v-model="name[0]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
@@ -65,7 +70,21 @@
               placeholder="可选"
               v-model="descriptionH2[0]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">起止时间</div>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="10:00"
+              style="width:120px;"
+            ></el-input>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="18:00"
+              style="width:120px;"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机目标</div>
@@ -92,7 +111,6 @@
               placeholder="例如：巫恋"
               v-model="Fiammetta[0]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
         </div>
 
@@ -129,53 +147,20 @@
               placeholder="5"
               v-model="control_plan0[4]"
             ></el-input>
-            <!-- <div class="riic_building_operator">
-              <div class="operator_text">1</div>
-              <input class="operator_inputbox" type="text">
-            </div>
-            <div class="riic_building_operator">
-              <div class="operator_text">2</div>
-              <input class="operator_inputbox" type="text">
-            </div>
-            <div class="riic_building_operator">
-              <div class="operator_text">3</div>
-              <input class="operator_inputbox" type="text">
-            </div>
-            <div class="riic_building_operator">
-              <div class="operator_text">4</div>
-              <input class="operator_inputbox" type="text">
-            </div>
-            <div class="riic_building_operator">
-              <div class="operator_text">5</div>
-              <input class="operator_inputbox" type="text">
-            </div> -->
+
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">参数B</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
         </div>
@@ -204,15 +189,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan0[0]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -257,15 +235,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan0[1]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -311,15 +282,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan0[0]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -364,15 +329,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan0[1]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -417,15 +376,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan0[2]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -470,15 +423,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan0[3]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -523,15 +470,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan0[4]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -564,15 +505,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -605,15 +539,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -646,15 +573,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -687,15 +607,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -735,15 +648,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -783,15 +689,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -825,7 +724,6 @@
               placeholder="例如：主力组A"
               v-model="name[1]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
@@ -835,7 +733,21 @@
               placeholder="可选"
               v-model="descriptionH2[1]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">起止时间</div>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="10:00"
+              style="width:120px;"
+            ></el-input>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="18:00"
+              style="width:120px;"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机目标</div>
@@ -862,7 +774,6 @@
               placeholder="例如：巫恋"
               v-model="Fiammetta[1]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
         </div>
 
@@ -923,29 +834,15 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">参数B</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
         </div>
@@ -974,15 +871,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan1[0]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1027,15 +917,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan1[1]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1081,15 +964,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan1[0]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1134,15 +1011,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan1[1]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1187,15 +1058,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan1[2]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1240,15 +1105,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan1[3]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1293,15 +1152,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan1[4]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1334,15 +1187,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1375,15 +1221,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1416,15 +1255,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1457,15 +1289,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1505,15 +1330,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1553,15 +1371,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1595,7 +1406,6 @@
               placeholder="例如：主力组A"
               v-model="name[2]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
@@ -1605,7 +1415,21 @@
               placeholder="可选"
               v-model="descriptionH2[2]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">起止时间</div>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="10:00"
+              style="width:120px;"
+            ></el-input>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="18:00"
+              style="width:120px;"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机目标</div>
@@ -1632,7 +1456,6 @@
               placeholder="例如：巫恋"
               v-model="Fiammetta[2]"
             ></el-input>
-            <!-- <input class="parameter_inputbox" type="text"> -->
           </div>
         </div>
 
@@ -1693,29 +1516,15 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">参数B</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
         </div>
@@ -1744,15 +1553,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan2[0]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1797,15 +1599,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_trading_plan2[1]">
-              <el-radio-button
-
-                label="龙门币"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="合成玉"
-              ></el-radio-button>
-
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1851,15 +1646,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan2[0]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1904,15 +1693,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan2[1]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -1957,15 +1740,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan2[2]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2010,15 +1787,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan2[3]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2063,15 +1834,9 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">产物</div>
             <el-radio-group size="small" v-model="radio_manufacture_plan2[4]">
-              <el-radio-button
-
-                label="作战记录"
-              ></el-radio-button>
+              <el-radio-button label="作战记录"></el-radio-button>
               <el-radio-button label="赤金"></el-radio-button>
-              <el-radio-button
-
-                label="源石碎片"
-              ></el-radio-button>
+              <el-radio-button label="源石碎片"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2104,15 +1869,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2145,15 +1903,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2186,15 +1937,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2227,15 +1971,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2275,15 +2012,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
@@ -2323,15 +2053,8 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
             <el-radio-group size="small">
-              <el-radio-button
-
-                label="参数选项1"
-              ></el-radio-button>
-              <el-radio-button
-
-                label="参数选项2"
-              ></el-radio-button>
-
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
