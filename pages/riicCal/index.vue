@@ -26,7 +26,8 @@
           </el-radio-group>
         </div>
       </div>
-      <el-button size="medium" type="primary" round style="margin:12px;">导出</el-button>
+      <a :href="exportUrl"><el-button size="medium" type="primary" round style="margin:12px;">导出</el-button></a> 
+         <el-button size="medium" type="primary" round style="margin:12px;" @click="maaBuildingJsonCreated()">生成</el-button>
     </div>
 
     <div id="riic_jsonData">
@@ -2605,18 +2606,31 @@ export default {
   },
   methods: {
     setExportUrl() {
-      this.exportUrl = this.exportUrl+this.uid;
+      
+      this.exportUrl = "http://127.0.0.1:10012/tool/building/export?uid="+this.uid;
     },
-
+    sleep(s){
+     return new Promise((resolve)=>setTimeout(resolve,s))
+    },
     maaBuildingJsonCreated() {
       buildingApi
-        .maaBuildingJsonCreated(this.scheduleJson, this.uid)
+        .maaBuildingJsonCreated(this.scheduleJson)
         .then((response) => {
+
+          this.sleep(2000)
           this.$message({
-            message: response.data,
+            message: response.data.message+'uid：'+response.data.uid,
             type: "success",
+            showClose: true,
+            duration:3000
           });
-        });
+          this.uid = response.data.uid
+          this.setExportUrl()
+        }); 
+
+
+
+      
     },
 
     setJson() {

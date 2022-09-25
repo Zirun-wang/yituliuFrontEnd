@@ -5,9 +5,9 @@ const api_name = `/tool`
 export default {
 
     //查询所有材料价值
-    maaBuildingJsonCreated(data,uid) {
+    maaBuildingJsonCreated(data) {
         return request({
-            url: `${api_name}/building/save?uid=${uid}`,
+            url: `${api_name}/building/save`,
             method: 'post',
             data:data
         })
