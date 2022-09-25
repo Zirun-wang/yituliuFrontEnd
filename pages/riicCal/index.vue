@@ -84,7 +84,8 @@
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text">无人机目标</div>
+            <div class="parameter_text">无人机</div>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
             <el-radio-group size="small" v-model="radio_drones[0]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
@@ -96,7 +97,7 @@
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="默认为1，修改前请先看文档"
+              placeholder="默认为1，如需修改请先看文档"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
@@ -104,24 +105,20 @@
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="默认为'pre'，修改前请先看文档"
+              placeholder="默认为'pre'，如需修改请先看文档"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
-            <el-input
-              size="small"
-              class="parameter_inputbox"
-              placeholder="例如：巫恋"
-              v-model="Fiammetta[0]"
-            ></el-input>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[0]"></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size:15px;">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="默认为'pre'，修改前请先看文档"
+              placeholder="默认为'pre'，如需修改请先看文档"
             ></el-input>
           </div>
         </div>
@@ -762,29 +759,41 @@
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text">无人机目标</div>
+            <div class="parameter_text">无人机</div>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
             <el-radio-group size="small" v-model="radio_drones[1]">
-              <el-radio-button label="贸易站(钱)"></el-radio-button>
-              <el-radio-button label="制造站(书)"></el-radio-button>
-              <el-radio-button label="制造站(金)"></el-radio-button>
+              <el-radio-button label="贸易站"></el-radio-button>
+              <el-radio-button label="制造站"></el-radio-button>
+              <!-- <el-radio-button label="制造站(金)"></el-radio-button> -->
             </el-radio-group>
           </div>
-          <!-- <div class="riic_building_parameter">
-            <div class="parameter_text">加速房间编号</div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">drones.index</div>
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="例如：巫恋"
-              v-model="radio_drones_index[1]"
+              placeholder="默认为1，如需修改请先看文档"
             ></el-input>
-          </div> -->
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">drones.order</div>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="默认为'pre'，如需修改请先看文档"
+            ></el-input>
+          </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[1]"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="例如：巫恋"
-              v-model="Fiammetta[1]"
+              placeholder="默认为'pre'，如需修改请先看文档"
             ></el-input>
           </div>
         </div>
@@ -1444,29 +1453,41 @@
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text">无人机目标</div>
+            <div class="parameter_text">无人机</div>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
             <el-radio-group size="small" v-model="radio_drones[2]">
-              <el-radio-button label="贸易站(钱)"></el-radio-button>
-              <el-radio-button label="制造站(书)"></el-radio-button>
-              <el-radio-button label="制造站(金)"></el-radio-button>
+              <el-radio-button label="贸易站"></el-radio-button>
+              <el-radio-button label="制造站"></el-radio-button>
+              <!-- <el-radio-button label="制造站(金)"></el-radio-button> -->
             </el-radio-group>
           </div>
-          <!-- <div class="riic_building_parameter">
-            <div class="parameter_text">加速房间编号</div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">drones.index</div>
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="例如：巫恋"
-              v-model="radio_drones_index[2]"
+              placeholder="默认为1，如需修改请先看文档"
             ></el-input>
-          </div> -->
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">drones.order</div>
+            <el-input
+              size="small"
+              class="parameter_inputbox"
+              placeholder="默认为'pre'，如需修改请先看文档"
+            ></el-input>
+          </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
+            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[2]"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text" style="font-size:15px;">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
-              placeholder="例如：巫恋"
-              v-model="Fiammetta[2]"
+              placeholder="默认为'pre'，如需修改请先看文档"
             ></el-input>
           </div>
         </div>
