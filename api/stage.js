@@ -7,9 +7,9 @@ export default {
 
 
     //根据材料类型查询关卡效率按关卡效率降序 蓝材料
-    findStageDateByTypeOrderByEfficiencyDesc(ends,efficiency) {
+    findStageDateByTypeOrderByEfficiencyDesc(times) {
         return request({
-            url: `${api_name}/find/stage/t3/${ends}/${efficiency}`,
+            url: `${api_name}/find/stage/t3/${times}`,
             method: 'get',
         })
     },

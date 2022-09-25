@@ -337,7 +337,7 @@ export default {
     },
 
     loadData(){
-      stageApi.findStageDateByTypeOrderByEfficiencyDesc(500, 0.6).then((response) => {
+      stageApi.findStageDateByTypeOrderByEfficiencyDesc(500).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
         this.updateTime = response.data[0][0].updateTime

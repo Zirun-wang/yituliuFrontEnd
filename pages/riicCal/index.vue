@@ -22,15 +22,15 @@
             <el-radio-group size="small" v-model="buildingType">
               <el-radio-button style="width: 45px" label="243"></el-radio-button>
               <el-radio-button style="width: 45px" label="153"></el-radio-button>
-              <el-radio-button style="width: 45px" label="333"></el-radio-button>
-              <el-radio-button style="width: 45px" label="252"></el-radio-button>
+              <el-radio-button style="width: 45px" label="333" disabled></el-radio-button>
+              <el-radio-button style="width: 45px" label="252" disabled></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">换班次数</div>
             <el-radio-group size="small">
               <el-radio-button style="width: 45px" label="3班"></el-radio-button>
-              <el-radio-button style="width: 45px" label="2班"></el-radio-button>
+              <el-radio-button style="width: 45px" label="2班" disabled></el-radio-button>
             </el-radio-group>
           </div>
           <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;" @click="maaBuildingJsonCreated()">生成</el-button>
@@ -2083,7 +2083,7 @@ import buildingApi from "@/api/building";
 export default {
   data() {
     return {
-      exportUrl: "http://127.0.0.1:10012/tool/building/export?uid=",
+      exportUrl: "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
       buildingType: "243",
       scheduleJson: { plans: [] },
@@ -2204,7 +2204,7 @@ export default {
   methods: {
     setExportUrl() {
       
-      this.exportUrl = "http://127.0.0.1:10012/tool/building/export?uid="+this.uid;
+      this.exportUrl = "https://houduan.yituliu.site/tool/building/schedule/export?uid="+this.uid;
     },
  
     maaBuildingJsonCreated() {
