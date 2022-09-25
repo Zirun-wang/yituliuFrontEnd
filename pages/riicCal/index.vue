@@ -6,20 +6,20 @@
           <div class="riic_building_title">控制面板</div>
           <div class="riic_building_parameter">
             <div class="parameter_text">作业名称</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0"></el-input>
+            <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0" v-model="title"></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">描述(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！"></el-input>
+            <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！" v-model="descriptionH1"></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">作者(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="yituliu"></el-input>
+            <el-input class="parameter_inputbox" size="small" placeholder="yituliu" v-model="author"></el-input>
           </div>
 
           <div class="riic_building_parameter">
             <div class="parameter_text">基建模式</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="buildingType">
               <el-radio-button style="width: 45px" label="243"></el-radio-button>
               <el-radio-button style="width: 45px" label="153"></el-radio-button>
               <el-radio-button style="width: 45px" label="333"></el-radio-button>
@@ -37,14 +37,11 @@
          <a :href="exportUrl"><el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">导出</el-button></a> 
         </div>
       </div>
-      <div style="height: 306px;margin-top: 16px;">
+      <!-- <div style="height: 306px;margin-top: 16px;">
         <div class="riic_building building_uni" style="height: 256px;">
           <div class="riic_building_title">json内容</div>
-          <el-input type="textarea" :rows="10" placeholder="此处显示导出内容" style="width: 384px;height: 259px;margin: 12px;" v-model="scheduleJson">
-          </el-input>
-          <!-- {{ buildingJson }} -->
         </div>
-      </div>
+      </div> -->
     </div>
 
     <el-divider></el-divider>
@@ -210,7 +207,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="243 === buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -445,7 +442,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="153 === buildingType">
+        <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -892,7 +889,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="243 === buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1127,7 +1124,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="153 === buildingType">
+        <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1574,7 +1571,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="243 === buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1809,7 +1806,7 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="153 === buildingType">
+        <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -2088,10 +2085,11 @@ export default {
     return {
       exportUrl: "http://127.0.0.1:10012/tool/building/export?uid=",
       uid: 12345,
-      buildingType: 243,
+      buildingType: "243",
       scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
+      author:'yituliu',
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
       radio_drones: ["贸易站(钱)", "贸易站(钱)", "贸易站(钱)"],
@@ -2208,15 +2206,14 @@ export default {
       
       this.exportUrl = "http://127.0.0.1:10012/tool/building/export?uid="+this.uid;
     },
-    sleep(s){
-     return new Promise((resolve)=>setTimeout(resolve,s))
-    },
+ 
     maaBuildingJsonCreated() {
+      this.setJson()
       buildingApi
         .maaBuildingJsonCreated(this.scheduleJson)
         .then((response) => {
 
-          this.sleep(2000)
+         
           this.$message({
             message: response.data.message+'uid：'+response.data.uid,
             type: "success",
@@ -2297,7 +2294,7 @@ export default {
       };
 
       plans_0.rooms.trading[0] = trading_planMap0_0;
-      if (243 === this.buildingType)
+      if ('243' === this.buildingType)
         plans_0.rooms.trading[1] = trading_planMap0_1;
 
       var manufacture_planMap0_0 = {
@@ -2335,7 +2332,7 @@ export default {
       plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
-      if (153 === this.buildingType)
+      if ('153' === this.buildingType)
         plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
@@ -2396,7 +2393,7 @@ export default {
       };
 
       plans_1.rooms.trading[0] = trading_planMap1_0;
-      if (243 === this.buildingType)
+      if ('243' === this.buildingType)
         plans_1.rooms.trading[1] = trading_planMap1_1;
 
       var manufacture_planMap1_0 = {
@@ -2434,7 +2431,7 @@ export default {
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
-      if (153 === this.buildingType)
+      if ('153' === this.buildingType)
         plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
 
       var power_planMap1_0 = {
@@ -2495,7 +2492,7 @@ export default {
       };
 
       plans_2.rooms.trading[0] = trading_planMap2_0;
-      if (243 === this.buildingType)
+      if ('243' === this.buildingType)
         plans_2.rooms.trading[1] = trading_planMap2_1;
 
       var manufacture_planMap2_0 = {
@@ -2533,7 +2530,7 @@ export default {
       plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
       plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
       plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
-      if (153 === this.buildingType)
+      if ('153' === this.buildingType)
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
 
       var power_planMap2_0 = {
