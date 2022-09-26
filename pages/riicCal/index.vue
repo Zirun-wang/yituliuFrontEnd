@@ -1,40 +1,88 @@
 <template>
   <div id="riic">
     <div id="riic_controlPanel">
-      <div style="height: 320px;margin-top: 16px;" >
+      <div style="height: 320px; margin-top: 16px">
         <div class="riic_building">
           <div class="riic_building_title">控制面板</div>
           <div class="riic_building_parameter">
             <div class="parameter_text">作业名称</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0" v-model="title"></el-input>
+            <el-input
+              class="parameter_inputbox"
+              size="small"
+              placeholder="究极资本家v1.0"
+              v-model="title"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">描述(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！" v-model="descriptionH1"></el-input>
+            <el-input
+              class="parameter_inputbox"
+              size="small"
+              placeholder="适合全干员，压榨每一个工具人！"
+              v-model="descriptionH1"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">作者(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="yituliu" v-model="author"></el-input>
+            <el-input
+              class="parameter_inputbox"
+              size="small"
+              placeholder="yituliu"
+              v-model="author"
+            ></el-input>
           </div>
 
           <div class="riic_building_parameter">
             <div class="parameter_text">基建模式</div>
             <el-radio-group size="small" v-model="buildingType">
-              <el-radio-button style="width: 45px" label="243"></el-radio-button>
-              <el-radio-button style="width: 45px" label="153"></el-radio-button>
-              <el-radio-button style="width: 45px" label="333"></el-radio-button>
-              <el-radio-button style="width: 45px" label="252"></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="243"
+              ></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="153"
+              ></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="333"
+              ></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="252"
+              ></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">换班次数</div>
             <el-radio-group size="small">
-              <el-radio-button style="width: 45px" label="3班"></el-radio-button>
-              <el-radio-button style="width: 45px" label="2班"></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="3班"
+              ></el-radio-button>
+              <el-radio-button
+                style="width: 45px"
+                label="2班"
+              ></el-radio-button>
             </el-radio-group>
           </div>
-          <el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;" @click="maaBuildingJsonCreated()">生成</el-button>
-          <a :href="exportUrl"><el-button size="medium" type="primary" round style="margin:0px 0px 12px 24px;">导出</el-button></a> 
+          <el-button
+            size="medium"
+            type="primary"
+            round
+            style="margin: 0px 0px 12px 24px"
+            @click="maaBuildingJsonCreated()"
+            >生成</el-button
+          >
+          <a :href="exportUrl"
+            ><el-button
+              size="medium"
+              type="primary"
+              round
+              style="margin: 0px 0px 12px 24px"
+              >导出</el-button
+            ></a
+          >
         </div>
       </div>
       <!-- <div style="height: 320px;margin-top: 16px;">
@@ -74,18 +122,22 @@
               size="small"
               class="parameter_inputbox"
               placeholder="10:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="18:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_drones_disable[0]"
+            ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[0]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
@@ -93,32 +145,49 @@
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.index</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.index
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为1，如需修改请先看文档"
+              v-model="radio_drones_index[0]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.order</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.order
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_drones_order[0]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
-            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[0]"></el-input>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_Fiammetta_disable[0]"
+            ></el-switch>
+            <el-input
+              size="small"
+              style="width: 128px"
+              class="parameter_inputbox"
+              placeholder="例如：巫恋"
+              v-model="Fiammetta[0]"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">Fia.order</div>
+            <div class="parameter_text" style="font-size: 15px">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_Fiammetta_order[0]"
             ></el-input>
           </div>
         </div>
@@ -156,7 +225,6 @@
               placeholder="5"
               v-model="control_plan0[4]"
             ></el-input>
-
           </div>
           <!-- <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
@@ -210,7 +278,11 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text"><div class="parameter_text" style="margin-left:20px;">自动填充</div></div>
+            <div class="parameter_text">
+              <div class="parameter_text" style="margin-left: 20px">
+                自动填充
+              </div>
+            </div>
             <el-switch
               v-model="switch_trading_plan0_0[1]"
               active-color="#13ce66"
@@ -219,7 +291,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType">
+        <div
+          class="riic_building building_trade"
+          v-show="'243' === buildingType"
+        >
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -256,7 +331,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_trading_plan0_1[1]"
               active-color="#13ce66"
@@ -304,7 +379,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan0_0[1]"
               active-color="#13ce66"
@@ -351,7 +426,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan0_1[1]"
               active-color="#13ce66"
@@ -398,7 +473,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan0_2[1]"
               active-color="#13ce66"
@@ -445,7 +520,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan0_3[1]"
               active-color="#13ce66"
@@ -454,7 +529,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="'153' === buildingType">
+        <div
+          class="riic_building building_factory"
+          v-show="'153' === buildingType"
+        >
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -492,7 +570,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan0_4[1]"
               active-color="#13ce66"
@@ -526,7 +604,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan0_0[1]"
               active-color="#13ce66"
@@ -560,7 +638,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan0_1[1]"
               active-color="#13ce66"
@@ -594,7 +672,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan0_2[1]"
               active-color="#13ce66"
@@ -628,7 +706,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan0_0[1]"
               active-color="#13ce66"
@@ -669,7 +747,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan0_0[1]"
               active-color="#13ce66"
@@ -694,6 +772,24 @@
               placeholder="1"
               v-model="dormitory_plan0_0[1]"
             ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_0[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_0[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_0[4]"
+            ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
@@ -710,9 +806,186 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_dormitory_plan0_0[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍2</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_1[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_1[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_1[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_1[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_1[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_1[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_1[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍3</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_2[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_2[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_2[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_2[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_2[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_2[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_2[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍4</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_3[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_3[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_3[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_3[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan0_3[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_3[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan0_3[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -749,18 +1022,22 @@
               size="small"
               class="parameter_inputbox"
               placeholder="10:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="18:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_drones_disable[1]"
+            ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[1]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
@@ -768,32 +1045,49 @@
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.index</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.index
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为1，如需修改请先看文档"
+              v-model="radio_drones_index[1]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.order</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.order
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_drones_order[1]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
-            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[1]"></el-input>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_Fiammetta_disable[1]"
+            ></el-switch>
+            <el-input
+              size="small"
+              style="width: 128px"
+              class="parameter_inputbox"
+              placeholder="例如：巫恋"
+              v-model="Fiammetta[1]"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">Fia.order</div>
+            <div class="parameter_text" style="font-size: 15px">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_Fiammetta_order[1]"
             ></el-input>
           </div>
         </div>
@@ -904,7 +1198,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_trading_plan1_0[1]"
               active-color="#13ce66"
@@ -913,7 +1207,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType">
+        <div
+          class="riic_building building_trade"
+          v-show="'243' === buildingType"
+        >
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -950,7 +1247,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_trading_plan1_1[1]"
               active-color="#13ce66"
@@ -998,7 +1295,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan1_0[1]"
               active-color="#13ce66"
@@ -1045,7 +1342,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan1_1[1]"
               active-color="#13ce66"
@@ -1092,7 +1389,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan1_2[1]"
               active-color="#13ce66"
@@ -1139,7 +1436,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan1_3[1]"
               active-color="#13ce66"
@@ -1148,7 +1445,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="'153' === buildingType">
+        <div
+          class="riic_building building_factory"
+          v-show="'153' === buildingType"
+        >
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1186,7 +1486,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan1_4[1]"
               active-color="#13ce66"
@@ -1220,7 +1520,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan1_0[1]"
               active-color="#13ce66"
@@ -1254,7 +1554,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan1_1[1]"
               active-color="#13ce66"
@@ -1288,7 +1588,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan1_2[1]"
               active-color="#13ce66"
@@ -1322,7 +1622,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan1_0[1]"
               active-color="#13ce66"
@@ -1363,7 +1663,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan1_0[1]"
               active-color="#13ce66"
@@ -1388,6 +1688,24 @@
               placeholder="1"
               v-model="dormitory_plan1_0[1]"
             ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_0[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_0[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_0[4]"
+            ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
@@ -1404,9 +1722,186 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_dormitory_plan1_0[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍2</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_1[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_1[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_1[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_1[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_1[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_1[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_1[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍3</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_2[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_2[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_2[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_2[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_2[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_2[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_2[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍4</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_3[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_3[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_3[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_3[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan1_3[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_3[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan1_3[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -1443,18 +1938,22 @@
               size="small"
               class="parameter_inputbox"
               placeholder="10:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="18:00"
-              style="width:120px;"
+              style="width: 120px"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_drones_disable[2]"
+            ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[2]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
@@ -1462,32 +1961,49 @@
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.index</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.index
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为1，如需修改请先看文档"
+              v-model="radio_drones_index[2]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">drones.order</div>
+            <div class="parameter_text" style="font-size: 15px">
+              drones.order
+            </div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_drones_order[2]"
             ></el-input>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
-            <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
-            <el-input size="small" style="width:128px;" class="parameter_inputbox" placeholder="例如：巫恋" v-model="Fiammetta[2]"></el-input>
+            <el-switch
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              v-model="switch_Fiammetta_disable[2]"
+            ></el-switch>
+            <el-input
+              size="small"
+              style="width: 128px"
+              class="parameter_inputbox"
+              placeholder="例如：巫恋"
+              v-model="Fiammetta[2]"
+            ></el-input>
           </div>
           <div class="riic_building_parameter">
-            <div class="parameter_text" style="font-size:15px;">Fia.order</div>
+            <div class="parameter_text" style="font-size: 15px">Fia.order</div>
             <el-input
               size="small"
               class="parameter_inputbox"
               placeholder="默认为'pre'，如需修改请先看文档"
+              v-model="input_Fiammetta_order[2]"
             ></el-input>
           </div>
         </div>
@@ -1598,7 +2114,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_trading_plan2_0[1]"
               active-color="#13ce66"
@@ -1607,7 +2123,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType">
+        <div
+          class="riic_building building_trade"
+          v-show="'243' === buildingType"
+        >
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1644,7 +2163,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_trading_plan2_1[1]"
               active-color="#13ce66"
@@ -1692,7 +2211,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan2_0[1]"
               active-color="#13ce66"
@@ -1739,7 +2258,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan2_1[1]"
               active-color="#13ce66"
@@ -1786,7 +2305,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan2_2[1]"
               active-color="#13ce66"
@@ -1833,7 +2352,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan2_3[1]"
               active-color="#13ce66"
@@ -1842,7 +2361,10 @@
             </el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory" v-show="'153' === buildingType">
+        <div
+          class="riic_building building_factory"
+          v-show="'153' === buildingType"
+        >
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input
@@ -1880,7 +2402,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_manufacture_plan2_4[1]"
               active-color="#13ce66"
@@ -1914,7 +2436,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan2_0[1]"
               active-color="#13ce66"
@@ -1948,7 +2470,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan2_1[1]"
               active-color="#13ce66"
@@ -1982,7 +2504,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_power_plan2_2[1]"
               active-color="#13ce66"
@@ -2016,7 +2538,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan2_0[1]"
               active-color="#13ce66"
@@ -2057,7 +2579,7 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_hire_plan2_0[1]"
               active-color="#13ce66"
@@ -2082,19 +2604,19 @@
               placeholder="1"
               v-model="dormitory_plan2_0[1]"
             ></el-input>
-              <el-input
+            <el-input
               class="operator_inputbox"
               size="small"
               placeholder="1"
               v-model="dormitory_plan2_0[2]"
             ></el-input>
-              <el-input
+            <el-input
               class="operator_inputbox"
               size="small"
               placeholder="1"
               v-model="dormitory_plan2_0[3]"
             ></el-input>
-              <el-input
+            <el-input
               class="operator_inputbox"
               size="small"
               placeholder="1"
@@ -2116,9 +2638,186 @@
               inactive-color="#ff4949"
             >
             </el-switch>
-            <div class="parameter_text" style="margin-left:20px;">自动填充</div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
               v-model="switch_dormitory_plan2_0[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍2</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_1[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_1[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_1[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_1[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_1[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_1[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_1[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍3</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_2[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_2[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_2[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_2[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_2[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_2[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_2[1]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+          </div>
+        </div>
+
+        <div class="riic_building building_dormitory">
+          <div class="riic_building_title">宿舍4</div>
+          <div class="riic_building_operatorArray">
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_3[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_3[1]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_3[2]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_3[3]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_3[4]"
+            ></el-input>
+          </div>
+          <!-- <div class="riic_building_parameter">
+            <div class="parameter_text">参数A</div>
+            <el-radio-group size="small">
+              <el-radio-button label="参数选项1"></el-radio-button>
+              <el-radio-button label="参数选项2"></el-radio-button>
+            </el-radio-group>
+          </div> -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_3[0]"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch
+              v-model="switch_dormitory_plan2_3[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -2148,9 +2847,12 @@ export default {
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
       radio_drones: ["贸易站", "贸易站", "制造站"],
-      radio_drones_index: [1, 1, 1],
+      switch_drones_disable: [true, true, true],
+      radio_drones_index: [1, 2, 3],
+      input_drones_order: ["pre", "pre", "pre"],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
-      isFiammetta: [true, true, true],
+      switch_Fiammetta_disable: [true, true, true],
+      input_Fiammetta_order: ["pre", "pre", "pre"],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"], // A换班参数
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
@@ -2182,7 +2884,7 @@ export default {
       switch_hire_plan0_0: [true, false],
       meeting_plan0_0: ["陈", "守林人"],
       switch_meeting_plan0_0: [true, false],
-      dormitory_plan0_0: ["爱丽丝", "车尼尔", "", "", ""],
+      dormitory_plan0_0: ["爱丽丝", "车尼尔"],
       dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
       dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
       dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
@@ -2221,10 +2923,10 @@ export default {
       switch_hire_plan1_0: [true, false],
       meeting_plan1_0: ["陈", "守林人"],
       switch_meeting_plan1_0: [true, false],
-      dormitory_plan1_0: ["爱丽丝", "车尼尔", "", "", ""],
-      dormitory_plan1_1: ["宿管", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_2: ["宿管", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_3: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan1_1: ["宿管a", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_2: ["宿管b", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_3: ["宿管c", "默认", "默认", "默认", "默认"],
       switch_dormitory_plan1_0: [true, false],
       switch_dormitory_plan1_1: [true, false],
       switch_dormitory_plan1_2: [true, false],
@@ -2261,10 +2963,10 @@ export default {
       switch_hire_plan2_0: [true, false],
       meeting_plan2_0: ["陈", "守林人"],
       switch_meeting_plan2_0: [true, false],
-      dormitory_plan2_0: ["爱丽丝", "车尼尔", "默认", "默认", "默认"],
-      dormitory_plan2_1: ["宿管", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_2: ["宿管", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_3: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan2_1: ["宿管3", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_2: ["宿管2", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_3: ["宿管1", "默认", "默认", "默认", "默认"],
       switch_dormitory_plan2_0: [true, false],
       switch_dormitory_plan2_1: [true, false],
       switch_dormitory_plan2_2: [true, false],
@@ -2299,8 +3001,8 @@ export default {
     setJson() {
       this.scheduleJson = { plans: [] };
       var plans_0 = {
-        Fiammetta: { target: "" },
-        drones: {},
+        Fiammetta: { target: "", disable: true, order: "pre" },
+        drones: { index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -2312,8 +3014,8 @@ export default {
         },
       };
       var plans_1 = {
-        Fiammetta: { target: "" },
-        drones: {},
+        Fiammetta: { target: "", disable: true, order: "pre" },
+        drones: { index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -2325,8 +3027,8 @@ export default {
         },
       };
       var plans_2 = {
-        Fiammetta: { target: "" },
-        drones: {},
+        Fiammetta: { target: "", disable: true, order: "pre" },
+        drones: { index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -2343,8 +3045,12 @@ export default {
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
       plans_0.Fiammetta.target = this.Fiammetta[0];
+      plans_0.Fiammetta.disable = this.switch_Fiammetta_disable[0];
+      plans_0.Fiammetta.order = this.input_Fiammetta_order[0];
       plans_0.drones.room = this.getParamsValue(this.radio_drones[0]);
       plans_0.drones.index = this.radio_drones_index[0];
+      plans_0.drones.disable = this.switch_drones_disable[0];
+      plans_0.drones.order = this.input_drones_order[0];
       plans_0.rooms.control[0] = this.control_plan0;
 
       var trading_planMap0_0 = {
@@ -2438,7 +3144,7 @@ export default {
 
       plans_0.rooms.meeting[0] = meeting_planMap0_0;
 
-     var dormitory_planMap0_0 = {
+      var dormitory_planMap0_0 = {
         operators: [this.dormitory_plan0_0],
         sort: this.switch_dormitory_plan0_0[0],
         autofill: this.switch_dormitory_plan0_0[1],
@@ -2471,8 +3177,12 @@ export default {
       plans_1.name = this.name[1];
       plans_1.description = this.descriptionH2[1];
       plans_1.Fiammetta.target = this.Fiammetta[1];
+      plans_1.Fiammetta.disable = this.switch_Fiammetta_disable[1];
+      plans_1.Fiammetta.order = this.input_Fiammetta_order[1];
       plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
       plans_1.drones.index = this.radio_drones_index[1];
+      plans_1.drones.disable = this.switch_drones_disable[1];
+       plans_1.drones.order = this.input_drones_order[1];
       plans_1.rooms.control[0] = this.control_plan1;
 
       var trading_planMap1_0 = {
@@ -2566,7 +3276,7 @@ export default {
 
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
 
-     var dormitory_planMap1_0 = {
+      var dormitory_planMap1_0 = {
         operators: [this.dormitory_plan1_0],
         sort: this.switch_dormitory_plan1_0[0],
         autofill: this.switch_dormitory_plan1_0[1],
@@ -2599,8 +3309,11 @@ export default {
       plans_2.name = this.name[2];
       plans_2.description = this.descriptionH2[2];
       plans_2.Fiammetta.target = this.Fiammetta[2];
+      plans_2.Fiammetta.disable = this.switch_Fiammetta_disable[2];
+      plans_2.Fiammetta.order = this.input_Fiammetta_order[2];
       plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
       plans_2.drones.index = this.radio_drones_index[2];
+      plans_2.drones.disable = this.switch_drones_disable[2];
       plans_2.rooms.control[0] = this.control_plan2;
 
       var trading_planMap2_0 = {
@@ -2775,22 +3488,22 @@ export default {
   justify-content: space-evenly;
 }
 
-#riic_workerSets{
+#riic_workerSets {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.riic_workerSet:nth-child(1){
+.riic_workerSet:nth-child(1) {
   border: 4px dotted #ff000080;
 }
-.riic_workerSet:nth-child(2){
+.riic_workerSet:nth-child(2) {
   border: 4px dotted #00ff0080;
 }
-.riic_workerSet:nth-child(3){
+.riic_workerSet:nth-child(3) {
   border: 4px dotted #0000ff80;
 }
-.riic_workerSet{
+.riic_workerSet {
   /* width: 450px; */
   border-radius: 8px;
   font-size: 18px;
@@ -2819,15 +3532,15 @@ export default {
   height: 32px;
 }
 
-.building_trade .riic_building_title{
+.building_trade .riic_building_title {
   border-left: 4px solid #000d8180;
   border-right: 4px solid #000d8180;
 }
-.building_factory .riic_building_title{
+.building_factory .riic_building_title {
   border-left: 4px solid #7f810080;
   border-right: 4px solid #7f810080;
 }
-.building_powerPlant .riic_building_title{
+.building_powerPlant .riic_building_title {
   border-left: 4px solid #00810080;
   border-right: 4px solid #00810080;
 }
