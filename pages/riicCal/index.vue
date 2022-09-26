@@ -1,7 +1,7 @@
 <template>
   <div id="riic">
     <div id="riic_controlPanel">
-      <div style="height: 348px; margin-top: 16px">
+      <div style="height: 354px; margin-top: 0px">
         <div class="riic_building">
           <div class="riic_building_title">控制面板</div>
           <div class="riic_building_parameter">
