@@ -688,7 +688,13 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="hire_plan0_0[0]"
+              v-model="meeting_plan0_0[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="meeting_plan0_0[1]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -701,14 +707,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch
-              v-model="switch_hire_plan0_0[0]"
+              v-model="switch_meeting_plan0_0[0]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
             </el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
-              v-model="switch_hire_plan0_0[1]"
+              v-model="switch_meeting_plan0_0[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -723,13 +729,7 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="meeting_plan0_0[0]"
-            ></el-input>
-            <el-input
-              class="operator_inputbox"
-              size="small"
-              placeholder="1"
-              v-model="meeting_plan0_0[1]"
+              v-model="hire_plan0_0[0]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -1604,7 +1604,13 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="hire_plan1_0[0]"
+              v-model="meeting_plan1_0[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="meeting_plan1_0[1]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -1617,14 +1623,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch
-              v-model="switch_hire_plan1_0[0]"
+              v-model="switch_meeting_plan1_0[0]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
             </el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
-              v-model="switch_hire_plan1_0[1]"
+              v-model="switch_meeting_plan1_0[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -1639,13 +1645,7 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="meeting_plan1_0[0]"
-            ></el-input>
-            <el-input
-              class="operator_inputbox"
-              size="small"
-              placeholder="1"
-              v-model="meeting_plan1_0[1]"
+              v-model="hire_plan1_0[0]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -2520,7 +2520,13 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="hire_plan2_0[0]"
+              v-model="meeting_plan2_0[0]"
+            ></el-input>
+            <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="meeting_plan2_0[1]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -2533,14 +2539,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch
-              v-model="switch_hire_plan2_0[0]"
+              v-model="switch_meeting_plan2_0[0]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
             </el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
-              v-model="switch_hire_plan2_0[1]"
+              v-model="switch_meeting_plan2_0[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -2555,13 +2561,7 @@
               class="operator_inputbox"
               size="small"
               placeholder="1"
-              v-model="meeting_plan2_0[0]"
-            ></el-input>
-            <el-input
-              class="operator_inputbox"
-              size="small"
-              placeholder="1"
-              v-model="meeting_plan2_0[1]"
+              v-model="hire_plan2_0[0]"
             ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
@@ -2857,8 +2857,8 @@ export default {
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
       radio_trading_plan0: ["龙门币", "龙门币"],
-      switch_trading_plan0_0: [true, false],
-      switch_trading_plan0_1: [true, false],
+      switch_trading_plan0_0: [false, false],
+      switch_trading_plan0_1: [false, false],
       manufacture_plan0_0: ["红云", "稀音", "帕拉斯"],
       manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
@@ -2871,33 +2871,33 @@ export default {
         "赤金",
         "作战记录",
       ],
-      switch_manufacture_plan0_0: [true, false],
-      switch_manufacture_plan0_1: [true, false],
-      switch_manufacture_plan0_2: [true, false],
-      switch_manufacture_plan0_3: [true, false],
-      switch_manufacture_plan0_4: [true, false],
+      switch_manufacture_plan0_0: [false, false],
+      switch_manufacture_plan0_1: [false, false],
+      switch_manufacture_plan0_2: [false, false],
+      switch_manufacture_plan0_3: [false, false],
+      switch_manufacture_plan0_4: [false, false],
       power_plan0_0: ["承曦格雷伊", "澄闪", "炎狱炎熔"],
-      switch_power_plan0_0: [true, false],
-      switch_power_plan0_1: [true, false],
-      switch_power_plan0_2: [true, false],
-      hire_plan0_0: ["絮雨"],
-      switch_hire_plan0_0: [true, false],
+      switch_power_plan0_0: [false, false],
+      switch_power_plan0_1: [false, false],
+      switch_power_plan0_2: [false, false],
+      hire_plan0_0: ["絮雨1"],
+      switch_hire_plan0_0: [false, false],
       meeting_plan0_0: ["陈", "守林人"],
-      switch_meeting_plan0_0: [true, false],
+      switch_meeting_plan0_0: [false, false],
       dormitory_plan0_0: ["爱丽丝", "车尼尔"],
       dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
       dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
       dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
-      switch_dormitory_plan0_0: [true, false],
-      switch_dormitory_plan0_1: [true, false],
-      switch_dormitory_plan0_2: [true, false],
-      switch_dormitory_plan0_3: [true, false],
+      switch_dormitory_plan0_0: [false, false],
+      switch_dormitory_plan0_1: [false, true],
+      switch_dormitory_plan0_2: [false, true],
+      switch_dormitory_plan0_3: [false, true],
       control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"], // B换班参数
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
       radio_trading_plan1: ["龙门币", "龙门币"],
-      switch_trading_plan1_0: [true, false],
-      switch_trading_plan1_1: [true, false],
+      switch_trading_plan1_0: [false, false],
+      switch_trading_plan1_1: [false, false],
       manufacture_plan1_0: ["红云", "稀音", "帕拉斯"],
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
@@ -2910,33 +2910,33 @@ export default {
         "赤金",
         "作战记录",
       ],
-      switch_manufacture_plan1_0: [true, false],
-      switch_manufacture_plan1_1: [true, false],
-      switch_manufacture_plan1_2: [true, false],
-      switch_manufacture_plan1_3: [true, false],
-      switch_manufacture_plan1_4: [true, false],
+      switch_manufacture_plan1_0: [false, false],
+      switch_manufacture_plan1_1: [false, false],
+      switch_manufacture_plan1_2: [false, false],
+      switch_manufacture_plan1_3: [false, false],
+      switch_manufacture_plan1_4: [false, false],
       power_plan1_0: ["承曦格雷伊", "雷蛇", "炎狱炎熔"],
-      switch_power_plan1_0: [true, false],
-      switch_power_plan1_1: [true, false],
-      switch_power_plan1_2: [true, false],
+      switch_power_plan1_0: [false, false],
+      switch_power_plan1_1: [false, false],
+      switch_power_plan1_2: [false, false],
       hire_plan1_0: ["艾雅法拉"],
-      switch_hire_plan1_0: [true, false],
+      switch_hire_plan1_0: [false, false],
       meeting_plan1_0: ["陈", "守林人"],
-      switch_meeting_plan1_0: [true, false],
+      switch_meeting_plan1_0: [false, false],
       dormitory_plan1_0: ["爱丽丝", "车尼尔"],
       dormitory_plan1_1: ["宿管a", "默认", "默认", "默认", "默认"],
       dormitory_plan1_2: ["宿管b", "默认", "默认", "默认", "默认"],
       dormitory_plan1_3: ["宿管c", "默认", "默认", "默认", "默认"],
-      switch_dormitory_plan1_0: [true, false],
-      switch_dormitory_plan1_1: [true, false],
-      switch_dormitory_plan1_2: [true, false],
-      switch_dormitory_plan1_3: [true, false],
+      switch_dormitory_plan1_0: [false, false],
+      switch_dormitory_plan1_1: [false, true],
+      switch_dormitory_plan1_2: [false, true],
+      switch_dormitory_plan1_3: [false, true],
       control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"], // C换班参数
       trading_plan2_0: ["孑", "银灰", "崖心"],
       trading_plan2_1: ["但书", "空弦", "黑键"],
       radio_trading_plan2: ["龙门币", "龙门币"],
-      switch_trading_plan2_0: [true, false],
-      switch_trading_plan2_1: [true, false],
+      switch_trading_plan2_0: [false, false],
+      switch_trading_plan2_1: [false, false],
       manufacture_plan2_0: ["远牙", "野鬃", "灰毫"],
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
@@ -2949,28 +2949,28 @@ export default {
         "赤金",
         "作战记录",
       ],
-      switch_manufacture_plan2_0: [true, false],
-      switch_manufacture_plan2_1: [true, false],
-      switch_manufacture_plan2_2: [true, false],
-      switch_manufacture_plan2_3: [true, false],
-      switch_manufacture_plan2_4: [true, false],
+      switch_manufacture_plan2_0: [false, false],
+      switch_manufacture_plan2_1: [false, false],
+      switch_manufacture_plan2_2: [false, false],
+      switch_manufacture_plan2_3: [false, false],
+      switch_manufacture_plan2_4: [false, false],
 
       power_plan2_0: ["正义骑士号", "澄闪", "雷蛇"],
-      switch_power_plan2_0: [true, false],
-      switch_power_plan2_1: [true, false],
-      switch_power_plan2_2: [true, false],
-      hire_plan2_0: ["絮雨"],
-      switch_hire_plan2_0: [true, false],
+      switch_power_plan2_0: [false, false],
+      switch_power_plan2_1: [false, false],
+      switch_power_plan2_2: [false, false],
+      hire_plan2_0: ["絮雨2"],
+      switch_hire_plan2_0: [false, false],
       meeting_plan2_0: ["陈", "守林人"],
-      switch_meeting_plan2_0: [true, false],
+      switch_meeting_plan2_0: [false, false],
       dormitory_plan2_0: ["爱丽丝", "车尼尔"],
       dormitory_plan2_1: ["宿管3", "默认", "默认", "默认", "默认"],
       dormitory_plan2_2: ["宿管2", "默认", "默认", "默认", "默认"],
       dormitory_plan2_3: ["宿管1", "默认", "默认", "默认", "默认"],
-      switch_dormitory_plan2_0: [true, false],
-      switch_dormitory_plan2_1: [true, false],
-      switch_dormitory_plan2_2: [true, false],
-      switch_dormitory_plan2_3: [true, false],
+      switch_dormitory_plan2_0: [false, false],
+      switch_dormitory_plan2_1: [false, true],
+      switch_dormitory_plan2_2: [false, true],
+      switch_dormitory_plan2_3: [false, true],
     };
   },
   created() {
@@ -3002,7 +3002,7 @@ export default {
       this.scheduleJson = { plans: [] };
       var plans_0 = {
         Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { index: 1, disable: true, order: "pre" },
+        drones: { room: "", index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3015,7 +3015,7 @@ export default {
       };
       var plans_1 = {
         Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { index: 1, disable: true, order: "pre" },
+        drones: { room: "", index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3028,7 +3028,7 @@ export default {
       };
       var plans_2 = {
         Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { index: 1, disable: true, order: "pre" },
+        drones: { room: "", index: 1, disable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3182,7 +3182,7 @@ export default {
       plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
       plans_1.drones.index = this.radio_drones_index[1];
       plans_1.drones.disable = this.switch_drones_disable[1];
-       plans_1.drones.order = this.input_drones_order[1];
+      plans_1.drones.order = this.input_drones_order[1];
       plans_1.rooms.control[0] = this.control_plan1;
 
       var trading_planMap1_0 = {
@@ -3314,6 +3314,7 @@ export default {
       plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
       plans_2.drones.index = this.radio_drones_index[2];
       plans_2.drones.disable = this.switch_drones_disable[2];
+      plans_2.drones.order = this.input_drones_order[2];
       plans_2.rooms.control[0] = this.control_plan2;
 
       var trading_planMap2_0 = {
@@ -3444,15 +3445,13 @@ export default {
     },
 
     getParamsValue(label) {
-      if (label === "贸易站(钱)") {
+      if (label === "贸易站") {
         return "trading";
       }
-      if (label === "制造站(书)") {
+      if (label === "制造站") {
         return "manufacture";
       }
-      if (label === "制造站(金)") {
-        return "manufacture";
-      }
+
       if (label === "龙门币") {
         return "LMD";
       }
