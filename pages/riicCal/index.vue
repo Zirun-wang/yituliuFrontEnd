@@ -3067,8 +3067,7 @@ export default {
       };
 
       plans_0.rooms.trading[0] = trading_planMap0_0;
-      if ("243" === this.buildingType)
-        plans_0.rooms.trading[1] = trading_planMap0_1;
+      if ("243" === this.buildingType)  plans_0.rooms.trading[1] = trading_planMap0_1;
 
       var manufacture_planMap0_0 = {
         operators: [this.manufacture_plan0_0],
@@ -3105,8 +3104,7 @@ export default {
       plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
-      if ("153" === this.buildingType)
-        plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
+      if ("153" === this.buildingType)  plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
         operators: [this.power_plan0_0[0]],
@@ -3203,8 +3201,7 @@ export default {
       };
 
       plans_1.rooms.trading[0] = trading_planMap1_0;
-      if ("243" === this.buildingType)
-        plans_1.rooms.trading[1] = trading_planMap1_1;
+      if ("243" === this.buildingType) plans_1.rooms.trading[1] = trading_planMap1_1;
 
       var manufacture_planMap1_0 = {
         operators: [this.manufacture_plan1_0],
@@ -3241,8 +3238,7 @@ export default {
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
-      if ("153" === this.buildingType)
-        plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
+      if ("153" === this.buildingType)  plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
 
       var power_planMap1_0 = {
         operators: [this.power_plan1_0[0]],
