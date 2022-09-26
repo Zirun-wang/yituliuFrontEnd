@@ -136,7 +136,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_drones_disable[0]"
+              v-model="switch_drones_enable[0]"
             ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[0]">
               <el-radio-button label="贸易站"></el-radio-button>
@@ -171,7 +171,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_Fiammetta_disable[0]"
+              v-model="switch_Fiammetta_enable[0]"
             ></el-switch>
             <el-input
               size="small"
@@ -1036,7 +1036,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_drones_disable[1]"
+              v-model="switch_drones_enable[1]"
             ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[1]">
               <el-radio-button label="贸易站"></el-radio-button>
@@ -1071,7 +1071,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_Fiammetta_disable[1]"
+              v-model="switch_Fiammetta_enable[1]"
             ></el-switch>
             <el-input
               size="small"
@@ -1952,7 +1952,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_drones_disable[2]"
+              v-model="switch_drones_enable[2]"
             ></el-switch>
             <el-radio-group size="small" v-model="radio_drones[2]">
               <el-radio-button label="贸易站"></el-radio-button>
@@ -1987,7 +1987,7 @@
             <el-switch
               active-color="#13ce66"
               inactive-color="#ff4949"
-              v-model="switch_Fiammetta_disable[2]"
+              v-model="switch_Fiammetta_enable[2]"
             ></el-switch>
             <el-input
               size="small"
@@ -2847,11 +2847,11 @@ export default {
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
       radio_drones: ["贸易站", "贸易站", "制造站"],
-      switch_drones_disable: [true, true, true],
+      switch_drones_enable: [true, true, true],
       radio_drones_index: [1, 2, 3],
       input_drones_order: ["pre", "pre", "pre"],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
-      switch_Fiammetta_disable: [true, true, true],
+      switch_Fiammetta_enable: [true, true, true],
       input_Fiammetta_order: ["pre", "pre", "pre"],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"], // A换班参数
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
@@ -3001,8 +3001,8 @@ export default {
     setJson() {
       this.scheduleJson = { plans: [] };
       var plans_0 = {
-        Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { room: "", index: 1, disable: true, order: "pre" },
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3014,8 +3014,8 @@ export default {
         },
       };
       var plans_1 = {
-        Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { room: "", index: 1, disable: true, order: "pre" },
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3027,8 +3027,8 @@ export default {
         },
       };
       var plans_2 = {
-        Fiammetta: { target: "", disable: true, order: "pre" },
-        drones: { room: "", index: 1, disable: true, order: "pre" },
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -3045,11 +3045,11 @@ export default {
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
       plans_0.Fiammetta.target = this.Fiammetta[0];
-      plans_0.Fiammetta.disable = this.switch_Fiammetta_disable[0];
+      plans_0.Fiammetta.enable = this.switch_Fiammetta_enable[0];
       plans_0.Fiammetta.order = this.input_Fiammetta_order[0];
       plans_0.drones.room = this.getParamsValue(this.radio_drones[0]);
       plans_0.drones.index = this.radio_drones_index[0];
-      plans_0.drones.disable = this.switch_drones_disable[0];
+      plans_0.drones.enable = this.switch_drones_enable[0];
       plans_0.drones.order = this.input_drones_order[0];
       plans_0.rooms.control[0] = this.control_plan0;
 
@@ -3168,20 +3168,24 @@ export default {
         autofill: this.switch_dormitory_plan0_3[1],
       };
 
-      plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
-      plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
-      plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
-      plans_0.rooms.dormitory[3] = dormitory_planMap0_3;
+      if (!this.switch_dormitory_plan0_0[1])
+        plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
+      if (!this.switch_dormitory_plan0_1[1])
+        plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
+      if (!this.switch_dormitory_plan0_2[1])
+        plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
+      if (!this.switch_dormitory_plan0_3[1])
+        plans_0.rooms.dormitory[3] = dormitory_planMap0_3;
 
       // B换班表
       plans_1.name = this.name[1];
       plans_1.description = this.descriptionH2[1];
       plans_1.Fiammetta.target = this.Fiammetta[1];
-      plans_1.Fiammetta.disable = this.switch_Fiammetta_disable[1];
+      plans_1.Fiammetta.enable = this.switch_Fiammetta_enable[1];
       plans_1.Fiammetta.order = this.input_Fiammetta_order[1];
       plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
       plans_1.drones.index = this.radio_drones_index[1];
-      plans_1.drones.disable = this.switch_drones_disable[1];
+      plans_1.drones.enable = this.switch_drones_enable[1];
       plans_1.drones.order = this.input_drones_order[1];
       plans_1.rooms.control[0] = this.control_plan1;
 
@@ -3300,20 +3304,24 @@ export default {
         autofill: this.switch_dormitory_plan1_3[1],
       };
 
-      plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
-      plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
-      plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
-      plans_1.rooms.dormitory[3] = dormitory_planMap1_3;
+      if (!this.switch_dormitory_plan1_0[1])
+        plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
+      if (!this.switch_dormitory_plan1_1[1])
+        plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
+      if (!this.switch_dormitory_plan1_2[1])
+        plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
+      if (!this.switch_dormitory_plan1_3[1])
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3;
 
       // C换班表
       plans_2.name = this.name[2];
       plans_2.description = this.descriptionH2[2];
       plans_2.Fiammetta.target = this.Fiammetta[2];
-      plans_2.Fiammetta.disable = this.switch_Fiammetta_disable[2];
+      plans_2.Fiammetta.enable = this.switch_Fiammetta_enable[2];
       plans_2.Fiammetta.order = this.input_Fiammetta_order[2];
       plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
       plans_2.drones.index = this.radio_drones_index[2];
-      plans_2.drones.disable = this.switch_drones_disable[2];
+      plans_2.drones.enable = this.switch_drones_enable[2];
       plans_2.drones.order = this.input_drones_order[2];
       plans_2.rooms.control[0] = this.control_plan2;
 
@@ -3432,10 +3440,14 @@ export default {
         autofill: this.switch_dormitory_plan2_3[1],
       };
 
-      plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
-      plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
-      plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
-      plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
+      if (!this.switch_dormitory_plan2_0[1])
+        plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
+      if (!this.switch_dormitory_plan2_1[1])
+        plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
+      if (!this.switch_dormitory_plan2_2[1])
+        plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
+      if (!this.switch_dormitory_plan2_3[1])
+        plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
 
       this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
