@@ -701,14 +701,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch
-              v-model="switch_hire_plan0_0[0]"
+              v-model="switch_meeting_plan0_0[0]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
             </el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch
-              v-model="switch_hire_plan0_0[1]"
+              v-model="switch_meeting_plan0_0[1]"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
