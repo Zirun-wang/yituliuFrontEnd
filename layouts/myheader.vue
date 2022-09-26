@@ -1,19 +1,26 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo op_header" mode="horizontal" @select="handleSelect" text-color="#fff" active-text-color="#ffd04b">
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo op_header"
+    mode="horizontal"
+    @select="handleSelect"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+  >
     <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
     <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
+    <el-menu-item index="4" @click="schedule()">排班生成器</el-menu-item>
     <el-submenu index="3">
       <template slot="title">常用工具</template>
       <el-menu-item index="3-1" @click="recruit()">公开招募</el-menu-item>
       <el-menu-item index="3-2" @click="expCal()">升级计算</el-menu-item>
     </el-submenu>
-        <el-menu-item index="4" @click="switchTheme()">暗色</el-menu-item>
+    <el-menu-item index="4" @click="switchTheme()">暗色</el-menu-item>
 
     <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> -->
     <!-- <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
   </el-menu>
 
- 
   <!-- <div class="op_header">
     <span class="op_header_tab"  @click="mainSite()">材料一图流</span>
     <span class="op_header_tab" @click="gachaCal()">攒抽规划</span>
@@ -34,31 +41,29 @@ import Vue from "vue";
 
 export default {
   data() {
-      return {
-        activeIndex: '1',
-        
-      };
-    },
+    return {
+      activeIndex: "1",
+    };
+  },
   methods: {
     switchTheme() {
       if (cookie.get("theme") === "dark") {
-        document.getElementById("indexDiv").style.background="#f0f0f0";
-        var titles = document.getElementsByClassName('op_title_ctext');
-        for(var i=0;i<titles.length;i++)
+        document.getElementById("indexDiv").style.background = "#f0f0f0";
+        var titles = document.getElementsByClassName("op_title_ctext");
+        for (var i = 0; i < titles.length; i++)
           titles[i].style.color = "#000000dd";
-        var titles = document.getElementsByClassName('op_title_etext');
-        for(var i=0;i<titles.length;i++)
+        var titles = document.getElementsByClassName("op_title_etext");
+        for (var i = 0; i < titles.length; i++)
           titles[i].style.WebkitTextStroke = "0.6px black";
         cookie.set("theme", "light", { expires: 30 });
         console.log("nowlight");
-      }
-      else {
-        document.getElementById("indexDiv").style.background="#222222";
-        var titles = document.getElementsByClassName('op_title_ctext');
-        for(var i=0;i<titles.length;i++)
+      } else {
+        document.getElementById("indexDiv").style.background = "#222222";
+        var titles = document.getElementsByClassName("op_title_ctext");
+        for (var i = 0; i < titles.length; i++)
           titles[i].style.color = "#ffffffdd";
-        var titles = document.getElementsByClassName('op_title_etext');
-        for(var i=0;i<titles.length;i++)
+        var titles = document.getElementsByClassName("op_title_etext");
+        for (var i = 0; i < titles.length; i++)
           titles[i].style.WebkitTextStroke = "0.3px white";
         cookie.set("theme", "dark", { expires: 30 });
         console.log("nowdark");
@@ -77,12 +82,15 @@ export default {
     riicSkill() {
       window.location.href = "/riicSkill/";
     },
-      gachaCal() {
+    gachaCal() {
       window.location.href = "/gachaCal/";
     },
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
+    schedule() {
+      window.location.href = "/riicCal/";
+    },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
 };
 </script>

@@ -57,7 +57,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">换班次数</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" >
               <el-radio-button
                 style="width: 45px"
                 label="3班"
@@ -65,7 +65,7 @@
               <el-radio-button
                 style="width: 45px"
                 label="2班"
-                disabled
+                
               ></el-radio-button>
             </el-radio-group>
           </div>
