@@ -2082,6 +2082,24 @@
               placeholder="1"
               v-model="dormitory_plan2_0[1]"
             ></el-input>
+              <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_0[2]"
+            ></el-input>
+              <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_0[3]"
+            ></el-input>
+              <el-input
+              class="operator_inputbox"
+              size="small"
+              placeholder="1"
+              v-model="dormitory_plan2_0[4]"
+            ></el-input>
           </div>
           <!-- <div class="riic_building_parameter">
             <div class="parameter_text">参数A</div>
@@ -2119,18 +2137,20 @@ import buildingApi from "@/api/building";
 export default {
   data() {
     return {
-      exportUrl: "http://127.0.0.1:10012/tool/building/export?uid=",
+      exportUrl:
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
       buildingType: "243",
       scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
-      author:'yituliu',
+      author: "yituliu",
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
-      radio_drones: ["贸易站(钱)", "贸易站(钱)", "贸易站(钱)"],
+      radio_drones: ["贸易站", "贸易站", "制造站"],
       radio_drones_index: [1, 1, 1],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
+      isFiammetta: [true, true, true],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"], // A换班参数
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
@@ -2162,8 +2182,14 @@ export default {
       switch_hire_plan0_0: [true, false],
       meeting_plan0_0: ["陈", "守林人"],
       switch_meeting_plan0_0: [true, false],
-      dormitory_plan0_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan0_0: ["爱丽丝", "车尼尔", "", "", ""],
+      dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
       switch_dormitory_plan0_0: [true, false],
+      switch_dormitory_plan0_1: [true, false],
+      switch_dormitory_plan0_2: [true, false],
+      switch_dormitory_plan0_3: [true, false],
       control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"], // B换班参数
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
@@ -2174,7 +2200,7 @@ export default {
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan1_3: ["泡泡", "火神", "刻俄柏"],
-      manufacture_plan1_4: ["默认1", "默认1", "默认1"],
+      manufacture_plan1_4: ["默认", "默认", "默认"],
       radio_manufacture_plan1: [
         "作战记录",
         "作战记录",
@@ -2195,8 +2221,14 @@ export default {
       switch_hire_plan1_0: [true, false],
       meeting_plan1_0: ["陈", "守林人"],
       switch_meeting_plan1_0: [true, false],
-      dormitory_plan1_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan1_0: ["爱丽丝", "车尼尔", "", "", ""],
+      dormitory_plan1_1: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_2: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_3: ["宿管", "默认", "默认", "默认", "默认"],
       switch_dormitory_plan1_0: [true, false],
+      switch_dormitory_plan1_1: [true, false],
+      switch_dormitory_plan1_2: [true, false],
+      switch_dormitory_plan1_3: [true, false],
       control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"], // C换班参数
       trading_plan2_0: ["孑", "银灰", "崖心"],
       trading_plan2_1: ["但书", "空弦", "黑键"],
@@ -2207,7 +2239,7 @@ export default {
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
       manufacture_plan2_3: ["砾", "槐琥", "迷迭香"],
-      manufacture_plan2_4: ["默认2", "默认2", "默认2"],
+      manufacture_plan2_4: ["默认", "默认", "默认"],
       radio_manufacture_plan2: [
         "作战记录",
         "作战记录",
@@ -2229,8 +2261,14 @@ export default {
       switch_hire_plan2_0: [true, false],
       meeting_plan2_0: ["陈", "守林人"],
       switch_meeting_plan2_0: [true, false],
-      dormitory_plan2_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan2_0: ["爱丽丝", "车尼尔", "默认", "默认", "默认"],
+      dormitory_plan2_1: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_2: ["宿管", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_3: ["宿管", "默认", "默认", "默认", "默认"],
       switch_dormitory_plan2_0: [true, false],
+      switch_dormitory_plan2_1: [true, false],
+      switch_dormitory_plan2_2: [true, false],
+      switch_dormitory_plan2_3: [true, false],
     };
   },
   created() {
@@ -2239,30 +2277,23 @@ export default {
   },
   methods: {
     setExportUrl() {
-      
-      this.exportUrl = "http://127.0.0.1:10012/tool/building/export?uid="+this.uid;
+      this.exportUrl =
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
+        this.uid;
     },
- 
+
     maaBuildingJsonCreated() {
-      this.setJson()
-      buildingApi
-        .maaBuildingJsonCreated(this.scheduleJson)
-        .then((response) => {
-
-         
-          this.$message({
-            message: response.data.message+'uid：'+response.data.uid,
-            type: "success",
-            showClose: true,
-            duration:3000
-          });
-          this.uid = response.data.uid
-          this.setExportUrl()
-        }); 
-
-
-
-      
+      this.setJson();
+      buildingApi.maaBuildingJsonCreated(this.scheduleJson).then((response) => {
+        this.$message({
+          message: response.data.message + "uid：" + response.data.uid,
+          type: "success",
+          showClose: true,
+          duration: 3000,
+        });
+        this.uid = response.data.uid;
+        this.setExportUrl();
+      });
     },
 
     setJson() {
@@ -2330,7 +2361,7 @@ export default {
       };
 
       plans_0.rooms.trading[0] = trading_planMap0_0;
-      if ('243' === this.buildingType)
+      if ("243" === this.buildingType)
         plans_0.rooms.trading[1] = trading_planMap0_1;
 
       var manufacture_planMap0_0 = {
@@ -2368,7 +2399,7 @@ export default {
       plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
-      if ('153' === this.buildingType)
+      if ("153" === this.buildingType)
         plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
@@ -2392,7 +2423,7 @@ export default {
       plans_0.rooms.power[2] = power_planMap0_2;
 
       var hire_planMap0_0 = {
-        operators: [this.hire_plan0_0[0]],
+        operators: [this.hire_plan0_0],
         sort: this.switch_hire_plan0_0[0],
         autofill: this.switch_hire_plan0_0[1],
       };
@@ -2400,12 +2431,41 @@ export default {
       plans_0.rooms.hire[0] = hire_planMap0_0;
 
       var meeting_planMap0_0 = {
-        operators: [this.meeting_plan0_0[0]],
+        operators: [this.meeting_plan0_0],
         sort: this.switch_meeting_plan0_0[0],
         autofill: this.switch_meeting_plan0_0[1],
       };
 
       plans_0.rooms.meeting[0] = meeting_planMap0_0;
+
+     var dormitory_planMap0_0 = {
+        operators: [this.dormitory_plan0_0],
+        sort: this.switch_dormitory_plan0_0[0],
+        autofill: this.switch_dormitory_plan0_0[1],
+      };
+
+      var dormitory_planMap0_1 = {
+        operators: [this.dormitory_plan0_1],
+        sort: this.switch_dormitory_plan0_1[0],
+        autofill: this.switch_dormitory_plan0_1[1],
+      };
+
+      var dormitory_planMap0_2 = {
+        operators: [this.dormitory_plan0_2],
+        sort: this.switch_dormitory_plan0_2[0],
+        autofill: this.switch_dormitory_plan0_2[1],
+      };
+
+      var dormitory_planMap0_3 = {
+        operators: [this.dormitory_plan0_3],
+        sort: this.switch_dormitory_plan0_3[0],
+        autofill: this.switch_dormitory_plan0_3[1],
+      };
+
+      plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
+      plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
+      plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
+      plans_0.rooms.dormitory[3] = dormitory_planMap0_3;
 
       // B换班表
       plans_1.name = this.name[1];
@@ -2429,7 +2489,7 @@ export default {
       };
 
       plans_1.rooms.trading[0] = trading_planMap1_0;
-      if ('243' === this.buildingType)
+      if ("243" === this.buildingType)
         plans_1.rooms.trading[1] = trading_planMap1_1;
 
       var manufacture_planMap1_0 = {
@@ -2467,7 +2527,7 @@ export default {
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
-      if ('153' === this.buildingType)
+      if ("153" === this.buildingType)
         plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
 
       var power_planMap1_0 = {
@@ -2491,7 +2551,7 @@ export default {
       plans_1.rooms.power[2] = power_planMap1_2;
 
       var hire_planMap1_0 = {
-        operators: [this.hire_plan1_0[0]],
+        operators: [this.hire_plan1_0],
         sort: this.switch_hire_plan1_0[0],
         autofill: this.switch_hire_plan1_0[1],
       };
@@ -2499,12 +2559,41 @@ export default {
       plans_1.rooms.hire[0] = hire_planMap1_0;
 
       var meeting_planMap1_0 = {
-        operators: [this.meeting_plan1_0[0]],
+        operators: [this.meeting_plan1_0],
         sort: this.switch_meeting_plan1_0[0],
         autofill: this.switch_meeting_plan1_0[1],
       };
 
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
+
+     var dormitory_planMap1_0 = {
+        operators: [this.dormitory_plan1_0],
+        sort: this.switch_dormitory_plan1_0[0],
+        autofill: this.switch_dormitory_plan1_0[1],
+      };
+
+      var dormitory_planMap1_1 = {
+        operators: [this.dormitory_plan1_1],
+        sort: this.switch_dormitory_plan1_1[0],
+        autofill: this.switch_dormitory_plan1_1[1],
+      };
+
+      var dormitory_planMap1_2 = {
+        operators: [this.dormitory_plan1_2],
+        sort: this.switch_dormitory_plan1_2[0],
+        autofill: this.switch_dormitory_plan1_2[1],
+      };
+
+      var dormitory_planMap1_3 = {
+        operators: [this.dormitory_plan1_3],
+        sort: this.switch_dormitory_plan1_3[0],
+        autofill: this.switch_dormitory_plan1_3[1],
+      };
+
+      plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
+      plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
+      plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
+      plans_1.rooms.dormitory[3] = dormitory_planMap1_3;
 
       // C换班表
       plans_2.name = this.name[2];
@@ -2528,7 +2617,7 @@ export default {
       };
 
       plans_2.rooms.trading[0] = trading_planMap2_0;
-      if ('243' === this.buildingType)
+      if ("243" === this.buildingType)
         plans_2.rooms.trading[1] = trading_planMap2_1;
 
       var manufacture_planMap2_0 = {
@@ -2566,7 +2655,7 @@ export default {
       plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
       plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
       plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
-      if ('153' === this.buildingType)
+      if ("153" === this.buildingType)
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
 
       var power_planMap2_0 = {
@@ -2590,7 +2679,7 @@ export default {
       plans_2.rooms.power[2] = power_planMap2_2;
 
       var hire_planMap2_0 = {
-        operators: [this.hire_plan2_0[0]],
+        operators: [this.hire_plan2_0],
         sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
@@ -2598,12 +2687,41 @@ export default {
       plans_2.rooms.hire[0] = hire_planMap2_0;
 
       var meeting_planMap2_0 = {
-        operators: [this.meeting_plan2_0[0]],
+        operators: [this.meeting_plan2_0],
         sort: this.switch_meeting_plan2_0[0],
         autofill: this.switch_meeting_plan2_0[1],
       };
 
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
+
+      var dormitory_planMap2_0 = {
+        operators: [this.dormitory_plan2_0],
+        sort: this.switch_dormitory_plan2_0[0],
+        autofill: this.switch_dormitory_plan2_0[1],
+      };
+
+      var dormitory_planMap2_1 = {
+        operators: [this.dormitory_plan2_1],
+        sort: this.switch_dormitory_plan2_1[0],
+        autofill: this.switch_dormitory_plan2_1[1],
+      };
+
+      var dormitory_planMap2_2 = {
+        operators: [this.dormitory_plan2_2],
+        sort: this.switch_dormitory_plan2_2[0],
+        autofill: this.switch_dormitory_plan2_2[1],
+      };
+
+      var dormitory_planMap2_3 = {
+        operators: [this.dormitory_plan2_3],
+        sort: this.switch_dormitory_plan2_3[0],
+        autofill: this.switch_dormitory_plan2_3[1],
+      };
+
+      plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
+      plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
+      plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
+      plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
 
       this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
@@ -2647,6 +2765,7 @@ export default {
   },
 };
 </script>
+
 
 <style>
 #riic_controlPanel {
