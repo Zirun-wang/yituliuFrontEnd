@@ -1,63 +1,78 @@
 <template>
   <div id="riic">
     <div id="riic_controlPanel">
-      <div style="height: 354px; margin-top: 0px">
-        <div class="riic_building">
-          <div class="riic_building_title">控制面板</div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">作业名称</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0" v-model="title"></el-input>
-          </div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">描述(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！" v-model="descriptionH1"></el-input>
-          </div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">作者(可选)</div>
-            <el-input class="parameter_inputbox" size="small" placeholder="yituliu" v-model="author"></el-input>
-          </div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">基建模式</div>
-            <el-radio-group size="small" v-model="buildingType">
-              <el-radio-button
-                style="width: 45px" label="243" ></el-radio-button>
-              <el-radio-button
-                style="width: 45px" label="153" ></el-radio-button>
-              <el-radio-button
-                style="width: 45px" label="333" ></el-radio-button>
-              <el-radio-button
-                style="width: 45px" label="252" ></el-radio-button>
-            </el-radio-group>
-          </div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">换班次数</div>
-            <el-radio-group size="small">
-              <el-radio-button style="width: 45px" label="3班" ></el-radio-button>
-              <el-radio-button style="width: 45px" label="2班" ></el-radio-button>
-            </el-radio-group>
-          </div>
-          <div class="riic_building_parameter">
-            <div class="parameter_text">换班时间</div>
-            <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 64px"></el-input>
-            <el-input size="small" class="parameter_inputbox" placeholder="18:00" style="width: 64px"></el-input>
-            <el-input size="small" class="parameter_inputbox" placeholder="21:00" style="width: 64px"></el-input>
-            <el-input size="small" class="parameter_inputbox" placeholder="28:00" style="width: 64px"></el-input>
-          </div>
-          <el-button
-            size="medium"
-            type="primary"
-            round
-            style="margin: 0px 0px 12px 24px"
-            @click="maaBuildingJsonCreated()"
-            >生成
-          </el-button>
-          <a :href="exportUrl">
-            <el-button
-              size="medium" type="primary" round
-              style="margin: 0px 0px 12px 24px" >导出
-            </el-button>
-          </a>
+
+      <div class="riic_building">
+        <div class="riic_building_title">控制面板</div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作业名称</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="究极资本家v1.0" v-model="title"></el-input>
         </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">描述(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="适合全干员，压榨每一个工具人！" v-model="descriptionH1"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">作者(可选)</div>
+          <el-input class="parameter_inputbox" size="small" placeholder="yituliu" v-model="author"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">基建模式</div>
+          <el-radio-group size="small" v-model="buildingType">
+            <el-radio-button label="243" ></el-radio-button>
+            <el-radio-button label="153" ></el-radio-button>
+            <el-radio-button label="333" ></el-radio-button>
+            <el-radio-button label="252" ></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text">换班次数</div>
+          <el-radio-group size="small">
+            <el-radio-button label="2班" ></el-radio-button>
+            <el-radio-button label="3班" ></el-radio-button>
+            <!-- <el-radio-button label="4班" ></el-radio-button> -->
+          </el-radio-group>
+        </div>
+      </div>
+      <div class="riic_building">
+        <div class="riic_building_title">排班方案</div>
+
+        <div class="riic_building_parameter">
+          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="23:59" style="width: 72px"></el-input>
+        </div>
+        <!-- <div class="riic_building_parameter">
+          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="00:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px"></el-input>
+        </div> -->
+        <div class="riic_building_parameter">
+          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组B" style="width: 100px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
+        </div>
+        <div class="riic_building_parameter">
+          *跨天需写成[22:00][06:00]
+        </div>
+
+        <el-button size="medium" type="primary" round style="margin: 8px 0px 0px 24px" @click="maaBuildingJsonCreated()" >
+          生成
+        </el-button>
+        <a :href="exportUrl">
+          <el-button size="medium" type="primary" round style="margin: 8px 0px 0px 24px">
+            导出
+          </el-button>
+        </a>
       </div>
     </div>
     <el-divider></el-divider>
