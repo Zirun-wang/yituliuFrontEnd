@@ -1086,7 +1086,7 @@
 
 <script>
 import buildingApi from "@/api/building";
-  import cookie from "js-cookie";
+import cookie from "js-cookie";
 export default {
   data() {
     return {

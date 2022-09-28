@@ -1,5 +1,6 @@
 <script>
 import buildingApi from "@/api/building";
+import cookie from "js-cookie";
 export default {
   data() {
     return {
@@ -7,9 +8,10 @@ export default {
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
       buildingType: "243",
+      planTimes:'3班',
       scheduleJson: { plans: [] },
       title: "243极限",
-      descriptionH1: "这是个排班协议演示",
+      descriptionH1: "这是个顶配243排班协议演示",
       author: "yituliu",
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
@@ -17,7 +19,7 @@ export default {
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
       input_drones_order: [true, true, true],
-      Fiammetta: ["巫恋", "巫恋1", "巫恋2"],
+      Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [true, false, true],
       input_Fiammetta_order: [true, true, true],
       // A换班参数
@@ -32,7 +34,7 @@ export default {
       manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan0_3: ["砾", "槐琥", "迷迭香"],
-      manufacture_plan0_4: ["默认", "默认", "默认"],
+      manufacture_plan0_4: [],
       radio_manufacture_plan0: [
         "作战记录",
         "作战记录",
@@ -53,10 +55,10 @@ export default {
       switch_hire_plan0_0: [false, false],
       meeting_plan0_0: ["陈", "守林人"],
       switch_meeting_plan0_0: [false, false],
-      dormitory_plan0_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
-      dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
-      dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_0: ["爱丽丝", "车尔尼"],
+      dormitory_plan0_1: [],
+      dormitory_plan0_2: [],
+      dormitory_plan0_3: [],
       switch_dormitory_plan0_0: [false, false],
       switch_dormitory_plan0_1: [false, true],
       switch_dormitory_plan0_2: [false, true],
@@ -73,7 +75,7 @@ export default {
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan1_3: ["泡泡", "火神", "刻俄柏"],
-      manufacture_plan1_4: ["默认", "默认", "默认"],
+      manufacture_plan1_4: [],
       radio_manufacture_plan1: [
         "作战记录",
         "作战记录",
@@ -94,10 +96,10 @@ export default {
       switch_hire_plan1_0: [false, false],
       meeting_plan1_0: ["陈", "守林人"],
       switch_meeting_plan1_0: [false, false],
-      dormitory_plan1_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan1_1: ["宿管a", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_2: ["宿管b", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_3: ["宿管c", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_0: ["爱丽丝", "车尔尼"],
+      dormitory_plan1_1: [],
+      dormitory_plan1_2: [],
+      dormitory_plan1_3: [],
       switch_dormitory_plan1_0: [false, false],
       switch_dormitory_plan1_1: [false, true],
       switch_dormitory_plan1_2: [false, true],
@@ -114,7 +116,7 @@ export default {
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
       manufacture_plan2_3: ["砾", "槐琥", "迷迭香"],
-      manufacture_plan2_4: ["默认", "默认", "默认"],
+      manufacture_plan2_4: [],
       radio_manufacture_plan2: [
         "作战记录",
         "作战记录",
@@ -135,10 +137,10 @@ export default {
       switch_hire_plan2_0: [false, false],
       meeting_plan2_0: ["陈", "守林人"],
       switch_meeting_plan2_0: [false, false],
-      dormitory_plan2_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan2_1: ["宿管3", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_2: ["宿管2", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_3: ["宿管1", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_0: ["爱丽丝", "车尔尼"],
+      dormitory_plan2_1: [],
+      dormitory_plan2_2: [],
+      dormitory_plan2_3: [],
       switch_dormitory_plan2_0: [false, false],
       switch_dormitory_plan2_1: [false, true],
       switch_dormitory_plan2_2: [false, true],
@@ -168,6 +170,9 @@ export default {
         this.uid = response.data.uid;
         this.setExportUrl();
       });
+    },
+    getUid(){
+
     },
     setJson() {
       this.scheduleJson = { plans: [] };
@@ -222,15 +227,20 @@ export default {
       plans_0.drones.index = this.radio_drones_index[0];
       plans_0.drones.enable = this.switch_drones_enable[0];
       plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
-      plans_0.rooms.control[0] = this.control_plan0;
+      
+      var control_planMap0_0 = {
+        operators: this.control_plan0
+      };
+      plans_0.rooms.control[0] = control_planMap0_0 ;
+
       var trading_planMap0_0 = {
-        operators: [this.trading_plan0_0],
+        operators: this.trading_plan0_0,
         sort: this.switch_trading_plan0_0[0],
         autofill: this.switch_trading_plan0_0[1],
         product: this.getParamsValue(this.radio_trading_plan0[0]),
       };
       var trading_planMap0_1 = {
-        operators: [this.trading_plan0_1],
+        operators: this.trading_plan0_1,
         sort: this.switch_trading_plan0_1[0],
         autofill: this.switch_trading_plan0_1[1],
         product: this.getParamsValue(this.radio_trading_plan0[1]),
@@ -239,31 +249,31 @@ export default {
       if ("243" === this.buildingType)
         plans_0.rooms.trading[1] = trading_planMap0_1;
       var manufacture_planMap0_0 = {
-        operators: [this.manufacture_plan0_0],
+        operators: this.manufacture_plan0_0,
         sort: this.switch_manufacture_plan0_0[0],
         autofill: this.switch_manufacture_plan0_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[0]),
       };
       var manufacture_planMap0_1 = {
-        operators: [this.manufacture_plan0_1],
+        operators: this.manufacture_plan0_1,
         sort: this.switch_manufacture_plan0_1[0],
         autofill: this.switch_manufacture_plan0_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[1]),
       };
       var manufacture_planMap0_2 = {
-        operators: [this.manufacture_plan0_2],
+        operators: this.manufacture_plan0_2,
         sort: this.switch_manufacture_plan0_2[0],
         autofill: this.switch_manufacture_plan0_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[2]),
       };
       var manufacture_planMap0_3 = {
-        operators: [this.manufacture_plan0_3],
+        operators: this.manufacture_plan0_3,
         sort: this.switch_manufacture_plan0_3[0],
         autofill: this.switch_manufacture_plan0_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[3]),
       };
       var manufacture_planMap0_4 = {
-        operators: [this.manufacture_plan0_4],
+        operators: this.manufacture_plan0_4,
         sort: this.switch_manufacture_plan0_4[0],
         autofill: this.switch_manufacture_plan0_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[4]),
@@ -298,7 +308,7 @@ export default {
       plans_0.rooms.power[2] = power_planMap0_2;
 
       var hire_planMap0_0 = {
-        operators: [this.hire_plan0_0],
+        operators: this.hire_plan0_0,
         // sort: this.switch_hire_plan0_0[0],
         autofill: this.switch_hire_plan0_0[1],
       };
@@ -306,7 +316,7 @@ export default {
       plans_0.rooms.hire[0] = hire_planMap0_0;
 
       var meeting_planMap0_0 = {
-        operators: [this.meeting_plan0_0],
+        operators: this.meeting_plan0_0,
         // sort: this.switch_meeting_plan0_0[0],
         autofill: this.switch_meeting_plan0_0[1],
       };
@@ -314,38 +324,39 @@ export default {
       plans_0.rooms.meeting[0] = meeting_planMap0_0;
 
       var dormitory_planMap0_0 = {
-        operators: [this.dormitory_plan0_0],
+        operators: this.dormitory_plan0_0,
         sort: this.switch_dormitory_plan0_0[0],
         autofill: this.switch_dormitory_plan0_0[1],
       };
 
       var dormitory_planMap0_1 = {
-        operators: [this.dormitory_plan0_1],
+        operators: this.dormitory_plan0_1,
         sort: this.switch_dormitory_plan0_1[0],
         autofill: this.switch_dormitory_plan0_1[1],
       };
 
       var dormitory_planMap0_2 = {
-        operators: [this.dormitory_plan0_2],
+        operators: this.dormitory_plan0_2,
         sort: this.switch_dormitory_plan0_2[0],
         autofill: this.switch_dormitory_plan0_2[1],
       };
 
       var dormitory_planMap0_3 = {
-        operators: [this.dormitory_plan0_3],
+        operators: this.dormitory_plan0_3,
         sort: this.switch_dormitory_plan0_3[0],
         autofill: this.switch_dormitory_plan0_3[1],
       };
 
-      if (!this.switch_dormitory_plan0_0[1])
         plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
-      if (!this.switch_dormitory_plan0_1[1])
+      
         plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
-      if (!this.switch_dormitory_plan0_2[1])
+      
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
-      if (!this.switch_dormitory_plan0_3[1])
+      
+        plans_0.rooms.dormitory[3] = dormitory_planMap0_3; 
 
-      plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
+// B换班表
+    
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
       plans_1.description = this.descriptionH2[1];
@@ -356,17 +367,21 @@ export default {
       plans_1.drones.index = this.radio_drones_index[1];
       plans_1.drones.enable = this.switch_drones_enable[1];
       plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
-      plans_1.rooms.control[0] = this.control_plan1;
+      
+      var control_planMap1_0 = {
+        operators: this.control_plan1
+      };
+      plans_1.rooms.control[0] = control_planMap1_0 ;
 
       var trading_planMap1_0 = {
-        operators: [this.trading_plan1_0],
+        operators: this.trading_plan1_0,
         sort: this.switch_trading_plan1_0[0],
         autofill: this.switch_trading_plan1_0[1],
         product: this.getParamsValue(this.radio_trading_plan1[0]),
       };
 
       var trading_planMap1_1 = {
-        operators: [this.trading_plan1_1],
+        operators: this.trading_plan1_1,
         sort: this.switch_trading_plan1_1[0],
         autofill: this.switch_trading_plan1_1[1],
         product: this.getParamsValue(this.radio_trading_plan1[1]),
@@ -378,35 +393,35 @@ export default {
         plans_1.rooms.trading[1] = trading_planMap1_1;
 
       var manufacture_planMap1_0 = {
-        operators: [this.manufacture_plan1_0],
+        operators: this.manufacture_plan1_0,
         sort: this.switch_manufacture_plan1_0[0],
         autofill: this.switch_manufacture_plan1_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[0]),
       };
 
       var manufacture_planMap1_1 = {
-        operators: [this.manufacture_plan1_1],
+        operators: this.manufacture_plan1_1,
         sort: this.switch_manufacture_plan1_1[0],
         autofill: this.switch_manufacture_plan1_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[1]),
       };
 
       var manufacture_planMap1_2 = {
-        operators: [this.manufacture_plan1_2],
+        operators: this.manufacture_plan1_2,
         sort: this.switch_manufacture_plan1_2[0],
         autofill: this.switch_manufacture_plan1_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[2]),
       };
 
       var manufacture_planMap1_3 = {
-        operators: [this.manufacture_plan1_3],
+        operators: this.manufacture_plan1_3,
         sort: this.switch_manufacture_plan1_3[0],
         autofill: this.switch_manufacture_plan1_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[3]),
       };
 
       var manufacture_planMap1_4 = {
-        operators: [this.manufacture_plan1_4],
+        operators: this.manufacture_plan1_4,
         sort: this.switch_manufacture_plan1_4[0],
         autofill: this.switch_manufacture_plan1_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[4]),
@@ -442,7 +457,7 @@ export default {
       plans_1.rooms.power[2] = power_planMap1_2;
 
       var hire_planMap1_0 = {
-        operators: [this.hire_plan1_0],
+        operators: this.hire_plan1_0,
         // sort: this.switch_hire_plan1_0[0],
         autofill: this.switch_hire_plan1_0[1],
       };
@@ -450,7 +465,7 @@ export default {
       plans_1.rooms.hire[0] = hire_planMap1_0;
 
       var meeting_planMap1_0 = {
-        operators: [this.meeting_plan1_0],
+        operators: this.meeting_plan1_0,
         // sort: this.switch_meeting_plan1_0[0],
         autofill: this.switch_meeting_plan1_0[1],
       };
@@ -458,37 +473,41 @@ export default {
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
 
       var dormitory_planMap1_0 = {
-        operators: [this.dormitory_plan1_0],
+        operators: this.dormitory_plan1_0,
         sort: this.switch_dormitory_plan1_0[0],
         autofill: this.switch_dormitory_plan1_0[1],
       };
 
       var dormitory_planMap1_1 = {
-        operators: [this.dormitory_plan1_1],
+        operators: this.dormitory_plan1_1,
         sort: this.switch_dormitory_plan1_1[0],
         autofill: this.switch_dormitory_plan1_1[1],
       };
 
       var dormitory_planMap1_2 = {
-        operators: [this.dormitory_plan1_2],
+        operators: this.dormitory_plan1_2,
         sort: this.switch_dormitory_plan1_2[0],
         autofill: this.switch_dormitory_plan1_2[1],
       };
 
       var dormitory_planMap1_3 = {
-        operators: [this.dormitory_plan1_3],
+        operators: this.dormitory_plan1_3,
         sort: this.switch_dormitory_plan1_3[0],
         autofill: this.switch_dormitory_plan1_3[1],
       };
 
-      if (!this.switch_dormitory_plan1_0[1])
+        
         plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
-      if (!this.switch_dormitory_plan1_1[1])
+      
         plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
-      if (!this.switch_dormitory_plan1_2[1])
+     
         plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
-      if (!this.switch_dormitory_plan1_3[1])
-        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; // C换班表
+     
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; 
+        
+        
+        
+        // C换班表
       plans_2.name = this.name[2];
       plans_2.period = this.setPeriod(this.period_plan2);
 
@@ -500,17 +519,21 @@ export default {
       plans_2.drones.index = this.radio_drones_index[2];
       plans_2.drones.enable = this.switch_drones_enable[2];
       plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
-      plans_2.rooms.control[0] = this.control_plan2;
+     
+      var control_planMap2_0 = {
+        operators: this.control_plan2
+      };
+      plans_2.rooms.control[0] = control_planMap2_0 ;
 
       var trading_planMap2_0 = {
-        operators: [this.trading_plan2_0],
+        operators: this.trading_plan2_0,
         sort: this.switch_trading_plan2_0[0],
         autofill: this.switch_trading_plan2_0[1],
         product: this.getParamsValue(this.radio_trading_plan2[0]),
       };
 
       var trading_planMap2_1 = {
-        operators: [this.trading_plan2_1],
+        operators: this.trading_plan2_1,
         sort: this.switch_trading_plan2_1[0],
         autofill: this.switch_trading_plan2_1[1],
         product: this.getParamsValue(this.radio_trading_plan2[1]),
@@ -521,35 +544,35 @@ export default {
         plans_2.rooms.trading[1] = trading_planMap2_1;
 
       var manufacture_planMap2_0 = {
-        operators: [this.manufacture_plan2_0],
+        operators: this.manufacture_plan2_0,
         sort: this.switch_manufacture_plan2_0[0],
         autofill: this.switch_manufacture_plan2_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[0]),
       };
 
       var manufacture_planMap2_1 = {
-        operators: [this.manufacture_plan2_1],
+        operators: this.manufacture_plan2_1,
         sort: this.switch_manufacture_plan2_1[0],
         autofill: this.switch_manufacture_plan2_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[1]),
       };
 
       var manufacture_planMap2_2 = {
-        operators: [this.manufacture_plan2_2],
+        operators: this.manufacture_plan2_2,
         sort: this.switch_manufacture_plan2_2[0],
         autofill: this.switch_manufacture_plan2_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[2]),
       };
 
       var manufacture_planMap2_3 = {
-        operators: [this.manufacture_plan2_3],
+        operators: this.manufacture_plan2_3,
         sort: this.switch_manufacture_plan2_3[0],
         autofill: this.switch_manufacture_plan2_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[3]),
       };
 
       var manufacture_planMap2_4 = {
-        operators: [this.manufacture_plan2_4],
+        operators: this.manufacture_plan2_4,
         sort: this.switch_manufacture_plan2_4[0],
         autofill: this.switch_manufacture_plan2_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[4]),
@@ -575,7 +598,7 @@ export default {
       };
 
       var power_planMap2_2 = {
-        operators: [this.power_plan2_0[2]],
+        operators:[ this.power_plan2_0[2]],
         // sort: this.switch_power_plan2_2[0],
         autofill: this.switch_power_plan2_2[1],
       };
@@ -585,7 +608,7 @@ export default {
       plans_2.rooms.power[2] = power_planMap2_2;
 
       var hire_planMap2_0 = {
-        operators: [this.hire_plan2_0],
+        operators: this.hire_plan2_0,
         // sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
@@ -593,7 +616,7 @@ export default {
       plans_2.rooms.hire[0] = hire_planMap2_0;
 
       var meeting_planMap2_0 = {
-        operators: [this.meeting_plan2_0],
+        operators: this.meeting_plan2_0,
         // sort: this.switch_meeting_plan2_0[0],
         autofill: this.switch_meeting_plan2_0[1],
       };
@@ -601,40 +624,39 @@ export default {
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
 
       var dormitory_planMap2_0 = {
-        operators: [this.dormitory_plan2_0],
+        operators: this.dormitory_plan2_0,
         sort: this.switch_dormitory_plan2_0[0],
         autofill: this.switch_dormitory_plan2_0[1],
       };
 
       var dormitory_planMap2_1 = {
-        operators: [this.dormitory_plan2_1],
+        operators: this.dormitory_plan2_1,
         sort: this.switch_dormitory_plan2_1[0],
         autofill: this.switch_dormitory_plan2_1[1],
       };
 
       var dormitory_planMap2_2 = {
-        operators: [this.dormitory_plan2_2],
+        operators: this.dormitory_plan2_2,
         sort: this.switch_dormitory_plan2_2[0],
         autofill: this.switch_dormitory_plan2_2[1],
       };
 
       var dormitory_planMap2_3 = {
-        operators: [this.dormitory_plan2_3],
+        operators: this.dormitory_plan2_3,
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
-
-      if (!this.switch_dormitory_plan2_0[1])
+     
         plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
-      if (!this.switch_dormitory_plan2_1[1])
         plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
-      if (!this.switch_dormitory_plan2_2[1])
         plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
-      if (!this.switch_dormitory_plan2_3[1])
         plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
+
+
 
       this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
+      if('3班'===this.planTimes)
       this.scheduleJson.plans.push(plans_2);
       console.log(this.scheduleJson);
     },
@@ -655,13 +677,11 @@ export default {
       }
       return [list];
     },
-    getUid(){
-
-    },
     getOrder(flag){
           if(flag) return 'pre';
           if(!flag) return 'post';
     },
+
     getParamsValue(label) {
       if (label === "贸易站") {
         return "trading";
@@ -684,7 +704,7 @@ export default {
       if (label === "源石碎片") {
         return "Originium Shard";
       }
-      if (label === "制造站(金)") {
+      if (label === "制造站") {
         return "manufacture";
       }
       if (label === "双芯片") {
