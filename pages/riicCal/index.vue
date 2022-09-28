@@ -38,8 +38,8 @@
         <div class="riic_building_title">排班方案</div>
 
         <div class="riic_building_parameter">
-          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px"></el-input>
+          <div class="parameter_text" style="width: 120px;">I 组 起止时间</div>
+          <!-- <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px"></el-input> -->
           <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
           <el-input size="small" class="parameter_inputbox" placeholder="23:59" style="width: 72px"></el-input>
         </div>
@@ -50,14 +50,14 @@
           <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px"></el-input>
         </div> -->
         <div class="riic_building_parameter">
-          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组B" style="width: 100px"></el-input>
+          <div class="parameter_text" style="width: 120px;">II 组 起止时间</div>
+          <!-- <el-input size="small" class="parameter_inputbox" placeholder="主力组B" style="width: 100px"></el-input> -->
           <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px"></el-input>
           <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
         </div>
         <div class="riic_building_parameter">
-          <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px"></el-input>
+          <div class="parameter_text" style="width: 120px;">III 组 起止时间</div>
+          <!-- <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px"></el-input> -->
           <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
           <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
         </div>
@@ -79,11 +79,11 @@
     <div id="riic_workerSets">
       <div class="riic_workerSet">
         <div class="riic_building building_uni">
-          <div class="riic_building_title">班次基本信息</div>
-          <div class="riic_building_parameter">
+          <div class="riic_building_title">I 组 基本信息</div>
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
             <el-input size="small" class="parameter_inputbox" placeholder="例如：主力组A" v-model="name[0]"></el-input>
-          </div>
+          </div> -->
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
             <el-input size="small" class="parameter_inputbox" placeholder="可选" v-model="descriptionH2[0]"></el-input>
@@ -416,11 +416,11 @@
         </div>
       </div>      <div class="riic_workerSet">
         <div class="riic_building building_uni">
-          <div class="riic_building_title">班次基本信息</div>
-          <div class="riic_building_parameter">
+          <div class="riic_building_title">II 组 基本信息</div>
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
             <el-input size="small" class="parameter_inputbox" placeholder="例如：主力组A" v-model="name[1]"></el-input>
-          </div>
+          </div> -->
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
             <el-input size="small" class="parameter_inputbox" placeholder="可选" v-model="descriptionH2[1]"></el-input>
@@ -746,11 +746,11 @@
         </div>
       </div>      <div class="riic_workerSet">
         <div class="riic_building building_uni">
-          <div class="riic_building_title">班次基本信息</div>
-          <div class="riic_building_parameter">
+          <div class="riic_building_title">III 组 基本信息</div>
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
             <el-input size="small" class="parameter_inputbox" placeholder="例如：主力组A" v-model="name[2]"></el-input>
-          </div>
+          </div> -->
           <div class="riic_building_parameter">
             <div class="parameter_text">描述</div>
             <el-input size="small" class="parameter_inputbox" placeholder="可选" v-model="descriptionH2[2]"></el-input>
