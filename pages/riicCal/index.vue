@@ -1141,7 +1141,7 @@ export default {
       switch_hire_plan0_0: [false, false],
       meeting_plan0_0: ["陈", "守林人"],
       switch_meeting_plan0_0: [false, false],
-      dormitory_plan0_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan0_0: ["爱丽丝", "车尔尼"],
       dormitory_plan0_1: [],
       dormitory_plan0_2: [],
       dormitory_plan0_3: [],
@@ -1182,7 +1182,7 @@ export default {
       switch_hire_plan1_0: [false, false],
       meeting_plan1_0: ["陈", "守林人"],
       switch_meeting_plan1_0: [false, false],
-      dormitory_plan1_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan1_0: ["爱丽丝", "车尔尼"],
       dormitory_plan1_1: [],
       dormitory_plan1_2: [],
       dormitory_plan1_3: [],
@@ -1223,7 +1223,7 @@ export default {
       switch_hire_plan2_0: [false, false],
       meeting_plan2_0: ["陈", "守林人"],
       switch_meeting_plan2_0: [false, false],
-      dormitory_plan2_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan2_0: ["爱丽丝", "车尔尼"],
       dormitory_plan2_1: [],
       dormitory_plan2_2: [],
       dormitory_plan2_3: [],
@@ -1394,7 +1394,7 @@ export default {
       plans_0.rooms.power[2] = power_planMap0_2;
 
       var hire_planMap0_0 = {
-        operators: [this.hire_plan0_0],
+        operators: this.hire_plan0_0,
         // sort: this.switch_hire_plan0_0[0],
         autofill: this.switch_hire_plan0_0[1],
       };
@@ -1542,7 +1542,7 @@ export default {
       plans_1.rooms.power[2] = power_planMap1_2;
 
       var hire_planMap1_0 = {
-        operators: [this.hire_plan1_0],
+        operators: this.hire_plan1_0,
         // sort: this.switch_hire_plan1_0[0],
         autofill: this.switch_hire_plan1_0[1],
       };
@@ -1689,7 +1689,7 @@ export default {
       plans_2.rooms.power[2] = power_planMap2_2;
 
       var hire_planMap2_0 = {
-        operators: [this.hire_plan2_0],
+        operators: this.hire_plan2_0,
         // sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
