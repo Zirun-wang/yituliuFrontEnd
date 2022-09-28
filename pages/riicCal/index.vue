@@ -1097,7 +1097,7 @@ export default {
       planTimes:'3班',
       scheduleJson: { plans: [] },
       title: "243极限",
-      descriptionH1: "这是个排班协议演示",
+      descriptionH1: "这是个顶配243排班协议演示",
       author: "yituliu",
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
@@ -1105,7 +1105,7 @@ export default {
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
       input_drones_order: [false, false, false],
-      Fiammetta: ["巫恋", "巫恋1", "巫恋2"],
+      Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [true, false, true],
       input_Fiammetta_order: [false, false, false],
       // A换班参数
@@ -1120,7 +1120,7 @@ export default {
       manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan0_3: ["砾", "槐琥", "迷迭香"],
-      manufacture_plan0_4: ["默认", "默认", "默认"],
+      manufacture_plan0_4: [],
       radio_manufacture_plan0: [
         "作战记录",
         "作战记录",
@@ -1142,9 +1142,9 @@ export default {
       meeting_plan0_0: ["陈", "守林人"],
       switch_meeting_plan0_0: [false, false],
       dormitory_plan0_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
-      dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
-      dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_1: [],
+      dormitory_plan0_2: [],
+      dormitory_plan0_3: [],
       switch_dormitory_plan0_0: [false, false],
       switch_dormitory_plan0_1: [false, true],
       switch_dormitory_plan0_2: [false, true],
@@ -1161,7 +1161,7 @@ export default {
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
       manufacture_plan1_3: ["泡泡", "火神", "刻俄柏"],
-      manufacture_plan1_4: ["默认", "默认", "默认"],
+      manufacture_plan1_4: [],
       radio_manufacture_plan1: [
         "作战记录",
         "作战记录",
@@ -1183,9 +1183,9 @@ export default {
       meeting_plan1_0: ["陈", "守林人"],
       switch_meeting_plan1_0: [false, false],
       dormitory_plan1_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan1_1: ["宿管a", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_2: ["宿管b", "默认", "默认", "默认", "默认"],
-      dormitory_plan1_3: ["宿管c", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_1: [],
+      dormitory_plan1_2: [],
+      dormitory_plan1_3: [],
       switch_dormitory_plan1_0: [false, false],
       switch_dormitory_plan1_1: [false, true],
       switch_dormitory_plan1_2: [false, true],
@@ -1202,7 +1202,7 @@ export default {
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
       manufacture_plan2_3: ["砾", "槐琥", "迷迭香"],
-      manufacture_plan2_4: ["默认", "默认", "默认"],
+      manufacture_plan2_4: [],
       radio_manufacture_plan2: [
         "作战记录",
         "作战记录",
@@ -1224,9 +1224,9 @@ export default {
       meeting_plan2_0: ["陈", "守林人"],
       switch_meeting_plan2_0: [false, false],
       dormitory_plan2_0: ["爱丽丝", "车尼尔"],
-      dormitory_plan2_1: ["宿管3", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_2: ["宿管2", "默认", "默认", "默认", "默认"],
-      dormitory_plan2_3: ["宿管1", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_1: [],
+      dormitory_plan2_2: [],
+      dormitory_plan2_3: [],
       switch_dormitory_plan2_0: [false, false],
       switch_dormitory_plan2_1: [false, true],
       switch_dormitory_plan2_2: [false, true],
@@ -1774,7 +1774,7 @@ export default {
       if (label === "源石碎片") {
         return "Originium Shard";
       }
-      if (label === "制造站(金)") {
+      if (label === "制造站") {
         return "manufacture";
       }
       if (label === "双芯片") {
