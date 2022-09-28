@@ -39,9 +39,9 @@
 
         <div class="riic_building_parameter">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="23:59" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px" v-model="name[0]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px" v-model="period_plan0[0]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="23:59" style="width: 72px" v-model="period_plan0[1]"></el-input>
         </div>
         <!-- <div class="riic_building_parameter">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
@@ -51,18 +51,18 @@
         </div> -->
         <div class="riic_building_parameter">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组B" style="width: 100px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组B" style="width: 100px" v-model="name[1]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px" v-model="period_plan1[0]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px" v-model="period_plan1[1]"></el-input>
         </div>
         <div class="riic_building_parameter">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
-          <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px"></el-input>
-          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px" v-model="name[2]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px" v-model="period_plan2[0]"></el-input>
+          <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px" v-model="period_plan2[1]"></el-input>
         </div>
         <div class="riic_building_parameter">
-          *跨天需写成[22:00][06:00]
+          *跨天需写成 [22:00][06:00](示例)
         </div>
 
         <el-button size="medium" type="primary" round style="margin: 8px 0px 0px 24px" @click="maaBuildingJsonCreated()" >
@@ -91,14 +91,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc" v-model="switch_drones_enable[0]"></el-switch>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones[0]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">目标房间编号</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones_index[0]">
               <el-radio-button label="1"></el-radio-button>
               <el-radio-button label="2"></el-radio-button>
               <el-radio-button label="3"></el-radio-button>
@@ -108,7 +108,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[0]"></el-switch>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -117,7 +117,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[0]"></el-switch>
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -414,8 +414,9 @@
             <el-switch v-model="switch_dormitory_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-      </div>      <div class="riic_workerSet">
-        <div class="riic_building building_uni">
+      </div>      
+      <div class="riic_workerSet">
+         <div class="riic_building building_uni">
           <div class="riic_building_title">班次基本信息</div>
           <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
@@ -428,14 +429,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc" v-model="switch_drones_enable[1]"></el-switch>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones[1]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
             </el-radio-group>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">目标房间编号</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones_index[1]">
               <el-radio-button label="1"></el-radio-button>
               <el-radio-button label="2"></el-radio-button>
               <el-radio-button label="3"></el-radio-button>
@@ -445,7 +446,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[1]"></el-switch>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -454,7 +455,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[1]"></el-switch>
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -744,8 +745,9 @@
             <el-switch v-model="switch_dormitory_plan1_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-      </div>      <div class="riic_workerSet">
-        <div class="riic_building building_uni">
+      </div>     
+      <div class="riic_workerSet">
+         <div class="riic_building building_uni">
           <div class="riic_building_title">班次基本信息</div>
           <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
@@ -758,14 +760,14 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">无人机</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc" v-model="switch_drones_enable[2]"></el-switch>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones[2]">
               <el-radio-button label="贸易站"></el-radio-button>
               <el-radio-button label="制造站"></el-radio-button>
             </el-radio-group>
-          </div>  
+          </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">目标房间编号</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="radio_drones_index[2]">
               <el-radio-button label="1"></el-radio-button>
               <el-radio-button label="2"></el-radio-button>
               <el-radio-button label="3"></el-radio-button>
@@ -775,7 +777,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[2]"></el-switch>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -784,7 +786,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce"></el-switch>
+            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[2]"></el-switch>
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -1097,14 +1099,16 @@ export default {
       author: "yituliu",
       name: ["A+B 组", "A+C 组", "C+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
-      radio_drones: ["贸易站", "贸易站", "制造站"],
-      switch_drones_enable: [true, true, true],
+      radio_drones: ["贸易站", "制造站", "贸易站"],
+      switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
-      input_drones_order: ["pre", "pre", "pre"],
-      Fiammetta: ["巫恋", "巫恋", "巫恋"],
-      switch_Fiammetta_enable: [true, true, true],
-      input_Fiammetta_order: ["pre", "pre", "pre"],
-      control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"], // A换班参数
+      input_drones_order: [false, false, false],
+      Fiammetta: ["巫恋", "巫恋1", "巫恋2"],
+      switch_Fiammetta_enable: [true, false, true],
+      input_Fiammetta_order: [false, false, false],
+      // A换班参数
+      period_plan0: ["08:00", '13:59'],
+      control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
       radio_trading_plan0: ["龙门币", "龙门币"],
@@ -1143,7 +1147,9 @@ export default {
       switch_dormitory_plan0_1: [false, true],
       switch_dormitory_plan0_2: [false, true],
       switch_dormitory_plan0_3: [false, true],
-      control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"], // B换班参数
+      // B换班参数
+      period_plan1: ["14:00", "19:59"],
+      control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
       radio_trading_plan1: ["龙门币", "龙门币"],
@@ -1182,7 +1188,9 @@ export default {
       switch_dormitory_plan1_1: [false, true],
       switch_dormitory_plan1_2: [false, true],
       switch_dormitory_plan1_3: [false, true],
-      control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"], // C换班参数
+      // C换班参数
+      period_plan2: ["20:00", "07:59"],
+      control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"],
       trading_plan2_0: ["孑", "银灰", "崖心"],
       trading_plan2_1: ["但书", "空弦", "黑键"],
       radio_trading_plan2: ["龙门币", "龙门币"],
@@ -1226,6 +1234,7 @@ export default {
   created() {
     this.setJson();
     this.setExportUrl();
+    this.setPeriod(["20:00", "07:00"]);
   },
   methods: {
     setExportUrl() {
@@ -1291,13 +1300,14 @@ export default {
       this.scheduleJson.description = this.descriptionH1;
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
+      plans_0.period = this.setPeriod(this.period_plan0);
       plans_0.Fiammetta.target = this.Fiammetta[0];
       plans_0.Fiammetta.enable = this.switch_Fiammetta_enable[0];
-      plans_0.Fiammetta.order = this.input_Fiammetta_order[0];
+      plans_0.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[0]);
       plans_0.drones.room = this.getParamsValue(this.radio_drones[0]);
       plans_0.drones.index = this.radio_drones_index[0];
       plans_0.drones.enable = this.switch_drones_enable[0];
-      plans_0.drones.order = this.input_drones_order[0];
+      plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
       plans_0.rooms.control[0] = this.control_plan0;
       var trading_planMap0_0 = {
         operators: [this.trading_plan0_0],
@@ -1350,20 +1360,20 @@ export default {
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
       if ("153" === this.buildingType)
         plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
-     
-     var power_planMap0_0 = {
+
+      var power_planMap0_0 = {
         operators: [this.power_plan0_0[0]],
         // sort: this.switch_power_plan0_0[0],
         autofill: this.switch_power_plan0_0[1],
       };
-     
-     var power_planMap0_1 = {
+
+      var power_planMap0_1 = {
         operators: [this.power_plan0_0[1]],
         // sort: this.switch_power_plan0_1[0],
         autofill: this.switch_power_plan0_1[1],
       };
-   
-     var power_planMap0_2 = {
+
+      var power_planMap0_2 = {
         operators: [this.power_plan0_0[2]],
         // sort: this.switch_power_plan0_2[0],
         autofill: this.switch_power_plan0_2[1],
@@ -1394,26 +1404,26 @@ export default {
         sort: this.switch_dormitory_plan0_0[0],
         autofill: this.switch_dormitory_plan0_0[1],
       };
-      
+
       var dormitory_planMap0_1 = {
         operators: [this.dormitory_plan0_1],
         sort: this.switch_dormitory_plan0_1[0],
         autofill: this.switch_dormitory_plan0_1[1],
       };
-    
-    var dormitory_planMap0_2 = {
+
+      var dormitory_planMap0_2 = {
         operators: [this.dormitory_plan0_2],
         sort: this.switch_dormitory_plan0_2[0],
         autofill: this.switch_dormitory_plan0_2[1],
       };
-    
-    var dormitory_planMap0_3 = {
+
+      var dormitory_planMap0_3 = {
         operators: [this.dormitory_plan0_3],
         sort: this.switch_dormitory_plan0_3[0],
         autofill: this.switch_dormitory_plan0_3[1],
       };
-   
-   if (!this.switch_dormitory_plan0_0[1])
+
+      if (!this.switch_dormitory_plan0_0[1])
         plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
       if (!this.switch_dormitory_plan0_1[1])
         plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
@@ -1423,71 +1433,72 @@ export default {
       
       plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
       plans_1.name = this.name[1];
+      plans_1.period = this.setPeriod(this.period_plan1);
       plans_1.description = this.descriptionH2[1];
       plans_1.Fiammetta.target = this.Fiammetta[1];
       plans_1.Fiammetta.enable = this.switch_Fiammetta_enable[1];
-      plans_1.Fiammetta.order = this.input_Fiammetta_order[1];
+      plans_1.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[1]);
       plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
       plans_1.drones.index = this.radio_drones_index[1];
       plans_1.drones.enable = this.switch_drones_enable[1];
-      plans_1.drones.order = this.input_drones_order[1];
+      plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
       plans_1.rooms.control[0] = this.control_plan1;
-     
-     var trading_planMap1_0 = {
+
+      var trading_planMap1_0 = {
         operators: [this.trading_plan1_0],
         sort: this.switch_trading_plan1_0[0],
         autofill: this.switch_trading_plan1_0[1],
         product: this.getParamsValue(this.radio_trading_plan1[0]),
       };
-     
-     var trading_planMap1_1 = {
+
+      var trading_planMap1_1 = {
         operators: [this.trading_plan1_1],
         sort: this.switch_trading_plan1_1[0],
         autofill: this.switch_trading_plan1_1[1],
         product: this.getParamsValue(this.radio_trading_plan1[1]),
       };
-     
-     plans_1.rooms.trading[0] = trading_planMap1_0;
-    
-    if ("243" === this.buildingType)
+
+      plans_1.rooms.trading[0] = trading_planMap1_0;
+
+      if ("243" === this.buildingType)
         plans_1.rooms.trading[1] = trading_planMap1_1;
-   
-   var manufacture_planMap1_0 = {
+
+      var manufacture_planMap1_0 = {
         operators: [this.manufacture_plan1_0],
         sort: this.switch_manufacture_plan1_0[0],
         autofill: this.switch_manufacture_plan1_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[0]),
       };
-   
-   var manufacture_planMap1_1 = {
+
+      var manufacture_planMap1_1 = {
         operators: [this.manufacture_plan1_1],
         sort: this.switch_manufacture_plan1_1[0],
         autofill: this.switch_manufacture_plan1_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[1]),
       };
-   
-   var manufacture_planMap1_2 = {
+
+      var manufacture_planMap1_2 = {
         operators: [this.manufacture_plan1_2],
         sort: this.switch_manufacture_plan1_2[0],
         autofill: this.switch_manufacture_plan1_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[2]),
       };
-     
-     var manufacture_planMap1_3 = {
+
+      var manufacture_planMap1_3 = {
         operators: [this.manufacture_plan1_3],
         sort: this.switch_manufacture_plan1_3[0],
         autofill: this.switch_manufacture_plan1_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[3]),
       };
-    
-    var manufacture_planMap1_4 = {
+
+      var manufacture_planMap1_4 = {
         operators: [this.manufacture_plan1_4],
         sort: this.switch_manufacture_plan1_4[0],
         autofill: this.switch_manufacture_plan1_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[4]),
       };
-   
-   plans_1.rooms.manufacture[0] = manufacture_planMap1_0;
+
+      plans_1.rooms.manufacture[0] = manufacture_planMap1_0;
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
@@ -1499,14 +1510,14 @@ export default {
         // sort: this.switch_power_plan1_0[0],
         autofill: this.switch_power_plan1_0[1],
       };
-     
-     var power_planMap1_1 = {
+
+      var power_planMap1_1 = {
         operators: [this.power_plan1_0[1]],
         // sort: this.switch_power_plan1_1[0],
         autofill: this.switch_power_plan1_1[1],
       };
-   
-   var power_planMap1_2 = {
+
+      var power_planMap1_2 = {
         operators: [this.power_plan1_0[2]],
         // sort: this.switch_power_plan1_2[0],
         autofill: this.switch_power_plan1_2[1],
@@ -1515,190 +1526,191 @@ export default {
       plans_1.rooms.power[0] = power_planMap1_0;
       plans_1.rooms.power[1] = power_planMap1_1;
       plans_1.rooms.power[2] = power_planMap1_2;
-   
-   var hire_planMap1_0 = {
+
+      var hire_planMap1_0 = {
         operators: [this.hire_plan1_0],
         // sort: this.switch_hire_plan1_0[0],
         autofill: this.switch_hire_plan1_0[1],
       };
 
       plans_1.rooms.hire[0] = hire_planMap1_0;
-   
-    var meeting_planMap1_0 = {
+
+      var meeting_planMap1_0 = {
         operators: [this.meeting_plan1_0],
         // sort: this.switch_meeting_plan1_0[0],
         autofill: this.switch_meeting_plan1_0[1],
       };
 
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
-    
-    var dormitory_planMap1_0 = {
+
+      var dormitory_planMap1_0 = {
         operators: [this.dormitory_plan1_0],
         sort: this.switch_dormitory_plan1_0[0],
         autofill: this.switch_dormitory_plan1_0[1],
       };
-    
-    var dormitory_planMap1_1 = {
+
+      var dormitory_planMap1_1 = {
         operators: [this.dormitory_plan1_1],
         sort: this.switch_dormitory_plan1_1[0],
         autofill: this.switch_dormitory_plan1_1[1],
       };
-    
-    var dormitory_planMap1_2 = {
+
+      var dormitory_planMap1_2 = {
         operators: [this.dormitory_plan1_2],
         sort: this.switch_dormitory_plan1_2[0],
         autofill: this.switch_dormitory_plan1_2[1],
       };
-    
-    var dormitory_planMap1_3 = {
+
+      var dormitory_planMap1_3 = {
         operators: [this.dormitory_plan1_3],
         sort: this.switch_dormitory_plan1_3[0],
         autofill: this.switch_dormitory_plan1_3[1],
       };
-    
-    if (!this.switch_dormitory_plan1_0[1])
+
+      if (!this.switch_dormitory_plan1_0[1])
         plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
       if (!this.switch_dormitory_plan1_1[1])
         plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
       if (!this.switch_dormitory_plan1_2[1])
         plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
       if (!this.switch_dormitory_plan1_3[1])
-    
-    plans_1.rooms.dormitory[3] = dormitory_planMap1_3; // C换班表
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; // C换班表
       plans_2.name = this.name[2];
+      plans_2.period = this.setPeriod(this.period_plan2);
+
       plans_2.description = this.descriptionH2[2];
       plans_2.Fiammetta.target = this.Fiammetta[2];
       plans_2.Fiammetta.enable = this.switch_Fiammetta_enable[2];
-      plans_2.Fiammetta.order = this.input_Fiammetta_order[2];
+      plans_2.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[2]);
       plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
       plans_2.drones.index = this.radio_drones_index[2];
       plans_2.drones.enable = this.switch_drones_enable[2];
-      plans_2.drones.order = this.input_drones_order[2];
+      plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
       plans_2.rooms.control[0] = this.control_plan2;
-    
-    var trading_planMap2_0 = {
+
+      var trading_planMap2_0 = {
         operators: [this.trading_plan2_0],
         sort: this.switch_trading_plan2_0[0],
         autofill: this.switch_trading_plan2_0[1],
         product: this.getParamsValue(this.radio_trading_plan2[0]),
       };
-   
-   var trading_planMap2_1 = {
+
+      var trading_planMap2_1 = {
         operators: [this.trading_plan2_1],
         sort: this.switch_trading_plan2_1[0],
         autofill: this.switch_trading_plan2_1[1],
         product: this.getParamsValue(this.radio_trading_plan2[1]),
       };
-    
-    plans_2.rooms.trading[0] = trading_planMap2_0;
-   if ("243" === this.buildingType)
+
+      plans_2.rooms.trading[0] = trading_planMap2_0;
+      if ("243" === this.buildingType)
         plans_2.rooms.trading[1] = trading_planMap2_1;
-     
-    var manufacture_planMap2_0 = {
+
+      var manufacture_planMap2_0 = {
         operators: [this.manufacture_plan2_0],
         sort: this.switch_manufacture_plan2_0[0],
         autofill: this.switch_manufacture_plan2_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[0]),
       };
-  
-  var manufacture_planMap2_1 = {
+
+      var manufacture_planMap2_1 = {
         operators: [this.manufacture_plan2_1],
         sort: this.switch_manufacture_plan2_1[0],
         autofill: this.switch_manufacture_plan2_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[1]),
       };
-  
-  var manufacture_planMap2_2 = {
+
+      var manufacture_planMap2_2 = {
         operators: [this.manufacture_plan2_2],
         sort: this.switch_manufacture_plan2_2[0],
         autofill: this.switch_manufacture_plan2_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[2]),
       };
-   
-   var manufacture_planMap2_3 = {
+
+      var manufacture_planMap2_3 = {
         operators: [this.manufacture_plan2_3],
         sort: this.switch_manufacture_plan2_3[0],
         autofill: this.switch_manufacture_plan2_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[3]),
       };
-   
-   var manufacture_planMap2_4 = {
+
+      var manufacture_planMap2_4 = {
         operators: [this.manufacture_plan2_4],
         sort: this.switch_manufacture_plan2_4[0],
         autofill: this.switch_manufacture_plan2_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[4]),
       };
-  
-  plans_2.rooms.manufacture[0] = manufacture_planMap2_0;
+
+      plans_2.rooms.manufacture[0] = manufacture_planMap2_0;
       plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
       plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
       plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
       if ("153" === this.buildingType)
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
-  
-  var power_planMap2_0 = {
+
+      var power_planMap2_0 = {
         operators: [this.power_plan2_0[0]],
         // sort: this.switch_power_plan2_0[0],
         autofill: this.switch_power_plan2_0[1],
       };
-   
-   var power_planMap2_1 = {
+
+      var power_planMap2_1 = {
         operators: [this.power_plan2_0[1]],
         // sort: this.switch_power_plan2_1[0],
         autofill: this.switch_power_plan2_1[1],
       };
-  
-  var power_planMap2_2 = {
+
+      var power_planMap2_2 = {
         operators: [this.power_plan2_0[2]],
         // sort: this.switch_power_plan2_2[0],
         autofill: this.switch_power_plan2_2[1],
       };
-   
-   plans_2.rooms.power[0] = power_planMap2_0;
+
+      plans_2.rooms.power[0] = power_planMap2_0;
       plans_2.rooms.power[1] = power_planMap2_1;
       plans_2.rooms.power[2] = power_planMap2_2;
-   
-   var hire_planMap2_0 = {
+
+      var hire_planMap2_0 = {
         operators: [this.hire_plan2_0],
         // sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
-    
-    plans_2.rooms.hire[0] = hire_planMap2_0;
-   
-   var meeting_planMap2_0 = {
+
+      plans_2.rooms.hire[0] = hire_planMap2_0;
+
+      var meeting_planMap2_0 = {
         operators: [this.meeting_plan2_0],
         // sort: this.switch_meeting_plan2_0[0],
         autofill: this.switch_meeting_plan2_0[1],
       };
-    
-    plans_2.rooms.meeting[0] = meeting_planMap2_0;
-   
-   var dormitory_planMap2_0 = {
+
+      plans_2.rooms.meeting[0] = meeting_planMap2_0;
+
+      var dormitory_planMap2_0 = {
         operators: [this.dormitory_plan2_0],
         sort: this.switch_dormitory_plan2_0[0],
         autofill: this.switch_dormitory_plan2_0[1],
       };
-   
-   var dormitory_planMap2_1 = {
+
+      var dormitory_planMap2_1 = {
         operators: [this.dormitory_plan2_1],
         sort: this.switch_dormitory_plan2_1[0],
         autofill: this.switch_dormitory_plan2_1[1],
       };
-  
-  var dormitory_planMap2_2 = {
+
+      var dormitory_planMap2_2 = {
         operators: [this.dormitory_plan2_2],
         sort: this.switch_dormitory_plan2_2[0],
         autofill: this.switch_dormitory_plan2_2[1],
       };
- 
- var dormitory_planMap2_3 = {
+
+      var dormitory_planMap2_3 = {
         operators: [this.dormitory_plan2_3],
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
-  
-  if (!this.switch_dormitory_plan2_0[1])
+
+      if (!this.switch_dormitory_plan2_0[1])
         plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
       if (!this.switch_dormitory_plan2_1[1])
         plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
@@ -1706,11 +1718,32 @@ export default {
         plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
       if (!this.switch_dormitory_plan2_3[1])
         plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
-  
-  this.scheduleJson.plans.push(plans_0);
+
+      this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
       this.scheduleJson.plans.push(plans_2);
       console.log(this.scheduleJson);
+    },
+
+    setPeriod(list) {
+      var start = parseInt(list[0].substr(0, 2));
+      var end = parseInt(list[1].substr(0, 2));
+
+      if (start > end) {
+        console.log([
+          [list[0], "23:59"],
+          ["00:00", list[1]],
+        ]);
+        return [
+          [list[0], "23:59"],
+          ["00:00", list[1]],
+        ];
+      }
+      return [list];
+    },
+    getOrder(flag){
+          if(flag) return 'pre';
+          if(!flag) return 'post';
     },
     getParamsValue(label) {
       if (label === "贸易站") {
@@ -1744,6 +1777,7 @@ export default {
   },
 };
 </script>
+
 
 
 <style>

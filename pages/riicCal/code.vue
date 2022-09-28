@@ -1,0 +1,693 @@
+<script>
+import buildingApi from "@/api/building";
+export default {
+  data() {
+    return {
+      exportUrl:
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
+      uid: 12345,
+      buildingType: "243",
+      scheduleJson: { plans: [] },
+      title: "243极限",
+      descriptionH1: "这是个排班协议演示",
+      author: "yituliu",
+      name: ["A+B 组", "A+C 组", "C+B 组"],
+      descriptionH2: ["111111111", "2222222222222", "3333333333333"],
+      radio_drones: ["贸易站", "制造站", "贸易站"],
+      switch_drones_enable: [true, false, true],
+      radio_drones_index: [1, 2, 3],
+      input_drones_order: [true, true, true],
+      Fiammetta: ["巫恋", "巫恋1", "巫恋2"],
+      switch_Fiammetta_enable: [true, false, true],
+      input_Fiammetta_order: [true, true, true],
+      // A换班参数
+      period_plan0: ["08:00", '13:59'],
+      control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
+      trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
+      trading_plan0_1: ["但书", "空弦", "黑键"],
+      radio_trading_plan0: ["龙门币", "龙门币"],
+      switch_trading_plan0_0: [false, false],
+      switch_trading_plan0_1: [false, false],
+      manufacture_plan0_0: ["红云", "稀音", "帕拉斯"],
+      manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
+      manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
+      manufacture_plan0_3: ["砾", "槐琥", "迷迭香"],
+      manufacture_plan0_4: ["默认", "默认", "默认"],
+      radio_manufacture_plan0: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
+      switch_manufacture_plan0_0: [false, false],
+      switch_manufacture_plan0_1: [false, false],
+      switch_manufacture_plan0_2: [false, false],
+      switch_manufacture_plan0_3: [false, false],
+      switch_manufacture_plan0_4: [false, false],
+      power_plan0_0: ["承曦格雷伊", "澄闪", "炎狱炎熔"],
+      switch_power_plan0_0: [false, false],
+      switch_power_plan0_1: [false, false],
+      switch_power_plan0_2: [false, false],
+      hire_plan0_0: ["絮雨1"],
+      switch_hire_plan0_0: [false, false],
+      meeting_plan0_0: ["陈", "守林人"],
+      switch_meeting_plan0_0: [false, false],
+      dormitory_plan0_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan0_1: ["宿管一", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_2: ["宿管二", "默认", "默认", "默认", "默认"],
+      dormitory_plan0_3: ["宿管三", "默认", "默认", "默认", "默认"],
+      switch_dormitory_plan0_0: [false, false],
+      switch_dormitory_plan0_1: [false, true],
+      switch_dormitory_plan0_2: [false, true],
+      switch_dormitory_plan0_3: [false, true],
+      // B换班参数
+      period_plan1: ["14:00", "19:59"],
+      control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],
+      trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
+      trading_plan1_1: ["孑", "银灰", "崖心"],
+      radio_trading_plan1: ["龙门币", "龙门币"],
+      switch_trading_plan1_0: [false, false],
+      switch_trading_plan1_1: [false, false],
+      manufacture_plan1_0: ["红云", "稀音", "帕拉斯"],
+      manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
+      manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
+      manufacture_plan1_3: ["泡泡", "火神", "刻俄柏"],
+      manufacture_plan1_4: ["默认", "默认", "默认"],
+      radio_manufacture_plan1: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
+      switch_manufacture_plan1_0: [false, false],
+      switch_manufacture_plan1_1: [false, false],
+      switch_manufacture_plan1_2: [false, false],
+      switch_manufacture_plan1_3: [false, false],
+      switch_manufacture_plan1_4: [false, false],
+      power_plan1_0: ["承曦格雷伊", "雷蛇", "炎狱炎熔"],
+      switch_power_plan1_0: [false, false],
+      switch_power_plan1_1: [false, false],
+      switch_power_plan1_2: [false, false],
+      hire_plan1_0: ["艾雅法拉"],
+      switch_hire_plan1_0: [false, false],
+      meeting_plan1_0: ["陈", "守林人"],
+      switch_meeting_plan1_0: [false, false],
+      dormitory_plan1_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan1_1: ["宿管a", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_2: ["宿管b", "默认", "默认", "默认", "默认"],
+      dormitory_plan1_3: ["宿管c", "默认", "默认", "默认", "默认"],
+      switch_dormitory_plan1_0: [false, false],
+      switch_dormitory_plan1_1: [false, true],
+      switch_dormitory_plan1_2: [false, true],
+      switch_dormitory_plan1_3: [false, true],
+      // C换班参数
+      period_plan2: ["20:00", "07:59"],
+      control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"],
+      trading_plan2_0: ["孑", "银灰", "崖心"],
+      trading_plan2_1: ["但书", "空弦", "黑键"],
+      radio_trading_plan2: ["龙门币", "龙门币"],
+      switch_trading_plan2_0: [false, false],
+      switch_trading_plan2_1: [false, false],
+      manufacture_plan2_0: ["远牙", "野鬃", "灰毫"],
+      manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
+      manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
+      manufacture_plan2_3: ["砾", "槐琥", "迷迭香"],
+      manufacture_plan2_4: ["默认", "默认", "默认"],
+      radio_manufacture_plan2: [
+        "作战记录",
+        "作战记录",
+        "赤金",
+        "赤金",
+        "作战记录",
+      ],
+      switch_manufacture_plan2_0: [false, false],
+      switch_manufacture_plan2_1: [false, false],
+      switch_manufacture_plan2_2: [false, false],
+      switch_manufacture_plan2_3: [false, false],
+      switch_manufacture_plan2_4: [false, false],
+      power_plan2_0: ["正义骑士号", "澄闪", "雷蛇"],
+      switch_power_plan2_0: [false, false],
+      switch_power_plan2_1: [false, false],
+      switch_power_plan2_2: [false, false],
+      hire_plan2_0: ["絮雨2"],
+      switch_hire_plan2_0: [false, false],
+      meeting_plan2_0: ["陈", "守林人"],
+      switch_meeting_plan2_0: [false, false],
+      dormitory_plan2_0: ["爱丽丝", "车尼尔"],
+      dormitory_plan2_1: ["宿管3", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_2: ["宿管2", "默认", "默认", "默认", "默认"],
+      dormitory_plan2_3: ["宿管1", "默认", "默认", "默认", "默认"],
+      switch_dormitory_plan2_0: [false, false],
+      switch_dormitory_plan2_1: [false, true],
+      switch_dormitory_plan2_2: [false, true],
+      switch_dormitory_plan2_3: [false, true],
+    };
+  },
+  created() {
+    this.setJson();
+    this.setExportUrl();
+    this.setPeriod(["20:00", "07:00"]);
+  },
+  methods: {
+    setExportUrl() {
+      this.exportUrl =
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
+        this.uid;
+    },
+    maaBuildingJsonCreated() {
+      this.setJson();
+      buildingApi.maaBuildingJsonCreated(this.scheduleJson).then((response) => {
+        this.$message({
+          message: response.data.message + "uid：" + response.data.uid,
+          type: "success",
+          showClose: true,
+          duration: 3000,
+        });
+        this.uid = response.data.uid;
+        this.setExportUrl();
+      });
+    },
+    setJson() {
+      this.scheduleJson = { plans: [] };
+      var plans_0 = {
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
+        rooms: {
+          control: [],
+          trading: [],
+          manufacture: [],
+          power: [],
+          hire: [],
+          meeting: [],
+          dormitory: [],
+        },
+      };
+      var plans_1 = {
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
+        rooms: {
+          control: [],
+          trading: [],
+          manufacture: [],
+          power: [],
+          hire: [],
+          meeting: [],
+          dormitory: [],
+        },
+      };
+      var plans_2 = {
+        Fiammetta: { target: "", enable: true, order: "pre" },
+        drones: { room: "", index: 1, enable: true, order: "pre" },
+        rooms: {
+          control: [],
+          trading: [],
+          manufacture: [],
+          power: [],
+          hire: [],
+          meeting: [],
+          dormitory: [],
+        },
+      };
+      this.scheduleJson.title = this.title;
+      this.scheduleJson.description = this.descriptionH1;
+      plans_0.name = this.name[0];
+      plans_0.description = this.descriptionH2[0];
+      plans_0.period = this.setPeriod(this.period_plan0);
+      plans_0.Fiammetta.target = this.Fiammetta[0];
+      plans_0.Fiammetta.enable = this.switch_Fiammetta_enable[0];
+      plans_0.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[0]);
+      plans_0.drones.room = this.getParamsValue(this.radio_drones[0]);
+      plans_0.drones.index = this.radio_drones_index[0];
+      plans_0.drones.enable = this.switch_drones_enable[0];
+      plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
+      plans_0.rooms.control[0] = this.control_plan0;
+      var trading_planMap0_0 = {
+        operators: [this.trading_plan0_0],
+        sort: this.switch_trading_plan0_0[0],
+        autofill: this.switch_trading_plan0_0[1],
+        product: this.getParamsValue(this.radio_trading_plan0[0]),
+      };
+      var trading_planMap0_1 = {
+        operators: [this.trading_plan0_1],
+        sort: this.switch_trading_plan0_1[0],
+        autofill: this.switch_trading_plan0_1[1],
+        product: this.getParamsValue(this.radio_trading_plan0[1]),
+      };
+      plans_0.rooms.trading[0] = trading_planMap0_0;
+      if ("243" === this.buildingType)
+        plans_0.rooms.trading[1] = trading_planMap0_1;
+      var manufacture_planMap0_0 = {
+        operators: [this.manufacture_plan0_0],
+        sort: this.switch_manufacture_plan0_0[0],
+        autofill: this.switch_manufacture_plan0_0[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[0]),
+      };
+      var manufacture_planMap0_1 = {
+        operators: [this.manufacture_plan0_1],
+        sort: this.switch_manufacture_plan0_1[0],
+        autofill: this.switch_manufacture_plan0_1[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[1]),
+      };
+      var manufacture_planMap0_2 = {
+        operators: [this.manufacture_plan0_2],
+        sort: this.switch_manufacture_plan0_2[0],
+        autofill: this.switch_manufacture_plan0_2[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[2]),
+      };
+      var manufacture_planMap0_3 = {
+        operators: [this.manufacture_plan0_3],
+        sort: this.switch_manufacture_plan0_3[0],
+        autofill: this.switch_manufacture_plan0_3[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[3]),
+      };
+      var manufacture_planMap0_4 = {
+        operators: [this.manufacture_plan0_4],
+        sort: this.switch_manufacture_plan0_4[0],
+        autofill: this.switch_manufacture_plan0_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan0[4]),
+      };
+      plans_0.rooms.manufacture[0] = manufacture_planMap0_0;
+      plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
+      plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
+      plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
+      if ("153" === this.buildingType)
+        plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
+
+      var power_planMap0_0 = {
+        operators: [this.power_plan0_0[0]],
+        // sort: this.switch_power_plan0_0[0],
+        autofill: this.switch_power_plan0_0[1],
+      };
+
+      var power_planMap0_1 = {
+        operators: [this.power_plan0_0[1]],
+        // sort: this.switch_power_plan0_1[0],
+        autofill: this.switch_power_plan0_1[1],
+      };
+
+      var power_planMap0_2 = {
+        operators: [this.power_plan0_0[2]],
+        // sort: this.switch_power_plan0_2[0],
+        autofill: this.switch_power_plan0_2[1],
+      };
+
+      plans_0.rooms.power[0] = power_planMap0_0;
+      plans_0.rooms.power[1] = power_planMap0_1;
+      plans_0.rooms.power[2] = power_planMap0_2;
+
+      var hire_planMap0_0 = {
+        operators: [this.hire_plan0_0],
+        // sort: this.switch_hire_plan0_0[0],
+        autofill: this.switch_hire_plan0_0[1],
+      };
+
+      plans_0.rooms.hire[0] = hire_planMap0_0;
+
+      var meeting_planMap0_0 = {
+        operators: [this.meeting_plan0_0],
+        // sort: this.switch_meeting_plan0_0[0],
+        autofill: this.switch_meeting_plan0_0[1],
+      };
+
+      plans_0.rooms.meeting[0] = meeting_planMap0_0;
+
+      var dormitory_planMap0_0 = {
+        operators: [this.dormitory_plan0_0],
+        sort: this.switch_dormitory_plan0_0[0],
+        autofill: this.switch_dormitory_plan0_0[1],
+      };
+
+      var dormitory_planMap0_1 = {
+        operators: [this.dormitory_plan0_1],
+        sort: this.switch_dormitory_plan0_1[0],
+        autofill: this.switch_dormitory_plan0_1[1],
+      };
+
+      var dormitory_planMap0_2 = {
+        operators: [this.dormitory_plan0_2],
+        sort: this.switch_dormitory_plan0_2[0],
+        autofill: this.switch_dormitory_plan0_2[1],
+      };
+
+      var dormitory_planMap0_3 = {
+        operators: [this.dormitory_plan0_3],
+        sort: this.switch_dormitory_plan0_3[0],
+        autofill: this.switch_dormitory_plan0_3[1],
+      };
+
+      if (!this.switch_dormitory_plan0_0[1])
+        plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
+      if (!this.switch_dormitory_plan0_1[1])
+        plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
+      if (!this.switch_dormitory_plan0_2[1])
+        plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
+      if (!this.switch_dormitory_plan0_3[1])
+      
+      plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
+      plans_1.name = this.name[1];
+      plans_1.period = this.setPeriod(this.period_plan1);
+      plans_1.description = this.descriptionH2[1];
+      plans_1.Fiammetta.target = this.Fiammetta[1];
+      plans_1.Fiammetta.enable = this.switch_Fiammetta_enable[1];
+      plans_1.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[1]);
+      plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
+      plans_1.drones.index = this.radio_drones_index[1];
+      plans_1.drones.enable = this.switch_drones_enable[1];
+      plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
+      plans_1.rooms.control[0] = this.control_plan1;
+
+      var trading_planMap1_0 = {
+        operators: [this.trading_plan1_0],
+        sort: this.switch_trading_plan1_0[0],
+        autofill: this.switch_trading_plan1_0[1],
+        product: this.getParamsValue(this.radio_trading_plan1[0]),
+      };
+
+      var trading_planMap1_1 = {
+        operators: [this.trading_plan1_1],
+        sort: this.switch_trading_plan1_1[0],
+        autofill: this.switch_trading_plan1_1[1],
+        product: this.getParamsValue(this.radio_trading_plan1[1]),
+      };
+
+      plans_1.rooms.trading[0] = trading_planMap1_0;
+
+      if ("243" === this.buildingType)
+        plans_1.rooms.trading[1] = trading_planMap1_1;
+
+      var manufacture_planMap1_0 = {
+        operators: [this.manufacture_plan1_0],
+        sort: this.switch_manufacture_plan1_0[0],
+        autofill: this.switch_manufacture_plan1_0[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[0]),
+      };
+
+      var manufacture_planMap1_1 = {
+        operators: [this.manufacture_plan1_1],
+        sort: this.switch_manufacture_plan1_1[0],
+        autofill: this.switch_manufacture_plan1_1[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[1]),
+      };
+
+      var manufacture_planMap1_2 = {
+        operators: [this.manufacture_plan1_2],
+        sort: this.switch_manufacture_plan1_2[0],
+        autofill: this.switch_manufacture_plan1_2[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[2]),
+      };
+
+      var manufacture_planMap1_3 = {
+        operators: [this.manufacture_plan1_3],
+        sort: this.switch_manufacture_plan1_3[0],
+        autofill: this.switch_manufacture_plan1_3[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[3]),
+      };
+
+      var manufacture_planMap1_4 = {
+        operators: [this.manufacture_plan1_4],
+        sort: this.switch_manufacture_plan1_4[0],
+        autofill: this.switch_manufacture_plan1_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan1[4]),
+      };
+
+      plans_1.rooms.manufacture[0] = manufacture_planMap1_0;
+      plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
+      plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
+      plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
+      if ("153" === this.buildingType)
+        plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
+
+      var power_planMap1_0 = {
+        operators: [this.power_plan1_0[0]],
+        // sort: this.switch_power_plan1_0[0],
+        autofill: this.switch_power_plan1_0[1],
+      };
+
+      var power_planMap1_1 = {
+        operators: [this.power_plan1_0[1]],
+        // sort: this.switch_power_plan1_1[0],
+        autofill: this.switch_power_plan1_1[1],
+      };
+
+      var power_planMap1_2 = {
+        operators: [this.power_plan1_0[2]],
+        // sort: this.switch_power_plan1_2[0],
+        autofill: this.switch_power_plan1_2[1],
+      };
+
+      plans_1.rooms.power[0] = power_planMap1_0;
+      plans_1.rooms.power[1] = power_planMap1_1;
+      plans_1.rooms.power[2] = power_planMap1_2;
+
+      var hire_planMap1_0 = {
+        operators: [this.hire_plan1_0],
+        // sort: this.switch_hire_plan1_0[0],
+        autofill: this.switch_hire_plan1_0[1],
+      };
+
+      plans_1.rooms.hire[0] = hire_planMap1_0;
+
+      var meeting_planMap1_0 = {
+        operators: [this.meeting_plan1_0],
+        // sort: this.switch_meeting_plan1_0[0],
+        autofill: this.switch_meeting_plan1_0[1],
+      };
+
+      plans_1.rooms.meeting[0] = meeting_planMap1_0;
+
+      var dormitory_planMap1_0 = {
+        operators: [this.dormitory_plan1_0],
+        sort: this.switch_dormitory_plan1_0[0],
+        autofill: this.switch_dormitory_plan1_0[1],
+      };
+
+      var dormitory_planMap1_1 = {
+        operators: [this.dormitory_plan1_1],
+        sort: this.switch_dormitory_plan1_1[0],
+        autofill: this.switch_dormitory_plan1_1[1],
+      };
+
+      var dormitory_planMap1_2 = {
+        operators: [this.dormitory_plan1_2],
+        sort: this.switch_dormitory_plan1_2[0],
+        autofill: this.switch_dormitory_plan1_2[1],
+      };
+
+      var dormitory_planMap1_3 = {
+        operators: [this.dormitory_plan1_3],
+        sort: this.switch_dormitory_plan1_3[0],
+        autofill: this.switch_dormitory_plan1_3[1],
+      };
+
+      if (!this.switch_dormitory_plan1_0[1])
+        plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
+      if (!this.switch_dormitory_plan1_1[1])
+        plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
+      if (!this.switch_dormitory_plan1_2[1])
+        plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
+      if (!this.switch_dormitory_plan1_3[1])
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; // C换班表
+      plans_2.name = this.name[2];
+      plans_2.period = this.setPeriod(this.period_plan2);
+
+      plans_2.description = this.descriptionH2[2];
+      plans_2.Fiammetta.target = this.Fiammetta[2];
+      plans_2.Fiammetta.enable = this.switch_Fiammetta_enable[2];
+      plans_2.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[2]);
+      plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
+      plans_2.drones.index = this.radio_drones_index[2];
+      plans_2.drones.enable = this.switch_drones_enable[2];
+      plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
+      plans_2.rooms.control[0] = this.control_plan2;
+
+      var trading_planMap2_0 = {
+        operators: [this.trading_plan2_0],
+        sort: this.switch_trading_plan2_0[0],
+        autofill: this.switch_trading_plan2_0[1],
+        product: this.getParamsValue(this.radio_trading_plan2[0]),
+      };
+
+      var trading_planMap2_1 = {
+        operators: [this.trading_plan2_1],
+        sort: this.switch_trading_plan2_1[0],
+        autofill: this.switch_trading_plan2_1[1],
+        product: this.getParamsValue(this.radio_trading_plan2[1]),
+      };
+
+      plans_2.rooms.trading[0] = trading_planMap2_0;
+      if ("243" === this.buildingType)
+        plans_2.rooms.trading[1] = trading_planMap2_1;
+
+      var manufacture_planMap2_0 = {
+        operators: [this.manufacture_plan2_0],
+        sort: this.switch_manufacture_plan2_0[0],
+        autofill: this.switch_manufacture_plan2_0[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[0]),
+      };
+
+      var manufacture_planMap2_1 = {
+        operators: [this.manufacture_plan2_1],
+        sort: this.switch_manufacture_plan2_1[0],
+        autofill: this.switch_manufacture_plan2_1[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[1]),
+      };
+
+      var manufacture_planMap2_2 = {
+        operators: [this.manufacture_plan2_2],
+        sort: this.switch_manufacture_plan2_2[0],
+        autofill: this.switch_manufacture_plan2_2[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[2]),
+      };
+
+      var manufacture_planMap2_3 = {
+        operators: [this.manufacture_plan2_3],
+        sort: this.switch_manufacture_plan2_3[0],
+        autofill: this.switch_manufacture_plan2_3[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[3]),
+      };
+
+      var manufacture_planMap2_4 = {
+        operators: [this.manufacture_plan2_4],
+        sort: this.switch_manufacture_plan2_4[0],
+        autofill: this.switch_manufacture_plan2_4[1],
+        product: this.getParamsValue(this.radio_manufacture_plan2[4]),
+      };
+
+      plans_2.rooms.manufacture[0] = manufacture_planMap2_0;
+      plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
+      plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
+      plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
+      if ("153" === this.buildingType)
+        plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
+
+      var power_planMap2_0 = {
+        operators: [this.power_plan2_0[0]],
+        // sort: this.switch_power_plan2_0[0],
+        autofill: this.switch_power_plan2_0[1],
+      };
+
+      var power_planMap2_1 = {
+        operators: [this.power_plan2_0[1]],
+        // sort: this.switch_power_plan2_1[0],
+        autofill: this.switch_power_plan2_1[1],
+      };
+
+      var power_planMap2_2 = {
+        operators: [this.power_plan2_0[2]],
+        // sort: this.switch_power_plan2_2[0],
+        autofill: this.switch_power_plan2_2[1],
+      };
+
+      plans_2.rooms.power[0] = power_planMap2_0;
+      plans_2.rooms.power[1] = power_planMap2_1;
+      plans_2.rooms.power[2] = power_planMap2_2;
+
+      var hire_planMap2_0 = {
+        operators: [this.hire_plan2_0],
+        // sort: this.switch_hire_plan2_0[0],
+        autofill: this.switch_hire_plan2_0[1],
+      };
+
+      plans_2.rooms.hire[0] = hire_planMap2_0;
+
+      var meeting_planMap2_0 = {
+        operators: [this.meeting_plan2_0],
+        // sort: this.switch_meeting_plan2_0[0],
+        autofill: this.switch_meeting_plan2_0[1],
+      };
+
+      plans_2.rooms.meeting[0] = meeting_planMap2_0;
+
+      var dormitory_planMap2_0 = {
+        operators: [this.dormitory_plan2_0],
+        sort: this.switch_dormitory_plan2_0[0],
+        autofill: this.switch_dormitory_plan2_0[1],
+      };
+
+      var dormitory_planMap2_1 = {
+        operators: [this.dormitory_plan2_1],
+        sort: this.switch_dormitory_plan2_1[0],
+        autofill: this.switch_dormitory_plan2_1[1],
+      };
+
+      var dormitory_planMap2_2 = {
+        operators: [this.dormitory_plan2_2],
+        sort: this.switch_dormitory_plan2_2[0],
+        autofill: this.switch_dormitory_plan2_2[1],
+      };
+
+      var dormitory_planMap2_3 = {
+        operators: [this.dormitory_plan2_3],
+        sort: this.switch_dormitory_plan2_3[0],
+        autofill: this.switch_dormitory_plan2_3[1],
+      };
+
+      if (!this.switch_dormitory_plan2_0[1])
+        plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
+      if (!this.switch_dormitory_plan2_1[1])
+        plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
+      if (!this.switch_dormitory_plan2_2[1])
+        plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
+      if (!this.switch_dormitory_plan2_3[1])
+        plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
+
+      this.scheduleJson.plans.push(plans_0);
+      this.scheduleJson.plans.push(plans_1);
+      this.scheduleJson.plans.push(plans_2);
+      console.log(this.scheduleJson);
+    },
+
+    setPeriod(list) {
+      var start = parseInt(list[0].substr(0, 2));
+      var end = parseInt(list[1].substr(0, 2));
+
+      if (start > end) {
+        console.log([
+          [list[0], "23:59"],
+          ["00:00", list[1]],
+        ]);
+        return [
+          [list[0], "23:59"],
+          ["00:00", list[1]],
+        ];
+      }
+      return [list];
+    },
+    getOrder(flag){
+          if(flag) return 'pre';
+          if(!flag) return 'post';
+    },
+    getParamsValue(label) {
+      if (label === "贸易站") {
+        return "trading";
+      }
+      if (label === "制造站") {
+        return "manufacture";
+      }
+      if (label === "龙门币") {
+        return "LMD";
+      }
+      if (label === "合成玉") {
+        return "Orundum";
+      }
+      if (label === "作战记录") {
+        return "Battle Record";
+      }
+      if (label === "赤金") {
+        return "Pure Gold";
+      }
+      if (label === "源石碎片") {
+        return "Originium Shard";
+      }
+      if (label === "制造站(金)") {
+        return "manufacture";
+      }
+      if (label === "双芯片") {
+        return "Dualchip";
+      }
+    },
+  },
+};
+</script>
