@@ -344,7 +344,7 @@ export default {
       if (!this.switch_dormitory_plan0_2[1])
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
       if (!this.switch_dormitory_plan0_3[1])
-      
+
       plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
@@ -654,6 +654,9 @@ export default {
         ];
       }
       return [list];
+    },
+    getUid(){
+
     },
     getOrder(flag){
           if(flag) return 'pre';

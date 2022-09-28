@@ -21,13 +21,13 @@
           <el-radio-group size="small" v-model="buildingType">
             <el-radio-button label="243" ></el-radio-button>
             <el-radio-button label="153" ></el-radio-button>
-            <el-radio-button label="333" ></el-radio-button>
-            <el-radio-button label="252" ></el-radio-button>
+            <el-radio-button label="333" disabled></el-radio-button>
+            <el-radio-button label="252" disabled></el-radio-button>
           </el-radio-group>
         </div>
         <div class="riic_building_parameter">
           <div class="parameter_text">换班次数</div>
-          <el-radio-group size="small">
+          <el-radio-group size="small" v-model="planTimes">
             <el-radio-button label="2班" ></el-radio-button>
             <el-radio-button label="3班" ></el-radio-button>
             <!-- <el-radio-button label="4班" ></el-radio-button> -->
@@ -55,7 +55,7 @@
           <el-input size="small" class="parameter_inputbox" placeholder="03:00" style="width: 72px" v-model="period_plan1[0]"></el-input>
           <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px" v-model="period_plan1[1]"></el-input>
         </div>
-        <div class="riic_building_parameter">
+        <div class="riic_building_parameter" v-show="'3班'===planTimes">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
           <el-input size="small" class="parameter_inputbox" placeholder="主力组C" style="width: 100px" v-model="name[2]"></el-input>
           <el-input size="small" class="parameter_inputbox" placeholder="10:00" style="width: 72px" v-model="period_plan2[0]"></el-input>
@@ -414,7 +414,7 @@
             <el-switch v-model="switch_dormitory_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-      </div>      
+      </div>
       <div class="riic_workerSet">
          <div class="riic_building building_uni">
           <div class="riic_building_title">班次基本信息</div>
@@ -745,8 +745,8 @@
             <el-switch v-model="switch_dormitory_plan1_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-      </div>     
-      <div class="riic_workerSet">
+      </div>
+      <div class="riic_workerSet" v-show="'3班'===planTimes">
          <div class="riic_building building_uni">
           <div class="riic_building_title">班次基本信息</div>
           <div class="riic_building_parameter">
@@ -1086,6 +1086,7 @@
 
 <script>
 import buildingApi from "@/api/building";
+  import cookie from "js-cookie";
 export default {
   data() {
     return {
@@ -1093,6 +1094,7 @@ export default {
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
       buildingType: "243",
+      planTimes:'3班',
       scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个排班协议演示",
@@ -1254,6 +1256,9 @@ export default {
         this.uid = response.data.uid;
         this.setExportUrl();
       });
+    },
+    getUid(){
+
     },
     setJson() {
       this.scheduleJson = { plans: [] };
@@ -1430,7 +1435,7 @@ export default {
       if (!this.switch_dormitory_plan0_2[1])
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
       if (!this.switch_dormitory_plan0_3[1])
-      
+
       plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
@@ -1721,6 +1726,7 @@ export default {
 
       this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
+      if('3班'===this.planTimes)
       this.scheduleJson.plans.push(plans_2);
       console.log(this.scheduleJson);
     },
@@ -1745,6 +1751,7 @@ export default {
           if(flag) return 'pre';
           if(!flag) return 'post';
     },
+
     getParamsValue(label) {
       if (label === "贸易站") {
         return "trading";
