@@ -108,7 +108,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[0]"></el-switch>
+            <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[0]"></el-switch>
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -117,7 +117,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[0]"></el-switch>
+            <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[0]"></el-switch>
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -1104,10 +1104,10 @@ export default {
       radio_drones: ["贸易站", "制造站", "贸易站"],
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
-      input_drones_order: [false, false, false],
+      input_drones_order: [true, true, true],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [true, false, true],
-      input_Fiammetta_order: [false, false, false],
+      input_Fiammetta_order: [true, true, true],
       // A换班参数
       period_plan0: ["08:00", '13:59'],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
