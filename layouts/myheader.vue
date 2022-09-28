@@ -1,33 +1,64 @@
 <template>
-  <el-menu
-    :default-active="activeIndex"
-    class="el-menu-demo op_header"
-    mode="horizontal"
-    @select="handleSelect"
-    text-color="#fff"
-    active-text-color="#ffd04b"
-  >
-    <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
-    <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
-    <el-menu-item index="4" @click="schedule()">排班生成器</el-menu-item>
-    <el-submenu index="3">
-      <template slot="title">常用工具</template>
-      <el-menu-item index="3-1" @click="recruit()">公开招募</el-menu-item>
-      <el-menu-item index="3-2" @click="expCal()">升级计算</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="4" @click="switchTheme()">暗色</el-menu-item>
+  <div>
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo op_header"
+      mode="horizontal"
+      @select="handleSelect"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+    >
+      <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
+      <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
+      <el-menu-item index="4" @click="schedule()">排班生成器</el-menu-item>
+      <el-submenu index="3">
+        <template slot="title">常用工具</template>
+        <el-menu-item index="3-1" @click="recruit()">公开招募</el-menu-item>
+        <el-menu-item index="3-2" @click="expCal()">升级计算</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="4" @click="switchTheme()">暗色</el-menu-item>
+    </el-menu>
+   
+   
+    <!-- <div>
+      <el-button class="menu-button" @click="menuCollapse()"
+        ><i class="el-icon-menu"></i
+      ></el-button>
+    </div>
 
-    <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> -->
-    <!-- <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
-  </el-menu>
-
-  <!-- <div class="op_header">
-    <span class="op_header_tab"  @click="mainSite()">材料一图流</span>
-    <span class="op_header_tab" @click="gachaCal()">攒抽规划</span>
-    <span class="op_header_tab" @click="recruit()">常用工具</span>
-    <span class="op_header_tab"  @click="expCal()">升级计算</span>
-    <span class="op_header_tab" @click="switchTheme()">暗色模式</span>
-  </div> -->
+    <el-menu
+      default-active="1-4-1"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      :collapse="isCollapse"
+    >
+      <el-menu-item index="1" @click="mainSite()">
+        <i class="el-icon-s-cooperation"></i>
+        <span slot="title">材料一图流</span>
+      </el-menu-item>
+      <el-menu-item index="2" @click="gachaCal()">
+        <i class="el-icon-s-cooperation"></i>
+        <span slot="title">攒抽规划</span>
+      </el-menu-item>
+      <el-menu-item index="3" @click="schedule()">
+        <i class="el-icon-s-cooperation"></i>
+        <span slot="title">排班生成器</span>
+      </el-menu-item>
+      <el-menu-item index="4" @click="recruit()">
+        <i class="el-icon-s-cooperation"></i>
+        <span slot="title">公开招募</span>
+      </el-menu-item>
+      <el-menu-item index="5" @click="expCal()">
+        <i class="el-icon-s-cooperation"></i>
+        <span slot="title">升级计算</span>
+      </el-menu-item>
+      <el-menu-item index="6" @click="switchTheme()">
+        <i class="el-icon-setting"></i>
+        <span slot="title">暗色模式</span>
+      </el-menu-item>
+    </el-menu> -->
+  </div>
 </template>
 
 <style >
@@ -43,6 +74,7 @@ export default {
   data() {
     return {
       activeIndex: "1",
+      isCollapse: "true",
     };
   },
   methods: {
@@ -69,6 +101,16 @@ export default {
         console.log("nowdark");
       }
     },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    menuCollapse() {
+      this.isCollapse = !this.isCollapse;
+      console.log(this.isCollapse);
+    },
 
     mainSite() {
       window.location.href = "/";
@@ -94,3 +136,16 @@ export default {
   },
 };
 </script>
+
+
+<style>
+/* .menu-button{
+  width:66px ;
+  background-color: #409EFF;
+} */
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+</style>
