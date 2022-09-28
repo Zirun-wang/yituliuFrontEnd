@@ -108,7 +108,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[0]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[0]"></el-switch> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -117,7 +121,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[0]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班前"  inactive-text="换班后" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[0]"></el-switch> -->
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -446,7 +454,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[1]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[1]"></el-switch> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -455,7 +467,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[1]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[1]"></el-switch> -->
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
@@ -777,7 +793,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[2]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_drones_order[2]"></el-switch> -->
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">菲亚梅塔</div>
@@ -786,7 +806,11 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[2]"></el-switch>
+            <el-radio-group size="small">
+              <el-radio-button label="换班前"></el-radio-button>
+              <el-radio-button label="换班后"></el-radio-button>
+            </el-radio-group>
+            <!-- <el-switch active-text="换班后"  inactive-text="换班前" active-color="#13ce66" inactive-color="#1373ce" v-model="input_Fiammetta_order[2]"></el-switch> -->
           </div>
         </div>
         <div class="riic_building building_cortrolCenter">
