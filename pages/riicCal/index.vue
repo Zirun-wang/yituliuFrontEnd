@@ -106,9 +106,9 @@
               <el-radio-button label="5"></el-radio-button>
             </el-radio-group>
           </div>
-          <div class="riic_building_parameter">
+          <div class="riic_building_parameter" >
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_drones_order[0]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -121,7 +121,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_Fiammetta_order[0]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -454,7 +454,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_drones_order[1]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -467,7 +467,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_Fiammetta_order[1]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -793,7 +793,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_drones_order[2]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -806,7 +806,7 @@
           </div>
           <div class="riic_building_parameter">
             <div class="parameter_text" style="font-size: 15px">使用顺序</div>
-            <el-radio-group size="small">
+            <el-radio-group size="small" v-model="input_Fiammetta_order[2]">
               <el-radio-button label="换班前"></el-radio-button>
               <el-radio-button label="换班后"></el-radio-button>
             </el-radio-group>
@@ -1128,10 +1128,10 @@ export default {
       radio_drones: ["贸易站", "制造站", "贸易站"],
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
-      input_drones_order: [true, true, true],
+      input_drones_order: ["换班后", "换班后", "换班后"],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [true, false, true],
-      input_Fiammetta_order: [true, true, true],
+      input_Fiammetta_order: ["换班后", "换班后", "换班后"],
       // A换班参数
       period_plan0: ["08:00", '13:59'],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
@@ -1169,7 +1169,7 @@ export default {
       dormitory_plan0_1: [],
       dormitory_plan0_2: [],
       dormitory_plan0_3: [],
-      switch_dormitory_plan0_0: [false, false],
+      switch_dormitory_plan0_0: [true, true],
       switch_dormitory_plan0_1: [false, true],
       switch_dormitory_plan0_2: [false, true],
       switch_dormitory_plan0_3: [false, true],
@@ -1210,7 +1210,7 @@ export default {
       dormitory_plan1_1: [],
       dormitory_plan1_2: [],
       dormitory_plan1_3: [],
-      switch_dormitory_plan1_0: [false, false],
+      switch_dormitory_plan1_0: [true, true],
       switch_dormitory_plan1_1: [false, true],
       switch_dormitory_plan1_2: [false, true],
       switch_dormitory_plan1_3: [false, true],
@@ -1251,7 +1251,7 @@ export default {
       dormitory_plan2_1: [],
       dormitory_plan2_2: [],
       dormitory_plan2_3: [],
-      switch_dormitory_plan2_0: [false, false],
+      switch_dormitory_plan2_0: [true, true],
       switch_dormitory_plan2_1: [false, true],
       switch_dormitory_plan2_2: [false, true],
       switch_dormitory_plan2_3: [false, true],
@@ -1787,9 +1787,9 @@ export default {
       }
       return [list];
     },
-    getOrder(flag){
-          if(flag) return 'pre';
-          if(!flag) return 'post';
+    getOrder(str){
+          if("换班前"===str) return 'pre';
+          if("换班后"===str) return 'post';
     },
 
     getParamsValue(label) {
