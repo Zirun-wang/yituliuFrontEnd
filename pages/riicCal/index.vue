@@ -1433,15 +1433,16 @@ export default {
         autofill: this.switch_dormitory_plan0_3[1],
       };
 
-      if (!this.switch_dormitory_plan0_0[1])
         plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
-      if (!this.switch_dormitory_plan0_1[1])
+      
         plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
-      if (!this.switch_dormitory_plan0_2[1])
+      
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
-      if (!this.switch_dormitory_plan0_3[1])
+      
+        plans_0.rooms.dormitory[3] = dormitory_planMap0_3; 
 
-      plans_0.rooms.dormitory[3] = dormitory_planMap0_3; // B换班表
+// B换班表
+    
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
       plans_1.description = this.descriptionH2[1];
@@ -1581,14 +1582,18 @@ export default {
         autofill: this.switch_dormitory_plan1_3[1],
       };
 
-      if (!this.switch_dormitory_plan1_0[1])
+        
         plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
-      if (!this.switch_dormitory_plan1_1[1])
+      
         plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
-      if (!this.switch_dormitory_plan1_2[1])
+     
         plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
-      if (!this.switch_dormitory_plan1_3[1])
-        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; // C换班表
+     
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; 
+        
+        
+        
+        // C换班表
       plans_2.name = this.name[2];
       plans_2.period = this.setPeriod(this.period_plan2);
 
@@ -1727,15 +1732,13 @@ export default {
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
-
-      if (!this.switch_dormitory_plan2_0[1])
+     
         plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
-      if (!this.switch_dormitory_plan2_1[1])
         plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
-      if (!this.switch_dormitory_plan2_2[1])
         plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
-      if (!this.switch_dormitory_plan2_3[1])
         plans_2.rooms.dormitory[3] = dormitory_planMap2_3;
+
+
 
       this.scheduleJson.plans.push(plans_0);
       this.scheduleJson.plans.push(plans_1);
