@@ -16,7 +16,7 @@
           <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
             只显示up
           </div>
-          <div id="nowActStageKey" class="op_tag_0" @click="showRockAndDevice()">
+          <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
           <div class="tab_text">
@@ -86,39 +86,12 @@
         <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
         <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
       </div>
-      <!-- 搓玉卡 -->
-      <div class="op_content" id="stage_t3_content_plus" style="display:none;">
-        <div v-for="(materialRankT2, index) in stageRankT2" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT2[1].itemType)"></div>
-          <div class="stage_card_t3_table">
-            <table>
-                <tbody>
-                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT2.slice(0, 6)" :key="index">
-                    <td class="stage_table_c1">{{ stage.stageCode }}</td>
-                    <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <div class="sprite_secondary_div">
-                      <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
-                    </div>
-                    <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
-                  </tr>
-                </tbody>
-            </table>
-          </div>
-        </div>
-        <!-- 排版占位用卡片 -->
-        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-        <el-card  class="stage_card_t3" style="height:0px;margin-bottom: 0px;"></el-card>
-      </div>
       <!-- t2内容区域 -->
       <div class="op_content" id="stage_t2_content">
         <div class="stage_card_t2 uni_shadow_2">
           <div v-for="(materialRankT2, index) in stageRankT2.slice(0, 6)" :key="index" class="stage_card_t2_img">
             <!-- <img :src="getImgUrl(materialRankT2[0].itemName)" :alt="materialRankT2[0].itemName" "> -->
-               <div :class="getSpriteImg(materialRankT2[0].itemId,3)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
+            <div :class="getSpriteImg(materialRankT2[0].itemId,3)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
           </div>
         </div>
       </div>
@@ -171,6 +144,63 @@
           效率基准:<b>常驻图</b>中综合效率最高者<br>
           置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">详细介绍<img style="width: 16px;vertical-align: middle;margin: -2px 4px 0px 2px;" src="/img/website/el.png"></a>
         <br>SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</p>
+      </div>
+
+      <div  class="popup_card" id="popup_card_orundum">
+        <div class="popup_header" >
+          <img style="display:inline-block;margin:6px;" class="popup_img" :src="getImgUrl('合成玉')" :alt="main">
+          <!-- <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div> -->
+          <div class="popup_header_text" style="bottom: 0px;">搓玉一览表</div>
+        </div>
+        <!-- 散装标题End -->
+        <el-divider></el-divider>
+        <!-- 数据表Start -->
+        <table class="popup_table">
+          <tbody>
+            <tr class="popup_table_title">
+              <td class="popup_table_c1" style="width:60px;">关卡名</td>
+              <td class="popup_table_c2" style="width:150px;">转化率</td>
+              <td class="popup_table_c3" style="width:150px;">龙门币开销</td>
+              <td class="popup_table_c5" style="width:90px;">关卡效率</td>
+              <td class="popup_table_c6" style="width:90px;">搓玉效率</td>
+            </tr>
+            <tr>
+              <td class="popup_table_c1" style="width:60px">1-7</td>
+              <td class="popup_table_c2" style="width:150px;">1<img class="stage_img_secondary" :src="getImgUrl('理智')" alt="">=10.9<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c3" style="width:150px;">123<img class="stage_img_secondary" :src="getImgUrl('龙门币')" alt="">/<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c5" style="width:90px;">100%</td>
+              <td class="popup_table_c6" style="width:90px;">100%</td>
+            </tr>
+            <tr>
+              <td class="popup_table_c1" style="width:60px">1-7</td>
+              <td class="popup_table_c2" style="width:150px;">1<img class="stage_img_secondary" :src="getImgUrl('理智')" alt="">=10.9<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c3" style="width:150px;">123<img class="stage_img_secondary" :src="getImgUrl('龙门币')" alt="">/<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c5" style="width:90px;">100%</td>
+              <td class="popup_table_c6" style="width:90px;">100%</td>
+            </tr>
+            <tr>
+              <td class="popup_table_c1" style="width:60px">1-7</td>
+              <td class="popup_table_c2" style="width:150px;">1<img class="stage_img_secondary" :src="getImgUrl('理智')" alt="">=10.9<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c3" style="width:150px;">123<img class="stage_img_secondary" :src="getImgUrl('龙门币')" alt="">/<img class="stage_img_secondary" :src="getImgUrl('合成玉')" alt=""></td>
+              <td class="popup_table_c5" style="width:90px;">100%</td>
+              <td class="popup_table_c6" style="width:90px;">100%</td>
+            </tr>
+            <!-- <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
+              <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
+              <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
+              <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
+              <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
+              <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
+              <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
+            </tr> -->
+          </tbody>
+        </table>
+        <!-- 数据表End -->
+        <el-divider></el-divider>
+        <p style="padding:4px 8px;color:#222222;margin:0px;" class="f12 t1">
+          关卡效率:该关卡掉落物价值之和与理智消耗之比<br>
+          搓玉效率:该关卡的转化率与无加成1-7的转化率之比
+        </p>
       </div>
     </div>
     <!-- 弹窗End -->
@@ -234,8 +264,13 @@ export default {
         this.itemId = this.stageRankT2[(index-100)][0].itemId;
       }
     },
+    showOrundumPopup(){
+      document.getElementById('popup_card_orundum').style.display = "block"
+      document.getElementById('popup_background').style.display = "block"
+    },
     hidePopup(){
       document.getElementById('popup_card').style.display = "none"
+      document.getElementById('popup_card_orundum').style.display = "none"
       document.getElementById('popup_background').style.display = "none"
     },
 	  getPenguinUrl(num){

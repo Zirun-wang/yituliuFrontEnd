@@ -89,13 +89,12 @@
 
 .act_content {
     display: flex;
-    margin: 8px;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin: 8px auto;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-content: flex-start;
+    max-width: 900px;
 }
 
 .act_card{
