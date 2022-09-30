@@ -38,7 +38,8 @@
 
 .stage_img_secondary {
 	height: 25px;
-	width: 25px;
+	/* width: 25px; */
+    vertical-align: top;
 }
 
 .stage_card_t3_table {
@@ -285,4 +286,10 @@
 .popup_table_title{
     color: #707379;
     font-weight: 600;
+}
+
+.popup_text{
+    padding:0px 8px 6px 8px;
+    color:#222222;
+    margin:0px;
 }

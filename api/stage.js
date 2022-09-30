@@ -13,7 +13,6 @@ export default {
             method: 'get',
         })
     },
-
     //根据材料查询关卡效率按期望理智降序  绿材料
     findStageDateByMainOrderByExpectDesc() {
         return request({
@@ -21,8 +20,17 @@ export default {
             method: 'get',
         })
     },
+    //搓玉查询
+    findStageDataOfOrundum() {
+        return request({
+            url: `${api_name}/find/stage/orundum`,
+            method: 'get',
+        })
+    },
 
-     //根据关卡ID查询已结束活动
+
+
+    //根据关卡ID查询已结束活动
     findClosedActivStageByStageId(){
         return request({
             url: `${api_name}/find/stage/activity/closed`,
