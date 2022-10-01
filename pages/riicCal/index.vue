@@ -81,16 +81,17 @@
           <div class="riic_building_parameter">
             <el-button size="medium" type="primary" round style="width:126px;">
               通过文件导入
-            </el-button>
+            </el-button> *(后续可用)
           </div>
           <div class="riic_building_parameter">
-            <el-button size="medium" type="primary" round style="width:126px;">
+            <el-button size="medium" type="primary" round style="width:126px;" @click="retrieveSchedule()">
               通过id导入
             </el-button>
             <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 150px" v-model="uid"></el-input>
           </div>
           <div class="riic_building_parameter">
-          *导出json文件的文件名即为id
+          *导出json文件的文件名即为id <br>
+          或打开排班文件最末尾中寻找id
         </div>
       </div>
 
@@ -1188,14 +1189,14 @@
 <script>
 import buildingApi from "@/api/building";
 import cookie from "js-cookie";
-import importfile from "static/333测试.json"
+
 
 export default {
   data() {
     return {
       exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
-      importData:importfile,
+      historicalData:[],
       buildingType: "243",
       planTimes:'3班',
       scheduleJson: { plans: [] },
@@ -1344,7 +1345,7 @@ export default {
   },
   created() {
     this.setJson();
-    this.importJson();
+  
     this.getUid();
   },
   methods: {
@@ -1355,7 +1356,7 @@ export default {
         this.uid;
     },
     maaBuildingJsonCreated() {
-      this.setJson();
+       this.setJson();
        this.$message({
           message: this.uid,
           type: "success",
@@ -1371,6 +1372,13 @@ export default {
         });
         this.uid = response.data.uid;
         this.setExportUrl();
+      });
+    },
+    retrieveSchedule(){
+      buildingApi.retrieveSchedule(this.uid).then((response) => {
+         
+          this.historicalData = response.data.schedule
+         this.importJson()
       });
     },
     getUid(){
@@ -1426,7 +1434,7 @@ export default {
       this.scheduleJson.description = this.descriptionH1;
       this.scheduleJson.author = this.author
       this.scheduleJson.buildingType =this.buildingType
-      this.id = this.uid 
+      this.scheduleJson.id = this.uid 
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
       plans_0.period = this.setPeriod(this.period_plan0);
@@ -1898,249 +1906,256 @@ export default {
       this.scheduleJson.plans.push(plans_1);
       if('3班'===this.planTimes)
       this.scheduleJson.plans.push(plans_2);
-      this.importJson()
+     
     }, 
 
 
     importJson(){
-    this.title =   this.importData.title 
-    this.descriptionH1 =  this.importData.description 
-    this.author = this.importData.author
-    this.buildingType = this.importData.buildingType
+    this.title =   this.historicalData.title 
+    this.descriptionH1 =  this.historicalData.description 
+    this.author = this.historicalData.author
+    this.buildingType = this.historicalData.buildingType
+    this.uid = this.historicalData.id
   // 导入A班的信息-------------------------------------------------------------------------------
-    this.name[0] =  this.importData.plans[0].name 
-    this.descriptionH2[0] =  this.importData.plans[0].description 
-    this.period_plan0 =  this.importData.plans[0].period[0]  
-    this.Fiammetta[0] = this.importData.plans[0].Fiammetta.target
-    this.switch_Fiammetta_enable[0] = this.importData.plans[0].Fiammetta.enable
-    this.input_Fiammetta_order[0] = this.getOrderReverse(this.importData.plans[0].Fiammetta.order)
-    this.radio_drones[0]  = this.getParamsValueReverse(this.importData.plans[0].drones.room) 
-    this.radio_drones_index[0]= this.importData.plans[0].drones.index
-    this.switch_drones_enable[0]= this.importData.plans[0].drones.enable
-    this.input_drones_order[0]= this.getOrderReverse(this.importData.plans[0].drones.order)
+    this.name[0] =  this.historicalData.plans[0].name 
+    this.descriptionH2[0] =  this.historicalData.plans[0].description 
+    this.period_plan0 =  this.historicalData.plans[0].period[0]  
+    this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
+    this.switch_Fiammetta_enable[0] = this.historicalData.plans[0].Fiammetta.enable
+    this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order)
+    this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room) 
+    this.radio_drones_index[0]= this.historicalData.plans[0].drones.index
+    this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable
+    this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order)
 
-    this.control_plan0 = this.importData.plans[0].rooms.control[0].operators
+    this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
   
-    this.trading_plan0_0 = this.importData.plans[0].rooms.trading[0].operators
-    this.switch_trading_plan0_0[0]= this.importData.plans[0].rooms.trading[0].sort
-    this.switch_trading_plan0_0[1]= this.importData.plans[0].rooms.trading[0].autofill
-    this.radio_trading_plan0[0]= this.getParamsValueReverse(this.importData.plans[0].rooms.trading[0].product)
+    this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
+    this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
+    this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill
+    this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product)
     
-    this.trading_plan0_1 = this.importData.plans[0].rooms.trading[1].operators
-    this.switch_trading_plan0_1[0]= this.importData.plans[0].rooms.trading[1].sort
-    this.switch_trading_plan0_1[1]= this.importData.plans[0].rooms.trading[1].autofill
-    this.radio_trading_plan0[1]= this.getParamsValueReverse(this.importData.plans[0].rooms.trading[1].product)
+    this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
+    this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
+    this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill
+    this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product)
     
-    if('333'=== this.importData.buildingType){
-    this.trading_plan0_2 = this.importData.plans[0].rooms.trading[2].operators
-    this.switch_trading_plan0_2[0]= this.importData.plans[0].rooms.trading[2].sort
-    this.switch_trading_plan0_2[1]= this.importData.plans[0].rooms.trading[2].autofill
-    this.radio_trading_plan0[2]= this.getParamsValueReverse(this.importData.plans[0].rooms.trading[2].product)
+    if('333'=== this.historicalData.buildingType){
+    this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
+    this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
+    this.switch_trading_plan0_2[1]= this.historicalData.plans[0].rooms.trading[2].autofill
+    this.radio_trading_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[2].product)
     };
 
-    this.manufacture_plan0_0 = this.importData.plans[0].rooms.manufacture[0].operators
-    this.switch_manufacture_plan0_0[0]= this.importData.plans[0].rooms.manufacture[0].sort
-    this.switch_manufacture_plan0_0[1]= this.importData.plans[0].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.importData.plans[0].rooms.manufacture[0].product)
+    this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators
+    this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
+    this.switch_manufacture_plan0_0[1]= this.historicalData.plans[0].rooms.manufacture[0].autofill
+    this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[0].product)
  
-    this.manufacture_plan0_1 = this.importData.plans[0].rooms.manufacture[1].operators
-    this.switch_manufacture_plan0_1[0]= this.importData.plans[0].rooms.manufacture[1].sort
-    this.switch_manufacture_plan0_1[1]= this.importData.plans[0].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.importData.plans[0].rooms.manufacture[1].product)
+    this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
+    this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
+    this.switch_manufacture_plan0_1[1]= this.historicalData.plans[0].rooms.manufacture[1].autofill
+    this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[1].product)
  
-     this.manufacture_plan0_2 = this.importData.plans[0].rooms.manufacture[2].operators
-    this.switch_manufacture_plan0_2[0]= this.importData.plans[0].rooms.manufacture[2].sort
-    this.switch_manufacture_plan0_2[1]= this.importData.plans[0].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.importData.plans[0].rooms.manufacture[2].product)
+     this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
+    this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
+    this.switch_manufacture_plan0_2[1]= this.historicalData.plans[0].rooms.manufacture[2].autofill
+    this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[2].product)
  
-    if('243'=== this.importData.buildingType||'153'=== this.importData.buildingType){
-     this.manufacture_plan0_3 = this.importData.plans[0].rooms.manufacture[3].operators
-    this.switch_manufacture_plan0_3[0]= this.importData.plans[0].rooms.manufacture[3].sort
-    this.switch_manufacture_plan0_3[1]= this.importData.plans[0].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan0[3]= this.getParamsValueReverse(this.importData.plans[0].rooms.manufacture[3].product)
+    if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
+     this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
+    this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
+    this.switch_manufacture_plan0_3[1]= this.historicalData.plans[0].rooms.manufacture[3].autofill
+    this.radio_manufacture_plan0[3]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[3].product)
     };
-    if('153'=== this.importData.buildingType){
-    this.manufacture_plan0_4 = this.importData.plans[0].rooms.manufacture[4].operators
-    this.switch_manufacture_plan0_4[0]= this.importData.plans[0].rooms.manufacture[4].sort
-    this.switch_manufacture_plan0_4[1]= this.importData.plans[0].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.importData.plans[0].rooms.manufacture[4].product)
+    if('153'=== this.historicalData.buildingType){
+    this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators
+    this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort
+    this.switch_manufacture_plan0_4[1]= this.historicalData.plans[0].rooms.manufacture[4].autofill
+    this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[4].product)
     };
 
-    this.power_plan0_0[0] = this.importData.plans[0].rooms.power[0].operators[0]
-    this.switch_power_plan0_0[1]= this.importData.plans[0].rooms.power[0].autofill
+    this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
+    this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill
 
-    this.power_plan0_0[1] = this.importData.plans[0].rooms.power[1].operators[0]
-    this.switch_power_plan0_1[1]= this.importData.plans[0].rooms.power[1].autofill
+    this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0]
+    this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill
 
-    this.power_plan0_0[2] = this.importData.plans[0].rooms.power[2].operators[0]
-    this.switch_power_plan0_2[1]= this.importData.plans[0].rooms.power[2].autofill
+    this.power_plan0_0[2] = this.historicalData.plans[0].rooms.power[2].operators[0]
+    this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill
 
-    this.hire_plan0_0= this.importData.plans[0].rooms.hire[0].operators
-    this.switch_hire_plan0_0[1]= this.importData.plans[0].rooms.hire[0].autofill
+    this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators
+    this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill
 
-    this.meeting_plan0_0= this.importData.plans[0].rooms.meeting[0].operators
-    this.switch_meeting_plan0_0[1]= this.importData.plans[0].rooms.meeting[0].autofill
+    this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators
+    this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill
 
-    this.dormitory_plan0_0 = this.importData.plans[0].rooms.dormitory[0].operators
-    this.switch_dormitory_plan0_0[0]= this.importData.plans[0].rooms.dormitory[0].sort
-    this.switch_dormitory_plan0_0[1]= this.importData.plans[0].rooms.dormitory[0].autofill
+    this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators
+    this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
+    this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill
  
   // 导入B班的信息-------------------------------------------------------------------------------
-    this.name[1] =  this.importData.plans[1].name 
-    this.descriptionH2[1] =  this.importData.plans[1].description 
-    this.period_plan1 =  this.importData.plans[1].period[0]  
-    this.Fiammetta[1] = this.importData.plans[1].Fiammetta.target
-    this.switch_Fiammetta_enable[1] = this.importData.plans[1].Fiammetta.enable
-    this.input_Fiammetta_order[1] = this.getOrderReverse(this.importData.plans[1].Fiammetta.order)
-    this.radio_drones[1]  = this.getParamsValueReverse(this.importData.plans[1].drones.room) 
-    this.radio_drones_index[1]= this.importData.plans[1].drones.index
-    this.switch_drones_enable[1]= this.importData.plans[1].drones.enable
-    this.input_drones_order[1]= this.getOrderReverse(this.importData.plans[1].drones.order)
+    this.name[1] =  this.historicalData.plans[1].name 
+    this.descriptionH2[1] =  this.historicalData.plans[1].description 
+    this.period_plan1 =  this.historicalData.plans[1].period[0]  
+    this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
+    this.switch_Fiammetta_enable[1] = this.historicalData.plans[1].Fiammetta.enable
+    this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order)
+    this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room) 
+    this.radio_drones_index[1]= this.historicalData.plans[1].drones.index
+    this.switch_drones_enable[1]= this.historicalData.plans[1].drones.enable
+    this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
 
-    this.control_plan1 = this.importData.plans[1].rooms.control[0].operators
+    this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
   
-    this.trading_plan1_0 = this.importData.plans[1].rooms.trading[0].operators
-    this.switch_trading_plan1_0[0]= this.importData.plans[1].rooms.trading[0].sort
-    this.switch_trading_plan1_0[1]= this.importData.plans[1].rooms.trading[0].autofill
-    this.radio_trading_plan1[0]= this.getParamsValueReverse(this.importData.plans[1].rooms.trading[0].product)
+    this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
+    this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
+    this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill
+    this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product)
     
-    this.trading_plan1_1 = this.importData.plans[1].rooms.trading[1].operators
-    this.switch_trading_plan1_1[0]= this.importData.plans[1].rooms.trading[1].sort
-    this.switch_trading_plan1_1[1]= this.importData.plans[1].rooms.trading[1].autofill
-    this.radio_trading_plan1[1]= this.getParamsValueReverse(this.importData.plans[1].rooms.trading[1].product)
+    this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
+    this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
+    this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill
+    this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product)
     
-    if('333'=== this.importData.buildingType){
-    this.trading_plan1_2 = this.importData.plans[1].rooms.trading[2].operators
-    this.switch_trading_plan1_2[0]= this.importData.plans[1].rooms.trading[2].sort
-    this.switch_trading_plan1_2[1]= this.importData.plans[1].rooms.trading[2].autofill
-    this.radio_trading_plan1[2]= this.getParamsValueReverse(this.importData.plans[1].rooms.trading[2].product)
+    if('333'=== this.historicalData.buildingType){
+    this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
+    this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
+    this.switch_trading_plan1_2[1]= this.historicalData.plans[1].rooms.trading[2].autofill
+    this.radio_trading_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[2].product)
     };
 
-    this.manufacture_plan1_0 = this.importData.plans[1].rooms.manufacture[0].operators
-    this.switch_manufacture_plan1_0[0]= this.importData.plans[1].rooms.manufacture[0].sort
-    this.switch_manufacture_plan1_0[1]= this.importData.plans[1].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.importData.plans[1].rooms.manufacture[0].product)
+    this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators
+    this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
+    this.switch_manufacture_plan1_0[1]= this.historicalData.plans[1].rooms.manufacture[0].autofill
+    this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[0].product)
  
-    this.manufacture_plan1_1 = this.importData.plans[1].rooms.manufacture[1].operators
-    this.switch_manufacture_plan1_1[0]= this.importData.plans[1].rooms.manufacture[1].sort
-    this.switch_manufacture_plan1_1[1]= this.importData.plans[1].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.importData.plans[1].rooms.manufacture[1].product)
+    this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
+    this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
+    this.switch_manufacture_plan1_1[1]= this.historicalData.plans[1].rooms.manufacture[1].autofill
+    this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[1].product)
  
-     this.manufacture_plan1_2 = this.importData.plans[1].rooms.manufacture[2].operators
-    this.switch_manufacture_plan1_2[0]= this.importData.plans[1].rooms.manufacture[2].sort
-    this.switch_manufacture_plan1_2[1]= this.importData.plans[1].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.importData.plans[1].rooms.manufacture[2].product)
+     this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
+    this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
+    this.switch_manufacture_plan1_2[1]= this.historicalData.plans[1].rooms.manufacture[2].autofill
+    this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[2].product)
  
-    if('243'=== this.importData.buildingType||'153'=== this.importData.buildingType){
-     this.manufacture_plan1_3 = this.importData.plans[1].rooms.manufacture[3].operators
-    this.switch_manufacture_plan1_3[0]= this.importData.plans[1].rooms.manufacture[3].sort
-    this.switch_manufacture_plan1_3[1]= this.importData.plans[1].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan1[3]= this.getParamsValueReverse(this.importData.plans[1].rooms.manufacture[3].product)
+    if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
+     this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
+    this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
+    this.switch_manufacture_plan1_3[1]= this.historicalData.plans[1].rooms.manufacture[3].autofill
+    this.radio_manufacture_plan1[3]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[3].product)
     };
-    if('153'=== this.importData.buildingType){
-    this.manufacture_plan1_4 = this.importData.plans[1].rooms.manufacture[4].operators
-    this.switch_manufacture_plan1_4[0]= this.importData.plans[1].rooms.manufacture[4].sort
-    this.switch_manufacture_plan1_4[1]= this.importData.plans[1].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan1[4]= this.getParamsValueReverse(this.importData.plans[1].rooms.manufacture[4].product)
+    if('153'=== this.historicalData.buildingType){
+    this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators
+    this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort
+    this.switch_manufacture_plan1_4[1]= this.historicalData.plans[1].rooms.manufacture[4].autofill
+    this.radio_manufacture_plan1[4]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[4].product)
     };
 
-    this.power_plan1_0[0] = this.importData.plans[1].rooms.power[0].operators[0]
-    this.switch_power_plan1_0[1]= this.importData.plans[1].rooms.power[0].autofill
+    this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0]
+    this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill
 
-    this.power_plan1_0[1] = this.importData.plans[1].rooms.power[1].operators[0]
-    this.switch_power_plan1_1[1]= this.importData.plans[1].rooms.power[1].autofill
+    this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0]
+    this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill
 
-    this.power_plan1_0[2] = this.importData.plans[1].rooms.power[2].operators[0]
-    this.switch_power_plan1_2[1]= this.importData.plans[1].rooms.power[2].autofill
+    this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0]
+    this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill
 
-    this.hire_plan1_0= this.importData.plans[1].rooms.hire[0].operators
-    this.switch_hire_plan1_0[1]= this.importData.plans[1].rooms.hire[0].autofill
+    this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators
+    this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill
 
-    this.meeting_plan1_0= this.importData.plans[1].rooms.meeting[0].operators
-    this.switch_meeting_plan1_0[1]= this.importData.plans[1].rooms.meeting[0].autofill
+    this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators
+    this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill
 
-    this.dormitory_plan1_0 = this.importData.plans[1].rooms.dormitory[0].operators
-    this.switch_dormitory_plan1_0[0]= this.importData.plans[1].rooms.dormitory[0].sort
-    this.switch_dormitory_plan1_0[1]= this.importData.plans[1].rooms.dormitory[0].autofill
+    this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
+    this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
+    this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
    
     // 导入C班的信息-------------------------------------------------------------------------------
-    this.name[2] =  this.importData.plans[2].name 
-    this.descriptionH2[2] =  this.importData.plans[2].description 
-    this.period_plan2 =  this.importData.plans[2].period[0]  
-    this.Fiammetta[2] = this.importData.plans[2].Fiammetta.target
-    this.switch_Fiammetta_enable[2] = this.importData.plans[2].Fiammetta.enable
-    this.input_Fiammetta_order[2] = this.getOrderReverse(this.importData.plans[2].Fiammetta.order)
-    this.radio_drones[2]  = this.getParamsValueReverse(this.importData.plans[2].drones.room) 
-    this.radio_drones_index[2]= this.importData.plans[2].drones.index
-    this.switch_drones_enable[2]= this.importData.plans[2].drones.enable
-    this.input_drones_order[2]= this.getOrderReverse(this.importData.plans[2].drones.order)
+    this.name[2] =  this.historicalData.plans[2].name 
+    this.descriptionH2[2] =  this.historicalData.plans[2].description 
+    this.period_plan2 =  this.historicalData.plans[2].period[0]  
+    this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
+    this.switch_Fiammetta_enable[2] = this.historicalData.plans[2].Fiammetta.enable
+    this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order)
+    this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room) 
+    this.radio_drones_index[2]= this.historicalData.plans[2].drones.index
+    this.switch_drones_enable[2]= this.historicalData.plans[2].drones.enable
+    this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
 
-    this.control_plan2 = this.importData.plans[2].rooms.control[0].operators
+    this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
   
-    this.trading_plan2_0 = this.importData.plans[2].rooms.trading[0].operators
-    this.switch_trading_plan2_0[0]= this.importData.plans[2].rooms.trading[0].sort
-    this.switch_trading_plan2_0[1]= this.importData.plans[2].rooms.trading[0].autofill
-    this.radio_trading_plan2[0]= this.getParamsValueReverse(this.importData.plans[2].rooms.trading[0].product)
+    this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
+    this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
+    this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill
+    this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product)
     
-    this.trading_plan2_1 = this.importData.plans[2].rooms.trading[1].operators
-    this.switch_trading_plan2_1[0]= this.importData.plans[2].rooms.trading[1].sort
-    this.switch_trading_plan2_1[1]= this.importData.plans[2].rooms.trading[1].autofill
-    this.radio_trading_plan2[1]= this.getParamsValueReverse(this.importData.plans[2].rooms.trading[1].product)
+    this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
+    this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
+    this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill
+    this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product)
     
-    if('333'=== this.importData.buildingType){
-    this.trading_plan2_2 = this.importData.plans[2].rooms.trading[2].operators
-    this.switch_trading_plan2_2[0]= this.importData.plans[2].rooms.trading[2].sort
-    this.switch_trading_plan2_2[1]= this.importData.plans[2].rooms.trading[2].autofill
-    this.radio_trading_plan2[2]= this.getParamsValueReverse(this.importData.plans[2].rooms.trading[2].product)
+    if('333'=== this.historicalData.buildingType){
+    this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
+    this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
+    this.switch_trading_plan2_2[1]= this.historicalData.plans[2].rooms.trading[2].autofill
+    this.radio_trading_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[2].product)
     };
 
-    this.manufacture_plan2_0 = this.importData.plans[2].rooms.manufacture[0].operators
-    this.switch_manufacture_plan2_0[0]= this.importData.plans[2].rooms.manufacture[0].sort
-    this.switch_manufacture_plan2_0[1]= this.importData.plans[2].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.importData.plans[2].rooms.manufacture[0].product)
+    this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators
+    this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
+    this.switch_manufacture_plan2_0[1]= this.historicalData.plans[2].rooms.manufacture[0].autofill
+    this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[0].product)
  
-    this.manufacture_plan2_1 = this.importData.plans[2].rooms.manufacture[1].operators
-    this.switch_manufacture_plan2_1[0]= this.importData.plans[2].rooms.manufacture[1].sort
-    this.switch_manufacture_plan2_1[1]= this.importData.plans[2].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.importData.plans[2].rooms.manufacture[1].product)
+    this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
+    this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
+    this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill
+    this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product)
  
-     this.manufacture_plan2_2 = this.importData.plans[2].rooms.manufacture[2].operators
-    this.switch_manufacture_plan2_2[0]= this.importData.plans[2].rooms.manufacture[2].sort
-    this.switch_manufacture_plan2_2[1]= this.importData.plans[2].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.importData.plans[2].rooms.manufacture[2].product)
+     this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
+    this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
+    this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill
+    this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product)
  
-    if('243'=== this.importData.buildingType||'153'=== this.importData.buildingType){
-     this.manufacture_plan2_3 = this.importData.plans[2].rooms.manufacture[3].operators
-    this.switch_manufacture_plan2_3[0]= this.importData.plans[2].rooms.manufacture[3].sort
-    this.switch_manufacture_plan2_3[1]= this.importData.plans[2].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.importData.plans[2].rooms.manufacture[3].product)
+    if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
+     this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
+    this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
+    this.switch_manufacture_plan2_3[1]= this.historicalData.plans[2].rooms.manufacture[3].autofill
+    this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product)
     };
-    if('153'=== this.importData.buildingType){
-    this.manufacture_plan2_4 = this.importData.plans[2].rooms.manufacture[4].operators
-    this.switch_manufacture_plan2_4[0]= this.importData.plans[2].rooms.manufacture[4].sort
-    this.switch_manufacture_plan2_4[1]= this.importData.plans[2].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.importData.plans[2].rooms.manufacture[4].product)
+    if('153'=== this.historicalData.buildingType){
+    this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators
+    this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort
+    this.switch_manufacture_plan2_4[1]= this.historicalData.plans[2].rooms.manufacture[4].autofill
+    this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[4].product)
     };
 
-    this.power_plan2_0[0] = this.importData.plans[2].rooms.power[0].operators[0]
-    this.switch_power_plan2_0[1]= this.importData.plans[2].rooms.power[0].autofill
+    this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0]
+    this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill
 
-    this.power_plan2_0[1] = this.importData.plans[2].rooms.power[1].operators[0]
-    this.switch_power_plan2_1[1]= this.importData.plans[2].rooms.power[1].autofill
+    this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0]
+    this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill
 
-    this.power_plan2_0[2] = this.importData.plans[2].rooms.power[2].operators[0]
-    this.switch_power_plan2_2[1]= this.importData.plans[2].rooms.power[2].autofill
+    this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0]
+    this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill
 
-    this.hire_plan2_0= this.importData.plans[2].rooms.hire[0].operators
-    this.switch_hire_plan2_0[1]= this.importData.plans[2].rooms.hire[0].autofill
+    this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators
+    this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill
 
-    this.meeting_plan2_0= this.importData.plans[2].rooms.meeting[0].operators
-    this.switch_meeting_plan2_0[1]= this.importData.plans[2].rooms.meeting[0].autofill
+    this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators
+    this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill
 
-    this.dormitory_plan2_0 = this.importData.plans[2].rooms.dormitory[0].operators
-    this.switch_dormitory_plan2_0[0]= this.importData.plans[2].rooms.dormitory[0].sort
-    this.switch_dormitory_plan2_0[1]= this.importData.plans[2].rooms.dormitory[0].autofill
+    this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators
+    this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort
+    this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill
 
+     this.$message({
+            message: '导入成功' ,
+            type: "success",
+            showClose: true,
+            duration: 3000,
+          });
     },
 
     setPeriod(list) {
