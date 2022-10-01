@@ -33,17 +33,22 @@
         <!-- 基础卡 -->
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
           <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
-          <div class="stage_card_t3_table">
+          <!-- <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[1].itemId,0 )"></div> -->
+         
+          <div class="stage_card_t3_table" >
             <table>
                 <tbody>
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <div class="sprite_secondary_div">
-                      <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
-                    </div>
+                    <td> <div  class="sprite_secondary_div">
+                      <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
+                    </div></td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
+                    <td class="stage_table_c4">
+                      <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
+                      <div v-show="stage.stageState > 0.1" :class="getSpriteImg('up', 6)"></div>
+                      </td>
                   </tr>
                 </tbody>
             </table>
@@ -69,11 +74,13 @@
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <div class="sprite_secondary_div">
-                      <div :class="getSpriteImg(stage.secondaryId, 2)"></div>
+                    <td>
+                    <div  class="sprite_secondary_div">
+                      <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
                     </div>
+                    </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></td>
+                    <td class="stage_table_c4"> <div v-show="stage.stageState > 0.1" :class="getSpriteImg('up', 6)"></div></td>
                   </tr>
                 </tbody>
             </table>
@@ -91,7 +98,7 @@
         <div class="stage_card_t2 uni_shadow_2">
           <div v-for="(materialRankT2, index) in stageRankT2.slice(0, 6)" :key="index" class="stage_card_t2_img">
             <!-- <img :src="getImgUrl(materialRankT2[0].itemName)" :alt="materialRankT2[0].itemName" "> -->
-            <div :class="getSpriteImg(materialRankT2[0].itemId,3)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
+            <div :class="getSpriteImg(materialRankT2[0].itemId,2)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
           </div>
         </div>
       </div>
@@ -104,10 +111,13 @@
       <div  class="popup_card" id="popup_card">
         <!-- <img class="popup_img" :src="getImgUrl(main)" :alt="main"> -->
         <div class="popup_header" >
-          <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div>
+          <div :class="getSpriteImg(itemId, 2)" style="display:inline-block;margin:6px;"></div>
           <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
-            <div class="t3 popup_header_penguin">查看企鹅物流原始数据 <img style="width: 16px;vertical-align: middle;margin: 0px 4px 12px -2px;" src="/img/website/el.png" /></div>
+            <div class="t3 popup_header_penguin" style="display:flex">
+               <div>查看企鹅物流原始数据 </div> 
+               <div  :class="getSpriteImg('el',7)" ></div>
+            </div>
           </a>
         </div>
         <!-- 散装标题End -->
@@ -128,7 +138,8 @@
               <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
               <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
               <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
-              <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td>
+              <!-- <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
+              <td>  <div :class="getSpriteImg(stage.secondaryId, 3)"></div> </td>
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}%
@@ -140,16 +151,21 @@
         </table>
         <!-- 数据表End -->
         <el-divider></el-divider>
-        <p class="popup_text f12 t1">
+        <client-only>
+        <p class="popup_text f12 t1" >
           效率基准:<b>常驻图</b>中综合效率最高者<br>
-          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">详细介绍<img style="width: 16px;vertical-align: middle;margin: -2px 4px 0px 2px;" src="/img/website/el.png"></a>
+         置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">
+         <div style="display:flex"><div>详细介绍</div> 
+          <div  :class="getSpriteImg('el', 7)" ></div></div> 
+          </a>  
         <br>SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</p>
+        </client-only>
       </div>
 
       <div  class="popup_card" id="popup_card_orundum">
         <div class="popup_header" >
-          <img style="display:inline-block;margin:6px;" class="popup_img" :src="getImgUrl('合成玉')" :alt="main">
-          <!-- <div :class="getSpriteImg(itemId, 3)" style="display:inline-block;margin:6px;"></div> -->
+          <!-- <img style="display:inline-block;margin:6px;" class="popup_img" :src="getImgUrl('合成玉')" alt="合成玉"> -->
+          <div :class="getSpriteImg(4003, 4)" ></div>
           <div class="popup_header_text" style="bottom: 0px;">搓玉一览表</div>
         </div>
         <!-- 散装标题End -->
@@ -164,12 +180,18 @@
               <td class="popup_table_c5" style="width:85px;">关卡效率</td>
               <td class="popup_table_c6" style="width:85px;">搓玉效率</td>
             </tr>
-            <tr style="height:36px;" v-for="(stage, index) in stageRankOrundum" :key="index" v-show="stage.perUnitOrundum > 0.3" :class="getColor(stage.stageColor)" class="stage_table_r">
-              <td class="popup_table_c1" style="width:80px">1-7</td>
-              <td class="popup_table_c2" style="width:130px;">1<img class="stage_img_secondary" src="/img/icon/图标_理智.png" alt="">=10.9<img class="stage_img_secondary" src="/img/icon/图标_合成玉.png" alt=""></td>
-              <td class="popup_table_c3" style="width:140px;">114514<img class="stage_img_secondary" src="/img/icon/图标_龙门币.png" alt=""></td>
-              <td class="popup_table_c5" style="width:85px;">100%</td>
-              <td class="popup_table_c6" style="width:85px;">100%</td>
+            <tr style="height:36px;" v-for="(stage, index) in stageRankOrundum" :key="index"  :class="getColor(stage.stageColor)" class="stage_table_r">
+              <td class="popup_table_c1" style="width:80px">{{stage.stageCode}}</td>
+              <td class="popup_table_c2" style="width:130px;display:flex" >
+                  <div>1</div>     
+                  <div :class="getSpriteImg('AP_GAMEPLAY', 5)" ></div>
+                  <div>={{stage.orundumPerAp}}</div> 
+                  <div :class="getSpriteImg(4003, 5)" ></div>
+              </td>   
+                <!-- <img class="stage_img_secondary" src="/img/icon/图标_合成玉.png" alt="">-->
+              <td class="popup_table_c3" style="width:140px;"><div style="display:flex;margin-left:15px"><div> {{stage.lMDCost}}k</div><div style="margin-left:5px" :class="getSpriteImg(4001, 5)" ></div></div></td>
+              <td class="popup_table_c5" style="width:85px;"> {{stage.stageEfficiency}}%</td>
+              <td class="popup_table_c6" style="width:85px;"> {{stage.orundumPerApEfficiency}}%</td>
             </tr>
           </tbody>
         </table>
@@ -205,6 +227,7 @@ export default {
       updateTime:'2000-01-01 00:00:00',
       itemId:'',
       opETextTheme: "op_title_etext_light",
+      
     };
   },
 
@@ -256,10 +279,15 @@ export default {
       return ("https://penguin-stats.cn/result/item/" + num);
     },
      getSpriteImg(id, index) {
-      if (index == 0) return "bg-" + id + " sprite_type";
-      if (index == 2) return "bg-" + id + " sprite_secondary";
-        if (index == 3) return "bg-" + id + " sprite_T2";
-      if (index == 4) return "bg-" + id + " sprite_secondary";
+      // console.log(id,index)
+      if (index === 0) return "bg-" + id + " sprite_type";
+      if (index === 1) return "bg-" + id + " sprite_secondary";
+      if (index === 2) return "bg-" + id + " sprite_T2";
+      if (index === 3) return "bg-" + id + " sprite_secondary_dialog";
+      if (index === 4) return "bg-" + id + "_icon sprite_icon";
+      if (index === 5) return "bg-" + id + "_icon sprite_icon_small";
+      if (index === 6) return "bg-" + id + "_icon sprite_icon_up";
+      if (index === 7) return "bg-" + id + "_icon sprite_icon_el";
       return "bg-" + id;
     },
     getImgUrl(img, source){
@@ -349,7 +377,17 @@ export default {
       }
       this.actStageOnly++;
     },
+    
+    // strPadStart(num,index){
+    //   var str = num.toString
+    //   console.log(str.toString().indexOf('.'))
+       
+    // //  if(str.toString().length<4){
+    // //      return str+'0'
+    // //  }
 
+    //  return str
+    // },
     loadData(){
       stageApi.findStageDateByTypeOrderByEfficiencyDesc(500).then((response) => {
         this.stageRankT3 = [];

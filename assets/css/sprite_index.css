@@ -1,3 +1,8 @@
+.sprite_type_div {
+    width: 50px;
+    height: 120px;
+    border: solid red 1px;
+}
 
 .sprite_type {
     transform: scale(2.9);
@@ -5,17 +10,74 @@
     margin-left: -38px;
 }
 
-.sprite_secondary {
-    transform: scale(0.45);
-    margin-top: -15px;
-    margin-left: -12px;
-}
-
 .sprite_secondary_div {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     /* border: solid red 1px; */
 }
 
+.sprite_secondary {
+    transform: scale(0.45);
+    margin-top: -28px;
+    margin-left: -12px;
+}
+
+.sprite_secondary_dialog {
+    transform: scale(0.45);
+    margin-top: 0px;
+    margin-left: -12px;
+}
+
+.sprite_icon{
+    transform: scale(1.2);
+    margin-bottom: -12px;
+}
 
 
+.sprite_icon_up{
+    transform: scale(0.8);
+    margin: -10px;
+    
+}
+
+.sprite_icon_el{
+    transform: scale(0.6);
+    margin: -5px;
+}
+
+.sprite_icon_small{
+    transform: scale(0.6);
+    margin-top: -6px;
+    margin-left: -12px;
+}
+
+
+.sprite_store_icon{
+    transform: scale(0.8);
+    /* margin-top: -80px; */
+    margin-left: 10px;
+}
+
+
+.sprite_store_perm{
+    transform: scale(1);
+    margin-left: 15px;
+}
+
+.sprite_store_act{
+    transform: scale(1.2);
+    margin-top: 18px;
+    margin-left: 15px;
+}
+
+.sprite_itemValue{
+    transform: scale(0.5);
+    margin: -15px;
+}
+
+.sprite_foot_icon{
+    transform: scale(0.6);
+    margin-top: -6px;
+    margin-right: -12px;
+   
+}

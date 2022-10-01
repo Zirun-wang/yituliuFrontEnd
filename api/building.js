@@ -4,7 +4,7 @@ const api_name = `/tool`
 
 export default {
 
-    //查询所有材料价值
+    //保存排班
     maaBuildingJsonCreated(data) {
         return request({
             url: `${api_name}/building/schedule/save`,

@@ -35,7 +35,8 @@
                 <tbody>
                 <tr>
                   <td style="padding:0px;">
-                    <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/>
+                    <!-- <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/> -->
+                      <div :class="getSpriteImg(item.itemId,0)" ></div>
                   </td>
                   <td v-show="valueType == 'sanity'" class="item_card_value_font"  style="padding:0px;color: gray">
                     {{ getItemsanityValue(item.itemId, item.itemValue) }}
@@ -114,6 +115,12 @@ export default {
       } else {
         this.itemValueCard_css = "itemHeight";
       }
+    },
+
+     getSpriteImg(id, index) {
+      if (index == 0) return "bg-" + id + " sprite_itemValue";
+    
+      return "bg-" + id;
     },
 
     getItemGreenValue(id, num) {

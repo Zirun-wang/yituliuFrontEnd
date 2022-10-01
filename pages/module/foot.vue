@@ -2,7 +2,7 @@
 <div id="extra">
 	<div class="op_title_tag">
 		<a href="https://www.wjx.cn/vm/O68SHiq.aspx# " class="op_tag_1">
-			网站反馈 <img src="/img/website/el.png" style="width:12px;">
+	<div style="display:flex"><div>网站反馈</div><div  :class="getSpriteImg('ex',0)" style="margin-left:10px"></div></div>
 		</a>
 		<el-popover placement="top" width="480" trigger="click" title="算法简述">
 			<p class="extra_popver_p f16">通过马尔可夫决策过程来制定的一套算法<br>理论依据可参阅页面底部Erit_Lux的视频链接<br>算法根据实际情况做了一些调整</p>
@@ -10,7 +10,7 @@
 			<p class="extra_popver_p f16">-步骤2:从企鹅物流获取<b>所有关卡</b>的掉率，根据<a onclick="jumpTo('anchor_all')" class="t3">价值一览</a>中的价格，计算关卡效率，得出<a onclick="jumpTo('anchor_level')" class="t3">刷图推荐</a>中的关卡效率</p>
 			<p class="extra_popver_p f16">-步骤3:根据商店售价和物品价格，计算商店性价比，得出<a onclick="jumpTo('anchor_store')" class="t3">采购中心</a>和<a onclick="jumpTo('anchor_actstore')" class="t3">活动商店</a>中的数值</p>
 			<div slot="reference" class="op_tag_1">
-				算法简述 <img src="/img/website/ex.png" style="width:12px;">
+	<div style="display:flex"><div>算法简述</div><div  :class="getSpriteImg('ex',0)" style="margin-left:10px"></div></div>
 			</div>
 		</el-popover>
 
@@ -49,7 +49,7 @@
 
 
 			<div slot="reference" class="op_tag_1">
-				常见问题 <img src="/img/website/ex.png" style="width:12px;">
+				<div style="display:flex"><div>常见问题</div><div  :class="getSpriteImg('ex',0)" style="margin-left:10px"></div></div>
 			</div>
 		</el-popover>
 
@@ -89,13 +89,13 @@
 			<p class="foot_unit_title">-前端/UI-</p>
 			<a href="https://space.bilibili.com/39109412">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/yamasakura.webp">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
 					山桜
 				</div>
 			</a>
 			<a href="https://space.bilibili.com/10057492">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/Zlogo3.2.png" />
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4" />
 					Zirunwang
 				</div>
 			</a>
@@ -110,13 +110,13 @@
 			<p class="foot_unit_title">-后端-</p>
 			<a href="https://space.bilibili.com/39109412">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/yamasakura.webp">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
 					山桜
 				</div>
 			</a>
 			<a href="https://github.com/youcai922">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/youcai.jpg">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/64458943?v=4">
 					youcai922
 				</div>
 			</a>
@@ -140,13 +140,13 @@
 			</a>
 			<a href="https://space.bilibili.com/39109412">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/yamasakura.webp">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
 					山桜
 				</div>
 			</a>
 			<a href="https://space.bilibili.com/10057492">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/Zlogo3.2.png" />
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4" />
 					Zirunwang
 				</div>
 			</a>
@@ -174,7 +174,7 @@
 			寻访记录分析</div></a>
 
 			<a href="https://maa.plus/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="/img/website/maa.png" />
+			<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/97677443?s=200" />
 			MAA</div></a>
 		</div>
 	</div>
@@ -183,7 +183,21 @@
 
 <script>
 export default {
+  date(){
+	return{
 
+	}
+  },
+  created() {
+   
+  },
+  methods: {
+    getSpriteImg(id, index) {
+      if (index == 0) return "bg-" + id + "_icon sprite_foot_icon";
+     
+      return "bg-" + id;
+    },
+  }
 };
 </script>
 
