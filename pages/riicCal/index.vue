@@ -1995,16 +1995,20 @@ export default {
   height: 32px;
 }
 .building_trade .riic_building_title {
+
   border-left: 4px solid #000d8180;
   border-right: 4px solid #000d8180;
+  background-color: #eeeeff;
 }
 .building_factory .riic_building_title {
   border-left: 4px solid #7f810080;
   border-right: 4px solid #7f810080;
+  background-color: #ffffee;
 }
 .building_powerPlant .riic_building_title {
   border-left: 4px solid #00810080;
   border-right: 4px solid #00810080;
+  background-color: #eeffee;
 }
 .building_powerPlant .riic_building_parameter div:nth-child(1){
   display: none;
