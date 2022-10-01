@@ -21,7 +21,7 @@
           <el-radio-group size="small" v-model="buildingType">
             <el-radio-button label="243" ></el-radio-button>
             <el-radio-button label="153" ></el-radio-button>
-            <el-radio-button label="333" disabled></el-radio-button>
+            <el-radio-button label="333" ></el-radio-button>
             <el-radio-button label="252" disabled></el-radio-button>
           </el-radio-group>
         </div>
@@ -163,7 +163,7 @@
             <el-switch v-model="switch_trading_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan0_1[0]"></el-input>
@@ -182,6 +182,27 @@
             <el-switch v-model="switch_trading_plan0_1[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+        </div>
+          <div class="riic_building building_trade" v-show="'333' === buildingType">
+          <div class="riic_building_title">贸易站3</div>
+          <div class="riic_building_operatorArray">
+            <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan0_2[0]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan0_2[1]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="3" v-model="trading_plan0_2[2]"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">产物</div>
+            <el-radio-group size="small" v-model="radio_trading_plan0[1]">
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
+            </el-radio-group>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch v-model="switch_trading_plan0_2[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch v-model="switch_trading_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory">
@@ -250,7 +271,7 @@
             <el-switch v-model="switch_manufacture_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory">
+        <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_3[0]"></el-input>
@@ -272,10 +293,7 @@
             <el-switch v-model="switch_manufacture_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div
-          class="riic_building building_factory"
-          v-show="'153' === buildingType"
-        >
+        <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_4[0]"></el-input>
@@ -505,7 +523,7 @@
             <el-switch v-model="switch_trading_plan1_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan1_1[0]"></el-input>
@@ -524,6 +542,27 @@
             <el-switch v-model="switch_trading_plan1_1[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan1_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+        </div>
+        <div class="riic_building building_trade" v-show="'333' === buildingType">
+          <div class="riic_building_title">贸易站3</div>
+          <div class="riic_building_operatorArray">
+            <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan1_2[0]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan1_2[1]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="3" v-model="trading_plan1_2[2]"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">产物</div>
+            <el-radio-group size="small" v-model="radio_trading_plan1[1]">
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
+            </el-radio-group>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch v-model="switch_trading_plan1_2[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch v-model="switch_trading_plan1_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory">
@@ -592,7 +631,7 @@
             <el-switch v-model="switch_manufacture_plan1_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory">
+        <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_3[0]"></el-input>
@@ -844,10 +883,7 @@
             <el-switch v-model="switch_trading_plan2_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div
-          class="riic_building building_trade"
-          v-show="'243' === buildingType"
-        >
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan2_1[0]"></el-input>
@@ -866,6 +902,27 @@
             <el-switch v-model="switch_trading_plan2_1[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan2_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+        </div>
+        <div class="riic_building building_trade" v-show="'333' === buildingType">
+          <div class="riic_building_title">贸易站3</div>
+          <div class="riic_building_operatorArray">
+            <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan2_2[0]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan2_2[1]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="3" v-model="trading_plan2_2[2]"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">产物</div>
+            <el-radio-group size="small" v-model="radio_trading_plan2[1]">
+              <el-radio-button label="龙门币"></el-radio-button>
+              <el-radio-button label="合成玉"></el-radio-button>
+            </el-radio-group>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">按顺序入驻</div>
+            <el-switch v-model="switch_trading_plan2_2[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
+            <el-switch v-model="switch_trading_plan2_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory">
@@ -934,7 +991,7 @@
             <el-switch v-model="switch_manufacture_plan2_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
-        <div class="riic_building building_factory">
+        <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_3[0]"></el-input>
@@ -1117,7 +1174,7 @@ export default {
       exportUrl:
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
-      buildingType: "243",
+      buildingType: "333",
       planTimes:'3班',
       scheduleJson: { plans: [] },
       title: "243极限",
@@ -1137,9 +1194,11 @@ export default {
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
-      radio_trading_plan0: ["龙门币", "龙门币"],
+      trading_plan0_2: [],
+      radio_trading_plan0: ["龙门币", "龙门币", "龙门币"],
       switch_trading_plan0_0: [false, false],
       switch_trading_plan0_1: [false, false],
+      switch_trading_plan0_2: [false, false],
       manufacture_plan0_0: ["红云", "稀音", "帕拉斯"],
       manufacture_plan0_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan0_2: ["清流", "温蒂", "森蚺"],
@@ -1178,9 +1237,11 @@ export default {
       control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
-      radio_trading_plan1: ["龙门币", "龙门币"],
+      trading_plan1_2: [],
+      radio_trading_plan1: ["龙门币", "龙门币", "龙门币"],
       switch_trading_plan1_0: [false, false],
       switch_trading_plan1_1: [false, false],
+      switch_trading_plan1_2: [false, false],
       manufacture_plan1_0: ["红云", "稀音", "帕拉斯"],
       manufacture_plan1_1: ["远牙", "野鬃", "灰毫"],
       manufacture_plan1_2: ["清流", "温蒂", "森蚺"],
@@ -1219,9 +1280,11 @@ export default {
       control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"],
       trading_plan2_0: ["孑", "银灰", "崖心"],
       trading_plan2_1: ["但书", "空弦", "黑键"],
-      radio_trading_plan2: ["龙门币", "龙门币"],
+      trading_plan2_2: [],
+      radio_trading_plan2: ["龙门币", "龙门币", "龙门币"],
       switch_trading_plan2_0: [false, false],
       switch_trading_plan2_1: [false, false],
+      switch_trading_plan2_2: [false, false],
       manufacture_plan2_0: ["远牙", "野鬃", "灰毫"],
       manufacture_plan2_1: ["食铁兽", "断罪者", "至简"],
       manufacture_plan2_2: ["泡泡", "火神", "刻俄柏"],
@@ -1355,9 +1418,18 @@ export default {
         autofill: this.switch_trading_plan0_1[1],
         product: this.getParamsValue(this.radio_trading_plan0[1]),
       };
+      var trading_planMap0_2 = {
+        operators: this.trading_plan0_2,
+        sort: this.switch_trading_plan0_2[0],
+        autofill: this.switch_trading_plan0_2[1],
+        product: this.getParamsValue(this.radio_trading_plan0[2]),
+      };
       plans_0.rooms.trading[0] = trading_planMap0_0;
-      if ("243" === this.buildingType)
-        plans_0.rooms.trading[1] = trading_planMap0_1;
+      if ("243" === this.buildingType||"333" === this.buildingType)
+      plans_0.rooms.trading[1] = trading_planMap0_1;
+      if ("333" === this.buildingType)
+      plans_0.rooms.trading[2] = trading_planMap0_2;
+
       var manufacture_planMap0_0 = {
         operators: this.manufacture_plan0_0,
         sort: this.switch_manufacture_plan0_0[0],
@@ -1391,6 +1463,7 @@ export default {
       plans_0.rooms.manufacture[0] = manufacture_planMap0_0;
       plans_0.rooms.manufacture[1] = manufacture_planMap0_1;
       plans_0.rooms.manufacture[2] = manufacture_planMap0_2;
+      if ("153" === this.buildingType||"243" === this.buildingType)
       plans_0.rooms.manufacture[3] = manufacture_planMap0_3;
       if ("153" === this.buildingType)
         plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
@@ -1497,10 +1570,19 @@ export default {
         product: this.getParamsValue(this.radio_trading_plan1[1]),
       };
 
-      plans_1.rooms.trading[0] = trading_planMap1_0;
+      var trading_planMap1_2 = {
+        operators: this.trading_plan1_2,
+        sort: this.switch_trading_plan1_2[0],
+        autofill: this.switch_trading_plan1_2[1],
+        product: this.getParamsValue(this.radio_trading_plan1[2]),
+      };
 
+      plans_1.rooms.trading[0] = trading_planMap1_0;
+      if ("243" === this.buildingType||"333" === this.buildingType)
+      plans_1.rooms.trading[1] = trading_planMap1_1;
       if ("243" === this.buildingType)
-        plans_1.rooms.trading[1] = trading_planMap1_1;
+      plans_1.rooms.trading[2] = trading_planMap1_2;
+
 
       var manufacture_planMap1_0 = {
         operators: this.manufacture_plan1_0,
@@ -1540,6 +1622,7 @@ export default {
       plans_1.rooms.manufacture[0] = manufacture_planMap1_0;
       plans_1.rooms.manufacture[1] = manufacture_planMap1_1;
       plans_1.rooms.manufacture[2] = manufacture_planMap1_2;
+      if ("153" === this.buildingType||"243" === this.buildingType)
       plans_1.rooms.manufacture[3] = manufacture_planMap1_3;
       if ("153" === this.buildingType)
         plans_1.rooms.manufacture[4] = manufacture_planMap1_4;
@@ -1649,9 +1732,18 @@ export default {
         product: this.getParamsValue(this.radio_trading_plan2[1]),
       };
 
+      var trading_planMap2_2 = {
+        operators: this.trading_plan2_2,
+        sort: this.switch_trading_plan2_2[0],
+        autofill: this.switch_trading_plan2_2[1],
+        product: this.getParamsValue(this.radio_trading_plan2[2]),
+      };
+
       plans_2.rooms.trading[0] = trading_planMap2_0;
-      if ("243" === this.buildingType)
-        plans_2.rooms.trading[1] = trading_planMap2_1;
+      if ("243" === this.buildingType||"333" === this.buildingType)
+      plans_2.rooms.trading[1] = trading_planMap2_1;
+      if ("333" === this.buildingType)
+      plans_2.rooms.trading[2] = trading_planMap2_2;
 
       var manufacture_planMap2_0 = {
         operators: this.manufacture_plan2_0,
@@ -1691,6 +1783,7 @@ export default {
       plans_2.rooms.manufacture[0] = manufacture_planMap2_0;
       plans_2.rooms.manufacture[1] = manufacture_planMap2_1;
       plans_2.rooms.manufacture[2] = manufacture_planMap2_2;
+      if ("153" === this.buildingType||"243" === this.buildingType)
       plans_2.rooms.manufacture[3] = manufacture_planMap2_3;
       if ("153" === this.buildingType)
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
