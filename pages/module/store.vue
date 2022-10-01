@@ -111,7 +111,7 @@
       </div>
       <!-- 紫票商店 -->
       <div class="store_content" id="store_3" :style="storeVisiable[3]">
-        <div class="store_unit" style="margin:-6px -35px;">
+        <div class="store_unit">
            <div :class="getSpriteImg('REP_COIN',0)" ></div>
         </div>
         <div v-for="(m_data, index) in storeList[2]" class="store_unit" :key="index">

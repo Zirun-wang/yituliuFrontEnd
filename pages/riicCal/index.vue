@@ -25,6 +25,9 @@
             <el-radio-button label="252" disabled></el-radio-button>
           </el-radio-group>
         </div>
+      </div>
+      <div class="riic_building">
+        <div class="riic_building_title">排班方案</div>
         <div class="riic_building_parameter">
           <div class="parameter_text">换班次数</div>
           <el-radio-group size="small" v-model="planTimes">
@@ -33,10 +36,6 @@
             <!-- <el-radio-button label="4班" ></el-radio-button> -->
           </el-radio-group>
         </div>
-      </div>
-      <div class="riic_building">
-        <div class="riic_building_title">排班方案</div>
-
         <div class="riic_building_parameter">
           <div class="parameter_text" style="width: 108px;">名称/起止时间</div>
           <el-input size="small" class="parameter_inputbox" placeholder="主力组A" style="width: 100px" v-model="name[0]"></el-input>
@@ -65,15 +64,36 @@
           *跨天需写成 [22:00][06:00](示例)
         </div>
 
-        <el-button size="medium" type="primary" round style="margin: 8px 0px 0px 24px" @click="maaBuildingJsonCreated()" >
-          生成
-        </el-button>
-        <a :href="exportUrl">
-          <el-button size="medium" type="primary" round style="margin: 8px 0px 0px 24px">
-            导出
-          </el-button>
-        </a>
       </div>
+
+      <div class="riic_building">
+        <div class="riic_building_title">方案导入/导出</div>
+          <div class="riic_building_parameter">
+            <el-button size="medium" type="primary" round style="width:126px;" @click="maaBuildingJsonCreated()" >
+              生成排班方案
+            </el-button>
+            <a :href="exportUrl">
+              <el-button size="medium" type="primary" round style="width:126px;margin-left:12px;">
+                导出排班方案
+              </el-button>
+            </a>
+          </div>
+          <div class="riic_building_parameter">
+            <el-button size="medium" type="primary" round style="width:126px;">
+              通过文件导入
+            </el-button>
+          </div>
+          <div class="riic_building_parameter">
+            <el-button size="medium" type="primary" round style="width:126px;">
+              通过UID导入
+            </el-button>
+            <el-input size="small" class="parameter_inputbox" placeholder="UID" style="margin-left:12px;width: 150px"></el-input>
+          </div>
+          <div class="riic_building_parameter">
+          *导出json文件的文件名即为UID
+        </div>
+      </div>
+
     </div>
     <el-divider></el-divider>
     <div id="riic_workerSets">
@@ -1975,16 +1995,20 @@ export default {
   height: 32px;
 }
 .building_trade .riic_building_title {
+
   border-left: 4px solid #000d8180;
   border-right: 4px solid #000d8180;
+  background-color: #eeeeff;
 }
 .building_factory .riic_building_title {
   border-left: 4px solid #7f810080;
   border-right: 4px solid #7f810080;
+  background-color: #ffffee;
 }
 .building_powerPlant .riic_building_title {
   border-left: 4px solid #00810080;
   border-right: 4px solid #00810080;
+  background-color: #eeffee;
 }
 .building_powerPlant .riic_building_parameter div:nth-child(1){
   display: none;
