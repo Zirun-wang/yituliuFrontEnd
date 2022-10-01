@@ -56,9 +56,9 @@ line-height: 48px;
     white-space: nowrap;
 }
 .op_footer{
-    height: 36px;
+    /* height: 36px; */
     margin: auto;
-    width: 460px;
+    width: 480px;
 }
 .op_footer img{
     height: 28px;
