@@ -166,44 +166,51 @@
       </div>
 
       <div  class="popup_card" id="popup_card_orundum">
-        <div class="popup_header"  style="display:flex;margin-bottom: -20px;">
-          <!-- <img style="display:inline-block;margin:6px;" class="popup_img" :src="getImgUrl('合成玉')" alt="合成玉"> -->
-          
-          <div :class="getSpriteImg(4003, 4)" ></div>
-          <div class="popup_header_text" style="bottom: -8px;">搓玉一览表</div>
-         
-        </div>
-        <!-- 散装标题End -->
-        <el-divider></el-divider>
         <!-- 数据表Start -->
-        <table class="popup_table">
+        <table class="popup_table" style="padding-top: 6px;">
           <tbody style="font-size:20px;">
             <tr class="popup_table_title" style="height:36px;">
+              <td class="popup_table_c1" style="width:85px;">关卡名</td>
+              <td class="popup_table_c2" style="width:120px;">每理智可搓玉</td>
+              <td class="popup_table_c3" style="width:120px;">每搓1抽消耗</td>
+              <td class="popup_table_c5" style="width:95px;">关卡效率</td>
+              <td class="popup_table_c6" style="width:95px;">搓玉效率</td>
+            </tr>
+          </tbody>
+        </table>
+        <el-divider></el-divider>
+        <div style="height:550px;overflow: auto;margin-top: -6px;">
+        <table class="popup_table">
+          <tbody style="font-size:20px;vertical-align: baseline;">
+            <!-- <tr class="popup_table_title" style="height:36px;">
               <td class="popup_table_c1" style="width:80px;">关卡名</td>
               <td class="popup_table_c2" style="width:130px;">理智转化率</td>
               <td class="popup_table_c3" style="width:140px;">每搓1抽消耗</td>
               <td class="popup_table_c5" style="width:85px;">关卡效率</td>
               <td class="popup_table_c6" style="width:85px;">搓玉效率</td>
-            </tr>
-            <tr style="height:36px;" v-for="(stage, index) in stageRankOrundum" :key="index"  :class="getColor(stage.stageColor)" class="stage_table_r">
-              <td class="popup_table_c1" style="width:80px">{{stage.stageCode}}</td>
-              <td class="popup_table_c2" style="width:130px;display:flex" >
-                  <div>1</div>     
-                  <div :class="getSpriteImg('AP_GAMEPLAY', 5)" ></div>
-                  <div>={{stage.orundumPerAp}}</div> 
-                  <div :class="getSpriteImg(4003, 5)" ></div>
+            </tr> -->
+            <tr style="height:36px;" v-for="(stage, index) in stageRankOrundum" :key="index" :class="getColor(stage.stageEfficiency, 90, 20)" class="stage_table_r">
+              <td class="popup_table_c1" style="width:85px">{{stage.stageCode}}</td>
+              <td class="popup_orundum_c2" style="width:120px;">
+                  <!-- <div>1</div> -->
+                  <!-- <div :class="getSpriteImg('AP_GAMEPLAY', 5)" ></div> -->
+                <div>{{ getEfficiency(stage.orundumPerAp)}}</div> 
+                <div style="margin-bottom: -15px;" :class="getSpriteImg(4003, 5)" ></div>
               </td>   
-                <!-- <img class="stage_img_secondary" src="/img/icon/图标_合成玉.png" alt="">-->
-              <td class="popup_table_c3" style="width:140px;"><div style="display:flex;margin-left:15px"><div> {{stage.lMDCost}}k</div><div style="margin-left:5px" :class="getSpriteImg(4001, 5)" ></div></div></td>
-              <td class="popup_table_c5" style="width:85px;"> {{stage.stageEfficiency}}%</td>
-              <td class="popup_table_c6" style="width:85px;"> {{stage.orundumPerApEfficiency}}%</td>
+              <td class="popup_orundum_c3" style="width:120px;">
+                <div>{{getEfficiency(stage.lMDCost)}}w</div>
+                <div style="margin-bottom: -8px;" :class="getSpriteImg(4001, 5)" ></div>
+              </td>
+              <td class="popup_table_c5" style="width:95px;"> {{stage.stageEfficiency}}%</td>
+              <td class="popup_table_c6" style="width:95px;"> {{stage.orundumPerApEfficiency}}%</td>
             </tr>
           </tbody>
         </table>
+        </div>
         <!-- 数据表End -->
         <el-divider></el-divider>
         <div class="popup_text f12 t1">
-          关卡效率:该关卡掉落物价值之和与理智消耗之比<br>
+          关卡效率:该关卡掉落物价值之和与理智消耗之比，颜色用于区分数值大小<br>
           搓玉效率:该关卡的转化率与无加成1-7的转化率之比
         </div>
       </div>
@@ -355,6 +362,7 @@ export default {
       else
         return "color_t5";	
     },
+
 
     getTimesColor(times){
       if (times<1000)
