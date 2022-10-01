@@ -175,7 +175,7 @@
 
 			<a href="https://maa.plus/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 			<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/97677443?s=200" />
-			MAA</div></a>
+			MAA小助手</div></a>
 		</div>
 	</div>
 </div>

@@ -192,31 +192,6 @@
 	width: 50px;
 }
 
-#stage_card_orundum{
-    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
-    /* height: 375px; */
-    max-width: 540px;
-    margin-right: 6px;
-    margin-bottom: 6px;
-    border: 0px solid #0070dd !important;
-    border-radius: 8px;
-    background: rgba(128,128,128,0.12549);
-    flex-grow: 2;
-    margin-top: 8px;
-    display: flex;
-}
-
-#stage_card_orundum table tbody tr{
-    height: 36px;
-    text-align: center;
-    vertical-align: middle;
-}
-#stage_card_orundum table tbody tr:nth-child(1){
-    width: 80px;
-    height: 36px;
-    text-align: center;
-    vertical-align: middle;
-}
 
 #popup_background{
 	z-index:128;
@@ -241,6 +216,16 @@
     border-radius: 6px;
 }
 
+#popup_card_orundum{
+    margin-top: 60px;
+}
+
+.popup_orundum_c2 div{
+    display: inline-block;
+}
+.popup_orundum_c3 div{
+    display: inline-block;
+}
 .el-card__header *{
 	display:inline;
 }
