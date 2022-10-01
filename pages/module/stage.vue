@@ -41,9 +41,9 @@
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <td> <div  class="sprite_secondary_div">
+                    <td> 
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
-                    </div></td>
+                    </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4">
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
@@ -163,10 +163,12 @@
       </div>
 
       <div  class="popup_card" id="popup_card_orundum">
-        <div class="popup_header" >
+        <div class="popup_header"  style="display:flex;margin-bottom: -20px;">
           <!-- <img style="display:inline-block;margin:6px;" class="popup_img" :src="getImgUrl('合成玉')" alt="合成玉"> -->
+          
           <div :class="getSpriteImg(4003, 4)" ></div>
-          <div class="popup_header_text" style="bottom: 0px;">搓玉一览表</div>
+          <div class="popup_header_text" style="bottom: -8px;">搓玉一览表</div>
+         
         </div>
         <!-- 散装标题End -->
         <el-divider></el-divider>

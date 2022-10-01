@@ -10,22 +10,18 @@
     margin-left: -38px;
 }
 
-.sprite_secondary_div {
-    width: 30px;
-    height: 30px;
-    /* border: solid red 1px; */
-}
+
 
 .sprite_secondary {
     transform: scale(0.45);
-    margin-top: -28px;
-    margin-left: -12px;
+  
+    margin: -16px;
 }
 
 .sprite_secondary_dialog {
     transform: scale(0.45);
-    margin-top: 0px;
-    margin-left: -12px;
+   
+    margin: -20px;
 }
 
 .sprite_icon{
@@ -47,8 +43,8 @@
 
 .sprite_icon_small{
     transform: scale(0.6);
-    margin-top: -6px;
-    margin-left: -12px;
+    margin: -12px;
+    margin-top: -8px;
 }
 
 
