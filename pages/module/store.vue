@@ -18,16 +18,14 @@
           <img alt="橙票" :class=tagColor[2] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_2" :src="getImgUrl('寻访参数模型',4)" @click="switch_store('2')">
           <img alt="紫票" :class=tagColor[3] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
           <img alt="信用" :class=tagColor[4] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')"> -->
-           <div style="display:flex">
-           <div alt="黄票" :class=tagColor[0] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_0" @click="switch_store('0')"> <div :class="getSpriteImg(4005,0)" ></div></div>
-           <div alt="黄票" :class=tagColor[1] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_1" @click="switch_store('1')"> <div :class="getSpriteImg(4004,0)" ></div></div>
-           <div alt="黄票" :class=tagColor[2] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_2" @click="switch_store('2')"> <div :class="getSpriteImg('EPGS_COIN',0)" ></div></div>
-           <div alt="黄票" :class=tagColor[3] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_3" @click="switch_store('3')"> <div :class="getSpriteImg('REP_COIN',0)" ></div></div>
-           <div alt="黄票" :class=tagColor[4] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_4" @click="switch_store('4')"> <div :class="getSpriteImg('SOCIAL_PT',0)" ></div></div>
-                <div class="tab_text">*点击图标切换</div>
-           </div>
-           
-         
+          <div style="display:flex;align-items: flex-end;">
+          <div :class=tagColor[0] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_0" @click="switch_store('0')"><div style="margin:3px;" :class="getSpriteImg(4005,0)" ></div></div>
+          <div :class=tagColor[1] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_1" @click="switch_store('1')"><div style="margin:3px;" :class="getSpriteImg(4004,0)" ></div></div>
+          <div :class=tagColor[2] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_2" @click="switch_store('2')"><div style="margin:0px 2px;" :class="getSpriteImg('EPGS_COIN',0)" ></div></div>
+          <div :class=tagColor[3] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_3" @click="switch_store('3')"><div style="margin:0px 5px;" :class="getSpriteImg('REP_COIN',0)" ></div></div>
+          <div :class=tagColor[4] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_4" @click="switch_store('4')"><div style="margin:3px;" :class="getSpriteImg('SOCIAL_PT',0)" ></div></div>
+            <div class="tab_text">*点击图标切换</div>
+          </div>
         </div>
       </div>
       <!-- 标题区域end -->

@@ -10,7 +10,7 @@
     margin-right: 6px;
     margin-bottom: 6px;
 
-    border-radius: 8px;
+    border-radius: 6px;
     flex-grow: 1;
 }
 
@@ -20,13 +20,13 @@
     /* float: left; */
     /* text-align: right; */
     /* overflow: hidden; */
-    opacity: 0.6;
+    opacity: 0.7;
     /* left: -1%; */
     -webkit-filter: grayscale(0.1);
     filter: grayscale(0.1);
     /* position: absolute; */
     /* margin-left: -1%; */
-    margin-left: calc(40% - 144px);
+    margin-left: calc(40% - 135px);
     display: inline-block;
 }
 
@@ -51,10 +51,10 @@
     font-size: 20px;
     font-weight: 600;
     height: 90px;
-    width: 85%;
+    width: 80%;
     overflow: hidden;
     -webkit-backdrop-filter: blur(6px) grayscale(0.6);
-    backdrop-filter: blur(28px) grayscale(0.6);
+    backdrop-filter: blur(12px) grayscale(0.6);
     border-radius: 0px 4px 4px 0px;
     max-width: 210px;
     float: right;
@@ -64,7 +64,7 @@
 .stage_card_t3_table table {
 	border-spacing: 0px;
     table-layout: fixed;
-    margin-left: calc(62.5% - 130px);
+    margin-left: calc(62.5% - 125px);
 }
 
 
@@ -74,7 +74,7 @@
 }
 
 .stage_table_c1 {
-	width: 80px;
+	width: 75px;
 	text-align:center;
 	padding:0px;
 }
