@@ -8,6 +8,15 @@
 
 }
 
+.value_half{
+    margin-top: 8px;
+    display: flex;
+    flex: 1;
+    max-width: 720px;
+    min-width: 360px;
+    justify-content: space-around;
+}
+
 /* 材料卡 */
 .itemAll {
     margin-top: 10px;
@@ -25,14 +34,18 @@
     flex-wrap: wrap;
 }
 
-.item_card {
+.value_subList {
     margin: 2px;
+    width: 150px;
 }
 
 
-.item_card_value_font {
-    font-size: 16px;
-    width: 60px;
+.value_subList_value_font {
+    font-size: 18px;
+    width: 68px;
+    padding:0px;
+    color: gray;
+    text-align: right;
 }
 
 
@@ -83,26 +96,26 @@
 }
 
 .item_color_type_orange {
-    border-left: 2px solid rgb(240, 136, 0);
+    border-left: 3px solid rgb(240, 136, 0);
 
 }
 
 .item_color_type_purple {
-    border-left: 2px solid rgb(195, 128, 221);
+    border-left: 3px solid rgb(195, 128, 221);
 
 }
 
 .item_color_type_green {
-    border-left: 2px solid rgb(0, 171, 177);
+    border-left: 3px solid rgb(0, 171, 177);
 
 }
 
 .item_color_type_grey {
-    border-left: 2px solid rgb(197, 197, 197);
+    border-left: 3px solid rgb(197, 197, 197);
 
 }
 
 .item_color_type_blue {
-    border-left: 2px solid rgb(0, 111, 214);
+    border-left: 3px solid rgb(0, 111, 214);
 
 }

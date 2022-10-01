@@ -1828,6 +1828,13 @@ export default {
 
 
 <style>
+
+#riic {
+  background: rgb(255, 255, 255);
+  margin: auto;
+  max-width: 1500px;
+}
+
 #riic_controlPanel {
   /* margin-top: 16px; */
   display: flex;

@@ -28,29 +28,56 @@
       </div>
 
       <div class="value_content" style="display: flex;flex-wrap: wrap;">
-        <div v-for="(card, index) in cardNum" :key="index" class="item_card">
-          <div v-for="(item, index) in itemList" :key="index" class="item_width">
-            <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
-              <table>
-                <tbody>
-                <tr>
-                  <td style="padding:0px;">
-                    <!-- <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/> -->
-                      <div :class="getSpriteImg(item.itemId,0)" ></div>
-                  </td>
-                  <td v-show="valueType == 'sanity'" class="item_card_value_font"  style="padding:0px;color: gray">
-                    {{ getItemsanityValue(item.itemId, item.itemValue) }}
-                  </td>
-                  <td v-show="valueType == 'green'" class="item_card_value_font"  style="padding:0px;color: gray">
-                    {{ getItemGreenValue(item.itemId, item.itemValue) }}
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+        <div class="value_half" id="value_left">
+          <div v-for="(card, index) in 4" :key="index" class="value_subList">
+            <div v-for="(item, index) in itemList" :key="index" class="value_item">
+              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
+                <table>
+                  <tbody>
+                  <tr>
+                    <td style="padding:0px 0px 0px 6px;width: 30px;">
+                      <!-- <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/> -->
+                        <div :class="getSpriteImg(item.itemId,0)" ></div>
+                    </td>
+                    <td v-show="valueType == 'sanity'" class="value_subList_value_font">
+                      {{ getItemsanityValue(item.itemId, item.itemValue) }}
+                    </td>
+                    <td v-show="valueType == 'green'" class="value_subList_value_font">
+                      {{ getItemGreenValue(item.itemId, item.itemValue) }}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="value_half" id="value_right">
+          <div v-for="(card, index) in cardNum" :key="index" class="value_subList" v-show="index > 3 && index <8">
+            <div v-for="(item, index) in itemList" :key="index" class="value_item">
+              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
+                <table>
+                  <tbody>
+                  <tr>
+                    <td style="padding:0px 0px 0px 6px;width: 30px;">
+                      <!-- <img class="item_img_size" :src="static_imgUrl(item.itemName)" :alt="getItemName(item.itemName)"/> -->
+                        <div :class="getSpriteImg(item.itemId,0)" ></div>
+                    </td>
+                    <td v-show="valueType == 'sanity'" class="value_subList_value_font">
+                      {{ getItemsanityValue(item.itemId, item.itemValue) }}
+                    </td>
+                    <td v-show="valueType == 'green'" class="value_subList_value_font">
+                      {{ getItemGreenValue(item.itemId, item.itemValue) }}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-
         </div>
+
       </div>
 
     </div>
