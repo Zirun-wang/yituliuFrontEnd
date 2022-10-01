@@ -22,6 +22,8 @@
           <div class="tab_text">
           *点击卡片查看详情
           </div>
+        </div>
+        <div class="op_title_tag">
           <div class="tab_text">
           <!-- *更新时间{{ stageRankT3}} -->
           *更新时间 {{updateTime}}

@@ -7,12 +7,13 @@
       @select="handleSelect"
       text-color="#fff"
       active-text-color="#ffd04b"
+      style="border: 0px;"
     >
       <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
       <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
       <el-menu-item index="4" @click="schedule()">排班生成器</el-menu-item>
       <el-submenu index="3">
-        <template slot="title">常用工具</template>
+        <template slot="title">其它工具</template>
         <el-menu-item index="3-1" @click="recruit()">公开招募</el-menu-item>
         <el-menu-item index="3-2" @click="expCal()">升级计算</el-menu-item>
       </el-submenu>
