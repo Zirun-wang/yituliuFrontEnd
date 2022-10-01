@@ -1174,7 +1174,7 @@ export default {
       exportUrl:
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=",
       uid: 12345,
-      buildingType: "333",
+      buildingType: "243",
       planTimes:'3班',
       scheduleJson: { plans: [] },
       title: "243极限",
