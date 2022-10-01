@@ -181,24 +181,21 @@
               @change="compute()"
               v-model="customValue"
             />
-            <div class="gacha_unit_child_title" style="width: 270px">
+            <div class="gacha_unit_child_title" style="width: 270px;">
               自定义修正值（例如搓玉）
             </div>
-            <div class="gacha_resources_unit" style="width: 135px">
+            <div class="gacha_resources_unit" style="width: 135px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               {{ customValue * 1 }}
             </div>
           </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 420px">
-              搓玉比例：1理智=1玉
-              <a
-                href="https://www.bilibili.com/video/BV1XT411F7m4"
-                style="margin-left: 20px"
-              >如何安排搓玉？<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
+            <div class="gacha_unit_child_title" style="width: 100%;">
+              搓玉比例:1理智=1.09玉(1-7)
+              <a href="https://ark.yituliu.site" style="margin: 0px 20px;">查看备选搓玉关卡</a>
+              <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
+                如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png"/>
+              </a>
             </div>
           </div>
           <!-- 填空模块End -->
