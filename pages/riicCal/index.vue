@@ -78,21 +78,33 @@
               </el-button>
             </a>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <el-button size="medium" type="primary" round style="width:126px;">
               通过文件导入
             </el-button> *(后续可用)
-          </div>
+          </div> -->
           <div class="riic_building_parameter">
             <el-button size="medium" type="primary" round style="width:126px;" @click="retrieveSchedule()">
               通过id导入
             </el-button>
-            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 150px" v-model="uid"></el-input>
+            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 180px" v-model="uid"></el-input>
           </div>
           <div class="riic_building_parameter">
           *导出json文件的文件名即为id <br>
           或打开排班文件最末尾中寻找id
         </div>
+
+        <!-- 如果需要注释 从这里开始 -->
+        <div class="riic_building_parameter">
+          <div class="parameter_text">预设模板</div>
+          <el-radio-group size="small">
+            <el-radio-button label="243"></el-radio-button>
+            <el-radio-button label="153"></el-radio-button>
+            <el-radio-button label="333"></el-radio-button>
+            <el-radio-button label="252" disabled></el-radio-button>
+          </el-radio-group>
+        </div>
+        <!-- 到这里结束 -->
       </div>
 
     </div>
