@@ -87,7 +87,7 @@
             <el-button size="medium" type="primary" round style="width:126px;" @click="retrieveSchedule()">
               通过id导入
             </el-button>
-            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 180px" v-model="uid"></el-input>
+            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 150px" v-model="importId"></el-input>
           </div>
           <div class="riic_building_parameter">
           *导出json文件的文件名即为id <br>
@@ -95,15 +95,15 @@
         </div>
 
         <!-- 如果需要注释 从这里开始 -->
-        <div class="riic_building_parameter">
-          <div class="parameter_text">预设模板</div>
-          <el-radio-group size="small">
-            <el-radio-button label="243"></el-radio-button>
-            <el-radio-button label="153"></el-radio-button>
-            <el-radio-button label="333"></el-radio-button>
-            <el-radio-button label="252" disabled></el-radio-button>
-          </el-radio-group>
-        </div>
+<!--        <div class="riic_building_parameter">-->
+<!--          <div class="parameter_text">预设模板</div>-->
+<!--          <el-radio-group size="small">-->
+<!--            <el-radio-button label="243"></el-radio-button>-->
+<!--            <el-radio-button label="153"></el-radio-button>-->
+<!--            <el-radio-button label="333"></el-radio-button>-->
+<!--            <el-radio-button label="252" disabled></el-radio-button>-->
+<!--          </el-radio-group>-->
+<!--        </div>-->
         <!-- 到这里结束 -->
       </div>
 
@@ -1357,7 +1357,7 @@ export default {
   },
   created() {
     this.setJson();
-  
+
     this.getUid();
   },
   methods: {
@@ -1388,7 +1388,7 @@ export default {
     },
     retrieveSchedule(){
       buildingApi.retrieveSchedule(this.uid).then((response) => {
-         
+
           this.historicalData = response.data.schedule
          this.importJson()
       });
@@ -1399,7 +1399,7 @@ export default {
          console.log(timestamp*1000)
          console.log(randNum)
          this.uid  =timestamp*1000+randNum-1000000000000000
-        
+
     },
     setJson() {
       this.scheduleJson = { plans: [] };
@@ -1446,7 +1446,7 @@ export default {
       this.scheduleJson.description = this.descriptionH1;
       this.scheduleJson.author = this.author
       this.scheduleJson.buildingType =this.buildingType
-      this.scheduleJson.id = this.uid 
+      this.scheduleJson.id = this.uid
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
       plans_0.period = this.setPeriod(this.period_plan0);
@@ -1457,7 +1457,7 @@ export default {
       plans_0.drones.index = this.radio_drones_index[0];
       plans_0.drones.enable = this.switch_drones_enable[0];
       plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
-      
+
       var control_planMap0_0 = {
         operators: this.control_plan0
       };
@@ -1588,15 +1588,15 @@ export default {
       };
 
         plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
-      
+
         plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
-      
+
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
-      
-        plans_0.rooms.dormitory[3] = dormitory_planMap0_3; 
+
+        plans_0.rooms.dormitory[3] = dormitory_planMap0_3;
 
      // B换班表
-    
+
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
       plans_1.description = this.descriptionH2[1];
@@ -1607,7 +1607,7 @@ export default {
       plans_1.drones.index = this.radio_drones_index[1];
       plans_1.drones.enable = this.switch_drones_enable[1];
       plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
-      
+
       var control_planMap1_0 = {
         operators: this.control_plan1
       };
@@ -1746,17 +1746,17 @@ export default {
         autofill: this.switch_dormitory_plan1_3[1],
       };
 
-        
+
         plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
-      
+
         plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
-     
+
         plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
-     
-        plans_1.rooms.dormitory[3] = dormitory_planMap1_3; 
-        
-        
-        
+
+        plans_1.rooms.dormitory[3] = dormitory_planMap1_3;
+
+
+
         // C换班表
       plans_2.name = this.name[2];
       plans_2.period = this.setPeriod(this.period_plan2);
@@ -1769,7 +1769,7 @@ export default {
       plans_2.drones.index = this.radio_drones_index[2];
       plans_2.drones.enable = this.switch_drones_enable[2];
       plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
-     
+
       var control_planMap2_0 = {
         operators: this.control_plan2
       };
@@ -1906,7 +1906,7 @@ export default {
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
-     
+
         plans_2.rooms.dormitory[0] = dormitory_planMap2_0;
         plans_2.rooms.dormitory[1] = dormitory_planMap2_1;
         plans_2.rooms.dormitory[2] = dormitory_planMap2_2;
@@ -1918,40 +1918,40 @@ export default {
       this.scheduleJson.plans.push(plans_1);
       if('3班'===this.planTimes)
       this.scheduleJson.plans.push(plans_2);
-     
-    }, 
+
+    },
 
 
     importJson(){
-    this.title =   this.historicalData.title 
-    this.descriptionH1 =  this.historicalData.description 
+    this.title =   this.historicalData.title
+    this.descriptionH1 =  this.historicalData.description
     this.author = this.historicalData.author
     this.buildingType = this.historicalData.buildingType
     this.uid = this.historicalData.id
   // 导入A班的信息-------------------------------------------------------------------------------
-    this.name[0] =  this.historicalData.plans[0].name 
-    this.descriptionH2[0] =  this.historicalData.plans[0].description 
-    this.period_plan0 =  this.historicalData.plans[0].period[0]  
+    this.name[0] =  this.historicalData.plans[0].name
+    this.descriptionH2[0] =  this.historicalData.plans[0].description
+    this.period_plan0 =  this.historicalData.plans[0].period[0]
     this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
     this.switch_Fiammetta_enable[0] = this.historicalData.plans[0].Fiammetta.enable
     this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order)
-    this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room) 
+    this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room)
     this.radio_drones_index[0]= this.historicalData.plans[0].drones.index
     this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable
     this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order)
 
     this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
-  
+
     this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
     this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
     this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill
     this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product)
-    
+
     this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
     this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
     this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill
     this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product)
-    
+
     if('333'=== this.historicalData.buildingType){
     this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
     this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
@@ -1963,17 +1963,17 @@ export default {
     this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
     this.switch_manufacture_plan0_0[1]= this.historicalData.plans[0].rooms.manufacture[0].autofill
     this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[0].product)
- 
+
     this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
     this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
     this.switch_manufacture_plan0_1[1]= this.historicalData.plans[0].rooms.manufacture[1].autofill
     this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[1].product)
- 
+
      this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
     this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
     this.switch_manufacture_plan0_2[1]= this.historicalData.plans[0].rooms.manufacture[2].autofill
     this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[2].product)
- 
+
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
      this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
     this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
@@ -2005,31 +2005,31 @@ export default {
     this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators
     this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
     this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill
- 
+
   // 导入B班的信息-------------------------------------------------------------------------------
-    this.name[1] =  this.historicalData.plans[1].name 
-    this.descriptionH2[1] =  this.historicalData.plans[1].description 
-    this.period_plan1 =  this.historicalData.plans[1].period[0]  
+    this.name[1] =  this.historicalData.plans[1].name
+    this.descriptionH2[1] =  this.historicalData.plans[1].description
+    this.period_plan1 =  this.historicalData.plans[1].period[0]
     this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
     this.switch_Fiammetta_enable[1] = this.historicalData.plans[1].Fiammetta.enable
     this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order)
-    this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room) 
+    this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room)
     this.radio_drones_index[1]= this.historicalData.plans[1].drones.index
     this.switch_drones_enable[1]= this.historicalData.plans[1].drones.enable
     this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
 
     this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
-  
+
     this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
     this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
     this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill
     this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product)
-    
+
     this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
     this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
     this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill
     this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product)
-    
+
     if('333'=== this.historicalData.buildingType){
     this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
     this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
@@ -2041,17 +2041,17 @@ export default {
     this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
     this.switch_manufacture_plan1_0[1]= this.historicalData.plans[1].rooms.manufacture[0].autofill
     this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[0].product)
- 
+
     this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
     this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
     this.switch_manufacture_plan1_1[1]= this.historicalData.plans[1].rooms.manufacture[1].autofill
     this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[1].product)
- 
+
      this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
     this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
     this.switch_manufacture_plan1_2[1]= this.historicalData.plans[1].rooms.manufacture[2].autofill
     this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[2].product)
- 
+
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
      this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
     this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
@@ -2083,31 +2083,31 @@ export default {
     this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
     this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
     this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
-   
+
     // 导入C班的信息-------------------------------------------------------------------------------
-    this.name[2] =  this.historicalData.plans[2].name 
-    this.descriptionH2[2] =  this.historicalData.plans[2].description 
-    this.period_plan2 =  this.historicalData.plans[2].period[0]  
+    this.name[2] =  this.historicalData.plans[2].name
+    this.descriptionH2[2] =  this.historicalData.plans[2].description
+    this.period_plan2 =  this.historicalData.plans[2].period[0]
     this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
     this.switch_Fiammetta_enable[2] = this.historicalData.plans[2].Fiammetta.enable
     this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order)
-    this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room) 
+    this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room)
     this.radio_drones_index[2]= this.historicalData.plans[2].drones.index
     this.switch_drones_enable[2]= this.historicalData.plans[2].drones.enable
     this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
 
     this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
-  
+
     this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
     this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
     this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill
     this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product)
-    
+
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
     this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill
     this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product)
-    
+
     if('333'=== this.historicalData.buildingType){
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
     this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
@@ -2119,17 +2119,17 @@ export default {
     this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
     this.switch_manufacture_plan2_0[1]= this.historicalData.plans[2].rooms.manufacture[0].autofill
     this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[0].product)
- 
+
     this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
     this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
     this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill
     this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product)
- 
+
      this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
     this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
     this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill
     this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product)
- 
+
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
      this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
     this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
@@ -2173,16 +2173,16 @@ export default {
     setPeriod(list) {
       var start = parseInt(list[0].substr(0, 2));
       var end = parseInt(list[1].substr(0, 2));
-      
+
       if (start > end) {
-       
+
         return [
           [list[0], "23:59"],
           ["00:00", list[1]],
         ];
       }
       return [list];
-      
+
     },
 
     getOrder(str){
