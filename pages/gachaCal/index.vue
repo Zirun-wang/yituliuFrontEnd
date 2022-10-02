@@ -1111,7 +1111,7 @@
       this.compute();
     },
     mounted() {
-      this.updateVisits();
+      // this.updateVisits();
       this.pieChart(this.pieData);
     },
     methods: {

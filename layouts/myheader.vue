@@ -17,7 +17,7 @@
         <el-menu-item index="4-1" @click="recruit()">公开招募</el-menu-item>
         <el-menu-item index="4-2" @click="expCal()">升级计算</el-menu-item>
       </el-submenu> -->
-      <el-menu-item v-show="'/'===routePath" index="5" @click="switchTheme()">暗色</el-menu-item>
+      <el-menu-item v-show="'/'===routePath" index="5" @click="switchTheme()">{{ThemeText}}</el-menu-item>
     </el-menu>
    
    
@@ -71,20 +71,27 @@ var count = 0;
 
 import cookie from "js-cookie";
 import Vue from "vue";
+import toolApi from "@/api/tool";
 
 export default {
   data() {
     return {
       activeIndex: "1",
       isCollapse: "true",
-      routePath:'/'
+      routePath:'/',
+      ThemeText:'暗色'
     };
   },
   created(){
    this.showPath()
+   this.updateVisits();
   },
   methods: {
+     updateVisits() {
+      toolApi.updateVisits("yituliu").then((response) => {});
+    },
     switchTheme() {
+        this.activeIndex = '1'
       if (cookie.get("theme") === "dark") {
         document.getElementById("indexDiv").style.background = "#f0f0f0";
         var titles = document.getElementsByClassName("op_title_ctext");
@@ -95,6 +102,7 @@ export default {
           titles[i].style.WebkitTextStroke = "0.6px black";
         cookie.set("theme", "light", { expires: 30 });
         console.log("nowlight");
+        this.ThemeText = '亮色'
       } else {
         document.getElementById("indexDiv").style.background = "#222222";
         var titles = document.getElementsByClassName("op_title_ctext");
@@ -105,7 +113,9 @@ export default {
           titles[i].style.WebkitTextStroke = "0.3px white";
         cookie.set("theme", "dark", { expires: 30 });
         console.log("nowdark");
+         this.ThemeText = '暗色'
       }
+    
     },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);

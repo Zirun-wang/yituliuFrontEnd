@@ -1201,7 +1201,7 @@
 <script>
 import buildingApi from "@/api/building";
 import cookie from "js-cookie";
-
+import toolApi from "@/api/tool";
 
 export default {
   data() {
@@ -1359,8 +1359,12 @@ export default {
   created() {
     this.setJson();
     this.getUid();
+   
   },
   methods: {
+    updateVisits() {
+      toolApi.updateVisits("yituliu").then((response) => {});
+    },
     setExportUrl() {
       this.exportUrl =
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
