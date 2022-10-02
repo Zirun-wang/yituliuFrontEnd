@@ -750,7 +750,7 @@
         </template>
         <div class="gacha_unit" id="activity">
           <!-- 长夜临光复刻 -->
-          <div class="gacha_unit_child">长夜临光复刻</div>
+          <!-- <div class="gacha_unit_child">长夜临光复刻</div>
           <el-checkbox-group v-model="gacha_actReList" class="">
             <div
               v-for="(item, index) in gacha_actRe"
@@ -763,7 +763,7 @@
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ item.name }}
                 </div>
-                <!-- 一个通用的资源显示模块 -->
+               
                 <div class="gacha_resources_unit" style="width: 192px">
                   <div
                     style="width: 40px"
@@ -800,7 +800,7 @@
                 </div>
               </el-checkbox-button>
             </div>
-          </el-checkbox-group>
+          </el-checkbox-group> -->
           <div v-for="(act, index) in gacha_actReward" :key="index">
             <div class="gacha_unit_child">
               <div class="gacha_unit_child_title">{{ act.name }}</div>
