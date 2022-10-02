@@ -257,7 +257,7 @@ export default {
 	.foot_unit_pic{
 		height: 32px;
 		width: 32px;
-		margin: 3px;
+		margin: 2px 3px 3px 3px;
 		display: inline-block;
 		vertical-align: middle;
 		border-radius: 6px;
@@ -314,6 +314,7 @@ export default {
 		border-radius: 8px;
 		margin: 4px;
 		color:gray;
+		line-height: 36px;
 	}
 
 	.foot_unit a {
