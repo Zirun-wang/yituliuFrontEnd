@@ -1225,7 +1225,7 @@ export default {
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [false, false, false],
       input_Fiammetta_order: ["换班后", "换班后", "换班后"],
-      control_skip:[true,true,true],
+      control_skip:[true,false,false],
       // A换班参数
       period_plan0: ["08:00", '13:59'],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
@@ -1233,7 +1233,7 @@ export default {
       trading_plan0_1: ["但书", "空弦", "黑键"],
       trading_plan0_2: [],
       radio_trading_plan0: ["龙门币", "龙门币", "龙门币"],
-      switch_trading_plan0_0: [false,false,false],
+      switch_trading_plan0_0: [false,false,true],
       switch_trading_plan0_1: [false,false,false],
       switch_trading_plan0_2: [false,false,false],
       manufacture_plan0_0: ["红云", "稀音", "帕拉斯"],
@@ -1388,15 +1388,15 @@ export default {
     retrieveSchedule(){
       buildingApi.retrieveSchedule(this.importId).then((response) => {
 
-          this.historicalData = response.data.schedule
-         this.importJson()
+        this.historicalData = response.data.schedule
+        this.importJson()
       });
     },
     getUid(){
          var timestamp=new Date().getTime();
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
          
-         this.uid  =timestamp*1000+randNum-1000000000000000
+        this.uid  =timestamp*1000+randNum-1000000000000000
 
     },
     setJson() {
@@ -2055,54 +2055,92 @@ export default {
     this.radio_drones_index[0]= this.historicalData.plans[0].drones.index
     this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable
     this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order)
-
-    this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
-
+     
+    if(this.historicalData.plans[0].rooms.control[0].skip){
+      this.control_skip = true
+    } else{
+     this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
+    }
+   
+    if(this.historicalData.plans[0].rooms.trading[0].skip){
+      this.switch_trading_plan0_0[2] = true;   
+    } else{
     this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
     this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
     this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill
     this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product)
+    }
 
+    
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[0].rooms.trading[1].skip){
+    this.switch_trading_plan0_1[2] = true;   
+      } else{
     this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
     this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
     this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill
     this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product)
+      }
     }
 
     if('333'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[0].rooms.trading[2].skip){
+    this.switch_trading_plan0_2[2] = true;   
+      } else{
     this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
     this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
     this.switch_trading_plan0_2[1]= this.historicalData.plans[0].rooms.trading[2].autofill
     this.radio_trading_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[2].product)
+      }
     };
-
+        
+    if(this.historicalData.plans[0].rooms.manufacture[0].skip){
+    this.switch_manufacture_plan0_0[2] = true;   
+    } else{
     this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators
     this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
     this.switch_manufacture_plan0_0[1]= this.historicalData.plans[0].rooms.manufacture[0].autofill
     this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[0].product)
-
+    }
+        
+    if(this.historicalData.plans[0].rooms.manufacture[1].skip){
+    this.switch_manufacture_plan0_1[2] = true;   
+    } else{
     this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
     this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
     this.switch_manufacture_plan0_1[1]= this.historicalData.plans[0].rooms.manufacture[1].autofill
     this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[1].product)
+    }
 
-     this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
+    if(this.historicalData.plans[0].rooms.manufacture[2].skip){
+    this.switch_manufacture_plan0_2[2] = true;   
+    } else{
+    this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
     this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
     this.switch_manufacture_plan0_2[1]= this.historicalData.plans[0].rooms.manufacture[2].autofill
     this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[2].product)
+    }
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
-     this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
+      if(this.historicalData.plans[0].rooms.manufacture[3].skip){
+    this.switch_manufacture_plan0_3[2] = true;   
+      } else{
+    this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
     this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
     this.switch_manufacture_plan0_3[1]= this.historicalData.plans[0].rooms.manufacture[3].autofill
     this.radio_manufacture_plan0[3]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[3].product)
+       }
     };
+
     if('153'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[0].rooms.manufacture[4].skip){
+    this.switch_manufacture_plan0_4[2] = true;   
+      } else{
     this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators
     this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort
     this.switch_manufacture_plan0_4[1]= this.historicalData.plans[0].rooms.manufacture[4].autofill
     this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[4].product)
+      }
     };
 
     this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
