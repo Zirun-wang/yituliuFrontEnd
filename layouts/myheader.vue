@@ -11,13 +11,13 @@
     >
       <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
       <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
-      <el-menu-item index="4" @click="schedule()">排班生成器</el-menu-item>
-      <el-submenu index="3">
+      <el-menu-item index="3" @click="schedule()">排班生成器</el-menu-item>
+      <!-- <el-submenu index="4">
         <template slot="title">其它工具</template>
-        <el-menu-item index="3-1" @click="recruit()">公开招募</el-menu-item>
-        <el-menu-item index="3-2" @click="expCal()">升级计算</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="4" @click="switchTheme()">暗色</el-menu-item>
+        <el-menu-item index="4-1" @click="recruit()">公开招募</el-menu-item>
+        <el-menu-item index="4-2" @click="expCal()">升级计算</el-menu-item>
+      </el-submenu> -->
+      <el-menu-item v-show="'/'===routePath" index="5" @click="switchTheme()">暗色</el-menu-item>
     </el-menu>
    
    
@@ -68,6 +68,7 @@
 <script>
 var count = 0;
 
+
 import cookie from "js-cookie";
 import Vue from "vue";
 
@@ -76,7 +77,11 @@ export default {
     return {
       activeIndex: "1",
       isCollapse: "true",
+      routePath:'/'
     };
+  },
+  created(){
+   this.showPath()
   },
   methods: {
     switchTheme() {
@@ -112,7 +117,18 @@ export default {
       this.isCollapse = !this.isCollapse;
       console.log(this.isCollapse);
     },
-
+   
+    showPath(){
+     this.routePath =this.$route.path;
+        if('/'===this.routePath )  this.activeIndex = '1';
+        if('/gachaCal/'===this.routePath )  this.activeIndex = '2';
+        if('/riicCal/'===this.routePath )  this.activeIndex = '3';
+        if('/recruit/'===this.routePath )  this.activeIndex = '4';
+        if('/expCal/'===this.routePath )  this.activeIndex = '4';
+        // if('/recruit/'===path )  this.activeIndex = '5';
+    
+    },
+   
     mainSite() {
       window.location.href = "/";
     },
@@ -134,6 +150,8 @@ export default {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
+
+    
   },
 };
 </script>

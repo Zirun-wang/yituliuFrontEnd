@@ -1206,8 +1206,9 @@ import cookie from "js-cookie";
 export default {
   data() {
     return {
-      exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=",
+      exportUrl:"",
       uid: 12345,
+      importId:'',
       historicalData:[],
       buildingType: "243",
       planTimes:'3班',
@@ -1357,37 +1358,30 @@ export default {
   },
   created() {
     this.setJson();
-
     this.getUid();
   },
   methods: {
     setExportUrl() {
       this.exportUrl =
-        // "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
-        "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
+        // "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
         this.uid;
     },
     maaBuildingJsonCreated() {
        this.setJson();
-       this.$message({
-          message: this.uid,
-          type: "success",
-          showClose: true,
-          duration: 3000,
-        });
       buildingApi.maaBuildingJsonCreated(this.scheduleJson,this.uid).then((response) => {
         this.$message({
-          message: response.data.message + "uid：" + response.data.uid,
+          message: response.data.message + "作业id为：" + response.data.uid,
           type: "success",
           showClose: true,
-          duration: 3000,
+          duration: 4000,
         });
         this.uid = response.data.uid;
         this.setExportUrl();
       });
     },
     retrieveSchedule(){
-      buildingApi.retrieveSchedule(this.uid).then((response) => {
+      buildingApi.retrieveSchedule(this.importId).then((response) => {
 
           this.historicalData = response.data.schedule
          this.importJson()
@@ -1396,8 +1390,7 @@ export default {
     getUid(){
          var timestamp=new Date().getTime();
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
-         console.log(timestamp*1000)
-         console.log(randNum)
+         
          this.uid  =timestamp*1000+randNum-1000000000000000
 
     },
@@ -1588,11 +1581,8 @@ export default {
       };
 
         plans_0.rooms.dormitory[0] = dormitory_planMap0_0;
-
         plans_0.rooms.dormitory[1] = dormitory_planMap0_1;
-
         plans_0.rooms.dormitory[2] = dormitory_planMap0_2;
-
         plans_0.rooms.dormitory[3] = dormitory_planMap0_3;
 
      // B换班表
@@ -1746,16 +1736,10 @@ export default {
         autofill: this.switch_dormitory_plan1_3[1],
       };
 
-
         plans_1.rooms.dormitory[0] = dormitory_planMap1_0;
-
         plans_1.rooms.dormitory[1] = dormitory_planMap1_1;
-
         plans_1.rooms.dormitory[2] = dormitory_planMap1_2;
-
         plans_1.rooms.dormitory[3] = dormitory_planMap1_3;
-
-
 
         // C换班表
       plans_2.name = this.name[2];
@@ -1927,7 +1911,6 @@ export default {
     this.descriptionH1 =  this.historicalData.description
     this.author = this.historicalData.author
     this.buildingType = this.historicalData.buildingType
-    this.uid = this.historicalData.id
   // 导入A班的信息-------------------------------------------------------------------------------
     this.name[0] =  this.historicalData.plans[0].name
     this.descriptionH2[0] =  this.historicalData.plans[0].description
@@ -1947,10 +1930,12 @@ export default {
     this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill
     this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product)
 
+    if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
     this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
     this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
     this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill
     this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product)
+    }
 
     if('333'=== this.historicalData.buildingType){
     this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
@@ -2025,10 +2010,12 @@ export default {
     this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill
     this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product)
 
+    if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
     this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
     this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
     this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill
     this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product)
+    }
 
     if('333'=== this.historicalData.buildingType){
     this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
@@ -2102,11 +2089,13 @@ export default {
     this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
     this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill
     this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product)
-
+    
+    if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
     this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill
     this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product)
+    }
 
     if('333'=== this.historicalData.buildingType){
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
@@ -2173,9 +2162,7 @@ export default {
     setPeriod(list) {
       var start = parseInt(list[0].substr(0, 2));
       var end = parseInt(list[1].substr(0, 2));
-
       if (start > end) {
-
         return [
           [list[0], "23:59"],
           ["00:00", list[1]],
