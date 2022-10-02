@@ -87,7 +87,7 @@
             <el-button size="medium" type="primary" round style="width:126px;" @click="retrieveSchedule()">
               通过id导入
             </el-button>
-            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 150px" v-model="uid"></el-input>
+            <el-input size="small" class="parameter_inputbox" placeholder="id" style="margin-left:12px;width: 150px" v-model="importId"></el-input>
           </div>
           <div class="riic_building_parameter">
           *导出json文件的文件名即为id <br>
@@ -1194,8 +1194,9 @@ import cookie from "js-cookie";
 export default {
   data() {
     return {
-      exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=",
+      exportUrl:"",
       uid: 12345,
+      importId:1242141,
       historicalData:[],
       buildingType: "243",
       planTimes:'3班',
@@ -1351,8 +1352,8 @@ export default {
   methods: {
     setExportUrl() {
       this.exportUrl =
-        // "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
-        "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
+        // "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
         this.uid;
     },
     maaBuildingJsonCreated() {
@@ -1375,7 +1376,7 @@ export default {
       });
     },
     retrieveSchedule(){
-      buildingApi.retrieveSchedule(this.uid).then((response) => {
+      buildingApi.retrieveSchedule(this.importId).then((response) => {
          
           this.historicalData = response.data.schedule
          this.importJson()
@@ -1915,7 +1916,8 @@ export default {
     this.descriptionH1 =  this.historicalData.description 
     this.author = this.historicalData.author
     this.buildingType = this.historicalData.buildingType
-    this.uid = this.historicalData.id
+    console.log(this.historicalData.id)
+    
   // 导入A班的信息-------------------------------------------------------------------------------
     this.name[0] =  this.historicalData.plans[0].name 
     this.descriptionH2[0] =  this.historicalData.plans[0].description 
