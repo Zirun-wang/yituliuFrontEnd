@@ -163,18 +163,20 @@
         </div>
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
-          <div class="riic_building_operatorArray">
-            <el-input class="operator_inputbox" size="small" placeholder="1" v-model="control_plan0[0]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="2" v-model="control_plan0[1]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="3" v-model="control_plan0[2]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="4" v-model="control_plan0[3]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="5" v-model="control_plan0[4]"></el-input>
+          <div class="riic_building_operatorArray" >
+            <el-popover placement="right" width="400" trigger="click">
+            <el-input class="operator_inputbox" size="small" placeholder="1"  v-model="control_plan0[0]"></el-input>
+            </el-popover>
+            <el-input class="operator_inputbox" size="small" placeholder="2"  v-model="control_plan0[1]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="3"  v-model="control_plan0[2]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="4"  v-model="control_plan0[3]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="5"  v-model="control_plan0[4]"></el-input>
           </div>
           <!-- 复制这一坨到同级即可           -->
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
           <!-- end -->
         </div>
         <div class="riic_building building_trade">
@@ -197,10 +199,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
@@ -222,10 +224,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
           <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
@@ -247,10 +249,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站1</div>
@@ -273,10 +275,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
@@ -299,10 +301,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站3</div>
@@ -325,10 +327,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
@@ -351,10 +353,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
@@ -393,10 +395,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2</div>
@@ -425,10 +427,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_meetingRoom">
           <div class="riic_building_title">会客室</div>
@@ -442,10 +444,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_meeting_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室</div>
@@ -458,10 +460,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_hire_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_dormitory">
           <div class="riic_building_title">宿舍1</div>
@@ -1249,6 +1251,11 @@
         </div>
       </div>
     </div>
+    
+<el-dialog title="" :visible.sync="dialogTableVisible">
+ 
+</el-dialog>
+      
   </div>
 </template>
 
@@ -1256,6 +1263,8 @@
 import buildingApi from "@/api/building";
 import cookie from "js-cookie";
 import toolApi from "@/api/tool";
+import charNameJson from "static/json/charName.json";
+
 
 export default {
   data() {
@@ -1264,8 +1273,10 @@ export default {
       uid: 12345,
       importId:'',
       historicalData:[],
+      dialogTableVisible:false,
       buildingType: "243",
       planTimes:'3班',
+      charNameData:charNameJson,
       scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个顶配243排班协议演示",
@@ -1519,7 +1530,7 @@ export default {
       plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
 
       var control_planMap0_0 = {
-        operators: this.control_plan0
+        operators: this.getList(this.control_plan0)
       };
       if(this.control_skip[0]){
         control_planMap0_0 = {skip:true}
@@ -1528,7 +1539,7 @@ export default {
       
 
       var trading_planMap0_0 = {
-        operators: this.trading_plan0_0,
+        operators: this.getList(this.trading_plan0_0),
         sort: this.switch_trading_plan0_0[0],
         autofill: this.switch_trading_plan0_0[1],
         product: this.getParamsValue(this.radio_trading_plan0[0]),
@@ -1538,7 +1549,7 @@ export default {
       }
      
       var trading_planMap0_1 = {
-        operators: this.trading_plan0_1,
+        operators:this.getList(this.trading_plan0_1),
         sort: this.switch_trading_plan0_1[0],
         autofill: this.switch_trading_plan0_1[1],
         product: this.getParamsValue(this.radio_trading_plan0[1]),
@@ -1548,7 +1559,7 @@ export default {
       }
 
       var trading_planMap0_2 = {
-        operators: this.trading_plan0_2,
+        operators:this.getList(this.trading_plan0_2),
         sort: this.switch_trading_plan0_2[0],
         autofill: this.switch_trading_plan0_2[1],
         product: this.getParamsValue(this.radio_trading_plan0[2]),
@@ -1564,7 +1575,7 @@ export default {
       plans_0.rooms.trading[2] = trading_planMap0_2;
 
       var manufacture_planMap0_0 = {
-        operators: this.manufacture_plan0_0,
+        operators:this.getList(this.manufacture_plan0_0),
         sort: this.switch_manufacture_plan0_0[0],
         autofill: this.switch_manufacture_plan0_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[0]),
@@ -1574,7 +1585,7 @@ export default {
       } 
 
       var manufacture_planMap0_1 = {
-        operators: this.manufacture_plan0_1,
+        operators:this.getList(this.manufacture_plan0_1),
         sort: this.switch_manufacture_plan0_1[0],
         autofill: this.switch_manufacture_plan0_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[1]),
@@ -1584,7 +1595,7 @@ export default {
       } 
 
       var manufacture_planMap0_2 = {
-        operators: this.manufacture_plan0_2,
+        operators:this.getList(this.manufacture_plan0_2),
         sort: this.switch_manufacture_plan0_2[0],
         autofill: this.switch_manufacture_plan0_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[2]),
@@ -1594,7 +1605,7 @@ export default {
       } 
 
       var manufacture_planMap0_3 = {
-        operators: this.manufacture_plan0_3,
+        operators:this.getList(this.manufacture_plan0_3),
         sort: this.switch_manufacture_plan0_3[0],
         autofill: this.switch_manufacture_plan0_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[3]),
@@ -1604,7 +1615,7 @@ export default {
       } 
 
       var manufacture_planMap0_4 = {
-        operators: this.manufacture_plan0_4,
+        operators:this.getList(this.manufacture_plan0_4),
         sort: this.switch_manufacture_plan0_4[0],
         autofill: this.switch_manufacture_plan0_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[4]),
@@ -1723,7 +1734,7 @@ export default {
       plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
 
       var control_planMap1_0 = {
-        operators: this.control_plan1
+        operators: this.getList(this.control_plan1)
       };
       if(this.control_skip[1]){
         control_planMap1_0 = {skip:true}
@@ -1731,7 +1742,7 @@ export default {
       plans_1.rooms.control[0] = control_planMap1_0 ;
 
       var trading_planMap1_0 = {
-        operators: this.trading_plan1_0,
+        operators:this.getList(this.trading_plan1_0),
         sort: this.switch_trading_plan1_0[0],
         autofill: this.switch_trading_plan1_0[1],
         product: this.getParamsValue(this.radio_trading_plan1[0]),
@@ -1741,7 +1752,7 @@ export default {
       }
 
       var trading_planMap1_1 = {
-        operators: this.trading_plan1_1,
+        operators:this.getList(this.trading_plan1_1),
         sort: this.switch_trading_plan1_1[0],
         autofill: this.switch_trading_plan1_1[1],
         product: this.getParamsValue(this.radio_trading_plan1[1]),
@@ -1751,7 +1762,7 @@ export default {
       }
 
       var trading_planMap1_2 = {
-        operators: this.trading_plan1_2,
+        operators:this.getList(this.trading_plan1_2),
         sort: this.switch_trading_plan1_2[0],
         autofill: this.switch_trading_plan1_2[1],
         product: this.getParamsValue(this.radio_trading_plan1[2]),
@@ -1768,7 +1779,7 @@ export default {
 
 
       var manufacture_planMap1_0 = {
-        operators: this.manufacture_plan1_0,
+        operators:this.getList(this.manufacture_plan1_0),
         sort: this.switch_manufacture_plan1_0[0],
         autofill: this.switch_manufacture_plan1_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[0]),
@@ -1778,7 +1789,7 @@ export default {
       } 
 
       var manufacture_planMap1_1 = {
-        operators: this.manufacture_plan1_1,
+        operators:this.getList(this.manufacture_plan1_1),
         sort: this.switch_manufacture_plan1_1[0],
         autofill: this.switch_manufacture_plan1_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[1]),
@@ -1788,7 +1799,7 @@ export default {
       } 
 
       var manufacture_planMap1_2 = {
-        operators: this.manufacture_plan1_2,
+        operators:this.getList(this.manufacture_plan1_2),
         sort: this.switch_manufacture_plan1_2[0],
         autofill: this.switch_manufacture_plan1_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[2]),
@@ -1798,7 +1809,7 @@ export default {
       } 
 
       var manufacture_planMap1_3 = {
-        operators: this.manufacture_plan1_3,
+        operators:this.getList(this.manufacture_plan1_3),
         sort: this.switch_manufacture_plan1_3[0],
         autofill: this.switch_manufacture_plan1_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[3]),
@@ -1808,7 +1819,7 @@ export default {
       } 
 
       var manufacture_planMap1_4 = {
-        operators: this.manufacture_plan1_4,
+        operators:this.getList(this.manufacture_plan1_4),
         sort: this.switch_manufacture_plan1_4[0],
         autofill: this.switch_manufacture_plan1_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[4]),
@@ -1927,7 +1938,7 @@ export default {
       plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
 
       var control_planMap2_0 = {
-        operators: this.control_plan2
+        operators: this.getList(this.control_plan2)
       };
       if(this.control_skip[2]){
         control_planMap2_0 = {skip:true}
@@ -1935,7 +1946,7 @@ export default {
       plans_2.rooms.control[0] = control_planMap2_0 ;
 
       var trading_planMap2_0 = {
-        operators: this.trading_plan2_0,
+        operators:this.getList(this.trading_plan2_0),
         sort: this.switch_trading_plan2_0[0],
         autofill: this.switch_trading_plan2_0[1],
         product: this.getParamsValue(this.radio_trading_plan2[0]),
@@ -1945,7 +1956,7 @@ export default {
       }
 
       var trading_planMap2_1 = {
-        operators: this.trading_plan2_1,
+        operators:this.getList(this.trading_plan2_1),
         sort: this.switch_trading_plan2_1[0],
         autofill: this.switch_trading_plan2_1[1],
         product: this.getParamsValue(this.radio_trading_plan2[1]),
@@ -1955,7 +1966,7 @@ export default {
       }
 
       var trading_planMap2_2 = {
-        operators: this.trading_plan2_2,
+        operators:this.getList(this.trading_plan2_2),
         sort: this.switch_trading_plan2_2[0],
         autofill: this.switch_trading_plan2_2[1],
         product: this.getParamsValue(this.radio_trading_plan2[2]),
@@ -1971,7 +1982,7 @@ export default {
       plans_2.rooms.trading[2] = trading_planMap2_2;
 
       var manufacture_planMap2_0 = {
-        operators: this.manufacture_plan2_0,
+        operators:this.getList(this.manufacture_plan2_0),
         sort: this.switch_manufacture_plan2_0[0],
         autofill: this.switch_manufacture_plan2_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[0]),
@@ -1981,7 +1992,7 @@ export default {
       } 
 
       var manufacture_planMap2_1 = {
-        operators: this.manufacture_plan2_1,
+        operators:this.getList(this.manufacture_plan2_1),
         sort: this.switch_manufacture_plan2_1[0],
         autofill: this.switch_manufacture_plan2_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[1]),
@@ -1992,7 +2003,7 @@ export default {
 
 
       var manufacture_planMap2_2 = {
-        operators: this.manufacture_plan2_2,
+        operators:this.getList(this.manufacture_plan2_2),
         sort: this.switch_manufacture_plan2_2[0],
         autofill: this.switch_manufacture_plan2_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[2]),
@@ -2002,7 +2013,7 @@ export default {
       } 
 
       var manufacture_planMap2_3 = {
-        operators: this.manufacture_plan2_3,
+        operators:this.getList(this.manufacture_plan2_3),
         sort: this.switch_manufacture_plan2_3[0],
         autofill: this.switch_manufacture_plan2_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[3]),
@@ -2012,7 +2023,7 @@ export default {
       } 
 
       var manufacture_planMap2_4 = {
-        operators: this.manufacture_plan2_4,
+        operators:this.getList(this.manufacture_plan2_4),
         sort: this.switch_manufacture_plan2_4[0],
         autofill: this.switch_manufacture_plan2_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[4]),
@@ -2030,7 +2041,7 @@ export default {
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
 
       var power_planMap2_0 = {
-        operators: [this.power_plan2_0[0]],
+        operators:this.getList([this.power_plan2_0[0]]),
         // sort: this.switch_power_plan2_0[0],
         autofill: this.switch_power_plan2_0[1],
       };
@@ -2039,7 +2050,7 @@ export default {
       } 
 
       var power_planMap2_1 = {
-        operators: [this.power_plan2_0[1]],
+        operators:this.getList([this.power_plan2_0[1]]),
         // sort: this.switch_power_plan2_1[0],
         autofill: this.switch_power_plan2_1[1],
       };
@@ -2048,7 +2059,7 @@ export default {
       } 
 
       var power_planMap2_2 = {
-        operators:[ this.power_plan2_0[2]],
+        operators:this.getList([ this.power_plan2_0[2]]),
         // sort: this.switch_power_plan2_2[0],
         autofill: this.switch_power_plan2_2[1],
       };
@@ -2062,7 +2073,7 @@ export default {
       plans_2.rooms.power[2] = power_planMap2_2;
 
       var hire_planMap2_0 = {
-        operators: this.hire_plan2_0,
+        operators:this.getList(this.hire_plan2_0),
         // sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
@@ -2073,7 +2084,7 @@ export default {
       plans_2.rooms.hire[0] = hire_planMap2_0;
 
       var meeting_planMap2_0 = {
-        operators: this.meeting_plan2_0,
+        operators:this.getList(this.meeting_plan2_0),
         // sort: this.switch_meeting_plan2_0[0],
         autofill: this.switch_meeting_plan2_0[1],
       };
@@ -2084,25 +2095,25 @@ export default {
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
 
       var dormitory_planMap2_0 = {
-        operators: this.dormitory_plan2_0,
+        operators:this.getList(this.dormitory_plan2_0),
         sort: this.switch_dormitory_plan2_0[0],
         autofill: this.switch_dormitory_plan2_0[1],
       };
 
       var dormitory_planMap2_1 = {
-        operators: this.dormitory_plan2_1,
+        operators:this.getList(this.dormitory_plan2_1),
         sort: this.switch_dormitory_plan2_1[0],
         autofill: this.switch_dormitory_plan2_1[1],
       };
 
       var dormitory_planMap2_2 = {
-        operators: this.dormitory_plan2_2,
+        operators:this.getList(this.dormitory_plan2_2),
         sort: this.switch_dormitory_plan2_2[0],
         autofill: this.switch_dormitory_plan2_2[1],
       };
 
       var dormitory_planMap2_3 = {
-        operators: this.dormitory_plan2_3,
+        operators:this.getList(this.dormitory_plan2_3),
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
@@ -2590,9 +2601,14 @@ export default {
     getList(list){
       var listCopy = []
       for(let i=0;i<list.length;i++){
-        if(list[i]!=''){
-           listCopy.push(list[i])
+        if(list[i]===''||list[i]===undefined||list[i]==='undefined'
+        ||typeof list[i]===undefined){
+          console.log("抛出的内容",list[i])
+          continue;
         }
+
+         console.log(list[i])
+           listCopy.push(list[i])
       }
       return listCopy
     },
