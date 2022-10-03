@@ -164,9 +164,7 @@
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
           <div class="riic_building_operatorArray" >
-            <el-popover placement="right" width="400" trigger="click">
             <el-input class="operator_inputbox" size="small" placeholder="1"  v-model="control_plan0[0]"></el-input>
-            </el-popover>
             <el-input class="operator_inputbox" size="small" placeholder="2"  v-model="control_plan0[1]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="3"  v-model="control_plan0[2]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="4"  v-model="control_plan0[3]"></el-input>
@@ -1251,11 +1249,7 @@
         </div>
       </div>
     </div>
-    
-<el-dialog title="" :visible.sync="dialogTableVisible">
- 
-</el-dialog>
-      
+
   </div>
 </template>
 
@@ -1425,7 +1419,7 @@ export default {
   created() {
     this.setJson();
     this.getUid();
-   
+    
   },
   methods: {
     updateVisits() {
@@ -1462,7 +1456,7 @@ export default {
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
          
         this.uid  =timestamp*1000+randNum-1000000000000000
-
+    this.setExportUrl()
     },
     setJson() {
       this.scheduleJson = { plans: [] };
@@ -2603,11 +2597,8 @@ export default {
       for(let i=0;i<list.length;i++){
         if(list[i]===''||list[i]===undefined||list[i]==='undefined'
         ||typeof list[i]===undefined){
-          console.log("抛出的内容",list[i])
           continue;
         }
-
-         console.log(list[i])
            listCopy.push(list[i])
       }
       return listCopy
