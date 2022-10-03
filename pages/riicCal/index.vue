@@ -170,6 +170,12 @@
             <el-input class="operator_inputbox" size="small" placeholder="4" v-model="control_plan0[3]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="5" v-model="control_plan0[4]"></el-input>
           </div>
+          <!-- 复制这一坨到同级即可           -->
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <!-- end -->
         </div>
         <div class="riic_building building_trade">
           <div class="riic_building_title">贸易站1</div>
@@ -188,12 +194,12 @@
           <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch v-model="switch_trading_plan0_0[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-            <div class="parameter_text">
-              <div class="parameter_text" style="margin-left: 20px">
-                自动填充
-              </div>
-            </div>
+            <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
@@ -216,6 +222,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
           <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
@@ -236,6 +246,10 @@
             <el-switch v-model="switch_trading_plan0_2[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory">
@@ -259,6 +273,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
@@ -280,6 +298,10 @@
             <el-switch v-model="switch_manufacture_plan0_1[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory">
@@ -303,6 +325,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
@@ -324,6 +350,10 @@
             <el-switch v-model="switch_manufacture_plan0_3[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_factory" v-show="'153' === buildingType">
@@ -347,6 +377,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_4[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1</div>
@@ -358,6 +392,10 @@
             <el-switch v-model="switch_power_plan0_0[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_powerPlant">
@@ -371,6 +409,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站3</div>
@@ -382,6 +424,10 @@
             <el-switch v-model="switch_power_plan0_2[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_meetingRoom">
@@ -396,6 +442,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_meeting_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室</div>
@@ -407,6 +457,10 @@
             <el-switch v-model="switch_hire_plan0_0[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_hire_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
+          </div>
+          <div class="riic_building_parameter">
+            <div class="parameter_text">跳过该设施</div>
+            <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
         </div>
         <div class="riic_building building_dormitory">
