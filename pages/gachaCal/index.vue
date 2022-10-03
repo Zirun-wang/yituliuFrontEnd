@@ -1570,11 +1570,11 @@
           parseInt(this.weekStageValue) * 1800 +
           parseInt(this.countDown) * (8500 / 14);
 
-        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) >= 18) {
+        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) <= 18) {
+         this.$message.error("你的源石不足");
+        } 
+
           this.skinValue = this.skinFlag;
-        } else {
-          this.$message.error("你的源石不足");
-        }
 
         this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
 

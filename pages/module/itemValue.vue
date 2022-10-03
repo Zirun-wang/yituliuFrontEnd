@@ -18,11 +18,11 @@
             <div id="value_switch_to_green" :class="tag_class_green" @click="switchUnit(2)">
             等效绿票
           </div>
-          <div class="tab_text">
-          导出Excel
+          <div class="tab_text" >
+          <a style="color:blue" href="https://houduan.yituliu.site/save/export/item/value"> 导出Excel</a>
           </div>
           <div class="tab_text">
-          导出Json
+          <a style="color:blue" href="https://houduan.yituliu.site/save/export/item/value"> 导出Json</a>
           </div>
         </div>
       </div>
