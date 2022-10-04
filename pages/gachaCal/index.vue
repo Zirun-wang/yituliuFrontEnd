@@ -1080,9 +1080,9 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 3, //剩余月数
-
-        SignInMonthsRemaining: 0,
+        monthsRemaining: 2, //剩余月数
+        SignInMonthsRemaining: 0, // 剩余签到次数
+     
         countDown: 0, //限定池每日送抽倒计时
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励

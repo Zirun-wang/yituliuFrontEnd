@@ -1456,7 +1456,7 @@ export default {
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
          
         this.uid  =timestamp*1000+randNum-1000000000000000
-    this.setExportUrl()
+   
     },
     setJson() {
       this.scheduleJson = { plans: [] };
