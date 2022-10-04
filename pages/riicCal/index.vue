@@ -170,18 +170,18 @@
         </div>
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
-          <div class="riic_building_operatorArray">
-            <el-input class="operator_inputbox" size="small" placeholder="1" v-model="control_plan0[0]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="2" v-model="control_plan0[1]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="3" v-model="control_plan0[2]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="4" v-model="control_plan0[3]"></el-input>
-            <el-input class="operator_inputbox" size="small" placeholder="5" v-model="control_plan0[4]"></el-input>
+          <div class="riic_building_operatorArray" >
+            <el-input class="operator_inputbox" size="small" placeholder="1"  v-model="control_plan0[0]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="2"  v-model="control_plan0[1]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="3"  v-model="control_plan0[2]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="4"  v-model="control_plan0[3]"></el-input>
+            <el-input class="operator_inputbox" size="small" placeholder="5"  v-model="control_plan0[4]"></el-input>
           </div>
           <!-- 复制这一坨到同级即可           -->
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
           <!-- end -->
         </div>
         <div class="riic_building building_trade">
@@ -204,10 +204,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
@@ -229,10 +229,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
           <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
@@ -254,10 +254,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站1</div>
@@ -280,10 +280,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
@@ -306,10 +306,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_1[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站3</div>
@@ -332,10 +332,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
@@ -358,10 +358,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_manufacture_plan0_3[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
@@ -400,10 +400,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2</div>
@@ -432,10 +432,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_power_plan0_2[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_meetingRoom">
           <div class="riic_building_title">会客室</div>
@@ -449,10 +449,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_meeting_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室</div>
@@ -465,10 +465,10 @@
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_hire_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
           </div>
-          <div class="riic_building_parameter">
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
         </div>
         <div class="riic_building building_dormitory">
           <div class="riic_building_title">宿舍1</div>
@@ -1256,6 +1256,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -1263,6 +1264,8 @@
 import buildingApi from "@/api/building";
 import cookie from "js-cookie";
 import toolApi from "@/api/tool";
+import charNameJson from "static/json/charName.json";
+
 
 export default {
   head: {
@@ -1288,22 +1291,24 @@ export default {
       uid: 12345,
       importId:'',
       historicalData:[],
+      dialogTableVisible:false,
       buildingType: "243",
       planTimes:'3班',
+      charNameData:charNameJson,
       scheduleJson: { plans: [] },
       title: "243极限",
       descriptionH1: "这是个顶配243排班协议演示",
       author: "yituliu",
-      name: ["A+B 组", "A+C 组", "C+B 组"],
+      name: ["B+C 组", "A+C 组", "A+B 组"],
       descriptionH2: ["111111111", "2222222222222", "3333333333333"],
       radio_drones: ["贸易站", "制造站", "贸易站"],
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
-      input_drones_order: ["换班后", "换班后", "换班后"],
+      input_drones_order: ["换班前", "换班前", "换班前"],
       Fiammetta: ["巫恋", "巫恋", "巫恋"],
       switch_Fiammetta_enable: [false, false, false],
-      input_Fiammetta_order: ["换班后", "换班后", "换班后"],
-      control_skip:[true,false,false],
+      input_Fiammetta_order: ["换班前", "换班前", "换班前"],
+      control_skip:[false,false,false],
       // A换班参数
       period_plan0: ["08:00", '13:59'],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
@@ -1311,7 +1316,7 @@ export default {
       trading_plan0_1: ["但书", "空弦", "黑键"],
       trading_plan0_2: [],
       radio_trading_plan0: ["龙门币", "龙门币", "龙门币"],
-      switch_trading_plan0_0: [false,false,true],
+      switch_trading_plan0_0: [false,false,false],
       switch_trading_plan0_1: [false,false,false],
       switch_trading_plan0_2: [false,false,false],
       manufacture_plan0_0: ["红云", "稀音", "帕拉斯"],
@@ -1336,10 +1341,10 @@ export default {
       switch_power_plan0_1: [false,false,false],
       switch_power_plan0_2: [false,false,false],
       hire_plan0_0: ["絮雨1"],
-      switch_hire_plan0_0: [false, false],
+      switch_hire_plan0_0: [false, false,false],
       meeting_plan0_0: ["陈", "守林人"],
-      switch_meeting_plan0_0: [false, false],
-      dormitory_plan0_0: ["爱丽丝", "车尔尼"],
+      switch_meeting_plan0_0: [false, false,false],
+      dormitory_plan0_0: [],
       dormitory_plan0_1: [],
       dormitory_plan0_2: [],
       dormitory_plan0_3: [],
@@ -1379,10 +1384,10 @@ export default {
       switch_power_plan1_1: [false,false,false],
       switch_power_plan1_2: [false,false,false],
       hire_plan1_0: ["艾雅法拉"],
-      switch_hire_plan1_0: [false,false],
+      switch_hire_plan1_0: [false,false,false],
       meeting_plan1_0: ["陈", "守林人"],
-      switch_meeting_plan1_0: [false,false],
-      dormitory_plan1_0: ["爱丽丝", "车尔尼"],
+      switch_meeting_plan1_0: [false,false,false],
+      dormitory_plan1_0: [],
       dormitory_plan1_1: [],
       dormitory_plan1_2: [],
       dormitory_plan1_3: [],
@@ -1422,23 +1427,23 @@ export default {
       switch_power_plan2_1: [false,false,false],
       switch_power_plan2_2: [false,false,false],
       hire_plan2_0: ["絮雨2"],
-      switch_hire_plan2_0: [false, false],
+      switch_hire_plan2_0: [false,false,false],
       meeting_plan2_0: ["陈", "守林人"],
-      switch_meeting_plan2_0: [false, false],
-      dormitory_plan2_0: ["爱丽丝", "车尔尼"],
+      switch_meeting_plan2_0: [false,false,false],
+      dormitory_plan2_0: [],
       dormitory_plan2_1: [],
       dormitory_plan2_2: [],
       dormitory_plan2_3: [],
-      switch_dormitory_plan2_0: [true, true],
-      switch_dormitory_plan2_1: [false, true],
-      switch_dormitory_plan2_2: [false, true],
-      switch_dormitory_plan2_3: [false, true],
+      switch_dormitory_plan2_0: [true,true],
+      switch_dormitory_plan2_1: [false,true],
+      switch_dormitory_plan2_2: [false,true],
+      switch_dormitory_plan2_3: [false,true],
     };
   },
   created() {
     this.setJson();
     this.getUid();
-   
+    
   },
   methods: {
     updateVisits() {
@@ -1475,13 +1480,13 @@ export default {
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
          
         this.uid  =timestamp*1000+randNum-1000000000000000
-
+   
     },
     setJson() {
       this.scheduleJson = { plans: [] };
       var plans_0 = {
-        Fiammetta: { target: "", enable: true, order: "pre" },
-        drones: { room: "", index: 1, enable: true, order: "pre" },
+        Fiammetta: { target: '', enable: false, order: "pre" },
+        drones: { room: "", index: 1, enable: false, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -1493,8 +1498,8 @@ export default {
         },
       };
       var plans_1 = {
-        Fiammetta: { target: "", enable: true, order: "pre" },
-        drones: { room: "", index: 1, enable: true, order: "pre" },
+        Fiammetta: { target: '', enable: false, order: "pre" },
+        drones: { room: "", index: 1, enable: false, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -1506,8 +1511,8 @@ export default {
         },
       };
       var plans_2 = {
-        Fiammetta: { target: "", enable: true, order: "pre" },
-        drones: { room: "", index: 1, enable: true, order: "pre" },
+        Fiammetta: { target: '', enable: false, order: "pre" },
+        drones: { room: "", index: 1, enable: false, order: "pre" },
         rooms: {
           control: [],
           trading: [],
@@ -1523,21 +1528,27 @@ export default {
       this.scheduleJson.author = this.author
       this.scheduleJson.buildingType =this.buildingType
       this.scheduleJson.id = this.uid
+      this.scheduleJson.planTimes = this.planTimes
       plans_0.name = this.name[0];
       plans_0.description = this.descriptionH2[0];
       plans_0.period = this.setPeriod(this.period_plan0);
+      
       if(this.switch_Fiammetta_enable[0]){
       plans_0.Fiammetta.target = this.Fiammetta[0];
       plans_0.Fiammetta.enable = this.switch_Fiammetta_enable[0];
       plans_0.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[0]);
+      }else{
+        plans_0.Fiammetta = this.getNull()
       }
+
+
       plans_0.drones.room = this.getParamsValue(this.radio_drones[0]);
       plans_0.drones.index = this.radio_drones_index[0];
       plans_0.drones.enable = this.switch_drones_enable[0];
       plans_0.drones.order = this.getOrder(this.input_drones_order[0]);
 
       var control_planMap0_0 = {
-        operators: this.control_plan0
+        operators: this.getList(this.control_plan0)
       };
       if(this.control_skip[0]){
         control_planMap0_0 = {skip:true}
@@ -1546,7 +1557,7 @@ export default {
       
 
       var trading_planMap0_0 = {
-        operators: this.trading_plan0_0,
+        operators: this.getList(this.trading_plan0_0),
         sort: this.switch_trading_plan0_0[0],
         autofill: this.switch_trading_plan0_0[1],
         product: this.getParamsValue(this.radio_trading_plan0[0]),
@@ -1556,7 +1567,7 @@ export default {
       }
      
       var trading_planMap0_1 = {
-        operators: this.trading_plan0_1,
+        operators:this.getList(this.trading_plan0_1),
         sort: this.switch_trading_plan0_1[0],
         autofill: this.switch_trading_plan0_1[1],
         product: this.getParamsValue(this.radio_trading_plan0[1]),
@@ -1566,7 +1577,7 @@ export default {
       }
 
       var trading_planMap0_2 = {
-        operators: this.trading_plan0_2,
+        operators:this.getList(this.trading_plan0_2),
         sort: this.switch_trading_plan0_2[0],
         autofill: this.switch_trading_plan0_2[1],
         product: this.getParamsValue(this.radio_trading_plan0[2]),
@@ -1582,7 +1593,7 @@ export default {
       plans_0.rooms.trading[2] = trading_planMap0_2;
 
       var manufacture_planMap0_0 = {
-        operators: this.manufacture_plan0_0,
+        operators:this.getList(this.manufacture_plan0_0),
         sort: this.switch_manufacture_plan0_0[0],
         autofill: this.switch_manufacture_plan0_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[0]),
@@ -1592,7 +1603,7 @@ export default {
       } 
 
       var manufacture_planMap0_1 = {
-        operators: this.manufacture_plan0_1,
+        operators:this.getList(this.manufacture_plan0_1),
         sort: this.switch_manufacture_plan0_1[0],
         autofill: this.switch_manufacture_plan0_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[1]),
@@ -1602,7 +1613,7 @@ export default {
       } 
 
       var manufacture_planMap0_2 = {
-        operators: this.manufacture_plan0_2,
+        operators:this.getList(this.manufacture_plan0_2),
         sort: this.switch_manufacture_plan0_2[0],
         autofill: this.switch_manufacture_plan0_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[2]),
@@ -1612,7 +1623,7 @@ export default {
       } 
 
       var manufacture_planMap0_3 = {
-        operators: this.manufacture_plan0_3,
+        operators:this.getList(this.manufacture_plan0_3),
         sort: this.switch_manufacture_plan0_3[0],
         autofill: this.switch_manufacture_plan0_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[3]),
@@ -1622,7 +1633,7 @@ export default {
       } 
 
       var manufacture_planMap0_4 = {
-        operators: this.manufacture_plan0_4,
+        operators:this.getList(this.manufacture_plan0_4),
         sort: this.switch_manufacture_plan0_4[0],
         autofill: this.switch_manufacture_plan0_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan0[4]),
@@ -1640,7 +1651,7 @@ export default {
         plans_0.rooms.manufacture[4] = manufacture_planMap0_4;
 
       var power_planMap0_0 = {
-        operators: [this.power_plan0_0[0]],
+        operators:this.getList([this.power_plan0_0[0]]),
         // sort: this.switch_power_plan0_0[0],
         autofill: this.switch_power_plan0_0[1],
       };
@@ -1649,7 +1660,7 @@ export default {
       } 
 
       var power_planMap0_1 = {
-        operators: [this.power_plan0_0[1]],
+        operators:this.getList([this.power_plan0_0[1]]),
         // sort: this.switch_power_plan0_1[0],
         autofill: this.switch_power_plan0_1[1],
       };
@@ -1658,7 +1669,7 @@ export default {
       } 
 
       var power_planMap0_2 = {
-        operators: [this.power_plan0_0[2]],
+        operators:this.getList([this.power_plan0_0[2]]),
         // sort: this.switch_power_plan0_2[0],
         autofill: this.switch_power_plan0_2[1],
       };
@@ -1671,41 +1682,47 @@ export default {
       plans_0.rooms.power[2] = power_planMap0_2;
 
       var hire_planMap0_0 = {
-        operators: this.hire_plan0_0,
+        operators:this.getList(this.hire_plan0_0),
         // sort: this.switch_hire_plan0_0[0],
         autofill: this.switch_hire_plan0_0[1],
       };
+      if(this.switch_hire_plan0_0[2]){
+        hire_planMap0_0 = {skip:true}
+      }
 
       plans_0.rooms.hire[0] = hire_planMap0_0;
 
       var meeting_planMap0_0 = {
-        operators: this.meeting_plan0_0,
+        operators:this.getList(this.meeting_plan0_0),
         // sort: this.switch_meeting_plan0_0[0],
         autofill: this.switch_meeting_plan0_0[1],
       };
+      if(this.switch_meeting_plan0_0[2]){
+        meeting_planMap0_0 = {skip:true}
+      }
 
       plans_0.rooms.meeting[0] = meeting_planMap0_0;
 
       var dormitory_planMap0_0 = {
-        operators: this.dormitory_plan0_0,
+        operators:this.getList(this.dormitory_plan0_0),
         sort: this.switch_dormitory_plan0_0[0],
         autofill: this.switch_dormitory_plan0_0[1],
       };
 
       var dormitory_planMap0_1 = {
-        operators: this.dormitory_plan0_1,
+        operators:this.getList(this.dormitory_plan0_1),
         sort: this.switch_dormitory_plan0_1[0],
         autofill: this.switch_dormitory_plan0_1[1],
       };
 
       var dormitory_planMap0_2 = {
-        operators: this.dormitory_plan0_2,
+        operators:this.getList(this.dormitory_plan0_2),
         sort: this.switch_dormitory_plan0_2[0],
         autofill: this.switch_dormitory_plan0_2[1],
       };
 
       var dormitory_planMap0_3 = {
-        operators: this.dormitory_plan0_3,
+        operators:this.getList( this.dormitory_plan0_3),
         sort: this.switch_dormitory_plan0_3[0],
         autofill: this.switch_dormitory_plan0_3[1],
       };
@@ -1720,18 +1737,22 @@ export default {
       plans_1.name = this.name[1];
       plans_1.period = this.setPeriod(this.period_plan1);
       plans_1.description = this.descriptionH2[1];
+      
       if(this.switch_Fiammetta_enable[1]){
       plans_1.Fiammetta.target = this.Fiammetta[1];
       plans_1.Fiammetta.enable = this.switch_Fiammetta_enable[1];
       plans_1.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[1]);
+      }else{
+      plans_1.Fiammetta = this.getNull()
       }
+     
       plans_1.drones.room = this.getParamsValue(this.radio_drones[1]);
       plans_1.drones.index = this.radio_drones_index[1];
       plans_1.drones.enable = this.switch_drones_enable[1];
       plans_1.drones.order = this.getOrder(this.input_drones_order[1]);
 
       var control_planMap1_0 = {
-        operators: this.control_plan1
+        operators: this.getList(this.control_plan1)
       };
       if(this.control_skip[1]){
         control_planMap1_0 = {skip:true}
@@ -1739,7 +1760,7 @@ export default {
       plans_1.rooms.control[0] = control_planMap1_0 ;
 
       var trading_planMap1_0 = {
-        operators: this.trading_plan1_0,
+        operators:this.getList(this.trading_plan1_0),
         sort: this.switch_trading_plan1_0[0],
         autofill: this.switch_trading_plan1_0[1],
         product: this.getParamsValue(this.radio_trading_plan1[0]),
@@ -1749,7 +1770,7 @@ export default {
       }
 
       var trading_planMap1_1 = {
-        operators: this.trading_plan1_1,
+        operators:this.getList(this.trading_plan1_1),
         sort: this.switch_trading_plan1_1[0],
         autofill: this.switch_trading_plan1_1[1],
         product: this.getParamsValue(this.radio_trading_plan1[1]),
@@ -1759,7 +1780,7 @@ export default {
       }
 
       var trading_planMap1_2 = {
-        operators: this.trading_plan1_2,
+        operators:this.getList(this.trading_plan1_2),
         sort: this.switch_trading_plan1_2[0],
         autofill: this.switch_trading_plan1_2[1],
         product: this.getParamsValue(this.radio_trading_plan1[2]),
@@ -1776,7 +1797,7 @@ export default {
 
 
       var manufacture_planMap1_0 = {
-        operators: this.manufacture_plan1_0,
+        operators:this.getList(this.manufacture_plan1_0),
         sort: this.switch_manufacture_plan1_0[0],
         autofill: this.switch_manufacture_plan1_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[0]),
@@ -1786,7 +1807,7 @@ export default {
       } 
 
       var manufacture_planMap1_1 = {
-        operators: this.manufacture_plan1_1,
+        operators:this.getList(this.manufacture_plan1_1),
         sort: this.switch_manufacture_plan1_1[0],
         autofill: this.switch_manufacture_plan1_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[1]),
@@ -1796,7 +1817,7 @@ export default {
       } 
 
       var manufacture_planMap1_2 = {
-        operators: this.manufacture_plan1_2,
+        operators:this.getList(this.manufacture_plan1_2),
         sort: this.switch_manufacture_plan1_2[0],
         autofill: this.switch_manufacture_plan1_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[2]),
@@ -1806,7 +1827,7 @@ export default {
       } 
 
       var manufacture_planMap1_3 = {
-        operators: this.manufacture_plan1_3,
+        operators:this.getList(this.manufacture_plan1_3),
         sort: this.switch_manufacture_plan1_3[0],
         autofill: this.switch_manufacture_plan1_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[3]),
@@ -1816,7 +1837,7 @@ export default {
       } 
 
       var manufacture_planMap1_4 = {
-        operators: this.manufacture_plan1_4,
+        operators:this.getList(this.manufacture_plan1_4),
         sort: this.switch_manufacture_plan1_4[0],
         autofill: this.switch_manufacture_plan1_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan1[4]),
@@ -1835,7 +1856,7 @@ export default {
       
 
       var power_planMap1_0 = {
-        operators: [this.power_plan1_0[0]],
+        operators:this.getList([this.power_plan1_0[0]]),
         // sort: this.switch_power_plan1_0[0],
         autofill: this.switch_power_plan1_0[1],
       };
@@ -1844,7 +1865,7 @@ export default {
       } 
 
       var power_planMap1_1 = {
-        operators: [this.power_plan1_0[1]],
+        operators:this.getList([this.power_plan1_0[1]]),
         // sort: this.switch_power_plan1_1[0],
         autofill: this.switch_power_plan1_1[1],
       };
@@ -1853,7 +1874,7 @@ export default {
       } 
 
       var power_planMap1_2 = {
-        operators: [this.power_plan1_0[2]],
+        operators:this.getList([this.power_plan1_0[2]]),
         // sort: this.switch_power_plan1_2[0],
         autofill: this.switch_power_plan1_2[1],
       };
@@ -1866,41 +1887,47 @@ export default {
       plans_1.rooms.power[2] = power_planMap1_2;
 
       var hire_planMap1_0 = {
-        operators: this.hire_plan1_0,
+        operators:this.getList(this.hire_plan1_0),
         // sort: this.switch_hire_plan1_0[0],
         autofill: this.switch_hire_plan1_0[1],
       };
+      if(this.switch_hire_plan1_0[2]){
+        hire_planMap1_0 = {skip:true}
+      }
 
       plans_1.rooms.hire[0] = hire_planMap1_0;
 
       var meeting_planMap1_0 = {
-        operators: this.meeting_plan1_0,
+        operators:this.getList(this.meeting_plan1_0),
         // sort: this.switch_meeting_plan1_0[0],
         autofill: this.switch_meeting_plan1_0[1],
       };
+      if(this.switch_meeting_plan1_0[2]){
+        meeting_planMap1_0 = {skip:true}
+      }
 
       plans_1.rooms.meeting[0] = meeting_planMap1_0;
 
       var dormitory_planMap1_0 = {
-        operators: this.dormitory_plan1_0,
+        operators:this.getList(this.dormitory_plan1_0),
         sort: this.switch_dormitory_plan1_0[0],
         autofill: this.switch_dormitory_plan1_0[1],
       };
 
       var dormitory_planMap1_1 = {
-        operators: this.dormitory_plan1_1,
+        operators:this.getList(this.dormitory_plan1_1),
         sort: this.switch_dormitory_plan1_1[0],
         autofill: this.switch_dormitory_plan1_1[1],
       };
 
       var dormitory_planMap1_2 = {
-        operators: this.dormitory_plan1_2,
+        operators:this.getList(this.dormitory_plan1_2),
         sort: this.switch_dormitory_plan1_2[0],
         autofill: this.switch_dormitory_plan1_2[1],
       };
 
       var dormitory_planMap1_3 = {
-        operators: this.dormitory_plan1_3,
+        operators:this.getList(this.dormitory_plan1_3),
         sort: this.switch_dormitory_plan1_3[0],
         autofill: this.switch_dormitory_plan1_3[1],
       };
@@ -1913,20 +1940,23 @@ export default {
         // C换班表
       plans_2.name = this.name[2];
       plans_2.period = this.setPeriod(this.period_plan2);
-
       plans_2.description = this.descriptionH2[2];
+
       if(this.switch_Fiammetta_enable[2]){
       plans_2.Fiammetta.target = this.Fiammetta[2];
       plans_2.Fiammetta.enable = this.switch_Fiammetta_enable[2];
       plans_2.Fiammetta.order = this.getOrder(this.input_Fiammetta_order[2]);
+      }else{
+        plans_2.Fiammetta = this.getNull()
       }
+
       plans_2.drones.room = this.getParamsValue(this.radio_drones[2]);
       plans_2.drones.index = this.radio_drones_index[2];
       plans_2.drones.enable = this.switch_drones_enable[2];
       plans_2.drones.order = this.getOrder(this.input_drones_order[2]);
 
       var control_planMap2_0 = {
-        operators: this.control_plan2
+        operators: this.getList(this.control_plan2)
       };
       if(this.control_skip[2]){
         control_planMap2_0 = {skip:true}
@@ -1934,7 +1964,7 @@ export default {
       plans_2.rooms.control[0] = control_planMap2_0 ;
 
       var trading_planMap2_0 = {
-        operators: this.trading_plan2_0,
+        operators:this.getList(this.trading_plan2_0),
         sort: this.switch_trading_plan2_0[0],
         autofill: this.switch_trading_plan2_0[1],
         product: this.getParamsValue(this.radio_trading_plan2[0]),
@@ -1944,7 +1974,7 @@ export default {
       }
 
       var trading_planMap2_1 = {
-        operators: this.trading_plan2_1,
+        operators:this.getList(this.trading_plan2_1),
         sort: this.switch_trading_plan2_1[0],
         autofill: this.switch_trading_plan2_1[1],
         product: this.getParamsValue(this.radio_trading_plan2[1]),
@@ -1954,7 +1984,7 @@ export default {
       }
 
       var trading_planMap2_2 = {
-        operators: this.trading_plan2_2,
+        operators:this.getList(this.trading_plan2_2),
         sort: this.switch_trading_plan2_2[0],
         autofill: this.switch_trading_plan2_2[1],
         product: this.getParamsValue(this.radio_trading_plan2[2]),
@@ -1970,7 +2000,7 @@ export default {
       plans_2.rooms.trading[2] = trading_planMap2_2;
 
       var manufacture_planMap2_0 = {
-        operators: this.manufacture_plan2_0,
+        operators:this.getList(this.manufacture_plan2_0),
         sort: this.switch_manufacture_plan2_0[0],
         autofill: this.switch_manufacture_plan2_0[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[0]),
@@ -1980,7 +2010,7 @@ export default {
       } 
 
       var manufacture_planMap2_1 = {
-        operators: this.manufacture_plan2_1,
+        operators:this.getList(this.manufacture_plan2_1),
         sort: this.switch_manufacture_plan2_1[0],
         autofill: this.switch_manufacture_plan2_1[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[1]),
@@ -1991,7 +2021,7 @@ export default {
 
 
       var manufacture_planMap2_2 = {
-        operators: this.manufacture_plan2_2,
+        operators:this.getList(this.manufacture_plan2_2),
         sort: this.switch_manufacture_plan2_2[0],
         autofill: this.switch_manufacture_plan2_2[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[2]),
@@ -2001,7 +2031,7 @@ export default {
       } 
 
       var manufacture_planMap2_3 = {
-        operators: this.manufacture_plan2_3,
+        operators:this.getList(this.manufacture_plan2_3),
         sort: this.switch_manufacture_plan2_3[0],
         autofill: this.switch_manufacture_plan2_3[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[3]),
@@ -2011,7 +2041,7 @@ export default {
       } 
 
       var manufacture_planMap2_4 = {
-        operators: this.manufacture_plan2_4,
+        operators:this.getList(this.manufacture_plan2_4),
         sort: this.switch_manufacture_plan2_4[0],
         autofill: this.switch_manufacture_plan2_4[1],
         product: this.getParamsValue(this.radio_manufacture_plan2[4]),
@@ -2029,7 +2059,7 @@ export default {
         plans_2.rooms.manufacture[4] = manufacture_planMap2_4;
 
       var power_planMap2_0 = {
-        operators: [this.power_plan2_0[0]],
+        operators:this.getList([this.power_plan2_0[0]]),
         // sort: this.switch_power_plan2_0[0],
         autofill: this.switch_power_plan2_0[1],
       };
@@ -2038,7 +2068,7 @@ export default {
       } 
 
       var power_planMap2_1 = {
-        operators: [this.power_plan2_0[1]],
+        operators:this.getList([this.power_plan2_0[1]]),
         // sort: this.switch_power_plan2_1[0],
         autofill: this.switch_power_plan2_1[1],
       };
@@ -2047,7 +2077,7 @@ export default {
       } 
 
       var power_planMap2_2 = {
-        operators:[ this.power_plan2_0[2]],
+        operators:this.getList([ this.power_plan2_0[2]]),
         // sort: this.switch_power_plan2_2[0],
         autofill: this.switch_power_plan2_2[1],
       };
@@ -2061,41 +2091,47 @@ export default {
       plans_2.rooms.power[2] = power_planMap2_2;
 
       var hire_planMap2_0 = {
-        operators: this.hire_plan2_0,
+        operators:this.getList(this.hire_plan2_0),
         // sort: this.switch_hire_plan2_0[0],
         autofill: this.switch_hire_plan2_0[1],
       };
+      if(this.switch_hire_plan2_0[2]){
+        hire_planMap2_0 = {skip:true}
+      }
 
       plans_2.rooms.hire[0] = hire_planMap2_0;
 
       var meeting_planMap2_0 = {
-        operators: this.meeting_plan2_0,
+        operators:this.getList(this.meeting_plan2_0),
         // sort: this.switch_meeting_plan2_0[0],
         autofill: this.switch_meeting_plan2_0[1],
       };
+      if(this.switch_meeting_plan2_0[2]){
+        meeting_planMap2_0 = {skip:true}
+      }
 
       plans_2.rooms.meeting[0] = meeting_planMap2_0;
 
       var dormitory_planMap2_0 = {
-        operators: this.dormitory_plan2_0,
+        operators:this.getList(this.dormitory_plan2_0),
         sort: this.switch_dormitory_plan2_0[0],
         autofill: this.switch_dormitory_plan2_0[1],
       };
 
       var dormitory_planMap2_1 = {
-        operators: this.dormitory_plan2_1,
+        operators:this.getList(this.dormitory_plan2_1),
         sort: this.switch_dormitory_plan2_1[0],
         autofill: this.switch_dormitory_plan2_1[1],
       };
 
       var dormitory_planMap2_2 = {
-        operators: this.dormitory_plan2_2,
+        operators:this.getList(this.dormitory_plan2_2),
         sort: this.switch_dormitory_plan2_2[0],
         autofill: this.switch_dormitory_plan2_2[1],
       };
 
       var dormitory_planMap2_3 = {
-        operators: this.dormitory_plan2_3,
+        operators:this.getList(this.dormitory_plan2_3),
         sort: this.switch_dormitory_plan2_3[0],
         autofill: this.switch_dormitory_plan2_3[1],
       };
@@ -2120,22 +2156,27 @@ export default {
     this.descriptionH1 =  this.historicalData.description
     this.author = this.historicalData.author
     this.buildingType = this.historicalData.buildingType
-
+    this.planTimes = this.getPlanTimes(this.historicalData.plans.length)
 
   // 导入A班的信息-------------------------------------------------------------------------------
     this.name[0] =  this.historicalData.plans[0].name
     this.descriptionH2[0] =  this.historicalData.plans[0].description
     this.period_plan0 =  this.historicalData.plans[0].period[0]
+    if(undefined === this.historicalData.plans[0].Fiammetta){
+        this.switch_Fiammetta_enable[0] =false
+    }else{
     this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
     this.switch_Fiammetta_enable[0] = this.historicalData.plans[0].Fiammetta.enable
     this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order)
+    };
     this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room)
     this.radio_drones_index[0]= this.historicalData.plans[0].drones.index
     this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable
     this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order)
+    
      
     if(this.historicalData.plans[0].rooms.control[0].skip){
-      this.control_skip = true
+      this.control_skip[0] = true
     } else{
      this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
     }
@@ -2220,21 +2261,41 @@ export default {
     this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[4].product)
       }
     };
-
+    
+    if(this.historicalData.plans[0].rooms.power[0].skip){
+    this.switch_power_plan0_0[2] = true;   
+    } else{
     this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
     this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill
+    }
 
+    if(this.historicalData.plans[0].rooms.power[1].skip){
+    this.switch_power_plan0_1[2] = true;   
+    } else{
     this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0]
     this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill
-
+    }
+    
+    if(this.historicalData.plans[0].rooms.power[2].skip){
+    this.switch_power_plan0_2[2] = true;   
+    } else{
     this.power_plan0_0[2] = this.historicalData.plans[0].rooms.power[2].operators[0]
     this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill
-
+    }
+    
+    if(this.historicalData.plans[0].rooms.hire[0].skip){
+    this.switch_hire_plan0_0[2] = true;   
+    } else{
     this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators
     this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill
+    }
 
+    if(this.historicalData.plans[0].rooms.meeting[0].skip){
+    this.switch_meeting_plan0_0[2] = true;   
+    } else{
     this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators
     this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill
+    }
 
     this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators
     this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
@@ -2244,161 +2305,285 @@ export default {
     this.name[1] =  this.historicalData.plans[1].name
     this.descriptionH2[1] =  this.historicalData.plans[1].description
     this.period_plan1 =  this.historicalData.plans[1].period[0]
+    if(undefined === this.historicalData.plans[1].Fiammetta){
+        this.switch_Fiammetta_enable[1] =false
+    }else{
     this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
     this.switch_Fiammetta_enable[1] = this.historicalData.plans[1].Fiammetta.enable
     this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order)
+    };
     this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room)
     this.radio_drones_index[1]= this.historicalData.plans[1].drones.index
     this.switch_drones_enable[1]= this.historicalData.plans[1].drones.enable
     this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
-
+    
+    if(this.historicalData.plans[1].rooms.control[0].skip){
+      this.control_skip[1] = true
+    } else{
     this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
+    }
 
+    if(this.historicalData.plans[1].rooms.trading[0].skip){
+      this.switch_trading_plan1_0[2] = true;   
+    } else{
     this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
     this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
     this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill
     this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product)
+   }
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[1].rooms.trading[1].skip){
+    this.switch_trading_plan1_1[2] = true;   
+      } else{
     this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
     this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
     this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill
     this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product)
+      }
     }
 
     if('333'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[1].rooms.trading[2].skip){
+    this.switch_trading_plan1_2[2] = true;   
+      } else{
     this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
     this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
     this.switch_trading_plan1_2[1]= this.historicalData.plans[1].rooms.trading[2].autofill
     this.radio_trading_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[2].product)
+      }
     };
-
+    
+    if(this.historicalData.plans[1].rooms.manufacture[0].skip){
+    this.switch_manufacture_plan1_0[2] = true;   
+    } else{
     this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators
     this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
     this.switch_manufacture_plan1_0[1]= this.historicalData.plans[1].rooms.manufacture[0].autofill
     this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[0].product)
+    } 
 
+    if(this.historicalData.plans[1].rooms.manufacture[1].skip){
+    this.switch_manufacture_plan1_1[2] = true;   
+    } else{
     this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
     this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
     this.switch_manufacture_plan1_1[1]= this.historicalData.plans[1].rooms.manufacture[1].autofill
     this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[1].product)
-
-     this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
+    }
+     
+    if(this.historicalData.plans[1].rooms.manufacture[2].skip){
+    this.switch_manufacture_plan1_2[2] = true;   
+    } else{
+    this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
     this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
     this.switch_manufacture_plan1_2[1]= this.historicalData.plans[1].rooms.manufacture[2].autofill
     this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[2].product)
+    }
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
-     this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
+      if(this.historicalData.plans[1].rooms.manufacture[3].skip){
+    this.switch_manufacture_plan1_3[2] = true;   
+      } else{
+    this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
     this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
     this.switch_manufacture_plan1_3[1]= this.historicalData.plans[1].rooms.manufacture[3].autofill
     this.radio_manufacture_plan1[3]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[3].product)
+      }
     };
     if('153'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[1].rooms.manufacture[4].skip){
+    this.switch_manufacture_plan1_4[2] = true;   
+      } else{
     this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators
     this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort
     this.switch_manufacture_plan1_4[1]= this.historicalData.plans[1].rooms.manufacture[4].autofill
     this.radio_manufacture_plan1[4]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[4].product)
+      }    
     };
-
+   
+    if(this.historicalData.plans[1].rooms.power[0].skip){
+    this.switch_power_plan1_0[2] = true;   
+    } else{
     this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0]
     this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill
+    };
 
+    if(this.historicalData.plans[1].rooms.power[1].skip){
+    this.switch_power_plan1_1[2] = true;   
+    } else{
     this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0]
     this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill
+    };
 
+    if(this.historicalData.plans[1].rooms.power[2].skip){
+    this.switch_power_plan1_2[2] = true;   
+    } else{
     this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0]
     this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill
-
+    };
+    
+    if(this.historicalData.plans[1].rooms.hire[0].skip){
+    this.switch_hire_plan1_0[2] = true;   
+    } else{
     this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators
     this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill
-
+    }
+   
+    if(this.historicalData.plans[1].rooms.meeting[0].skip){
+    this.switch_meeting_plan1_0[2] = true;   
+    } else{
     this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators
     this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill
+    }
 
     this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
     this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
     this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
 
     // 导入C班的信息-------------------------------------------------------------------------------
+   
+   if(this.historicalData.plans.length>2){
     this.name[2] =  this.historicalData.plans[2].name
     this.descriptionH2[2] =  this.historicalData.plans[2].description
     this.period_plan2 =  this.historicalData.plans[2].period[0]
+    if(undefined === this.historicalData.plans[2].Fiammetta){
+        this.switch_Fiammetta_enable[2] =false
+    }else{
     this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
     this.switch_Fiammetta_enable[2] = this.historicalData.plans[2].Fiammetta.enable
     this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order)
+    };
     this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room)
     this.radio_drones_index[2]= this.historicalData.plans[2].drones.index
     this.switch_drones_enable[2]= this.historicalData.plans[2].drones.enable
     this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
-
+    
+    if(this.historicalData.plans[2].rooms.control[0].skip){
+      this.control_skip[2] = true
+    } else{
     this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
-
+    };
+    
+    if(this.historicalData.plans[2].rooms.trading[0].skip){
+      this.switch_trading_plan2_0[2] = true;   
+    } else{
     this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
     this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
     this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill
     this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product)
-    
+    };
+
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[2].rooms.trading[1].skip){
+    this.switch_trading_plan2_1[2] = true;   
+      } else{
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
     this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill
     this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product)
-    }
+      };
+    };
 
     if('333'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[2].rooms.trading[2].skip){
+    this.switch_trading_plan2_2[2] = true;   
+      } else{
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
     this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
     this.switch_trading_plan2_2[1]= this.historicalData.plans[2].rooms.trading[2].autofill
     this.radio_trading_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[2].product)
+      };
     };
-
+    
+    if(this.historicalData.plans[2].rooms.manufacture[0].skip){
+    this.switch_manufacture_plan2_0[2] = true;   
+    } else{
     this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators
     this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
     this.switch_manufacture_plan2_0[1]= this.historicalData.plans[2].rooms.manufacture[0].autofill
     this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[0].product)
-
+    };
+    
+    if(this.historicalData.plans[2].rooms.manufacture[1].skip){
+    this.switch_manufacture_plan2_1[2] = true;   
+    } else{
     this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
     this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
     this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill
     this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product)
-
-     this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
+    };
+    
+    if(this.historicalData.plans[2].rooms.manufacture[2].skip){
+    this.switch_manufacture_plan2_2[2] = true;   
+    } else{
+    this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
     this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
     this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill
     this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product)
+    };
+
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
-     this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
+      if(this.historicalData.plans[2].rooms.manufacture[3].skip){
+    this.switch_manufacture_plan2_3[2] = true;   
+      } else{
+    this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
     this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
     this.switch_manufacture_plan2_3[1]= this.historicalData.plans[2].rooms.manufacture[3].autofill
     this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product)
+      };
     };
     if('153'=== this.historicalData.buildingType){
+      if(this.historicalData.plans[2].rooms.manufacture[4].skip){
+    this.switch_manufacture_plan2_4[2] = true;   
+      } else{
     this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators
     this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort
     this.switch_manufacture_plan2_4[1]= this.historicalData.plans[2].rooms.manufacture[4].autofill
     this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[4].product)
+      };
     };
-
+    
+    if(this.historicalData.plans[2].rooms.power[0].skip){
+    this.switch_power_plan2_0[2] = true;   
+    } else{
     this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0]
     this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill
-
+    };
+    
+    if(this.historicalData.plans[2].rooms.power[1].skip){
+    this.switch_power_plan2_1[2] = true;   
+    } else{
     this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0]
     this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill
+    };
 
+    if(this.historicalData.plans[2].rooms.power[2].skip){
+    this.switch_power_plan2_2[2] = true;   
+    } else{
     this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0]
     this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill
-
+    };
+    
+    if(this.historicalData.plans[2].rooms.hire[0].skip){
+    this.switch_hire_plan2_0[2] = true;   
+    } else{
     this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators
     this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill
+    };
 
+    if(this.historicalData.plans[2].rooms.meeting[0].skip){
+    this.switch_meeting_plan2_0[2] = true;   
+    } else{
     this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators
     this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill
+    };
 
     this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators
     this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort
     this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill
+    }; 
 
     this.$message({
             message: '导入成功' ,
@@ -2407,7 +2592,11 @@ export default {
             duration: 3000,
           });
     },
+      
 
+    getNull(){
+
+    },  
     setPeriod(list) {
       var start = parseInt(list[0].substr(0, 2));
       var end = parseInt(list[1].substr(0, 2));
@@ -2422,7 +2611,22 @@ export default {
           if("换班前"===str) return 'pre';
           if("换班后"===str) return 'post';
     },
-
+    getPlanTimes(num){
+      console.log('这是一个',num,'班作业')
+        if(num===2)  return "2班"  ;
+        if(num===3)  return "3班"   ;
+    },
+    getList(list){
+      var listCopy = []
+      for(let i=0;i<list.length;i++){
+        if(list[i]===''||list[i]===undefined||list[i]==='undefined'
+        ||typeof list[i]===undefined){
+          continue;
+        }
+           listCopy.push(list[i])
+      }
+      return listCopy
+    },
     getParamsValue(label) {
       if (label === "贸易站")  return "trading";      
       if (label === "制造站")   return "manufacture";

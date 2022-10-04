@@ -1080,9 +1080,9 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 3, //剩余月数
-
-        SignInMonthsRemaining: 0,
+        monthsRemaining: 2, //剩余月数
+        SignInMonthsRemaining: 0, // 剩余签到次数
+     
         countDown: 0, //限定池每日送抽倒计时
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
@@ -1570,11 +1570,11 @@
           parseInt(this.weekStageValue) * 1800 +
           parseInt(this.countDown) * (8500 / 14);
 
-        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) >= 18) {
+        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) <= 18) {
+         this.$message.error("你的源石不足");
+        } 
+
           this.skinValue = this.skinFlag;
-        } else {
-          this.$message.error("你的源石不足");
-        }
 
         this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
 

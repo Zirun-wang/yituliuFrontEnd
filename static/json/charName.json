@@ -1,0 +1,1128 @@
+[
+    {
+        "name": "普罗旺斯",
+        "room1": "HIRE"
+    },
+    {
+        "name": "号角",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "芳汀",
+        "room1": "WORKSHOP",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "风丸",
+        "room1": "MEETING"
+    },
+    {
+        "name": "鸿雪",
+        "room1": "TRADING"
+    },
+    {
+        "name": "熔泉",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "卡达",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "掠风",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "雪雉",
+        "room1": "TRADING"
+    },
+    {
+        "name": "初雪",
+        "room1": "DORMITORY",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "黑",
+        "room1": "DORMITORY",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "拜松",
+        "room1": "TRADING"
+    },
+    {
+        "name": "THRM-EX",
+        "room1": "POWER"
+    },
+    {
+        "name": "正义骑士号",
+        "room1": "POWER"
+    },
+    {
+        "name": "星源",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "亚叶",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "艾雅法拉",
+        "room1": "MANUFACTURE",
+        "room2": "HIRE"
+    },
+    {
+        "name": "卡缇",
+        "room1": "MANUFACTURE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "拉普兰德",
+        "room1": "TRADING"
+    },
+    {
+        "name": "月见夜",
+        "room1": "TRADING",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "布丁",
+        "room1": "POWER",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "夏栎",
+        "room1": "MEETING"
+    },
+    {
+        "name": "空弦",
+        "room1": "TRADING"
+    },
+    {
+        "name": "极境",
+        "room1": "MEETING"
+    },
+    {
+        "name": "星极",
+        "room1": "MEETING"
+    },
+    {
+        "name": "预备干员-重装"
+    },
+    {
+        "name": "泥岩",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "红云",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "温蒂",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "霜华",
+        "room1": "CONTROL",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "讯使",
+        "room1": "TRADING",
+        "room2": "MEETING"
+    },
+    {
+        "name": "苦艾",
+        "room1": "MEETING"
+    },
+    {
+        "name": "图耶",
+        "room1": "TRADING"
+    },
+    {
+        "name": "伊芙利特",
+        "room1": "POWER"
+    },
+    {
+        "name": "奥斯塔",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "送葬人",
+        "room1": "TRAINING",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "幽灵鲨",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "预备干员-后勤"
+    },
+    {
+        "name": "嵯峨",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "承曦格雷伊",
+        "room1": "POWER"
+    },
+    {
+        "name": "深靛",
+        "room1": "DORMITORY",
+        "room2": "POWER"
+    },
+    {
+        "name": "石棉",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "诗怀雅",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "梅尔",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "山",
+        "room1": "HIRE",
+        "room2": "MEETING"
+    },
+    {
+        "name": "角峰",
+        "room1": "TRADING",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "猎蜂",
+        "room1": "TRAINING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "安哲拉",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "帕拉斯",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "安德切尔",
+        "room1": "TRADING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "火神",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "归溟幽灵鲨",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "米格鲁",
+        "room1": "MANUFACTURE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "柏喙",
+        "room1": "TRADING"
+    },
+    {
+        "name": "慕斯",
+        "room1": "TRADING",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "瑕光",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "克洛丝",
+        "room1": "MANUFACTURE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "暮落",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "特米米",
+        "room1": "DORMITORY",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "极光",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "夜烟",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "晓歌",
+        "room1": "MEETING"
+    },
+    {
+        "name": "微风",
+        "room1": "MEETING"
+    },
+    {
+        "name": "苇草",
+        "room1": "DORMITORY",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "桑葚",
+        "room1": "HIRE"
+    },
+    {
+        "name": "能天使",
+        "room1": "TRADING"
+    },
+    {
+        "name": "坚雷",
+        "room1": "TRAINING",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "鞭刃",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "水月",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "刻刀",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "耀骑士临光",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "四月",
+        "room1": "TRADING",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "罗比菈塔",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "赫默",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "安赛尔",
+        "room1": "DORMITORY",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "伊桑",
+        "room1": "HIRE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "Castle-3",
+        "room1": "POWER",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "艾丽妮",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "罗小黑",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "W",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "夜半",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "琴柳",
+        "room1": "DORMITORY",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "史都华德",
+        "room1": "TRADING",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "多萝西",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "乌有",
+        "room1": "HIRE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "Lancet-2",
+        "room1": "POWER",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "红",
+        "room1": "CONTROL",
+        "room2": "MEETING"
+    },
+    {
+        "name": "野鬃",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "地灵",
+        "room1": "HIRE",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "海蒂",
+        "room1": "TRADING",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "绮良",
+        "room1": "TRADING"
+    },
+    {
+        "name": "崖心",
+        "room1": "DORMITORY",
+        "room2": "TRADING"
+    },
+    {
+        "name": "酸糖",
+        "room1": "HIRE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "至简",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "麦哲伦",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "闪灵",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "翎羽",
+        "room1": "TRAINING",
+        "room2": "TRADING"
+    },
+    {
+        "name": "阿米娅",
+        "room1": "CONTROL",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "斑点",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "预备干员-狙击"
+    },
+    {
+        "name": "凯尔希",
+        "room1": "WORKSHOP",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "安洁莉娜",
+        "room1": "MEETING"
+    },
+    {
+        "name": "暗索",
+        "room1": "MEETING",
+        "room2": "TRADING"
+    },
+    {
+        "name": "艾丝黛尔",
+        "room1": "WORKSHOP",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "百炼嘉维尔",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "早露",
+        "room1": "CONTROL",
+        "room2": "HIRE"
+    },
+    {
+        "name": "槐琥",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "爱丽丝",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "灰喉",
+        "room1": "CONTROL",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "巫恋",
+        "room1": "TRADING"
+    },
+    {
+        "name": "华法琳",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "流星",
+        "room1": "MANUFACTURE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "蚀清",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "战车",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "玛恩纳",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "傀影",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "闪击",
+        "room1": "CONTROL",
+        "room2": "HIRE"
+    },
+    {
+        "name": "炎狱炎熔",
+        "room1": "CONTROL",
+        "room2": "POWER"
+    },
+    {
+        "name": "12F",
+        "room1": "MEETING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "白雪",
+        "room1": "MEETING",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "黑角",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "格劳克斯",
+        "room1": "POWER"
+    },
+    {
+        "name": "焰尾",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "霜叶",
+        "room1": "DORMITORY",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "夕",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "泡泡",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "贝娜",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "埃拉托",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "凛冬",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "锡兰",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "浊心斯卡蒂",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "燧石",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "莱恩哈特",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "棘刺",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "豆苗",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "宴",
+        "room1": "HIRE",
+        "room2": "MEETING"
+    },
+    {
+        "name": "灰烬",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "澄闪",
+        "room1": "POWER"
+    },
+    {
+        "name": "炎客",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "松果",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "清流",
+        "room1": "POWER",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "嘉维尔",
+        "room1": "WORKSHOP",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "巡林者",
+        "room1": "HIRE",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "阿消",
+        "room1": "WORKSHOP",
+        "room2": "POWER"
+    },
+    {
+        "name": "黑键",
+        "room1": "TRADING"
+    },
+    {
+        "name": "煌",
+        "room1": "POWER",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "杜林",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "芙兰卡",
+        "room1": "TRAINING",
+        "room2": "MEETING"
+    },
+    {
+        "name": "莫斯提马",
+        "room1": "MEETING"
+    },
+    {
+        "name": "远牙",
+        "room1": "DORMITORY",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "慑砂",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "远山",
+        "room1": "TRADING",
+        "room2": "MEETING"
+    },
+    {
+        "name": "斯卡蒂",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "断崖",
+        "room1": "MEETING"
+    },
+    {
+        "name": "格雷伊",
+        "room1": "POWER",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "铸铁",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "夜莺",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "年",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "絮雨",
+        "room1": "HIRE"
+    },
+    {
+        "name": "褐果",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "蛇屠箱",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "食铁兽",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "深海色",
+        "room1": "TRADING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "玫兰莎",
+        "room1": "TRADING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "空爆",
+        "room1": "TRADING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "预备干员-近战"
+    },
+    {
+        "name": "天火",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "濯尘芙蓉",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "歌蕾蒂娅",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "梅",
+        "room1": "MEETING"
+    },
+    {
+        "name": "惊蛰",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "杰西卡",
+        "room1": "MANUFACTURE",
+        "room2": "MEETING"
+    },
+    {
+        "name": "耶拉",
+        "room1": "MEETING"
+    },
+    {
+        "name": "车尔尼",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "假日威龙陈",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "卡夫卡",
+        "room1": "TRADING"
+    },
+    {
+        "name": "罗宾",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "森蚺",
+        "room1": "MANUFACTURE",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "白金",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "砾",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "末药",
+        "room1": "WORKSHOP",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "星熊",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "陨星",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "桃金娘",
+        "room1": "TRADING",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "赤冬",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "断罪者",
+        "room1": "DORMITORY",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "海沫",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "灰毫",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "古米",
+        "room1": "TRADING",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "安比尔",
+        "room1": "DORMITORY",
+        "room2": "TRADING"
+    },
+    {
+        "name": "寒芒克洛丝",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "缠丸",
+        "room1": "WORKSHOP",
+        "room2": "TRADING"
+    },
+    {
+        "name": "梓兰",
+        "room1": "HIRE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "波登可",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "空",
+        "room1": "DORMITORY",
+        "room2": "TRADING"
+    },
+    {
+        "name": "白面鸮",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "夜刀",
+        "room1": "TRADING",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "芬",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "吽",
+        "room1": "WORKSHOP",
+        "room2": "CONTROL"
+    },
+    {
+        "name": "刻俄柏",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "稀音",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "调香师",
+        "room1": "WORKSHOP",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "预备干员-术师"
+    },
+    {
+        "name": "夜魔",
+        "room1": "TRAINING",
+        "room2": "HIRE"
+    },
+    {
+        "name": "苏苏洛",
+        "room1": "TRAINING",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "老鲤",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "因陀罗",
+        "room1": "MEETING"
+    },
+    {
+        "name": "蓝毒",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "龙舌兰",
+        "room1": "TRADING"
+    },
+    {
+        "name": "狮蝎",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "暴雨",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "菲亚梅塔",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "雷蛇",
+        "room1": "POWER"
+    },
+    {
+        "name": "月禾",
+        "room1": "HIRE"
+    },
+    {
+        "name": "赫拉格",
+        "room1": "DORMITORY",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "九色鹿",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "临光",
+        "room1": "CONTROL",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "香草",
+        "room1": "MANUFACTURE",
+        "room2": "TRADING"
+    },
+    {
+        "name": "真理",
+        "room1": "TRAINING",
+        "room2": "MEETING"
+    },
+    {
+        "name": "银灰",
+        "room1": "TRADING"
+    },
+    {
+        "name": "格拉尼",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "卡涅利安",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "陈",
+        "room1": "CONTROL",
+        "room2": "MEETING"
+    },
+    {
+        "name": "风笛",
+        "room1": "DORMITORY",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "杜宾",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "泡普卡",
+        "room1": "MANUFACTURE",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "薄绿",
+        "room1": "TRAINING",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "蜜蜡",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "郁金香"
+    },
+    {
+        "name": "布洛卡",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "铃兰",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "红豆",
+        "room1": "MANUFACTURE",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "孑",
+        "room1": "TRADING"
+    },
+    {
+        "name": "史尔特尔",
+        "room1": "TRAINING"
+    },
+    {
+        "name": "灵知",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "阿",
+        "room1": "CONTROL",
+        "room2": "TRAINING"
+    },
+    {
+        "name": "暴行",
+        "room1": "WORKSHOP",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "贾维",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "见行者",
+        "room1": "MEETING"
+    },
+    {
+        "name": "塞雷娅",
+        "room1": "MEETING"
+    },
+    {
+        "name": "守林人",
+        "room1": "MEETING"
+    },
+    {
+        "name": "蜜莓",
+        "room1": "WORKSHOP",
+        "room2": "DORMITORY"
+    },
+    {
+        "name": "推进之王",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "芙蓉",
+        "room1": "DORMITORY",
+        "room2": "WORKSHOP"
+    },
+    {
+        "name": "迷迭香",
+        "room1": "MANUFACTURE"
+    },
+    {
+        "name": "令",
+        "room1": "CONTROL"
+    },
+    {
+        "name": "炎熔",
+        "room1": "POWER",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "但书",
+        "room1": "TRADING"
+    },
+    {
+        "name": "清道夫",
+        "room1": "CONTROL",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "杰克",
+        "room1": "DORMITORY",
+        "room2": "MEETING"
+    },
+    {
+        "name": "可颂",
+        "room1": "TRADING"
+    },
+    {
+        "name": "异客",
+        "room1": "POWER",
+        "room2": "MANUFACTURE"
+    },
+    {
+        "name": "德克萨斯",
+        "room1": "TRADING"
+    },
+    {
+        "name": "流明",
+        "room1": "DORMITORY"
+    },
+    {
+        "name": "洛洛",
+        "room1": "WORKSHOP"
+    },
+    {
+        "name": "羽毛笔",
+        "room1": "WORKSHOP"
+    }
+]
