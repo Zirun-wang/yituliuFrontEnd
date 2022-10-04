@@ -92,7 +92,14 @@
           <div class="riic_building_parameter">
           *导出json文件的文件名即为id <br>
           或打开排班文件最末尾中寻找id
-        </div>
+          </div>
+          <div class="riic_building_parameter">
+            <a href="https://www.wjx.cn/vm/mRNtSzd.aspx#">
+            <el-button size="medium" type="warning" round style="width:186px;">
+              排班生成器 问题反馈
+            </el-button>
+            </a>
+          </div>
 
         <!-- 如果需要注释 从这里开始 -->
 <!--        <div class="riic_building_parameter">-->
@@ -1261,6 +1268,23 @@ import charNameJson from "static/json/charName.json";
 
 
 export default {
+  head: {
+      title: "一图流-基建排班生成器",
+      meta: [
+        { charset: "utf-8" },
+        {
+          name: "viewport",
+          content:
+            "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: "一图流-基建排班生成器",
+        },
+      ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
   data() {
     return {
       exportUrl:"",
