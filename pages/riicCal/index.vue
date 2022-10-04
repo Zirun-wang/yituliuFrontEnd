@@ -1268,6 +1268,7 @@ export default {
       importId:'',
       historicalData:[],
       dialogTableVisible:false,
+      createTime:[],
       buildingType: "243",
       planTimes:'3班',
       charNameData:charNameJson,
@@ -1276,7 +1277,7 @@ export default {
       descriptionH1: "这是个顶配243排班协议演示",
       author: "yituliu",
       name: ["B+C 组", "A+C 组", "A+B 组"],
-      descriptionH2: ["111111111", "2222222222222", "3333333333333"],
+      descriptionH2: ["描述1", "描述2", "描述3"],
       radio_drones: ["贸易站", "制造站", "贸易站"],
       switch_drones_enable: [true, false, true],
       radio_drones_index: [1, 2, 3],
@@ -1290,7 +1291,7 @@ export default {
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
       trading_plan0_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan0_1: ["但书", "空弦", "黑键"],
-      trading_plan0_2: [],
+      trading_plan0_2: ["能天使","德克萨斯","拉普兰德"],
       radio_trading_plan0: ["龙门币", "龙门币", "龙门币"],
       switch_trading_plan0_0: [false,false,false],
       switch_trading_plan0_1: [false,false,false],
@@ -1333,7 +1334,7 @@ export default {
       control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],
       trading_plan1_0: ["巫恋", "龙舌兰", "柏喙"],
       trading_plan1_1: ["孑", "银灰", "崖心"],
-      trading_plan1_2: [],
+      trading_plan1_2: ["能天使","德克萨斯","拉普兰德"],
       radio_trading_plan1: ["龙门币", "龙门币", "龙门币"],
       switch_trading_plan1_0: [false,false,false],
       switch_trading_plan1_1: [false,false,false],
@@ -1419,9 +1420,10 @@ export default {
   created() {
     this.setJson();
     this.getUid();
-    
+    this.getDate();
   },
   methods: {
+    
     updateVisits() {
       toolApi.updateVisits("yituliu").then((response) => {});
     },
@@ -1454,10 +1456,19 @@ export default {
     getUid(){
          var timestamp=new Date().getTime();
          var randNum = Math.floor(Math.random()*(999,100))+1000000000000000;
-         
-        this.uid  =timestamp*1000+randNum-1000000000000000
-   
+         this.uid  =timestamp*1000+randNum-1000000000000000
     },
+    getDate() {
+        var date = new Date();
+        var y = date.getFullYear(); //年
+        var m = (date.getMonth() + 1).toString().padStart(2, "0"); //月
+        var d = date.getDate().toString().padStart(2, "0"); //日
+        var h = date.getHours().toString().padStart(2, "0"); //时
+        var mm = date.getMinutes().toString().padStart(2, "0"); //分
+        var s = date.getSeconds().toString().padStart(2, "0"); //秒
+        this.createTime = `${y}/${m}/${d} ${h}:${mm}:${s}`;
+        //  this.time = '2022-08-11'
+      },
     setJson() {
       this.scheduleJson = { plans: [] };
       var plans_0 = {
@@ -2139,7 +2150,7 @@ export default {
     this.descriptionH2[0] =  this.historicalData.plans[0].description
     this.period_plan0 =  this.historicalData.plans[0].period[0]
     if(undefined === this.historicalData.plans[0].Fiammetta){
-        this.switch_Fiammetta_enable[0] =false
+        this.switch_Fiammetta_enable[0] = false  ;
     }else{
     this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
     this.switch_Fiammetta_enable[0] = this.historicalData.plans[0].Fiammetta.enable
@@ -2152,13 +2163,13 @@ export default {
     
      
     if(this.historicalData.plans[0].rooms.control[0].skip){
-      this.control_skip[0] = true
+      this.control_skip[0] = false;
     } else{
      this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
     }
    
     if(this.historicalData.plans[0].rooms.trading[0].skip){
-      this.switch_trading_plan0_0[2] = true;   
+      this.switch_trading_plan0_0[2] = false;   
     } else{
     this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
     this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
@@ -2169,7 +2180,7 @@ export default {
     
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.trading[1].skip){
-    this.switch_trading_plan0_1[2] = true;   
+    this.switch_trading_plan0_1[2] = false;   
       } else{
     this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
     this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
@@ -2180,7 +2191,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.trading[2].skip){
-    this.switch_trading_plan0_2[2] = true;   
+    this.switch_trading_plan0_2[2] = false;   
       } else{
     this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
     this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
@@ -2190,7 +2201,7 @@ export default {
     };
         
     if(this.historicalData.plans[0].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan0_0[2] = true;   
+    this.switch_manufacture_plan0_0[2] = false;   
     } else{
     this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators
     this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
@@ -2199,7 +2210,7 @@ export default {
     }
         
     if(this.historicalData.plans[0].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan0_1[2] = true;   
+    this.switch_manufacture_plan0_1[2] = false;  
     } else{
     this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
     this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
@@ -2208,7 +2219,7 @@ export default {
     }
 
     if(this.historicalData.plans[0].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan0_2[2] = true;   
+    this.switch_manufacture_plan0_2[2] = false;   
     } else{
     this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
     this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
@@ -2218,7 +2229,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan0_3[2] = true;   
+    this.switch_manufacture_plan0_3[2] = false;   
       } else{
     this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
     this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
@@ -2229,7 +2240,7 @@ export default {
 
     if('153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan0_4[2] = true;   
+    this.switch_manufacture_plan0_4[2] = false;  
       } else{
     this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators
     this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort
@@ -2239,35 +2250,35 @@ export default {
     };
     
     if(this.historicalData.plans[0].rooms.power[0].skip){
-    this.switch_power_plan0_0[2] = true;   
+    this.switch_power_plan0_0[2] = false;  
     } else{
     this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
     this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill
     }
 
     if(this.historicalData.plans[0].rooms.power[1].skip){
-    this.switch_power_plan0_1[2] = true;   
+    this.switch_power_plan0_1[2] = false;   
     } else{
     this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0]
     this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill
     }
     
     if(this.historicalData.plans[0].rooms.power[2].skip){
-    this.switch_power_plan0_2[2] = true;   
+    this.switch_power_plan0_2[2] = false;   
     } else{
     this.power_plan0_0[2] = this.historicalData.plans[0].rooms.power[2].operators[0]
     this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill
     }
     
     if(this.historicalData.plans[0].rooms.hire[0].skip){
-    this.switch_hire_plan0_0[2] = true;   
+    this.switch_hire_plan0_0[2] = false;  
     } else{
     this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators
     this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill
     }
 
     if(this.historicalData.plans[0].rooms.meeting[0].skip){
-    this.switch_meeting_plan0_0[2] = true;   
+    this.switch_meeting_plan0_0[2] = false;   
     } else{
     this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators
     this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill
@@ -2282,7 +2293,7 @@ export default {
     this.descriptionH2[1] =  this.historicalData.plans[1].description
     this.period_plan1 =  this.historicalData.plans[1].period[0]
     if(undefined === this.historicalData.plans[1].Fiammetta){
-        this.switch_Fiammetta_enable[1] =false
+        this.switch_Fiammetta_enable[1] =false  ;
     }else{
     this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
     this.switch_Fiammetta_enable[1] = this.historicalData.plans[1].Fiammetta.enable
@@ -2294,13 +2305,13 @@ export default {
     this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
     
     if(this.historicalData.plans[1].rooms.control[0].skip){
-      this.control_skip[1] = true
+      this.control_skip[1] = false;
     } else{
     this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
     }
 
     if(this.historicalData.plans[1].rooms.trading[0].skip){
-      this.switch_trading_plan1_0[2] = true;   
+      this.switch_trading_plan1_0[2] = false;   
     } else{
     this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
     this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
@@ -2310,7 +2321,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.trading[1].skip){
-    this.switch_trading_plan1_1[2] = true;   
+    this.switch_trading_plan1_1[2] = false;   
       } else{
     this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
     this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
@@ -2321,7 +2332,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.trading[2].skip){
-    this.switch_trading_plan1_2[2] = true;   
+    this.switch_trading_plan1_2[2] = false;   
       } else{
     this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
     this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
@@ -2331,7 +2342,7 @@ export default {
     };
     
     if(this.historicalData.plans[1].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan1_0[2] = true;   
+    this.switch_manufacture_plan1_0[2] = false;   
     } else{
     this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators
     this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
@@ -2340,7 +2351,7 @@ export default {
     } 
 
     if(this.historicalData.plans[1].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan1_1[2] = true;   
+    this.switch_manufacture_plan1_1[2] = false;   
     } else{
     this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
     this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
@@ -2349,7 +2360,7 @@ export default {
     }
      
     if(this.historicalData.plans[1].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan1_2[2] = true;   
+    this.switch_manufacture_plan1_2[2] = false;   
     } else{
     this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
     this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
@@ -2359,7 +2370,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan1_3[2] = true;   
+    this.switch_manufacture_plan1_3[2] = false;   
       } else{
     this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
     this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
@@ -2369,7 +2380,7 @@ export default {
     };
     if('153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan1_4[2] = true;   
+    this.switch_manufacture_plan1_4[2] = false;   
       } else{
     this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators
     this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort
@@ -2379,35 +2390,35 @@ export default {
     };
    
     if(this.historicalData.plans[1].rooms.power[0].skip){
-    this.switch_power_plan1_0[2] = true;   
+    this.switch_power_plan1_0[2] = false;   
     } else{
     this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0]
     this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill
     };
 
     if(this.historicalData.plans[1].rooms.power[1].skip){
-    this.switch_power_plan1_1[2] = true;   
+    this.switch_power_plan1_1[2] = false; 
     } else{
     this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0]
     this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill
     };
 
     if(this.historicalData.plans[1].rooms.power[2].skip){
-    this.switch_power_plan1_2[2] = true;   
+    this.switch_power_plan1_2[2] = false;  
     } else{
     this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0]
     this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill
     };
     
     if(this.historicalData.plans[1].rooms.hire[0].skip){
-    this.switch_hire_plan1_0[2] = true;   
+    this.switch_hire_plan1_0[2] = false;   
     } else{
     this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators
     this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill
     }
    
     if(this.historicalData.plans[1].rooms.meeting[0].skip){
-    this.switch_meeting_plan1_0[2] = true;   
+    this.switch_meeting_plan1_0[2] = false;  
     } else{
     this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators
     this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill
@@ -2424,7 +2435,7 @@ export default {
     this.descriptionH2[2] =  this.historicalData.plans[2].description
     this.period_plan2 =  this.historicalData.plans[2].period[0]
     if(undefined === this.historicalData.plans[2].Fiammetta){
-        this.switch_Fiammetta_enable[2] =false
+        this.switch_Fiammetta_enable[2] =false  ;
     }else{
     this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
     this.switch_Fiammetta_enable[2] = this.historicalData.plans[2].Fiammetta.enable
@@ -2436,13 +2447,13 @@ export default {
     this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
     
     if(this.historicalData.plans[2].rooms.control[0].skip){
-      this.control_skip[2] = true
+      this.control_skip[2] = false;
     } else{
     this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
     };
     
     if(this.historicalData.plans[2].rooms.trading[0].skip){
-      this.switch_trading_plan2_0[2] = true;   
+      this.switch_trading_plan2_0[2] = false;   
     } else{
     this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
     this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
@@ -2452,7 +2463,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[1].skip){
-    this.switch_trading_plan2_1[2] = true;   
+    this.switch_trading_plan2_1[2] = false;   
       } else{
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
@@ -2463,7 +2474,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[2].skip){
-    this.switch_trading_plan2_2[2] = true;   
+    this.switch_trading_plan2_2[2] = false;   
       } else{
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
     this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
@@ -2473,7 +2484,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan2_0[2] = true;   
+    this.switch_manufacture_plan2_0[2] = false;
     } else{
     this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators
     this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
@@ -2482,7 +2493,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan2_1[2] = true;   
+    this.switch_manufacture_plan2_1[2] = false;  
     } else{
     this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
     this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
@@ -2491,7 +2502,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan2_2[2] = true;   
+    this.switch_manufacture_plan2_2[2] = false;  
     } else{
     this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
     this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
@@ -2502,7 +2513,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan2_3[2] = true;   
+    this.switch_manufacture_plan2_3[2] = false;   
       } else{
     this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
     this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
@@ -2512,7 +2523,7 @@ export default {
     };
     if('153'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan2_4[2] = true;   
+    this.switch_manufacture_plan2_4[2] = false;   
       } else{
     this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators
     this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort
@@ -2522,35 +2533,35 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.power[0].skip){
-    this.switch_power_plan2_0[2] = true;   
+    this.switch_power_plan2_0[2] = false;
     } else{
     this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0]
     this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill
     };
     
     if(this.historicalData.plans[2].rooms.power[1].skip){
-    this.switch_power_plan2_1[2] = true;   
+    this.switch_power_plan2_1[2] = false; 
     } else{
     this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0]
     this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill
     };
 
     if(this.historicalData.plans[2].rooms.power[2].skip){
-    this.switch_power_plan2_2[2] = true;   
+    this.switch_power_plan2_2[2] = false;   
     } else{
     this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0]
     this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill
     };
     
     if(this.historicalData.plans[2].rooms.hire[0].skip){
-    this.switch_hire_plan2_0[2] = true;   
+    this.switch_hire_plan2_0[2] = false;   
     } else{
     this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators
     this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill
     };
 
     if(this.historicalData.plans[2].rooms.meeting[0].skip){
-    this.switch_meeting_plan2_0[2] = true;   
+    this.switch_meeting_plan2_0[2] = false;   
     } else{
     this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators
     this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill
