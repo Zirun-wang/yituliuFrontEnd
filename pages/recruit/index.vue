@@ -1,13 +1,10 @@
 <template>
-  <div :class="DarkAndLightTypeValue" id="indexDiv">
-    <div class=""></div>
-    <br />
-
+  <div :class="pageTheme" id="indexDiv">
+    <br>
     <div class="recruit_area_">
       <div class="checkBox_recruit_area">
-        <div class="checkBox_recruit_title"><a>资历</a></div>
+        <div class="checkBox_recruit_title">资历</div>
         <div class="checkBox_recruit_card">
-          
           <div
             class="checkBox_recruit_word"
             :id="index"
@@ -18,7 +15,7 @@
             <a>{{ tag }}</a>
           </div>
         </div>
-        <div class="checkBox_recruit_title"><a>站位</a></div>
+        <div class="checkBox_recruit_title">站位</div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
@@ -30,7 +27,7 @@
             <a>{{ tag }}</a>
           </div>
         </div>
-        <div class="checkBox_recruit_title"><a>职业</a></div>
+        <div class="checkBox_recruit_title">职业</div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
@@ -42,7 +39,7 @@
             <a>{{ tag }}</a>
           </div>
         </div>
-        <div class="checkBox_recruit_title"><a>词条</a></div>
+        <div class="checkBox_recruit_title">词条</div>
         <div class="checkBox_recruit_card">
           <div
             class="checkBox_recruit_word"
@@ -148,7 +145,7 @@ export default {
       no_recruit: false,
       recruit_role_type: 0,
       itemList: [],
-      DarkAndLightTypeValue: "",
+      pageTheme: "",
       tagList: [
         "新手",
         "资深干员",
@@ -203,22 +200,13 @@ export default {
       }
     },
     getTypeValue() {
-      let type = cookie.get("type");
-      if (
-        typeof type == "undefined" ||
-        type == "undefined" ||
-        type == "" ||
-        type == null
-      ) {
-        type = "_light";
-        var h = new Date().getHours(); //时
-        if (h > 17) {
-          type = "_dark";
-        }
-        cookie.set("type", type, { expires: 30 });
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme == undefined) {
+        theme = "light";
+        cookie.set("theme", theme, { expires: 30 });
       }
-      console.log("当前页获取的是", "base" + type);
-      this.DarkAndLightTypeValue = "base" + type;
+      console.log(theme);
+      this.pageTheme = theme;
     },
     img_display() {},
     //最低星级

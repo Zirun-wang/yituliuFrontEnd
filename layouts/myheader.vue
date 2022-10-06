@@ -12,12 +12,12 @@
       <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
       <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
       <el-menu-item index="3" @click="schedule()">排班生成器</el-menu-item>
-      <!-- <el-submenu index="4">
+      <el-submenu index="4">
         <template slot="title">其它工具</template>
         <el-menu-item index="4-1" @click="recruit()">公开招募</el-menu-item>
-        <el-menu-item index="4-2" @click="expCal()">升级计算</el-menu-item>
-      </el-submenu> -->
-      <el-menu-item v-show="'/'===routePath" index="5" @click="switchTheme()">{{ThemeText}}</el-menu-item>
+        <!-- <el-menu-item index="4-2" @click="expCal()">升级计算</el-menu-item> -->
+      </el-submenu>
+      <el-menu-item v-show="'/'===routePath||'/recruit/'===routePath" index="5" @click="switchTheme()">{{ThemeText}}</el-menu-item>
     </el-menu>
    
    
@@ -94,6 +94,7 @@ export default {
         this.activeIndex = '1'
       if (cookie.get("theme") === "dark") {
         document.getElementById("indexDiv").style.background = "#f0f0f0";
+        document.getElementById("indexDiv").style.color = "#000000";
         var titles = document.getElementsByClassName("op_title_ctext");
         for (var i = 0; i < titles.length; i++)
           titles[i].style.color = "#000000dd";
@@ -105,6 +106,7 @@ export default {
         this.ThemeText = '亮色'
       } else {
         document.getElementById("indexDiv").style.background = "#222222";
+        document.getElementById("indexDiv").style.color = "#ffffff";
         var titles = document.getElementsByClassName("op_title_ctext");
         for (var i = 0; i < titles.length; i++)
           titles[i].style.color = "#ffffffdd";
