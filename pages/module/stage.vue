@@ -111,7 +111,6 @@
     <div id="popup_background" @click="hidePopup()">
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
-        <!-- <img class="popup_img" :src="getImgUrl(main)" :alt="main"> -->
         <div class="popup_header" >
           <div :class="getSpriteImg(itemId, 2)" style="display:inline-block;margin:6px;"></div>
           <div class="popup_header_text">{{itemType}}</div>
@@ -164,7 +163,7 @@
         SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</div>
         </client-only>
       </div>
-
+      <!-- 搓玉 -->
       <div  class="popup_card" id="popup_card_orundum">
         <!-- 数据表Start -->
         <table class="popup_table" style="padding-top: 6px;">
@@ -182,13 +181,6 @@
         <div style="height:550px;overflow: auto;margin-top: -6px;">
         <table class="popup_table">
           <tbody style="font-size:20px;vertical-align: baseline;">
-            <!-- <tr class="popup_table_title" style="height:36px;">
-              <td class="popup_table_c1" style="width:80px;">关卡名</td>
-              <td class="popup_table_c2" style="width:130px;">理智转化率</td>
-              <td class="popup_table_c3" style="width:140px;">每搓1抽消耗</td>
-              <td class="popup_table_c5" style="width:85px;">关卡效率</td>
-              <td class="popup_table_c6" style="width:85px;">搓玉效率</td>
-            </tr> -->
             <tr style="height:36px;" v-for="(stage, index) in stageRankOrundum" :key="index" :class="getColor(stage.stageEfficiency, 90, 20)" class="stage_table_r">
               <td class="popup_table_c1" style="width:85px">{{stage.stageCode}}</td>
               <td class="popup_orundum_c2" style="width:120px;">
@@ -275,6 +267,12 @@ export default {
         this.popupData = [];
         this.popupData = this.stageRankT2[(index-100)];
         this.itemType = this.stageRankT2[(index-100)][0].itemType;
+        if (this.itemType == "全新装置") this.itemType="装置";
+        if (this.itemType == "聚酸酯组") this.itemType="聚酸酯";
+        if (this.itemType == "固源岩组") this.itemType="固源岩";
+        if (this.itemType == "异铁组") this.itemType="异铁";
+        if (this.itemType == "糖组") this.itemType="糖";
+        if (this.itemType == "酮凝集组") this.itemType="酮凝集";
         this.itemId = this.stageRankT2[(index-100)][0].itemId;
       }
     },
