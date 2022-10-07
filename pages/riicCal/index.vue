@@ -171,15 +171,15 @@
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
           <div class="riic_building_operatorArray" >
-             <el-select  v-model="control_plan0[0]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+             <el-select  v-model="control_plan0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan0[1]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan0[2]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-              <el-select  v-model="control_plan0[3]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+              <el-select  v-model="control_plan0[3]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan0[4]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan0[4]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
           
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1"  v-model="control_plan0[0]"></el-input>
@@ -198,11 +198,11 @@
         <div class="riic_building building_trade">
           <div class="riic_building_title">贸易站1</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="trading_plan0_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan0_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan0_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan0_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan0_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan0_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan0_0[1]"></el-input>
@@ -229,11 +229,11 @@
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="trading_plan0_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="trading_plan0_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="trading_plan0_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan0_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan0_1[1]"></el-input>
@@ -260,11 +260,11 @@
           <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
           <div class="riic_building_operatorArray">
-           <el-select  v-model="trading_plan0_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+           <el-select  v-model="trading_plan0_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="trading_plan0_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="trading_plan0_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan0_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan0_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan0_2[1]"></el-input>
@@ -291,11 +291,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站1</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan0_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan0_0[1]"></el-input>
@@ -323,11 +323,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan0_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan0_1[1]"></el-input>
@@ -355,11 +355,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站3</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan0_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan0_2[1]"></el-input>
@@ -387,11 +387,11 @@
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan0_3[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_3[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_3[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_3[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_3[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_3[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_3[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan0_3[1]"></el-input>
@@ -419,11 +419,11 @@
         <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
-           <el-select  v-model="manufacture_plan0_4[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+           <el-select  v-model="manufacture_plan0_4[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_4[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_4[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="manufacture_plan0_4[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan0_4[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan0_4[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan0_4[1]"></el-input>
@@ -451,7 +451,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="power_plan0_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+            <el-select  v-model="power_plan0_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan0_0[0]"></el-input> -->
           </div>
@@ -469,7 +469,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="power_plan0_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+            <el-select  v-model="power_plan0_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan0_0[1]"></el-input> -->
           </div>
@@ -487,7 +487,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站3</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan0_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan0_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan0_0[2]"></el-input> -->
           </div>
@@ -654,15 +654,15 @@
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="control_plan1[0]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+             <el-select  v-model="control_plan1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan1[1]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan1[2]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-              <el-select  v-model="control_plan1[3]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+              <el-select  v-model="control_plan1[3]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan1[4]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan1[4]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="control_plan1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="control_plan1[1]"></el-input>
@@ -674,11 +674,11 @@
         <div class="riic_building building_trade">
           <div class="riic_building_title">贸易站1</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="trading_plan1_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+            <el-select  v-model="trading_plan1_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan1_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan1_0[1]"></el-input>
@@ -701,11 +701,11 @@
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="trading_plan1_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan1_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan1_1[1]"></el-input>
@@ -728,11 +728,11 @@
         <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="trading_plan1_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan1_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan1_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan1_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan1_2[1]"></el-input>
@@ -755,11 +755,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站1</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="manufacture_plan1_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan1_0[1]"></el-input>
@@ -783,11 +783,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan1_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan1_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan1_1[1]"></el-input>
@@ -811,11 +811,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站3</div>
           <div class="riic_building_operatorArray">
-              <el-select  v-model="manufacture_plan1_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+              <el-select  v-model="manufacture_plan1_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan1_2[1]"></el-input>
@@ -839,11 +839,11 @@
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
-              <el-select  v-model="manufacture_plan1_3[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+              <el-select  v-model="manufacture_plan1_3[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_3[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_3[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_3[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_3[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_3[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan1_3[1]"></el-input>
@@ -867,11 +867,11 @@
         <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="manufacture_plan1_4[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_4[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_4[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_4[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan1_4[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan1_4[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan1_4[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan1_4[1]"></el-input>
@@ -895,7 +895,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan1_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan1_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan1_0[0]"></el-input> -->
           </div>
@@ -909,7 +909,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan1_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan1_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan1_0[1]"></el-input> -->
           </div>
@@ -923,7 +923,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站3</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan1_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan1_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan1_0[2]"></el-input> -->
           </div>
@@ -1078,15 +1078,15 @@
         <div class="riic_building building_cortrolCenter">
           <div class="riic_building_title">控制中枢</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="control_plan2[0]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+             <el-select  v-model="control_plan2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan2[1]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan2[2]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-              <el-select  v-model="control_plan2[3]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+              <el-select  v-model="control_plan2[3]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-            <el-select  v-model="control_plan2[4]" placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
+            <el-select  v-model="control_plan2[4]" filterable placeholder="请选择" size=small><el-option v-for="item in char_CONTROL" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="control_plan2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="control_plan2[1]"></el-input>
@@ -1098,11 +1098,11 @@
         <div class="riic_building building_trade">
           <div class="riic_building_title">贸易站1</div>
           <div class="riic_building_operatorArray">
-              <el-select  v-model="trading_plan2_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+              <el-select  v-model="trading_plan2_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan2_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan2_0[1]"></el-input>
@@ -1125,11 +1125,11 @@
         <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
           <div class="riic_building_title">贸易站2</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="trading_plan2_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan2_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan2_1[1]"></el-input>
@@ -1152,11 +1152,11 @@
         <div class="riic_building building_trade" v-show="'333' === buildingType">
           <div class="riic_building_title">贸易站3</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="trading_plan2_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="trading_plan2_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
+             <el-select  v-model="trading_plan2_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_TRADING" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="trading_plan2_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="trading_plan2_2[1]"></el-input>
@@ -1179,11 +1179,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站1</div>
           <div class="riic_building_operatorArray">
-            <el-select  v-model="manufacture_plan2_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+            <el-select  v-model="manufacture_plan2_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_0[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan2_0[1]"></el-input>
@@ -1207,11 +1207,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站2</div>
           <div class="riic_building_operatorArray">
-              <el-select  v-model="manufacture_plan2_1[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+              <el-select  v-model="manufacture_plan2_1[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_1[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_1[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_1[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_1[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_1[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan2_1[1]"></el-input>
@@ -1235,11 +1235,11 @@
         <div class="riic_building building_factory">
           <div class="riic_building_title">制造站3</div>
           <div class="riic_building_operatorArray">
-              <el-select  v-model="manufacture_plan2_2[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+              <el-select  v-model="manufacture_plan2_2[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_2[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_2[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_2[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_2[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_2[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan2_2[1]"></el-input>
@@ -1263,11 +1263,11 @@
         <div class="riic_building building_factory" v-show="'243' === buildingType||'153' === buildingType">
           <div class="riic_building_title">制造站4</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="manufacture_plan2_3[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_3[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_3[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_3[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_3[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_3[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_3[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan2_3[1]"></el-input>
@@ -1291,11 +1291,11 @@
         <div class="riic_building building_factory" v-show="'153' === buildingType">
           <div class="riic_building_title">制造站5</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="manufacture_plan2_4[0]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_4[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_4[1]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_4[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
-             <el-select  v-model="manufacture_plan2_4[2]" placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
+             <el-select  v-model="manufacture_plan2_4[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_MANUFACTURE" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="manufacture_plan2_4[0]"></el-input>
             <el-input class="operator_inputbox" size="small" placeholder="2" v-model="manufacture_plan2_4[1]"></el-input>
@@ -1319,7 +1319,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan2_0[0]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan2_0[0]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan2_0[0]"></el-input> -->
           </div>
@@ -1333,7 +1333,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan2_0[1]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan2_0[1]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan2_0[1]"></el-input> -->
           </div>
@@ -1347,7 +1347,7 @@
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站3</div>
           <div class="riic_building_operatorArray">
-             <el-select  v-model="power_plan2_0[2]" placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
+             <el-select  v-model="power_plan2_0[2]" filterable placeholder="请选择" size=small><el-option v-for="item in char_POWER" 
              :key="item" :label="item" :value="item" ></el-option></el-select>
             <!-- <el-input class="operator_inputbox" size="small" placeholder="1" v-model="power_plan2_0[2]"></el-input> -->
           </div>
@@ -1484,7 +1484,7 @@ export default {
     },
   data() {
     return {
-      exportUrl:"",
+      exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=1664632307607024",
       uid: 12345,
       importId:'',
       historicalData:[],
@@ -1656,6 +1656,7 @@ export default {
         "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
         // "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
         this.uid;
+        
     },
     maaBuildingJsonCreated() {
        this.setJson();
@@ -2518,6 +2519,30 @@ export default {
     this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
     this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill
 
+    if(undefined === this.historicalData.plans[0].rooms.dormitory[1].operators){
+
+    }else{
+    this.dormitory_plan0_1 = this.historicalData.plans[0].rooms.dormitory[1].operators
+    this.switch_dormitory_plan0_1[0]= this.historicalData.plans[0].rooms.dormitory[1].sort
+    this.switch_dormitory_plan0_1[1]= this.historicalData.plans[0].rooms.dormitory[1].autofill
+    }
+    
+    if(undefined === this.historicalData.plans[0].rooms.dormitory[2].operators){
+
+    }else{
+    this.dormitory_plan0_2 = this.historicalData.plans[0].rooms.dormitory[2].operators
+    this.switch_dormitory_plan0_2[0]= this.historicalData.plans[0].rooms.dormitory[2].sort
+    this.switch_dormitory_plan0_2[1]= this.historicalData.plans[0].rooms.dormitory[2].autofill
+    }
+
+    if(undefined === this.historicalData.plans[0].rooms.dormitory[3].operators){
+
+    }else{
+    this.dormitory_plan0_3 = this.historicalData.plans[0].rooms.dormitory[3].operators
+    this.switch_dormitory_plan0_3[0]= this.historicalData.plans[0].rooms.dormitory[3].sort
+    this.switch_dormitory_plan0_3[1]= this.historicalData.plans[0].rooms.dormitory[3].autofill
+    }
+
   // 导入B班的信息-------------------------------------------------------------------------------
     this.name[1] =  this.historicalData.plans[1].name
     this.descriptionH2[1] =  this.historicalData.plans[1].description
@@ -2663,7 +2688,30 @@ export default {
     this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
     this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
     this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
+     
+    if(undefined === this.historicalData.plans[1].rooms.dormitory[1].operators){
 
+    }else{
+    this.dormitory_plan1_1 = this.historicalData.plans[1].rooms.dormitory[1].operators
+    this.switch_dormitory_plan1_1[0]= this.historicalData.plans[1].rooms.dormitory[1].sort
+    this.switch_dormitory_plan1_1[1]= this.historicalData.plans[1].rooms.dormitory[1].autofill
+    }
+    
+    if(undefined === this.historicalData.plans[1].rooms.dormitory[2].operators){
+
+    }else{
+    this.dormitory_plan1_2 = this.historicalData.plans[1].rooms.dormitory[2].operators
+    this.switch_dormitory_plan1_2[0]= this.historicalData.plans[1].rooms.dormitory[2].sort
+    this.switch_dormitory_plan1_2[1]= this.historicalData.plans[1].rooms.dormitory[2].autofill
+    }
+
+    if(undefined === this.historicalData.plans[1].rooms.dormitory[3].operators){
+
+    }else{
+    this.dormitory_plan1_3 = this.historicalData.plans[1].rooms.dormitory[3].operators
+    this.switch_dormitory_plan1_3[0]= this.historicalData.plans[1].rooms.dormitory[3].sort
+    this.switch_dormitory_plan1_3[1]= this.historicalData.plans[1].rooms.dormitory[3].autofill
+    } 
     // 导入C班的信息-------------------------------------------------------------------------------
    
    if(this.historicalData.plans.length>2){
@@ -2812,6 +2860,32 @@ export default {
     this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators
     this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort
     this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill
+    
+
+    if(undefined === this.historicalData.plans[2].rooms.dormitory[1].operators){
+
+    }else{
+    this.dormitory_plan2_1 = this.historicalData.plans[2].rooms.dormitory[1].operators
+    this.switch_dormitory_plan2_1[0]= this.historicalData.plans[2].rooms.dormitory[1].sort
+    this.switch_dormitory_plan2_1[1]= this.historicalData.plans[2].rooms.dormitory[1].autofill
+    }
+    
+    if(undefined === this.historicalData.plans[2].rooms.dormitory[2].operators){
+
+    }else{
+    this.dormitory_plan2_2 = this.historicalData.plans[2].rooms.dormitory[2].operators
+    this.switch_dormitory_plan2_2[0]= this.historicalData.plans[2].rooms.dormitory[2].sort
+    this.switch_dormitory_plan2_2[1]= this.historicalData.plans[2].rooms.dormitory[2].autofill
+    }
+
+    if(undefined === this.historicalData.plans[2].rooms.dormitory[3].operators){
+
+    }else{
+    this.dormitory_plan2_3 = this.historicalData.plans[2].rooms.dormitory[3].operators
+    this.switch_dormitory_plan2_3[0]= this.historicalData.plans[2].rooms.dormitory[3].sort
+    this.switch_dormitory_plan2_3[1]= this.historicalData.plans[2].rooms.dormitory[3].autofill
+    } 
+
     }; 
 
     this.$message({
