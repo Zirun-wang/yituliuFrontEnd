@@ -120,7 +120,12 @@
     <div id="riic_workerSets">
       <div class="riic_workerSet">
         <div class="riic_building building_uni">
-          <div class="riic_building_title">班次基本信息</div>
+          <div class="riic_building_title">
+            班次基本信息
+            <el-select placeholder="MAA自动选择干员" size=small>
+              <el-option v-for="item in building_strategy" :key="item" :label="item" :value="item" ></el-option>
+            </el-select>
+          </div>
           <div class="riic_building_parameter">
             <div class="parameter_text">班次名称</div>
             <el-input size="small" class="parameter_inputbox" placeholder="例如：主力组A" v-model="name[0]"></el-input>
@@ -216,12 +221,17 @@
               <el-radio-button label="合成玉"></el-radio-button>
             </el-radio-group>
           </div>
-          <div class="riic_building_parameter">
+          <div class="riic_building_parameter" style="border-top:1px solid #808080;">
+            <el-checkbox style="margin:6px 6px 0px 0px;" size="small" label="顺序入驻" border></el-checkbox>
+            <el-checkbox style="margin:6px 6px 0px 0px;" size="small" label="自动填充空位" border></el-checkbox>
+            <el-checkbox style="margin:6px 6px 0px 0px;" size="small" label="跳过该设施" border></el-checkbox>
+          </div>
+          <!-- <div class="riic_building_parameter">
             <div class="parameter_text">按顺序入驻</div>
             <el-switch v-model="switch_trading_plan0_0[0]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
             <div class="parameter_text" style="margin-left: 20px">自动填充</div>
             <el-switch v-model="switch_trading_plan0_0[1]" active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
-          </div>
+          </div> -->
           <!-- <div class="riic_building_parameter">
             <div class="parameter_text">跳过该设施</div>
             <el-switch active-color="#13ce66" inactive-color="#c0c4cc"></el-switch>
@@ -1511,6 +1521,16 @@ export default {
       switch_Fiammetta_enable: [false, false, false],
       input_Fiammetta_order: ["换班前", "换班前", "换班前"],
       control_skip:[false,false,false],
+      // 单站策略
+      building_strategy:[
+        {value:'maaAuto',label:'MAA自动选择干员'},
+        {value:'maaSemiAuto',label:'排班表,MAA补齐空位'},
+        {value:'manual',label:'排班表,不补齐空位'},    
+        {value:'skip',label:'排班时跳过该设施'} 
+    ],
+
+
+
       // A换班参数
       period_plan0: ["20:00", '07:59'],
       control_plan0: ["阿米娅", "凯尔希", "琴柳", "令", "夕"],
@@ -3003,7 +3023,7 @@ export default {
 .riic_building {
   margin: 16px;
   margin-top: 36px;
-  padding: 16px 0px 8px 0px;
+  padding: 16px 0px 6px 0px;
   border: 4px solid rgba(128, 128, 128, 0.50196);
   border-radius: 16px;
   width: 410px;
@@ -3018,6 +3038,7 @@ export default {
   border-right: 4px solid #80808080;
   border-radius: 4px;
   height: 32px;
+  /* width: 300px; */
 }
 .building_trade .riic_building_title {
 
@@ -3095,7 +3116,8 @@ export default {
 }
 .riic_building_parameter {
   /* background-color: rgb(110, 148, 23); */
-  margin: 12px 12px 12px 24px;
+  margin: 12px 12px 0px 12px;
+  padding-left:12px;
   /* display: inline-block; */
 }
 .parameter_text {
