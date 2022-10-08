@@ -72,6 +72,7 @@
             <el-button size="medium" type="primary" round style="width:126px;" @click="maaBuildingJsonCreated()" >
               生成排班方案
             </el-button>
+            <div id="export_cover" style="position: absolute;width: 135px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80;"></div>
             <a :href="exportUrl">
               <el-button size="medium" type="primary" round style="width:126px;margin-left:12px;">
                 导出排班方案
