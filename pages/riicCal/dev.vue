@@ -204,7 +204,7 @@
           </div>
         </div>
 
-        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType||'252'=== buildingType">
           <div class="riic_building_title">贸易站2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_trading_plan0_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_trading_plan0_1[1]"></el-checkbox>
@@ -372,7 +372,6 @@
         
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan0_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan0_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan0_0[2]"></el-checkbox>
           </div>
@@ -383,7 +382,6 @@
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan0_1[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan0_1[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan0_1[2]"></el-checkbox>
           </div>
@@ -395,7 +393,6 @@
 
         <div class="riic_building building_powerPlant" v-show="!('252' === buildingType)">
           <div class="riic_building_title">发电站3
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan0_2[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan0_2[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan0_2[2]"></el-checkbox>
           </div>
@@ -406,7 +403,6 @@
         </div>
         <div class="riic_building building_meetingRoom">
           <div class="riic_building_title">会客室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_meeting_plan0_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_meeting_plan0_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_meeting_plan0_0[2]"></el-checkbox>
           </div>
@@ -417,7 +413,6 @@
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_hire_plan0_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_hire_plan0_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_hire_plan0_0[2]"></el-checkbox>
           </div>
@@ -429,7 +424,7 @@
           <div class="riic_building_title">宿舍1
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan0_0[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan0_0[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_0[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_0[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan0_0[0]"></el-input>
@@ -443,7 +438,7 @@
           <div class="riic_building_title">宿舍2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan0_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan0_1[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_1[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_1[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan0_1[0]"></el-input>
@@ -457,7 +452,7 @@
           <div class="riic_building_title">宿舍3
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan0_2[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan0_2[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_2[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_2[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan0_2[0]"></el-input>
@@ -471,7 +466,7 @@
           <div class="riic_building_title">宿舍4
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan0_3[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan0_3[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_3[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan0_3[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan0_3[0]"></el-input>
@@ -573,7 +568,7 @@
             </el-radio-group>
           </div>
         </div>
-        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType||'252'=== buildingType">
           <div class="riic_building_title">贸易站2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_trading_plan1_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_trading_plan1_1[1]"></el-checkbox>
@@ -743,7 +738,6 @@
 
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan1_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan1_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan1_0[2]"></el-checkbox>
           </div>
@@ -754,7 +748,6 @@
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan1_1[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan1_1[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan1_1[2]"></el-checkbox>
           </div>
@@ -766,7 +759,6 @@
 
         <div class="riic_building building_powerPlant" v-show="!('252' === buildingType)">
           <div class="riic_building_title">发电站3
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan1_2[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan1_2[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan1_2[2]"></el-checkbox>
           </div>
@@ -777,7 +769,6 @@
         </div>
         <div class="riic_building building_meetingRoom">
           <div class="riic_building_title">会客室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_meeting_plan1_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_meeting_plan1_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_meeting_plan1_0[2]"></el-checkbox>
           </div>
@@ -788,7 +779,6 @@
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_hire_plan1_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_hire_plan1_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_hire_plan1_0[2]"></el-checkbox>
           </div>
@@ -800,7 +790,7 @@
           <div class="riic_building_title">宿舍1
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan1_0[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan1_0[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_0[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_0[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan1_0[0]"></el-input>
@@ -814,7 +804,7 @@
           <div class="riic_building_title">宿舍2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan1_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan1_1[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_1[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_1[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan1_1[0]"></el-input>
@@ -828,7 +818,7 @@
           <div class="riic_building_title">宿舍3
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan1_2[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan1_2[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_2[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_2[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan1_2[0]"></el-input>
@@ -842,7 +832,7 @@
           <div class="riic_building_title">宿舍4
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan1_3[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan1_3[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_3[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan1_3[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan1_3[0]"></el-input>
@@ -945,7 +935,7 @@
         </div>
         
         
-        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType">
+        <div class="riic_building building_trade" v-show="'243' === buildingType||'333'=== buildingType||'252'=== buildingType">
           <div class="riic_building_title">贸易站2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_trading_plan2_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_trading_plan2_1[1]"></el-checkbox>
@@ -1108,7 +1098,6 @@
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站1
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan2_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan2_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan2_0[2]"></el-checkbox>
           </div>
@@ -1119,7 +1108,6 @@
         </div>
         <div class="riic_building building_powerPlant">
           <div class="riic_building_title">发电站2
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan2_1[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan2_1[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan2_1[2]"></el-checkbox>
           </div>
@@ -1131,7 +1119,6 @@
 
         <div class="riic_building building_powerPlant" v-show="!('252' === buildingType)">
           <div class="riic_building_title">发电站3
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_power_plan2_2[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_power_plan2_2[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_power_plan2_2[2]"></el-checkbox>
           </div>
@@ -1142,7 +1129,6 @@
         </div>
         <div class="riic_building building_meetingRoom">
           <div class="riic_building_title">会客室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_meeting_plan2_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_meeting_plan2_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_meeting_plan2_0[2]"></el-checkbox>
           </div>
@@ -1153,7 +1139,6 @@
         </div>
         <div class="riic_building building_hr">
           <div class="riic_building_title">办公室
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_hire_plan2_0[0]"></el-checkbox> -->
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_hire_plan2_0[1]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_hire_plan2_0[2]"></el-checkbox>
           </div>
@@ -1165,7 +1150,7 @@
           <div class="riic_building_title">宿舍1
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan2_0[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan2_0[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_0[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_0[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan2_0[0]"></el-input>
@@ -1179,7 +1164,7 @@
           <div class="riic_building_title">宿舍2
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan2_1[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan2_1[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_1[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_1[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan2_1[0]"></el-input>
@@ -1193,7 +1178,7 @@
           <div class="riic_building_title">宿舍3
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan2_2[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan2_2[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_2[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_2[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan2_2[0]"></el-input>
@@ -1207,7 +1192,7 @@
           <div class="riic_building_title">宿舍4
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="顺序入驻" border v-model="switch_dormitory_plan2_3[0]"></el-checkbox>
             <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="补满空位" border v-model="switch_dormitory_plan2_3[1]"></el-checkbox>
-            <!-- <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_3[2]"></el-checkbox> -->
+            <el-checkbox style="margin:4px 0px 0px 0px;background-color: #ffffff80;vertical-align: top;" size="mini" label="跳过" border v-model="switch_dormitory_plan2_3[2]"></el-checkbox>
           </div>
           <div class="riic_building_operatorArray">
             <el-input class="operator_inputbox" size="small" placeholder="1" v-model="dormitory_plan2_3[0]"></el-input>
@@ -1320,10 +1305,10 @@ export default {
       dormitory_plan0_1: [],
       dormitory_plan0_2: [],
       dormitory_plan0_3: [],
-      switch_dormitory_plan0_0: [false,true,false],
-      switch_dormitory_plan0_1: [false,true,false],
-      switch_dormitory_plan0_2: [false,true,false],
-      switch_dormitory_plan0_3: [false,true,false],
+      switch_dormitory_plan0_0: [false,false,false],
+      switch_dormitory_plan0_1: [false,false,false],
+      switch_dormitory_plan0_2: [false,false,false],
+      switch_dormitory_plan0_3: [false,false,false],
       // B换班参数
       period_plan1: ["08:00", "13:59"],
       control_plan1: ["诗怀雅", "凯尔希", "灵知", "焰尾", "玛恩纳"],
@@ -1363,10 +1348,10 @@ export default {
       dormitory_plan1_1: [],
       dormitory_plan1_2: [],
       dormitory_plan1_3: [],
-      switch_dormitory_plan1_0: [false,true],
-      switch_dormitory_plan1_1: [false,true],
-      switch_dormitory_plan1_2: [false,true],
-      switch_dormitory_plan1_3: [false,true],
+      switch_dormitory_plan1_0: [false,false,false],
+      switch_dormitory_plan1_1: [false,false,false],
+      switch_dormitory_plan1_2: [false,false,false],
+      switch_dormitory_plan1_3: [false,false,false],
       // C换班参数
       period_plan2: ["14:00", "19:59"],
       control_plan2: ["阿米娅", "焰尾", "琴柳", "令", "夕"],
@@ -1406,10 +1391,10 @@ export default {
       dormitory_plan2_1: [],
       dormitory_plan2_2: [],
       dormitory_plan2_3: [],
-      switch_dormitory_plan2_0: [false,true],
-      switch_dormitory_plan2_1: [false,true],
-      switch_dormitory_plan2_2: [false,true],
-      switch_dormitory_plan2_3: [false,true],
+      switch_dormitory_plan2_0: [false,false,false],
+      switch_dormitory_plan2_1: [false,false,false],
+      switch_dormitory_plan2_2: [false,false,false],
+      switch_dormitory_plan2_3: [false,false,false],
     };
   },
   created() {
@@ -1441,10 +1426,11 @@ export default {
         this.uid = response.data.uid;
         this.setExportUrl();
       });
+         document.getElementById('export_cover').style.display='none'
     },
     retrieveSchedule(){
       buildingApi.retrieveSchedule(this.importId).then((response) => {
-
+          
         this.historicalData = response.data.schedule
         this.importJson()
       });
@@ -2145,6 +2131,7 @@ export default {
     this.planTimes = this.getPlanTimes(this.historicalData.plans.length)
 
   // 导入A班的信息-------------------------------------------------------------------------------
+     console.log(this.historicalData.buildingType)
     this.name[0] =  this.historicalData.plans[0].name
     this.descriptionH2[0] =  this.historicalData.plans[0].description
     
@@ -2155,10 +2142,10 @@ export default {
     }
 
     if(undefined === this.historicalData.plans[0].Fiammetta){
-        this.switch_Fiammetta_enable[0] = false  ;
+        this.switch_Fiammetta_enable[0] =  false  ;
     }else{
     this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
-    this.switch_Fiammetta_enable[0] = this.historicalData.plans[0].Fiammetta.enable
+    this.switch_Fiammetta_enable[0] = true;
     this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order)
     };
     this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room)
@@ -2168,13 +2155,13 @@ export default {
     
      
     if(this.historicalData.plans[0].rooms.control[0].skip){
-      this.control_skip[0] = false;
+      this.control_skip[0] =  true;
     } else{
      this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
     };
    
     if(this.historicalData.plans[0].rooms.trading[0].skip){
-      this.switch_trading_plan0_0[2] = false;   
+      this.switch_trading_plan0_0[2] =  true;   
     } else{
     this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
     this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
@@ -2185,7 +2172,7 @@ export default {
     
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.trading[1].skip){
-    this.switch_trading_plan0_1[2] = false;   
+    this.switch_trading_plan0_1[2] =  true;   
       } else{
     this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
     this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
@@ -2196,7 +2183,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.trading[2].skip){
-    this.switch_trading_plan0_2[2] = false;   
+    this.switch_trading_plan0_2[2] =  true;   
       } else{
     this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
     this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
@@ -2206,7 +2193,7 @@ export default {
     };
         
     if(this.historicalData.plans[0].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan0_0[2] = false;   
+    this.switch_manufacture_plan0_0[2] =  true;   
     } else{
     this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators
     this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
@@ -2215,7 +2202,7 @@ export default {
     };
         
     if(this.historicalData.plans[0].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan0_1[2] = false;  
+    this.switch_manufacture_plan0_1[2] =  true;  
     } else{
     this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
     this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
@@ -2224,7 +2211,7 @@ export default {
     };
 
     if(this.historicalData.plans[0].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan0_2[2] = false;   
+    this.switch_manufacture_plan0_2[2] =  true;   
     } else{
     this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
     this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
@@ -2234,7 +2221,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan0_3[2] = false;   
+    this.switch_manufacture_plan0_3[2] =  true;   
       } else{
     this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
     this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
@@ -2245,7 +2232,7 @@ export default {
 
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan0_4[2] = false;  
+    this.switch_manufacture_plan0_4[2] =  true;  
       } else{
     this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators
     this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort
@@ -2255,68 +2242,89 @@ export default {
     };
     
     if(this.historicalData.plans[0].rooms.power[0].skip){
-    this.switch_power_plan0_0[2] = false;  
+    this.switch_power_plan0_0[2] =  true;  
     } else{
     this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
     this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill
     };
 
     if(this.historicalData.plans[0].rooms.power[1].skip){
-    this.switch_power_plan0_1[2] = false;   
+    this.switch_power_plan0_1[2] =  true;   
     } else{
     this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0]
     this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill
     };
     
-    if(!'252'=== this.historicalData.buildingType){
+    if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[0].rooms.power[2].skip){
-    this.switch_power_plan0_2[2] = false;   
+    this.switch_power_plan0_2[2] =  true;   
       } else{
+         console.log(this.historicalData.plans[0].rooms.power[2])
     this.power_plan0_0[2] = this.historicalData.plans[0].rooms.power[2].operators[0]
     this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill
       };
     };
     
     if(this.historicalData.plans[0].rooms.hire[0].skip){
-    this.switch_hire_plan0_0[2] = false;  
+    this.switch_hire_plan0_0[2] =  true;  
     } else{
     this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators
     this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill
     };
 
     if(this.historicalData.plans[0].rooms.meeting[0].skip){
-    this.switch_meeting_plan0_0[2] = false;   
+    this.switch_meeting_plan0_0[2] =  true;   
     } else{
     this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators
     this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill
     };
+    
+    if(undefined === this.historicalData.plans[0].rooms.dormitory[1].operators){
 
+    }else{
+       if(this.historicalData.plans[0].rooms.dormitory[0].skip){
+              this.switch_dormitory_plan0_0[2]=true;
+       }else{
     this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators
     this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
     this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill
+       };
+    };
 
     if(undefined === this.historicalData.plans[0].rooms.dormitory[1].operators){
 
     }else{
+       if(this.historicalData.plans[0].rooms.dormitory[1].skip){
+              this.switch_dormitory_plan0_1[2]=true;
+       }else{
     this.dormitory_plan0_1 = this.historicalData.plans[0].rooms.dormitory[1].operators
     this.switch_dormitory_plan0_1[0]= this.historicalData.plans[0].rooms.dormitory[1].sort
     this.switch_dormitory_plan0_1[1]= this.historicalData.plans[0].rooms.dormitory[1].autofill
+       };
     };
     
     if(undefined === this.historicalData.plans[0].rooms.dormitory[2].operators){
 
     }else{
+       if(this.historicalData.plans[0].rooms.dormitory[2].skip){
+              this.switch_dormitory_plan0_2[2]=true;
+       }else{
     this.dormitory_plan0_2 = this.historicalData.plans[0].rooms.dormitory[2].operators
     this.switch_dormitory_plan0_2[0]= this.historicalData.plans[0].rooms.dormitory[2].sort
     this.switch_dormitory_plan0_2[1]= this.historicalData.plans[0].rooms.dormitory[2].autofill
+       };
     };
 
     if(undefined === this.historicalData.plans[0].rooms.dormitory[3].operators){
 
     }else{
+       if(this.historicalData.plans[0].rooms.dormitory[3].skip){
+              this.switch_dormitory_plan0_3[2]=true;
+       }else{
     this.dormitory_plan0_3 = this.historicalData.plans[0].rooms.dormitory[3].operators
     this.switch_dormitory_plan0_3[0]= this.historicalData.plans[0].rooms.dormitory[3].sort
     this.switch_dormitory_plan0_3[1]= this.historicalData.plans[0].rooms.dormitory[3].autofill
+       };
     };
 
   // 导入B班的信息-------------------------------------------------------------------------------
@@ -2330,10 +2338,10 @@ export default {
     };
 
     if(undefined === this.historicalData.plans[1].Fiammetta){
-        this.switch_Fiammetta_enable[1] =false  ;
+        this.switch_Fiammetta_enable[1] =  false  ;
     }else{
     this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
-    this.switch_Fiammetta_enable[1] = this.historicalData.plans[1].Fiammetta.enable
+    this.switch_Fiammetta_enable[1] = true;
     this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order)
     };
     this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room)
@@ -2342,13 +2350,13 @@ export default {
     this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
     
     if(this.historicalData.plans[1].rooms.control[0].skip){
-      this.control_skip[1] = false;
+      this.control_skip[1] =  true;
     } else{
     this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
     };
 
     if(this.historicalData.plans[1].rooms.trading[0].skip){
-      this.switch_trading_plan1_0[2] = false;   
+      this.switch_trading_plan1_0[2] =  true;   
     } else{
     this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
     this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
@@ -2358,7 +2366,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.trading[1].skip){
-    this.switch_trading_plan1_1[2] = false;   
+    this.switch_trading_plan1_1[2] =  true;   
       } else{
     this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
     this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
@@ -2369,7 +2377,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.trading[2].skip){
-    this.switch_trading_plan1_2[2] = false;   
+    this.switch_trading_plan1_2[2] =  true;   
       } else{
     this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
     this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
@@ -2379,7 +2387,7 @@ export default {
     };
     
     if(this.historicalData.plans[1].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan1_0[2] = false;   
+    this.switch_manufacture_plan1_0[2] =  true;   
     } else{
     this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators
     this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
@@ -2388,7 +2396,7 @@ export default {
     };
 
     if(this.historicalData.plans[1].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan1_1[2] = false;   
+    this.switch_manufacture_plan1_1[2] =  true;   
     } else{
     this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
     this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
@@ -2397,7 +2405,7 @@ export default {
     };
      
     if(this.historicalData.plans[1].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan1_2[2] = false;   
+    this.switch_manufacture_plan1_2[2] =  true;   
     } else{
     this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
     this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
@@ -2407,7 +2415,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan1_3[2] = false;   
+    this.switch_manufacture_plan1_3[2] =  true;   
       } else{
     this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
     this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
@@ -2417,7 +2425,7 @@ export default {
     };
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan1_4[2] = false;   
+    this.switch_manufacture_plan1_4[2] =  true;   
       } else{
     this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators
     this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort
@@ -2427,68 +2435,89 @@ export default {
     };
    
     if(this.historicalData.plans[1].rooms.power[0].skip){
-    this.switch_power_plan1_0[2] = false;   
+    this.switch_power_plan1_0[2] =  true;   
     } else{
     this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0]
     this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill
     };
 
     if(this.historicalData.plans[1].rooms.power[1].skip){
-    this.switch_power_plan1_1[2] = false; 
+    this.switch_power_plan1_1[2] =  true; 
     } else{
     this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0]
     this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill
     };
     
-    if(!'252'=== this.historicalData.buildingType){
+    if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[1].rooms.power[2].skip){
-    this.switch_power_plan1_2[2] = false;  
+    this.switch_power_plan1_2[2] =  true;  
       } else{
+        console.log(this.historicalData.plans[1].rooms.power[2])
     this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0]
     this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill
       };
     };
     
     if(this.historicalData.plans[1].rooms.hire[0].skip){
-    this.switch_hire_plan1_0[2] = false;   
+    this.switch_hire_plan1_0[2] =  true;   
     } else{
     this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators
     this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill
     };
    
     if(this.historicalData.plans[1].rooms.meeting[0].skip){
-    this.switch_meeting_plan1_0[2] = false;  
+    this.switch_meeting_plan1_0[2] =  true;  
     } else{
     this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators
     this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill
     };
-
+    
+    if(undefined === this.historicalData.plans[1].rooms.dormitory[0].operators){
+        
+    }else{
+       if(this.historicalData.plans[1].rooms.dormitory[0].skip){
+              this.switch_dormitory_plan1_0[2] =  true;
+       }else{
     this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
     this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
     this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
-     
+       };
+    };
+
     if(undefined === this.historicalData.plans[1].rooms.dormitory[1].operators){
 
     }else{
+       if(this.historicalData.plans[1].rooms.dormitory[1].skip){
+              this.switch_dormitory_plan1_1[2] =  true;
+       }else{
     this.dormitory_plan1_1 = this.historicalData.plans[1].rooms.dormitory[1].operators
     this.switch_dormitory_plan1_1[0]= this.historicalData.plans[1].rooms.dormitory[1].sort
     this.switch_dormitory_plan1_1[1]= this.historicalData.plans[1].rooms.dormitory[1].autofill
+       };
     };
     
     if(undefined === this.historicalData.plans[1].rooms.dormitory[2].operators){
 
     }else{
+       if(this.historicalData.plans[1].rooms.dormitory[2].skip){
+              this.switch_dormitory_plan1_2[2] =  true;
+       }else{
     this.dormitory_plan1_2 = this.historicalData.plans[1].rooms.dormitory[2].operators
     this.switch_dormitory_plan1_2[0]= this.historicalData.plans[1].rooms.dormitory[2].sort
     this.switch_dormitory_plan1_2[1]= this.historicalData.plans[1].rooms.dormitory[2].autofill
+       }
     };
 
     if(undefined === this.historicalData.plans[1].rooms.dormitory[3].operators){
 
     }else{
+       if(this.historicalData.plans[1].rooms.dormitory[3].skip){
+              this.switch_dormitory_plan1_3[2] =  true;
+       }else{
     this.dormitory_plan1_3 = this.historicalData.plans[1].rooms.dormitory[3].operators
     this.switch_dormitory_plan1_3[0]= this.historicalData.plans[1].rooms.dormitory[3].sort
     this.switch_dormitory_plan1_3[1]= this.historicalData.plans[1].rooms.dormitory[3].autofill
+       }
     };
     // 导入C班的信息-------------------------------------------------------------------------------
    
@@ -2503,10 +2532,10 @@ export default {
     }
 
     if(undefined === this.historicalData.plans[2].Fiammetta){
-        this.switch_Fiammetta_enable[2] =false  ;
+        this.switch_Fiammetta_enable[2] =  false;
     }else{
     this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
-    this.switch_Fiammetta_enable[2] = this.historicalData.plans[2].Fiammetta.enable
+    this.switch_Fiammetta_enable[2] = true;
     this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order)
     };
     this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room)
@@ -2515,13 +2544,13 @@ export default {
     this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
     
     if(this.historicalData.plans[2].rooms.control[0].skip){
-      this.control_skip[2] = false;
+      this.control_skip[2] =  true;
     } else{
     this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
     };
     
     if(this.historicalData.plans[2].rooms.trading[0].skip){
-      this.switch_trading_plan2_0[2] = false;   
+      this.switch_trading_plan2_0[2] =  true;   
     } else{
     this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
     this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
@@ -2531,7 +2560,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[1].skip){
-    this.switch_trading_plan2_1[2] = false;   
+    this.switch_trading_plan2_1[2] =  true;   
       } else{
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
@@ -2542,7 +2571,7 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[2].skip){
-    this.switch_trading_plan2_2[2] = false;   
+    this.switch_trading_plan2_2[2] =  true;   
       } else{
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
     this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
@@ -2552,7 +2581,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[0].skip){
-    this.switch_manufacture_plan2_0[2] = false;
+    this.switch_manufacture_plan2_0[2] =  true;
     } else{
     this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators
     this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
@@ -2561,7 +2590,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[1].skip){
-    this.switch_manufacture_plan2_1[2] = false;  
+    this.switch_manufacture_plan2_1[2] =  true;  
     } else{
     this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
     this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
@@ -2570,7 +2599,7 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[2].skip){
-    this.switch_manufacture_plan2_2[2] = false;  
+    this.switch_manufacture_plan2_2[2] =  true;  
     } else{
     this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
     this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
@@ -2581,7 +2610,7 @@ export default {
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[3].skip){
-    this.switch_manufacture_plan2_3[2] = false;   
+    this.switch_manufacture_plan2_3[2] =  true;   
       } else{
     this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
     this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
@@ -2591,7 +2620,7 @@ export default {
     };
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan2_4[2] = false;   
+    this.switch_manufacture_plan2_4[2] =  true;   
       } else{
     this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators
     this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort
@@ -2601,22 +2630,22 @@ export default {
     };
     
     if(this.historicalData.plans[2].rooms.power[0].skip){
-    this.switch_power_plan2_0[2] = false;
+    this.switch_power_plan2_0[2] =  true;
     } else{
     this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0]
     this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill
     };
     
     if(this.historicalData.plans[2].rooms.power[1].skip){
-    this.switch_power_plan2_1[2] = false; 
+    this.switch_power_plan2_1[2] =  true; 
     } else{
     this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0]
     this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill
     };
     
-    if(!'252'=== this.historicalData.buildingType){
+    if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[2].rooms.power[2].skip){
-    this.switch_power_plan2_2[2] = false;   
+    this.switch_power_plan2_2[2] =  true;   
       } else{
     this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0]
     this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill
@@ -2624,46 +2653,65 @@ export default {
     }
     
     if(this.historicalData.plans[2].rooms.hire[0].skip){
-    this.switch_hire_plan2_0[2] = false;   
+    this.switch_hire_plan2_0[2] =  true;   
     } else{
     this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators
     this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill
     };
 
     if(this.historicalData.plans[2].rooms.meeting[0].skip){
-    this.switch_meeting_plan2_0[2] = false;   
+    this.switch_meeting_plan2_0[2] =  true;   
     } else{
     this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators
     this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill
     };
-
+    
+    if(undefined === this.historicalData.plans[2].rooms.dormitory[0].operators){
+        
+    }else{
+       if(this.historicalData.plans[2].rooms.dormitory[0].skip){
+              this.switch_dormitory_plan2_0[2] =  true;
+       }else{
     this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators
     this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort
     this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill
-    
+       };
+    };
 
     if(undefined === this.historicalData.plans[2].rooms.dormitory[1].operators){
-
+          
     }else{
+       if(this.historicalData.plans[2].rooms.dormitory[1].skip){
+              this.switch_dormitory_plan2_1[2] =  true;
+       }else{
     this.dormitory_plan2_1 = this.historicalData.plans[2].rooms.dormitory[1].operators
     this.switch_dormitory_plan2_1[0]= this.historicalData.plans[2].rooms.dormitory[1].sort
     this.switch_dormitory_plan2_1[1]= this.historicalData.plans[2].rooms.dormitory[1].autofill
+       };
     };
     
     if(undefined === this.historicalData.plans[2].rooms.dormitory[2].operators){
-
+      
     }else{
+       if(this.historicalData.plans[2].rooms.dormitory[2].skip){
+              this.switch_dormitory_plan2_2[2] =  true;
+       }else{
     this.dormitory_plan2_2 = this.historicalData.plans[2].rooms.dormitory[2].operators
     this.switch_dormitory_plan2_2[0]= this.historicalData.plans[2].rooms.dormitory[2].sort
     this.switch_dormitory_plan2_2[1]= this.historicalData.plans[2].rooms.dormitory[2].autofill
+       };
     };
 
     if(undefined === this.historicalData.plans[2].rooms.dormitory[3].operators){
 
     }else{
+       if(this.historicalData.plans[2].rooms.dormitory[3].skip){
+              this.switch_dormitory_plan2_3[2] =  true;
+       }else{
     this.dormitory_plan2_3 = this.historicalData.plans[2].rooms.dormitory[3].operators
     this.switch_dormitory_plan2_3[0]= this.historicalData.plans[2].rooms.dormitory[3].sort
     this.switch_dormitory_plan2_3[1]= this.historicalData.plans[2].rooms.dormitory[3].autofill
+       }
     };
 
     }; 
