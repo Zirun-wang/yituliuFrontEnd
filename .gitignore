@@ -13,5 +13,4 @@ dist
 
 .idea
 /.nuxt.zip
-/pages/animation/
-/static/json/itemCount.json
+
