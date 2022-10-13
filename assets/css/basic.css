@@ -197,13 +197,23 @@ line-height: 48px;
     display: flex;
     margin: 8px;
     margin-left: 16px;
-    margin-right: 16px;
+    margin-right: 12px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
 }
 
+.op_warning {
+    margin: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #ff0000;
+    padding: 6px;
+    font-size: 18px;
+    background-color: #fef0f0;
+    border-color: #fde2e2;
+    color: #f56c6c;
+}
 
 .color_t6{
 	color:#ff0000;

@@ -30,6 +30,9 @@
           </div>
         </div>
       </div>
+      <div class="op_warning">
+        新章节开放期间样本量阈值临时下调至100，刷图时请注意甄别
+      </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
