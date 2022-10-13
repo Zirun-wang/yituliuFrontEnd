@@ -37,8 +37,8 @@
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
-          <!-- <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[1].itemId,0 )"></div> -->
+          <!-- <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div> -->
+          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[1].itemId,0 )"></div>
          
           <div class="stage_card_t3_table" >
             <table>
@@ -293,7 +293,7 @@ export default {
     },
      getSpriteImg(id, index) {
       // console.log(id,index)
-      if (index === 0) return "bg-" + id + " sprite_type";
+      if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
       if (index === 2) return "bg-" + id + " sprite_T2";
       if (index === 3) return "bg-" + id + " sprite_secondary_dialog";
