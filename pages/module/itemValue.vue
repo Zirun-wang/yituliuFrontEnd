@@ -19,10 +19,10 @@
             等效绿票
           </div>
           <div class="tab_text" >
-          <a style="color:blue" href="https://houduan.yituliu.site/save/export/item/value"> 导出Excel</a>
+          <a style="color:rgb(65,105,240)" href="https://houduan.yituliu.site/save/export/item/value/excel"> 导出Excel</a>
           </div>
           <div class="tab_text">
-          <a style="color:blue" href="https://houduan.yituliu.site/save/export/item/value"> 导出Json</a>
+          <a style="color:rgb(65,105,240)" href="https://houduan.yituliu.site/save/export/item/value/json"> 导出Json</a>
           </div>
         </div>
       </div>

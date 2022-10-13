@@ -5,14 +5,17 @@
             id="chart2"
             ref="chart2"
           >
+          
         </div>
+        <div class="title">截止2022年10月12日第十一章主线<br>
+          全干员材料总需求</div>
     </div>
 </template>
 
 <script>
 import * as echarts from "echarts";
 import itemCount from "static/json/itemCount.json";
-
+import itemCount2 from "static/json/itemCount2.json";
 export default {
   data() {
     return {   
@@ -28,7 +31,7 @@ export default {
           return new Promise((resolve)=>setTimeout(resolve,d))
     },
     async  show(){
-      
+       await this.sleep(1000)
       for(let i=0;i<itemCount.length;i++){
            await this.sleep(2000)
           this.itemName.unshift(itemCount[i].itemName)
@@ -36,14 +39,23 @@ export default {
           this.barChart()
           console.log('测试')
       }
-      
-        
+
+        await this.sleep(2000)
+          this.itemName = []
+          this.itemCost = []
+        for(let i=0;i<itemCount2.length;i++){
+           await this.sleep(2000)
+          this.itemName.unshift(itemCount2[i].itemName)
+          this.itemCost.unshift(itemCount2[i].itemCount)
+          this.barChart()
+          console.log('测试')
+      }
     },
      barChart() {
         var myChart = echarts.init(document.getElementById("chart2"));
         console.log(this.xData);
         var option = {
-          color: "#2951d6",
+          color: "#4ba6f1",
 
           // backgroundColor: "black",
           // tooltip: {
@@ -59,8 +71,9 @@ export default {
           grid: {
             // left: 40,
             right: 80,
+
             // bottom: 20,
-            // top: 30,
+            top: 80,
             // containLabel: true
           },
           yAxis: [
@@ -74,14 +87,14 @@ export default {
               axisLabel: {
                 margin: 0,
                 textStyle: {
-                  fontSize: 18,
-                  color: "#00000",
-                  left: "0%",
+                  fontSize: 26,
+                  color: "#FFFFFFFF",
+                  left: "10%",
                 },
               },
               axisLine: {
                 lineStyle: {
-                  color: "#00000",
+                  color: "#FFFFFFFF",
                 },
               },
             },
@@ -96,18 +109,18 @@ export default {
                 minInterval: 1,
                 // rotate: -30, //-15度角倾斜显示
                 textStyle: {
-                  fontSize: 14,
-                  color: "#00000",
+                  fontSize: 24,
+                  color: "#FFFFFFFF",
                 },
               },
               axisLine: {
                 lineStyle: {
-                  color: "#000000",
+                  color: "#FFFFFFFF",
                 },
               },
               splitLine: {
                 lineStyle: {
-                  color: "#000000",
+                  color: "#FFFFFFFF",
                 },
               },
             },
@@ -117,7 +130,7 @@ export default {
               name: [],
               type: "bar",
               barWidth: 30,
-              radius: "60%",
+              radius: "48%",
 
               data: this.itemCost,
               label: {
@@ -125,8 +138,8 @@ export default {
                   show: true,
                   position: "right",
                   textStyle: {
-                    color: "#000000", //color of value
-                    fontSize: 24,
+                    color: "#FFFFFFFF", //color of value
+                    fontSize: 26,
                     // margin: 20,
                   },
                 },
@@ -146,11 +159,21 @@ export default {
 
 <style scoped>
   .pie_all {
-    width: 1200px;
-    height: 800px;
-    background: white;
+    width: 1680px;
+    height: 990px;
+    background: url(~static/img/back/ep11.png);
+    background-size: 1700px;
     /* border:solid red 1px; */
-    /* color: #2951d6; */
+    color: #4ba6f1;
+    /* margin-top:10px ; */
   }
 
+ .title{
+  position: absolute;
+  left: 1100px;
+  top:800px; 
+  color: white;
+  font-size:28px ;
+  text-align: right;
+ }
 </style>
