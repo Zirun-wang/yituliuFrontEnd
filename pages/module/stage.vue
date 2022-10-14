@@ -25,7 +25,7 @@
         </div>
         <div class="op_title_tag" style="height: 28px;">
           <div class="tab_text">
-          <!-- *更新时间{{ stageRankT3}} -->
+          <!-- *更新时间{{stageRankT3}} -->
           *更新时间 {{updateTime}}
           </div>
         </div>
@@ -50,11 +50,10 @@
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4">
-                      +{{getEfficiency(stage.stageEfficiencyEx-stage.stageEfficiency,1)}}%
+                    <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
                       <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
-                      </td>
+                    </td>
                   </tr>
                 </tbody>
             </table>
@@ -149,8 +148,7 @@
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
-              <td class="popup_table_c7">
-                      +{{getEfficiency(stage.stageEfficiencyEx-stage.stageEfficiency,1)}}%
+              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
                       <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
                       </td>
@@ -332,6 +330,15 @@ export default {
     getEfficiency(num, acc){
       acc = (typeof acc !== 'undefined') ?  acc : 2;
       return parseFloat(num).toFixed(acc);
+    },
+    getBoxEfficiency(state, effex, eff){
+      if (state==3)
+        // return effex
+        return ("+" + (effex-eff).toFixed(0).toString() + "%")
+      else if (state==4)
+        return "样本少"
+      else
+        return "无小样"
     },
     shrinkTimes(times){
       if (times > 9999)
