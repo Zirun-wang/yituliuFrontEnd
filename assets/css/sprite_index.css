@@ -16,6 +16,9 @@
     transform: scale(0.45);
   
     margin: -16px;
+
+    transform:scale(0.4);
+    margin: -20px;
 }
 
 .sprite_secondary_dialog {

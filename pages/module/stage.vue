@@ -51,8 +51,9 @@
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4">
+                      +25%
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div>
+                      <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
                       </td>
                   </tr>
                 </tbody>
@@ -132,11 +133,12 @@
             <tr class="popup_table_title">
               <td class="popup_table_c1" style="width:55px;">关卡名</td>
               <td class="popup_table_c2" style="width:65px;">样本数<br>(置信度)</td>
-              <td class="popup_table_c3" style="width:45px;">SPM</td>
-              <td class="popup_table_c4" style="width:55px;">副产品</td>
-              <td class="popup_table_c5" style="width:90px;">主产物掉率</td>
-              <td class="popup_table_c6" style="width:90px;">主产物期望</td>
-              <td class="popup_table_c7" style="width:90px;">关卡效率</td>
+              <td class="popup_table_c3" style="width:40px;">SPM</td>
+              <td class="popup_table_c4" style="width:50px;">副产品</td>
+              <td class="popup_table_c5" style="width:80px;">主产物掉率</td>
+              <td class="popup_table_c6" style="width:80px;">主产物期望</td>
+              <td class="popup_table_c7" style="width:70px;">关卡效率</td>
+              <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td>
             </tr>
             <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
               <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
