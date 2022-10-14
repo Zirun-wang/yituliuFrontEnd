@@ -1401,11 +1401,12 @@ export default {
     this.setJson();
     this.getUid();
     this.getDate();
+    this.updateVisits()
   },
   methods: {
     
     updateVisits() {
-      toolApi.updateVisits("yituliu").then((response) => {});
+      toolApi.updateVisits("building").then((response) => {});
     },
     setExportUrl() {
       this.exportUrl =

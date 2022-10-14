@@ -84,7 +84,7 @@ export default {
   },
   created(){
    this.showPath()
-   this.updateVisits();
+  //  this.updateVisits();
   },
   methods: {
      updateVisits() {

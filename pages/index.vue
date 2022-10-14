@@ -35,12 +35,12 @@ export default {
   },
   created() {},
   mounted() {
-    // this.updateVisits();
+    this.updateVisits();
     this.getCookies();
   },
   methods: {
     updateVisits() {
-      toolApi.updateVisits("yituliu").then((response) => {});
+      toolApi.updateVisits("index").then((response) => {});
     },
     getCookies() {
       let theme = cookie.get("theme");

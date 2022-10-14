@@ -31,14 +31,14 @@
         </div>
       </div>
       <div class="op_warning">
-        新章节开放期间样本量阈值临时下调至100，刷图时请注意甄别
+        新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别
       </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
           <!-- <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div> -->
-          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[1].itemId,0 )"></div>
+          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
          
           <div class="stage_card_t3_table" >
             <table>
@@ -52,7 +52,7 @@
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4">
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <div v-show="stage.stageState > 0.1" :class="getSpriteImg('up', 6)"></div>
+                      <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div>
                       </td>
                   </tr>
                 </tbody>
@@ -72,7 +72,7 @@
       <!-- 扩展卡 -->
       <div class="op_content" id="stage_t3_content_plus" style="display:none;">
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>
+          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[0].itemType)"></div>
           <div class="stage_card_t3_table">
             <table>
                 <tbody>
@@ -293,6 +293,7 @@ export default {
     },
      getSpriteImg(id, index) {
       // console.log(id,index)
+      if(id==='30012') id = '30013'
       if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
       if (index === 2) return "bg-" + id + " sprite_T2";
