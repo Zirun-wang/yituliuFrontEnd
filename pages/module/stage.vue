@@ -51,7 +51,7 @@
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4">
-                      +25%
+                      +{{getEfficiency(stage.stageEfficiencyEx-stage.stageEfficiency,1)}}%
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
                       <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
                       </td>
@@ -148,10 +148,16 @@
               <td style="padding-left:20px;">  <div :class="getSpriteImg(stage.secondaryId, 3)"></div> </td>
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
-              <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}%
+              <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
+              <td class="popup_table_c7">
+                      +{{getEfficiency(stage.stageEfficiencyEx-stage.stageEfficiency,1)}}%
+                      <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
+                      <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
+                      </td>
               <!-- <td class="popup_table_c7"><div style="width:75px;display: inline;">{{getEfficiency(stage.stageEfficiency,1)}}%</div>
                 <div style="width:15px;display: inline;"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></div> -->
-              </td>
+             
+              
             </tr>
           </tbody>
         </table>
@@ -222,12 +228,13 @@
 <script>
 import stageApi from "@/api/stage";
 import cookie from "js-cookie";
+import jsonT3 from "static/062.json";
 
 export default {
   data() {
     return {
       popupData: [], //关卡弹窗用集合
-      stageRankT3: [], //关卡效率集合
+      stageRankT3: jsonT3.data, //关卡效率集合
       stageRankT2: [], //关卡效率集合
       stageRankOrundum: [], //关卡效率集合
       actStageOnly: 0,
@@ -237,13 +244,14 @@ export default {
       itemId:'',
       opETextTheme: "op_title_etext_light",
       stageVersion:"062",
+      
     };
   },
 
   components: {},
 
   created() {
-    this.loadData();
+    // this.loadData();
   },
 
   mounted() {
