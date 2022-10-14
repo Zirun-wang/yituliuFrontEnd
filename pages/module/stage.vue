@@ -234,7 +234,7 @@ export default {
   data() {
     return {
       popupData: [], //关卡弹窗用集合
-      stageRankT3: jsonT3.data, //关卡效率集合
+      stageRankT3: [], //关卡效率集合
       stageRankT2: [], //关卡效率集合
       stageRankOrundum: [], //关卡效率集合
       actStageOnly: 0,
@@ -251,7 +251,7 @@ export default {
   components: {},
 
   created() {
-    // this.loadData();
+    this.loadData();
   },
 
   mounted() {
