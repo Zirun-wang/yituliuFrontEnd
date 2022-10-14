@@ -49,6 +49,7 @@
     -o-border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
     border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
     font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     height: 90px;
     width: 80%;
@@ -77,6 +78,7 @@
 	width: 75px;
 	text-align:center;
 	padding:0px;
+    width: 60px;
 }
 
 .stage_table_c2 {
@@ -89,6 +91,16 @@
     width: 80px;
 	text-align:center;
     padding:0px;
+    width: 70px;
+}
+
+.stage_table_c4 {
+    width: 40px;
+	text-align:center;
+    padding:0px;
+    font-size: 14px;
+    color:coral;
+    /* font-weight: 300; */
 }
 
 .stage_table_c4 img {
