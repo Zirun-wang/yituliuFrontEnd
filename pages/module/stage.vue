@@ -234,7 +234,7 @@ export default {
       updateTime:'2000-01-01 00:00:00',
       itemId:'',
       opETextTheme: "op_title_etext_light",
-      
+      stageVersion:"062",
     };
   },
 
@@ -404,20 +404,35 @@ export default {
     //  return str
     // },
     loadData(){
-      stageApi.findStageDateByTypeOrderByEfficiencyDesc(500).then((response) => {
+      var t3Flag = false;
+      var t2Flag = false;
+      var orundumFlag = false;
+      stageApi.findStageDateByTypeOrderByEfficiencyDesc(500,this.stageVersion).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
         this.updateTime = response.data[0][0].updateTime
+        t3Flag = true;
       });
-      stageApi.findStageDateByMainOrderByExpectDesc().then((response) => {
+      stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
         this.stageRankT2 = [];
         this.stageRankT2 = response.data;
+        t2Flag = true;
       });
-      stageApi.findStageDataOfOrundum().then((response) => {
+      stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
+        orundumFlag = true;
       });
       this.popupData = this.stageRankT3[1];
+
+      
+        this.$message({
+            message: '切换成功' ,
+            type: "success",
+            showClose: true,
+            duration: 2000,
+          });
+      
     },
   },
 };
