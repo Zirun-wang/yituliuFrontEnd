@@ -52,7 +52,7 @@
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <td class="stage_table_c4">
                       <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <div v-show="stage.stageState > 0.1" :class="getSpriteImg('up', 6)"></div>
+                      <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div>
                       </td>
                   </tr>
                 </tbody>

@@ -1111,12 +1111,12 @@
       this.compute();
     },
     mounted() {
-      // this.updateVisits();
+      this.updateVisits();
       this.pieChart(this.pieData);
     },
     methods: {
       updateVisits() {
-        toolApi.updateVisits("zanchou").then((response) => {});
+        toolApi.updateVisits("gacha").then((response) => {});
       },
 
       getSpriteImg(name, index) {
