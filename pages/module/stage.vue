@@ -19,6 +19,12 @@
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
+          <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
+            往期活动效率
+          </div>
+          <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
+            高级选项
+          </div> -->
           <div class="tab_text">
           *点击卡片查看详情
           </div>
@@ -31,7 +37,8 @@
         </div>
       </div>
       <div class="op_warning">
-        新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别
+        新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
+        小样活动大约可以提供25%的效率
       </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
@@ -112,6 +119,9 @@
 
     <!-- 弹窗Start -->
     <div id="popup_background" @click="hidePopup()">
+    </div>
+    <div id="popup_content">
+
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
         <div class="popup_header" >
@@ -215,8 +225,14 @@
           搓玉效率:该关卡的转化率与无加成1-7的转化率之比
         </div>
       </div>
+
+      <!-- 往期活动 -->
+      <div  class="popup_card" id="popup_card_history">
+
+      </div>
+    <!-- </div> -->
+    <!-- 弹窗End -->      
     </div>
-    <!-- 弹窗End -->
   </div>
 </template>
 
@@ -242,7 +258,7 @@ export default {
       itemId:'',
       opETextTheme: "op_title_etext_light",
       stageVersion:"062",
-      
+      activeName:'1',
     };
   },
 
@@ -267,6 +283,7 @@ export default {
     showPopup(index){
       document.getElementById('popup_card').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
+      document.getElementById('popup_content').style.display = "block"
       if (index<100) {
         this.popupData = [];
         this.popupData = this.stageRankT3[index];
@@ -290,11 +307,13 @@ export default {
     showOrundumPopup(){
       document.getElementById('popup_card_orundum').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
+      document.getElementById('popup_content').style.display = "block"
     },
     hidePopup(){
       document.getElementById('popup_card').style.display = "none"
       document.getElementById('popup_card_orundum').style.display = "none"
       document.getElementById('popup_background').style.display = "none"
+      document.getElementById('popup_content').style.display = "none"
     },
 	  getPenguinUrl(num){
       return ("https://penguin-stats.cn/result/item/" + num);
