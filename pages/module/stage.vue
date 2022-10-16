@@ -19,6 +19,12 @@
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
+          <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
+            往期活动效率
+          </div>
+          <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
+            高级选项
+          </div> -->
           <div class="tab_text">
           *点击卡片查看详情
           </div>
@@ -31,7 +37,8 @@
         </div>
       </div>
       <div class="op_warning">
-        新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别
+        新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
+        小样活动大约可以提供25%的效率
       </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
@@ -39,14 +46,14 @@
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
           <!-- <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div> -->
           <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
-         
+
           <div class="stage_card_t3_table" >
             <table>
                 <tbody>
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <td> 
+                    <td>
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
@@ -112,6 +119,9 @@
 
     <!-- 弹窗Start -->
     <div id="popup_background" @click="hidePopup()">
+    </div>
+    <div id="popup_content">
+
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
         <div class="popup_header" >
@@ -119,7 +129,7 @@
           <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
             <div class="t3 popup_header_penguin" style="display:flex">
-               <div>查看企鹅物流原始数据 </div> 
+               <div>查看企鹅物流原始数据 </div>
                <div  :class="getSpriteImg('el',7)" ></div>
             </div>
           </a>
@@ -137,7 +147,7 @@
               <td class="popup_table_c5" style="width:80px;">主产物掉率</td>
               <td class="popup_table_c6" style="width:80px;">主产物期望</td>
               <td class="popup_table_c7" style="width:70px;">关卡效率</td>
-              <td class="popup_table_c7" style="width:64px;">小样提升</td>
+              <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td>
             </tr>
             <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
               <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
@@ -157,11 +167,11 @@
         <client-only>
         <div class="popup_text f12 t1" >
           效率基准:<b>常驻图</b>中综合效率最高者<br>
-          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 
+          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围
           <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">
             <div style="display:inline-block">详细介绍</div>
             <div style="display:inline-block" :class="getSpriteImg('el', 7)" ></div>
-          </a>  
+          </a>
         SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</div>
         </client-only>
       </div>
@@ -188,9 +198,9 @@
               <td class="popup_orundum_c2" style="width:120px;">
                   <!-- <div>1</div> -->
                   <!-- <div :class="getSpriteImg('AP_GAMEPLAY', 5)" ></div> -->
-                <div>{{ getEfficiency(stage.orundumPerAp)}}</div> 
+                <div>{{ getEfficiency(stage.orundumPerAp)}}</div>
                 <div style="margin-bottom: -15px;" :class="getSpriteImg(4003, 5)" ></div>
-              </td>   
+              </td>
               <td class="popup_orundum_c3" style="width:120px;">
                 <div>{{getEfficiency(stage.lMDCost)}}w</div>
                 <div style="margin-bottom: -8px;" :class="getSpriteImg(4001, 5)" ></div>
@@ -208,8 +218,14 @@
           搓玉效率:该关卡的转化率与无加成1-7的转化率之比
         </div>
       </div>
-    </div>
+
+      <!-- 往期活动 -->
+      <div  class="popup_card" id="popup_card_history">
+
+      </div>
+    <!-- </div> -->
     <!-- 弹窗End -->
+    </div>
   </div>
 </template>
 
@@ -234,6 +250,7 @@ export default {
       itemId:'',
       opETextTheme: "op_title_etext_light",
       stageVersion:"062",
+      activeName:'1',
     };
   },
 
@@ -258,6 +275,7 @@ export default {
     showPopup(index){
       document.getElementById('popup_card').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
+      document.getElementById('popup_content').style.display = "block"
       if (index<100) {
         this.popupData = [];
         this.popupData = this.stageRankT3[index];
@@ -281,11 +299,13 @@ export default {
     showOrundumPopup(){
       document.getElementById('popup_card_orundum').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
+      document.getElementById('popup_content').style.display = "block"
     },
     hidePopup(){
       document.getElementById('popup_card').style.display = "none"
       document.getElementById('popup_card_orundum').style.display = "none"
       document.getElementById('popup_background').style.display = "none"
+      document.getElementById('popup_content').style.display = "none"
     },
 	  getPenguinUrl(num){
       return ("https://penguin-stats.cn/result/item/" + num);
@@ -366,11 +386,11 @@ export default {
       else if (color < (dividing - 2 * tier))
         return "color_t2";
       else if (color < (dividing - 1 * tier))
-        return "color_t3";		
+        return "color_t3";
       else if (color < dividing)
-        return "color_t4";	
+        return "color_t4";
       else
-        return "color_t5";	
+        return "color_t5";
     },
 
 
@@ -400,11 +420,11 @@ export default {
       }
       this.actStageOnly++;
     },
-    
+
     // strPadStart(num,index){
     //   var str = num.toString
     //   console.log(str.toString().indexOf('.'))
-       
+
     // //  if(str.toString().length<4){
     // //      return str+'0'
     // //  }
@@ -433,14 +453,14 @@ export default {
       });
       this.popupData = this.stageRankT3[1];
 
-      
+
         this.$message({
             message: '切换成功' ,
             type: "success",
             showClose: true,
             duration: 2000,
           });
-      
+
     },
   },
 };
