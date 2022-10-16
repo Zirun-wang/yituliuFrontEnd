@@ -31,7 +31,7 @@
         </div>
         <div class="op_title_tag" style="height: 28px;">
           <div class="tab_text">
-          <!-- *更新时间{{stageRankT3}} -->
+          *更新时间{{stageActHistory}}
           *更新时间 {{updateTime}}
           </div>
         </div>
@@ -227,8 +227,10 @@
       </div>
 
       <!-- 往期活动 -->
-      <div  class="popup_card" id="popup_card_history">
-
+      <div id="popup_card_history">
+        <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card" style="height:40px;width:200px;backgorund:#ffffff;display:block;">
+          {{closedAct[0].activityName}}
+        </div>
       </div>
     <!-- </div> -->
     <!-- 弹窗End -->      
@@ -251,6 +253,7 @@ export default {
       stageRankT3: [], //关卡效率集合
       stageRankT2: [], //关卡效率集合
       stageRankOrundum: [], //关卡效率集合
+      stageActHistory:[],
       actStageOnly: 0,
       cardList:[0,1,2,3,4,5,6,7],
       itemType:'',
@@ -309,9 +312,15 @@ export default {
       document.getElementById('popup_background').style.display = "block"
       document.getElementById('popup_content').style.display = "block"
     },
+    showHistoryPopup(){
+      document.getElementById('popup_card_history').style.display = "block"
+      document.getElementById('popup_background').style.display = "block"
+      document.getElementById('popup_content').style.display = "block"
+    },
     hidePopup(){
       document.getElementById('popup_card').style.display = "none"
       document.getElementById('popup_card_orundum').style.display = "none"
+      document.getElementById('popup_card_history').style.display = "none"
       document.getElementById('popup_background').style.display = "none"
       document.getElementById('popup_content').style.display = "none"
     },
@@ -457,6 +466,11 @@ export default {
       stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
+        orundumFlag = true;
+      });
+      stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+        this.stageActHistory = [];
+        this.stageActHistory = response.data;
         orundumFlag = true;
       });
       this.popupData = this.stageRankT3[1];
