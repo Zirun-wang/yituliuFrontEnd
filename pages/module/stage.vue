@@ -137,7 +137,7 @@
               <td class="popup_table_c5" style="width:80px;">主产物掉率</td>
               <td class="popup_table_c6" style="width:80px;">主产物期望</td>
               <td class="popup_table_c7" style="width:70px;">关卡效率</td>
-              <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td>
+              <td class="popup_table_c7" style="width:64px;">小样提升</td>
             </tr>
             <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
               <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
@@ -148,14 +148,7 @@
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
-              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}
-                      <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
-                      </td>
-              <!-- <td class="popup_table_c7"><div style="width:75px;display: inline;">{{getEfficiency(stage.stageEfficiency,1)}}%</div>
-                <div style="width:15px;display: inline;"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></div> -->
-             
-              
+              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td>
             </tr>
           </tbody>
         </table>
@@ -226,7 +219,6 @@
 <script>
 import stageApi from "@/api/stage";
 import cookie from "js-cookie";
-import jsonT3 from "static/062.json";
 
 export default {
   data() {
@@ -242,7 +234,6 @@ export default {
       itemId:'',
       opETextTheme: "op_title_etext_light",
       stageVersion:"062",
-      
     };
   },
 

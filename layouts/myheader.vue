@@ -84,11 +84,11 @@ export default {
   },
   created(){
    this.showPath()
-  //  this.updateVisits();
+  //  
   },
   methods: {
-     updateVisits() {
-      toolApi.updateVisits("yituliu").then((response) => {});
+     updateVisits(domain) {
+      toolApi.updateVisits(domain).then((response) => {});
     },
     switchTheme() {
         this.activeIndex = '1'
@@ -132,13 +132,30 @@ export default {
    
     showPath(){
      this.routePath =this.$route.path;
-        if('/'===this.routePath )  this.activeIndex = '1';
-        if('/gachaCal/'===this.routePath )  this.activeIndex = '2';
-        if('/riicCal/'===this.routePath )  this.activeIndex = '3';
-        if('/recruit/'===this.routePath )  this.activeIndex = '4';
-        if('/expCal/'===this.routePath )  this.activeIndex = '4';
-        // if('/recruit/'===path )  this.activeIndex = '5';
-    
+        if('/'===this.routePath )  {
+          this.activeIndex = '1';
+          this.updateVisits('index');
+          };
+        if('/gachaCal/'===this.routePath ){ 
+           this.activeIndex = '2';
+           this.updateVisits('gacha');
+           };
+        if('/riicCal/'===this.routePath ) { 
+          this.activeIndex = '3';
+          this.updateVisits('building');
+          };
+        if('/recruit/'===this.routePath ) {
+          this.activeIndex = '4';
+          this.updateVisits('index');
+          };
+        if('/expCal/'===this.routePath ) {
+           this.activeIndex = '4';
+           this.updateVisits('index');
+          };
+        if('/maaRecruitData/'===this.routePath ) {
+           this.activeIndex = '4';
+           this.updateVisits('index');
+          };
     },
    
     mainSite() {
