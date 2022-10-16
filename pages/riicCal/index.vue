@@ -1401,7 +1401,7 @@ export default {
     this.setJson();
     this.getUid();
     this.getDate();
-    this.updateVisits()
+    // this.updateVisits()
   },
   methods: {
     

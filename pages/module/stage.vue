@@ -46,14 +46,14 @@
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
           <!-- <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div> -->
           <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
-         
+
           <div class="stage_card_t3_table" >
             <table>
                 <tbody>
                   <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-                    <td> 
+                    <td>
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
@@ -129,7 +129,7 @@
           <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
             <div class="t3 popup_header_penguin" style="display:flex">
-               <div>查看企鹅物流原始数据 </div> 
+               <div>查看企鹅物流原始数据 </div>
                <div  :class="getSpriteImg('el',7)" ></div>
             </div>
           </a>
@@ -158,14 +158,7 @@
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
-              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}
-                      <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
-                      </td>
-              <!-- <td class="popup_table_c7"><div style="width:75px;display: inline;">{{getEfficiency(stage.stageEfficiency,1)}}%</div>
-                <div style="width:15px;display: inline;"><img v-show="stage.stageState > 0.1" src="/img/website/up.png"></div> -->
-             
-              
+              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td>
             </tr>
           </tbody>
         </table>
@@ -174,11 +167,11 @@
         <client-only>
         <div class="popup_text f12 t1" >
           效率基准:<b>常驻图</b>中综合效率最高者<br>
-          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围 
+          置信度:掉率对关卡效率误差影响在3%前提下的可信度范围
           <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">
             <div style="display:inline-block">详细介绍</div>
             <div style="display:inline-block" :class="getSpriteImg('el', 7)" ></div>
-          </a>  
+          </a>
         SPM:假设敌人被秒杀，1倍速下每分钟消耗的理智量，实际可能略有出入</div>
         </client-only>
       </div>
@@ -205,9 +198,9 @@
               <td class="popup_orundum_c2" style="width:120px;">
                   <!-- <div>1</div> -->
                   <!-- <div :class="getSpriteImg('AP_GAMEPLAY', 5)" ></div> -->
-                <div>{{ getEfficiency(stage.orundumPerAp)}}</div> 
+                <div>{{ getEfficiency(stage.orundumPerAp)}}</div>
                 <div style="margin-bottom: -15px;" :class="getSpriteImg(4003, 5)" ></div>
-              </td>   
+              </td>
               <td class="popup_orundum_c3" style="width:120px;">
                 <div>{{getEfficiency(stage.lMDCost)}}w</div>
                 <div style="margin-bottom: -8px;" :class="getSpriteImg(4001, 5)" ></div>
@@ -233,7 +226,7 @@
         </div>
       </div>
     <!-- </div> -->
-    <!-- 弹窗End -->      
+    <!-- 弹窗End -->
     </div>
   </div>
 </template>
@@ -244,7 +237,6 @@
 <script>
 import stageApi from "@/api/stage";
 import cookie from "js-cookie";
-import jsonT3 from "static/062.json";
 
 export default {
   data() {
@@ -268,11 +260,12 @@ export default {
   components: {},
 
   created() {
-    this.loadData();
+    this.getStageResultDateT3();
   },
 
   mounted() {
-
+      this.getStageResultDateT2();
+      this.getStageResultDateOrundum();
   },
   methods: {
     getCookies() {
@@ -403,11 +396,11 @@ export default {
       else if (color < (dividing - 2 * tier))
         return "color_t2";
       else if (color < (dividing - 1 * tier))
-        return "color_t3";		
+        return "color_t3";
       else if (color < dividing)
-        return "color_t4";	
+        return "color_t4";
       else
-        return "color_t5";	
+        return "color_t5";
     },
 
 
@@ -437,36 +430,41 @@ export default {
       }
       this.actStageOnly++;
     },
-    
+
     // strPadStart(num,index){
     //   var str = num.toString
     //   console.log(str.toString().indexOf('.'))
-       
+
     // //  if(str.toString().length<4){
     // //      return str+'0'
     // //  }
 
     //  return str
     // },
-    loadData(){
-      var t3Flag = false;
-      var t2Flag = false;
-      var orundumFlag = false;
+
+    getStageResultDateT3(){
       stageApi.findStageDateByTypeOrderByEfficiencyDesc(500,this.stageVersion).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
-        this.updateTime = response.data[0][0].updateTime
-        t3Flag = true;
+        this.updateTime = response.data[0][0].updateTime;
+      this.$message({
+            message: '切换成功' ,
+            type: "success",
+            showClose: true,
+            duration: 2000,
+          });
       });
+    },
+    getStageResultDateT2(){
       stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
         this.stageRankT2 = [];
         this.stageRankT2 = response.data;
-        t2Flag = true;
       });
-      stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
+    },
+    getStageResultDateOrundum(){
+    stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
-        orundumFlag = true;
       });
       stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
         this.stageActHistory = [];

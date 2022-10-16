@@ -35,7 +35,7 @@ export default {
   },
   created() {},
   mounted() {
-    this.updateVisits();
+    // this.updateVisits();
     this.getCookies();
   },
   methods: {
