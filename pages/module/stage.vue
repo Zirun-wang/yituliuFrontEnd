@@ -223,12 +223,15 @@
       <div id="popup_card_history">
         <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card">
           <div class="history_actName">{{closedAct[0].activityName}}</div>
-          <div v-for="(stage, index) in closedAct" :key="index" class="history_stage">
-            <div :class="getSpriteImg(stage.itemId, 2)" style="display:inline-block;margin:6px;"></div>
-            <div class="history_stage_table">
-              {{stage.stageCode}}<br>{{stage.stageEfficiency}}
+          <div class="history_actStages">
+            <div v-for="(stage, index) in closedAct" :key="index" class="history_stage">
+              <div :class="getSpriteImg(stage.itemId, 2)" style="display:inline-block;"></div>
+              <div class="history_stage_table">
+                {{stage.stageCode}}<br>{{stage.stageEfficiency}}%
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     <!-- </div> -->
