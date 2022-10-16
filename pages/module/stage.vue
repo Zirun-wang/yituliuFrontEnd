@@ -257,11 +257,12 @@ export default {
   components: {},
 
   created() {
-    this.loadData();
+    this.getStageResultDateT3();
   },
 
   mounted() {
-
+      this.getStageResultDateT2();
+      this.getStageResultDateOrundum();
   },
   methods: {
     getCookies() {
@@ -431,36 +432,31 @@ export default {
 
     //  return str
     // },
-    loadData(){
-      var t3Flag = false;
-      var t2Flag = false;
-      var orundumFlag = false;
+
+    getStageResultDateT3(){
       stageApi.findStageDateByTypeOrderByEfficiencyDesc(500,this.stageVersion).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
-        this.updateTime = response.data[0][0].updateTime
-        t3Flag = true;
-      });
-      stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
-        this.stageRankT2 = [];
-        this.stageRankT2 = response.data;
-        t2Flag = true;
-      });
-      stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
-        this.stageRankOrundum = [];
-        this.stageRankOrundum = response.data;
-        orundumFlag = true;
-      });
-      this.popupData = this.stageRankT3[1];
-
-
-        this.$message({
+        this.updateTime = response.data[0][0].updateTime;
+      this.$message({
             message: '切换成功' ,
             type: "success",
             showClose: true,
             duration: 2000,
           });
-
+      });
+    },
+    getStageResultDateT2(){
+      stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
+        this.stageRankT2 = [];
+        this.stageRankT2 = response.data;
+      });
+    },
+    getStageResultDateOrundum(){
+    stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
+        this.stageRankOrundum = [];
+        this.stageRankOrundum = response.data;
+      });
     },
   },
 };
