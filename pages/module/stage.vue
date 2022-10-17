@@ -19,9 +19,9 @@
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
-          <!-- <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
+          <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
             往期活动效率
-          </div> -->
+          </div>
           <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
             高级选项
           </div> -->
@@ -38,7 +38,7 @@
       </div>
       <div class="op_warning">
         新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
-        小样活动大约可以提供25%的效率
+        小样活动约可提供25%的效率
       </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
@@ -218,11 +218,10 @@
           搓玉效率:该关卡的转化率与无加成1-7的转化率之比
         </div>
       </div>
-
       <!-- 往期活动 -->
       <div id="popup_card_history">
         <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card">
-          <div class="history_actName">{{closedAct[0].activityName}}</div>
+          <div class="history_actName">{{closedAct[1].activityName}}</div>
           <div class="history_actStages">
             <div v-for="(stage, index) in closedAct" :key="index" class="history_stage">
               <div :class="getSpriteImg(stage.itemId, 2)" style="display:inline-block;"></div>
