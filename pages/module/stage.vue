@@ -222,7 +222,7 @@
       <!-- 往期活动 -->
       <div id="popup_card_history">
         <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card">
-          <div class="history_actName">{{closedAct[0].activityName}}</div>
+          <div class="history_actName">{{closedAct[1].activityName}}</div>
           <div class="history_actStages">
             <div v-for="(stage, index) in closedAct" :key="index" class="history_stage">
               <div :class="getSpriteImg(stage.itemId, 2)" style="display:inline-block;"></div>
