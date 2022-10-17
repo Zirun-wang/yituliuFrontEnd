@@ -19,9 +19,9 @@
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
-          <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
+          <!-- <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
             往期活动效率
-          </div>
+          </div> -->
           <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
             高级选项
           </div> -->
@@ -481,7 +481,7 @@ export default {
      stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
-        orundumFlag = true;
+       
       });
     }
   },
