@@ -22,9 +22,9 @@
           <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
             往期活动效率
           </div>
-          <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
+          <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
             高级选项
-          </div> -->
+          </div>
           <div class="tab_text">
           *点击卡片查看详情
           </div>
