@@ -38,7 +38,7 @@
       </div>
       <div class="op_warning">
         新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
-        小样活动大约可以提供25%的效率
+        小样活动约可提供25%的效率
       </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
