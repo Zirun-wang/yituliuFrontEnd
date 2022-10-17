@@ -307,3 +307,42 @@
     color:#222222;
     margin:0px;
 }
+
+#popup_card_history {
+    max-height: 80%;
+}
+
+#popup_card_history .popup_card{
+    margin-bottom: 8px;
+    display:block;
+    padding: 4px;
+}
+
+.history_actName{
+    display: inline-block;
+    height: 60px;
+    width: 150px;
+    vertical-align: top;
+}
+.history_actStages{
+    display: inline-block;
+}
+.history_stage{
+    display: inline-block;
+    height: 60px;
+    width: 124px;
+}
+.history_stage div{
+    display: inline-block;
+}
+
+.history_stage_table{
+    font-size: 18px;
+    font-weight: 600;
+    width: 72px;
+    border-radius: 6px;
+    /* border: 1px solid #000000; */
+    vertical-align: top;
+    margin: 6px 0px 0px -16px;
+    background: #b0b0c0b0
+}
