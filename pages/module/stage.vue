@@ -31,7 +31,7 @@
         </div>
         <div class="op_title_tag" style="height: 28px;">
           <div class="tab_text">
-          *更新时间{{stageActHistory}}
+          <!-- *更新时间{{stageActHistory}} -->
           *更新时间 {{updateTime}}
           </div>
         </div>
@@ -266,6 +266,7 @@ export default {
   mounted() {
       this.getStageResultDateT2();
       this.getStageResultDateOrundum();
+      this.getStageResultDateClosed();
   },
   methods: {
     getCookies() {
@@ -466,22 +467,14 @@ export default {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
       });
-      stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+    },
+    getStageResultDateClosed(){
+     stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
         orundumFlag = true;
       });
-      this.popupData = this.stageRankT3[1];
-
-      
-        this.$message({
-            message: '切换成功' ,
-            type: "success",
-            showClose: true,
-            duration: 2000,
-          });
-      
-    },
+    }
   },
 };
 </script>
