@@ -313,6 +313,7 @@
     overflow: scroll;
     width: 555px;
     margin: auto;
+    display: none;
 }
 
 #popup_card_history .popup_card{
