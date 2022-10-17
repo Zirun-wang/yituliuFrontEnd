@@ -231,7 +231,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     <!-- </div> -->
@@ -270,12 +269,13 @@ export default {
 
   created() {
     this.getStageResultDateT3();
+    this.getStageResultDateT2();
+      this.getStageResultDateOrundum();
+      this.getStageResultDateClosed();
   },
 
   mounted() {
-      this.getStageResultDateT2();
-      this.getStageResultDateOrundum();
-      this.getStageResultDateClosed();
+      
   },
   methods: {
     getCookies() {
@@ -457,12 +457,12 @@ export default {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
         this.updateTime = response.data[0][0].updateTime;
-      this.$message({
-            message: '切换成功' ,
-            type: "success",
-            showClose: true,
-            duration: 2000,
-          });
+      // this.$message({
+      //       message: '切换成功' ,
+      //       type: "success",
+      //       showClose: true,
+      //       duration: 2000,
+      //     });
       });
     },
     getStageResultDateT2(){
