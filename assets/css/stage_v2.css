@@ -26,7 +26,7 @@
     filter: grayscale(0.1);
     /* position: absolute; */
     /* margin-left: -1%; */
-    margin-left: calc(40% - 135px);
+    margin-left: calc(40% - 160px);
     display: inline-block;
 }
 
