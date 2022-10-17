@@ -218,7 +218,6 @@
           搓玉效率:该关卡的转化率与无加成1-7的转化率之比
         </div>
       </div>
-
       <!-- 往期活动 -->
       <div id="popup_card_history">
         <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card">
