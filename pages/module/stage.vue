@@ -22,9 +22,9 @@
           <div id="historyStageKey" class="op_tag_0" @click="showHistoryPopup()">
             往期活动效率
           </div>
-          <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
+          <!-- <div id="orundumStageKey" class="op_tag_0" @click="switchStrategy()">
             高级选项
-          </div>
+          </div> -->
           <div class="tab_text">
           *点击卡片查看详情
           </div>
@@ -275,6 +275,7 @@ export default {
   mounted() {
       this.getStageResultDateT2();
       this.getStageResultDateOrundum();
+      this.getStageResultDateClosed();
   },
   methods: {
     getCookies() {
@@ -475,22 +476,14 @@ export default {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
       });
-      stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+    },
+    getStageResultDateClosed(){
+     stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
-        orundumFlag = true;
+       
       });
-      this.popupData = this.stageRankT3[1];
-
-      
-        this.$message({
-            message: '切换成功' ,
-            type: "success",
-            showClose: true,
-            duration: 2000,
-          });
-      
-    },
+    }
   },
 };
 </script>

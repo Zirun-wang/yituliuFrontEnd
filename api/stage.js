@@ -31,9 +31,9 @@ export default {
 
 
     //根据关卡ID查询已结束活动
-    findClosedActivStageByStageId(){
+    findClosedActivStageByStageId(version){
         return request({
-            url: `${api_name}/find/stage/activity/closed`,
+            url: `${api_name}/find/stage/activity/closed/${version}`,
             method: 'get',            
         })
     },
