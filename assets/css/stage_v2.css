@@ -1,3 +1,39 @@
+.stage_hint{
+    display: flex;
+    padding: 0px 12px;
+    justify-content: space-between;
+}
+
+.stage_hint div{
+    border-radius: 4px;
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    border-color: #fde2e2;
+    flex-grow: 1;
+    margin: 4px;
+    width: 120px;
+}
+
+.stage_hint_t5{
+    background-color: #fdf6ec;
+
+    color: #e85d06;
+}
+
+.stage_hint_t4{
+    background-color: #fef0f0;
+
+    color: #a335ee;
+}
+
+.stage_hint_t2{
+    background-color: #f0f9eb;
+
+    color: #00a2a2;
+}
+
 .stage_card_t3 {
     border: 0px solid #EBEEF5;
     overflow: hidden;
