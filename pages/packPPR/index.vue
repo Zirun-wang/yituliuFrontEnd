@@ -97,7 +97,7 @@
         margin:20px;
         width: 560px;
         height: 120px;
-        overflow: auto;
+        overflow: hidden;
     }
     .pack_img{
         width: 160px;
@@ -158,8 +158,6 @@
         white-space: nowrap;
         overflow: hidden;
     }
-
-
 
     .pack_chart_unit_text{
         display: inline-block;
