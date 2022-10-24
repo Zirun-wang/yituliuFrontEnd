@@ -84,12 +84,18 @@
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
                 {{ getFixed(orundum) }}
+                <span style="font-size: 14px;">
+                 &nbsp;({{ (getFixed(orundum)/600).toFixed(2) }})
+                </span>
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
                 {{ getFixed(originium) }}
+                <span style="font-size: 14px;">
+                 &nbsp;({{ (gachaTimes_originium).toFixed(2) }})
+                </span>
               </div>
             </div>
             <div class="gacha_unit_child_title">
@@ -102,6 +108,9 @@
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
                 {{ getFixed(permit10) }}
+                <span style="font-size: 14px;">
+                 &nbsp;({{ getFixed(permit10)*10 }})
+                </span>
               </div>
             </div>
           </div>
@@ -200,8 +209,8 @@
           </div>
           <!-- 填空模块End -->
           <div class="gacha_unit_child" style="display: flex">
-            <div class="gacha_unit_child_title" style="width: 108px;">
-              预留皮肤
+            <div class="gacha_unit_child_title">
+              预留皮肤(18石/件)
             </div>
             <el-slider
               v-model="skinFlag"
@@ -1031,6 +1040,8 @@
         permit10: 0, //十连寻访
         sellsCount: 0, //总氪金总和
         gachaTimes: 0, //总抽卡次数
+        
+        gachaTimes_originium: 0, //总抽卡次数（源石部分）
 
         gachaTimes_exist: 0, //库存抽卡次数
         gachaTimes_potential: 0, //潜在抽卡次数
@@ -1595,6 +1606,17 @@
           parseInt(this.orundum) / 600 +
           parseInt(this.permit) +
           parseInt(this.permit10) * 10;
+
+        //源石抽卡次数
+        this.gachaTimes_originium = 
+        (this.originium_exist +
+            this.originium_potential +
+            this.originium_gacha +
+            this.originium_daily +
+            this.originium_act +
+            this.originium_other
+            - parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
+
 
         this.pieData = [];
         var item = {};

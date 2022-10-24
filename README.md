@@ -13,9 +13,12 @@
 ![](https://img.shields.io/badge/Nuxt.js-2.13.3-brightgreen)
 ![](https://img.shields.io/badge/elementui-2.13.2-brightgreen)
 
-编译器目前用的VS Code，你觉得别的顺手用别的也行。<br>
+编译器目前用的VS Code，你觉得别的顺手用别的也行。
+
 node.js版本目前15（10到15应该都能运行）。
-下载后打开项目文件夹下的终端运行npn install。<br>
-等待安装完成后运行npm dev。
+
+下载后打开项目文件夹下的终端运行 `npm install`。
+
+等待安装完成后运行 `npm run dev`。
 
 
