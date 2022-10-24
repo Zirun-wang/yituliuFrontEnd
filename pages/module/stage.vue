@@ -275,7 +275,7 @@ export default {
     };
   },
 
-  components: {},
+
 
   created() {
     this.getStageResultDateT3();

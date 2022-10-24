@@ -1,4 +1,5 @@
 <template>
+<div>
     <div id="pack">
         <!-- 标题区域 -->
         <div class="op_title">
@@ -6,7 +7,7 @@
                 <div class="op_title_ctext">
                     礼包性价比
                 </div>
-                <div :class=opETextTheme>
+                <div :class="opETextTheme" >
                     Packs
                 </div>
             </div>
@@ -22,7 +23,7 @@
 
                     <div class="pack_info">
                         <div class="pack_info_text">
-                        共{{pack2.packDraw}}抽 <br><t1>￥{{getEfficiency(pack2.packRmbPerDraw, 1)}}/抽</t1>
+                        共{{pack2.packDraw}}抽 <br>￥{{getEfficiency(pack2.packRmbPerDraw, 1)}}/抽
                         </div>
                         <div class="pack_chart">
                             <div class="pack_chart_unit" v-show="pack2.packPPRDraw >= 1.57">
@@ -78,7 +79,7 @@
                     
                     <div class="pack_info">
                         <div class="pack_info_text">
-                        {{getEfficiency(pack3.packOriginium,1)}}源石 <br><t1>￥{{getEfficiency(pack3.packRmbPerOriginium, 1)}}/石</t1>
+                        {{getEfficiency(pack3.packOriginium,1)}}源石 <br>￥{{getEfficiency(pack3.packRmbPerOriginium, 1)}}/石
                         </div>
                         <div class="pack_chart">
                             <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
@@ -127,21 +128,22 @@
             </div>
         </div>
     </div>
+</div>
 </template>
   
 <script>
 import cookie from "js-cookie";
+import packsPPR from "static/json/pack_packsPPR.json";
 
 export default {
   data() {
     return {
         opETextTheme: "op_title_etext_light",
+         packsPPRData:packsPPR,
     };
   },
   created() {
-    this.findPermStorePer();
     this.getCookies();
-    this.finActStorePer()
   },
   methods: {
     getCookies() {
@@ -152,6 +154,20 @@ export default {
         console.log(theme);
         this.opETextTheme = "op_title_etext_" + theme;
     },
+   
+    getWidth(num , scale) {
+        return "width:" + num*scale +"px";
+    },
+    getEfficiency(num, acc){
+        acc = (typeof acc !== 'undefined') ?  acc : 2;
+        return parseFloat(num).toFixed(acc);
+    },
+    getPackImgUrl(img) {
+        return ("/img/packs/" + img + ".png");
+    },
+    getPackPic(img) {
+        return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;")                
+    }
   },
 };
 </script>
@@ -218,7 +234,7 @@ export default {
         vertical-align: top;
     }
 
-    t1{
+    .t1{
         color: #c59447;
     }
 
@@ -292,29 +308,3 @@ export default {
     
 </style>
 
-<script>
-    import packsPPR from "static/json/pack_packsPPR.json";
-
-    export default {
-        data(){
-            return {
-                packsPPRData:packsPPR,
-            }
-        },
-        methods: {
-            getWidth(num , scale) {
-                return "width:" + num*scale +"px";
-            },
-            getEfficiency(num, acc){
-                acc = (typeof acc !== 'undefined') ?  acc : 2;
-                return parseFloat(num).toFixed(acc);
-            },
-            getPackImgUrl(img) {
-                return ("/img/packs/" + img + ".png");
-            },
-            getPackPic(img) {
-                return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;")                
-            }
-        }
-    }
-</script>

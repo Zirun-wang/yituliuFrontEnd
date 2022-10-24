@@ -43,7 +43,6 @@ export default {
  components: {
       myheader,myfooter
     }
-
 };
 </script>
 
