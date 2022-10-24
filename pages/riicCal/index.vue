@@ -68,9 +68,14 @@
             </el-button>
             <div id="export_cover" style="position: absolute;width: 135px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80;"></div>
             <a :href="exportUrl">
-              <el-button size="medium" type="primary" round style="width:126px;margin-left:12px;">
-                导出排班方案
-              </el-button>
+              <el-button-group>
+                <el-button size="medium" type="primary" round style="width:108px;margin-left:12px;">
+                  导出到本地
+                </el-button>
+                <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;">
+                  导出到MAA
+                </el-button>
+              </el-button-group>
             </a>
           </div>
           <!-- <div class="riic_building_parameter">

@@ -40,6 +40,17 @@
         新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
         小样活动约可提供25%的效率
       </div>
+      <div class="stage_hint">
+        <div class="stage_hint_t5">
+          橙：双最优
+        </div>
+        <div class="stage_hint_t4">
+          紫：效率最高(长期最优)
+        </div>
+        <div class="stage_hint_t2">
+          绿：期望最低(短期最优)
+        </div>
+      </div>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
