@@ -3,8 +3,10 @@
     <stage></stage>
     <storeVue> </storeVue>
     <div class="title_null"></div>
-    <itemVue> </itemVue>
+    <pack></pack>
     <div class="title_null"></div>
+    <itemVue> </itemVue>
+
     <div class="title_null"></div>
     <foot></foot>
 
@@ -18,6 +20,7 @@ import foot from "@/pages/module/foot.vue";
 import itemVue from "@/pages/module/itemValue.vue";
 import storeVue from "@/pages/module/store.vue";
 import stage from "@/pages/module/stage.vue";
+import pack from "@/pages/module/packPPR.vue";
 import cookie from "js-cookie";
 import toolApi from "@/api/tool";
 
@@ -32,6 +35,7 @@ export default {
     itemVue,
     storeVue,
     stage,
+    pack,
   },
   created() {},
   mounted() {
