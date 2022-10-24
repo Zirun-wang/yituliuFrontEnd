@@ -7,6 +7,7 @@ import cookie from 'js-cookie'
 const service = axios.create({
     // baseURL: 'http://127.0.0.1:10012/',
     baseURL: 'https://houduan.yituliu.site/',
+    // baseURL: 'https://backend.yituliu.site/',
     timeout: 150000 // 请求超时时间
 })
 
