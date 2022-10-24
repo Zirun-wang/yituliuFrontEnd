@@ -39,8 +39,20 @@
                     仅计抽卡
                 </div>
 
-                <div class="pack_new">
+                <div class="pack_corner corner_new" v-show="pack.packType == 'limit' ">
                     New!
+                </div>
+                <div class="pack_corner corner_monthly" v-show="pack.packType == 'monthly' ">
+                    每月
+                </div>
+                <div class="pack_corner corner_weekly" v-show="pack.packType == 'weekly' ">
+                    每周
+                </div>
+                <div class="pack_corner corner_once" v-show="pack.packType == 'once' ">
+                    一次
+                </div>
+                <div class="pack_corner corner_once" v-show="pack.packType == 'year' ">
+                    双倍
                 </div>
             </div>
         </div>
@@ -81,6 +93,21 @@
 
                 <div class="pack_type">
                     材料折合源石
+                </div>
+                <div class="pack_corner corner_new" v-show="pack3.packType == 'limit' ">
+                    New!
+                </div>
+                <div class="pack_corner corner_monthly" v-show="pack3.packType == 'monthly' ">
+                    每月
+                </div>
+                <div class="pack_corner corner_weekly" v-show="pack3.packType == 'weekly' ">
+                    每周
+                </div>
+                <div class="pack_corner corner_once" v-show="pack3.packType == 'once' ">
+                    一次
+                </div>
+                <div class="pack_corner corner_once" v-show="pack3.packType == 'year' ">
+                    双倍
                 </div>
             </div>
         </div>
@@ -192,9 +219,8 @@
         font-size: 14px;
     }
 
-    .pack_new{
+    .pack_corner{
         transform: rotate(-35deg);
-        background: brown;
         width: 96px;
         top: -112px;
         left: -28px;
@@ -203,6 +229,18 @@
         text-align: center;
         font-size: 14px;
         box-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+    }
+    .corner_new{
+        background: brown;
+    }
+    .corner_monthly{
+        background: indigo;
+    }
+    .corner_weekly{
+        background: indigo;
+    }
+    .corner_once{
+        background: orange;
     }
 
     .bg_red{
