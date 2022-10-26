@@ -108,6 +108,12 @@
 		</div>
 		<div class="foot_unit" id="houduan">
 			<p class="foot_unit_title">-后端-</p>
+			<a href="https://github.com/hguandl">
+				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/10684225?v=4">
+					hguandl
+				</div>
+			</a>
 			<a href="https://space.bilibili.com/39109412">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
@@ -162,6 +168,10 @@
 			<a href="https://space.bilibili.com/688411531"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 			<img class="foot_unit_pic" src="/img/website/bilibili.png" />
 			罗德岛基建BETA</div></a>
+			<p class="foot_unit_title">-粉丝群-</p>
+			<a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+			<img class="foot_unit_pic" src="/img/website/qq.png" />
+			罗德岛数据文献馆</div></a>
 		</div>
 		<div class="foot_unit">
 			<p class="foot_unit_title">-友情链接-</p>

@@ -1168,7 +1168,7 @@
               );
             this.sellsCount =
               parseInt(this.sellsCount) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].sells);
+              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
           }
 
           this.permit_gacha =
