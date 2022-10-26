@@ -7,7 +7,7 @@
                 <div class="op_title_ctext">
                     礼包性价比
                 </div>
-                <div :class="opETextTheme" >
+                <div :class=opETextTheme >
                     Packs
                 </div>
             </div>
@@ -17,7 +17,8 @@
         <div id="pack_content" style="display:flex;">
             <div id="pack_left">
                 <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit">
-                    <div class="pack_img" :style="getPackPic(pack2.packName)">
+                    <!-- <div class="pack_img" :style="getPackPic(pack2.packName)"> -->
+                    <div class="pack_img" >     
                         <div class="pack_img_text1">{{pack2.packShowName}}  ￥{{pack2.packPrice}}</div>
                     </div>
 
@@ -73,7 +74,8 @@
             </div>
             <div id="pack_right">
                 <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit">
-                    <div class="pack_img" :style="getPackPic(pack3.packName)">
+                    <!-- <div class="pack_img" :style="getPackPic(pack3.packName)"> -->
+                    <div class="pack_img" > 
                         <div class="pack_img_text1">{{pack3.packShowName}}  ￥{{pack3.packPrice}}</div>
                     </div>
                     
@@ -147,14 +149,15 @@ export default {
   },
   methods: {
     getCookies() {
-        let theme = cookie.get("theme");
-        if (typeof theme == "undefined" || theme == undefined) {
+        var theme = cookie.get("theme");
+        if (typeof theme === "undefined" || theme === undefined) {
             theme = "op_title_etext_light";
+            console.log("未知")
         }
-        console.log(theme);
+        console.log(theme,1);
         this.opETextTheme = "op_title_etext_" + theme;
     },
-   
+ 
     getWidth(num , scale) {
         return "width:" + num*scale +"px";
     },

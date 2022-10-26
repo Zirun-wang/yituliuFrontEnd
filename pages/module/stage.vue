@@ -36,10 +36,10 @@
           </div>
         </div>
       </div>
-      <div class="op_warning">
+      <!-- <div class="op_warning">
         新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
         小样活动约可提供25%的效率
-      </div>
+      </div> -->
       <div class="stage_hint">
         <div class="stage_hint_t5">
           橙：双最优
@@ -68,10 +68,7 @@
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}
-                      <!-- <img v-show="stage.stageState > 0.1" src="/img/website/up.png"> -->
-                      <!-- <div v-show="stage.stageState > 0.1&&stage.stageState <4" :class="getSpriteImg('up', 6)"></div> -->
-                    </td>
+                    <!-- <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td> -->
                   </tr>
                 </tbody>
             </table>
@@ -121,7 +118,7 @@
         <div class="stage_card_t2 uni_shadow_2">
           <div v-for="(materialRankT2, index) in stageRankT2.slice(0, 6)" :key="index" class="stage_card_t2_img">
             <!-- <img :src="getImgUrl(materialRankT2[0].itemName)" :alt="materialRankT2[0].itemName" "> -->
-            <div :class="getSpriteImg(materialRankT2[0].itemId,2)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
+            <div :class="getSpriteImg(materialRankT2[0].itemId,100)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
           </div>
         </div>
       </div>
@@ -169,7 +166,7 @@
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
-              <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td>
+              <!-- <td class="popup_table_c7">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td> -->
             </tr>
           </tbody>
         </table>
@@ -342,7 +339,7 @@ export default {
     },
      getSpriteImg(id, index) {
       // console.log(id,index)
-      if(id==='30012') id = '30013'
+      if(id==='30012'&&index!==100) id = '30013'
       if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
       if (index === 2) return "bg-" + id + " sprite_T2";
@@ -351,6 +348,7 @@ export default {
       if (index === 5) return "bg-" + id + "_icon sprite_icon_small";
       if (index === 6) return "bg-" + id + "_icon sprite_icon_up";
       if (index === 7) return "bg-" + id + "_icon sprite_icon_el";
+      if (index === 100) return "bg-" + id + " sprite_T2";
       return "bg-" + id;
     },
     getImgUrl(img, source){

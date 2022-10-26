@@ -964,7 +964,7 @@
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px">
-              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx;"
+              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx"
               >攒抽规划反馈表<img
                 class="gacha_img_small"
                 src="/img/website/el.png"
