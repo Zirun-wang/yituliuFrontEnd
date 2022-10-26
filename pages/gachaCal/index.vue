@@ -1,45 +1,27 @@
 <template>
   <div id="gacha">
     <el-collapse v-model="checkBox" @change="handleChange">
-      <el-collapse-item
-        style="display: block; position: sticky; top: 60px;z-index: 99999999;"
-        name="0"
-        id="totalTable"
-      >
+      <!-- 总计 -->
+      <el-collapse-item style="display: block; position: sticky; top: 60px;z-index: 99999999;" name="0" id="totalTable">
         <template slot="title">
           <div class="gacha_title_icon" style="background: chocolate"></div>
           <span class="collapse-item_title" style="color: purple">
-            共计{{ getFixed(gachaTimes) }}抽，氪金{{ sellsCount }}元
+            共计{{ getFixed(gachaTimes_total) }}抽，氪金{{ sellsCount }}元
           </span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector">
-            <el-radio-button
-              label="感谢庆典(11.14)"
-              type="primary"
-              style="width: 50%"
+            <el-radio-button label="感谢庆典(11.14)" type="primary" style="width: 50%"
             ></el-radio-button>
-            <el-radio-button
-              label="春节限定(即将开放)"
-              disabled
-              style="width: 50%"
+            <el-radio-button label="春节限定(即将开放)" disabled style="width: 50%"
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
           <!-- <el-divider></el-divider> -->
           <div id="gacha_total_chart">
-            <div
-              id="gacha_total_pie"
-              ref="gacha_total_pie"
-              style="vertical-align: top;
-                height: 200px;
-                width: 300px;
-                display: inline-block;
-                top: 10px;
-              "
-            ></div>
+            <div id="gacha_total_pie" ref="gacha_total_pie" style="vertical-align: top; height: 200px; width: 300px; display: inline-block; top: 10px;"></div>
             <table id="gacha_total_table">
               <tbody>
               <tr class="gacha_total_table_tr">
@@ -175,8 +157,7 @@
               <el-switch
                 v-model="originiumFlag"
                 active-color="#13ce66"
-                inactive-color="#ff4949"
-              ></el-switch>
+                inactive-color="#ff4949"></el-switch>
               源石是否用于抽卡
             </div>
           </div>
@@ -274,8 +255,7 @@
               <el-switch
                 v-model="weekTaskFlag"
                 active-color="#13ce66"
-                inactive-color="#ff4949"
-              ></el-switch>
+                inactive-color="#ff4949"></el-switch>
               本周已完成
             </div>
           </div>
@@ -298,8 +278,7 @@
               <el-switch
                 v-model="weekStageFlag"
                 active-color="#13ce66"
-                inactive-color="#ff4949"
-              ></el-switch>
+                inactive-color="#ff4949"></el-switch>
               本周已完成
             </div>
           </div>
@@ -312,15 +291,13 @@
             <div class="gacha_resources_unit" style="width: 192px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4003icon', 0)"
-              ></div>
+                :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px">
                 {{ (monthsRemaining - greenF1Value) * 600 }}
               </div>
               <div
                 style="width: 40px"
-                :class="getSpriteImg('7003icon', 0)"
-              ></div>
+                :class="getSpriteImg('7003icon', 0)"></div>
               <div style="width: 28px">
                 {{ (monthsRemaining - greenF1Value) * 4 }}
               </div>
@@ -333,8 +310,7 @@
               <el-switch
                 v-model="greenF1Flag"
                 active-color="#13ce66"
-                inactive-color="#ff4949"
-              ></el-switch>
+                inactive-color="#ff4949"></el-switch>
               本月已换
             </div>
           </div>
@@ -351,27 +327,27 @@
           <el-divider></el-divider>
           <el-checkbox-group v-model="gacha_store258List" class="">
             <div
-              v-for="(item, index) in gacha_store258"
+              v-for="(singlePack, index) in gacha_store258"
               :key="index"
-              v-show="item.packType == 'store'"
+              v-show="singlePack.packType == 'store'"
               class="gacha_unit_child"
-              @change="compute(item.packName)"
+              @change="compute(singlePack.packName)"
             >
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 150px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit">
                   <div
                     style="width: 40px"
                     :class="getSpriteImg('7004icon', 0)"
                   ></div>
-                  <div style="width: 32px">{{ item.gachaPermit10 }}</div>
+                  <div style="width: 32px">{{ singlePack.gachaPermit10 }}</div>
                   <div
                     style="width: 40px"
                     :class="getSpriteImg('7003icon', 0)"
                   ></div>
-                  <div style="width: 32px">{{ item.gachaPermit }}</div>
+                  <div style="width: 32px">{{ singlePack.gachaPermit }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -411,12 +387,12 @@
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
-              v-for="(item, index) in gacha_potential"
+              v-for="(singlePack, index) in gacha_potential"
               :key="index"
-              v-show="item.packType == 'main'"
+              v-show="singlePack.packType == 'main'"
               class="gacha_unit_child"
               style="display: inline-block"
-              @change="compute(item.packName)"
+              @change="compute(singlePack.packName)"
             >
               <el-checkbox-button :label="index" size="small">
                 <div
@@ -424,11 +400,11 @@
                   :style="getChapterWidth(index)"
                   style="padding-left: 4px"
                 >
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 36px">{{ item.originium }}</div>
+                  <div style="width: 36px">{{ singlePack.originium }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -439,20 +415,20 @@
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
-              v-for="(item, index) in gacha_potential"
+              v-for="(singlePack, index) in gacha_potential"
               :key="index"
-              v-show="item.packType == 'activity'"
+              v-show="singlePack.packType == 'activity'"
               class="gacha_unit_child"
               style="display: inline-block"
-              @change="compute(item.packName)"
+              @change="compute(singlePack.packName)"
             >
               <el-checkbox-button :label="index" size="small">
                 <div class="gacha_unit_child_title" style="width: 144px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 36px">{{ item.originium }}</div>
+                  <div style="width: 36px">{{ singlePack.originium }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -473,23 +449,23 @@
             [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
-            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.packType == 'monthly'" class="gacha_unit_child" @change="compute(item.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ item.packRmbPerDraw }}]
+                  [{{ singlePack.packRmbPerDraw }}]
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 192px">
-                  <div style="width: 40px" v-show="item.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaOrundum !== '0'">{{ item.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="item.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaOriginium !== '0'"> {{ item.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="item.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaPermit !== '0'"> {{ item.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="item.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaPermit10 !== '0'"> {{ item.gachaPermit10 }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum !== '0'">{{ singlePack.gachaOrundum }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'"> {{ singlePack.gachaOriginium }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit !== '0'"> {{ singlePack.gachaPermit }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 !== '0'"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -499,24 +475,24 @@
             <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包 [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.packType == 'limited' || item.packType == 'newbie'" class="gacha_unit_child" @change="compute(item.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'newbie'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ item.packRmbPerDraw }}]
+                  [{{ singlePack.packRmbPerDraw }}]
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <!-- 一个通用的资源显示模块 -->
                 <div class="gacha_resources_unit" style="width: 192px">
-                  <div style="width: 40px" v-show="item.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaOrundum > 0.1">{{ item.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="item.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaOriginium > 0.1"> {{ item.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="item.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaPermit > 0.1"> {{ item.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="item.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.gachaPermit10 > 0.1"> {{ item.gachaPermit10 }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{ singlePack.gachaOriginium }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -526,18 +502,17 @@
             <img class="gacha_img_small" src="/img/website/ex.png" />首充 [括号内为平均每抽价格(元)]
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(item, index) in gacha_storePacks" :key="index" v-show="item.packType == 'first'" class="gacha_unit_child" @change="compute(item.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'first'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ item.packRmbPerDraw }}]
+                  [{{ singlePack.packRmbPerDraw }}]
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 102px">
-                  <div style="width: 40px" v-show="item.originium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="item.originium !== '0'">
-                    {{ item.originium }}
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'">{{ singlePack.gachaOriginium }}
                   </div>
                 </div>
               </el-checkbox-button>
@@ -561,8 +536,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_648 * 185) }}</div>
             </div>
           </div>
@@ -579,8 +553,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_328 * 90) }}</div>
             </div>
           </div>
@@ -597,8 +570,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_198 * 50) }}</div>
             </div>
           </div>
@@ -615,8 +587,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_98 * 24) }}</div>
             </div>
           </div>
@@ -633,8 +604,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_30 * 7) }}</div>
             </div>
           </div>
@@ -651,8 +621,7 @@
             <div class="gacha_resources_unit" style="width: 126px">
               <div
                 style="width: 40px"
-                :class="getSpriteImg('4002icon', 0)"
-              ></div>
+                :class="getSpriteImg('4002icon', 0)"></div>
               <div style="width: 54px">{{ getFixed(originium_6 * 1) }}</div>
             </div>
           </div>
@@ -664,58 +633,57 @@
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title"
-          >活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span
-          >
+          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span>
         </template>
+
         <div class="gacha_unit" id="activity">
           <!-- 长夜临光复刻 -->
           <!-- <div class="gacha_unit_child">长夜临光复刻</div>
           <el-checkbox-group v-model="gacha_actReList" class="">
             <div
-              v-for="(item, index) in gacha_actRe"
+              v-for="(singlePack, index) in gacha_actRe"
               :key="index"
-              v-show="item.packType == 'activityper'"
+              v-show="singlePack.packType == 'activityper'"
               class="gacha_unit_child"
-              @change="compute(item.packName)"
+              @change="compute(singlePack.packName)"
             >
               <el-checkbox-button :label="index">
                 <div class="gacha_unit_child_title" style="width: 200px">
-                  {{ item.packName }}
+                  {{ singlePack.packName }}
                 </div>
                
                 <div class="gacha_resources_unit" style="width: 192px">
                   <div
                     style="width: 40px"
-                    v-show="item.gachaOrundum !== '0'"
+                    v-show="singlePack.gachaOrundum !== '0'"
                     :class="getSpriteImg('4003icon', 0)"
                   ></div>
-                  <div style="width: 54px" v-show="item.gachaOrundum !== '0'">
-                    {{ item.gachaOrundum }}
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum !== '0'">
+                    {{ singlePack.gachaOrundum }}
                   </div>
                   <div
                     style="width: 40px"
-                    v-show="item.originium !== '0'"
+                    v-show="singlePack.originium !== '0'"
                     :class="getSpriteImg('4002icon', 0)"
                   ></div>
-                  <div style="width: 54px" v-show="item.originium !== '0'">
-                    {{ item.originium }}
+                  <div style="width: 54px" v-show="singlePack.originium !== '0'">
+                    {{ singlePack.originium }}
                   </div>
                   <div
                     style="width: 40px"
-                    v-show="item.gachaPermit !== '0'"
+                    v-show="singlePack.gachaPermit !== '0'"
                     :class="getSpriteImg('7003icon', 0)"
                   ></div>
-                  <div style="width: 54px" v-show="item.gachaPermit !== '0'">
-                    {{ item.gachaPermit }}
+                  <div style="width: 54px" v-show="singlePack.gachaPermit !== '0'">
+                    {{ singlePack.gachaPermit }}
                   </div>
                   <div
                     style="width: 40px"
-                    v-show="item.gachaPermit10 !== '0'"
+                    v-show="singlePack.gachaPermit10 !== '0'"
                     :class="getSpriteImg('7004icon', 0)"
                   ></div>
-                  <div style="width: 54px" v-show="item.gachaPermit10 !== '0'">
-                    {{ item.gachaPermit10 }}
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 !== '0'">
+                    {{ singlePack.gachaPermit10 }}
                   </div>
                 </div>
               </el-checkbox-button>
@@ -726,38 +694,14 @@
               <div class="gacha_unit_child_title">{{ act.packName }}</div>
               <!-- 一个通用的资源显示模块 -->
               <div class="gacha_resources_unit" style="width: 234px">
-                <div
-                  style="width: 40px"
-                  v-show="act.gachaOrundum !== '0'"
-                  :class="getSpriteImg('4003icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="act.gachaOrundum !== '0'">
-                  {{ act.gachaOrundum }}
-                </div>
-                <div
-                  style="width: 40px"
-                  v-show="act.originium !== '0'"
-                  :class="getSpriteImg('4002icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="act.originium !== '0'">
-                  {{ act.originium }}
-                </div>
-                <div
-                  style="width: 40px"
-                  v-show="act.permit !== '0'"
-                  :class="getSpriteImg('7003icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="act.permit !== '0'">
-                  {{ act.permit }}
-                </div>
-                <div
-                  style="width: 40px"
-                  v-show="act.permit10 !== '0'"
-                  :class="getSpriteImg('7004icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="act.permit10 !== '0'">
-                  {{ act.permit10 }}
-                </div>
+                <div style="width: 40px" v-show="act.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
+                <div style="width: 54px" v-show="act.gachaOrundum !== '0'">{{ act.gachaOrundum }}</div>
+                <div style="width: 40px" v-show="act.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                <div style="width: 54px" v-show="act.gachaOriginium !== '0'">{{ act.gachaOriginium }}</div>
+                <div style="width: 40px" v-show="act.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 54px" v-show="act.gachaPermit !== '0'">{{ act.gachaPermit }}</div>
+                <div style="width: 40px" v-show="act.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                <div style="width: 54px" v-show="act.gachaPermit10 !== '0'">{{ act.gachaPermit10 }}</div>
               </div>
             </div>
           </div>
@@ -767,9 +711,7 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title"
-          >其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span
-          >
+          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
@@ -778,39 +720,26 @@
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.packName }}
               </div>
-
               <div class="gacha_resources_unit" style="width: 234px">
-                <div
-                  style="width: 40px"
-                  v-show="other.gachaOrundum !== '0'"
-                  :class="getSpriteImg('4003icon', 0)"
-                ></div>
+                <div style="width: 40px" v-show="other.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOrundum !== '0'">
                   {{ other.gachaOrundum }}
                 </div>
-                <div
-                  style="width: 40px"
-                  v-show="other.originium !== '0'"
-                  :class="getSpriteImg('4002icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="other.originium !== '0'">
-                  {{ other.originium }}
+                <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
+                  {{ other.gachaOriginium }}
+                </div>
+                <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'">
+                  {{ other.gachaPermit }}
                 </div>
                 <div
                   style="width: 40px"
-                  v-show="other.permit !== '0'"
-                  :class="getSpriteImg('7003icon', 0)"
-                ></div>
-                <div style="width: 54px" v-show="other.permit !== '0'">
-                  {{ other.permit }}
-                </div>
-                <div
-                  style="width: 40px"
-                  v-show="other.permit10 !== '0'"
+                  v-show="other.gachaPermit10 !== '0'"
                   :class="getSpriteImg('7004icon', 0)"
                 ></div>
-                <div style="width: 54px" v-show="other.permit10 !== '0'">
-                  {{ other.permit10 }}
+                <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
+                  {{ other.gachaPermit10 }}
                 </div>
               </div>
             </div>
@@ -824,12 +753,26 @@
           <span class="collapse-item_title">致谢</span>
         </template>
 
+        <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px">
+              B站发布:
+              <a href="https://space.bilibili.com/688411531">罗德岛基建BETA<img
+                class="gacha_img_small"
+                src="/img/website/el.png"
+              /></a>
+            </div>
+          </div>
+        <div class="gacha_unit_child">
+            <div class="gacha_unit_child_title" style="width: 280px">
+              QQ群:
+              <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">罗德岛数据文献馆<img class="gacha_img_small" src="/img/website/el.png"></a>
+            </div>
+          </div>
         <div class="gacha_unit" id="direction">
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px">
               活动排期:
-              <a href="https://space.bilibili.com/8412516"
-              >罗德岛蜜饼工坊<img
+              <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊<img
                 class="gacha_img_small"
                 src="/img/website/el.png"
               /></a>
@@ -838,26 +781,14 @@
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px">
               搓玉计算:
-              <a href="https://space.bilibili.com/22606843"
-              >公孙长乐<img class="gacha_img_small" src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              B站发布:
-              <a href="https://space.bilibili.com/688411531"
-              >罗德岛基建BETA<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
+              <a href="https://space.bilibili.com/22606843">公孙长乐<img class="gacha_img_small" src="/img/website/el.png"
               /></a>
             </div>
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px">
               数据参考:
-              <a href="https://prts.wiki"
-              >prts.wiki<img
+              <a href="https://prts.wiki">prts.wiki<img
                 class="gacha_img_small"
                 src="/img/website/el.png"
               /></a>
@@ -866,8 +797,7 @@
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 280px">
               项目地址:
-              <a href="https://github.com/Zirun-wang/yituliuFrontEnd"
-              >Github页面<img
+              <a href="https://github.com/Zirun-wang/yituliuFrontEnd">Github页面<img
                 class="gacha_img_small"
                 src="/img/website/el.png"
               /></a>
@@ -946,7 +876,7 @@
         permit: 0, //寻访
         permit10: 0, //十连寻访
         sellsCount: 0, //总氪金总和
-        gachaTimes: 0, //总抽卡次数
+        gachaTimes_total: 0, //总抽卡次数
         
         gachaTimes_originium: 0, //总抽卡次数（源石部分）
 
@@ -1037,10 +967,9 @@
         toolApi.updateVisits("gacha").then((response) => {});
       },
 
-      getSpriteImg(name, index) {
-        if (index === 0) return "bg-" + name + " sprite_gacha";
-
-        return "bg-" + name;
+      getSpriteImg(packName, index) {
+        if (index === 0) return "bg-" + packName + " sprite_gacha";
+        return "bg-" + packName;
       },
 
       getDate() {
@@ -1059,7 +988,6 @@
         var num = parseInt(
           (this.end_TimeStamp - this.start_TimeStamp) / 86400000
         );
-
         if (num < 14) {
           this.countDown = num - 14;
         }
@@ -1072,9 +1000,7 @@
         this.weeksRemaining = 0;
         // this.monthsRemaining = 0;
         this.SignInMonthsRemaining = 0;
-
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
-
         if (this.end_TimeStampCheck.length < 13) {
           this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
         }
@@ -1088,12 +1014,10 @@
           // if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
           //   this.monthsRemaining++;
           // }
-
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
           }
         }
-
         console.log("距离活动还有" + num + "天");
         this.daysRemaining = num;
       },
@@ -1127,13 +1051,12 @@
         }
 
         //判断是否完成周常日常
-
         this.weekTaskValue = 1;
         if (this.weekTaskFlag) {
           this.weekTaskValue = 0;
         }
+        
         //判断是否完成剿灭
-
         this.weekStageValue = 1;
         if (this.weekStageFlag) {
           this.weekStageValue = 0;
@@ -1166,28 +1089,28 @@
         for (let i = 0; i < this.gacha_potentialList.length; i++) {
           this.originium =
             parseInt(this.originium) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].originium);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
           this.orundum =
             parseInt(this.orundum) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].orundum);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
           this.permit =
             parseInt(this.permit) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].permit);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaPermit);
           this.permit10 =
             parseInt(this.permit10) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].permit10);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaPermit10);
           this.originium_potential =
             parseInt(this.originium_potential) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].originium);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
           this.orundum_potential =
             parseInt(this.orundum_potential) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].orundum);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
           this.permit_potential =
             parseInt(this.permit_potential) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].permit);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaPermit);
           this.permit10_potential =
             parseInt(this.permit10_potential) +
-            parseInt(this.gacha_potential[this.gacha_potentialList[i]].permit10);
+            parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaPermit10);
         }
 
         //悖论模拟
@@ -1207,14 +1130,14 @@
         for (let i = 0; i < this.gacha_storePacksList.length; i++) {
           this.permit =
             parseInt(this.permit) +
-            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit);
+            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
           this.permit10 =
             parseInt(this.permit10) +
             parseInt(
-              this.gacha_storePacks[this.gacha_storePacksList[i]].permit10
+              this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10
             );
           if (
-            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name
+            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName
           ) {
             console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
             this.orundum =
@@ -1223,25 +1146,25 @@
               parseInt(this.originium) + Math.ceil(this.daysRemaining / 30) * 6;
             this.sellsCount =
               parseInt(this.sellsCount) + Math.ceil(this.daysRemaining / 30) * 30;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].orundum =
+            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum =
               parseInt(this.orundum) + parseInt(this.daysRemaining) * 200;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].originium =
+            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium =
               parseInt(this.originium) + Math.ceil(this.daysRemaining / 30) * 6;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].orundum =
+            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum =
               parseInt(this.daysRemaining) * 200;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].originium =
+            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium =
               Math.ceil(this.daysRemaining / 30) * 6;
 
           } else {
             this.originium =
               parseInt(this.originium) +
               parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].originium
+                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium
               );
             this.orundum =
               parseInt(this.orundum) +
               parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].orundum
+                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum
               );
             this.sellsCount =
               parseInt(this.sellsCount) +
@@ -1250,14 +1173,14 @@
 
           this.permit_gacha =
             parseInt(this.permit_gacha) +
-            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].permit);
+            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
           this.permit10_gacha =
             parseInt(this.permit10_gacha) +
             parseInt(
-              this.gacha_storePacks[this.gacha_storePacksList[i]].permit10
+              this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10
             );
           if (
-            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].name
+            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName
           ) {
             this.orundum_gacha =
               parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
@@ -1268,12 +1191,12 @@
             this.orundum_gacha =
               parseInt(this.orundum_gacha) +
               parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].orundum
+                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum
               );
             this.originium_gacha =
               parseInt(this.originium_gacha) +
               parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].originium
+                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium
               );
           }
         }
@@ -1321,29 +1244,29 @@
         for (let i = 0; i < this.gacha_store258List.length; i++) {
           this.originium =
             parseInt(this.originium) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].originium);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
           this.orundum =
             parseInt(this.orundum) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].orundum);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
           this.permit =
             parseInt(this.permit) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].permit);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 =
             parseInt(this.permit10) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].permit10);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
           this.originium_daily =
             parseInt(this.originium_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].originium);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
           this.orundum_daily =
             parseInt(this.orundum_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].orundum);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
           this.permit_daily =
             parseInt(this.permit_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].permit);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10_daily =
             parseInt(this.permit10_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].permit10);
+            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
         }
 
         //日常资源抽卡次数(单项)
@@ -1377,54 +1300,54 @@
             // if(this.gacha_actReward[i].endDate<endDate)
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_actReward[i].originium);
+              parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum =
-              parseInt(this.orundum) + parseInt(this.gacha_actReward[i].orundum);
+              parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit =
-              parseInt(this.permit) + parseInt(this.gacha_actReward[i].permit);
+              parseInt(this.permit) + parseInt(this.gacha_actReward[i].gachaPermit);
             this.permit10 =
               parseInt(this.permit10) +
-              parseInt(this.gacha_actReward[i].permit10);
+              parseInt(this.gacha_actReward[i].gachaPermit10);
             this.originium_act =
               parseInt(this.originium_act) +
-              parseInt(this.gacha_actReward[i].originium);
+              parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum_act =
               parseInt(this.orundum_act) +
-              parseInt(this.gacha_actReward[i].orundum);
+              parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit_act =
               parseInt(this.permit_act) +
-              parseInt(this.gacha_actReward[i].permit);
+              parseInt(this.gacha_actReward[i].gachaPermit);
             this.permit10_act =
               parseInt(this.permit10_act) +
-              parseInt(this.gacha_actReward[i].permit10);
+              parseInt(this.gacha_actReward[i].gachaPermit10);
           }
         }
 
         for (let i = 0; i < this.gacha_actReList.length; i++) {
           this.originium =
             parseInt(this.originium) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].originium);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
           this.orundum =
             parseInt(this.orundum) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].orundum);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
           this.permit =
             parseInt(this.permit) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].permit);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
           this.permit10 =
             parseInt(this.permit10) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].permit10);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
           this.originium_act =
             parseInt(this.originium_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].originium);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
           this.orundum_act =
             parseInt(this.orundum_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].orundum);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
           this.permit_act =
             parseInt(this.permit_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].permit);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
           this.permit10_act =
             parseInt(this.permit10_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].permit10);
+            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
         }
 
         //活动抽卡次数（单项）
@@ -1442,27 +1365,27 @@
           ) {
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_honeyCake[i].originium);
+              parseInt(this.gacha_honeyCake[i].gachaOriginium);
             this.orundum =
-              parseInt(this.orundum) + parseInt(this.gacha_honeyCake[i].orundum);
+              parseInt(this.orundum) + parseInt(this.gacha_honeyCake[i].gachaOrundum);
             this.permit =
-              parseInt(this.permit) + parseInt(this.gacha_honeyCake[i].permit);
+              parseInt(this.permit) + parseInt(this.gacha_honeyCake[i].gachaPermit);
 
             this.permit10 =
               parseInt(this.permit10) +
-              parseInt(this.gacha_honeyCake[i].permit10);
+              parseInt(this.gacha_honeyCake[i].gachaPermit10);
             this.originium_other =
               parseInt(this.originium_other) +
-              parseInt(this.gacha_honeyCake[i].originium);
+              parseInt(this.gacha_honeyCake[i].gachaOriginium);
             this.orundum_other =
               parseInt(this.orundum_other) +
-              parseInt(this.gacha_honeyCake[i].orundum);
+              parseInt(this.gacha_honeyCake[i].gachaOrundum);
             this.permit_other =
               parseInt(this.permit_other) +
-              parseInt(this.gacha_honeyCake[i].permit);
+              parseInt(this.gacha_honeyCake[i].gachaPermit);
             this.permit10_other =
               parseInt(this.permit10_other) +
-              parseInt(this.gacha_honeyCake[i].permit10);
+              parseInt(this.gacha_honeyCake[i].gachaPermit10);
           }
         }
 
@@ -1508,7 +1431,7 @@
           6 * parseInt(this.originium_6);
 
         //抽卡次数
-        this.gachaTimes =
+        this.gachaTimes_total =
           parseInt(this.originium) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum) / 600 +
           parseInt(this.permit) +
@@ -1526,55 +1449,55 @@
 
 
         this.pieData = [];
-        var item = {};
+        var chartFan = {};
         if (this.gachaTimes_exist > 0) {
-          item.value = parseInt(this.gachaTimes_exist);
-          item.name = "现有";
-          this.pieData.push(item);
+          chartFan.value = parseInt(this.gachaTimes_exist);
+          chartFan.name = "现有";
+          this.pieData.push(chartFan);
         }
         if (this.gachaTimes_potential > 0) {
-          item = {};
-          item.value = parseInt(this.gachaTimes_potential);
-          item.name = "潜在";
-          this.pieData.push(item);
+          chartFan = {};
+          chartFan.value = parseInt(this.gachaTimes_potential);
+          chartFan.name = "潜在";
+          this.pieData.push(chartFan);
         }
         if (this.gachaTimes_daily > 0) {
-          item = {};
-          item.value = parseInt(this.gachaTimes_daily);
-          item.name = "日常";
-          this.pieData.push(item);
+          chartFan = {};
+          chartFan.value = parseInt(this.gachaTimes_daily);
+          chartFan.name = "日常";
+          this.pieData.push(chartFan);
         }
         if (this.gachaTimes_gacha > 0) {
-          item = {};
-          item.value = parseInt(this.gachaTimes_gacha);
-          item.name = "氪金";
-          this.pieData.push(item);
+          chartFan = {};
+          chartFan.value = parseInt(this.gachaTimes_gacha);
+          chartFan.name = "氪金";
+          this.pieData.push(chartFan);
         }
         if (this.gachaTimes_activity > 0) {
-          item = {};
-          item.value = parseInt(this.gachaTimes_activity);
-          item.name = "活动";
-          this.pieData.push(item);
+          chartFan = {};
+          chartFan.value = parseInt(this.gachaTimes_activity);
+          chartFan.name = "活动";
+          this.pieData.push(chartFan);
         }
         if (this.gachaTimes_other > 0) {
-          item = {};
-          item.value = parseInt(this.gachaTimes_other);
-          item.name = "其它";
-          this.pieData.push(item);
+          chartFan = {};
+          chartFan.value = parseInt(this.gachaTimes_other);
+          chartFan.name = "其它";
+          this.pieData.push(chartFan);
         }
 
         // this.pieData[0].value = parseInt(this.gachaTimes_exist);
-        // this.pieData[0].name = "现有";
+        // this.pieData[0].packName = "现有";
         // this.pieData[1].value =parseInt( this.gachaTimes_potential);
-        // this.pieData[1].name = "潜在";
+        // this.pieData[1].packName = "潜在";
         // this.pieData[2].value =parseInt( this.gachaTimes_daily);
-        // this.pieData[2].name = "日常";
+        // this.pieData[2].packName = "日常";
         // this.pieData[3].value =parseInt( this.gachaTimes_gacha);
-        // this.pieData[3].name = "氪金";
+        // this.pieData[3].packName = "氪金";
         // this.pieData[4].value =parseInt( this.gachaTimes_activity);
-        // this.pieData[4].name = "活动";
+        // this.pieData[4].packName = "活动";
         // this.pieData[5].value = parseInt(this.gachaTimes_other);
-        // this.pieData[5].name = "其它";
+        // this.pieData[5].packName = "其它";
 
         if (this.cookieInit > 1) {
           this.pieChart(this.pieData);
@@ -1601,7 +1524,6 @@
           this.permit10_exist = cookie.get("permit10_exist");
           this.paradox = cookie.get("paradox");
         }
-
         this.cookieInit++;
 
         if (
@@ -1616,7 +1538,6 @@
           typeof this.orundum_exist == "undefined"
         )
           this.orundum_exist = 0;
-
         if (
           this.permit_exist === "" ||
           this.permit_exist === undefined ||
