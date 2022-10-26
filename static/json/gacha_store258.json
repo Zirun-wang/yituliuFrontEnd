@@ -1,4 +1,4 @@
 [
-    {"name":"10月黄票换抽","sells":"0","originium":"0","orundum":"0","permit":"8","permit10":"3","price":"0.00","type":"store","times":"38"},
-    {"name":"11月黄票换抽","sells":"0","originium":"0","orundum":"0","permit":"8","permit10":"3","price":"0.00","type":"store","times":"38"}
+    {"packName":"10月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"},
+    {"packName":"11月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"}
 ]
