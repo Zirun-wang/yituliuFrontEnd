@@ -404,7 +404,7 @@
                 </div>
                 <div class="gacha_resources_unit">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 36px">{{ singlePack.originium }}</div>
+                  <div style="width: 36px">{{ singlePack.gachaOriginium }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -428,7 +428,7 @@
                 </div>
                 <div class="gacha_resources_unit">
                   <div :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 36px">{{ singlePack.originium }}</div>
+                  <div style="width: 36px">{{ singlePack.gachaOriginium }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -663,11 +663,11 @@
                   </div>
                   <div
                     style="width: 40px"
-                    v-show="singlePack.originium !== '0'"
+                    v-show="singlePack.gachaOriginium !== '0'"
                     :class="getSpriteImg('4002icon', 0)"
                   ></div>
-                  <div style="width: 54px" v-show="singlePack.originium !== '0'">
-                    {{ singlePack.originium }}
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'">
+                    {{ singlePack.gachaOriginium }}
                   </div>
                   <div
                     style="width: 40px"
