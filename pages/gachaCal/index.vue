@@ -651,7 +651,7 @@
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ singlePack.packName }}
                 </div>
-               
+
                 <div class="gacha_resources_unit" style="width: 192px">
                   <div
                     style="width: 40px"
@@ -877,7 +877,7 @@
         permit10: 0, //十连寻访
         sellsCount: 0, //总氪金总和
         gachaTimes_total: 0, //总抽卡次数
-        
+
         gachaTimes_originium: 0, //总抽卡次数（源石部分）
 
         gachaTimes_exist: 0, //库存抽卡次数
@@ -930,7 +930,7 @@
         weeksRemaining: 0, //剩余周数
         monthsRemaining: 2, //剩余月数
         SignInMonthsRemaining: 0, // 剩余签到次数
-     
+
         countDown: 0, //限定池每日送抽倒计时
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
@@ -1055,7 +1055,7 @@
         if (this.weekTaskFlag) {
           this.weekTaskValue = 0;
         }
-        
+
         //判断是否完成剿灭
         this.weekStageValue = 1;
         if (this.weekStageFlag) {
@@ -1300,7 +1300,7 @@
             // if(this.gacha_actReward[i].endDate<endDate)
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_actReward[i].gachaOriginium);
+              parseInt(this.gacha_actReward[i].originium);
             this.orundum =
               parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit =
@@ -1413,7 +1413,7 @@
 
         if (parseInt(this.originium - parseInt(this.skinFlag) * 18) <= 18) {
          this.$message.error("你的源石不足");
-        } 
+        }
 
           this.skinValue = this.skinFlag;
 
@@ -1438,7 +1438,7 @@
           parseInt(this.permit10) * 10;
 
         //源石抽卡次数
-        this.gachaTimes_originium = 
+        this.gachaTimes_originium =
         (this.originium_exist +
             this.originium_potential +
             this.originium_gacha +
