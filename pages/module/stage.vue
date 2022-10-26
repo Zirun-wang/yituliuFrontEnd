@@ -13,9 +13,9 @@
           </div>
         </div>
         <div class="op_title_tag">
-          <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
+          <!-- <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
             只显示up
-          </div>
+          </div> -->
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
@@ -155,7 +155,7 @@
               <td class="popup_table_c5" style="width:80px;">主产物掉率</td>
               <td class="popup_table_c6" style="width:80px;">主产物期望</td>
               <td class="popup_table_c7" style="width:70px;">关卡效率</td>
-              <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td>
+              <!-- <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td> -->
             </tr>
             <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
               <td class="popup_table_c1" :style="getHardcoreMark(stage.chapterName)">{{ stage.stageCode}}</td>
