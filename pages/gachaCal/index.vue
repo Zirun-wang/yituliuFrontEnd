@@ -1136,9 +1136,7 @@
             parseInt(
               this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10
             );
-          if (
-            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName
-          ) {
+          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
             console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
             this.orundum =
               parseInt(this.orundum) + parseInt(this.daysRemaining) * 200;
@@ -1179,9 +1177,7 @@
             parseInt(
               this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10
             );
-          if (
-            "月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName
-          ) {
+          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
             this.orundum_gacha =
               parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
             this.originium_gacha =
@@ -1300,7 +1296,7 @@
             // if(this.gacha_actReward[i].endDate<endDate)
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_actReward[i].originium);
+              parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum =
               parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit =
@@ -1411,7 +1407,7 @@
           parseInt(this.weekStageValue) * 1800 +
           parseInt(this.countDown) * (8500 / 14);
 
-        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) <= 18) {
+        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) < 0) {
          this.$message.error("你的源石不足");
         }
 
