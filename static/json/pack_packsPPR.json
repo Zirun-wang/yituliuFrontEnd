@@ -23,9 +23,9 @@
     {"packType":"year","packID":16,"packName":648,"packShowName":"双倍源石","packPrice":648,"packDraw":78,"packOriginium":260,"packRmbPerDraw":8.308,"packRmbPerOriginium":2.492307692,"packPPRDraw":1.405392393,"packPPROriginium":1.405405405},
     {"packType":"permanent","packID":21,"packName":6,"packShowName":"普通源石","packPrice":6,"packDraw":0.3,"packOriginium":1,"packRmbPerDraw":20,"packRmbPerOriginium":6,"packPPRDraw":0.5838,"packPPROriginium":0.583783784},
     {"packType":"permanent","packID":22,"packName":30,"packShowName":"普通源石","packPrice":30,"packDraw":2.1,"packOriginium":7,"packRmbPerDraw":14.286,"packRmbPerOriginium":4.285714286,"packPPRDraw":0.817303654,"packPPROriginium":0.817297297},
-    {"packType":"permanent","packID":23,"packName":98,"packShowName":"普通源石","packPrice":98,"packDraw":7.2,"packOriginium":24,"packRmbPerDraw":13.611,"packRmbPerOriginium":4.083333333,"packPPRDraw":0.857835574,"packPPROriginium":0.857804744},
+    {"packType":"permanent","packID":23,"packName":198,"packShowName":"普通源石","packPrice":98,"packDraw":7.2,"packOriginium":24,"packRmbPerDraw":13.611,"packRmbPerOriginium":4.083333333,"packPPRDraw":0.857835574,"packPPROriginium":0.857804744},
     {"packType":"permanent","packID":24,"packName":198,"packShowName":"普通源石","packPrice":198,"packDraw":15,"packOriginium":50,"packRmbPerDraw":13.2,"packRmbPerOriginium":3.96,"packPPRDraw":0.884545455,"packPPROriginium":0.884520885},
-    {"packType":"permanent","packID":25,"packName":328,"packShowName":"普通源石","packPrice":328,"packDraw":27,"packOriginium":90,"packRmbPerDraw":12.148,"packRmbPerOriginium":3.644444444,"packPPRDraw":0.961145868,"packPPROriginium":0.961107449},
+    {"packType":"permanent","packID":25,"packName":648,"packShowName":"普通源石","packPrice":328,"packDraw":27,"packOriginium":90,"packRmbPerDraw":12.148,"packRmbPerOriginium":3.644444444,"packPPRDraw":0.961145868,"packPPROriginium":0.961107449},
     {"packType":"permanent","packID":26,"packName":648,"packShowName":"普通源石","packPrice":648,"packDraw":55.5,"packOriginium":185,"packRmbPerDraw":11.676,"packRmbPerOriginium":3.502702703,"packPPRDraw":1,"packPPROriginium":1}
     
     ]

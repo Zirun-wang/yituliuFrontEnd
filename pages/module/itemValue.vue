@@ -31,7 +31,7 @@
         <div class="value_half" id="value_left">
           <div v-for="(card, index) in 4" :key="index" class="value_subList">
             <div v-for="(item, index) in itemList" :key="index" class="value_item">
-              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
+              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 73">
                 <table>
                   <tbody>
                   <tr>
@@ -56,7 +56,7 @@
         <div class="value_half" id="value_right">
           <div v-for="(card, index) in cardNum" :key="index" class="value_subList" v-show="index > 3 && index <8">
             <div v-for="(item, index) in itemList" :key="index" class="value_item">
-              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 70">
+              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 73">
                 <table>
                   <tbody>
                   <tr>

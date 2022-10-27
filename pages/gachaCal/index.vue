@@ -443,17 +443,19 @@
         </template>
 
         <div class="gacha_unit" id="charge">
+          <div class="gacha_unit_child_instruction" style="padding: 4px 16px;font-size: 18px;color: brown;">
+            标签内为每抽价格(元)，颜色用于区分性价比<br>
+            仅计入礼包内抽卡资源，紫色高于648，橙色高于大月卡<br>
+            <a href="https://yituliu.site#packPpr">点击查看礼包完整性价比</a>
+          </div>
           <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />月常礼包
-            [括号内为平均每抽价格(元)]
+            <img class="gacha_img_small" src="/img/website/ex.png">月常礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ singlePack.packRmbPerDraw }}]
-                </div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
@@ -472,14 +474,12 @@
           </el-checkbox-group>
           <!-- 限时、一次性礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包 [括号内为平均每抽价格(元)]
+            <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'newbie'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ singlePack.packRmbPerDraw }}]
-                </div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
@@ -499,14 +499,12 @@
           </el-checkbox-group>
           <!-- 首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />首充 [括号内为平均每抽价格(元)]
+            <img class="gacha_img_small" src="/img/website/ex.png" />源石首充
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'first'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_unit_child_title" style="width: 72px; font-weight: 600">
-                  [{{ singlePack.packRmbPerDraw }}]
-                </div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
@@ -524,14 +522,10 @@
           </div>
 
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_648"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [11.68]普通源石648元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_648">
+            <div class="gacha_packPpr" :class=getPprLabel(11.68)>11.68</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石648元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -541,14 +535,10 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_328"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [12.15]普通源石328元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_328">
+            <div class="gacha_packPpr" :class=getPprLabel(12.15)>12.15</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石328元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -558,14 +548,10 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_198"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [13.20]普通源石198元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_198">
+            <div class="gacha_packPpr" :class=getPprLabel(13.20)>13.20</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石198元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -575,14 +561,10 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_98"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [13.61]普通源石98元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_98">
+            <div class="gacha_packPpr" :class=getPprLabel(13.61)>13.61</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石98元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -592,14 +574,10 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_30"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [14.29]普通源石30元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_30">
+            <div class="gacha_packPpr" :class=getPprLabel(14.29)>14.29</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石30元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -609,14 +587,10 @@
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input
-              class="gacha_unit_child_inputbox"
-              type="text"
-              @change="compute()"
-              v-model="originium_6"
-            />
-            <div class="gacha_unit_child_title" style="width: 270px">
-              [20.00]普通源石6元
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_6">
+            <div class="gacha_packPpr" :class=getPprLabel(20.00)>20.00</div>
+            <div class="gacha_unit_child_title" style="width: 225px">
+              普通源石6元
             </div>
             <div class="gacha_resources_unit" style="width: 126px">
               <div
@@ -1300,7 +1274,7 @@
             // if(this.gacha_actReward[i].endDate<endDate)
             this.originium =
               parseInt(this.originium) +
-              parseInt(this.gacha_actReward[i].originium);
+              parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum =
               parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit =
@@ -1517,12 +1491,14 @@
           cookie.set("permit_exist", this.permit_exist, { expires: 30 });
           cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
           cookie.set("paradox", this.paradox, { expires: 30 });
+          cookie.set("greenF1Flag", this.greenF1Flag, { expires: 30 });
         } else {
           this.originium_exist = cookie.get("originium_exist");
           this.orundum_exist = cookie.get("orundum_exist");
           this.permit_exist = cookie.get("permit_exist");
           this.permit10_exist = cookie.get("permit10_exist");
           this.paradox = cookie.get("paradox");
+          this.greenF1Flag = cookie.get("greenF1Flag");
         }
         this.cookieInit++;
 
@@ -1614,6 +1590,12 @@
       getChapterWidth(index) {
         if (index % 2 == 0) return "width:200px;";
         else return "width:60px;";
+      },
+
+      getPprLabel(ppr) {
+        if (ppr < 7.5) return "gacha_packPpr_t1"
+        if (ppr < 11.7) return "gacha_packPpr_t2"
+        return "gacha_packPpr_t3"
       },
 
       getFixed(num) {

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="pack">
+    <div id="pack" name="packPpr">
         <!-- 标题区域 -->
         <div class="op_title">
             <div class="op_title_text">
@@ -17,8 +17,8 @@
         <div id="pack_content" style="display:flex;">
             <div id="pack_left">
                 <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit">
-                    <!-- <div class="pack_img" :style="getPackPic(pack2.packName)"> -->
-                    <div class="pack_img" >     
+                    <div class="pack_img" :style="getPackPic(pack2.packName, pack2.packType)">
+                    <!-- <div class="pack_img" >      -->
                         <div class="pack_img_text1">{{pack2.packShowName}}  ￥{{pack2.packPrice}}</div>
                     </div>
 
@@ -55,7 +55,7 @@
                         仅计抽卡
                     </div>
 
-                    <div class="pack_corner corner_new" v-show="pack2.packType == 'limit' ">
+                    <div class="pack_corner corner_new" v-show="pack2.packType == 'limited' ">
                         New!
                     </div>
                     <div class="pack_corner corner_monthly" v-show="pack2.packType == 'monthly' ">
@@ -74,8 +74,8 @@
             </div>
             <div id="pack_right">
                 <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit">
-                    <!-- <div class="pack_img" :style="getPackPic(pack3.packName)"> -->
-                    <div class="pack_img" > 
+                    <div class="pack_img" :style="getPackPic(pack3.packName, pack3.packType)">
+                    <!-- <div class="pack_img" >  -->
                         <div class="pack_img_text1">{{pack3.packShowName}}  ￥{{pack3.packPrice}}</div>
                     </div>
                     
@@ -111,7 +111,7 @@
                     <div class="pack_type">
                         材料折合源石
                     </div>
-                    <div class="pack_corner corner_new" v-show="pack3.packType == 'limit' ">
+                    <div class="pack_corner corner_new" v-show="pack3.packType == 'limited' ">
                         New!
                     </div>
                     <div class="pack_corner corner_monthly" v-show="pack3.packType == 'monthly' ">
@@ -155,7 +155,7 @@ export default {
             console.log("未知")
         }
         console.log(theme,1);
-        this.opETextTheme = "op_title_etext_" + theme;
+        this.opETextTheme = theme;
     },
  
     getWidth(num , scale) {
@@ -168,8 +168,30 @@ export default {
     getPackImgUrl(img) {
         return ("/img/packs/" + img + ".png");
     },
-    getPackPic(img) {
-        return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;")                
+    getPackPic(img, type) {
+        if (type == 'limited'){
+            if (img == '空的小钱夹')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 12% 20%  / 500% no-repeat,#444444";
+            if (img == '大帝的手提箱')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 40% 20%  / 500% no-repeat,#444444";
+            if (img == '资深干员特训礼包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 70% 20%  / 500% no-repeat,#444444";
+            if (img == '调用凭证组合包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 99% 20%  / 500% no-repeat,#444444";
+            if (img == '特训意向礼包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 16% 20%  / 500% no-repeat,#444444";
+            if (img == '剧场之友组合包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 57% 9% / 400% no-repeat,#444444";
+            if (img == '高级特训意向礼包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 97% 20%  / 500% no-repeat,#444444";
+            if (img == '辟路芯片礼包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 24% 20%  / 400% no-repeat,#444444";
+            if (img == '斩荆芯片礼包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 85% 20%  / 400% no-repeat,#444444";
+            return "";
+        }
+        else
+            return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");
     }
   },
 };

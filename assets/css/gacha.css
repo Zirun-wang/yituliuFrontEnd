@@ -102,6 +102,28 @@
   margin-left: 4px;
 }
 
+.gacha_packPpr{
+  font-size: 14px;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  height: 20px;
+  width: 40px;
+  margin: 8px 0px 0px 4px;
+  vertical-align: top;
+  line-height: 20px
+}
+
+.gacha_packPpr_t1{
+  background-color: #e85d06;
+}
+
+.gacha_packPpr_t2{
+  background-color: #a335ee;
+}
+.gacha_packPpr_t3{
+  background-color: #3f51b5;
+}
 
 .gacha_resources_unit {
   display: inline-block;
