@@ -100,7 +100,6 @@
 .stage_card_t3_table table {
 	border-spacing: 0px;
     table-layout: fixed;
-    /* margin-left: calc(62.5% - 125px); */
     margin-left: calc(62.5% - 100px);
 }
 
