@@ -16,6 +16,7 @@
 import * as echarts from "echarts";
 import itemCount from "static/json/itemCount.json";
 import itemCount2 from "static/json/itemCount2.json";
+import apCost from "static/json/apCost.json";
 export default {
   data() {
     return {   
@@ -30,26 +31,33 @@ export default {
     sleep(d){
           return new Promise((resolve)=>setTimeout(resolve,d))
     },
-    async  show(){
-       await this.sleep(1000)
-      for(let i=0;i<itemCount.length;i++){
-           await this.sleep(2000)
-          this.itemName.unshift(itemCount[i].itemName)
-          this.itemCost.unshift(itemCount[i].itemCount)
-          this.barChart()
-          console.log('测试')
-      }
 
-        await this.sleep(2000)
-          this.itemName = []
-          this.itemCost = []
-        for(let i=0;i<itemCount2.length;i++){
+    async  show(){
+      // await this.sleep(1000)
+      // for(let i=0;i<itemCount.length;i++){
+      //      await this.sleep(2000)
+      //     this.itemName.unshift(itemCount[i].itemName)
+      //     this.itemCost.unshift(itemCount[i].itemCount)
+      //     this.barChart()         
+      // }
+
+      //   await this.sleep(2000)
+      //     this.itemName = []
+      //     this.itemCost = []
+      //   for(let i=0;i<itemCount2.length;i++){
+      //      await this.sleep(2000)
+      //     this.itemName.unshift(itemCount2[i].itemName)
+      //     this.itemCost.unshift(itemCount2[i].itemCount)
+      //     this.barChart()
+      // }
+      await this.sleep(1000)
+      for(let i=0;i<apCost.length;i++){
            await this.sleep(2000)
-          this.itemName.unshift(itemCount2[i].itemName)
-          this.itemCost.unshift(itemCount2[i].itemCount)
-          this.barChart()
-          console.log('测试')
+          this.itemName.unshift(apCost[i].name)
+          this.itemCost.unshift(apCost[i].apCost)
+          this.barChart()         
       }
+      
     },
      barChart() {
         var myChart = echarts.init(document.getElementById("chart2"));
