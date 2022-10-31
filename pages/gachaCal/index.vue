@@ -1456,18 +1456,7 @@
           this.pieData.push(chartFan);
         }
 
-        // this.pieData[0].value = parseInt(this.gachaTimes_exist);
-        // this.pieData[0].packName = "现有";
-        // this.pieData[1].value =parseInt( this.gachaTimes_potential);
-        // this.pieData[1].packName = "潜在";
-        // this.pieData[2].value =parseInt( this.gachaTimes_daily);
-        // this.pieData[2].packName = "日常";
-        // this.pieData[3].value =parseInt( this.gachaTimes_gacha);
-        // this.pieData[3].packName = "氪金";
-        // this.pieData[4].value =parseInt( this.gachaTimes_activity);
-        // this.pieData[4].packName = "活动";
-        // this.pieData[5].value = parseInt(this.gachaTimes_other);
-        // this.pieData[5].packName = "其它";
+     
 
         if (this.cookieInit > 1) {
           this.pieChart(this.pieData);
