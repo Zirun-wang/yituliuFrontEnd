@@ -61,7 +61,7 @@
           <div class="stage_card_t3_table" >
             <table>
                 <tbody>
-                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" :style="getFontSize(stage.stageEfficiency)" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                     <td>
@@ -148,13 +148,13 @@
         <table class="popup_table">
           <tbody>
             <tr class="popup_table_title">
-              <td class="popup_table_c1" style="width:55px;">关卡名</td>
-              <td class="popup_table_c2" style="width:65px;">样本数<br>(置信度)</td>
-              <td class="popup_table_c3" style="width:40px;">SPM</td>
-              <td class="popup_table_c4" style="width:50px;">副产品</td>
-              <td class="popup_table_c5" style="width:80px;">主产物掉率</td>
-              <td class="popup_table_c6" style="width:80px;">主产物期望</td>
-              <td class="popup_table_c7" style="width:70px;">关卡效率</td>
+              <td class="popup_table_c1" style="width:55px;width:65px;">关卡名</td>
+              <td class="popup_table_c2" style="width:65px;width:75px;">样本数<br>(置信度)</td>
+              <td class="popup_table_c3" style="width:40px;width:50px;">SPM</td>
+              <td class="popup_table_c4" style="width:50px;width:60px;">副产品</td>
+              <td class="popup_table_c5" style="width:80px;width:90px;">主产物掉率</td>
+              <td class="popup_table_c6" style="width:80px;width:90px;">主产物期望</td>
+              <td class="popup_table_c7" style="width:70px;width:80px;">关卡效率</td>
               <!-- <td class="popup_table_c7" style="width:64px;">小样提升<br>(理论值)</td> -->
             </tr>
             <tr v-for="(stage, index) in popupData" :key="index" :class="getColor(stage.stageColor)" class="stage_table_r">
@@ -173,7 +173,7 @@
         <!-- 数据表End -->
         <el-divider></el-divider>
         <client-only>
-        <div class="popup_text f12 t1" >
+        <div class="popup_text f12" >
           效率基准:<b>常驻图</b>中综合效率最高者<br>
           置信度:掉率对关卡效率误差影响在3%前提下的可信度范围
           <a href="https://www.bilibili.com/video/BV1yL4y1P7K1" style="margin-left:8px;">
@@ -420,7 +420,12 @@ export default {
       else
         return "color_t5";
     },
-
+    getFontSize(eff){
+      if (eff>99)
+        return "font-size:20px;"
+      else
+        return "font-size:16px;font-weight:500;"
+    },
 
     getTimesColor(times){
       if (times<1000)
