@@ -696,25 +696,28 @@
               </div>
               <div class="gacha_resources_unit" style="width: 234px">
                 <div style="width: 40px" v-show="other.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'">
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='产业合作洽谈会'" >
                   {{ other.gachaOrundum }}
+                </div>
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='产业合作洽谈会'" >
+                  {{ daysRemaining*600 }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
                   {{ other.gachaOriginium }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'">
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName!=='限定池每日赠送寻访凭证'">
                   {{ other.gachaPermit }}
                 </div>
-                <div
-                  style="width: 40px"
-                  v-show="other.gachaPermit10 !== '0'"
-                  :class="getSpriteImg('7004icon', 0)"
-                ></div>
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName==='限定池每日赠送寻访凭证'" >
+                  {{ daysRemaining }}
+                </div>
+                <div style="width: 40px" v-show="other.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
                   {{ other.gachaPermit10 }}
                 </div>
+                
               </div>
             </div>
           </div>
@@ -985,9 +988,7 @@
           if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-          // if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
-          //   this.monthsRemaining++;
-          // }
+      
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
           }
