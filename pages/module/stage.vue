@@ -13,9 +13,9 @@
           </div>
         </div>
         <div class="op_title_tag">
-          <!-- <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
+          <div id="nowActStageKey" class="op_tag_0" @click="showNowActive()">
             只显示up
-          </div> -->
+          </div>
           <div id="orundumStageKey" class="op_tag_0" @click="showOrundumPopup()">
             搓玉版
           </div>
@@ -87,20 +87,19 @@
       <!-- 扩展卡 -->
       <div class="op_content" id="stage_t3_content_plus" style="display:none;">
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
-          <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[0].itemType)"></div>
-          <div class="stage_card_t3_table">
+          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
+
+          <div class="stage_card_t3_table" >
             <table>
                 <tbody>
-                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
+                  <tr :class="getColor(stage.stageColor)" class="stage_table_r" :style="getFontSize(stage.stageEfficiency)" v-for="(stage, index) in materialRankT3.slice(0, 6)" :key="index">
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                     <td>
-                    <div  class="sprite_secondary_div">
                       <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
-                    </div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
-                    <td class="stage_table_c4"> <div v-show="stage.stageState > 0.1" :class="getSpriteImg('up', 6)"></div></td>
+                    <!-- <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td> -->
                   </tr>
                 </tbody>
             </table>
