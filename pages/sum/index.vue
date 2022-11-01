@@ -52,7 +52,7 @@ export default {
       await this.sleep(1000);
       // for(let i=0;i<apCost.length;i++){
       for (let i = 0; i < apCost.length; i++) {
-        await this.sleep(1000);
+        await this.sleep(10);
         itemId.unshift(apCost[i].name);
         this.itemName.unshift(apCost[i].charId);
         this.itemCost.unshift(apCost[i].apCost.toFixed(2));
@@ -110,16 +110,18 @@ export default {
               formatter: function (value,index) {
                 //判断是否要显示预警
                 console.log("拿到的内容",  itemId[index]);
-                return value;
-                // return itemId[index]+"{"+value+"|}";
+                // return value;
+                return itemId[index]+"{"+value+"|}";
               },
               rich: charAvatarUrl
             },
             axisLine: {
               lineStyle: {
+                width:4,
                 color: "#FFFFFFFF",
               },
             },
+           
           },
         ],
         xAxis: [
@@ -141,18 +143,14 @@ export default {
                 color: "#FFFFFFFF",
               },
             },
-            splitLine: {
-              lineStyle: {
-                color: "#FFFFFFFF",
-              },
-            },
+           
           },
         ],
         series: [
           {
             name: [],
             type: "bar",
-            barWidth: 25,
+            barWidth: 30,
            
 
             data: this.itemCost,
@@ -169,7 +167,9 @@ export default {
             },
 
             itemStyle: {
-              normal: {},
+              normal: {
+                barBorderRadius:[20,20,20,20]
+              },
             },
           },
         ],
