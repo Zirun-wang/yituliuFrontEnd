@@ -110,8 +110,8 @@ export default {
               formatter: function (value,index) {
                 //判断是否要显示预警
                 console.log("拿到的内容",  itemId[index]);
-                
-                return itemId[index]+"{"+value+"|}";
+                return value;
+                // return itemId[index]+"{"+value+"|}";
               },
               rich: charAvatarUrl
             },
