@@ -265,8 +265,8 @@ export default {
 		padding-left:5px;
 	}
 	.foot_unit_pic{
-		height: 32px;
-		width: 32px;
+		height: 30px;
+		width: 30px;
 		margin: 2px 3px 3px 3px;
 		display: inline-block;
 		vertical-align: middle;

@@ -696,25 +696,28 @@
               </div>
               <div class="gacha_resources_unit" style="width: 234px">
                 <div style="width: 40px" v-show="other.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'">
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='产业合作洽谈会'" >
                   {{ other.gachaOrundum }}
+                </div>
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='产业合作洽谈会'" >
+                  {{ daysRemaining*600 }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
                   {{ other.gachaOriginium }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'">
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName!=='限定池每日赠送寻访凭证'">
                   {{ other.gachaPermit }}
                 </div>
-                <div
-                  style="width: 40px"
-                  v-show="other.gachaPermit10 !== '0'"
-                  :class="getSpriteImg('7004icon', 0)"
-                ></div>
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName==='限定池每日赠送寻访凭证'" >
+                  {{ daysRemaining }}
+                </div>
+                <div style="width: 40px" v-show="other.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
                   {{ other.gachaPermit10 }}
                 </div>
+                
               </div>
             </div>
           </div>
@@ -985,9 +988,7 @@
           if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-          // if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 14) {
-          //   this.monthsRemaining++;
-          // }
+      
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.SignInMonthsRemaining++;
           }
@@ -1456,18 +1457,7 @@
           this.pieData.push(chartFan);
         }
 
-        // this.pieData[0].value = parseInt(this.gachaTimes_exist);
-        // this.pieData[0].packName = "现有";
-        // this.pieData[1].value =parseInt( this.gachaTimes_potential);
-        // this.pieData[1].packName = "潜在";
-        // this.pieData[2].value =parseInt( this.gachaTimes_daily);
-        // this.pieData[2].packName = "日常";
-        // this.pieData[3].value =parseInt( this.gachaTimes_gacha);
-        // this.pieData[3].packName = "氪金";
-        // this.pieData[4].value =parseInt( this.gachaTimes_activity);
-        // this.pieData[4].packName = "活动";
-        // this.pieData[5].value = parseInt(this.gachaTimes_other);
-        // this.pieData[5].packName = "其它";
+     
 
         if (this.cookieInit > 1) {
           this.pieChart(this.pieData);

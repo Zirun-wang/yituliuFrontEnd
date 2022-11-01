@@ -1,0 +1,572 @@
+[
+    {
+        "apCost": 923.8437,
+        "charId": "char_195_glassb",
+        "name": "真理"
+    },
+    {
+        "apCost": 940.7321999999999,
+        "charId": "char_486_takila",
+        "name": "龙舌兰"
+    },
+    {
+        "apCost": 949.3538,
+        "charId": "char_436_whispr",
+        "name": "絮雨"
+    },
+    {
+        "apCost": 965.4985,
+        "charId": "char_455_nothin",
+        "name": "乌有"
+    },
+    {
+        "apCost": 966.6639,
+        "charId": "char_489_serum",
+        "name": "蚀清"
+    },
+    {
+        "apCost": 966.8045999999999,
+        "charId": "char_171_bldsk",
+        "name": "华法琳"
+    },
+    {
+        "apCost": 978.3145000000001,
+        "charId": "char_140_whitew",
+        "name": "拉普兰德"
+    },
+    {
+        "apCost": 978.3773,
+        "charId": "char_128_plosis",
+        "name": "白面鸮"
+    },
+    {
+        "apCost": 994.6219,
+        "charId": "char_378_asbest",
+        "name": "石棉"
+    },
+    {
+        "apCost": 998.2754,
+        "charId": "char_002_amiya",
+        "name": "阿米娅"
+    },
+    {
+        "apCost": 1000.7143000000001,
+        "charId": "char_405_absin",
+        "name": "苦艾"
+    },
+    {
+        "apCost": 1000.9459999999999,
+        "charId": "char_4043_erato",
+        "name": "埃拉托"
+    },
+    {
+        "apCost": 1004.2433,
+        "charId": "char_4054_malist",
+        "name": "至简"
+    },
+    {
+        "apCost": 1018.7996999999999,
+        "charId": "char_275_breeze",
+        "name": "微风"
+    },
+    {
+        "apCost": 1028.8718,
+        "charId": "char_261_sddrag",
+        "name": "苇草"
+    },
+    {
+        "apCost": 1029.8008,
+        "charId": "char_243_waaifu",
+        "name": "槐琥"
+    },
+    {
+        "apCost": 1031.2011,
+        "charId": "char_473_mberry",
+        "name": "桑葚"
+    },
+    {
+        "apCost": 1032.7002,
+        "charId": "char_496_wildmn",
+        "name": "野鬃"
+    },
+    {
+        "apCost": 1034.4681999999998,
+        "charId": "char_344_beewax",
+        "name": "蜜蜡"
+    },
+    {
+        "apCost": 1036.6603,
+        "charId": "char_4040_rockr",
+        "name": "洛洛"
+    },
+    {
+        "apCost": 1040.7531,
+        "charId": "char_1021_kroos2",
+        "name": "寒芒克洛丝"
+    },
+    {
+        "apCost": 1045.5753,
+        "charId": "char_163_hpsts",
+        "name": "火神"
+    },
+    {
+        "apCost": 1050.9841999999999,
+        "charId": "char_254_vodfox",
+        "name": "巫恋"
+    },
+    {
+        "apCost": 1058.2858999999999,
+        "charId": "char_4071_peper",
+        "name": "明椒"
+    },
+    {
+        "apCost": 1060.9743,
+        "charId": "char_4016_kazema",
+        "name": "风丸"
+    },
+    {
+        "apCost": 1072.0338,
+        "charId": "char_135_halo",
+        "name": "星源"
+    },
+    {
+        "apCost": 1083.9021,
+        "charId": "char_4066_highmo",
+        "name": "海沫"
+    },
+    {
+        "apCost": 1089.5713,
+        "charId": "char_4019_ncdeer",
+        "name": "九色鹿"
+    },
+    {
+        "apCost": 1095.2214999999999,
+        "charId": "char_411_tomimi",
+        "name": "特米米"
+    },
+    {
+        "apCost": 1095.6366,
+        "charId": "char_4036_forcer",
+        "name": "见行者"
+    },
+    {
+        "apCost": 1098.5572,
+        "charId": "char_415_flint",
+        "name": "燧石"
+    },
+    {
+        "apCost": 1103.3403,
+        "charId": "char_304_zebra",
+        "name": "暴雨"
+    },
+    {
+        "apCost": 1103.4518,
+        "charId": "char_230_savage",
+        "name": "暴行"
+    },
+    {
+        "apCost": 1103.7259,
+        "charId": "char_343_tknogi",
+        "name": "月禾"
+    },
+    {
+        "apCost": 1105.1628999999998,
+        "charId": "char_157_dagda",
+        "name": "达格达"
+    },
+    {
+        "apCost": 1106.8728999999998,
+        "charId": "char_158_milu",
+        "name": "守林人"
+    },
+    {
+        "apCost": 1109.3074,
+        "charId": "char_108_silent",
+        "name": "赫默"
+    },
+    {
+        "apCost": 1111.8401999999999,
+        "charId": "char_451_robin",
+        "name": "罗宾"
+    },
+    {
+        "apCost": 1112.7224999999999,
+        "charId": "char_458_rfrost",
+        "name": "霜华"
+    },
+    {
+        "apCost": 1112.7442,
+        "charId": "char_101_sora",
+        "name": "空"
+    },
+    {
+        "apCost": 1114.0004999999999,
+        "charId": "char_4025_aprot2",
+        "name": "暮落"
+    },
+    {
+        "apCost": 1114.2205,
+        "charId": "char_1024_hbisc2",
+        "name": "濯尘芙蓉"
+    },
+    {
+        "apCost": 1116.2103,
+        "charId": "char_173_slchan",
+        "name": "崖心"
+    },
+    {
+        "apCost": 1118.1688,
+        "charId": "char_102_texas",
+        "name": "德克萨斯"
+    },
+    {
+        "apCost": 1118.8292999999999,
+        "charId": "char_369_bena",
+        "name": "贝娜"
+    },
+    {
+        "apCost": 1120.695,
+        "charId": "char_218_cuttle",
+        "name": "安哲拉"
+    },
+    {
+        "apCost": 1126.5901,
+        "charId": "char_478_kirara",
+        "name": "绮良"
+    },
+    {
+        "apCost": 1126.9173,
+        "charId": "char_346_aosta",
+        "name": "奥斯塔"
+    },
+    {
+        "apCost": 1131.4266,
+        "charId": "char_492_quercu",
+        "name": "夏栎"
+    },
+    {
+        "apCost": 1133.835,
+        "charId": "char_348_ceylon",
+        "name": "锡兰"
+    },
+    {
+        "apCost": 1134.1317,
+        "charId": "char_1011_lava2",
+        "name": "炎狱炎熔"
+    },
+    {
+        "apCost": 1136.1025,
+        "charId": "char_214_kafka",
+        "name": "卡夫卡"
+    },
+    {
+        "apCost": 1138.3105999999998,
+        "charId": "char_379_sesa",
+        "name": "慑砂"
+    },
+    {
+        "apCost": 1139.386,
+        "charId": "char_4047_pianst",
+        "name": "车尔尼"
+    },
+    {
+        "apCost": 1140.0037,
+        "charId": "char_383_snsant",
+        "name": "雪雉"
+    },
+    {
+        "apCost": 1143.8450999999998,
+        "charId": "char_166_skfire",
+        "name": "天火"
+    },
+    {
+        "apCost": 1145.5888,
+        "charId": "char_274_astesi",
+        "name": "星极"
+    },
+    {
+        "apCost": 1145.6552,
+        "charId": "char_449_glider",
+        "name": "蜜莓"
+    },
+    {
+        "apCost": 1146.4572,
+        "charId": "char_365_aprl",
+        "name": "四月"
+    },
+    {
+        "apCost": 1147.4171,
+        "charId": "char_294_ayer",
+        "name": "断崖"
+    },
+    {
+        "apCost": 1147.838,
+        "charId": "char_459_tachak",
+        "name": "战车"
+    },
+    {
+        "apCost": 1149.9112,
+        "charId": "char_388_mint",
+        "name": "薄绿"
+    },
+    {
+        "apCost": 1150.1844999999998,
+        "charId": "char_220_grani",
+        "name": "格拉尼"
+    },
+    {
+        "apCost": 1150.3643,
+        "charId": "char_433_windft",
+        "name": "掠风"
+    },
+    {
+        "apCost": 1151.1679,
+        "charId": "char_4014_lunacu",
+        "name": "子月"
+    },
+    {
+        "apCost": 1152.6471,
+        "charId": "char_1027_greyy2",
+        "name": "承曦格雷伊"
+    },
+    {
+        "apCost": 1152.6668,
+        "charId": "char_174_slbell",
+        "name": "初雪"
+    },
+    {
+        "apCost": 1152.8929,
+        "charId": "char_431_ashlok",
+        "name": "灰毫"
+    },
+    {
+        "apCost": 1153.2151,
+        "charId": "char_226_hmau",
+        "name": "吽"
+    },
+    {
+        "apCost": 1153.2973,
+        "charId": "char_325_bison",
+        "name": "拜松"
+    },
+    {
+        "apCost": 1153.6849,
+        "charId": "char_4045_heidi",
+        "name": "海蒂"
+    },
+    {
+        "apCost": 1153.9915,
+        "charId": "char_422_aurora",
+        "name": "极光"
+    },
+    {
+        "apCost": 1154.264,
+        "charId": "char_215_mantic",
+        "name": "狮蝎"
+    },
+    {
+        "apCost": 1154.5446,
+        "charId": "char_241_panda",
+        "name": "食铁兽"
+    },
+    {
+        "apCost": 1155.3576,
+        "charId": "char_336_folivo",
+        "name": "稀音"
+    },
+    {
+        "apCost": 1157.8186999999998,
+        "charId": "char_143_ghost",
+        "name": "幽灵鲨"
+    },
+    {
+        "apCost": 1159.2008,
+        "charId": "char_107_liskam",
+        "name": "雷蛇"
+    },
+    {
+        "apCost": 1161.6786,
+        "charId": "char_219_meteo",
+        "name": "陨星"
+    },
+    {
+        "apCost": 1161.8954999999999,
+        "charId": "char_401_elysm",
+        "name": "极境"
+    },
+    {
+        "apCost": 1162.7817,
+        "charId": "char_201_moeshd",
+        "name": "可颂"
+    },
+    {
+        "apCost": 1163.2352999999998,
+        "charId": "char_4013_kjera",
+        "name": "耶拉"
+    },
+    {
+        "apCost": 1164.2532999999999,
+        "charId": "char_497_ctable",
+        "name": "晓歌"
+    },
+    {
+        "apCost": 1164.3142,
+        "charId": "char_475_akafyu",
+        "name": "赤冬"
+    },
+    {
+        "apCost": 1167.1772,
+        "charId": "char_306_leizi",
+        "name": "惊蛰"
+    },
+    {
+        "apCost": 1167.9625,
+        "charId": "char_144_red",
+        "name": "红"
+    },
+    {
+        "apCost": 1168.9177,
+        "charId": "char_242_otter",
+        "name": "梅尔"
+    },
+    {
+        "apCost": 1169.6077,
+        "charId": "char_402_tuye",
+        "name": "图耶"
+    },
+    {
+        "apCost": 1171.6046,
+        "charId": "char_338_iris",
+        "name": "爱丽丝"
+    },
+    {
+        "apCost": 1174.5629,
+        "charId": "char_279_excu",
+        "name": "送葬人"
+    },
+    {
+        "apCost": 1174.729,
+        "charId": "char_308_swire",
+        "name": "诗怀雅"
+    },
+    {
+        "apCost": 1179.1834,
+        "charId": "char_373_lionhd",
+        "name": "莱恩哈特"
+    },
+    {
+        "apCost": 1180.9246,
+        "charId": "char_115_headbr",
+        "name": "凛冬"
+    },
+    {
+        "apCost": 1182.1502,
+        "charId": "char_106_franka",
+        "name": "芙兰卡"
+    },
+    {
+        "apCost": 1182.2737,
+        "charId": "char_164_nightm",
+        "name": "夜魔"
+    },
+    {
+        "apCost": 1182.3228,
+        "charId": "char_476_blkngt",
+        "name": "夜半"
+    },
+    {
+        "apCost": 1183.3452,
+        "charId": "char_148_nearl",
+        "name": "临光"
+    },
+    {
+        "apCost": 1183.8355,
+        "charId": "char_155_tiger",
+        "name": "因陀罗"
+    },
+    {
+        "apCost": 1186.9033,
+        "charId": "char_333_sidero",
+        "name": "铸铁"
+    },
+    {
+        "apCost": 1190.5596,
+        "charId": "char_421_crow",
+        "name": "羽毛笔"
+    },
+    {
+        "apCost": 1190.6747,
+        "charId": "char_326_glacus",
+        "name": "格劳克斯"
+    },
+    {
+        "apCost": 1191.4288999999999,
+        "charId": "char_129_bluep",
+        "name": "蓝毒"
+    },
+    {
+        "apCost": 1193.1001,
+        "charId": "char_252_bibeak",
+        "name": "柏喙"
+    },
+    {
+        "apCost": 1195.1627,
+        "charId": "char_131_flameb",
+        "name": "炎客"
+    },
+    {
+        "apCost": 1196.1616,
+        "charId": "char_349_chiave",
+        "name": "贾维"
+    },
+    {
+        "apCost": 1196.2331,
+        "charId": "char_204_platnm",
+        "name": "白金"
+    },
+    {
+        "apCost": 1196.7046,
+        "charId": "char_265_sophia",
+        "name": "鞭刃"
+    },
+    {
+        "apCost": 1201.4215,
+        "charId": "char_345_folnic",
+        "name": "亚叶"
+    },
+    {
+        "apCost": 1202.4161,
+        "charId": "char_457_blitz",
+        "name": "闪击"
+    },
+    {
+        "apCost": 1209.6334,
+        "charId": "char_466_qanik",
+        "name": "雪绒"
+    },
+    {
+        "apCost": 1210.4712,
+        "charId": "char_367_swllow",
+        "name": "灰喉"
+    },
+    {
+        "apCost": 1214.1349,
+        "charId": "char_356_broca",
+        "name": "布洛卡"
+    },
+    {
+        "apCost": 1235.6476,
+        "charId": "char_4032_provs",
+        "name": "但书"
+    },
+    {
+        "apCost": 1241.6214,
+        "charId": "char_145_prove",
+        "name": "普罗旺斯"
+    },
+    {
+        "apCost": 1306.1499,
+        "charId": "char_363_toddi",
+        "name": "熔泉"
+    }
+]
