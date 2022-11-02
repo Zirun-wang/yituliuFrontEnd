@@ -1,6 +1,7 @@
 .stage_hint{
     display: flex;
     padding: 0px 12px;
+    margin-top: 8px;
     justify-content: space-between;
 }
 
@@ -80,7 +81,7 @@
 .stage_card_t3_table {
     border: 0px;
     border-top: 7px solid;
-    border-bottom: 7px solid;
+    border-bottom: 12px solid;
     -o-border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
     border-image: linear-gradient(to right, rgba(34,34,34,0) , rgba(34,34,34,1) );
     font-size: 16px;
