@@ -1,66 +1,82 @@
 [
     {
-        "itemCount": 12,
+        "itemCount": 62,
+        "itemId": "31063",
         "itemName": "转质盐组"
     },
     {
-        "itemCount": 422,
+        "itemCount": 492,
+        "itemId": "31043",
         "itemName": "半自然溶剂"
     },
     {
-        "itemCount": 617,
+        "itemCount": 712,
+        "itemId": "31053",
         "itemName": "化合切削液"
     },
     {
-        "itemCount": 1686,
+        "itemCount": 1863,
+        "itemId": "31033",
         "itemName": "晶体元件"
     },
     {
-        "itemCount": 2949,
+        "itemCount": 3121,
+        "itemId": "31013",
         "itemName": "凝胶"
     },
     {
-        "itemCount": 3713,
+        "itemCount": 3918,
+        "itemId": "31023",
         "itemName": "炽合金"
     },
     {
-        "itemCount": 4410,
+        "itemCount": 4548,
+        "itemId": "30033",
         "itemName": "聚酸酯组"
     },
     {
-        "itemCount": 5068,
+        "itemCount": 5221,
+        "itemId": "30093",
         "itemName": "研磨石"
     },
     {
-        "itemCount": 5264,
+        "itemCount": 5476,
+        "itemId": "30103",
         "itemName": "RMA70-12"
     },
     {
-        "itemCount": 5602,
+        "itemCount": 5804,
+        "itemId": "30023",
         "itemName": "糖组"
     },
     {
-        "itemCount": 5688,
+        "itemCount": 5849,
+        "itemId": "30073",
         "itemName": "扭转醇"
     },
     {
-        "itemCount": 6096,
+        "itemCount": 6293,
+        "itemId": "30083",
         "itemName": "轻锰矿"
     },
     {
-        "itemCount": 6213,
+        "itemCount": 6405,
+        "itemId": "30053",
         "itemName": "酮凝集组"
     },
     {
-        "itemCount": 6584,
+        "itemCount": 6797,
+        "itemId": "30063",
         "itemName": "全新装置"
     },
     {
-        "itemCount": 7597,
+        "itemCount": 7896,
+        "itemId": "30043",
         "itemName": "异铁组"
     },
     {
-        "itemCount": 14671,
+        "itemCount": 15067,
+        "itemId": "30013",
         "itemName": "固源岩组"
     }
 ]
