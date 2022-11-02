@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="item_card">
-      <div v-for="(item, index) in itemList" :key="index" v-show="item.cardNum <9">
+      <div v-for="(item, index) in itemList" :key="index" v-show="item.cardNum <8&&item.cardNum >1">
         <img class="item_size" :src="getImage(item.itemName)" alt="">
       </div>
     </div>
@@ -38,13 +38,16 @@ export default {
 .item_card {
   display: flex;
   background-color: white;
-  width: 90%;
-  margin: 5%;
+  width: 1280;
+  height: 720;
+  overflow: hidden;
+  /* margin: 5%; */
    flex-wrap: wrap ;  
-  
+    background: url(~static/img/back/ep11.png);
+  background-size: 900px;
 }
 .item_size{
   margin: 5px;
-  width: 50px;
+  width: 70px;
 }
 </style>

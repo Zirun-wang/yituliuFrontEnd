@@ -1,78 +1,97 @@
 [
     {
-        "itemCount": 76,
+        "itemCount": 81,
+        "itemId": "3211",
         "itemName": "先锋芯片"
     },
     {
         "itemCount": 86,
+        "itemId": "3261",
         "itemName": "医疗芯片"
     },
     {
         "itemCount": 99,
+        "itemId": "3271",
         "itemName": "辅助芯片"
     },
     {
-        "itemCount": 102,
+        "itemCount": 107,
+        "itemId": "3231",
         "itemName": "重装芯片"
     },
     {
-        "itemCount": 111,
+        "itemCount": 116,
+        "itemId": "3281",
         "itemName": "特种芯片"
     },
     {
-        "itemCount": 119,
+        "itemCount": 127,
+        "itemId": "3212",
         "itemName": "先锋芯片组"
     },
     {
-        "itemCount": 126,
+        "itemCount": 130,
+        "itemId": "3251",
         "itemName": "术师芯片"
     },
     {
         "itemCount": 134,
+        "itemId": "3262",
         "itemName": "医疗芯片组"
     },
     {
-        "itemCount": 142,
+        "itemCount": 146,
+        "itemId": "3241",
         "itemName": "狙击芯片"
     },
     {
         "itemCount": 154,
+        "itemId": "3272",
         "itemName": "辅助芯片组"
     },
     {
-        "itemCount": 159,
+        "itemCount": 167,
+        "itemId": "3232",
         "itemName": "重装芯片组"
     },
     {
-        "itemCount": 173,
+        "itemCount": 181,
+        "itemId": "3282",
         "itemName": "特种芯片组"
     },
     {
-        "itemCount": 181,
+        "itemCount": 184,
+        "itemId": "3221",
         "itemName": "近卫芯片"
     },
     {
-        "itemCount": 198,
+        "itemCount": 204,
+        "itemId": "3252",
         "itemName": "术师芯片组"
     },
     {
-        "itemCount": 223,
+        "itemCount": 229,
+        "itemId": "3242",
         "itemName": "狙击芯片组"
     },
     {
-        "itemCount": 284,
+        "itemCount": 289,
+        "itemId": "3222",
         "itemName": "近卫芯片组"
     },
     {
-        "itemCount": 1794,
+        "itemCount": 1844,
+        "itemId": "3301",
         "itemName": "技巧概要·卷1"
     },
     {
-        "itemCount": 4071,
+        "itemCount": 4188,
+        "itemId": "3302",
         "itemName": "技巧概要·卷2"
     },
     {
-        "itemCount": 14053,
+        "itemCount": 14516,
+        "itemId": "3303",
         "itemName": "技巧概要·卷3"
     }
 ]

@@ -10,7 +10,7 @@ import * as echarts from "echarts";
 import itemCount from "static/json/itemCount.json";
 import itemCount2 from "static/json/itemCount2.json";
 import apCost from "static/json/apCost.json";
-import charAvatarUrl from "static/json/charAvatarUrl.json";
+import imageUrl from "static/json/imageUrl.json";
 
 let itemId = [];
 export default {
@@ -35,36 +35,39 @@ export default {
       // await this.sleep(1000)
       // for(let i=0;i<itemCount.length;i++){
       //      await this.sleep(2000)
-      //     this.itemName.unshift(itemCount[i].itemName)
+      //     itemId.unshift(itemCount[i].itemName);
+      //     this.itemName.unshift(itemCount[i].itemId)
       //     this.itemCost.unshift(itemCount[i].itemCount)
       //     this.barChart()
       // }
 
-      //   await this.sleep(2000)
-      //     this.itemName = []
-      //     this.itemCost = []
-      //   for(let i=0;i<itemCount2.length;i++){
-      //      await this.sleep(2000)
-      //     this.itemName.unshift(itemCount2[i].itemName)
-      //     this.itemCost.unshift(itemCount2[i].itemCount)
-      //     this.barChart()
-      // }
-      await this.sleep(1000);
-      // for(let i=0;i<apCost.length;i++){
-      for (let i = 0; i < apCost.length; i++) {
-        await this.sleep(10);
-        itemId.unshift(apCost[i].name);
-        this.itemName.unshift(apCost[i].charId);
-        this.itemCost.unshift(apCost[i].apCost.toFixed(2));
-        this.barChart();
+        await this.sleep(2000)
+          this.itemName = []
+          this.itemCost = []
+          itemId = []
+        for(let i=0;i<itemCount2.length;i++){
+           await this.sleep(2000)
+          itemId.unshift(itemCount2[i].itemName);
+          this.itemName.unshift(itemCount2[i].itemId)
+          this.itemCost.unshift(itemCount2[i].itemCount)
+          this.barChart()
+      }
+      // await this.sleep(1000);
+      // // for(let i=0;i<apCost.length;i++){
+      // for (let i = 0; i < apCost.length; i++) {
+      //   await this.sleep(10);
+      //   itemId.unshift(apCost[i].name);
+      //   this.itemName.unshift(apCost[i].charId);
+      //   this.itemCost.unshift(apCost[i].apCost.toFixed(2));
+      //   this.barChart();
         
 
-        if (this.itemName.length > 10) {
-          itemId = itemId.slice(0, itemId.length - 1);
-          this.itemName = this.itemName.slice(0, this.itemName.length - 1);
-          this.itemCost = this.itemCost.slice(0, this.itemCost.length - 1);
-        }
-      }
+      //   if (this.itemName.length > 10) {
+      //     itemId = itemId.slice(0, itemId.length - 1);
+      //     this.itemName = this.itemName.slice(0, this.itemName.length - 1);
+      //     this.itemCost = this.itemCost.slice(0, this.itemCost.length - 1);
+      //   }
+      // }
     },
     barChart() {
       var myChart = echarts.init(document.getElementById("chart2"));
@@ -84,11 +87,11 @@ export default {
         // },
 
         grid: {
-          left: 240,
+          left: 200,
           right: 100,
 
           // bottom: 20,
-          top: 50,
+          top: 110,
           // containLabel: true
         },
         yAxis: [
@@ -113,7 +116,7 @@ export default {
                 // return value;
                 return itemId[index]+"{"+value+"|}";
               },
-              rich: charAvatarUrl
+              rich: imageUrl
             },
             axisLine: {
               lineStyle: {

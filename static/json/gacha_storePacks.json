@@ -21,5 +21,7 @@
   {"packName":"新人组合包","packPrice":"6","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"1","gachaPermit10":"0","packRmbPerDraw":"6.00","packType":"newbie"},
   {"packName":"新人寻访组合包","packPrice":"128","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"2","packRmbPerDraw":"6.40","packType":"newbie"},
   {"packName":"月卡","packPrice":"30","gachaOriginium":"0","gachaOrundum":"200","gachaPermit":"0","gachaPermit10":"0","packRmbPerDraw":"2.54","packType":"monthly"},
-  {"packName":"11月寻访组合包","packPrice":"168","gachaOriginium":"42","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","packRmbPerDraw":"7.43","packType":"monthly"}
+  {"packName":"11月寻访组合包","packPrice":"168","gachaOriginium":"42","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","packRmbPerDraw":"7.43","packType":"monthly"},
+  {"packName":"12月寻访组合包","packPrice":"168","gachaOriginium":"42","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","packRmbPerDraw":"7.43","packType":"monthly"},
+  {"packName":"1月寻访组合包","packPrice":"168","gachaOriginium":"42","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","packRmbPerDraw":"7.43","packType":"monthly"}
 ]
