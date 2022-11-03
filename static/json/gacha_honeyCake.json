@@ -1,12 +1,12 @@
 [
    
-    {"packName":"产业合作洽谈会","gachaOriginium":"0","gachaOrundum":"8500","gachaPermit":"0","gachaPermit10":"0","times":"14.16666667","endDate":"1668455880000"},
-    {"packName":"限定池每日赠送寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"14","gachaPermit10":"0","times":"14","endDate":"1668455880000"},
+    {"packName":"产业合作洽谈会","gachaOriginium":"0","gachaOrundum":"9300","gachaPermit":"0","gachaPermit10":"0","times":"14.16666667","plans":1},
+    {"packName":"限定池每日赠送寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"14","gachaPermit10":"0","times":"14","plans":0},
   
-    {"packName":"BUG修复和版本更新","gachaOriginium":"15","gachaOrundum":"3000","gachaPermit":"0","gachaPermit10":"0","times":"7.833333333","endDate":"1673726340000"},
-    {"packName":"跨年纪念签到","gachaOriginium":"1","gachaOrundum":"300","gachaPermit":"0","gachaPermit10":"0","times":"0.6","endDate":"1673726340000"},
-    {"packName":"辞旧迎新签到","gachaOriginium":"1","gachaOrundum":"300","gachaPermit":"0","gachaPermit10":"0","times":"0.6","endDate":"1673726340000"},
-    {"packName":"春节池每日赠送寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"14","gachaPermit10":"0","times":"0.6","endDate":"1673726340000"},
-    {"packName":"春节池赠送十连寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","times":"0.6","endDate":"1673726340000"},
-    {"packName":"幸运墙","gachaOriginium":"0","gachaOrundum":"8400","gachaPermit":"0","gachaPermit10":"0","times":"0.6","endDate":"1673726340000"}
+    {"packName":"BUG修复和版本更新","gachaOriginium":"15","gachaOrundum":"3000","gachaPermit":"0","gachaPermit10":"0","times":"7.833333333","plans":2},
+    {"packName":"跨年纪念签到","gachaOriginium":"1","gachaOrundum":"300","gachaPermit":"0","gachaPermit10":"0","times":"0.6","plans":2},
+    {"packName":"辞旧迎新签到","gachaOriginium":"1","gachaOrundum":"300","gachaPermit":"0","gachaPermit10":"0","times":"0.6","plans":2},
+    {"packName":"春节池每日赠送寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"14","gachaPermit10":"0","times":"0.6","plans":2},
+    {"packName":"春节池赠送十连寻访凭证","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"0","gachaPermit10":"1","times":"0.6","plans":2},
+    {"packName":"幸运墙","gachaOriginium":"0","gachaOrundum":"8400","gachaPermit":"0","gachaPermit10":"0","times":"0.6","plans":2}
 ]

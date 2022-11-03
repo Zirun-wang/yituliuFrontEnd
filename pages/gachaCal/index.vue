@@ -621,7 +621,7 @@
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
-              <el-checkbox-button :label="index" v-show="singlePack.endDate<end_TimeStamp">
+              <el-checkbox-button :label="index" v-show="singlePack.plans<plans">
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ singlePack.packName }}
                 </div>
@@ -651,7 +651,7 @@
             </div>
           </el-checkbox-group>
           <div v-for="(act, index) in gacha_actReward" :key="index">
-            <div class="gacha_unit_child" v-show="act.endDate<end_TimeStamp">
+            <div class="gacha_unit_child" v-show="act.plans<plans">
               <div class="gacha_unit_child_title">{{ act.packName }}</div>
               <!-- 一个通用的资源显示模块 -->
               <div class="gacha_resources_unit" style="width: 234px">
@@ -677,7 +677,7 @@
 
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
-            <div class="gacha_unit_child" v-show="other.endDate<end_TimeStamp">
+            <div class="gacha_unit_child" v-show="other.plans>plans-3&&other.plans<plans">
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.packName }}
               </div>
@@ -693,7 +693,7 @@
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
                   {{ other.gachaOriginium }}
                 </div>
-                <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)" ></div>
                 <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName!=='限定池每日赠送寻访凭证'">
                   {{ other.gachaPermit }}
                 </div>
@@ -819,7 +819,7 @@
         endDate: "2022/11/15 03:59:00", //结束时间
         start_TimeStamp: "",
         end_TimeStamp: "",
-        
+        plans:2,
         timeSelector:"感谢庆典(11.14)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
@@ -896,6 +896,7 @@
         MonthsSignInRemaining: 0, // 剩余签到次数
 
         countDown: 0, //限定池每日送抽倒计时
+        countDown2: 0, //限定池每日送抽倒计时
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
         weeklyStageRewards: 1800, //剿灭奖励
@@ -994,10 +995,14 @@
           this.end_TimeStamp = 1668456060000;
           this.cookieInit=0;
           this.monthsRemaining = 1;
+          this.countDown2 = 0;
+          this.plans =2;
         }else{
           this.end_TimeStamp = 1673726340001;
           this.cookieInit=0;
           this.monthsRemaining = 3;
+          this.countDown2 = 14-this.countDown;
+           this.plans =3;
         }
         
         this.getInterval();
@@ -1042,7 +1047,8 @@
         this.greenF1Value = 0;
        
         if(typeof this.greenStoreFlag ==='string' ){
-            this.greenStoreFlag = false;
+           if(this.greenStoreFlag ==="false") this.greenStoreFlag = false;
+           if(this.greenStoreFlag ==="true") this.greenStoreFlag = true;
         }
       
         if (this.greenStoreFlag) {
@@ -1273,11 +1279,7 @@
         //活动抽卡计算（共计）
 
         for (let i = 0; i < this.gacha_actReward.length; i++) {
-          if (
-            this.gacha_actReward[i].endDate >= this.start_TimeStamp &&
-            this.gacha_actReward[i].endDate <= this.end_TimeStamp
-          ) {
-            // if(this.gacha_actReward[i].endDate<endDate)
+          if (this.gacha_actReward[i].plans<this.plans) {
             this.originium =
               parseInt(this.originium) +
               parseInt(this.gacha_actReward[i].gachaOriginium);
@@ -1339,10 +1341,7 @@
 
         //其他抽卡计算
         for (let i = 0; i < this.gacha_honeyCake.length; i++) {
-          if (
-            this.gacha_honeyCake[i].endDate >= this.start_TimeStamp &&
-            this.gacha_honeyCake[i].endDate <= this.end_TimeStamp
-          ) {
+          if (this.gacha_honeyCake[i].plans<this.plans ) {
             this.originium =
               parseInt(this.originium) +
               parseInt(this.gacha_honeyCake[i].gachaOriginium);
@@ -1386,21 +1385,21 @@
         
           //寻访记录=减去倒计时
         this.permit_other =
-          parseInt(this.permit_other) - parseInt(this.countDown);
+          parseInt(this.permit_other) - parseInt(this.countDown)
+          - parseInt(this.countDown2);
+        
         this.permit =
-          parseInt(this.permit) - parseInt(this.countDown);
-
+          parseInt(this.permit) - parseInt(this.countDown)
+          - parseInt(this.countDown2);
+          
 
         //其他抽卡次数
         this.gachaTimes_other =
           parseInt(this.originium_other) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_other) / 600 +
           parseInt(this.permit_other) +
-          parseInt(this.permit10_other) * 10;
+          parseInt(this.permit10_other) * 10 
 
-       
-          
-          
 
         if (parseInt(this.originium - parseInt(this.skinFlag) * 18) < 0) {
          this.$message.error("你的源石不足");
@@ -1509,36 +1508,17 @@
         }
         this.cookieInit++;
 
-        if (
-          this.originium_exist === "" ||
-          this.originium_exist === undefined ||
-          typeof this.originium_exist == "undefined"
-        )
-          this.originium_exist = 0;
-        if (
-          this.orundum_exist === "" ||
-          this.orundum_exist === undefined ||
-          typeof this.orundum_exist == "undefined"
-        )
-          this.orundum_exist = 0;
-        if (
-          this.permit_exist === "" ||
-          this.permit_exist === undefined ||
-          typeof this.permit_exist == "undefined"
-        )
-          this.permit_exist = 0;
-        if (
-          this.permit10_exist === "" ||
-          this.permit10_exist === undefined ||
-          typeof this.permit10_exist == "undefined"
-        )
-          this.permit10_exist = 0;
-        if (
-          this.paradox === "" ||
-          this.paradox === undefined ||
-          typeof this.paradox == "undefined"
-        )
-          this.paradox = 0;
+        if (this.originium_exist === "" || this.originium_exist === undefined ||
+          typeof this.originium_exist == "undefined") this.originium_exist = 0;
+        if (this.orundum_exist === "" || this.orundum_exist === undefined ||
+          typeof this.orundum_exist == "undefined") this.orundum_exist = 0;
+        if (this.permit_exist === "" || this.permit_exist === undefined ||
+          typeof this.permit_exist == "undefined") this.permit_exist = 0;
+        if (this.permit10_exist === "" || this.permit10_exist === undefined ||
+          typeof this.permit10_exist == "undefined") this.permit10_exist = 0;
+        if (this.paradox === "" || this.paradox === undefined ||
+          typeof this.paradox == "undefined") this.paradox = 0;
+
 
         if (this.originium_648 === "") this.originium_648 = 0;
         if (this.originium_328 === "") this.originium_328 = 0;

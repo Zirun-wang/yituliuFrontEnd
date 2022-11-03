@@ -1,9 +1,9 @@
 [
 
-    {"packName":"风雪过境（源石）","gachaOriginium":"30","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"10","endDate":"1673726340000"},
-    {"packName":"风雪过境（紫票）","gachaOriginium":"0","gachaOrundum":"2000","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"4.333333333","endDate":"1673726340000"},
-    {"packName":"将进酒（源石）","gachaOriginium":"28","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"9.4","endDate":"1673726340000"},
-    {"packName":"将进酒（紫票）","gachaOriginium":"0","gachaOrundum":"2000","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"4.333333333","endDate":"1673726340000"},
+    {"packName":"风雪过境（源石）","gachaOriginium":"30","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"10","plans":2},
+    {"packName":"风雪过境（紫票）","gachaOriginium":"0","gachaOrundum":"2000","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"4.333333333","plans":2},
+    {"packName":"将进酒（源石）","gachaOriginium":"28","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"9.4","plans":2},
+    {"packName":"将进酒（紫票）","gachaOriginium":"0","gachaOrundum":"2000","gachaPermit":"3","gachaPermit10":"0","packType":"activityper","times":"4.333333333","plans":2},
     {"packName":"吾导先路（源石）","gachaOriginium":"27","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper1","times":"9.1"},
     {"packName":"吾导先路（紫票）","gachaOriginium":"0","gachaOrundum":"2000","gachaPermit":"3","gachaPermit10":"0","packType":"activityper1","times":"4.333333333"},
     {"packName":"愚人号（源石）","gachaOriginium":"36","gachaOrundum":"0","gachaPermit":"3","gachaPermit10":"0","packType":"activityper1","times":"11.8"},
