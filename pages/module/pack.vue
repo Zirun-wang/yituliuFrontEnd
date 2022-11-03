@@ -190,8 +190,8 @@ export default {
                 return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 85% 20%  / 400% no-repeat,#444444";
             return "";
         }
-        // else
-        //     return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");
+        else
+            return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");
     }
   },
 };

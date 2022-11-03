@@ -15,7 +15,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="感谢庆典(11.14)" type="primary" style="width: 50%" 
             ></el-radio-button>
-            <el-radio-button label="春节限定"  style="width: 50%"  disabled
+            <el-radio-button label="春节限定"  style="width: 50%"  
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
