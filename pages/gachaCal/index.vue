@@ -998,7 +998,7 @@
           this.countDown2 = 0;
           this.plans =2;
         }else{
-          this.end_TimeStamp = 1673726340001;
+          this.end_TimeStamp = 1674503940000;
           this.cookieInit=0;
           this.monthsRemaining = 3;
           this.countDown2 = 14-this.countDown;
