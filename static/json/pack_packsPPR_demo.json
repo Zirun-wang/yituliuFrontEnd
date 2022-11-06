@@ -6,36 +6,26 @@
         "packName": "空的小钱夹",
         "packShowName": "空的小钱夹",
         "packPrice": 45,
-        "packContent":[
+        "packContent": [
             {
-                "itemName":"龙门币",
-                "itemQuantity":300000
+                "itemName": "龙门币",
+                "itemQuantity": 300000
             },
             {
-                "itemName":"至纯源石",
-                "itemQuantity":13
+                "itemName": "至纯源石",
+                "itemQuantity": 13
             }
         ],
         "packDraw": 3.9,
-        // 共计多少抽
         "packOriginium": 21,
-        // 材料折合理智共计多少石
         "packRmbPerDraw": 11.54,
-        // 每抽价格
         "packRmbPerOriginium": 2.14,
-        // 每石价格
         "packPPRDraw": 1.01,
-        // 每抽性价比，相比648
         "packPPROriginium": 1.64,
-        // 每石性价比，相比648
         "gachaOrundum": 0,
-        // 合成玉
         "gachaOriginium": 13,
-        // 源石
         "gachaPermit": 0,
-        // 单抽
         "gachaPermit10": 0
-        // 十连
     },
     {
         "packType": "limited",
@@ -111,4 +101,4 @@
         "gachaPermit": 0,
         "gachaPermit10": 0
     }
-    ]
+]

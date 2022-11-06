@@ -55,7 +55,7 @@
           <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px" v-model="period_plan2[1]"></el-input>
         </div>
         <div class="riic_building_parameter">
-          *跨天需写成 [22:00][06:00](示例)
+          *跨天需写成 [22:00][06:00] (示例，写的时候别带&emsp;[&emsp;]！)
         </div>
 
       </div>
