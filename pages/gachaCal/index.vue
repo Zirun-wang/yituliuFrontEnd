@@ -687,7 +687,7 @@
                   {{ other.gachaOrundum }}
                 </div>
                 <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='产业合作洽谈会'" >
-                  {{ other.gachaOrundum-countDown*600 }}
+                  {{ other.gachaOrundum-countDown*660 }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
@@ -1002,7 +1002,7 @@
           this.cookieInit=0;
           this.monthsRemaining = 3;
           this.countDown2 = 14-this.countDown;
-           this.plans =3;
+          this.plans =3;
         }
         
         this.getInterval();
@@ -1375,14 +1375,15 @@
           parseInt(this.orundum) +
           parseInt(this.weekTaskValue) * 500 +
           parseInt(this.weekStageValue) * 1800 -
-          parseInt(this.countDown) * 600;
+          parseInt(this.countDown) * 660 ;
+
 
         this.orundum_other =
           parseInt(this.orundum_other) + 
           parseInt(this.weekTaskValue) * 500 +
           parseInt(this.weekStageValue) * 1800 - 
-          parseInt(this.countDown) * 600;
-        
+          parseInt(this.countDown) * 660 ;
+
           //寻访记录=减去倒计时
         this.permit_other =
           parseInt(this.permit_other) - parseInt(this.countDown)
