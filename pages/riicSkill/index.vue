@@ -121,14 +121,14 @@
 
 
 <script >
-import buildingjson from "static/json/riic_skill.json";
+// import buildingjson from "static/json/riic_skill.json";
 import cookie from "js-cookie";
 import storeApi from "@/api/store";
 
 export default {
   data() {
     return {
-      building: buildingjson,
+      building: [],
       roomList: [
         "DORMITORY",
         "MEETING",

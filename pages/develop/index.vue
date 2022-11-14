@@ -21,7 +21,6 @@
 </template>
 
 <script>
-  import agentData from "static/json/T2_ItemCost.json";
 
   export default {
     data(){
