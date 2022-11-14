@@ -55,7 +55,7 @@
           <el-input size="small" class="parameter_inputbox" placeholder="20:00" style="width: 72px" v-model="period_plan2[1]"></el-input>
         </div>
         <div class="riic_building_parameter">
-          *跨天需写成 [22:00][06:00](示例)
+          *跨天需写成 [22:00][06:00] (示例，写的时候别带&emsp;[&emsp;]！)
         </div>
 
       </div>
@@ -68,15 +68,17 @@
             </el-button>
             <div id="export_cover" style="position: absolute;width: 135px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80;"></div>
             <a :href="exportUrl">
-              <el-button-group>
                 <el-button size="medium" type="primary" round style="width:108px;margin-left:12px;">
                   导出到本地
                 </el-button>
+            </a>
+            
+             <!-- <el-button-group>
                 <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;">
                   导出到MAA
                 </el-button>
-              </el-button-group>
-            </a>
+              </el-button-group> -->
+           
           </div>
           <!-- <div class="riic_building_parameter">
             <el-button size="medium" type="primary" round style="width:126px;">
@@ -100,6 +102,7 @@
             </el-button>
             </a>
           </div>
+          
 
         <!-- 如果需要注释 从这里开始 -->
 <!--        <div class="riic_building_parameter">-->
@@ -1406,9 +1409,20 @@ export default {
     this.setJson();
     this.getUid();
     this.getDate();
-    // this.updateVisits()
+    this.openNotification()
   },
   methods: {
+    openNotification() {
+        this.$notify({
+          title: '2022-11-05更新',
+          dangerouslyUseHTMLString: true,
+          message: '<strong> 新增内容：<br>新增3.5周年干员<br>新增深海猎人组合<br>'+
+          'Bug修复：<br>修复了部分旧排班表导入后无法重新导出的问题<br>修复了无法导出的问题（导出前请先点击生成排班）<br>'+
+          '注意事项<br>换班起止时间不要填写中文冒号（：）需填写英文冒号（:）</strong>',
+           duration: 12000
+        });
+      },
+
     
     updateVisits() {
       toolApi.updateVisits("building").then((response) => {});
@@ -2130,49 +2144,49 @@ export default {
 
 
     importJson(){
-    this.title =   this.historicalData.title
-    this.descriptionH1 =  this.historicalData.description
-    this.author = this.historicalData.author
-    this.buildingType = this.historicalData.buildingType
-    this.planTimes = this.getPlanTimes(this.historicalData.plans.length)
+    this.title =   this.historicalData.title;
+    this.descriptionH1 =  this.historicalData.description;
+    this.author = this.historicalData.author;
+    this.buildingType = this.historicalData.buildingType;
+    this.planTimes = this.getPlanTimes(this.historicalData.plans.length);
 
   // 导入A班的信息-------------------------------------------------------------------------------
      console.log(this.historicalData.buildingType)
-    this.name[0] =  this.historicalData.plans[0].name
-    this.descriptionH2[0] =  this.historicalData.plans[0].description
+    this.name[0] =  this.historicalData.plans[0].name;
+    this.descriptionH2[0] =  this.historicalData.plans[0].description;
     
     if(undefined === this.historicalData.plans[0].period){
        this.period_plan0 =[]
     }else{
-       this.period_plan0 =  this.historicalData.plans[0].period[0]
-    }
+       this.period_plan0 =  this.getPeriod(this.historicalData.plans[0].period);
+    };
 
     if(undefined === this.historicalData.plans[0].Fiammetta){
         this.switch_Fiammetta_enable[0] =  false  ;
     }else{
-    this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target
+    this.Fiammetta[0] = this.historicalData.plans[0].Fiammetta.target;
     this.switch_Fiammetta_enable[0] = true;
-    this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order)
+    this.input_Fiammetta_order[0] = this.getOrderReverse(this.historicalData.plans[0].Fiammetta.order);
     };
-    this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room)
-    this.radio_drones_index[0]= this.historicalData.plans[0].drones.index
-    this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable
-    this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order)
+    this.radio_drones[0]  = this.getParamsValueReverse(this.historicalData.plans[0].drones.room);
+    this.radio_drones_index[0]= this.historicalData.plans[0].drones.index;
+    this.switch_drones_enable[0]= this.historicalData.plans[0].drones.enable;
+    this.input_drones_order[0]= this.getOrderReverse(this.historicalData.plans[0].drones.order);
     
      
     if(this.historicalData.plans[0].rooms.control[0].skip){
       this.control_skip[0] =  true;
     } else{
-     this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators
+     this.control_plan0 = this.historicalData.plans[0].rooms.control[0].operators;
     };
    
     if(this.historicalData.plans[0].rooms.trading[0].skip){
       this.switch_trading_plan0_0[2] =  true;   
     } else{
-    this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators
-    this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort
-    this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill
-    this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product)
+    this.trading_plan0_0 = this.historicalData.plans[0].rooms.trading[0].operators;
+    this.switch_trading_plan0_0[0]= this.historicalData.plans[0].rooms.trading[0].sort;
+    this.switch_trading_plan0_0[1]= this.historicalData.plans[0].rooms.trading[0].autofill;
+    this.radio_trading_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[0].product);
     };
 
     
@@ -2180,10 +2194,10 @@ export default {
       if(this.historicalData.plans[0].rooms.trading[1].skip){
     this.switch_trading_plan0_1[2] =  true;   
       } else{
-    this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators
-    this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort
-    this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill
-    this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product)
+    this.trading_plan0_1 = this.historicalData.plans[0].rooms.trading[1].operators;
+    this.switch_trading_plan0_1[0]= this.historicalData.plans[0].rooms.trading[1].sort;
+    this.switch_trading_plan0_1[1]= this.historicalData.plans[0].rooms.trading[1].autofill;
+    this.radio_trading_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[1].product);
       };
     };
 
@@ -2191,48 +2205,48 @@ export default {
       if(this.historicalData.plans[0].rooms.trading[2].skip){
     this.switch_trading_plan0_2[2] =  true;   
       } else{
-    this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators
-    this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort
-    this.switch_trading_plan0_2[1]= this.historicalData.plans[0].rooms.trading[2].autofill
-    this.radio_trading_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[2].product)
+    this.trading_plan0_2 = this.historicalData.plans[0].rooms.trading[2].operators;
+    this.switch_trading_plan0_2[0]= this.historicalData.plans[0].rooms.trading[2].sort;
+    this.switch_trading_plan0_2[1]= this.historicalData.plans[0].rooms.trading[2].autofill;
+    this.radio_trading_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.trading[2].product);
       };
     };
         
     if(this.historicalData.plans[0].rooms.manufacture[0].skip){
     this.switch_manufacture_plan0_0[2] =  true;   
     } else{
-    this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators
-    this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort
-    this.switch_manufacture_plan0_0[1]= this.historicalData.plans[0].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[0].product)
+    this.manufacture_plan0_0 = this.historicalData.plans[0].rooms.manufacture[0].operators;
+    this.switch_manufacture_plan0_0[0]= this.historicalData.plans[0].rooms.manufacture[0].sort;
+    this.switch_manufacture_plan0_0[1]= this.historicalData.plans[0].rooms.manufacture[0].autofill;
+    this.radio_manufacture_plan0[0]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[0].product);
     };
         
     if(this.historicalData.plans[0].rooms.manufacture[1].skip){
     this.switch_manufacture_plan0_1[2] =  true;  
     } else{
-    this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators
-    this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort
-    this.switch_manufacture_plan0_1[1]= this.historicalData.plans[0].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[1].product)
+    this.manufacture_plan0_1 = this.historicalData.plans[0].rooms.manufacture[1].operators;
+    this.switch_manufacture_plan0_1[0]= this.historicalData.plans[0].rooms.manufacture[1].sort;
+    this.switch_manufacture_plan0_1[1]= this.historicalData.plans[0].rooms.manufacture[1].autofill;
+    this.radio_manufacture_plan0[1]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[1].product);
     };
 
     if(this.historicalData.plans[0].rooms.manufacture[2].skip){
     this.switch_manufacture_plan0_2[2] =  true;   
     } else{
-    this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators
-    this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort
-    this.switch_manufacture_plan0_2[1]= this.historicalData.plans[0].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[2].product)
+    this.manufacture_plan0_2 = this.historicalData.plans[0].rooms.manufacture[2].operators;
+    this.switch_manufacture_plan0_2[0]= this.historicalData.plans[0].rooms.manufacture[2].sort;
+    this.switch_manufacture_plan0_2[1]= this.historicalData.plans[0].rooms.manufacture[2].autofill;
+    this.radio_manufacture_plan0[2]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[2].product);
     };
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[0].rooms.manufacture[3].skip){
     this.switch_manufacture_plan0_3[2] =  true;   
       } else{
-    this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators
-    this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort
-    this.switch_manufacture_plan0_3[1]= this.historicalData.plans[0].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan0[3]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[3].product)
+    this.manufacture_plan0_3 = this.historicalData.plans[0].rooms.manufacture[3].operators;
+    this.switch_manufacture_plan0_3[0]= this.historicalData.plans[0].rooms.manufacture[3].sort;
+    this.switch_manufacture_plan0_3[1]= this.historicalData.plans[0].rooms.manufacture[3].autofill;
+    this.radio_manufacture_plan0[3]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[3].product);
        };
     };
 
@@ -2240,49 +2254,49 @@ export default {
       if(this.historicalData.plans[0].rooms.manufacture[4].skip){
     this.switch_manufacture_plan0_4[2] =  true;  
       } else{
-    this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators
-    this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort
-    this.switch_manufacture_plan0_4[1]= this.historicalData.plans[0].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[4].product)
+    this.manufacture_plan0_4 = this.historicalData.plans[0].rooms.manufacture[4].operators;
+    this.switch_manufacture_plan0_4[0]= this.historicalData.plans[0].rooms.manufacture[4].sort;
+    this.switch_manufacture_plan0_4[1]= this.historicalData.plans[0].rooms.manufacture[4].autofill;
+    this.radio_manufacture_plan0[4]= this.getParamsValueReverse(this.historicalData.plans[0].rooms.manufacture[4].product);
       };
     };
     
     if(this.historicalData.plans[0].rooms.power[0].skip){
     this.switch_power_plan0_0[2] =  true;  
     } else{
-    this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0]
-    this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill
+    this.power_plan0_0[0] = this.historicalData.plans[0].rooms.power[0].operators[0];
+    this.switch_power_plan0_0[1]= this.historicalData.plans[0].rooms.power[0].autofill;
     };
 
     if(this.historicalData.plans[0].rooms.power[1].skip){
     this.switch_power_plan0_1[2] =  true;   
     } else{
-    this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0]
-    this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill
+    this.power_plan0_0[1] = this.historicalData.plans[0].rooms.power[1].operators[0];
+    this.switch_power_plan0_1[1]= this.historicalData.plans[0].rooms.power[1].autofill;
     };
     
     if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[0].rooms.power[2].skip){
     this.switch_power_plan0_2[2] =  true;   
       } else{
-         console.log(this.historicalData.plans[0].rooms.power[2])
+     
     this.power_plan0_0[2] = this.historicalData.plans[0].rooms.power[2].operators[0]
-    this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill
+    this.switch_power_plan0_2[1]= this.historicalData.plans[0].rooms.power[2].autofill;
       };
     };
     
     if(this.historicalData.plans[0].rooms.hire[0].skip){
     this.switch_hire_plan0_0[2] =  true;  
     } else{
-    this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators
-    this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill
+    this.hire_plan0_0= this.historicalData.plans[0].rooms.hire[0].operators;
+    this.switch_hire_plan0_0[1]= this.historicalData.plans[0].rooms.hire[0].autofill;
     };
 
     if(this.historicalData.plans[0].rooms.meeting[0].skip){
     this.switch_meeting_plan0_0[2] =  true;   
     } else{
-    this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators
-    this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill
+    this.meeting_plan0_0= this.historicalData.plans[0].rooms.meeting[0].operators;
+    this.switch_meeting_plan0_0[1]= this.historicalData.plans[0].rooms.meeting[0].autofill;
     };
     
     if(undefined === this.historicalData.plans[0].rooms.dormitory[1].operators){
@@ -2291,9 +2305,9 @@ export default {
        if(this.historicalData.plans[0].rooms.dormitory[0].skip){
               this.switch_dormitory_plan0_0[2]=true;
        }else{
-    this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators
-    this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort
-    this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill
+    this.dormitory_plan0_0 = this.historicalData.plans[0].rooms.dormitory[0].operators;
+    this.switch_dormitory_plan0_0[0]= this.historicalData.plans[0].rooms.dormitory[0].sort;
+    this.switch_dormitory_plan0_0[1]= this.historicalData.plans[0].rooms.dormitory[0].autofill;
        };
     };
 
@@ -2303,9 +2317,9 @@ export default {
        if(this.historicalData.plans[0].rooms.dormitory[1].skip){
               this.switch_dormitory_plan0_1[2]=true;
        }else{
-    this.dormitory_plan0_1 = this.historicalData.plans[0].rooms.dormitory[1].operators
-    this.switch_dormitory_plan0_1[0]= this.historicalData.plans[0].rooms.dormitory[1].sort
-    this.switch_dormitory_plan0_1[1]= this.historicalData.plans[0].rooms.dormitory[1].autofill
+    this.dormitory_plan0_1 = this.historicalData.plans[0].rooms.dormitory[1].operators;
+    this.switch_dormitory_plan0_1[0]= this.historicalData.plans[0].rooms.dormitory[1].sort;
+    this.switch_dormitory_plan0_1[1]= this.historicalData.plans[0].rooms.dormitory[1].autofill;
        };
     };
     
@@ -2315,9 +2329,9 @@ export default {
        if(this.historicalData.plans[0].rooms.dormitory[2].skip){
               this.switch_dormitory_plan0_2[2]=true;
        }else{
-    this.dormitory_plan0_2 = this.historicalData.plans[0].rooms.dormitory[2].operators
-    this.switch_dormitory_plan0_2[0]= this.historicalData.plans[0].rooms.dormitory[2].sort
-    this.switch_dormitory_plan0_2[1]= this.historicalData.plans[0].rooms.dormitory[2].autofill
+    this.dormitory_plan0_2 = this.historicalData.plans[0].rooms.dormitory[2].operators;
+    this.switch_dormitory_plan0_2[0]= this.historicalData.plans[0].rooms.dormitory[2].sort;
+    this.switch_dormitory_plan0_2[1]= this.historicalData.plans[0].rooms.dormitory[2].autofill;
        };
     };
 
@@ -2327,57 +2341,57 @@ export default {
        if(this.historicalData.plans[0].rooms.dormitory[3].skip){
               this.switch_dormitory_plan0_3[2]=true;
        }else{
-    this.dormitory_plan0_3 = this.historicalData.plans[0].rooms.dormitory[3].operators
-    this.switch_dormitory_plan0_3[0]= this.historicalData.plans[0].rooms.dormitory[3].sort
-    this.switch_dormitory_plan0_3[1]= this.historicalData.plans[0].rooms.dormitory[3].autofill
+    this.dormitory_plan0_3 = this.historicalData.plans[0].rooms.dormitory[3].operators;
+    this.switch_dormitory_plan0_3[0]= this.historicalData.plans[0].rooms.dormitory[3].sort;
+    this.switch_dormitory_plan0_3[1]= this.historicalData.plans[0].rooms.dormitory[3].autofill;
        };
     };
 
   // 导入B班的信息-------------------------------------------------------------------------------
-    this.name[1] =  this.historicalData.plans[1].name
-    this.descriptionH2[1] =  this.historicalData.plans[1].description
+    this.name[1] =  this.historicalData.plans[1].name;
+    this.descriptionH2[1] =  this.historicalData.plans[1].description;
    
     if(undefined === this.historicalData.plans[1].period){
-       this.period_plan1 =[]
+       this.period_plan1 =[];
     }else{
-       this.period_plan1 =  this.historicalData.plans[1].period[0]
+       this.period_plan1 =  this.getPeriod(this.historicalData.plans[1].period);
     };
 
     if(undefined === this.historicalData.plans[1].Fiammetta){
         this.switch_Fiammetta_enable[1] =  false  ;
     }else{
-    this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target
+    this.Fiammetta[1] = this.historicalData.plans[1].Fiammetta.target;
     this.switch_Fiammetta_enable[1] = true;
-    this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order)
+    this.input_Fiammetta_order[1] = this.getOrderReverse(this.historicalData.plans[1].Fiammetta.order);
     };
-    this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room)
-    this.radio_drones_index[1]= this.historicalData.plans[1].drones.index
-    this.switch_drones_enable[1]= this.historicalData.plans[1].drones.enable
-    this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order)
+    this.radio_drones[1]  = this.getParamsValueReverse(this.historicalData.plans[1].drones.room);
+    this.radio_drones_index[1]= this.historicalData.plans[1].drones.index;
+    this.switch_drones_enable[1]= this.historicalData.plans[1].drones.enable;
+    this.input_drones_order[1]= this.getOrderReverse(this.historicalData.plans[1].drones.order);
     
     if(this.historicalData.plans[1].rooms.control[0].skip){
       this.control_skip[1] =  true;
     } else{
-    this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators
+    this.control_plan1 = this.historicalData.plans[1].rooms.control[0].operators;
     };
 
     if(this.historicalData.plans[1].rooms.trading[0].skip){
       this.switch_trading_plan1_0[2] =  true;   
     } else{
-    this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators
-    this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort
-    this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill
-    this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product)
+    this.trading_plan1_0 = this.historicalData.plans[1].rooms.trading[0].operators;
+    this.switch_trading_plan1_0[0]= this.historicalData.plans[1].rooms.trading[0].sort;
+    this.switch_trading_plan1_0[1]= this.historicalData.plans[1].rooms.trading[0].autofill;
+    this.radio_trading_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[0].product);
    };
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.trading[1].skip){
     this.switch_trading_plan1_1[2] =  true;   
       } else{
-    this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators
-    this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort
-    this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill
-    this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product)
+    this.trading_plan1_1 = this.historicalData.plans[1].rooms.trading[1].operators;
+    this.switch_trading_plan1_1[0]= this.historicalData.plans[1].rooms.trading[1].sort;
+    this.switch_trading_plan1_1[1]= this.historicalData.plans[1].rooms.trading[1].autofill;
+    this.radio_trading_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[1].product);
       };
     };
 
@@ -2385,97 +2399,97 @@ export default {
       if(this.historicalData.plans[1].rooms.trading[2].skip){
     this.switch_trading_plan1_2[2] =  true;   
       } else{
-    this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators
-    this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort
-    this.switch_trading_plan1_2[1]= this.historicalData.plans[1].rooms.trading[2].autofill
-    this.radio_trading_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[2].product)
+    this.trading_plan1_2 = this.historicalData.plans[1].rooms.trading[2].operators;
+    this.switch_trading_plan1_2[0]= this.historicalData.plans[1].rooms.trading[2].sort;
+    this.switch_trading_plan1_2[1]= this.historicalData.plans[1].rooms.trading[2].autofill;
+    this.radio_trading_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.trading[2].product);
       };
     };
     
     if(this.historicalData.plans[1].rooms.manufacture[0].skip){
     this.switch_manufacture_plan1_0[2] =  true;   
     } else{
-    this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators
-    this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort
-    this.switch_manufacture_plan1_0[1]= this.historicalData.plans[1].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[0].product)
+    this.manufacture_plan1_0 = this.historicalData.plans[1].rooms.manufacture[0].operators;
+    this.switch_manufacture_plan1_0[0]= this.historicalData.plans[1].rooms.manufacture[0].sort;
+    this.switch_manufacture_plan1_0[1]= this.historicalData.plans[1].rooms.manufacture[0].autofill;
+    this.radio_manufacture_plan1[0]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[0].product);
     };
 
     if(this.historicalData.plans[1].rooms.manufacture[1].skip){
     this.switch_manufacture_plan1_1[2] =  true;   
     } else{
-    this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators
-    this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort
-    this.switch_manufacture_plan1_1[1]= this.historicalData.plans[1].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[1].product)
+    this.manufacture_plan1_1 = this.historicalData.plans[1].rooms.manufacture[1].operators;
+    this.switch_manufacture_plan1_1[0]= this.historicalData.plans[1].rooms.manufacture[1].sort;
+    this.switch_manufacture_plan1_1[1]= this.historicalData.plans[1].rooms.manufacture[1].autofill;
+    this.radio_manufacture_plan1[1]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[1].product);
     };
      
     if(this.historicalData.plans[1].rooms.manufacture[2].skip){
     this.switch_manufacture_plan1_2[2] =  true;   
     } else{
-    this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators
-    this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort
-    this.switch_manufacture_plan1_2[1]= this.historicalData.plans[1].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[2].product)
+    this.manufacture_plan1_2 = this.historicalData.plans[1].rooms.manufacture[2].operators;
+    this.switch_manufacture_plan1_2[0]= this.historicalData.plans[1].rooms.manufacture[2].sort;
+    this.switch_manufacture_plan1_2[1]= this.historicalData.plans[1].rooms.manufacture[2].autofill;
+    this.radio_manufacture_plan1[2]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[2].product);
     };
 
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[3].skip){
     this.switch_manufacture_plan1_3[2] =  true;   
       } else{
-    this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators
-    this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort
-    this.switch_manufacture_plan1_3[1]= this.historicalData.plans[1].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan1[3]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[3].product)
+    this.manufacture_plan1_3 = this.historicalData.plans[1].rooms.manufacture[3].operators;
+    this.switch_manufacture_plan1_3[0]= this.historicalData.plans[1].rooms.manufacture[3].sort;
+    this.switch_manufacture_plan1_3[1]= this.historicalData.plans[1].rooms.manufacture[3].autofill;
+    this.radio_manufacture_plan1[3]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[3].product);
       };
     };
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[1].rooms.manufacture[4].skip){
     this.switch_manufacture_plan1_4[2] =  true;   
       } else{
-    this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators
-    this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort
-    this.switch_manufacture_plan1_4[1]= this.historicalData.plans[1].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan1[4]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[4].product)
+    this.manufacture_plan1_4 = this.historicalData.plans[1].rooms.manufacture[4].operators;
+    this.switch_manufacture_plan1_4[0]= this.historicalData.plans[1].rooms.manufacture[4].sort;
+    this.switch_manufacture_plan1_4[1]= this.historicalData.plans[1].rooms.manufacture[4].autofill;
+    this.radio_manufacture_plan1[4]= this.getParamsValueReverse(this.historicalData.plans[1].rooms.manufacture[4].product);
       };    
     };
    
     if(this.historicalData.plans[1].rooms.power[0].skip){
     this.switch_power_plan1_0[2] =  true;   
     } else{
-    this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0]
-    this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill
+    this.power_plan1_0[0] = this.historicalData.plans[1].rooms.power[0].operators[0];
+    this.switch_power_plan1_0[1]= this.historicalData.plans[1].rooms.power[0].autofill;
     };
 
     if(this.historicalData.plans[1].rooms.power[1].skip){
     this.switch_power_plan1_1[2] =  true; 
     } else{
-    this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0]
-    this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill
+    this.power_plan1_0[1] = this.historicalData.plans[1].rooms.power[1].operators[0];
+    this.switch_power_plan1_1[1]= this.historicalData.plans[1].rooms.power[1].autofill;
     };
     
     if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[1].rooms.power[2].skip){
     this.switch_power_plan1_2[2] =  true;  
       } else{
-        console.log(this.historicalData.plans[1].rooms.power[2])
-    this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0]
-    this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill
+      
+    this.power_plan1_0[2] = this.historicalData.plans[1].rooms.power[2].operators[0];
+    this.switch_power_plan1_2[1]= this.historicalData.plans[1].rooms.power[2].autofill;
       };
     };
     
     if(this.historicalData.plans[1].rooms.hire[0].skip){
     this.switch_hire_plan1_0[2] =  true;   
     } else{
-    this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators
-    this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill
+    this.hire_plan1_0= this.historicalData.plans[1].rooms.hire[0].operators;
+    this.switch_hire_plan1_0[1]= this.historicalData.plans[1].rooms.hire[0].autofill;
     };
    
     if(this.historicalData.plans[1].rooms.meeting[0].skip){
     this.switch_meeting_plan1_0[2] =  true;  
     } else{
-    this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators
-    this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill
+    this.meeting_plan1_0= this.historicalData.plans[1].rooms.meeting[0].operators;
+    this.switch_meeting_plan1_0[1]= this.historicalData.plans[1].rooms.meeting[0].autofill;
     };
     
     if(undefined === this.historicalData.plans[1].rooms.dormitory[0].operators){
@@ -2484,9 +2498,9 @@ export default {
        if(this.historicalData.plans[1].rooms.dormitory[0].skip){
               this.switch_dormitory_plan1_0[2] =  true;
        }else{
-    this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators
-    this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort
-    this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill
+    this.dormitory_plan1_0 = this.historicalData.plans[1].rooms.dormitory[0].operators;
+    this.switch_dormitory_plan1_0[0]= this.historicalData.plans[1].rooms.dormitory[0].sort;
+    this.switch_dormitory_plan1_0[1]= this.historicalData.plans[1].rooms.dormitory[0].autofill;
        };
     };
 
@@ -2496,9 +2510,9 @@ export default {
        if(this.historicalData.plans[1].rooms.dormitory[1].skip){
               this.switch_dormitory_plan1_1[2] =  true;
        }else{
-    this.dormitory_plan1_1 = this.historicalData.plans[1].rooms.dormitory[1].operators
-    this.switch_dormitory_plan1_1[0]= this.historicalData.plans[1].rooms.dormitory[1].sort
-    this.switch_dormitory_plan1_1[1]= this.historicalData.plans[1].rooms.dormitory[1].autofill
+    this.dormitory_plan1_1 = this.historicalData.plans[1].rooms.dormitory[1].operators;
+    this.switch_dormitory_plan1_1[0]= this.historicalData.plans[1].rooms.dormitory[1].sort;
+    this.switch_dormitory_plan1_1[1]= this.historicalData.plans[1].rooms.dormitory[1].autofill;
        };
     };
     
@@ -2508,9 +2522,9 @@ export default {
        if(this.historicalData.plans[1].rooms.dormitory[2].skip){
               this.switch_dormitory_plan1_2[2] =  true;
        }else{
-    this.dormitory_plan1_2 = this.historicalData.plans[1].rooms.dormitory[2].operators
-    this.switch_dormitory_plan1_2[0]= this.historicalData.plans[1].rooms.dormitory[2].sort
-    this.switch_dormitory_plan1_2[1]= this.historicalData.plans[1].rooms.dormitory[2].autofill
+    this.dormitory_plan1_2 = this.historicalData.plans[1].rooms.dormitory[2].operators;
+    this.switch_dormitory_plan1_2[0]= this.historicalData.plans[1].rooms.dormitory[2].sort;
+    this.switch_dormitory_plan1_2[1]= this.historicalData.plans[1].rooms.dormitory[2].autofill;
        }
     };
 
@@ -2520,58 +2534,58 @@ export default {
        if(this.historicalData.plans[1].rooms.dormitory[3].skip){
               this.switch_dormitory_plan1_3[2] =  true;
        }else{
-    this.dormitory_plan1_3 = this.historicalData.plans[1].rooms.dormitory[3].operators
-    this.switch_dormitory_plan1_3[0]= this.historicalData.plans[1].rooms.dormitory[3].sort
-    this.switch_dormitory_plan1_3[1]= this.historicalData.plans[1].rooms.dormitory[3].autofill
+    this.dormitory_plan1_3 = this.historicalData.plans[1].rooms.dormitory[3].operators;
+    this.switch_dormitory_plan1_3[0]= this.historicalData.plans[1].rooms.dormitory[3].sort;
+    this.switch_dormitory_plan1_3[1]= this.historicalData.plans[1].rooms.dormitory[3].autofill;
        }
     };
     // 导入C班的信息-------------------------------------------------------------------------------
    
    if(this.historicalData.plans.length>2){
-    this.name[2] =  this.historicalData.plans[2].name
-    this.descriptionH2[2] =  this.historicalData.plans[2].description
+    this.name[2] =  this.historicalData.plans[2].name;
+    this.descriptionH2[2] =  this.historicalData.plans[2].description;
 
     if(undefined === this.historicalData.plans[2].period){
-       this.period_plan2 =[]
+       this.period_plan2 =[];
     }else{
-       this.period_plan2 =  this.historicalData.plans[2].period[0]
+       this.period_plan2 =  this.getPeriod(this.historicalData.plans[2].period);
     }
 
     if(undefined === this.historicalData.plans[2].Fiammetta){
         this.switch_Fiammetta_enable[2] =  false;
     }else{
-    this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target
+    this.Fiammetta[2] = this.historicalData.plans[2].Fiammetta.target;
     this.switch_Fiammetta_enable[2] = true;
-    this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order)
+    this.input_Fiammetta_order[2] = this.getOrderReverse(this.historicalData.plans[2].Fiammetta.order);
     };
-    this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room)
-    this.radio_drones_index[2]= this.historicalData.plans[2].drones.index
-    this.switch_drones_enable[2]= this.historicalData.plans[2].drones.enable
-    this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order)
+    this.radio_drones[2]  = this.getParamsValueReverse(this.historicalData.plans[2].drones.room);
+    this.radio_drones_index[2]= this.historicalData.plans[2].drones.index;
+    this.switch_drones_enable[2]= this.historicalData.plans[2].drones.enable;
+    this.input_drones_order[2]= this.getOrderReverse(this.historicalData.plans[2].drones.order);
     
     if(this.historicalData.plans[2].rooms.control[0].skip){
       this.control_skip[2] =  true;
     } else{
-    this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators
+    this.control_plan2 = this.historicalData.plans[2].rooms.control[0].operators;
     };
     
     if(this.historicalData.plans[2].rooms.trading[0].skip){
       this.switch_trading_plan2_0[2] =  true;   
     } else{
-    this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators
-    this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort
-    this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill
-    this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product)
+    this.trading_plan2_0 = this.historicalData.plans[2].rooms.trading[0].operators;
+    this.switch_trading_plan2_0[0]= this.historicalData.plans[2].rooms.trading[0].sort;
+    this.switch_trading_plan2_0[1]= this.historicalData.plans[2].rooms.trading[0].autofill;
+    this.radio_trading_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[0].product);
     };
 
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[1].skip){
     this.switch_trading_plan2_1[2] =  true;   
       } else{
-    this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators
-    this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort
-    this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill
-    this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product)
+    this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators;
+    this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort;
+    this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill;
+    this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product);
       };
     };
 
@@ -2579,38 +2593,38 @@ export default {
       if(this.historicalData.plans[2].rooms.trading[2].skip){
     this.switch_trading_plan2_2[2] =  true;   
       } else{
-    this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators
-    this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort
-    this.switch_trading_plan2_2[1]= this.historicalData.plans[2].rooms.trading[2].autofill
-    this.radio_trading_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[2].product)
+    this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators;
+    this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort;
+    this.switch_trading_plan2_2[1]= this.historicalData.plans[2].rooms.trading[2].autofill;
+    this.radio_trading_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[2].product);
       };
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[0].skip){
     this.switch_manufacture_plan2_0[2] =  true;
     } else{
-    this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators
-    this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort
-    this.switch_manufacture_plan2_0[1]= this.historicalData.plans[2].rooms.manufacture[0].autofill
-    this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[0].product)
+    this.manufacture_plan2_0 = this.historicalData.plans[2].rooms.manufacture[0].operators;
+    this.switch_manufacture_plan2_0[0]= this.historicalData.plans[2].rooms.manufacture[0].sort;
+    this.switch_manufacture_plan2_0[1]= this.historicalData.plans[2].rooms.manufacture[0].autofill;
+    this.radio_manufacture_plan2[0]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[0].product);
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[1].skip){
     this.switch_manufacture_plan2_1[2] =  true;  
     } else{
-    this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators
-    this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort
-    this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill
-    this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product)
+    this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators;
+    this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort;
+    this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill;
+    this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product);
     };
     
     if(this.historicalData.plans[2].rooms.manufacture[2].skip){
     this.switch_manufacture_plan2_2[2] =  true;  
     } else{
-    this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators
-    this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort
-    this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill
-    this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product)
+    this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators;
+    this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort;
+    this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill;
+    this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product);
     };
 
 
@@ -2618,58 +2632,58 @@ export default {
       if(this.historicalData.plans[2].rooms.manufacture[3].skip){
     this.switch_manufacture_plan2_3[2] =  true;   
       } else{
-    this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators
-    this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort
-    this.switch_manufacture_plan2_3[1]= this.historicalData.plans[2].rooms.manufacture[3].autofill
-    this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product)
+    this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators;
+    this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort;
+    this.switch_manufacture_plan2_3[1]= this.historicalData.plans[2].rooms.manufacture[3].autofill;
+    this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product);
       };
     };
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[4].skip){
     this.switch_manufacture_plan2_4[2] =  true;   
       } else{
-    this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators
-    this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort
-    this.switch_manufacture_plan2_4[1]= this.historicalData.plans[2].rooms.manufacture[4].autofill
-    this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[4].product)
+    this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators;
+    this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort;
+    this.switch_manufacture_plan2_4[1]= this.historicalData.plans[2].rooms.manufacture[4].autofill;
+    this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[4].product);
       };
     };
     
     if(this.historicalData.plans[2].rooms.power[0].skip){
     this.switch_power_plan2_0[2] =  true;
     } else{
-    this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0]
-    this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill
+    this.power_plan2_0[0] = this.historicalData.plans[2].rooms.power[0].operators[0];
+    this.switch_power_plan2_0[1]= this.historicalData.plans[2].rooms.power[0].autofill;
     };
     
     if(this.historicalData.plans[2].rooms.power[1].skip){
     this.switch_power_plan2_1[2] =  true; 
     } else{
-    this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0]
-    this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill
+    this.power_plan2_0[1] = this.historicalData.plans[2].rooms.power[1].operators[0];
+    this.switch_power_plan2_1[1]= this.historicalData.plans[2].rooms.power[1].autofill;
     };
     
     if(!('252'=== this.historicalData.buildingType)){
       if(this.historicalData.plans[2].rooms.power[2].skip){
     this.switch_power_plan2_2[2] =  true;   
       } else{
-    this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0]
-    this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill
+    this.power_plan2_0[2] = this.historicalData.plans[2].rooms.power[2].operators[0];
+    this.switch_power_plan2_2[1]= this.historicalData.plans[2].rooms.power[2].autofill;
       };
     }
     
     if(this.historicalData.plans[2].rooms.hire[0].skip){
     this.switch_hire_plan2_0[2] =  true;   
     } else{
-    this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators
-    this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill
+    this.hire_plan2_0= this.historicalData.plans[2].rooms.hire[0].operators;
+    this.switch_hire_plan2_0[1]= this.historicalData.plans[2].rooms.hire[0].autofill;
     };
 
     if(this.historicalData.plans[2].rooms.meeting[0].skip){
     this.switch_meeting_plan2_0[2] =  true;   
     } else{
-    this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators
-    this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill
+    this.meeting_plan2_0= this.historicalData.plans[2].rooms.meeting[0].operators;
+    this.switch_meeting_plan2_0[1]= this.historicalData.plans[2].rooms.meeting[0].autofill;
     };
     
     if(undefined === this.historicalData.plans[2].rooms.dormitory[0].operators){
@@ -2678,9 +2692,9 @@ export default {
        if(this.historicalData.plans[2].rooms.dormitory[0].skip){
               this.switch_dormitory_plan2_0[2] =  true;
        }else{
-    this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators
-    this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort
-    this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill
+    this.dormitory_plan2_0 = this.historicalData.plans[2].rooms.dormitory[0].operators;
+    this.switch_dormitory_plan2_0[0]= this.historicalData.plans[2].rooms.dormitory[0].sort;
+    this.switch_dormitory_plan2_0[1]= this.historicalData.plans[2].rooms.dormitory[0].autofill;
        };
     };
 
@@ -2690,9 +2704,9 @@ export default {
        if(this.historicalData.plans[2].rooms.dormitory[1].skip){
               this.switch_dormitory_plan2_1[2] =  true;
        }else{
-    this.dormitory_plan2_1 = this.historicalData.plans[2].rooms.dormitory[1].operators
-    this.switch_dormitory_plan2_1[0]= this.historicalData.plans[2].rooms.dormitory[1].sort
-    this.switch_dormitory_plan2_1[1]= this.historicalData.plans[2].rooms.dormitory[1].autofill
+    this.dormitory_plan2_1 = this.historicalData.plans[2].rooms.dormitory[1].operators;
+    this.switch_dormitory_plan2_1[0]= this.historicalData.plans[2].rooms.dormitory[1].sort;
+    this.switch_dormitory_plan2_1[1]= this.historicalData.plans[2].rooms.dormitory[1].autofill;
        };
     };
     
@@ -2702,9 +2716,9 @@ export default {
        if(this.historicalData.plans[2].rooms.dormitory[2].skip){
               this.switch_dormitory_plan2_2[2] =  true;
        }else{
-    this.dormitory_plan2_2 = this.historicalData.plans[2].rooms.dormitory[2].operators
-    this.switch_dormitory_plan2_2[0]= this.historicalData.plans[2].rooms.dormitory[2].sort
-    this.switch_dormitory_plan2_2[1]= this.historicalData.plans[2].rooms.dormitory[2].autofill
+    this.dormitory_plan2_2 = this.historicalData.plans[2].rooms.dormitory[2].operators;
+    this.switch_dormitory_plan2_2[0]= this.historicalData.plans[2].rooms.dormitory[2].sort;
+    this.switch_dormitory_plan2_2[1]= this.historicalData.plans[2].rooms.dormitory[2].autofill;
        };
     };
 
@@ -2714,9 +2728,9 @@ export default {
        if(this.historicalData.plans[2].rooms.dormitory[3].skip){
               this.switch_dormitory_plan2_3[2] =  true;
        }else{
-    this.dormitory_plan2_3 = this.historicalData.plans[2].rooms.dormitory[3].operators
-    this.switch_dormitory_plan2_3[0]= this.historicalData.plans[2].rooms.dormitory[3].sort
-    this.switch_dormitory_plan2_3[1]= this.historicalData.plans[2].rooms.dormitory[3].autofill
+    this.dormitory_plan2_3 = this.historicalData.plans[2].rooms.dormitory[3].operators;
+    this.switch_dormitory_plan2_3[0]= this.historicalData.plans[2].rooms.dormitory[3].sort;
+    this.switch_dormitory_plan2_3[1]= this.historicalData.plans[2].rooms.dormitory[3].autofill;
        }
     };
 
@@ -2734,15 +2748,30 @@ export default {
     getNull(){
 
     },  
+    getList(list){
+      var listCopy = []
+      for(let i=0;i<list.length;i++){
+        if(list[i]===''||list[i]===undefined||list[i]==='undefined'
+        ||typeof list[i]===undefined||list[i]==='空置'){
+          continue;
+        }
+          listCopy.push(list[i]);
+      }
+      return listCopy
+    },
     setPeriod(list) {
-      if(list[0].length>3&&list[1].length>3){
+       
+      if(list.length>1){
+       list[0] = list[0].replace(/\uff1a/g,":");
+       list[1] = list[1].replace(/\uff1a/g,":");
+     
       var start = parseInt(list[0].substr(0, 2));
       var end = parseInt(list[1].substr(0, 2));
       if (start > end) {
         return [[list[0], "23:59"], ["00:00", list[1]],];
-      }
+      };
       return [list];
-     }
+     };
     },
 
     getOrder(str){
@@ -2754,17 +2783,7 @@ export default {
         if(num===2)  return "2班"  ;
         if(num===3)  return "3班"   ;
     },
-    getList(list){
-      var listCopy = []
-      for(let i=0;i<list.length;i++){
-        if(list[i]===''||list[i]===undefined||list[i]==='undefined'
-        ||typeof list[i]===undefined||list[i]==='空置'){
-          continue;
-        }
-           listCopy.push(list[i])
-      }
-      return listCopy
-    },
+    
     getParamsValue(label) {
       if (label === "贸易站")  return "trading";      
       if (label === "制造站")   return "manufacture";
@@ -2790,7 +2809,16 @@ export default {
       if (label === "Pure Gold")   return "赤金";
       if (label === "Originium Shard")  return "源石碎片";
       if (label === "Dualchip")  return "双芯片";
+    },
+    getPeriod(list) { 
+      if(list.length===1){
+        return list[0];
+      }else{
+          return [list[0][0],list[1][1]];
+      }
       
+     
+     
     },
   },
 };

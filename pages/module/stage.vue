@@ -132,7 +132,7 @@
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
         <div class="popup_header" >
-          <div :class="getSpriteImg(itemId, 2)" style="display:inline-block;margin:6px;"></div>
+          <div :class="getSpriteImg(itemId, 2)" style="display:inline-block;margin:10px"></div>
           <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
             <div class="t3 popup_header_penguin" style="display:flex">
@@ -301,11 +301,10 @@ export default {
         this.popupData = this.stageRankT3[index];
         this.itemType = this.stageRankT3[index][0].itemType;
         this.itemId = this.stageRankT3[index][0].itemId;
-      }
-      else
-      {
+      } else {
         this.popupData = [];
         this.popupData = this.stageRankT2[(index-100)];
+        console.log( this.stageRankT2[(index-100)][0].itemType)
         this.itemType = this.stageRankT2[(index-100)][0].itemType;
         if (this.itemType == "全新装置") this.itemType="装置";
         if (this.itemType == "聚酸酯组") this.itemType="聚酸酯";
@@ -341,7 +340,7 @@ export default {
       if(id==='30012'&&index!==100) id = '30013'
       if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
-      if (index === 2) return "bg-" + id + " sprite_T2";
+      if (index === 2) return "bg-" + id + " sprite_title";
       if (index === 3) return "bg-" + id + " sprite_secondary_dialog";
       if (index === 4) return "bg-" + id + "_icon sprite_icon";
       if (index === 5) return "bg-" + id + "_icon sprite_icon_small";
