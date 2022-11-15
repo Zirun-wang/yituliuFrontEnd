@@ -7,10 +7,10 @@
 
 <script>
 import * as echarts from "echarts";
-import itemCount from "static/json/itemCount.json";
-import itemCount2 from "static/json/itemCount2.json";
-import apCost from "static/json/apCost.json";
-import imageUrl from "static/json/imageUrl.json";
+import itemCount from "static/bar/itemCount.json";
+import itemCount2 from "static/bar/itemCount2.json";
+import apCost from "static/bar/apCost.json";
+import imageUrl from "static/bar/imageUrl.json";
 
 let itemId = [];
 export default {

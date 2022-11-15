@@ -13,9 +13,11 @@
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
-            <el-radio-button label="感谢庆典(11.14)" type="primary" style="width: 50%" 
+            <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%" 
             ></el-radio-button>
-            <el-radio-button label="春节限定"  style="width: 50%"  
+            <el-radio-button label="联动池(预计3月)"  style="width: 33%"  disabled
+            ></el-radio-button>
+            <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
@@ -816,11 +818,11 @@
         checkBox: ["0", "1", "2", "7"],
         endTime: [],
         startDate: "", //开始时间
-        endDate: "2022/11/15 03:59:00", //结束时间
+        endDate: "2023/01/31 03:59:00", //结束时间
         start_TimeStamp: "",
         end_TimeStamp: "",
         plans:2,
-        timeSelector:"感谢庆典(11.14)",
+        timeSelector:"春节限定(1.31)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -892,7 +894,7 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 1, //剩余月数
+        monthsRemaining: 3, //剩余月数
         MonthsSignInRemaining: 0, // 剩余签到次数
 
         countDown: 0, //限定池每日送抽倒计时
@@ -991,14 +993,14 @@
       },
 
       checkEndDate() {
-        if(this.timeSelector==='感谢庆典(11.14)'){
-          this.end_TimeStamp = 1668456060000;
+        if(this.timeSelector==='春节限定(1.31)'){
+          this.end_TimeStamp = 1675108800000;
           this.cookieInit=0;
           this.monthsRemaining = 1;
           this.countDown2 = 0;
           this.plans =2;
         }else{
-          this.end_TimeStamp = 1674503940000;
+          this.end_TimeStamp = 1684094400000;
           this.cookieInit=0;
           this.monthsRemaining = 3;
           this.countDown2 = 14-this.countDown;
