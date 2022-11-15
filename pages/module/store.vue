@@ -182,6 +182,13 @@
 				    <img class="act_img" :src="singleAct.actImgUrl" :alt="singleAct.actName">
 			    </div>
 		    </div>
+
+        <div class="stage_hint">
+        <div class="stage_hint_t4">
+          来源：明日方舟一图流 yituliu.site 转载需保留本提示
+        </div>
+        </div>
+        
         <!-- Area 1 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area1_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)">
