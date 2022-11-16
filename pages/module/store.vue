@@ -183,10 +183,11 @@
 			    </div>
 		    </div>
 
+        <!-- tag -->
         <div class="stage_hint">
-        <div class="stage_hint_t4">
-          来源：明日方舟一图流 yituliu.site 转载需保留本提示
-        </div>
+          <div v-for="(singleTag, index) in singleAct.actTagAera" :key="index" :class="getTagClass(singleTag.tagRank)">
+            {{singleTag.tagText}}
+          </div>
         </div>
         
         <!-- Area 1 -->
@@ -391,6 +392,10 @@ export default {
         return "color_t4";	
       else
         return "color_t5";	
+    },
+    getTagClass(tier){
+      return ('stage_hint_t' + tier.toString());	
+
     },
     getBorderColor(area){
       area = (typeof area !== 'undefined') ?  area : 1;
