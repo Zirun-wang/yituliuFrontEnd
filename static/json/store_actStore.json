@@ -7,8 +7,12 @@
 	"actPPRStair":0.25,
 	"actTagAera":[
 		{
-			"tagRank":"",
-			"tagText":""
+			"tagRank":"5",
+			"tagText":"来源：明日方舟一图流 yituliu.site 转载需保留本提示"
+		},
+		{
+			"tagRank":"4",
+			"tagText":"模组数据块属不可再生资源，图中数值以红票计价"
 		}
 	],
 	"actStore":[
@@ -256,8 +260,8 @@
 	"actPPRStair":0.5,
 	"actTagAera":[
 		{
-			"tagRank":"",
-			"tagText":""
+			"tagRank":"5",
+			"tagText":"来源：明日方舟一图流 yituliu.site 转载需保留本提示"
 		}
 	],
 	"actStore":[
