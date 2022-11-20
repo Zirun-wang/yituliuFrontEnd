@@ -356,9 +356,8 @@
     margin-bottom: 8px;
     display: flex;
     padding: 4px;
-    background-color: rgba(208,208,208,0.81569);
+    background-color: rgb(255 255 255 / 90%);
     align-items: center;
-
 }
 
 .history_actName{
@@ -383,6 +382,7 @@
 }
 .history_stage div{
     display: inline-block;
+    margin-top: 6px;
 }
 
 .history_stage_table{

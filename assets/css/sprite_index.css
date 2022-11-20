@@ -30,6 +30,9 @@
 
 .sprite_T2{
     transform: scale(1.3);
+    margin: auto;
+    margin-top: 4px;
+    /* transform: scale(1.3); */
 }
 
 .sprite_icon{
@@ -65,12 +68,13 @@
 
 .sprite_store_perm{
     transform: scale(1.2);
-    margin-left: 18px;
+    /* margin-left: 22px; */
+    margin: auto;
 }
 
 .sprite_store_act{
-    transform: scale(1.3);
-    margin-top: 20px;
+    transform: scale(1.5);
+    margin-top: 25px;
     margin-left: 18px;
 }
 

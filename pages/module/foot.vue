@@ -258,6 +258,7 @@ export default {
 		font-size:15px;
 		font-weight:600;
 		color:#444444;
+		margin: 14px 0px;
 	}
 	.foot_unit_content{
 		color:gray;

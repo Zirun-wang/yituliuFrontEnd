@@ -38,7 +38,7 @@
     vertical-align: middle;
     border-collapse: collapse;
     border: none;
-    height: 70px;
+    height: 75px;
     width: 80px;
     margin: 4px;
     margin-top: 8px;
@@ -65,7 +65,7 @@
     white-space: nowrap;
     font-weight: 600;
     font-size: 18px;
-    margin:0px;
+    margin:2px;
 }
 
 .act_store{
