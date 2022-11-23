@@ -279,6 +279,7 @@ export default {
       opETextTheme: "op_title_etext_light",
       stageVersion:"auto062",
       activeName:'1',
+      
     };
   },
 
