@@ -51,6 +51,17 @@
           绿：期望最低(短期最优)
         </div>
       </div>
+      <!-- <el-collapse-item name="1" style="display: block">
+        <template slot="title">
+          <div class="gacha_title_icon"></div>
+        </template>
+        <div class="gacha_unit" id="wallet">
+          <div class="gacha_unit_child" style="display: flex">
+            fdsa
+
+          </div>
+        </div>
+      </el-collapse-item> -->
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
