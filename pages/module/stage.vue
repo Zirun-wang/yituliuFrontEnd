@@ -266,8 +266,9 @@ export default {
       updateTime:'2000-01-01 00:00:00',
       itemId:'',
       opETextTheme: "op_title_etext_light",
-      stageVersion:"062",
+      stageVersion:"auto062",
       activeName:'1',
+      
     };
   },
 

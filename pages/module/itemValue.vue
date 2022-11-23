@@ -31,7 +31,7 @@
         <div class="value_half" id="value_left">
           <div v-for="(card, index) in 4" :key="index" class="value_subList">
             <div v-for="(item, index) in itemList" :key="index" class="value_item">
-              <div :class="getItemValueCard(card, item.cardNum, item.type)" v-show="item.id < 73">
+              <div :class="getItemValueCard(card, item.cardNum, item.type)" >
                 <table>
                   <tbody>
                   <tr>
@@ -100,6 +100,7 @@ export default {
       tag_class_green: "yituliu_title_moudule_button",
       tag_class_sanity: "yituliu_title_moudule_button",
       opETextTheme: "op_title_etext_light",
+      valueVerison:"auto0.625"
     };
   },
   created() {
@@ -116,7 +117,7 @@ export default {
       this.opETextTheme = "op_title_etext_" + theme;
     },
     findAllItemValue() {
-      storeApi.findAllItem().then((response) => {
+      storeApi.findAllItem(this.valueVerison).then((response) => {
         this.itemList = [];
         for (let i in response.data) {
           this.itemList.push(response.data[i]);
