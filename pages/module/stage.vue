@@ -277,7 +277,7 @@ export default {
       updateTime:'2000-01-01 00:00:00',
       itemId:'',
       opETextTheme: "op_title_etext_light",
-      stageVersion:"auto062",
+      stageVersion:"auto100",
       activeName:'1',
       
     };
@@ -537,7 +537,7 @@ export default {
       });
     },
     getStageResultDateClosed(){
-     stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+     stageApi.findClosedActivStageByStageId('all062').then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
        
