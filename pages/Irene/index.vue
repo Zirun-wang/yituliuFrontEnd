@@ -113,30 +113,20 @@ export default {
 
         console.log("专精2时长：", doubleProf1_ms);
         console.log("专精2艾丽妮最短时长：", Irene_ms);
-        console.log("专精1剩余时长", doubleProf2_remaining_ms);
+        console.log("专精2剩余时长", doubleProf2_remaining_ms);
       }else{
  
-        Irene_ms = Irene_ms * Irene_spd;
-        var doubleProf1_front_ms = (doubleProf1_ms - Irene_ms) / front1_spd;
-        var doubleProf1_front_hh = parseInt(doubleProf1_front_ms / 3600000);
-        var doubleProf1_front_mm = parseInt(
-          (doubleProf1_front_ms - doubleProf1_front_hh * 3600000) / 60000
-        );
+        Irene_ms = Irene_ms * Irene_spd;   //艾丽妮需求原始时长（无效率时长）
+        var doubleProf1_front_ms = (doubleProf1_ms - Irene_ms) / front1_spd;   //前置干员可工作总时长
+        var doubleProf1_front_hh = parseInt(doubleProf1_front_ms / 3600); //前置干员可工作小时
+        var doubleProf1_front_mm = parseInt((doubleProf1_front_ms - doubleProf1_front_hh * 3600) / 60); //前置干员可工作分钟
         this.doubleProf1_time =
-          this.addZero(doubleProf1_front_hh) +
-          ":" +
-          this.addZero(doubleProf1_front_mm) +
-          ":00";
+          doubleProf1_front_hh +"小时" +doubleProf1_front_mm+"分钟";
 
         var doubleProf1_remaining_ms =
-          (doubleProf1_ms - doubleProf1_front_ms * front1_spd) / front1_spd;
-        var doubleProf1_remaining_hh = parseInt(
-          doubleProf1_remaining_ms / 3600000
-        );
-        var doubleProf1_remaining_mm = parseInt(
-          (doubleProf1_remaining_ms - doubleProf1_remaining_hh * 3600000) /
-            60000
-        );
+          (doubleProf1_ms - doubleProf1_front_ms * front1_spd) / front1_spd;   //前置干员撤出前剩余时长
+        var doubleProf1_remaining_hh = parseInt(doubleProf1_remaining_ms / 3600); //前置干员撤出前剩余小时
+        var doubleProf1_remaining_mm = parseInt((doubleProf1_remaining_ms - doubleProf1_remaining_hh * 3600) /60); //前置干员撤出前剩余分钟
         this.doubleProf1_remaining_time =
           this.addZero(doubleProf1_remaining_hh) +
           ":" +
@@ -148,25 +138,15 @@ export default {
         console.log("专精1剩余时长", doubleProf1_remaining_ms);
 
         var doubleProf2_front_ms = (doubleProf1_ms - Irene_ms) / front2_spd;
-        var doubleProf2_front_hh = parseInt(doubleProf2_front_ms / 3600000);
-        var doubleProf2_front_mm = parseInt(
-          (doubleProf2_front_ms - doubleProf2_front_hh * 3600000) / 60000
-        );
+        var doubleProf2_front_hh = parseInt(doubleProf2_front_ms / 3600);
+        var doubleProf2_front_mm = parseInt((doubleProf2_front_ms - doubleProf2_front_hh * 3600) / 60);
         this.doubleProf2_time =
-          this.addZero(doubleProf2_front_hh) +
-          ":" +
-          this.addZero(doubleProf2_front_mm) +
-          ":00";
+          doubleProf2_front_hh +"小时" +doubleProf2_front_mm+"分钟";
 
         var doubleProf2_remaining_ms =
           (doubleProf1_ms - doubleProf2_front_ms * front2_spd) / front2_spd;
-        var doubleProf2_remaining_hh = parseInt(
-          doubleProf2_remaining_ms / 3600000
-        );
-        var doubleProf2_remaining_mm = parseInt(
-          (doubleProf2_remaining_ms - doubleProf2_remaining_hh * 3600000) /
-            60000
-        );
+        var doubleProf2_remaining_hh = parseInt(doubleProf2_remaining_ms / 3600);
+        var doubleProf2_remaining_mm = parseInt((doubleProf2_remaining_ms - doubleProf2_remaining_hh * 3600) /60);
         this.doubleProf2_remaining_time =
           this.addZero(doubleProf2_remaining_hh) +
           ":" +
@@ -175,7 +155,7 @@ export default {
 
         console.log("专精2时长：", doubleProf1_ms);
         console.log("专精2艾丽妮最短时长：", Irene_ms);
-        console.log("专精1剩余时长", doubleProf2_remaining_ms);
+        console.log("专精2剩余时长", doubleProf2_remaining_ms);
       }
     },
     addZero(str) {

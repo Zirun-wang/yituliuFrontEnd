@@ -291,6 +291,7 @@ export default {
     this.getStageResultDateT2();
     this.getStageResultDateOrundum();
     this.getStageResultDateClosed();
+    this.getRoute();
   },
 
   mounted() {
@@ -305,10 +306,44 @@ export default {
       console.log(theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
+    sleep(d) {
+      return new Promise((resolve) => setTimeout(resolve, d));
+    },
+    async getRoute(){
+        var item = this.$route.query.item;
+        console.log("获取的参数：",item);
+        for(let i=0;i<40;i++){
+          await this.sleep(500)
+          console.log(this.stageRankT3.length)
+           if(this.stageRankT3.length>5){
+                if("全新装置"===item) this.showPopup(0);
+                if("异铁组"===item) this.showPopup(1);
+                if("轻锰矿"===item) this.showPopup(2);
+                if("凝胶"===item) this.showPopup(3);
+                if("扭转醇"===item) this.showPopup(4);
+                if("酮凝集组"===item) this.showPopup(5);
+                if("RMA70-12"===item) this.showPopup(6);
+                if("炽合金"===item) this.showPopup(7);
+                if("研磨石"===item) this.showPopup(8);
+                if("糖组"===item) this.showPopup(9);
+                if("聚酸酯组"===item) this.showPopup(10);
+                if("晶体元件"===item) this.showPopup(11);
+                if("固源岩组"===item) this.showPopup(12);
+                if("半自然溶剂"===item) this.showPopup(13);
+                if("化合切削液"===item) this.showPopup(14);
+                if("转质盐组"===item) this.showPopup(15);
+                break;
+           }
+        }
+
+    },
+
     showPopup(index){
       document.getElementById('popup_card').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
       document.getElementById('popup_content').style.display = "block"
+      
+
       if (index<100) {
         this.popupData = [];
         this.popupData = this.stageRankT3[index];
@@ -488,6 +523,7 @@ export default {
       //       duration: 2000,
       //     });
       });
+      
     },
     getStageResultDateT2(){
       stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
@@ -502,7 +538,7 @@ export default {
       });
     },
     getStageResultDateClosed(){
-     stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+     stageApi.findClosedActivStageByStageId('all062').then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
        
