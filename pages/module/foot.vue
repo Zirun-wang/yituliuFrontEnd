@@ -82,9 +82,9 @@
 				本项目为无偿开源项目，致力于方便明日方舟玩家<br>
 				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
 			</div>
-			<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="width: 186px;display: inline-block;">
+			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 210px;display: inline-block;">
 			<img class="foot_unit_pic" src="/img/website/qq.png" />
-			开发群938710832</div>
+			本站财政状况一图流</div>
 			</a>
 		</div>
 
