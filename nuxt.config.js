@@ -3,11 +3,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: '明日方舟一图流',
+    title: '明日方舟素材获取一图流',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no' },
-      { hid: 'description', name: 'keywords', content: '素材获取一图流 明日方舟攒抽计算器 公招招募计算 基建排班生成器' }
+      { hid: 'description', name: 'keywords', content: '素材获取一图流,明日方舟攒抽计算器,公招招募计算,基建排班生成器' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
