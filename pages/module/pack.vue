@@ -8,7 +8,7 @@
                     礼包性价比
                 </div>
                 <div :class=opETextTheme >
-                    Packs
+                    Packs Value
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                     <!-- <div class="pack_img" >  -->
                         <div class="pack_img_text1">{{pack3.packShowName}}  ￥{{pack3.packPrice}}</div>
                     </div>
-                    
+
                     <div class="pack_info">
                         <div class="pack_info_text">
                         {{getEfficiency(pack3.packOriginium,1)}}源石 <br>￥{{getEfficiency(pack3.packRmbPerOriginium, 1)}}/石
@@ -132,7 +132,7 @@
     </div>
 </div>
 </template>
-  
+
 <script>
 import cookie from "js-cookie";
 import packsPPR from "static/json/pack_packsPPR.json";
@@ -157,7 +157,7 @@ export default {
         console.log(theme,1);
         this.opETextTheme = theme;
     },
- 
+
     getWidth(num , scale) {
         return "width:" + num*scale +"px";
     },
@@ -330,6 +330,6 @@ export default {
     .bg_red{
         background-color: rgb(250, 83, 83);
     }
-    
+
 </style>
 

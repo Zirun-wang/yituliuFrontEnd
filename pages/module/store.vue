@@ -9,7 +9,7 @@
             采购中心
           </div>
           <div :class=opETextTheme>
-            Store Rank
+            Store Ranking
           </div>
         </div>
         <div class="op_title_tag">
@@ -168,7 +168,7 @@
             活动商店
           </div>
           <div :class=opETextTheme>
-            Activity
+            Event Store
           </div>
         </div>
       </div>
@@ -189,7 +189,7 @@
             {{singleTag.tagText}}
           </div>
         </div>
-        
+
         <!-- Area 1 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area1_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)">
@@ -221,7 +221,7 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
-        </div> 
+        </div>
         <!-- Area 2 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area3_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 1.5, singleItem.itemArea - 0.5)">
@@ -251,7 +251,7 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
-        </div> 
+        </div>
         <!-- Area 3 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area4_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 2.5, singleItem.itemArea - 1.5)">
@@ -282,10 +282,10 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
 
-        </div> 
+        </div>
       <!-- 内容区域end -->
         </template>
-      </div> 
+      </div>
     </div>
     <!-- 活动商店end -->
 
@@ -387,14 +387,14 @@ export default {
       else if (color < (dividing - 2 * tier))
         return "color_t2";
       else if (color < (dividing - 1 * tier))
-        return "color_t3";		
+        return "color_t3";
       else if (color < dividing)
-        return "color_t4";	
+        return "color_t4";
       else
-        return "color_t5";	
+        return "color_t5";
     },
     getTagClass(tier){
-      return ('stage_hint_t' + tier.toString());	
+      return ('stage_hint_t' + tier.toString());
 
     },
     getBorderColor(area){
@@ -410,7 +410,7 @@ export default {
       else if(area < 4.1)
         return "act_area4_border";
       else
-        return "act_area5_border";	
+        return "act_area5_border";
     },
     getDivVisible(index){
         if (index<0 || index>1)
@@ -428,7 +428,7 @@ export default {
         cookie.set("store_"+index, 1, { expires: 30 });
       }
 	  },
-    
+
 
     findPermStorePer() {
       storeApi.findPermStore().then((response) => {
