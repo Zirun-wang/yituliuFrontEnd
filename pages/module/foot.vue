@@ -80,9 +80,12 @@
 			</a>
 			<div style="line-height: 28px;padding-left: 6px;">
 				本项目为无偿开源项目，致力于方便明日方舟玩家<br>
-				如有开发/数据分析/设计/美工经验，欢迎加入我们<br>
-				如有好的想法，也欢迎来开发群一叙
-			</div>				
+				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
+			</div>
+			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 210px;display: inline-block;">
+			<img class="foot_unit_pic" src="/img/website/qq.png" />
+			本站财政状况一图流</div>
+			</a>
 		</div>
 
 		<div class="foot_unit" id="qianduan">
@@ -186,6 +189,10 @@
 			<a href="https://maa.plus/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 			<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/97677443?s=200" />
 			MAA小助手</div></a>
+			
+			<a href="https://apps.apple.com/cn/app/id1632810611"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+			<img class="foot_unit_pic" src="/img/website/rhodes_asst.jpg" />
+			罗德岛助理(iOS)</div></a>
 		</div>
 	</div>
 </div>

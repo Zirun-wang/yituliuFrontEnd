@@ -51,17 +51,19 @@
           绿：期望最低(短期最优)
         </div>
       </div>
-      <!-- <el-collapse-item name="1" style="display: block">
-        <template slot="title">
-          <div class="gacha_title_icon"></div>
-        </template>
-        <div class="gacha_unit" id="wallet">
-          <div class="gacha_unit_child" style="display: flex">
-            fdsa
+      <el-collapse v-model="checkBox" @change="handleChange">
+        <el-collapse-item name="1" style="display: block">
+          <template slot="title">
+            <div class="gacha_title_icon"></div>
+          </template>
+          <div class="gacha_unit" id="wallet">
+            <div class="gacha_unit_child" style="display: flex">
+              fdsa
 
+            </div>
           </div>
-        </div>
-      </el-collapse-item> -->
+        </el-collapse-item>
+      </el-collapse>
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
@@ -278,8 +280,7 @@ export default {
       itemId:'',
       opETextTheme: "op_title_etext_light",
       stageVersion:"auto062",
-      activeName:'1',
-      
+      activeName:['1'],
     };
   },
 
@@ -294,12 +295,12 @@ export default {
   },
 
   mounted() {
-      
+
   },
   methods: {
     getCookies() {
       let theme = cookie.get("theme");
-      if (typeof theme == "undefined" || theme == undefined) {
+      if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
       console.log(theme);
@@ -341,7 +342,7 @@ export default {
       document.getElementById('popup_card').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
       document.getElementById('popup_content').style.display = "block"
-      
+
 
       if (index<100) {
         this.popupData = [];
@@ -522,7 +523,7 @@ export default {
       //       duration: 2000,
       //     });
       });
-      
+
     },
     getStageResultDateT2(){
       stageApi.findStageDateByMainOrderByExpectDesc(this.stageVersion).then((response) => {
@@ -537,10 +538,10 @@ export default {
       });
     },
     getStageResultDateClosed(){
-     stageApi.findClosedActivStageByStageId('auto062').then((response) => {
+     stageApi.findClosedActivStageByStageId('all062').then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
-       
+
       });
     }
   },

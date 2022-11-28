@@ -17,6 +17,14 @@
 	],
 	"actStore":[
 		{
+			"itemName":"模组数据块",
+			"itemQuantity":1,
+			"itemPrice":150,
+			"itemPPR":0,
+			"itemStock":0,
+			"itemArea":1
+		},
+		{
 			"itemName":"聚合剂",
 			"itemQuantity":1,
 			"itemPrice":240,
@@ -262,6 +270,10 @@
 		{
 			"tagRank":"5",
 			"tagText":"来源：明日方舟一图流 yituliu.site 转载需保留本提示"
+		},
+		{
+			"tagRank":"4",
+			"tagText":"模组数据块属不可再生资源，图中数值以红票计价"
 		}
 	],
 	"actStore":[
@@ -269,6 +281,14 @@
 			"itemName":"D32钢",
 			"itemQuantity":1,
 			"itemPrice":100,
+			"itemPPR":0,
+			"itemStock":0,
+			"itemArea":1
+		},
+		{
+			"itemName":"模组数据块",
+			"itemQuantity":1,
+			"itemPrice":150,
 			"itemPPR":0,
 			"itemStock":0,
 			"itemArea":1
