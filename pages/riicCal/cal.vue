@@ -36,10 +36,10 @@ export default {
     readJson(){
         var plans = auto243.plans;
         for(let i=0;i<plans.length;i++ ){
-          var rooms = plans[i].rooms;
+          var rooms = plans[i].rooms;   
           var ChainLink = 20; //思维链环
-          var drones = 'manufacture';
-          var dronesIndex = 'manufacture';
+          var drones = 'manufacture';   //加速房间类型
+          var dronesIndex = 1;    //加速房间序号
           drones = plans[i].drones.room;
           dronesIndex = plans[i].drones.index;
           console.log(drones)

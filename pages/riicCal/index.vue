@@ -66,18 +66,16 @@
             <el-button size="medium" type="primary" round style="width:126px;" @click="maaBuildingJsonCreated()" >
               生成排班方案
             </el-button>
-            <div id="export_cover" style="position: absolute;width: 135px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80;"></div>
+            <div id="export_cover" style="position: absolute;width: 235px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80"></div>
             <a :href="exportUrl">
                 <el-button size="medium" type="primary" round style="width:108px;margin-left:12px;">
                   导出到本地
                 </el-button>
             </a>
-            
-             <!-- <el-button-group>
-                <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;">
+            <!-- <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;" @click="MAAURLCopy()">
                   导出到MAA
-                </el-button>
-              </el-button-group> -->
+            </el-button> -->
+              
            
           </div>
           <!-- <div class="riic_building_parameter">
@@ -1248,6 +1246,7 @@ export default {
   data() {
     return {
       exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=1664632307607024",
+      maaUrl:"maa://infra.yituliu/1664632307607024",
       uid: 12345,
       importId:'',
       historicalData:[],
@@ -1423,17 +1422,23 @@ export default {
            duration: 12000
         });
       },
-
+    MAAURLCopy(){
+          var oInput = document.createElement("input");   //创建一个input标签
+          oInput.value = this.maaUrl;  //将要复制的值赋值给input
+          document.body.appendChild(oInput);  //在页面中插入
+          oInput.select(); // 模拟鼠标选中
+          document.execCommand("Copy"); // 执行浏览器复制命令（相当于ctrl+c）
+          oInput.style.display = "none";  //只是用一下input标签的特性，实际并不需要显示，所以这里要隐藏掉
+          this.message.success('复制成功');
+    },
     
     updateVisits() {
       toolApi.updateVisits("building").then((response) => {});
     },
     setExportUrl() {
       this.exportUrl =
-        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
-        // "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
-        this.uid;
-        
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" + this.uid;
+      this.maaUrl = "maa://infra.yituliu/" + this.uid;  
     },
     maaBuildingJsonCreated() {
        this.setJson();

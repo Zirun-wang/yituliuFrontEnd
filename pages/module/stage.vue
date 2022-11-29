@@ -51,7 +51,7 @@
           绿：期望最低(短期最优)
         </div>
       </div>
-      <el-collapse v-model="checkBox" @change="handleChange">
+      <!-- <el-collapse v-model="checkBox" @change="handleChange">
         <el-collapse-item name="1" style="display: block">
           <template slot="title">
             <div class="gacha_title_icon"></div>
@@ -63,7 +63,7 @@
             </div>
           </div>
         </el-collapse-item>
-      </el-collapse>
+      </el-collapse> -->
       <!-- t3内容区域 -->
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
@@ -265,11 +265,13 @@
 import stageApi from "@/api/stage";
 import cookie from "js-cookie";
 
+import stageJson from "static/json-video/stage.json";
+
 export default {
   data() {
     return {
       popupData: [], //关卡弹窗用集合
-      stageRankT3: [], //关卡效率集合
+      stageRankT3: stageJson.data, //关卡效率集合
       stageRankT2: [], //关卡效率集合
       stageRankOrundum: [], //关卡效率集合
       stageActHistory:[],
@@ -303,7 +305,7 @@ export default {
       if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
-      console.log(theme);
+     console.log('stage',theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
     sleep(d) {
@@ -314,7 +316,6 @@ export default {
         console.log("获取的参数：",item);
         for(let i=0;i<40;i++){
           await this.sleep(500)
-          console.log(this.stageRankT3.length)
            if(this.stageRankT3.length>5){
                 if("全新装置"===item) this.showPopup(0);
                 if("异铁组"===item) this.showPopup(1);
@@ -332,6 +333,7 @@ export default {
                 if("半自然溶剂"===item) this.showPopup(13);
                 if("化合切削液"===item) this.showPopup(14);
                 if("转质盐组"===item) this.showPopup(15);
+                if("Orundum"===item) this.showOrundumPopup();
                 break;
            }
         }
@@ -364,6 +366,7 @@ export default {
       }
     },
     showOrundumPopup(){
+ 
       document.getElementById('popup_card_orundum').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
       document.getElementById('popup_content').style.display = "block"
@@ -384,7 +387,7 @@ export default {
       return ("https://penguin-stats.cn/result/item/" + num);
     },
      getSpriteImg(id, index) {
-      // console.log(id,index)
+    
       if(id==='30012'&&index!==100) id = '30013'
       if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
@@ -500,16 +503,6 @@ export default {
       this.actStageOnly++;
     },
 
-    // strPadStart(num,index){
-    //   var str = num.toString
-    //   console.log(str.toString().indexOf('.'))
-
-    // //  if(str.toString().length<4){
-    // //      return str+'0'
-    // //  }
-
-    //  return str
-    // },
 
     getStageResultDateT3(){
       stageApi.findStageDateByTypeOrderByEfficiencyDesc(500,this.stageVersion).then((response) => {
@@ -532,7 +525,7 @@ export default {
       });
     },
     getStageResultDateOrundum(){
-    stageApi.findStageDataOfOrundum(this.stageVersion).then((response) => {
+    stageApi.findStageDataOfOrundum("Ordinary").then((response) => {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
       });

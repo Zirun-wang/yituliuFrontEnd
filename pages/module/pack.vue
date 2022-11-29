@@ -78,7 +78,7 @@
                     <!-- <div class="pack_img" >  -->
                         <div class="pack_img_text1">{{pack3.packShowName}}  ￥{{pack3.packPrice}}</div>
                     </div>
-                    
+
                     <div class="pack_info">
                         <div class="pack_info_text">
                         {{getEfficiency(pack3.packOriginium,1)}}源石 <br>￥{{getEfficiency(pack3.packRmbPerOriginium, 1)}}/石
@@ -132,7 +132,7 @@
     </div>
 </div>
 </template>
-  
+
 <script>
 import cookie from "js-cookie";
 import packsPPR from "static/json/pack_packsPPR.json";
@@ -154,10 +154,10 @@ export default {
             theme = "op_title_etext_light";
             console.log("未知")
         }
-        console.log(theme,1);
+        console.log('pack',theme);
         this.opETextTheme = theme;
     },
- 
+
     getWidth(num , scale) {
         return "width:" + num*scale +"px";
     },
@@ -221,7 +221,7 @@ export default {
         /* z-index: 20; */
         /* vertical-align: top; */
         border-radius: 8px;
-        box-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .pack_img_text1{
         position: relative;
@@ -244,7 +244,7 @@ export default {
         background-color: #000000cc;
         margin: 6px 0px 6px 156px;
         border-radius: 4px;
-        box-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .pack_info_text{
@@ -315,7 +315,7 @@ export default {
         color: white;
         text-align: center;
         font-size: 14px;
-        box-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .corner_new{
         background: brown;
@@ -330,6 +330,6 @@ export default {
     .bg_red{
         background-color: rgb(250, 83, 83);
     }
-    
+
 </style>
 

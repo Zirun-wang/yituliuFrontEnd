@@ -45,6 +45,14 @@ line-height: 48px;
     border: 0px;
 }
 
+.op_header_button{
+    height: 48px;
+    display: -webkit-flex;
+    background-color: rgb(52 68 104);
+    box-shadow: rgb(0 0 0) 0px 0px 10px;
+    border: 0px;
+}
+
 .op_header_tab{
     margin-left: 20px;
     margin-top: 6px;
@@ -72,7 +80,7 @@ line-height: 48px;
 
 .op_title_text {
     /* color: white; */
-   
+
     margin-top: 8px;
     display: inline-block;
 }
@@ -82,7 +90,7 @@ line-height: 48px;
     font-size: 36px;
     font-weight: 600;
     /* color: #ffffffdd; */
-    -webkit-text-stroke: 0px;
+    -webkit-text-stroke-width: 0;
     height: 38px;
     /* border-left: 8px solid #6495ed; */
     margin-top: -4px;
@@ -90,7 +98,7 @@ line-height: 48px;
 }
 
 .op_title_etext {
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
     font-size: 30px;
     font-weight: 600;
     display: inline-block;
@@ -103,7 +111,7 @@ line-height: 48px;
 .op_title_etext_dark {
     background-color: #888888;
     color: #ffffff;
-    /* -webkit-text-fill-color: transparent; 
+    /* -webkit-text-fill-color: transparent;
     font-size: 30px;
     font-weight: 600;
     display: inline-block;
@@ -117,7 +125,7 @@ line-height: 48px;
 .op_title_etext_light {
     background-color: #888888;
     color: #ffffff;
-    /* -webkit-text-fill-color: transparent; 
+    /* -webkit-text-fill-color: transparent;
     font-size: 30px;
     font-weight: 600;
     display: inline-block;
@@ -151,7 +159,7 @@ line-height: 48px;
     font-weight: 600;
     vertical-align:middle;
     background-color: #c0c0c060;
-    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 
@@ -169,7 +177,7 @@ line-height: 48px;
     font-weight: 600;
     vertical-align:middle;
     background-color: #c0c0c060;
-    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .op_tag_0:hover{
@@ -232,24 +240,24 @@ line-height: 48px;
 }
 
 .uni_shadow_1{
-	box-shadow: 4px 4px 2px 0px rgb(0 0 0 / 16%);
+	box-shadow: 4px 4px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .uni_shadow_2 {
-    box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .uni_invisible {
     display: none;
 }
 
-.uni_gray { 
+.uni_gray {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
+    /*-ms-filter: grayscale(100%);*/
     -o-filter: grayscale(100%);
     filter: grayscale(100%);
-    filter: gray;
+
 }
 
 .dark {

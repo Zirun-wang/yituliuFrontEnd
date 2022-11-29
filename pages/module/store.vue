@@ -19,11 +19,11 @@
           <img alt="紫票" :class=tagColor[3] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_3" :src="getImgUrl('情报凭证',4)" @click="switch_store('3')">
           <img alt="信用" :class=tagColor[4] style="margin: 0px 4px;box-shadow: 4px 4px 2px 0 rgb(0 0 0 / 16%);" id="store_tag_4" :src="getImgUrl('信用',4)" @click="switch_store('4')"> -->
           <div style="display:flex;align-items: flex-end;">
-          <div :class=tagColor[0] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_0" @click="switch_store('0')"><div style="margin:3px;" :class="getSpriteImg(4005,0)" ></div></div>
-          <div :class=tagColor[1] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_1" @click="switch_store('1')"><div style="margin:3px;" :class="getSpriteImg(4004,0)" ></div></div>
-          <div :class=tagColor[2] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_2" @click="switch_store('2')"><div style="margin:0px 2px;" :class="getSpriteImg('EPGS_COIN',0)" ></div></div>
-          <div :class=tagColor[3] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_3" @click="switch_store('3')"><div style="margin:0px 5px;" :class="getSpriteImg('REP_COIN',0)" ></div></div>
-          <div :class=tagColor[4] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgb(0 0 0 / 31%);border-radius: 4px;background: #f0f0f0;" id="store_tag_4" @click="switch_store('4')"><div style="margin:3px;" :class="getSpriteImg('SOCIAL_PT',0)" ></div></div>
+          <div :class=tagColor[0] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);border-radius: 4px;background: #f0f0f0;" id="store_tag_0" @click="switch_store('0')"><div style="margin:3px;" :class="getSpriteImg(4005,0)" ></div></div>
+          <div :class=tagColor[1] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);border-radius: 4px;background: #f0f0f0;" id="store_tag_1" @click="switch_store('1')"><div style="margin:3px;" :class="getSpriteImg(4004,0)" ></div></div>
+          <div :class=tagColor[2] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);border-radius: 4px;background: #f0f0f0;" id="store_tag_2" @click="switch_store('2')"><div style="margin:0px 2px;" :class="getSpriteImg('EPGS_COIN',0)" ></div></div>
+          <div :class=tagColor[3] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);border-radius: 4px;background: #f0f0f0;" id="store_tag_3" @click="switch_store('3')"><div style="margin:0px 5px;" :class="getSpriteImg('REP_COIN',0)" ></div></div>
+          <div :class=tagColor[4] style="height: 45px;width: 45px;margin: 0px 4px;box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);border-radius: 4px;background: #f0f0f0;" id="store_tag_4" @click="switch_store('4')"><div style="margin:3px;" :class="getSpriteImg('SOCIAL_PT',0)" ></div></div>
             <div class="tab_text">*点击图标切换</div>
           </div>
         </div>
@@ -189,7 +189,7 @@
             {{singleTag.tagText}}
           </div>
         </div>
-        
+
         <!-- Area 1 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area1_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 0.5, singleItem.itemArea + 0.5)">
@@ -221,7 +221,7 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
-        </div> 
+        </div>
         <!-- Area 2 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area3_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 1.5, singleItem.itemArea - 0.5)">
@@ -251,7 +251,7 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
-        </div> 
+        </div>
         <!-- Area 3 -->
         <div class="act_content">
           <div class="act_card uni_shadow_2 act_area4_border" v-for="(singleItem, index) in singleAct.actStore" :key="index" :class="getDivVisible(singleItem.itemArea - 2.5, singleItem.itemArea - 1.5)">
@@ -282,10 +282,10 @@
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
           <div class="act_card uni_shadow_2 act_area1_border" style="height:0px;margin-bottom: 0px;"></div>
 
-        </div> 
+        </div>
       <!-- 内容区域end -->
         </template>
-      </div> 
+      </div>
     </div>
     <!-- 活动商店end -->
 
@@ -295,11 +295,13 @@
 <script>
 import storeApi from "@/api/store";
 import cookie from "js-cookie";
+import storeJson from "static/json-video/store.json";
+
 
 export default {
   data() {
     return {
-      storeList: [100], //常驻商店性价比集合
+      storeList: storeJson.data, //常驻商店性价比集合
       actStoreList: [],   //活动商店的json
       storeVisiable:["display:flex;","display:flex;","display:flex;","display:flex;","display:flex;"],
       tagColor:["n","n","n","n","n"],
@@ -345,7 +347,7 @@ export default {
       if (typeof theme == "undefined" || theme == undefined) {
         theme = "op_title_etext_light";
       }
-      console.log(theme);
+      console.log('store',theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
 
@@ -387,14 +389,14 @@ export default {
       else if (color < (dividing - 2 * tier))
         return "color_t2";
       else if (color < (dividing - 1 * tier))
-        return "color_t3";		
+        return "color_t3";
       else if (color < dividing)
-        return "color_t4";	
+        return "color_t4";
       else
-        return "color_t5";	
+        return "color_t5";
     },
     getTagClass(tier){
-      return ('stage_hint_t' + tier.toString());	
+      return ('stage_hint_t' + tier.toString());
 
     },
     getBorderColor(area){
@@ -410,7 +412,7 @@ export default {
       else if(area < 4.1)
         return "act_area4_border";
       else
-        return "act_area5_border";	
+        return "act_area5_border";
     },
     getDivVisible(index){
         if (index<0 || index>1)
@@ -428,7 +430,7 @@ export default {
         cookie.set("store_"+index, 1, { expires: 30 });
       }
 	  },
-    
+
 
     findPermStorePer() {
       storeApi.findPermStore().then((response) => {

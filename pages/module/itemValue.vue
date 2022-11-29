@@ -89,11 +89,12 @@
 
 <script>
 import storeApi from "@/api/store";
+import itemJson from "static/json-video/item.json";
 
 export default {
   data() {
     return {
-      itemList: [], //全部材料价值集合
+      itemList: itemJson.data, //全部材料价值集合
       cardNum: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       itemCardsanity: "",
       itemValueCard_css: "",
@@ -113,7 +114,7 @@ export default {
       if (typeof theme == "undefined" || theme == undefined) {
         theme = "op_title_etext_light";
       }
-      console.log(theme);
+      console.log('item',theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
     findAllItemValue() {

@@ -7,58 +7,58 @@
       @select="handleSelect"
       text-color="#fff"
       active-text-color="#ffd04b"
-      style="border: 0px;"
+      style="border: 0px"
+      
     >
-      <el-menu-item index="1" @click="mainSite()">材料一图流</el-menu-item>
-      <el-menu-item index="2" @click="gachaCal()">攒抽规划</el-menu-item>
-      <el-menu-item index="3" @click="schedule()">排班生成器</el-menu-item>
-      <el-submenu index="4">
+
+      <!-- <el-menu-item index="1" v-show="menu_phone" @click="emnu_collapse()"><i class="el-icon-menu"></i></el-menu-item> -->
+      <el-menu-item v-show="menu_pc" index="1" @click="mainSite()">材料一图流</el-menu-item>
+      <el-menu-item v-show="menu_pc" index="2" @click="gachaCal()">攒抽规划</el-menu-item>
+      <el-menu-item v-show="menu_pc" index="3" @click="schedule()">排班生成器</el-menu-item>
+      <el-submenu v-show="menu_pc" index="4">
         <template slot="title">其它工具</template>
         <el-menu-item index="4-1" @click="recruit()">公开招募</el-menu-item>
-        <!-- <el-menu-item index="4-2" @click="expCal()">升级计算</el-menu-item> -->
       </el-submenu>
-      <el-menu-item v-show="'/'===routePath||'/recruit/'===routePath" index="5" @click="switchTheme()">{{ThemeText}}</el-menu-item>
+      <el-menu-item 
+        v-show="('/' === routePath || '/recruit/' === routePath)&&menu_pc"
+        index="5"
+        @click="switchTheme()"
+        >{{ ThemeText }}</el-menu-item
+      >
+      
     </el-menu>
    
-   
-    <!-- <div>
-      <el-button class="menu-button" @click="menuCollapse()"
-        ><i class="el-icon-menu"></i
-      ></el-button>
-    </div>
 
-    <el-menu
-      default-active="1-4-1"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      :collapse="isCollapse"
-    >
-      <el-menu-item index="1" @click="mainSite()">
-        <i class="el-icon-s-cooperation"></i>
-        <span slot="title">材料一图流</span>
-      </el-menu-item>
-      <el-menu-item index="2" @click="gachaCal()">
-        <i class="el-icon-s-cooperation"></i>
-        <span slot="title">攒抽规划</span>
-      </el-menu-item>
-      <el-menu-item index="3" @click="schedule()">
-        <i class="el-icon-s-cooperation"></i>
-        <span slot="title">排班生成器</span>
-      </el-menu-item>
-      <el-menu-item index="4" @click="recruit()">
-        <i class="el-icon-s-cooperation"></i>
-        <span slot="title">公开招募</span>
-      </el-menu-item>
-      <el-menu-item index="5" @click="expCal()">
-        <i class="el-icon-s-cooperation"></i>
-        <span slot="title">升级计算</span>
-      </el-menu-item>
-      <el-menu-item index="6" @click="switchTheme()">
-        <i class="el-icon-setting"></i>
-        <span slot="title">暗色模式</span>
-      </el-menu-item>
-    </el-menu> -->
+    <!-- <div @click="emnu_collapse()" class="menu_div">
+      <div
+        class="menu"
+        id="menu"
+        v-show="menu_width > 0"
+      >
+        <h1>明日方舟一图流</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td></td>
+              <td @click="mainSite()">材料一图流</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td @click="gachaCal()">攒抽规划</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td @click="schedule()">排班生成器</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
   </div>
 </template>
 
@@ -67,7 +67,6 @@
 
 <script>
 var count = 0;
-
 
 import cookie from "js-cookie";
 import Vue from "vue";
@@ -78,20 +77,41 @@ export default {
     return {
       activeIndex: "1",
       isCollapse: "true",
-      routePath:'/',
-      ThemeText:'暗色'
+      routePath: "/",
+      ThemeText: "暗色",
+      menu_width: 0,
+      menu_height: 0,
+      menu_pc: true,
+      menu_phone: false,
     };
   },
-  created(){
-   this.showPath()
-  //  
+  created() {
+    this.showPath();
+    
+  },
+  mounted() {
+    // this.getClientWidth();
   },
   methods: {
-     updateVisits(domain) {
+    getClientWidth() {
+      var width = document.body.clientWidth;
+      this.menu_height = document.body.clientHeight;
+      if (width < 600) {
+        this.menu_phone = true;
+        this.menu_pc = false;
+      }else{
+        this.menu_phone = false;
+        this.menu_pc = true;
+      }
+    },
+    getTest(){
+         console.log(navigator.userAgent.toLowerCase())
+    },
+    updateVisits(domain) {
       toolApi.updateVisits(domain).then((response) => {});
     },
     switchTheme() {
-        this.activeIndex = '1'
+      this.activeIndex = "1";
       if (cookie.get("theme") === "dark") {
         document.getElementById("indexDiv").style.background = "#f0f0f0";
         document.getElementById("indexDiv").style.color = "#000000";
@@ -103,7 +123,7 @@ export default {
           titles[i].style.WebkitTextStroke = "0.6px black";
         cookie.set("theme", "light", { expires: 30 });
         console.log("nowlight");
-        this.ThemeText = '亮色'
+        this.ThemeText = "亮色";
       } else {
         document.getElementById("indexDiv").style.background = "#222222";
         document.getElementById("indexDiv").style.color = "#ffffff";
@@ -115,9 +135,8 @@ export default {
           titles[i].style.WebkitTextStroke = "0.3px white";
         cookie.set("theme", "dark", { expires: 30 });
         console.log("nowdark");
-         this.ThemeText = '暗色'
+        this.ThemeText = "暗色";
       }
-    
     },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -129,35 +148,35 @@ export default {
       this.isCollapse = !this.isCollapse;
       console.log(this.isCollapse);
     },
-   
-    showPath(){
-     this.routePath =this.$route.path;
-        if('/'===this.routePath )  {
-          this.activeIndex = '1';
-          this.updateVisits('index');
-          };
-        if('/gachaCal/'===this.routePath ){ 
-           this.activeIndex = '2';
-           this.updateVisits('gacha');
-           };
-        if('/riicCal/'===this.routePath ) { 
-          this.activeIndex = '3';
-          this.updateVisits('building');
-          };
-        if('/recruit/'===this.routePath ) {
-          this.activeIndex = '4';
-          this.updateVisits('index');
-          };
-        if('/expCal/'===this.routePath ) {
-           this.activeIndex = '4';
-           this.updateVisits('index');
-          };
-        if('/maaRecruitData/'===this.routePath ) {
-           this.activeIndex = '4';
-           this.updateVisits('index');
-          };
+
+    showPath() {
+      this.routePath = this.$route.path;
+      if ("/" === this.routePath) {
+        this.activeIndex = "1";
+        this.updateVisits("index");
+      }
+      if ("/gachaCal/" === this.routePath) {
+        this.activeIndex = "2";
+        this.updateVisits("gacha");
+      }
+      if ("/riicCal/" === this.routePath) {
+        this.activeIndex = "3";
+        this.updateVisits("building");
+      }
+      if ("/recruit/" === this.routePath) {
+        this.activeIndex = "4";
+        this.updateVisits("index");
+      }
+      if ("/expCal/" === this.routePath) {
+        this.activeIndex = "4";
+        this.updateVisits("index");
+      }
+      if ("/maaRecruitData/" === this.routePath) {
+        this.activeIndex = "4";
+        this.updateVisits("index");
+      }
     },
-   
+
     mainSite() {
       window.location.href = "/";
     },
@@ -180,7 +199,17 @@ export default {
       console.log(key, keyPath);
     },
 
-    
+    emnu_collapse() {
+      if (0 === this.menu_width) {
+        document.getElementById("menu").style.width = "200px";
+        document.getElementById("menu").style.height = this.menu_height+"px";
+        this.menu_width = 200;
+      } else {
+        document.getElementById("menu").style.width = "0px";
+        document.getElementById("menu").style.height = "0px";
+        this.menu_width = 0;
+      }
+    },
   },
 };
 </script>
@@ -195,5 +224,28 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+
+.menu_div {
+  width:100%;
+  position: absolute;
+ 
+  top: -20px;
+  z-index: 200;
+}
+
+.menu {
+  background-color: white;
+  width: 1px;
+  height: 1px;
+  /* border: solid red 1px; */
+  text-align: center;
+  transition: width 1s;
+}
+
+.el-icon-menu {
+  margin: 4px;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
 }
 </style>

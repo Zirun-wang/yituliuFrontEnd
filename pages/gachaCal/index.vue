@@ -182,7 +182,7 @@
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 100%;">
               搓玉比例:1理智=1.09玉(1-7)
-              <a href="https://ark.yituliu.site" style="margin: 0px 20px;">查看备选搓玉关卡</a>
+              <a href="/?item=Orundum" style="margin: 0px 20px;">查看备选搓玉关卡</a>
               <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
                 如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png"/>
               </a>
