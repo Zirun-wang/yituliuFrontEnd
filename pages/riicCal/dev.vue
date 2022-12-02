@@ -66,18 +66,16 @@
             <el-button size="medium" type="primary" round style="width:126px;" @click="maaBuildingJsonCreated()" >
               生成排班方案
             </el-button>
-            <div id="export_cover" style="position: absolute;width: 135px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80;"></div>
+            <div id="export_cover" style="position: absolute;width: 235px;height: 40px;margin: -38px 18px 18px 137px;background: #ffffff80"></div>
             <a :href="exportUrl">
                 <el-button size="medium" type="primary" round style="width:108px;margin-left:12px;">
                   导出到本地
                 </el-button>
             </a>
-            
-             <!-- <el-button-group>
-                <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;">
+            <!-- <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;" @click="MAAURLCopy()">
                   导出到MAA
-                </el-button>
-              </el-button-group> -->
+            </el-button> -->
+              
            
           </div>
           <!-- <div class="riic_building_parameter">
@@ -1248,6 +1246,7 @@ export default {
   data() {
     return {
       exportUrl:"https://houduan.yituliu.site/tool/building/schedule/export?uid=1664632307607024",
+      maaUrl:"maa://infra.yituliu/1664632307607024",
       uid: 12345,
       importId:'',
       historicalData:[],
@@ -1409,19 +1408,37 @@ export default {
     this.setJson();
     this.getUid();
     this.getDate();
-    // this.updateVisits()
+    this.openNotification()
   },
   methods: {
+    openNotification() {
+        this.$notify({
+          title: '2022-11-26更新',
+          dangerouslyUseHTMLString: true,
+          // message: '<strong> 新增内容：<br>新增3.5周年干员<br>新增深海猎人组合<br>'+
+          // 'Bug修复：<br>修复了部分旧排班表导入后无法重新导出的问题<br>修复了无法导出的问题（导出前请先点击生成排班）<br>'+
+          // '注意事项<br>换班起止时间不要填写中文冒号（：）需填写英文冒号（:）</strong>',
+          message:'<strong> Bug修复：<br>修复了不指定换班时间生成时可能为空字串的问题 </strong>',
+           duration: 12000
+        });
+      },
+    MAAURLCopy(){
+          var oInput = document.createElement("input");   //创建一个input标签
+          oInput.value = this.maaUrl;  //将要复制的值赋值给input
+          document.body.appendChild(oInput);  //在页面中插入
+          oInput.select(); // 模拟鼠标选中
+          document.execCommand("Copy"); // 执行浏览器复制命令（相当于ctrl+c）
+          oInput.style.display = "none";  //只是用一下input标签的特性，实际并不需要显示，所以这里要隐藏掉
+          this.message.success('复制成功');
+    },
     
     updateVisits() {
       toolApi.updateVisits("building").then((response) => {});
     },
     setExportUrl() {
       this.exportUrl =
-        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" +
-        // "http://127.0.0.1:10012/tool/building/schedule/export?uid=" +
-        this.uid;
-        
+        "https://houduan.yituliu.site/tool/building/schedule/export?uid=" + this.uid;
+      this.maaUrl = "maa://infra.yituliu/" + this.uid;  
     },
     maaBuildingJsonCreated() {
        this.setJson();
@@ -2570,6 +2587,12 @@ export default {
     if('333'=== this.historicalData.buildingType||'243'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[1].skip){
     this.switch_trading_plan2_1[2] =  true;   
+           if(this.historicalData.plans[2].rooms.trading[1].operators.length>0){
+             this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators;
+             this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort;
+             this.switch_trading_plan2_1[1]= this.historicalData.plans[2].rooms.trading[1].autofill;
+             this.radio_trading_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[1].product);
+          }
       } else{
     this.trading_plan2_1 = this.historicalData.plans[2].rooms.trading[1].operators;
     this.switch_trading_plan2_1[0]= this.historicalData.plans[2].rooms.trading[1].sort;
@@ -2580,7 +2603,13 @@ export default {
 
     if('333'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.trading[2].skip){
-    this.switch_trading_plan2_2[2] =  true;   
+    this.switch_trading_plan2_2[2] =  true;
+          if(this.historicalData.plans[2].rooms.trading[2].operators.length>0){
+            this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators;
+            this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort;
+            this.switch_trading_plan2_2[1]= this.historicalData.plans[2].rooms.trading[2].autofill;
+            this.radio_trading_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.trading[2].product);
+          }
       } else{
     this.trading_plan2_2 = this.historicalData.plans[2].rooms.trading[2].operators;
     this.switch_trading_plan2_2[0]= this.historicalData.plans[2].rooms.trading[2].sort;
@@ -2600,6 +2629,12 @@ export default {
     
     if(this.historicalData.plans[2].rooms.manufacture[1].skip){
     this.switch_manufacture_plan2_1[2] =  true;  
+           if(this.historicalData.plans[2].rooms.manufacture[1].operators.length>0){
+             this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators;
+             this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort;
+             this.switch_manufacture_plan2_1[1]= this.historicalData.plans[2].rooms.manufacture[1].autofill;
+             this.radio_manufacture_plan2[1]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[1].product);
+          }
     } else{
     this.manufacture_plan2_1 = this.historicalData.plans[2].rooms.manufacture[1].operators;
     this.switch_manufacture_plan2_1[0]= this.historicalData.plans[2].rooms.manufacture[1].sort;
@@ -2609,6 +2644,12 @@ export default {
     
     if(this.historicalData.plans[2].rooms.manufacture[2].skip){
     this.switch_manufacture_plan2_2[2] =  true;  
+           if(this.historicalData.plans[2].rooms.manufacture[2].operators.length>0){
+               this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators;
+               this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort;
+               this.switch_manufacture_plan2_2[1]= this.historicalData.plans[2].rooms.manufacture[2].autofill;
+               this.radio_manufacture_plan2[2]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[2].product);
+             }
     } else{
     this.manufacture_plan2_2 = this.historicalData.plans[2].rooms.manufacture[2].operators;
     this.switch_manufacture_plan2_2[0]= this.historicalData.plans[2].rooms.manufacture[2].sort;
@@ -2620,6 +2661,12 @@ export default {
     if('243'=== this.historicalData.buildingType||'153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[3].skip){
     this.switch_manufacture_plan2_3[2] =  true;   
+             if(this.historicalData.plans[2].rooms.manufacture[3].operators.length>0){
+              this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators;
+              this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort;
+              this.switch_manufacture_plan2_3[1]= this.historicalData.plans[2].rooms.manufacture[3].autofill;
+              this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product);
+             }
       } else{
     this.manufacture_plan2_3 = this.historicalData.plans[2].rooms.manufacture[3].operators;
     this.switch_manufacture_plan2_3[0]= this.historicalData.plans[2].rooms.manufacture[3].sort;
@@ -2627,9 +2674,17 @@ export default {
     this.radio_manufacture_plan2[3]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[3].product);
       };
     };
+
+
     if('153'=== this.historicalData.buildingType||'252'=== this.historicalData.buildingType){
       if(this.historicalData.plans[2].rooms.manufacture[4].skip){
-    this.switch_manufacture_plan2_4[2] =  true;   
+    this.switch_manufacture_plan2_4[2] =  true; 
+         if(this.historicalData.plans[2].rooms.manufacture[4].operators.length>0){
+                 this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators;
+                 this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort;
+                 this.switch_manufacture_plan2_4[1]= this.historicalData.plans[2].rooms.manufacture[4].autofill;
+                 this.radio_manufacture_plan2[4]= this.getParamsValueReverse(this.historicalData.plans[2].rooms.manufacture[4].product);
+             }  
       } else{
     this.manufacture_plan2_4 = this.historicalData.plans[2].rooms.manufacture[4].operators;
     this.switch_manufacture_plan2_4[0]= this.historicalData.plans[2].rooms.manufacture[4].sort;
@@ -2756,11 +2811,18 @@ export default {
      
       var start = parseInt(list[0].substr(0, 2));
       var end = parseInt(list[1].substr(0, 2));
+       
+      if(list[0]===""){
+        return ;
+      }
+
       if (start > end) {
         return [[list[0], "23:59"], ["00:00", list[1]],];
       };
       return [list];
      };
+
+     
     },
 
     getOrder(str){
