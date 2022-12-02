@@ -356,17 +356,17 @@ export default {
         this.popupData = this.stageRankT2[(index-100)];
         console.log( this.stageRankT2[(index-100)][0].itemType)
         this.itemType = this.stageRankT2[(index-100)][0].itemType;
-        if (this.itemType == "全新装置") this.itemType="装置";
-        if (this.itemType == "聚酸酯组") this.itemType="聚酸酯";
-        if (this.itemType == "固源岩组") this.itemType="固源岩";
-        if (this.itemType == "异铁组") this.itemType="异铁";
-        if (this.itemType == "糖组") this.itemType="糖";
-        if (this.itemType == "酮凝集组") this.itemType="酮凝集";
+        if (this.itemType === "全新装置") this.itemType="装置";
+        if (this.itemType === "聚酸酯组") this.itemType="聚酸酯";
+        if (this.itemType === "固源岩组") this.itemType="固源岩";
+        if (this.itemType === "异铁组") this.itemType="异铁";
+        if (this.itemType === "糖组") this.itemType="糖";
+        if (this.itemType === "酮凝集组") this.itemType="酮凝集";
         this.itemId = this.stageRankT2[(index-100)][0].itemId;
       }
     },
     showOrundumPopup(){
- 
+
       document.getElementById('popup_card_orundum').style.display = "block"
       document.getElementById('popup_background').style.display = "block"
       document.getElementById('popup_content').style.display = "block"
@@ -387,7 +387,7 @@ export default {
       return ("https://penguin-stats.cn/result/item/" + num);
     },
      getSpriteImg(id, index) {
-    
+
       if(id==='30012'&&index!==100) id = '30013'
       if (index === 0) return "bg-" + id +"large" + " sprite_type";
       if (index === 1) return "bg-" + id + " sprite_secondary";
@@ -420,10 +420,10 @@ export default {
       return parseFloat(num).toFixed(acc);
     },
     getBoxEfficiency(state, effex, eff){
-      if (state==3)
+      if (state===3)
         // return effex
         return ("+" + (effex-eff).toFixed(0).toString() + "%")
-      else if (state==4)
+      else if (state===4)
         return "样本少"
       else
         return "无小样"
@@ -442,13 +442,13 @@ export default {
       return "detail_card" + num.toString();
     },
     getHardcoreMark(area){
-      if (area == "tough_10")
+      if (area === "tough_10")
         return ("background: url(" + "/static/img_website/hcbg.png" + ") no-repeat;");
       else
         return ("");
     },
     getUpMark(state){
-      if (state == "1")
+      if (state === "1")
         return ("background: linear-gradient(#ffffff4a, rgba(144, 164, 174, 0)), url(/img/website/up.png) 106% 50% / 30% no-repeat;");
       else
         return ("");
@@ -491,7 +491,7 @@ export default {
       return "display:none";
     },
     showNowActive(){
-      if (this.actStageOnly % 2 == 0) {
+      if (this.actStageOnly % 2 === 0) {
         document.getElementById("stage_t3_content_plus").style.display = "flex";
         document.getElementById("stage_t3_content").style.display = "none";
         document.getElementById("nowActStageKey").className = "op_tag_1";

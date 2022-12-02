@@ -111,7 +111,7 @@ export default {
   methods: {
     getCookies() {
       let theme = cookie.get("theme");
-      if (typeof theme == "undefined" || theme == undefined) {
+      if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
       console.log('item',theme);
@@ -128,7 +128,7 @@ export default {
 
     //切换价值单位
     switchUnit(index) {
-      if (index == 1) {
+      if (index === 1) {
         this.valueType = "sanity";
         this.changeItemTagColor(1);
       } else {
@@ -139,7 +139,7 @@ export default {
 
     //隐藏价值表
     cardHidden(index) {
-      if (this.itemValueCard_css == "itemHeight") {
+      if (this.itemValueCard_css === "itemHeight") {
         this.itemValueCard_css = "";
       } else {
         this.itemValueCard_css = "itemHeight";
@@ -147,19 +147,19 @@ export default {
     },
 
      getSpriteImg(id, index) {
-      if (index == 0) return "bg-" + id + " sprite_itemValue";
-    
+      if (index === 0) return "bg-" + id + " sprite_itemValue";
+
       return "bg-" + id;
     },
 
     getItemGreenValue(id, num) {
-      if (id == "4001") {
+      if (id === "4001") {
         return parseFloat(num).toFixed(4);
       }
       return parseFloat(num).toFixed(3);
     },
     getItemsanityValue(id, num) {
-      if (id == "4001") {
+      if (id === "4001") {
         return parseFloat(num * 0.8).toFixed(4);
       }
       return parseFloat(num * 0.8).toFixed(3);
@@ -167,17 +167,17 @@ export default {
 
     //切换价值单位tag样式
     changeItemTagColor(index) {
-      if (index == 2) {
+      if (index === 2) {
         this.tag_class_green = "op_tag_1";
         this.tag_class_sanity = "op_tag_0";
-      } else if (index == 1) {
+      } else if (index === 1) {
         this.tag_class_green = "op_tag_0";
         this.tag_class_sanity = "op_tag_1";
       }
     },
 
     getItemValueCard(index, cardNum, type) {
-      if (index == cardNum) {
+      if (index === cardNum) {
         return "item_color_type_" + type;
       } else {
         return "hidden";

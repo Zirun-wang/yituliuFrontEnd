@@ -1,6 +1,6 @@
 <template>
   <div :class="ligthOrDark(1)">
-    <div class="calculator_aera">
+    <div class="calculator_area">
     <div class="calculator_input_area">
       <table class="calculator_input_table">
         <tr>
@@ -128,7 +128,6 @@
           <td><div class="calculator_input_title">已有资源</div></td>
           <td>
             <img
-              vertical-align:middle
               class="result_img_size"
               src="/img/materials/高级作战记录.png"
               alt=""
@@ -136,7 +135,6 @@
           </td>
           <td>
             <img
-              vertical-align:middle
               class="result_img_size"
               src="/img/materials/中级作战记录.png"
               alt=""
@@ -144,7 +142,6 @@
           </td>
           <td>
             <img
-              vertical-align:middle
               class="result_img_size"
               src="/img/materials/初级作战记录.png"
               alt=""
@@ -152,7 +149,6 @@
           </td>
           <td>
             <img
-              vertical-align:middle
               class="result_img_size"
               src="/img/materials/基础作战记录.png"
               alt=""
@@ -198,7 +194,7 @@
           <td></td>
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/龙门币.png"
               alt=""
@@ -221,7 +217,7 @@
           <td><div class="calculator_input_title">基建产能</div></td>
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/中级作战记录.png"
               alt=""
@@ -229,7 +225,7 @@
           </td>
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/龙门币.png"
               alt=""
@@ -263,33 +259,33 @@
         <tr>
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/声望.png"
               alt=""
             />
           </td>
-          
+
           <td>需求为
-          
+
             <a class="result_cost_color">{{ expResult }}</a
             >经验
-          
+
           </td>
         </tr>
         <tr>
           <td colspan="2">刷<a class="result_cost_color">LS-6</a>副本
-          
+
             次数：<a class="result_cost_color">{{ expStageNum }}</a
             >次
           </td>
         </tr>
 
         <tr>
-          
+
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/理智.png"
               alt=""
@@ -297,7 +293,7 @@
           </td>
          <td>消耗
             为<a class="result_cost_color">{{ expReasonCost }}</a> &emsp;需要
-          
+
             <a class="result_cost_color">{{ daySum_exp }}</a
             >天
           </td>
@@ -314,7 +310,7 @@
         <tr>
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/龙门币.png"
               alt=""
@@ -332,10 +328,10 @@
           </td>
         </tr>
         <tr>
-         
+
           <td>
             <img
-              vertical-align:middle
+
               class="result_img_size"
               src="/img/materials/理智.png"
               alt=""
@@ -344,7 +340,7 @@
           <td>消耗
             为 <a class="result_cost_color">{{ goldReasonCost }}</a
             >&emsp; 需要
-          
+
             <a class="result_cost_color">{{ daySum_gold }}</a
             >天
           </td>
@@ -1036,7 +1032,7 @@ export default {
       this.daySum_exp_Jijian = Math.ceil(
         this.expResult / (66666 + parseInt(this.jijian_expSum))
       );
-    
+
       this.daySum_gold_Jijian = Math.ceil(
         this.goldResult / (66666 + parseInt(this.jijian_goldSum))
       );

@@ -1941,6 +1941,7 @@
         if ("243" === this.buildingType || "333" === this.buildingType || "252" === this.buildingType) {
           plans_0.rooms.trading[1] = trading_planMap0_1;
         }
+
         if ("333" === this.buildingType) {
           plans_0.rooms.trading[2] = trading_planMap0_2;
         }
@@ -3228,7 +3229,7 @@
       getList(list) {
         let listCopy = []
         for (let i = 0; i < list.length; i++) {
-          if (list[i] === '' || list[i] === undefined || list[i] === 'undefined' || typeof list[i] === undefined || list[i] === '空置') {
+          if ( ''=== list[i] || undefined === list[i] ||  'undefined' === list[i] ||  undefined=== typeof list[i] ||  '空置' === list[i]) {
             continue;
           }
           listCopy.push(list[i]);
