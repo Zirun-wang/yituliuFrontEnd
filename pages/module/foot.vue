@@ -83,7 +83,7 @@
 				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
 			</div>
 			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 210px;display: inline-block;">
-			<img class="foot_unit_pic" src="/img/website/qq.png" />
+			<img class="foot_unit_pic" style="height:21px;" src="/img/website/图标_龙门币.png" />
 			本站财政状况一图流</div>
 			</a>
 		</div>
