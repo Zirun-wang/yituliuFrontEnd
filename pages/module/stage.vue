@@ -9,7 +9,7 @@
             地图效率
           </div>
           <div :class=opETextTheme>
-            Best levels
+            Best Stages
           </div>
         </div>
         <div class="op_title_tag">

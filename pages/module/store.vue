@@ -9,7 +9,7 @@
             采购中心
           </div>
           <div :class=opETextTheme>
-            Store Rank
+            Store Ranking
           </div>
         </div>
         <div class="op_title_tag">
@@ -168,7 +168,7 @@
             活动商店
           </div>
           <div :class=opETextTheme>
-            Activity
+            Event Store
           </div>
         </div>
       </div>
