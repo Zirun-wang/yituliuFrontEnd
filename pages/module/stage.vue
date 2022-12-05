@@ -9,7 +9,7 @@
             地图效率
           </div>
           <div :class=opETextTheme>
-            Best levels
+            Best Stages
           </div>
         </div>
         <div class="op_title_tag">
@@ -38,7 +38,7 @@
       </div>
       <!-- <div class="op_warning">
         新章节开放期间样本量阈值临时下调至300，刷图时请注意甄别<br>
-        小样活动约可提供25%的效率
+        小样活动约可提供25%的效率1
       </div> -->
       <div class="stage_hint">
         <div class="stage_hint_t5">
@@ -265,13 +265,14 @@
 import stageApi from "@/api/stage";
 import cookie from "js-cookie";
 
-import stageJson from "static/json-video/stage.json";
+// import stageJson from "static/json-video/stage.json";
 
 export default {
   data() {
     return {
       popupData: [], //关卡弹窗用集合
-      stageRankT3: stageJson.data, //关卡效率集合
+      // stageRankT3: stageJson.data, //关卡效率集合
+      stageRankT3: [], //关卡效率集合
       stageRankT2: [], //关卡效率集合
       stageRankOrundum: [], //关卡效率集合
       stageActHistory:[],

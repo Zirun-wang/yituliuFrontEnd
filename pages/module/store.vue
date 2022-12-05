@@ -9,7 +9,7 @@
             采购中心
           </div>
           <div :class=opETextTheme>
-            Store Rank
+            Store Ranking
           </div>
         </div>
         <div class="op_title_tag">
@@ -168,7 +168,7 @@
             活动商店
           </div>
           <div :class=opETextTheme>
-            Activity
+            Event Store
           </div>
         </div>
       </div>
@@ -295,13 +295,14 @@
 <script>
 import storeApi from "@/api/store";
 import cookie from "js-cookie";
-import storeJson from "static/json-video/store.json";
+// import storeJson from "static/json-video/store.json";
 
 
 export default {
   data() {
     return {
-      storeList: storeJson.data, //常驻商店性价比集合
+      // storeList: storeJson.data, //常驻商店性价比集合
+      storeList: [], //常驻商店性价比集合
       actStoreList: [],   //活动商店的json
       storeVisiable:["display:flex;","display:flex;","display:flex;","display:flex;","display:flex;"],
       tagColor:["n","n","n","n","n"],

@@ -30,7 +30,7 @@
       <div class="value_content" style="display: flex;flex-wrap: wrap;">
         <div class="value_half" id="value_left">
           <div v-for="(card, index) in 4" :key="index" class="value_subList">
-            <div v-for="(item, index) in itemList" :key="index" class="value_item">
+            <div v-for="(item, index1) in itemList" :key="index1" class="value_item">
               <div :class="getItemValueCard(card, item.cardNum, item.type)" >
                 <table>
                   <tbody>
@@ -89,12 +89,13 @@
 
 <script>
 import storeApi from "@/api/store";
-import itemJson from "static/json-video/item.json";
+// import itemJson from "static/json-video/item.json";
 
 export default {
   data() {
     return {
-      itemList: itemJson.data, //全部材料价值集合
+      // itemList: itemJson.data, //全部材料价值集合
+      itemList: [], //全部材料价值集合
       cardNum: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       itemCardsanity: "",
       itemValueCard_css: "",
@@ -120,9 +121,10 @@ export default {
     findAllItemValue() {
       storeApi.findAllItem(this.valueVerison).then((response) => {
         this.itemList = [];
-        for (let i in response.data) {
-          this.itemList.push(response.data[i]);
-        }
+        // for (let i in response.data) {
+        //   this.itemList.push(response.data[i]);
+        // }
+        this.itemList = response.data;
       });
     },
 

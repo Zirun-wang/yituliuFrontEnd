@@ -8,7 +8,7 @@
                     礼包性价比
                 </div>
                 <div :class=opETextTheme >
-                    Packs
+                    Packs Value
                 </div>
             </div>
         </div>
