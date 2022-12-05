@@ -30,7 +30,8 @@
       <div class="value_content" style="display: flex;flex-wrap: wrap;">
         <div class="value_half" id="value_left">
           <div v-for="(card, index) in 4" :key="index" class="value_subList">
-            <div v-for="(item, index1) in itemList" :key="index1" class="value_item">
+            <div v-for="(item, index) in itemList" :key="index" class="value_item">
+              <!-- {{item}}{{card}} -->
               <div :class="getItemValueCard(card, item.cardNum, item.type)" >
                 <table>
                   <tbody>
@@ -108,37 +109,8 @@ export default {
   created() {
     this.switchUnit(1);
     this.findAllItemValue();
-    this.testIf()
   },
   methods: {
-    testIf(){
-    var num1 = 1;
-    var string1 = '1';
-
-    if(num1 == string1){
-        console.log('num1 == string1')
-    }
-    else{
-        console.log('num1 != string1');
-    }
-
-    if(num1 === string1){
-        console.log('num1 === string1')
-    }
-    else{
-        console.log('num1 !== string1');
-    }
-
-    var flag = 'true';
-    if(flag){
-        console.log('string-true')
-    }
-    else{
-        console.log('boolean-true');
-    }
-
-
-    },
     getCookies() {
       let theme = cookie.get("theme");
       if (typeof theme == "undefined" || theme === undefined) {
@@ -150,6 +122,9 @@ export default {
     findAllItemValue() {
       storeApi.findAllItem(this.valueVerison).then((response) => {
         this.itemList = [];
+        // for (let i in response.data) {
+        //   this.itemList.push(response.data[i]);
+        // }
         this.itemList = response.data;
       });
     },
