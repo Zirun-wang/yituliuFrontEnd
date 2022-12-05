@@ -30,7 +30,8 @@
       <div class="value_content" style="display: flex;flex-wrap: wrap;">
         <div class="value_half" id="value_left">
           <div v-for="(card, index) in 4" :key="index" class="value_subList">
-            <div v-for="(item, index1) in itemList" :key="index1" class="value_item">
+            <div v-for="(item, index) in itemList" :key="index" class="value_item">
+              <!-- {{item}}{{card}} -->
               <div :class="getItemValueCard(card, item.cardNum, item.type)" >
                 <table>
                   <tbody>
@@ -179,7 +180,7 @@ export default {
     },
 
     getItemValueCard(index, cardNum, type) {
-      if (index === cardNum) {
+      if (index == cardNum) {
         return "item_color_type_" + type;
       } else {
         return "hidden";
