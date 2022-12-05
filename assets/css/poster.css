@@ -1,7 +1,7 @@
 a{text-decoration:none;}
 
 #maa_recruit_poster {
-    background: url("/img/website/立绘_梓兰_1.png") 00% 110% / cover no-repeat,#444444;
+    background: url("/img/website/立绘_梓兰_1.png") 0 110% / cover no-repeat,#444444;
     background-size: 500px;
     background-attachment: fixed;
 }
