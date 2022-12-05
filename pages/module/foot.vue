@@ -1,23 +1,11 @@
 <template>
 <div id="extra">
-	<div class="op_title_tag">
-		<!-- <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F" class="op_tag_1">
-			开发群：938710832 <img src="/img/website/el.png" style="width:12px;">
-		</a> -->
-	</div>
-	<!-- <div class="op_title_tag">
-		<div class="tab_text">
-		数据更新时间 {{updateTime}}
-		</div>
-	</div> -->
-
 	<div id="foot_main">
-
 		<div class="foot_unit" style="width:872px; white-space: normal;">
 			<el-card class="box-card">
-				<div slot="header" class="clearfix">
+				<!-- <div slot="header" class="clearfix">
 					<span style="font-size: large;"><i class="el-icon-info"></i>&nbsp;<b>帮助与反馈</b></span>
-				</div>
+				</div> -->
 				<el-collapse accordion>
 					<el-collapse-item name="1" style="">
 						<template slot="title">
@@ -101,8 +89,8 @@
 				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
 			</div>
 			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 210px;display: inline-block;">
-			<img class="foot_unit_pic" src="/img/website/qq.png" />
-			本站财政状况一图流</div>
+			<img class="foot_unit_pic" src="/img/website/图标_源石.png" />
+			查看财政状况/捐助</div>
 			</a>
 		</div>
 
@@ -124,6 +112,12 @@
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 					<img class="foot_unit_pic" src="/img/website/wmm.jpg" />
 					破碎無冕
+				</div>
+			</a>
+			<a href="https://github.com/Yanstory">
+				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+					<img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/5153875?v=4" />
+					Yanstime
 				</div>
 			</a>
 		</div>
@@ -240,7 +234,7 @@ export default {
 	#extra{
 		background-color: #dededede;
 		margin-top: 8px;
-		padding: 12px 0px;
+		/* padding: 12px 0px; */
 		color:gray;
 	}
 
@@ -362,4 +356,7 @@ export default {
 		font-size: unset;
 	}
 
+	.el-card__body {
+    padding: 0px 12px;
+	}
 </style>
