@@ -108,8 +108,37 @@ export default {
   created() {
     this.switchUnit(1);
     this.findAllItemValue();
+    this.testIf()
   },
   methods: {
+    testIf(){
+    var num1 = 1;
+    var string1 = '1';
+
+    if(num1 == string1){
+        console.log('num1 == string1')
+    }
+    else{
+        console.log('num1 != string1');
+    }
+
+    if(num1 === string1){
+        console.log('num1 === string1')
+    }
+    else{
+        console.log('num1 !== string1');
+    }
+
+    var flag = 'true';
+    if(flag){
+        console.log('string-true')
+    }
+    else{
+        console.log('boolean-true');
+    }
+
+
+    },
     getCookies() {
       let theme = cookie.get("theme");
       if (typeof theme == "undefined" || theme === undefined) {
@@ -121,9 +150,6 @@ export default {
     findAllItemValue() {
       storeApi.findAllItem(this.valueVerison).then((response) => {
         this.itemList = [];
-        // for (let i in response.data) {
-        //   this.itemList.push(response.data[i]);
-        // }
         this.itemList = response.data;
       });
     },
@@ -179,7 +205,7 @@ export default {
     },
 
     getItemValueCard(index, cardNum, type) {
-      if (index === cardNum) {
+      if (index === parseInt(cardNum)) {
         return "item_color_type_" + type;
       } else {
         return "hidden";
