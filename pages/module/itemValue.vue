@@ -180,7 +180,7 @@ export default {
     },
 
     getItemValueCard(index, cardNum, type) {
-      if (index == cardNum) {
+      if (index === parseInt(cardNum)) {
         return "item_color_type_" + type;
       } else {
         return "hidden";
