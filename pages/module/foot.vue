@@ -55,6 +55,7 @@
 						<b>材料价值</b>
 						<hr>
 						<ul style="padding-left: 2em;">
+							<li>绿票理智换算关系：<b>1理智=1.25绿票</b></li>
 							<li>数据选择范围为<a href="https://penguin-stats.cn/">企鹅物流</a>中的<b>常驻关卡</b>以保证价值的稳定性。</li>
 							<li>若土的主要来源是1-7以外的关卡，则土系材料价值<a class="popover_color">+6%</a>。</li>
 							<li>加工站副产物掉率假设为20%。</li>
@@ -88,7 +89,7 @@
 				本项目为无偿开源项目，致力于方便明日方舟玩家<br>
 				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
 			</div>
-			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 210px;display: inline-block;">
+			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 202px;display: inline-block;">
 			<img class="foot_unit_pic" src="/img/website/图标_源石.png" />
 			查看财政状况/捐助</div>
 			</a>
