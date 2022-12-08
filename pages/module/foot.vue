@@ -15,18 +15,31 @@
 					</el-collapse-item>
 					<el-collapse-item name="2" style="">
 						<template slot="title">
-							<span style="font-size: large;"><i class="el-icon-s-marketing"></i>&nbsp;<b>算法简述</b></span>
+							<span style="font-size: large;"><i class="el-icon-s-marketing"></i>&nbsp;<b>动态平衡算法简述</b></span>
 						</template>
-						通过马尔可夫决策过程来制定的一套算法，理论依据可参阅页面底部 Erit_Lux 的视频链接；根据实际情况做了一些调整。
+						算法核心思路为“掉率越高，则价值越低”且“物品价值仅受获取成本影响”
+						<hr>
 						<ul style="padding-left: 2em;">
-							<li>第1步：从企鹅物流获取<b>无活动时的常驻关卡</b>的掉率,统计分析计算出物品价格，得出<a onclick="jumpTo('anchor_all')" class="t3">价值一览</a></li>
-							<li>第2步：从企鹅物流获取<b>所有关卡</b>的掉率，根据<a onclick="jumpTo('anchor_all')" class="t3">价值一览</a>中的价格，计算关卡效率，得出<a onclick="jumpTo('anchor_level')" class="t3">刷图推荐</a>中的关卡效率</li>
-							<li>第3步：根据商店售价和物品价格，计算商店性价比，得出<a onclick="jumpTo('anchor_store')" class="t3">采购中心</a>和<a onclick="jumpTo('anchor_actstore')" class="t3">活动商店</a>中的数值</li>
+							<li>第1步：取<b>无活动时的常驻关卡</b>的掉率，以材料价格计算关卡效率</li>
+							<li>第2步：以关卡效率修正材料价格</li>
+							<li>第3步：重复操作(1)(2)，直至材料价格和关卡效率收敛于误差小于万分之一，实现动态平衡，此时得出<b>关卡效率</b>和<b>材料价值</b></li>
+							<li>第4步：根据商店售价和物品价格，计算常驻商店和活动商店性价比</li>
+						</ul>
+
+						<b>FAQ</b>
+						<hr>
+						<ul style="padding-left: 2em;">
+							<li>Q：你怎么知道是收敛的？</li>
+							<li><b>A：如果不收敛网站就崩了，你也看不到这句话了。</b></li>
+							<li>Q：为什么不用线性规划进行计算？</li>
+							<li><b>A：人无法两次踏进同一条河流，线性规划的目标时刻都在变动，剧烈起伏的价值你喜欢吗？</b></li>
+							<li>Q：你这结果有问题啊，XX关的x材料期望明显更低，为什么XX关不是效率最高？</li>
+							<li><b>A：大部分关卡都掉落多种材料，单一材料的期望只能说明短期最优，长期最优是要计算副产物的。</b></li>
 						</ul>
 					</el-collapse-item>
 					<el-collapse-item name="3" style="">
 						<template slot="title">
-							<span style="font-size: large;"><i class="el-icon-s-opportunity"></i>&nbsp;<b>图例与示意</b></span>
+							<span style="font-size: large;"><i class="el-icon-s-opportunity"></i>&nbsp;<b>图例与计算细节</b></span>
 						</template>
 						<b>刷图规划</b>
 						<hr>
@@ -37,6 +50,7 @@
 						<ul style="padding-left: 2em;">
 							<li>根据价值一览中的价格和企鹅物流的关卡掉落数据计算。</li>
 							<li>只有多于300样本的关卡才会被收录。</li>
+							<li>仅收录由自动刷图软件上报的掉落数据。</li>
 							<li>活动关卡只在活动期间出现，且都标记为<font style="color:red;">红色</font>。</li>
 							<li>插曲和别传常驻后，视为新关卡并重新计算效率，该效率与活动时无关。</li>
 						</ul>
@@ -55,18 +69,34 @@
 						<b>材料价值</b>
 						<hr>
 						<ul style="padding-left: 2em;">
-							<li>绿票理智换算关系：<b>1理智=1.25绿票</b></li>
+							<li>绿票理智换算关系：<b>1理智=1.25绿票</b>。</li>
 							<li>数据选择范围为<a href="https://penguin-stats.cn/">企鹅物流</a>中的<b>常驻关卡</b>以保证价值的稳定性。</li>
-							<li>若土的主要来源是1-7以外的关卡，则土系材料价值<a class="popover_color">+6%</a>。</li>
-							<li>加工站副产物掉率假设为20%。</li>
-							<li>龙门币依据CE-6定价，且为作战记录的1.6倍。</li>
+							<li>定价时考虑加工站副产物，副产物掉率假设为20%。</li>
+							<li>假设重装/医疗芯片和近卫/特种芯片需求比为2:1，狙击/术师和先锋/辅助需求比为1:1</li>
+							<li>模组数据块以红票商店售价进行定价。</li>
+							<li>龙门币、经验书、无人机等结合其边际成本进行定价。</li>
 							<li>技巧概要依据CA-5定价，且考虑加工站副产物。</li>
 							<li>采购凭证依据AP-5定价。</li>
 							<li>理论上寻访凭证=600合成玉=3.33石=450理智，但不碎石刷图的情况下该等式无意义，仅列出以供参考。</li>
-							<li>假设重装/医疗芯片和近卫/特种芯片需求比为2:1，狙击/术师和先锋/辅助需求比为1:1。</li>
+							<li>招募凭证的价值难以精确计算，仅供参考。</li>
 							<li>物资箱价值取<a href="https://penguin-stats.cn/">企鹅物流</a>中的以往数据进行估算。</li>
+							<li>若源岩系材料的主要来源是1-7以外的关卡，则源岩系材料价值<a class="popover_color">+6%</a>。</li>
 						</ul>
 					</el-collapse-item>
+					<!-- <el-collapse-item name="4" style="">
+						<template slot="title">
+							<span style="font-size: large;"><i class="el-icon-s-claim"></i>&nbsp;<b>算法公示卡</b></span>
+						</template>
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										算法
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</el-collapse-item> -->
 				</el-collapse>
 			</el-card>
 		</div>
@@ -359,5 +389,8 @@ export default {
 
 	.el-card__body {
     padding: 0px 12px;
+	}
+	.el-collapse-item__content{
+		padding-bottom: 8px;
 	}
 </style>
