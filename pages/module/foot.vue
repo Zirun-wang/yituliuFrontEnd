@@ -17,22 +17,22 @@
 						<template slot="title">
 							<span style="font-size: large;"><i class="el-icon-s-marketing"></i>&nbsp;<b>动态平衡算法简述</b></span>
 						</template>
-						算法核心思路为“掉率越高，则价值越低”且“物品价值仅受获取成本影响”
+						<b>算法核心思路为“掉率越高，则价值越低”且“物品价值仅受获取成本影响”</b>
 						<hr>
 						<ul style="padding-left: 2em;">
 							<li>第1步：取所有<b>常驻关卡</b>的掉率，以材料价格计算关卡效率</li>
 							<li>第2步：以关卡效率修正材料价格</li>
 							<li>第3步：重复操作(1)(2)，直至材料价格和关卡效率收敛于误差小于万分之一，实现动态平衡，此时得出<b>关卡效率</b>和<b>材料价值</b></li>
-							<li>第4步：根据商店售价和物品价格，计算常驻商店和活动商店性价比</li>
+							<li>第4步：根据商店售价和物品价值，计算常驻商店和活动商店性价比</li>
 						</ul>
 
 						<b>FAQ</b>
 						<hr>
 						<ul style="padding-left: 2em;">
-							<li>Q：你怎么知道是收敛的？</li>
+							<li>Q：你怎么知道数列是收敛的？</li>
 							<li><b>A：如果不收敛网站就崩了，你也看不到这句话了。</b></li>
 							<li>Q：为什么不用线性规划进行计算？</li>
-							<li><b>A：人无法两次踏进同一条河流，线性规划的目标时刻都在变动，剧烈起伏的价值你喜欢吗？</b></li>
+							<li><b>A：人无法两次踏进同一条河流，线性规划的目标时刻都在变动，随活动UP起伏的价值你喜欢吗？</b></li>
 							<li>Q：你这结果有问题啊，XX关的x材料期望明显更低，为什么XX关不是效率最高？</li>
 							<li><b>A：大部分关卡都掉落多种材料，单一材料的期望只能说明短期最优，长期最优是要计算副产物的。</b></li>
 						</ul>
@@ -87,7 +87,7 @@
 						<template slot="title">
 							<span style="font-size: large;"><i class="el-icon-s-claim"></i>&nbsp;<b>算法公示卡</b></span>
 						</template>
-						<table>
+						<table id="al_card">
 							<tbody>
 								<tr>
 									<td>
@@ -325,7 +325,11 @@ export default {
 		margin: 4px 8px;
 	}
 
+	#al_card{
+		margin: 4px;
+	}
 
+	/* #al_card td */
 
 	#foot_main {
 	display:flex;
