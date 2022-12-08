@@ -20,7 +20,7 @@
 						算法核心思路为“掉率越高，则价值越低”且“物品价值仅受获取成本影响”
 						<hr>
 						<ul style="padding-left: 2em;">
-							<li>第1步：取<b>无活动时的常驻关卡</b>的掉率，以材料价格计算关卡效率</li>
+							<li>第1步：取所有<b>常驻关卡</b>的掉率，以材料价格计算关卡效率</li>
 							<li>第2步：以关卡效率修正材料价格</li>
 							<li>第3步：重复操作(1)(2)，直至材料价格和关卡效率收敛于误差小于万分之一，实现动态平衡，此时得出<b>关卡效率</b>和<b>材料价值</b></li>
 							<li>第4步：根据商店售价和物品价格，计算常驻商店和活动商店性价比</li>
@@ -83,7 +83,7 @@
 							<li>若源岩系材料的主要来源是1-7以外的关卡，则源岩系材料价值<a class="popover_color">+6%</a>。</li>
 						</ul>
 					</el-collapse-item>
-					<!-- <el-collapse-item name="4" style="">
+					<el-collapse-item name="4" style="">
 						<template slot="title">
 							<span style="font-size: large;"><i class="el-icon-s-claim"></i>&nbsp;<b>算法公示卡</b></span>
 						</template>
@@ -91,12 +91,64 @@
 							<tbody>
 								<tr>
 									<td>
-										算法
+										算法代号
+									</td>
+									<td>
+										一图流_标准
+									</td>
+									<td>
+										更新时间
+									</td>
+									<td>
+										2000/00/00 12:30
 									</td>
 								</tr>
+								<tr>
+									<td>
+										数据源
+									</td>
+									<td>
+										企鹅物流
+									</td>
+									<td>
+										基准
+									</td>
+									<td>
+										常驻关卡
+									</td>
+								</tr>
+								<tr>
+									<td>
+										计算引擎
+									</td>
+									<td>
+										yituliuBackEnd
+									</td>
+									<td>
+										样本阈值
+									</td>
+									<td>
+										300
+									</td>
+								</tr>
+								<tr>
+									<td>
+										需求目标
+									</td>
+									<td>
+										无限需求
+									</td>
+									<td>
+										EXP系数
+									</td>
+									<td>
+										0.625
+									</td>
+								</tr>
+
 							</tbody>
 						</table>
-					</el-collapse-item> -->
+					</el-collapse-item>
 				</el-collapse>
 			</el-card>
 		</div>
