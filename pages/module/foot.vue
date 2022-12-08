@@ -330,11 +330,13 @@ export default {
 		background: aliceblue;
     	border-radius: 4px;
 		font-size: 16px;
+		border: 1px solid #80808080;
 	}
 
 	#al_card td:nth-child(2n){
 		width:150px;
 	}
+
 	#al_card td:nth-child(2n+1){
 		font-weight: 600;
 		padding: 0px 8px;
