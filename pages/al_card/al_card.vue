@@ -62,5 +62,18 @@
 </template>
   
 <style>
-
+	#al_card{
+		margin: 0px;
+		background: aliceblue;
+    	border-radius: 4px;
+		font-size: 16px;
+	}
+    #al_card td:nth-child(2n){
+		width:150px;
+	}
+	#al_card td:nth-child(2n+1){
+		font-weight: 600;
+		padding: 0px 8px;
+		width:75px;
+	}
 </style>
