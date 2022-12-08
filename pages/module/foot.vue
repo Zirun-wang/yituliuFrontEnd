@@ -194,7 +194,7 @@
 			<a href="https://space.bilibili.com/12786648">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 					<img class="foot_unit_pic" src="/img/website/wmm.jpg" />
-					破碎無冕
+					無冕Crownless
 				</div>
 			</a>
 			<a href="https://github.com/Yanstory">
