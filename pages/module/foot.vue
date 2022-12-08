@@ -329,7 +329,9 @@ export default {
 		margin: 4px;
 	}
 
-	/* #al_card td */
+	#al_card td:nth-child(2n+1){
+		font-weight: 600;
+	}
 
 	#foot_main {
 	display:flex;
