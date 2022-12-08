@@ -13,7 +13,7 @@
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
-            <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%" 
+            <el-radio-button label="春节限定(1.29)" type="primary" style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="联动池(预计3月)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -613,7 +613,7 @@
         </template>
 
         <div class="gacha_unit" id="activity">
-          
+
            <div class="gacha_unit_child" v-show="1673726340000<end_TimeStamp">复刻活动</div>
           <el-checkbox-group v-model="gacha_actReList" class="">
             <div
@@ -706,7 +706,7 @@
                 <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
                   {{ other.gachaPermit10 }}
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -818,11 +818,11 @@
         checkBox: ["0", "1", "2", "7"],
         endTime: [],
         startDate: "", //开始时间
-        endDate: "2023/01/31 03:59:00", //结束时间
+        endDate: "2023/01/29 03:59:00", //结束时间
         start_TimeStamp: "",
         end_TimeStamp: "",
         plans:2,
-        timeSelector:"春节限定(1.31)",
+        timeSelector:"春节限定(1.29)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -894,7 +894,7 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 3, //剩余月数
+        monthsRemaining: 2, //剩余月数
         MonthsSignInRemaining: 0, // 剩余签到次数
 
         countDown: 0, //限定池每日送抽倒计时
@@ -923,14 +923,14 @@
       this.getInterval();
       this.getEveryreWard();
       this.getCountDown();
-    
-     
+
+
     },
     mounted() {
       // this.updateVisits();
       this.compute();
       this.pieChart(this.pieData);
-       
+
     },
     methods: {
       updateVisits() {
@@ -968,22 +968,22 @@
       getInterval() {
         console.log("今天是", this.startDate);
         this.weeksRemaining = 0;
-       
+
         this.MonthsSignInRemaining = 0;
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
-        
-        
+
+
         if(this.end_TimeStamp<13){
            this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
         }
-        
+
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);
 
         for (let i = 1; i < num + 1; i++) {
           if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
             this.weeksRemaining++;
           }
-      
+
           if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
             this.MonthsSignInRemaining++;
           }
@@ -993,7 +993,7 @@
       },
 
       checkEndDate() {
-        if(this.timeSelector==='春节限定(1.31)'){
+        if(this.timeSelector==='春节限定(1.29)'){
           this.end_TimeStamp = 1675108800000;
           this.cookieInit=0;
           this.monthsRemaining = 1;
@@ -1006,7 +1006,7 @@
           this.countDown2 = 14-this.countDown;
           this.plans =3;
         }
-        
+
         this.getInterval();
         this.getEveryreWard();
         this.compute();
@@ -1043,21 +1043,21 @@
         this.weekStageValue = 1;
         if (this.weekStageFlag) {
           this.weekStageValue = 0;
-        } 
-        
+        }
+
 
         this.greenF1Value = 0;
-       
+
         if(typeof this.greenStoreFlag ==='string' ){
            if(this.greenStoreFlag ==="false") this.greenStoreFlag = false;
            if(this.greenStoreFlag ==="true") this.greenStoreFlag = true;
         }
-      
+
         if (this.greenStoreFlag) {
           this.greenF1Value = 1;
-          
+
         }
-        
+
 
         //库存计算（共计）
         this.originium =
@@ -1369,8 +1369,8 @@
               parseInt(this.gacha_honeyCake[i].gachaPermit10);
           }
         }
-  
-        
+
+
          //自动扣除部分{
         //合成玉=—周常—剿灭—幸运墙
         this.orundum =
@@ -1381,27 +1381,27 @@
 
 
         this.orundum_other =
-          parseInt(this.orundum_other) + 
+          parseInt(this.orundum_other) +
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800 - 
+          parseInt(this.weekStageValue) * 1800 -
           parseInt(this.countDown) * 660 ;
 
           //寻访记录=减去倒计时
         this.permit_other =
           parseInt(this.permit_other) - parseInt(this.countDown)
           - parseInt(this.countDown2);
-        
+
         this.permit =
           parseInt(this.permit) - parseInt(this.countDown)
           - parseInt(this.countDown2);
-          
+
 
         //其他抽卡次数
         this.gachaTimes_other =
           parseInt(this.originium_other) * 0.3 * parseInt(flag_originium) +
           parseInt(this.orundum_other) / 600 +
           parseInt(this.permit_other) +
-          parseInt(this.permit10_other) * 10 
+          parseInt(this.permit10_other) * 10
 
 
         if (parseInt(this.originium - parseInt(this.skinFlag) * 18) < 0) {
@@ -1479,7 +1479,7 @@
           this.pieData.push(chartFan);
         }
 
-     
+
 
         if (this.cookieInit > 1) {
           this.pieChart(this.pieData);
@@ -1490,7 +1490,7 @@
         // console.log(this.permit_gacha);
         // console.log(this.permit_act);
         // console.log(this.permit_other);
-        
+
       },
 
       valueInit() {
@@ -1578,7 +1578,7 @@
       },
 
       getChapterWidth(index) {
-        if (index % 2 == 0) return "width:200px;";
+        if (index % 2 === 0) return "width:200px;";
         else return "width:60px;";
       },
 

@@ -3,7 +3,7 @@
     <stage></stage>
     <storeVue> </storeVue>
     <div class="title_null"></div>
-    <pack>  </pack>
+    <!-- <pack>  </pack> -->
     <div class="title_null"></div>
     <itemVue> </itemVue>
     <div class="title_null"></div>
