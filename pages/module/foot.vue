@@ -94,7 +94,7 @@
 										算法代号
 									</td>
 									<td>
-										一图流_标准
+										一图流_标准 v6.0
 									</td>
 									<td>
 										更新时间
@@ -326,10 +326,22 @@ export default {
 	}
 
 	#al_card{
-		margin: 4px;
+		margin: 0px;
+		background: aliceblue;
+    	border-radius: 4px;
+		font-size: 16px;
+		border: 1px solid #80808080;
 	}
 
-	/* #al_card td */
+	#al_card td:nth-child(2n){
+		width:150px;
+	}
+
+	#al_card td:nth-child(2n+1){
+		font-weight: 600;
+		padding: 0px 8px;
+		width:75px;
+	}
 
 	#foot_main {
 	display:flex;
