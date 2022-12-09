@@ -334,7 +334,7 @@ export default {
 	}
 
 	#al_card td:nth-child(2n){
-		width:150px;
+		width:165px;
 	}
 
 	#al_card td:nth-child(2n+1){
@@ -454,7 +454,6 @@ export default {
 		margin-top:1em;
 		font-size: unset;
 	}
-
 	.el-card__body {
     padding: 0px 12px;
 	}

@@ -71,7 +71,7 @@
 	}
 
     #al_card td:nth-child(2n){
-		width:150px;
+		width:165px;
 	}
 
 	#al_card td:nth-child(2n+1){
