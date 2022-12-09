@@ -1820,7 +1820,8 @@
       getUid() {
         let timestamp = new Date().getTime();
         let randNum = Math.floor(Math.random() * 999) + 1000000000000000;
-        this.uid = timestamp * 1000 + randNum - 1000000000000000
+        this.uid = timestamp * 1000 + randNum - 1000000000000000;
+        console.log("id：",this.uid);
       },
       getDate() {
         let date = new Date();

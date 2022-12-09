@@ -510,6 +510,7 @@ export default {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
         this.updateTime = response.data[0][0].updateTime;
+        cookie.set("updateTime", this.updateTime, { expires: 30 });
       // this.$message({
       //       message: '切换成功' ,
       //       type: "success",

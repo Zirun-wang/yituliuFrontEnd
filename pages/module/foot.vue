@@ -100,7 +100,7 @@
 										更新时间
 									</td>
 									<td>
-										2000/00/00 12:30
+										{{updateTime}}
 									</td>
 								</tr>
 								<tr>
@@ -294,22 +294,32 @@
 </template>
 
 <script>
-export default {
-  date(){
-	return{
+import cookie from "js-cookie";
 
-	}
+export default {
+  layout: "poster",
+  data() {
+    return {
+     updateTime:"2000-01-01 00:00:00",
+    };
   },
   created() {
-
+   
+  },
+  mounted() {
+       this.getUpdateTime();
   },
   methods: {
-    getSpriteImg(id, index) {
-      if (index == 0) return "bg-" + id + "_icon sprite_foot_icon";
-
-      return "bg-" + id;
+    sleep(d) {
+      return new Promise((resolve) => setTimeout(resolve, d));
     },
-  }
+	async getUpdateTime(){
+		for(let i=0;i<40;i++){
+			await this.sleep(500);
+		this.updateTime = cookie.get("updateTime");
+		}
+	}
+  },
 };
 </script>
 
