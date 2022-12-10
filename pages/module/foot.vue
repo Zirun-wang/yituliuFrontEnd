@@ -314,7 +314,7 @@ export default {
       return new Promise((resolve) => setTimeout(resolve, d));
     },
 	async getUpdateTime(){
-		for(let i=0;i<40;i++){
+		for(let i=0;i<20;i++){
 			await this.sleep(500);
 		this.updateTime = cookie.get("updateTime");
 		}

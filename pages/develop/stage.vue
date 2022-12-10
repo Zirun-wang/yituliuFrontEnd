@@ -533,7 +533,7 @@ export default {
       });
     },
     getStageResultDateClosed(){
-     stageApi.findClosedActivStageByStageId(this.stageVersion).then((response) => {
+     stageApi.findClosedActivStageByStageId('auto062').then((response) => {
         this.stageActHistory = [];
         this.stageActHistory = response.data;
 
@@ -546,5 +546,9 @@ export default {
 <style scoped>
   .el-divider--horizontal {
     margin: 6px 0;
+  }
+
+  #stage{
+    background-color: aliceblue;
   }
 </style>
