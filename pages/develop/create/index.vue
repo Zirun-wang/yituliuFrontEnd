@@ -56,7 +56,7 @@
     </table>
     <el-button @click="setJson">创建Json</el-button>
     <el-button @click="creatdJson">生成json</el-button>
-    <el-button ><a href="https://houduan.yituliu.site/tool/building/schedule/export?uid=111111111">下载json</a> </el-button>
+    <el-button ><a href="https://houduan.yituliu.site/file/export/store/pack/json?uid=111111111">下载json</a> </el-button>
   </div>
 </template>
 
@@ -69,7 +69,7 @@
     layout: "poster",
     data() {
       return {
-        packName: [1, 1, 1],
+        packName: [],
         packShowName: [],
         packImg: [],
         packType: [],
@@ -88,7 +88,7 @@
         gachaPermit: [],
         gachaPermit10: [],
         packContent_item: [
-          [1, 1, 1, 1, 1, 1],
+          [],
           [],
           [],
           [],
@@ -119,7 +119,7 @@
           [],
         ],
         packContent_count: [
-          [1, 1, 1, 1, 1, 1],
+          [],
           [],
           [],
           [],
@@ -184,7 +184,8 @@
           map.gachaOriginium = this.gachaOriginium[i];
           map.gachaPermit = this.gachaPermit[i];
           map.gachaPermit10 = this.gachaPermit10[i];
-
+           
+        
           let content = [];
           for (let j = 0; j < this.packContent_item[i].length; j++) {
             var content_item = {}
@@ -192,7 +193,15 @@
             content_item.packContentQuantity = this.packContent_count[i][j];
             content.push(content_item);
           }
-          map.packContent = content;
+           
+           console.log("礼包",i,this.packContent_item[i][0]!=undefined);
+            console.log("礼包",i,this.packContent_item[i][0]!="");
+
+          if(this.packContent_item[i][0]!=undefined&&this.packContent_item[i][0]!=""){
+              map.packContent = content;
+          }
+          
+          
 
           list.push(map);
         }
