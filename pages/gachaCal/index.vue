@@ -795,7 +795,7 @@
   export default {
     layout: "defaultGacha",
     head: {
-      title: "一图流-感谢庆典攒抽规划",
+      title: "一图流攒抽计算器 yituliu.site",
       meta: [
         { charset: "utf-8" },
         {
