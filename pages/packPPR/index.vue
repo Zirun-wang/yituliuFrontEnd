@@ -271,7 +271,27 @@
                 return ("/img/packs/" + img + ".png");
             },
             getPackPic(img) {
-                return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;")                
+                if (img === '空的小钱夹')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 12% 20%  / 500% no-repeat,#444444";
+                if (img === '大帝的手提箱')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 40% 20%  / 500% no-repeat,#444444";
+                if (img === '资深干员特训礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 70% 20%  / 500% no-repeat,#444444";
+                if (img === '调用凭证组合包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 99% 20%  / 500% no-repeat,#444444";
+                if (img === '特训意向礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 16% 20%  / 500% no-repeat,#444444";
+                if (img === '剧场之友组合包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 57% 9% / 400% no-repeat,#444444";
+                if (img === '高级特训意向礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/1a4d8717d513321e2bc13c64f1f90b45.JPG) 97% 20%  / 500% no-repeat,#444444";
+                if (img === '辟路芯片礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 24% 20%  / 400% no-repeat,#444444";
+                if (img === '斩荆芯片礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 85% 20%  / 400% no-repeat,#444444";
+                if (img === '枯焰芯片礼包')
+                    return "background:url(https://ak.hycdn.cn/announce/images/20221208/e2f417b45fcc108caf01521d7d0d09fe.jpg) 75% 50%  / 250% no-repeat,#444444";
+                return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");          
             }
         }
     }
