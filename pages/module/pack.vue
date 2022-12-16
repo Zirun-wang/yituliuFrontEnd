@@ -24,7 +24,7 @@
 
                     <div class="pack_info">
                         <div class="pack_info_text">
-                        共{{pack2.packDraw}}抽 <br>￥{{getEfficiency(pack2.packRmbPerDraw, 1)}}/抽
+                        共{{getEfficiency(pack2.packDraw,1)}}抽 <br>￥{{getEfficiency(pack2.packRmbPerDraw, 1)}}/抽
                         </div>
                         <div class="pack_chart">
                             <div class="pack_chart_unit" v-show="pack2.packPPRDraw >= 1.57">
