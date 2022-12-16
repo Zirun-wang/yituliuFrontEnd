@@ -1,5 +1,7 @@
 <template>
   <div>
+     <el-button @click="creatdJson">生成json</el-button>
+    <el-button ><a href="https://backend.yituliu.site/file/export/store/pack/json?uid=1111">下载json</a> </el-button>
     <table border="0" class="pack-table">
       <tbody>
       <tr class="title—tr">
@@ -10,12 +12,12 @@
         <td class="long-short">礼包ID</td>
         <td class="long-short">礼包状态</td>
         <td class="long-short">售价</td>
-        <td class="long-short">抽数</td>
+        <!-- <td class="long-short">抽数</td>
         <td class="long-short">源石数</td>
         <td class="long-short">抽卡单价</td>
         <td class="long-short">源石单价</td>
         <td class="long-short">抽卡性价比百分比</td>
-        <td class="long-short">总体性价比百分比</td>
+        <td class="long-short">总体性价比百分比</td> -->
        
         <td class="long-short">合成玉</td>
         <td class="long-short">源石</td>
@@ -31,18 +33,17 @@
         <td><input type="text" class="input_short" v-model.number="packID[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="packState[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="packPrice[index-1]"/></td>
-        <td><input type="text" class="input_short" v-model="packDraw[index-1]"/></td>
+        <!-- <td><input type="text" class="input_short" v-model="packDraw[index-1]"/></td>
         <td><input type="text" class="input_short" v-model="packOriginium[index-1]"/></td>
         <td><input type="text" class="input_short" v-model="packRmbPerDraw[index-1]"/></td>
         <td><input type="text" class="input_short" v-model="packRmbPerOriginium[index-1]"/></td>
         <td><input type="text" class="input_short" v-model="packPPRDraw[index-1]"/></td>
-        <td><input type="text" class="input_short" v-model="packPPROriginium[index-1]"/></td>
-      
+        <td><input type="text" class="input_short" v-model="packPPROriginium[index-1]"/></td> -->
         <td><input type="text" class="input_short" v-model.number="gachaOrundum[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaOriginium[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit10[index-1]"/></td>
-        <td class="">
+        <td >
           <div class="div-Content">
             <div v-for="count in 15" :key="count" class="div-item">
               <input type="text" class="input_long" v-model="packContent_item[index-1][count-1]"/>
@@ -50,15 +51,14 @@
             </div>
           </div>
         </td>
-        
+       
       </tr>
       
 
       </tbody>
     </table>
-    <el-button @click="setJson">创建Json</el-button>
-    <el-button @click="creatdJson">生成json</el-button>
-    <el-button ><a href="https://backend.yituliu.site/file/export/store/pack/json?uid=1111">下载json</a> </el-button>
+
+   
   </div>
 </template>
 
@@ -159,9 +159,19 @@
       this.getJson();
     },
     methods: {
-      creatdJson() {
+       sleep(d) {
+      return new Promise((resolve) => setTimeout(resolve, d));
+       },
+      async creatdJson() {
+        this.setJson();
+        await this.sleep(1500);
         buildingApi.maaBuildingJsonCreated(this.packJson, 1111).then((response) => {
-
+                this.$message({
+            message: response.data.message + "生成id为：" + response.data.uid,
+            type: "success",
+            showClose: true,
+            duration: 4000,
+          });
         });
       },
       setJson() {
@@ -257,17 +267,12 @@
 
 
   .pack-table {
-    border-collapse: collapse;
-  }
-
-  .title—tr {
-
-   
+    /* border-collapse: collapse; */
+    border-spacing:0 20px;
   }
 
   .title—tr td{
-    border: solid rgb(0, 0, 0) 1px;
-    margin-bottom: 10px;
+    /* border: solid rgb(0, 0, 0) 1px; */
     text-align: center;
   }
 
