@@ -1,0 +1,125 @@
+[
+  {
+    "packName": "新人寻访组合包",
+    "packShowName": "新人寻访组合包",
+    "packImg": "新人寻访组合包",
+    "packPrice": "128",
+    "gachaPermit10": "2"
+
+  },
+  {
+    "packName": "新人养成组合包",
+    "packShowName": "新人养成组合包",
+    "packImg": "新人养成组合包",
+    "packPrice": "68",
+    "gachaOriginium": "13",
+    "packContent": [
+      {
+        "packContentItem": "龙门币",
+        "packContentQuantity": "40000"
+      },
+      {
+        "packContentItem": "中级作战记录",
+        "packContentQuantity": "20"
+      },
+      {
+        "packContentItem": "初级作战记录",
+        "packContentQuantity": "30"
+      },
+      {
+        "packContentItem": "基础作战记录",
+        "packContentQuantity": "40"
+      },
+      {
+        "packContentItem": "技巧概要·卷1",
+        "packContentQuantity": "30"
+      },
+      {
+        "packContentItem": "技巧概要·卷2",
+        "packContentQuantity": "10"
+      },
+      {
+        "packContentItem": "装置",
+        "packContentQuantity": "4"
+      },
+      {
+        "packContentItem": "酮凝集",
+        "packContentQuantity": "5"
+      },
+      {
+        "packContentItem": "异铁",
+        "packContentQuantity": "5"
+      },
+      {
+        "packContentItem": "聚酸酯",
+        "packContentQuantity": "7"
+      },
+      {
+        "packContentItem": "糖",
+        "packContentQuantity": "7"
+      },
+      {
+        "packContentItem": "固源岩",
+        "packContentQuantity": "10"
+      }
+    ]
+  },
+  {
+    "packName": "新人组合包",
+    "packShowName": "新人组合包",
+    "packImg": "新人组合包",
+    "packPrice": "6",
+    "gachaPermit": "1",
+    "packContent": [
+      {
+        "packContentItem": "龙门币",
+        "packContentQuantity": "10000"
+      },
+      {
+        "packContentItem": "基础作战记录",
+        "packContentQuantity": "20"
+      }
+    ]
+  },
+  {
+    "packName": "每月寻访组合包",
+    "packShowName": "每月寻访组合包",
+    "packImg": "每月寻访组合包",
+    "packPrice": "168",
+    "gachaOriginium": "42",
+    "gachaPermit10": "1"
+  },
+  {
+    "packName": "月卡",
+    "packShowName": "月卡",
+    "packImg": "月卡",
+    "packPrice": "30",
+    "gachaOrundum": "6000",
+    "gachaOriginium": "6",
+    "packContent": [
+      {
+        "packContentItem": "赤金",
+        "packContentQuantity": "2400"
+      }
+    ]
+  },
+  {
+    "packName": "枯焰芯片礼包",
+    "packShowName": "枯焰芯片礼包",
+    "packImg": "枯焰芯片礼包",
+    "packContent": [
+      {
+        "packContentItem": "医疗芯片组",
+        "packContentQuantity": "8"
+      },
+      {
+        "packContentItem": "医疗芯片",
+        "packContentQuantity": "5"
+      },
+      {
+        "packContentItem": "龙门币",
+        "packContentQuantity": "210000"
+      }
+    ]
+  }
+]
