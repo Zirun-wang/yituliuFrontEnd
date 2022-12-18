@@ -32,26 +32,26 @@ export default {
     },
 
     async show() {
-      // await this.sleep(1000)
-      // for(let i=0;i<itemCount.length;i++){
-      //      await this.sleep(2000)
-      //     itemId.unshift(itemCount[i].itemName);
-      //     this.itemName.unshift(itemCount[i].itemId)
-      //     this.itemCost.unshift(itemCount[i].itemCount)
-      //     this.barChart()
-      // }
-
-        await this.sleep(2000)
-          this.itemName = []
-          this.itemCost = []
-          itemId = []
-        for(let i=0;i<itemCount2.length;i++){
+      await this.sleep(1000)
+      for(let i=0;i<itemCount.length;i++){
            await this.sleep(2000)
-          itemId.unshift(itemCount2[i].itemName);
-          this.itemName.unshift(itemCount2[i].itemId)
-          this.itemCost.unshift(itemCount2[i].itemCount)
+          itemId.unshift(itemCount[i].itemName);
+          this.itemName.unshift(itemCount[i].itemId)
+          this.itemCost.unshift(itemCount[i].itemCount)
           this.barChart()
       }
+
+      //   await this.sleep(2000)
+      //     this.itemName = []
+      //     this.itemCost = []
+      //     itemId = []
+      //   for(let i=0;i<itemCount2.length;i++){
+      //      await this.sleep(2000)
+      //     itemId.unshift(itemCount2[i].itemName);
+      //     this.itemName.unshift(itemCount2[i].itemId)
+      //     this.itemCost.unshift(itemCount2[i].itemCount)
+      //     this.barChart()
+      // }
       // await this.sleep(1000);
       // // for(let i=0;i<apCost.length;i++){
       // for (let i = 0; i < apCost.length; i++) {
@@ -138,12 +138,12 @@ export default {
               // rotate: -30, //-15度角倾斜显示
               textStyle: {
                 fontSize: 24,
-                color: "#FFFFFFFF",
+                color: "#ffffff",
               },
             },
             axisLine: {
               lineStyle: {
-                color: "#FFFFFFFF",
+                color: "#ffffff",
               },
             },
            
@@ -162,9 +162,11 @@ export default {
                 show: true,
                 position: "right",
                 textStyle: {
-                  color: "#FFFFFFFF", //color of value
+                  color: "#ffffff", //color of value
                   fontSize: 26,
                   // margin: 20,
+                  textBorderWidth: 10,
+                  textBorderColor:'#000000'
                 },
               },
             },

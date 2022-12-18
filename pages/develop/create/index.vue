@@ -16,8 +16,8 @@
         <td class="long-short">源石数</td>
         <td class="long-short">抽卡单价</td>
         <td class="long-short">源石单价</td>
-        <td class="long-short">抽卡性价比百分比</td>
-        <td class="long-short">总体性价比百分比</td>
+        <td class="long-short">抽卡性价比</td>
+        <td class="long-short">总体性价比</td>
         <td class="long-short">合成玉</td>
         <td class="long-short">源石</td>
         <td class="long-short">单抽</td>

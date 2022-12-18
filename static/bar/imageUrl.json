@@ -1,116 +1,99 @@
+
 {
-    "3211": {
+    "31063": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/先锋芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/转质盐组.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3261": {
+    "31043": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/医疗芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/半自然溶剂.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3271": {
+    "31053": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/辅助芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/化合切削液.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3231": {
+    "31033": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/重装芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/晶体元件.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3281": {
+    "31013": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/特种芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/凝胶.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3212": {
+    "31023": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/先锋芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/炽合金.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3251": {
+    "30033": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/术师芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/聚酸酯组.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3262": {
+    "30093": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/医疗芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/研磨石.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3241": {
+    "30103": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/狙击芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/RMA70-12.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3272": {
+    "30023": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/辅助芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/糖组.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3232": {
+    "30073": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/重装芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/扭转醇.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3282": {
+    "30083": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/特种芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/轻锰矿.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3221": {
+    "30053": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/近卫芯片.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/酮凝集组.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3252": {
+    "30063": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/术师芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/全新装置.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3242": {
+    "30043": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/狙击芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/异铁组.png"
         },
-        "height": 40
+        "height": 50
     },
-    "3222": {
+    "30013": {
         "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/近卫芯片组.png"
+            "image": "http://127.0.0.1:4000/img/materials-bak/固源岩组.png"
         },
-        "height": 40
-    },
-    "3301": {
-        "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/技巧概要·卷1.png"
-        },
-        "height": 40
-    },
-    "3302": {
-        "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/技巧概要·卷2.png"
-        },
-        "height": 40
-    },
-    "3303": {
-        "backgroundColor": {
-            "image": "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/技巧概要·卷3.png"
-        },
-        "height": 40
+        "height": 50
     }
 }

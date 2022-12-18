@@ -5,15 +5,7 @@
     <el-footer style="z-index: 100;height:40px;padding:0px;background-color: rgb(52 68 104);"><myfooter /></el-footer>
   </el-container>
 
-  <!-- <div class="app-container">
-    <myheader />
-    <div class="main-container">
-      <el-scrollbar class="page-component__scroll">
-        <nuxt />
-      </el-scrollbar>
-    </div>
-    <myfooter />
-  </div> -->
+ 
 </template>
 <script>
 
@@ -28,20 +20,18 @@ import "~/assets/css/sprite_icon.css";
 
 // 旧版css，待修改
 import "~/assets/css/item.css";
-
-import "~/assets/css/calculator.css";
 import "~/assets/css/recruit.css";
-import "~/assets/css/building.css";
+
 
 
 
 import myheader from './myheader'
 import myfooter from './myfooter'
-
+import myheaderDev from './myheaderDev'
 
 export default {
  components: {
-      myheader,myfooter
+      myheader,myfooter,myheaderDev
     }
 };
 </script>
