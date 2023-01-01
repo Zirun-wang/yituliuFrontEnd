@@ -108,7 +108,8 @@ export default {
               textStyle: {
                 fontSize: 26,
                 color: "#FFFFFFFF",
-                // left: "10%",
+                textBorderWidth: 10,
+                  textBorderColor:'#000000'
               },
               formatter: function (value,index) {
                 //判断是否要显示预警
@@ -139,6 +140,7 @@ export default {
               textStyle: {
                 fontSize: 24,
                 color: "#ffffff",
+                
               },
             },
             axisLine: {

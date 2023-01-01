@@ -12,11 +12,10 @@
 
     <div class="title-image">
       <span>全干员</span><br>
-      <span>蓝材料需求统计</span><br>
-      <span>截止3.5周年活动</span><br>
-      <span>叙拉古人</span>
+      <span><a class="title1"> 蓝材料</a>需求统计</span><br>
+      <span>截止照我以火</span>
     </div>
-    <div class="char-image"> <img src="/img/back/char_1028_texas2_1b.png" ></div>
+    <div class="char-image"> <img src="/img/back/char_1020_reed2_1b.png" ></div>
   </div>
 </template>
 
@@ -35,13 +34,13 @@ export default {
   },
   methods: {
     findAllItemValue() {
-      storeApi.findAllItem().then((response) => {
+      storeApi.findAllItem('auto0.625').then((response) => {
         this.itemList = [];
         this.itemList = response.data;
       });
     },
     getImage(name) {
-      return "img/materials-bak/" + name + ".png";
+      return "/img/materials-bak/" + name + ".png";
     },
   },
 };
@@ -62,17 +61,18 @@ export default {
 .item_size {
   margin: 5px;
   width: 105px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .title-image {
   /* background-color: rgb(180, 180, 180); */
-  color: rgb(255, 217, 0);
+  color: #F7AD41;
   margin-top: -700px;
   margin-left: 120px;
   width: 990px;
   font-size: 96px;
-  text-shadow: 10px 10px 10px rgb(0, 0, 0);
+  text-shadow: 10px 10px 10px #000000;
+  -webkit-text-stroke: 4px #000000;
   letter-spacing: 1px;
   font-weight: 700;
   /* font-family: STXingkai; */
@@ -80,10 +80,14 @@ export default {
   z-index: 99;
 }
 
+.title1{
+  color: rgb(0, 132, 255);
+}
+
 .char-image{
   position: relative;
   z-index: 90;
-  margin-top: -500px;
-  margin-left: 400px;
+  margin-top: -650px;
+  margin-left: 500px;
 }
 </style>
