@@ -1,32 +1,20 @@
 [
 	{
-		"actName":"照我以火",
-		"actStartDate":1,
+		"actName":"将进酒复刻",
+		"actStartDate":0,
 		"actEndDate":"",
-		"actImgUrl":"https://ak.hycdn.cn/announce/images/20221208/bc6435ff4a3e4a22db54bd8904c925da",
+		"actImgUrl":"https://ak.hycdn.cn/announce/images/20221227/c3e09349f00917b3a854f0c09e68fa90",
 		"actPPRBase":3.5,
 		"actPPRStair":0.5,
 		"actTagAera":[
 			{
 				"tagRank":"5",
 				"tagText":"来源：明日方舟一图流 yituliu.site 转载需保留本提示"
-			},
-			{
-				"tagRank":"4",
-				"tagText":"模组数据块以红票计价"
 			}
 		],
 		"actStore":[
 			{
-				"itemName":"模组数据块",
-				"itemQuantity":1,
-				"itemPrice":75,
-				"itemPPR":0,
-				"itemStock":0,
-				"itemArea":1
-			},
-			{
-				"itemName":"双极纳米片",
+				"itemName":"晶体电子单元",
 				"itemQuantity":1,
 				"itemPrice":100,
 				"itemPPR":0,
@@ -34,15 +22,15 @@
 				"itemArea":1
 			},
 			{
-				"itemName":"酮阵列",
+				"itemName":"异铁块",
 				"itemQuantity":1,
-				"itemPrice":35,
+				"itemPrice":40,
 				"itemPPR":0,
 				"itemStock":0,
 				"itemArea":1
 			},
 			{
-				"itemName":"聚合凝胶",
+				"itemName":"白马醇",
 				"itemQuantity":1,
 				"itemPrice":30,
 				"itemPPR":0,
@@ -50,25 +38,25 @@
 				"itemArea":1
 			},
 			{
-				"itemName":"炽合金块",
+				"itemName":"晶体电路",
 				"itemQuantity":1,
-				"itemPrice":35,
+				"itemPrice":40,
 				"itemPPR":0,
 				"itemStock":0,
 				"itemArea":1
 			},
 			{
-				"itemName":"聚酸酯组",
+				"itemName":"RMA70-12",
 				"itemQuantity":1,
-				"itemPrice":8,
+				"itemPrice":15,
 				"itemPPR":0,
 				"itemStock":0,
 				"itemArea":2
 			},
 			{
-				"itemName":"轻锰矿",
+				"itemName":"化合切削液",
 				"itemQuantity":1,
-				"itemPrice":10,
+				"itemPrice":12,
 				"itemPPR":0,
 				"itemStock":0,
 				"itemArea":2
@@ -121,15 +109,7 @@
 				"itemStock":0,
 				"itemArea":2
 			},
-				{"itemName":"固源岩",
-				"itemQuantity":1,
-				"itemPrice":2,
-				"itemPPR":0,
-				"itemStock":0,
-				"itemArea":3
-			},
-			{
-				"itemName":"糖",
+				{"itemName":"酮凝集",
 				"itemQuantity":1,
 				"itemPrice":3,
 				"itemPPR":0,
@@ -137,15 +117,23 @@
 				"itemArea":3
 			},
 			{
-				"itemName":"装置",
+				"itemName":"异铁",
 				"itemQuantity":1,
-				"itemPrice":4,
+				"itemPrice":3,
 				"itemPPR":0,
 				"itemStock":0,
 				"itemArea":3
 			},
 			{
-				"itemName":"先锋芯片",
+				"itemName":"聚酸酯",
+				"itemQuantity":1,
+				"itemPrice":3,
+				"itemPPR":0,
+				"itemStock":0,
+				"itemArea":3
+			},
+			{
+				"itemName":"狙击芯片",
 				"itemQuantity":1,
 				"itemPrice":6,
 				"itemPPR":0,
