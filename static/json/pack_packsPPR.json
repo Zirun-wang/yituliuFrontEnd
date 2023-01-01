@@ -155,38 +155,7 @@
     "packName": "月卡",
     "gachaOrundum": 6000
   },
-  {
-    "packContent": [
-      {
-        "packContentQuantity": "8",
-        "packContentItem": "医疗芯片组"
-      },
-      {
-        "packContentQuantity": "5",
-        "packContentItem": "医疗芯片"
-      },
-      {
-        "packContentQuantity": "210000",
-        "packContentItem": "龙门币"
-      }
-    ],
-    "packShowName": "枯焰芯片礼包",
-    "packType": "limited",
-    "packDraw": 0.0,
-    "packPPRDraw": 0.0,
-    "packPPROriginium": 1.5206333333333333,
-    "packImg": "枯焰芯片礼包",
-    "packPrice": 18,
-    "packRmbPerOriginium": 2.3016725487187357,
-    "gachaPermit": 0,
-    "packState": 1,
-    "packOriginium": 7.820399999999999,
-    "packRmbPerDraw": null,
-    "gachaPermit10": 0,
-    "gachaOriginium": 0,
-    "packName": "枯焰芯片礼包",
-    "gachaOrundum": 0
-  },
+  
   {
     "packContent": [
       {

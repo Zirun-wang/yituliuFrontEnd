@@ -170,8 +170,8 @@ export default {
     },
     getPackPic(img, type) {
         if (type === 'limited'){
-            if (img === '空的小钱夹')
-                return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 12% 20%  / 500% no-repeat,#444444";
+            if (img === '观光组合包')
+                return "background:url(https://ak.hycdn.cn/announce/images/20221217/6a2c2adc22e01c531bbd8ce6d68bfe64.jpg) 70% 20%  / 200% no-repeat,#444444";
             if (img === '大帝的手提箱')
                 return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 40% 20%  / 500% no-repeat,#444444";
             if (img === '资深干员特训礼包')
@@ -190,8 +190,8 @@ export default {
                 return "background:url(https://ak.hycdn.cn/announce/images/20221021/c9f1738ab94962bff14edc1dc92c098e.JPG) 85% 20%  / 400% no-repeat,#444444";
             return "";
         }
-        // else
-        //     return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");
+        else
+            return ("background:url(/img/packs/" + img + ".png) 00% 110% / cover no-repeat,#444444;");
     }
   },
 };

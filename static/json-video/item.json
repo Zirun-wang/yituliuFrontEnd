@@ -1,1 +1,834 @@
-{"code":200,"msg":"操作成功","data":[{"id":40000,"itemId":"30135","itemName":"D32钢","itemValue":330.4252,"type":"orange","cardNum":"1","version":"auto0.625"},{"id":40001,"itemId":"30125","itemName":"双极纳米片","itemValue":296.4856,"type":"orange","cardNum":"1","version":"auto0.625"},{"id":40002,"itemId":"30115","itemName":"聚合剂","itemValue":320.3629,"type":"orange","cardNum":"1","version":"auto0.625"},{"id":40003,"itemId":"30145","itemName":"晶体电子单元","itemValue":403.006,"type":"orange","cardNum":"1","version":"auto0.625"},{"id":40004,"itemId":"30155","itemName":"烧结核凝晶","itemValue":391.4106,"type":"orange","cardNum":"1","version":"auto0.625"},{"id":40005,"itemId":"30064","itemName":"改量装置","itemValue":121.8613,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40006,"itemId":"30044","itemName":"异铁块","itemValue":136.4076,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40007,"itemId":"30084","itemName":"三水锰矿","itemValue":122.1707,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40008,"itemId":"31014","itemName":"聚合凝胶","itemValue":98.4471,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40009,"itemId":"30074","itemName":"白马醇","itemValue":98.1217,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40010,"itemId":"30054","itemName":"酮阵列","itemValue":125.4253,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40011,"itemId":"30104","itemName":"RMA70-24","itemValue":116.7554,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40012,"itemId":"31024","itemName":"炽合金块","itemValue":110.7304,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40013,"itemId":"30094","itemName":"五水研磨石","itemValue":113.1182,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40014,"itemId":"30024","itemName":"糖聚块","itemValue":119.6803,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40015,"itemId":"30034","itemName":"聚酸酯块","itemValue":113.5111,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40016,"itemId":"31034","itemName":"晶体电路","itemValue":117.0005,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40017,"itemId":"30014","itemName":"提纯源岩","itemValue":80.1491,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40018,"itemId":"31044","itemName":"精炼溶剂","itemValue":107.7162,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40019,"itemId":"31054","itemName":"切削原液","itemValue":97.2826,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40020,"itemId":"31064","itemName":"转质盐聚块","itemValue":100.3146,"type":"purple","cardNum":"2","version":"auto0.625"},{"id":40021,"itemId":"30063","itemName":"全新装置","itemValue":46.2479,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40022,"itemId":"30043","itemName":"异铁组","itemValue":34.1249,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40023,"itemId":"30083","itemName":"轻锰矿","itemValue":35.0565,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40024,"itemId":"31013","itemName":"凝胶","itemValue":38.1721,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40025,"itemId":"30073","itemName":"扭转醇","itemValue":30.1479,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40026,"itemId":"30053","itemName":"酮凝集组","itemValue":33.9564,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40027,"itemId":"30103","itemName":"RMA70-12","itemValue":45.5179,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40028,"itemId":"31023","itemName":"炽合金","itemValue":31.7371,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40029,"itemId":"30093","itemName":"研磨石","itemValue":38.3324,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40030,"itemId":"30023","itemName":"糖组","itemValue":28.0429,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40031,"itemId":"30033","itemName":"聚酸酯组","itemValue":27.4969,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40032,"itemId":"31033","itemName":"晶体元件","itemValue":26.3392,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40033,"itemId":"30013","itemName":"固源岩组","itemValue":21.434,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40034,"itemId":"31043","itemName":"半自然溶剂","itemValue":36.7728,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40035,"itemId":"31053","itemName":"化合切削液","itemValue":38.3584,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40036,"itemId":"31063","itemName":"转质盐组","itemValue":41.0859,"type":"blue","cardNum":"3","version":"auto0.625"},{"id":40037,"itemId":"30012","itemName":"固源岩","itemValue":4.4145,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40038,"itemId":"30022","itemName":"糖","itemValue":7.1704,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40039,"itemId":"30032","itemName":"聚酸酯","itemValue":7.0339,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40040,"itemId":"30042","itemName":"异铁","itemValue":8.6909,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40041,"itemId":"30052","itemName":"酮凝集","itemValue":8.6487,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40042,"itemId":"30062","itemName":"装置","itemValue":11.7216,"type":"green","cardNum":"4","version":"auto0.625"},{"id":40043,"itemId":"30011","itemName":"源岩","itemValue":1.4926,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40044,"itemId":"30021","itemName":"代糖","itemValue":2.4112,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40045,"itemId":"30031","itemName":"酯原料","itemValue":2.3657,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40046,"itemId":"30041","itemName":"异铁碎片","itemValue":2.918,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40047,"itemId":"30051","itemName":"双酮","itemValue":2.904,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40048,"itemId":"30061","itemName":"破损装置","itemValue":3.9283,"type":"grey","cardNum":"5","version":"auto0.625"},{"id":40049,"itemId":"3301","itemName":"技巧概要·卷1","itemValue":2.111,"type":"purple","cardNum":"6","version":"auto0.625"},{"id":40050,"itemId":"3302","itemName":"技巧概要·卷2","itemValue":5.278,"type":"blue","cardNum":"6","version":"auto0.625"},{"id":40051,"itemId":"3303","itemName":"技巧概要·卷3","itemValue":13.196,"type":"green","cardNum":"6","version":"auto0.625"},{"id":40052,"itemId":"2004","itemName":"高级作战记录","itemValue":5.625,"type":"orange","cardNum":"6","version":"auto0.625"},{"id":40053,"itemId":"2003","itemName":"中级作战记录","itemValue":2.8125,"type":"purple","cardNum":"6","version":"auto0.625"},{"id":40054,"itemId":"2002","itemName":"初级作战记录","itemValue":1.125,"type":"blue","cardNum":"6","version":"auto0.625"},{"id":40055,"itemId":"2001","itemName":"基础作战记录","itemValue":0.5625,"type":"green","cardNum":"6","version":"auto0.625"},{"id":40056,"itemId":"4001","itemName":"龙门币","itemValue":0.0045,"type":"purple","cardNum":"6","version":"auto0.625"},{"id":40057,"itemId":"3261","itemName":"医疗芯片","itemValue":17.8425,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40058,"itemId":"3271","itemName":"辅助芯片","itemValue":21.42,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40059,"itemId":"3211","itemName":"先锋芯片","itemValue":21.42,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40060,"itemId":"3281","itemName":"特种芯片","itemValue":17.8425,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40061,"itemId":"3221","itemName":"近卫芯片","itemValue":24.9962,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40062,"itemId":"3231","itemName":"重装芯片","itemValue":24.9962,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40063,"itemId":"3241","itemName":"狙击芯片","itemValue":21.42,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40064,"itemId":"3251","itemName":"术师芯片","itemValue":21.42,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40065,"itemId":"3262","itemName":"医疗芯片组","itemValue":35.685,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40066,"itemId":"3272","itemName":"辅助芯片组","itemValue":42.84,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40067,"itemId":"3212","itemName":"先锋芯片组","itemValue":42.84,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40068,"itemId":"3282","itemName":"特种芯片组","itemValue":35.685,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40069,"itemId":"3222","itemName":"近卫芯片组","itemValue":49.9925,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40070,"itemId":"3232","itemName":"重装芯片组","itemValue":49.9925,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40071,"itemId":"3242","itemName":"狙击芯片组","itemValue":42.84,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40072,"itemId":"3252","itemName":"术师芯片组","itemValue":42.84,"type":"blue","cardNum":"7","version":"auto0.625"},{"id":40073,"itemId":"4003","itemName":"合成玉","itemValue":0.9375,"type":"orange","cardNum":"8","version":"auto0.625"},{"id":40074,"itemId":"7001","itemName":"招聘许可","itemValue":30.085,"type":"purple","cardNum":"8","version":"auto0.625"},{"id":40075,"itemId":"4006","itemName":"采购凭证","itemValue":1.7,"type":"blue","cardNum":"8","version":"auto0.625"},{"id":40076,"itemId":"7003","itemName":"寻访凭证","itemValue":562.5,"type":"orange","cardNum":"8","version":"auto0.625"},{"id":40077,"itemId":"32001","itemName":"芯片助剂","itemValue":152.99,"type":"purple","cardNum":"8","version":"auto0.625"},{"id":40078,"itemId":"3003","itemName":"赤金","itemValue":1.25,"type":"purple","cardNum":"8","version":"auto0.625"},{"id":40079,"itemId":"4002","itemName":"至纯源石","itemValue":1.25,"type":"purple","cardNum":"8","version":"auto0.625"},{"id":40080,"itemId":"STORY_REVIEW_COIN","itemName":"事相碎片","itemValue":34.0,"type":"orange","cardNum":"8","version":"auto0.625"},{"id":40081,"itemId":"mod_unlock_token","itemName":"模组数据块","itemValue":204.0,"type":"orange","cardNum":"8","version":"auto0.625"},{"id":40082,"itemId":"base_ap","itemName":"无人机","itemValue":0.0469,"type":"purple","cardNum":"8","version":"auto0.625"},{"id":40083,"itemId":"charm_coin_1","itemName":"黄金筹码","itemValue":9.0,"type":"grey","cardNum":"16","version":"auto0.625"},{"id":40084,"itemId":"charm_coin_2","itemName":"错版硬币","itemValue":12.0,"type":"blue","cardNum":"16","version":"auto0.625"},{"id":40085,"itemId":"charm_coin_3","itemName":"双日城大乐透","itemValue":18.0,"type":"purple","cardNum":"16","version":"auto0.625"},{"id":40086,"itemId":"charm_coin_4","itemName":"翡翠庭院至臻","itemValue":100.0,"type":"orange","cardNum":"16","version":"auto0.625"},{"id":40087,"itemId":"charm_r1","itemName":"标志物 - 20代金券","itemValue":15.0,"type":"grey","cardNum":"16","version":"auto0.625"},{"id":40088,"itemId":"charm_r2","itemName":"标志物 - 40代金券","itemValue":30.0,"type":"blue","cardNum":"16","version":"auto0.625"},{"id":40089,"itemId":"trap_oxygen_3","itemName":"沙兹专业镀膜装置","itemValue":45.0,"type":"orange","cardNum":"16","version":"auto0.625"},{"id":40090,"itemId":"ap_supply_lt_010","itemName":"应急理智小样","itemValue":0.0,"type":"purple","cardNum":"16","version":"auto0.625"},{"id":40091,"itemId":"randomMaterial_7","itemName":"罗德岛物资补给Ⅳ","itemValue":14.0,"type":"green","cardNum":"16","version":"auto0.625"}]}
+{
+    "code": 200,
+    "msg": "操作成功",
+    "data": [
+        {
+            "id": 40000,
+            "itemId": "30135",
+            "itemName": "D32钢",
+            "itemValue": 330.4252,
+            "type": "orange",
+            "cardNum": "1",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40001,
+            "itemId": "30125",
+            "itemName": "双极纳米片",
+            "itemValue": 296.4856,
+            "type": "orange",
+            "cardNum": "1",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40002,
+            "itemId": "30115",
+            "itemName": "聚合剂",
+            "itemValue": 320.3629,
+            "type": "orange",
+            "cardNum": "1",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40003,
+            "itemId": "30145",
+            "itemName": "晶体电子单元",
+            "itemValue": 403.006,
+            "type": "orange",
+            "cardNum": "1",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40004,
+            "itemId": "30155",
+            "itemName": "烧结核凝晶",
+            "itemValue": 391.4106,
+            "type": "orange",
+            "cardNum": "1",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40005,
+            "itemId": "30064",
+            "itemName": "改量装置",
+            "itemValue": 121.8613,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40006,
+            "itemId": "30044",
+            "itemName": "异铁块",
+            "itemValue": 136.4076,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40007,
+            "itemId": "30084",
+            "itemName": "三水锰矿",
+            "itemValue": 122.1707,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40008,
+            "itemId": "31014",
+            "itemName": "聚合凝胶",
+            "itemValue": 98.4471,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40009,
+            "itemId": "30074",
+            "itemName": "白马醇",
+            "itemValue": 98.1217,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40010,
+            "itemId": "30054",
+            "itemName": "酮阵列",
+            "itemValue": 125.4253,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40011,
+            "itemId": "30104",
+            "itemName": "RMA70-24",
+            "itemValue": 116.7554,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40012,
+            "itemId": "31024",
+            "itemName": "炽合金块",
+            "itemValue": 110.7304,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40013,
+            "itemId": "30094",
+            "itemName": "五水研磨石",
+            "itemValue": 113.1182,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40014,
+            "itemId": "30024",
+            "itemName": "糖聚块",
+            "itemValue": 119.6803,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40015,
+            "itemId": "30034",
+            "itemName": "聚酸酯块",
+            "itemValue": 113.5111,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40016,
+            "itemId": "31034",
+            "itemName": "晶体电路",
+            "itemValue": 117.0005,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40017,
+            "itemId": "30014",
+            "itemName": "提纯源岩",
+            "itemValue": 80.1491,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40018,
+            "itemId": "31044",
+            "itemName": "精炼溶剂",
+            "itemValue": 107.7162,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40019,
+            "itemId": "31054",
+            "itemName": "切削原液",
+            "itemValue": 97.2826,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40020,
+            "itemId": "31064",
+            "itemName": "转质盐聚块",
+            "itemValue": 100.3146,
+            "type": "purple",
+            "cardNum": "2",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40021,
+            "itemId": "30063",
+            "itemName": "全新装置",
+            "itemValue": 46.2479,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40022,
+            "itemId": "30043",
+            "itemName": "异铁组",
+            "itemValue": 34.1249,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40023,
+            "itemId": "30083",
+            "itemName": "轻锰矿",
+            "itemValue": 35.0565,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40024,
+            "itemId": "31013",
+            "itemName": "凝胶",
+            "itemValue": 38.1721,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40025,
+            "itemId": "30073",
+            "itemName": "扭转醇",
+            "itemValue": 30.1479,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40026,
+            "itemId": "30053",
+            "itemName": "酮凝集组",
+            "itemValue": 33.9564,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40027,
+            "itemId": "30103",
+            "itemName": "RMA70-12",
+            "itemValue": 45.5179,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40028,
+            "itemId": "31023",
+            "itemName": "炽合金",
+            "itemValue": 31.7371,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40029,
+            "itemId": "30093",
+            "itemName": "研磨石",
+            "itemValue": 38.3324,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40030,
+            "itemId": "30023",
+            "itemName": "糖组",
+            "itemValue": 28.0429,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40031,
+            "itemId": "30033",
+            "itemName": "聚酸酯组",
+            "itemValue": 27.4969,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40032,
+            "itemId": "31033",
+            "itemName": "晶体元件",
+            "itemValue": 26.3392,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40033,
+            "itemId": "30013",
+            "itemName": "固源岩组",
+            "itemValue": 21.434,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40034,
+            "itemId": "31043",
+            "itemName": "半自然溶剂",
+            "itemValue": 36.7728,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40035,
+            "itemId": "31053",
+            "itemName": "化合切削液",
+            "itemValue": 38.3584,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40036,
+            "itemId": "31063",
+            "itemName": "转质盐组",
+            "itemValue": 41.0859,
+            "type": "blue",
+            "cardNum": "3",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40037,
+            "itemId": "30012",
+            "itemName": "固源岩",
+            "itemValue": 4.4145,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40038,
+            "itemId": "30022",
+            "itemName": "糖",
+            "itemValue": 7.1704,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40039,
+            "itemId": "30032",
+            "itemName": "聚酸酯",
+            "itemValue": 7.0339,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40040,
+            "itemId": "30042",
+            "itemName": "异铁",
+            "itemValue": 8.6909,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40041,
+            "itemId": "30052",
+            "itemName": "酮凝集",
+            "itemValue": 8.6487,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40042,
+            "itemId": "30062",
+            "itemName": "装置",
+            "itemValue": 11.7216,
+            "type": "green",
+            "cardNum": "4",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40043,
+            "itemId": "30011",
+            "itemName": "源岩",
+            "itemValue": 1.4926,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40044,
+            "itemId": "30021",
+            "itemName": "代糖",
+            "itemValue": 2.4112,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40045,
+            "itemId": "30031",
+            "itemName": "酯原料",
+            "itemValue": 2.3657,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40046,
+            "itemId": "30041",
+            "itemName": "异铁碎片",
+            "itemValue": 2.918,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40047,
+            "itemId": "30051",
+            "itemName": "双酮",
+            "itemValue": 2.904,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40048,
+            "itemId": "30061",
+            "itemName": "破损装置",
+            "itemValue": 3.9283,
+            "type": "grey",
+            "cardNum": "5",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40049,
+            "itemId": "3301",
+            "itemName": "技巧概要·卷1",
+            "itemValue": 2.111,
+            "type": "purple",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40050,
+            "itemId": "3302",
+            "itemName": "技巧概要·卷2",
+            "itemValue": 5.278,
+            "type": "blue",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40051,
+            "itemId": "3303",
+            "itemName": "技巧概要·卷3",
+            "itemValue": 13.196,
+            "type": "green",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40052,
+            "itemId": "2004",
+            "itemName": "高级作战记录",
+            "itemValue": 5.625,
+            "type": "orange",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40053,
+            "itemId": "2003",
+            "itemName": "中级作战记录",
+            "itemValue": 2.8125,
+            "type": "purple",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40054,
+            "itemId": "2002",
+            "itemName": "初级作战记录",
+            "itemValue": 1.125,
+            "type": "blue",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40055,
+            "itemId": "2001",
+            "itemName": "基础作战记录",
+            "itemValue": 0.5625,
+            "type": "green",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40056,
+            "itemId": "4001",
+            "itemName": "龙门币",
+            "itemValue": 0.0045,
+            "type": "purple",
+            "cardNum": "6",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40057,
+            "itemId": "3261",
+            "itemName": "医疗芯片",
+            "itemValue": 17.8425,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40058,
+            "itemId": "3271",
+            "itemName": "辅助芯片",
+            "itemValue": 21.42,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40059,
+            "itemId": "3211",
+            "itemName": "先锋芯片",
+            "itemValue": 21.42,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40060,
+            "itemId": "3281",
+            "itemName": "特种芯片",
+            "itemValue": 17.8425,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40061,
+            "itemId": "3221",
+            "itemName": "近卫芯片",
+            "itemValue": 24.9962,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40062,
+            "itemId": "3231",
+            "itemName": "重装芯片",
+            "itemValue": 24.9962,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40063,
+            "itemId": "3241",
+            "itemName": "狙击芯片",
+            "itemValue": 21.42,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40064,
+            "itemId": "3251",
+            "itemName": "术师芯片",
+            "itemValue": 21.42,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40065,
+            "itemId": "3262",
+            "itemName": "医疗芯片组",
+            "itemValue": 35.685,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40066,
+            "itemId": "3272",
+            "itemName": "辅助芯片组",
+            "itemValue": 42.84,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40067,
+            "itemId": "3212",
+            "itemName": "先锋芯片组",
+            "itemValue": 42.84,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40068,
+            "itemId": "3282",
+            "itemName": "特种芯片组",
+            "itemValue": 35.685,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40069,
+            "itemId": "3222",
+            "itemName": "近卫芯片组",
+            "itemValue": 49.9925,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40070,
+            "itemId": "3232",
+            "itemName": "重装芯片组",
+            "itemValue": 49.9925,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40071,
+            "itemId": "3242",
+            "itemName": "狙击芯片组",
+            "itemValue": 42.84,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40072,
+            "itemId": "3252",
+            "itemName": "术师芯片组",
+            "itemValue": 42.84,
+            "type": "blue",
+            "cardNum": "7",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40073,
+            "itemId": "4003",
+            "itemName": "合成玉",
+            "itemValue": 0.9375,
+            "type": "orange",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40074,
+            "itemId": "7001",
+            "itemName": "招聘许可",
+            "itemValue": 30.085,
+            "type": "purple",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40075,
+            "itemId": "4006",
+            "itemName": "采购凭证",
+            "itemValue": 1.7,
+            "type": "blue",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40076,
+            "itemId": "7003",
+            "itemName": "寻访凭证",
+            "itemValue": 562.5,
+            "type": "orange",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40077,
+            "itemId": "32001",
+            "itemName": "芯片助剂",
+            "itemValue": 152.99,
+            "type": "purple",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40078,
+            "itemId": "3003",
+            "itemName": "赤金",
+            "itemValue": 1.25,
+            "type": "purple",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40079,
+            "itemId": "4002",
+            "itemName": "至纯源石",
+            "itemValue": 1.25,
+            "type": "purple",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40080,
+            "itemId": "STORY_REVIEW_COIN",
+            "itemName": "事相碎片",
+            "itemValue": 34.0,
+            "type": "orange",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40081,
+            "itemId": "mod_unlock_token",
+            "itemName": "模组数据块",
+            "itemValue": 204.0,
+            "type": "orange",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40082,
+            "itemId": "base_ap",
+            "itemName": "无人机",
+            "itemValue": 0.0469,
+            "type": "purple",
+            "cardNum": "8",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40083,
+            "itemId": "charm_coin_1",
+            "itemName": "黄金筹码",
+            "itemValue": 9.0,
+            "type": "grey",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40084,
+            "itemId": "charm_coin_2",
+            "itemName": "错版硬币",
+            "itemValue": 12.0,
+            "type": "blue",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40085,
+            "itemId": "charm_coin_3",
+            "itemName": "双日城大乐透",
+            "itemValue": 18.0,
+            "type": "purple",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40086,
+            "itemId": "charm_coin_4",
+            "itemName": "翡翠庭院至臻",
+            "itemValue": 100.0,
+            "type": "orange",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40087,
+            "itemId": "charm_r1",
+            "itemName": "标志物 - 20代金券",
+            "itemValue": 15.0,
+            "type": "grey",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40088,
+            "itemId": "charm_r2",
+            "itemName": "标志物 - 40代金券",
+            "itemValue": 30.0,
+            "type": "blue",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40089,
+            "itemId": "trap_oxygen_3",
+            "itemName": "沙兹专业镀膜装置",
+            "itemValue": 45.0,
+            "type": "orange",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40090,
+            "itemId": "ap_supply_lt_010",
+            "itemName": "应急理智小样",
+            "itemValue": 0.0,
+            "type": "purple",
+            "cardNum": "16",
+            "version": "auto0.625"
+        },
+        {
+            "id": 40091,
+            "itemId": "randomMaterial_7",
+            "itemName": "罗德岛物资补给Ⅳ",
+            "itemValue": 14.0,
+            "type": "green",
+            "cardNum": "16",
+            "version": "auto0.625"
+        }
+    ]
+}

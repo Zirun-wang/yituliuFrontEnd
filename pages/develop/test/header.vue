@@ -16,7 +16,9 @@
   export default {
     layout: "poster",
     data() {
-      return {};
+      return {
+
+      };
     },
     created() {
     },
