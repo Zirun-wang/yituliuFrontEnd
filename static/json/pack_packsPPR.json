@@ -155,7 +155,6 @@
     "packName": "月卡",
     "gachaOrundum": 6000
   },
-  
   {
     "packContent": [
       {
@@ -340,7 +339,7 @@
     "packDraw": 0.8999999999999999,
     "packPPRDraw": 1.7513513513513512,
     "packPPROriginium": 1.75,
-    "packImg": "双倍源石6元",
+    "packImg": "6",
     "packPrice": 6,
     "packID": 11,
     "packRmbPerOriginium": 2.0,
