@@ -3,7 +3,7 @@
     <stage></stage>
     <storeVue> </storeVue>
     <div class="title_null"></div>
-    <!-- <pack> </pack> -->
+    <pack> </pack>
     <div class="title_null"></div>
     <itemVue> </itemVue>
     <div class="title_null"></div>
@@ -16,7 +16,7 @@
 <script>
 import stage from "@/pages/module/stage.vue";
 import storeVue from "@/pages/module/store.vue";
-// import pack from "@/pages/module/pack.vue";
+import pack from "@/pages/module/pack.vue";
 import itemVue from "@/pages/module/itemValue.vue";
 import foot from "@/pages/module/foot.vue";
 
@@ -32,7 +32,7 @@ export default {
   components: {
     foot,
     itemVue,
-    // pack,
+    pack,
     storeVue,
     stage,
   },
