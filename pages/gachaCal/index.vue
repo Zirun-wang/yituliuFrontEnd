@@ -930,11 +930,19 @@
       // this.updateVisits();
       this.compute();
       this.pieChart(this.pieData);
-
+      this.openNotification();
     },
     methods: {
       updateVisits() {
         toolApi.updateVisits("gacha").then((response) => {});
+      },
+      openNotification() {
+        this.$notify({
+          title: '炸服公告',
+          dangerouslyUseHTMLString: true,
+          message: '<strong> 因服务器带宽问题，8号直播当晚可能会出现人数过多导致的无法访问页面的问题，请多谅解 </strong>',
+          duration: 12000
+        });
       },
 
       getSpriteImg(packName, index) {

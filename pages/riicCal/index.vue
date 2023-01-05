@@ -1770,9 +1770,6 @@
         this.$notify({
           title: '2022-11-26更新',
           dangerouslyUseHTMLString: true,
-          // message: '<strong> 新增内容：<br>新增3.5周年干员<br>新增深海猎人组合<br>'+
-          // 'Bug修复：<br>修复了部分旧排班表导入后无法重新导出的问题<br>修复了无法导出的问题（导出前请先点击生成排班）<br>'+
-          // '注意事项<br>换班起止时间不要填写中文冒号（：）需填写英文冒号（:）</strong>',
           message: '<strong> Bug修复：<br>修复了不指定换班时间生成时可能为空字串的问题 </strong>',
           duration: 12000
         });
