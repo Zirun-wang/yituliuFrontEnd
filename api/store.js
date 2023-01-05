@@ -28,7 +28,15 @@ export default {
         url: `${api_name}/find/store/act`,
         method: 'get',            
     })
-},
+    },
+
+     //商店礼包性价比
+   findPackStore() {
+    return request({
+        url: `${api_name}/find/store/pack`,
+        method: 'get',            
+    })
+    },
 
 
 }

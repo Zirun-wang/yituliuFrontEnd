@@ -158,6 +158,7 @@ export default {
         this.opETextTheme = theme;
     },
 
+
     getWidth(num , scale) {
         return "width:" + num*scale +"px";
     },
@@ -170,7 +171,7 @@ export default {
     },
     getPackPic(img, type) {
         if (type === 'limited'){
-            if (img === '观光组合包')
+            if (img === '新年组合包')
                 return "background:url(https://ak.hycdn.cn/announce/images/20221217/6a2c2adc22e01c531bbd8ce6d68bfe64.jpg) 70% 20%  / 200% no-repeat,#444444";
             if (img === '大帝的手提箱')
                 return "background:url(https://ak.hycdn.cn/announce/images/20221021/c3f8da22f177a05be666d7b5688beda7.JPG) 40% 20%  / 500% no-repeat,#444444";
