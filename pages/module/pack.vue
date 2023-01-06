@@ -191,19 +191,18 @@ export default {
     this.initData();
   },
   methods: {
-    getCookies() {
-      var theme = cookie.get("theme");
-      if (typeof theme === "undefined" || theme === undefined) {
+   getCookies() {
+      let theme = cookie.get("theme");
+      if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
-        console.log("未知")
       }
-      console.log('pack', theme);
-      this.opETextTheme = theme;
+     console.log('pack',theme);
+      this.opETextTheme = "op_title_etext_" + theme;
     },
 
     initData(){
       for (let i = 0; i < this.packsPPRJson.length; i += 1) {
-        console.log(this.packsPPRJson[i].packName,this.packsPPRData.length)
+       
         this.packsPPRData.push(this.packsPPRJson[i]);
         this.packsPPRDataSort.push(this.packsPPRJson[i]);
       }
@@ -213,7 +212,7 @@ export default {
       this.packsPPRData = [];
       this.packsPPRJson.push(packsPPR[0]);
       for (let i = 0; i < this.packsPPRJson.length; i += 1) {
-        console.log(this.packsPPRJson[i].packName,this.packsPPRData.length)
+       
         this.packsPPRData.push(this.packsPPRJson[i])
       }
     },

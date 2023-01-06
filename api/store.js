@@ -20,22 +20,22 @@ export default {
         })
 
     },
-   
- 
-   //查询活动商店性价比
-   findActStore() {
-    return request({
-        url: `${api_name}/find/store/act`,
-        method: 'get',            
-    })
+
+
+    //查询活动商店性价比
+    findActStore() {
+        return request({
+            url: `${api_name}/find/store/act`,
+            method: 'get',
+        })
     },
 
-     //商店礼包性价比
-   findPackStore() {
-    return request({
-        url: `${api_name}/find/store/pack`,
-        method: 'get',            
-    })
+    //商店礼包性价比
+    findPackStore() {
+        return request({
+            url: `${api_name}/find/store/pack`,
+            method: 'get',
+        })
     },
 
 

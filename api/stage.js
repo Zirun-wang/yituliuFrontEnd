@@ -49,14 +49,7 @@ export default {
         })
     },
 
-    //查询所有关卡的各项信息
-    findAllStageInfo() {
-        return request({
-            url: `${api_name}/find/stage/info`,
-            method: 'get',
-            
-        })
-    },
+   
 
  
 

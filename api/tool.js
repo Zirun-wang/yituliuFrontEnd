@@ -15,7 +15,7 @@ export default {
         })
     },
 
-    // 更新访问量
+   
     updateVisits(domain) {
         return request({
             url: `${api_name}/visits/${domain}`,
@@ -30,7 +30,15 @@ export default {
             method: 'get',
         })
     },
-
+    
+    createStorePackJson(data) {
+        return request({
+            url: `/file/create/pack/json`,
+            method: 'post',
+            data:data
+        })
+    },
+    
    
     
 }

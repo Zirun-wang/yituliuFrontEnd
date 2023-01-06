@@ -1,7 +1,7 @@
 <template>
   <div>
-     <el-button @click="creatdJson">生成json</el-button>
-    <el-button ><a href="https://backend.yituliu.site/file/export/store/pack/json?uid=1111">下载json</a> </el-button>
+    <el-button @click="creatdJson">生成json</el-button>
+   
     <table border="0" class="pack-table">
       <tbody>
       <tr class="title—tr">
@@ -24,7 +24,7 @@
         <td class="long-short">十连</td>
         <td>礼包内容</td>
       </tr>
-      <tr v-for="index in packTestJsonLength" :key="index" class="title—tr">
+      <tr v-for="index in packPPRDataLength" :key="index" class="title—tr">
         <td><input type="text" class="input_long" v-model="packName[index-1]"/></td>
         <td><input type="text" class="input_long" v-model="packShowName[index-1]"/></td>
         <td><input type="text" class="input_long" v-model="packImg[index-1]"/></td>
@@ -42,7 +42,7 @@
         <td><input type="text" class="input_short" v-model.number="gachaOriginium[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit10[index-1]"/></td>
-        <td >
+        <td>
           <div class="div-Content">
             <div v-for="count in 15" :key="count" class="div-item">
               <input type="text" class="input_long" v-model="packContent_item[index-1][count-1]"/>
@@ -50,263 +50,275 @@
             </div>
           </div>
         </td>
-       
+
       </tr>
-      
+
 
       </tbody>
     </table>
 
-   
+
   </div>
 </template>
 
 <script>
-  import buildingApi from "@/api/building";
-  import packTestJson from "static/RecycleBin/packTest.json";
+import toolApi from "@/api/tool";
+import packTestJson from "static/RecycleBin/packTest.json";
+import storeApi from "@/api/store";
 
+export default {
+  layout: "poster",
+  data() {
+    return {
+      packPPRDataLength: 20,
+      packPPRData:[],
+      packName: [],
+      packShowName: [],
+      packImg: [],
+      packType: [],
+      packID: [],
+      packState: [],
+      packPrice: [],
+      packDraw: [],
+      packOriginium: [],
+      packRmbPerDraw: [],
+      packRmbPerOriginium: [],
+      packPPRDraw: [],
+      packPPROriginium: [],
+      packRemark: [],
+      gachaOrundum: [],
+      gachaOriginium: [],
+      gachaPermit: [],
+      gachaPermit10: [],
+      packContent_item: [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+      ],
+      packContent_count: [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+      ],
+      packJson: {}
+    };
+  },
+  created() {
+    this.getStorePackData();
+  },
+  methods: {
+    getNumber(num, acc) {
+      acc = (typeof acc !== 'undefined') ? acc : 2;
+      return parseFloat(num).toFixed(acc);
+    },
 
-  export default {
-    layout: "poster",
-    data() {
-      return {
-        packTestJsonLength:20,
-        packName: [],
-        packShowName: [],
-        packImg: [],
-        packType: [],
-        packID: [],
-        packState: [],
-        packPrice: [],
-        packDraw: [],
-        packOriginium: [],
-        packRmbPerDraw: [],
-        packRmbPerOriginium: [],
-        packPPRDraw: [],
-        packPPROriginium: [],
-        packRemark: [],
-        gachaOrundum: [],
-        gachaOriginium: [],
-        gachaPermit: [],
-        gachaPermit10: [],
-        packContent_item: [
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-        ],
-        packContent_count: [
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-          [],
-        ],
-        packJson: {}
-      };
-    },
-    created() {
-      this.getJson();
-    },
-    methods: {
-      getNumber(num, acc){
-        acc = (typeof acc !== 'undefined') ?  acc : 2;
-        return parseFloat(num).toFixed(acc);
-      },
-       sleep(d) {
+    sleep(d) {
       return new Promise((resolve) => setTimeout(resolve, d));
-       },
-      async creatdJson() {
-        this.setJson();
-        await this.sleep(1500);
-        buildingApi.maaBuildingJsonCreated(this.packJson, 1111).then((response) => {
-                this.$message({
-            message: response.data.message + "生成id为：" + response.data.uid,
-            type: "success",
-            showClose: true,
-            duration: 4000,
-          });
-        });
-      },
-      setJson() {
-        let list = [];
-        for (let i = 0; i < this.packName.length; i++) {
-          // if("礼包"== packName[i]) break;
-          let map = {};
-          map.packName = this.packName[i];
-          map.packShowName = this.packShowName[i];
-          map.packImg = this.packImg[i];
-          map.packType = this.packType[i];
-          map.packID = parseInt(this.packID[i]);
-          map.packState = parseInt(this.packState[i]);
-          map.packPrice = parseInt(this.packPrice[i]);
-          map.packDraw = this.packDraw[i];
-          map.packOriginium = this.packOriginium[i];
-          map.packRmbPerDraw = this.packRmbPerDraw[i];
-          map.packRmbPerOriginium = this.packRmbPerOriginium[i];
-          map.packPPRDraw = this.packPPRDraw[i];
-          map.packPPROriginium = this.packPPROriginium[i];
-          map.packRemark = this.packRemark[i];
-          map.gachaOrundum = parseInt(this.gachaOrundum[i]);
-          map.gachaOriginium = parseInt(this.gachaOriginium[i]);
-          map.gachaPermit = parseInt(this.gachaPermit[i]);
-          map.gachaPermit10 = parseInt(this.gachaPermit10[i]);
-           
-        
-          let content = [];
-          for (let j = 0; j < this.packContent_item[i].length; j++) {
-            var content_item = {}
-            content_item.packContentItem = this.packContent_item[i][j];
-            content_item.packContentQuantity = this.packContent_count[i][j];
-            content.push(content_item);
-          }
-           
-           console.log("礼包",i,this.packContent_item[i][0]!=undefined);
-            console.log("礼包",i,this.packContent_item[i][0]!="");
-
-          if(this.packContent_item[i][0]!=undefined&&this.packContent_item[i][0]!=""){
-              map.packContent = content;
-          }
-          
-          
-
-          list.push(map);
-        }
-        this.packJson = list;
-        console.log(list);
-      },
-
-
-      getJson() {
-         this.packTestJsonLength = packTestJson.length+7;
-         console.log("当前长度：",this.packTestJsonLength)
-        for (let i = 0; i < packTestJson.length; i++) {
-          // if("礼包"== packName[i]) break;
-          this.packName[i] = packTestJson[i].packName;
-          this.packShowName[i] = packTestJson[i].packShowName;
-          this.packImg[i] = packTestJson[i].packImg;
-          this.packType[i] = packTestJson[i].packType;
-          this.packID[i] = packTestJson[i].packID;
-          this.packState[i] = packTestJson[i].packState;
-          this.packPrice[i] = packTestJson[i].packPrice;
-          this.packDraw[i] = packTestJson[i].packDraw;
-          this.packOriginium[i] = packTestJson[i].packOriginium;
-          this.packRmbPerDraw[i] = packTestJson[i].packRmbPerDraw;
-          this.packRmbPerOriginium[i] = packTestJson[i].packRmbPerOriginium;
-          this.packPPRDraw[i] = packTestJson[i].packPPRDraw;
-          this.packPPROriginium[i] = packTestJson[i].packPPROriginium;
-          this.packRemark[i] = packTestJson[i].packRemark;
-          this.gachaOrundum[i] = packTestJson[i].gachaOrundum;
-          this.gachaOriginium[i] = packTestJson[i].gachaOriginium;
-          this.gachaPermit[i] = packTestJson[i].gachaPermit;
-          this.gachaPermit10[i] = packTestJson[i].gachaPermit10;
-          console.log(packTestJson[i].packContent == undefined)
-          if (packTestJson[i].packContent != undefined) {
-            let content = packTestJson[i].packContent;
-            for (let j = 0; j < content.length; j++) {
-              this.packContent_item[i][j] = content[j].packContentItem;
-              this.packContent_count[i][j] = content[j].packContentQuantity;
-            }
-          }
-
-        }
-
-
-      },
     },
-  };
+
+    getStorePackData() {
+      storeApi.findPackStore().then((response) => {
+           this.packPPRData = response.data;
+          //  console.log(this.packPPRData.length);
+           this.readJson();
+      });
+    },
+
+    async creatdJson() {
+      this.setJson();
+      await this.sleep(1500);
+      toolApi.createStorePackJson(this.packJson).then((response) => {
+        this.$message({
+          message: '创建成功',
+          type: "success",
+          showClose: true,
+          duration: 4000,
+        });
+      });
+    },
+
+    setJson() {
+      let list = [];
+      for (let i = 0; i < this.packName.length; i++) {
+        // if("礼包"== packName[i]) break;
+        let map = {};
+        map.packName = this.packName[i];
+        map.packShowName = this.packShowName[i];
+        map.packImg = this.packImg[i];
+        map.packType = this.packType[i];
+        map.packID = parseInt(this.packID[i]);
+        map.packState = parseInt(this.packState[i]);
+        map.packPrice = parseInt(this.packPrice[i]);
+        map.packDraw = this.packDraw[i];
+        map.packOriginium = this.packOriginium[i];
+        map.packRmbPerDraw = this.packRmbPerDraw[i];
+        map.packRmbPerOriginium = this.packRmbPerOriginium[i];
+        map.packPPRDraw = this.packPPRDraw[i];
+        map.packPPROriginium = this.packPPROriginium[i];
+        map.packRemark = this.packRemark[i];
+        map.gachaOrundum = parseInt(this.gachaOrundum[i]);
+        map.gachaOriginium = parseInt(this.gachaOriginium[i]);
+        map.gachaPermit = parseInt(this.gachaPermit[i]);
+        map.gachaPermit10 = parseInt(this.gachaPermit10[i]);
+
+
+        let content = [];
+        for (let j = 0; j < this.packContent_item[i].length; j++) {
+          var content_item = {}
+          content_item.packContentItem = this.packContent_item[i][j];
+          content_item.packContentQuantity = this.packContent_count[i][j];
+          content.push(content_item);
+        }
+
+        console.log("礼包", i, this.packContent_item[i][0] != undefined);
+        console.log("礼包", i, this.packContent_item[i][0] != "");
+
+        if (this.packContent_item[i][0] != undefined && this.packContent_item[i][0] != "") {
+          map.packContent = content;
+        }
+
+
+        list.push(map);
+      }
+      this.packJson = list;
+      console.log(list);
+    },
+
+
+    readJson() {
+      this.packPPRDataLength = this.packPPRData.length + 7;
+      console.log("当前长度：", this.packPPRDataLength)
+      for (let i = 0; i < this.packPPRData.length; i++) {
+        // if("礼包"== packName[i]) break;
+        this.packName[i] = this.packPPRData[i].packName;
+        this.packShowName[i] = this.packPPRData[i].packShowName;
+        this.packImg[i] = this.packPPRData[i].packImg;
+        this.packType[i] = this.packPPRData[i].packType;
+        this.packID[i] = this.packPPRData[i].packID;
+        this.packState[i] = this.packPPRData[i].packState;
+        this.packPrice[i] = this.packPPRData[i].packPrice;
+        this.packDraw[i] = this.packPPRData[i].packDraw;
+        this.packOriginium[i] = this.packPPRData[i].packOriginium;
+        this.packRmbPerDraw[i] = this.packPPRData[i].packRmbPerDraw;
+        this.packRmbPerOriginium[i] = this.packPPRData[i].packRmbPerOriginium;
+        this.packPPRDraw[i] = this.packPPRData[i].packPPRDraw;
+        this.packPPROriginium[i] = this.packPPRData[i].packPPROriginium;
+        this.packRemark[i] = this.packPPRData[i].packRemark;
+        this.gachaOrundum[i] = this.packPPRData[i].gachaOrundum;
+        this.gachaOriginium[i] = this.packPPRData[i].gachaOriginium;
+        this.gachaPermit[i] = this.packPPRData[i].gachaPermit;
+        this.gachaPermit10[i] = this.packPPRData[i].gachaPermit10;
+        console.log(this.packPPRData[i].packContent == undefined)
+        if (this.packPPRData[i].packContent != undefined) {
+          let content = this.packPPRData[i].packContent;
+          for (let j = 0; j < content.length; j++) {
+            this.packContent_item[i][j] = content[j].packContentItem;
+            this.packContent_count[i][j] = content[j].packContentQuantity;
+          }
+        }
+
+      }
+
+
+    },
+  },
+};
 </script>
 
 
 <style scoped>
 
 
-  .pack-table {
-    /* border-collapse: collapse; */
-    border-spacing:0 20px;
-  }
+.pack-table {
+  /* border-collapse: collapse; */
+  border-spacing: 0 20px;
+}
 
-  .title—tr td{
-    /* border: solid rgb(0, 0, 0) 1px; */
-    text-align: center;
-  }
+.title—tr td {
+  /* border: solid rgb(0, 0, 0) 1px; */
+  text-align: center;
+}
 
-  .short-td {
-    width: 50px;
-  }
-  .input_short {
-    width: 50px;
-  }
+.short-td {
+  width: 50px;
+}
 
-  .long-td {
-    width: 110px;
-  }
+.input_short {
+  width: 50px;
+}
 
-  .input_long {
-    width: 110px;
-  }
+.long-td {
+  width: 110px;
+}
 
-  .div-Content {
-    height: 80px;
-    overflow: auto;
-    scrollbar-width: none; 
-    /* firefox */
-    -ms-overflow-style: none; 
-    /* IE 10+ */
-  }
+.input_long {
+  width: 110px;
+}
 
-  .div-item {
-    display: flex;
-  }
+.div-Content {
+  height: 80px;
+  overflow: auto;
+  scrollbar-width: none;
+  /* firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.div-item {
+  display: flex;
+}
 </style>

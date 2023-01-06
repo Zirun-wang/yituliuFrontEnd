@@ -298,7 +298,6 @@ export default {
   },
 
   mounted() {
-
   },
   methods: {
     getCookies() {

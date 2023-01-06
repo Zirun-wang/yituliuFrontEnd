@@ -26,7 +26,7 @@ import toolApi from "@/api/tool";
 export default {
   data() {
     return {
-      pageTheme: "light",
+      pageTheme: "op_title_etext_light",
     };
   },
   components: {
