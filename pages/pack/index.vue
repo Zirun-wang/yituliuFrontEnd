@@ -14,10 +14,13 @@
       </div>
       <div class="op_title_tag">
         <div id="pack_switch_to_type" class="op_tag_0" @click="sortPackByType()">
-          按礼包类型
+          礼包类型排序
         </div>
         <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPR()">
-          按性价比
+          性价比排序(仅抽卡)
+        </div>
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPrice()">
+          性价比排序(总价值)
         </div>
         <div class="tab_text">
           *点击图片查看礼包内容
@@ -26,17 +29,18 @@
 
       <!-- 标题区域end -->
 
-      <!-- 仅计抽卡 -->
+
       <div id="pack_content" style="display:flex;">
+        <!-- 仅计抽卡 -->
         <div id="pack_left">
           <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list">
             <div v-show="pack2.packState == 1" class="pack_unit">
               <!-- 图片部分 -->
-              <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)"
-                   @click="switchPackContent(pack2.packID, 'draw')">
+              <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)" @click="switchPackContent(pack2.packID, 'draw')">
                 <div class="pack_img_text1">
                   {{ pack2.packShowName }} ￥{{ pack2.packPrice }}
                 </div>
+
                 <!-- 角标部分 -->
                 <div class="pack_corner corner_new" v-show="pack2.packType == 'limited' ">
                   New!
@@ -95,23 +99,58 @@
 
               <!-- 详情部分 -->
               <div class="pack_contents" :id="getContentId(pack2.packID, 'draw')" style="display:none;">
+                <div class="pack_content_unit0" style="width:112px;">
+                  <div style="width:56px;">源石</div>
+                  <div style="width:56px;">x{{ pack2.gachaOriginium }}</div>
+                </div>
+                <div class="pack_content_unit0" style="width:120px;">
+                  <div style="width:60px;">合成玉</div>
+                  <div style="width:60px;">x{{ pack2.gachaOrundum }}</div>
+                </div>
+                <div class="pack_content_unit0">
+                  <div style="width:56px;">单抽</div>
+                  <div style="width:60px;">x{{ pack2.gachaPermit }}</div>
+                </div>
+                <div class="pack_content_unit0">
+                  <div style="width:56px;">十连</div>
+                  <div style="width:60px;">x{{ pack2.gachaPermit10 }}</div>
+                </div>
                 <div v-for="(packItem, index) in pack2.packContent" :key="index" class="pack_content_unit">
                   <div style="width:135px;">{{ packItem.packContentItem }}</div>
                   <div style="width:90px;">x{{ packItem.packContentQuantity }}</div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
 
         <!-- 材料折合源石 -->
         <div id="pack_right">
-          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit">
-            <div class="pack_img" :style="getPackPic(pack3.packName, pack3.packType)">
-              <!-- <div class="pack_img" >  -->
-              <div class="pack_img_text1">{{ pack3.packShowName }} ￥{{ pack3.packPrice }}</div>
-            </div>
+          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list">
+            <div v-show="pack3.packState == 1" class="pack_unit">
+              <!-- 图片部分 -->
+              <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)" @click="switchPackContent(pack3.packID, 'all')">
+                <div class="pack_img_text1">{{ pack3.packShowName }} ￥{{ pack3.packPrice }}</div>
+                <!-- 角标部分 -->
+                <div class="pack_corner corner_new" v-show="pack3.packType == 'limited' ">
+                  New!
+                </div>
+                <div class="pack_corner corner_monthly" v-show="pack3.packType == 'monthly' ">
+                  每月
+                </div>
+                <div class="pack_corner corner_monthly" v-show="pack3.packType == 'weekly' ">
+                  每周
+                </div>
+                <div class="pack_corner corner_once" v-show="pack3.packType == 'once' ">
+                  一次
+                </div>
+                <div class="pack_corner corner_once" v-show="pack3.packType == 'year' ">
+                  双倍
+                </div>
+              </div>
 
+            <!-- 表格部分 -->
             <div class="pack_info">
               <div class="pack_info_text">
                 {{ getEfficiency(pack3.packOriginium, 1) }}源石 <br>￥{{ getEfficiency(pack3.packRmbPerOriginium, 1) }}/石
@@ -144,26 +183,37 @@
                   </div>
                 </div>
               </div>
-
+              <!-- 说明 -->
+              <div class="pack_type">
+                材料折合源石
+              </div>
             </div>
 
-            <div class="pack_type">
-              材料折合源石
-            </div>
-            <div class="pack_corner corner_new" v-show="pack3.packType == 'limited' ">
-              New!
-            </div>
-            <div class="pack_corner corner_monthly" v-show="pack3.packType == 'monthly' ">
-              每月
-            </div>
-            <div class="pack_corner corner_monthly" v-show="pack3.packType == 'weekly' ">
-              每周
-            </div>
-            <div class="pack_corner corner_once" v-show="pack3.packType == 'once' ">
-              一次
-            </div>
-            <div class="pack_corner corner_once" v-show="pack3.packType == 'year' ">
-              双倍
+            <!-- 详情部分 -->
+            <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
+              <div class="pack_content_unit0" style="width:112px;">
+                  <div style="width:56px;">源石</div>
+                  <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
+                </div>
+                <div class="pack_content_unit0" style="width:120px;">
+                  <div style="width:60px;">合成玉</div>
+                  <div style="width:60px;">x{{ pack3.gachaOrundum }}</div>
+                </div>
+                <div class="pack_content_unit0">
+                  <div style="width:56px;">单抽</div>
+                  <div style="width:60px;">x{{ pack3.gachaPermit }}</div>
+                </div>
+                <div class="pack_content_unit0">
+                  <div style="width:56px;">十连</div>
+                  <div style="width:60px;">x{{ pack3.gachaPermit10 }}</div>
+                </div>
+                <div v-for="(packItem, index) in pack3.packContent" :key="index" class="pack_content_unit">
+                  <div style="width:135px;">{{ packItem.packContentItem }}</div>
+                  <div style="width:90px;">x{{ packItem.packContentQuantity }}</div>
+                </div>
+              </div>
+              
+
             </div>
           </div>
         </div>
@@ -179,6 +229,10 @@ import packsPPR from "static/json/pack_packsPPR.json";
 export default {
   data() {
     return {
+      // packsPPRData:页面直接调用的数据
+      // packsPPRJson:缓冲区
+      // packsPPR:原始数据
+      // packsPPRDataSort:排序用缓冲区
       opETextTheme: "op_title_etext_light",
       packsPPRJson:packsPPR,
       packsPPRData: [],
@@ -218,6 +272,22 @@ export default {
     },
 
     sortPackByPPR() {
+      for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
+        for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
+          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
+            const temp = this.packsPPRDataSort[j];
+            this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
+            this.packsPPRDataSort[j + 1] = temp;
+          }
+        }
+      }
+
+      this.packsPPRData = []
+      for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
+        this.packsPPRData.push(this.packsPPRDataSort[i])
+      }
+    },
+    sortPackByPrice() {
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
@@ -285,9 +355,13 @@ export default {
 
 <style>
 
+#pack{
+  background-color: #eeeeee;
+}
+
 #pack_content {
   /* background-color: rgb(43,72,101); */
-  padding: 20px 0px;
+  padding: 0px 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around
@@ -420,8 +494,15 @@ export default {
   font-size: 18px;
   border-radius: 4px;
   box-shadow: 1px 1px 4px rgb(0 0 0 / 30%);
+  vertical-align: bottom;
 }
 
+.pack_content_unit0 {
+  width: 116px;
+  height: 32px;
+  display: flex;
+  font-weight: 600;
+}
 .pack_content_unit {
   width: 232px;
   height: 28px;
