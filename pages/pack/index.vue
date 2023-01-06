@@ -36,7 +36,8 @@
           <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list">
             <div v-show="pack2.packState == 1" class="pack_unit">
               <!-- 图片部分 -->
-              <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)" @click="switchPackContent(pack2.packID, 'draw')">
+              <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)"
+                   @click="switchPackContent(pack2.packID, 'draw')">
                 <div class="pack_img_text1">
                   {{ pack2.packShowName }} ￥{{ pack2.packPrice }}
                 </div>
@@ -130,7 +131,8 @@
           <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list">
             <div v-show="pack3.packState == 1" class="pack_unit">
               <!-- 图片部分 -->
-              <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)" @click="switchPackContent(pack3.packID, 'all')">
+              <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)"
+                   @click="switchPackContent(pack3.packID, 'all')">
                 <div class="pack_img_text1">{{ pack3.packShowName }} ￥{{ pack3.packPrice }}</div>
                 <!-- 角标部分 -->
                 <div class="pack_corner corner_new" v-show="pack3.packType == 'limited' ">
@@ -150,48 +152,48 @@
                 </div>
               </div>
 
-            <!-- 表格部分 -->
-            <div class="pack_info">
-              <div class="pack_info_text">
-                {{ getEfficiency(pack3.packOriginium, 1) }}源石 <br>￥{{ getEfficiency(pack3.packRmbPerOriginium, 1) }}/石
-              </div>
-              <div class="pack_chart">
-                <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
-                  <div class="pack_chart_unit_text">本礼包</div>
-                  <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                    {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+              <!-- 表格部分 -->
+              <div class="pack_info">
+                <div class="pack_info_text">
+                  {{ getEfficiency(pack3.packOriginium, 1) }}源石 <br>￥{{ getEfficiency(pack3.packRmbPerOriginium, 1) }}/石
+                </div>
+                <div class="pack_chart">
+                  <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
+                    <div class="pack_chart_unit_text">本礼包</div>
+                    <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
+                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                    </div>
+                  </div>
+                  <div class="pack_chart_unit">
+                    <div class="pack_chart_unit_text">大月卡</div>
+                    <div class="pack_chart_unit_ppr" :style="getWidth(157,0.75)">157%</div>
+                  </div>
+                  <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1.57 && pack3.packPPROriginium >= 1">
+                    <div class="pack_chart_unit_text">本礼包</div>
+                    <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
+                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                    </div>
+                  </div>
+                  <div class="pack_chart_unit">
+                    <div class="pack_chart_unit_text">648源石</div>
+                    <div class="pack_chart_unit_ppr" :style="getWidth(100,0.75)">100%</div>
+                  </div>
+                  <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1">
+                    <div class="pack_chart_unit_text">本礼包</div>
+                    <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
+                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                    </div>
                   </div>
                 </div>
-                <div class="pack_chart_unit">
-                  <div class="pack_chart_unit_text">大月卡</div>
-                  <div class="pack_chart_unit_ppr" :style="getWidth(157,0.75)">157%</div>
-                </div>
-                <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1.57 && pack3.packPPROriginium >= 1">
-                  <div class="pack_chart_unit_text">本礼包</div>
-                  <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                    {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
-                  </div>
-                </div>
-                <div class="pack_chart_unit">
-                  <div class="pack_chart_unit_text">648源石</div>
-                  <div class="pack_chart_unit_ppr" :style="getWidth(100,0.75)">100%</div>
-                </div>
-                <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1">
-                  <div class="pack_chart_unit_text">本礼包</div>
-                  <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                    {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
-                  </div>
+                <!-- 说明 -->
+                <div class="pack_type">
+                  材料折合源石
                 </div>
               </div>
-              <!-- 说明 -->
-              <div class="pack_type">
-                材料折合源石
-              </div>
-            </div>
 
-            <!-- 详情部分 -->
-            <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
-              <div class="pack_content_unit0" style="width:112px;">
+              <!-- 详情部分 -->
+              <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
+                <div class="pack_content_unit0" style="width:112px;">
                   <div style="width:56px;">源石</div>
                   <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
                 </div>
@@ -212,7 +214,7 @@
                   <div style="width:90px;">x{{ packItem.packContentQuantity }}</div>
                 </div>
               </div>
-              
+
 
             </div>
           </div>
@@ -225,6 +227,8 @@
 <script>
 import cookie from "js-cookie";
 import packsPPR from "static/json/pack_packsPPR.json";
+import storeApi from "@/api/store";
+
 
 export default {
   data() {
@@ -234,7 +238,8 @@ export default {
       // packsPPR:原始数据
       // packsPPRDataSort:排序用缓冲区
       opETextTheme: "op_title_etext_light",
-      packsPPRJson:packsPPR,
+      packPPRResponse: [],
+      packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
 
@@ -242,32 +247,42 @@ export default {
   },
   created() {
     this.getCookies();
-    this.initData();
+
+    this.getStorePackData();
   },
   methods: {
-   getCookies() {
+    getCookies() {
       let theme = cookie.get("theme");
       if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
-     console.log('pack',theme);
+      console.log('pack', theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
 
-    initData(){
-      for (let i = 0; i < this.packsPPRJson.length; i += 1) {
-       
-        this.packsPPRData.push(this.packsPPRJson[i]);
-        this.packsPPRDataSort.push(this.packsPPRJson[i]);
+    getStorePackData() {
+      storeApi.findPackStore().then((response) => {
+        this.packPPRResponse = response.data;
+        //  console.log(this.packPPRData.length);
+        this.initData();
+      });
+    },
+
+    initData() {
+      this.packsPPRData = [];
+      this.packsPPRDataSort = [];
+      for (let i = 0; i < this.packPPRResponse.length; i += 1) {
+
+        this.packsPPRData.push(this.packPPRResponse[i]);
+        this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
     },
 
     sortPackByType() {
       this.packsPPRData = [];
-      this.packsPPRJson.push(packsPPR[0]);
-      for (let i = 0; i < this.packsPPRJson.length; i += 1) {
-       
-        this.packsPPRData.push(this.packsPPRJson[i])
+      // this.packPPRResponse.push(packsPPR[0]);
+      for (let i = 0; i < this.packPPRResponse.length; i += 1) {
+        this.packsPPRData.push(this.packPPRResponse[i])
       }
     },
 
@@ -314,6 +329,8 @@ export default {
     getPackImgUrl(img) {
       return ("/img/packs/" + img + ".png");
     },
+
+
     getPackPic(img, type) {
       if (type === 'limited') {
         if (img === '观光组合包')
@@ -355,7 +372,7 @@ export default {
 
 <style>
 
-#pack{
+#pack {
   background-color: #eeeeee;
 }
 
@@ -503,6 +520,7 @@ export default {
   display: flex;
   font-weight: 600;
 }
+
 .pack_content_unit {
   width: 232px;
   height: 28px;
