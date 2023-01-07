@@ -1,5 +1,30 @@
 [
   {
+    "packType": "limited",
+    "packID": 230101,
+    "packState": 1,
+    "packName": "新年组合包(2023)",
+    "packShowName": "新年组合包(2023)",
+    "packImg": "新年组合包2023",
+    "packPrice": 198,
+    "packDraw": 28.8,
+    "packOriginium": 96,
+    "packRmbPerDraw": 6.88,
+    "packRmbPerOriginium": 2.06,
+    "packPPRDraw": 1.7,
+    "packPPROriginium": 1.7,
+    "packContent": [
+      {
+        "packContentItem": "家具零件",
+        "packContentQuantity": 1000
+      }
+    ],
+    "gachaOrundum": 2100,
+    "gachaOriginium": 51,
+    "gachaPermit": 0,
+    "gachaPermit10": 1
+  },
+  {
     "packType": "once",
     "packID": 41,
     "packState": 1,
