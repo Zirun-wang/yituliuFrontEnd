@@ -22,7 +22,7 @@
         <td class="long-short">源石</td>
         <td class="long-short">单抽</td>
         <td class="long-short">十连</td>
-        <td>礼包内容</td>
+        <td >礼包内容</td>
       </tr>
       <tr v-for="index in packPPRDataLength" :key="index" class="title—tr">
         <td><input type="text" class="input_long" v-model="packName[index-1]"/></td>
@@ -44,9 +44,9 @@
         <td><input type="text" class="input_short" v-model.number="gachaPermit10[index-1]"/></td>
         <td>
           <div class="div-Content">
-            <div v-for="count in 15" :key="count" class="div-item">
-              <input type="text" class="input_long" v-model="packContent_item[index-1][count-1]"/>
-              <input type="text" class="input_long" v-model.number="packContent_count[index-1][count-1]"/>
+            <div v-for="count in 12" :key="count" class="div-item">
+             <div><input type="text" class="input_content" v-model="packContent_item[index-1][count-1]"/></div>
+             <div><input type="text" class="input_content" v-model.number="packContent_count[index-1][count-1]"/></div>
             </div>
           </div>
         </td>
@@ -70,7 +70,7 @@ export default {
   layout: "poster",
   data() {
     return {
-      packPPRDataLength: 20,
+      packPPRDataLength: 0,
       packPPRData:[],
       packName: [],
       packShowName: [],
@@ -91,68 +91,10 @@ export default {
       gachaPermit: [],
       gachaPermit10: [],
       packContent_item: [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
+       
       ],
       packContent_count: [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
+        
       ],
       packJson: {}
     };
@@ -221,7 +163,9 @@ export default {
           var content_item = {}
           content_item.packContentItem = this.packContent_item[i][j];
           content_item.packContentQuantity = this.packContent_count[i][j];
+          if (this.packContent_item[i][j] != undefined && this.packContent_item[i][j] != "") {
           content.push(content_item);
+          }
         }
 
         console.log("礼包", i, this.packContent_item[i][0] != undefined);
@@ -231,7 +175,7 @@ export default {
           map.packContent = content;
         }
 
-
+        if(this.packName[i] != undefined && this.packName[i] != "")
         list.push(map);
       }
       this.packJson = list;
@@ -241,6 +185,10 @@ export default {
 
     readJson() {
       this.packPPRDataLength = this.packPPRData.length + 7;
+      for (let i = 0; i < this.packPPRDataLength+1; i++) {
+      this.packContent_item.push([]);
+      this.packContent_count.push([]);
+      }
       console.log("当前长度：", this.packPPRDataLength)
       for (let i = 0; i < this.packPPRData.length; i++) {
         // if("礼包"== packName[i]) break;
@@ -291,6 +239,9 @@ export default {
 .title—tr td {
   /* border: solid rgb(0, 0, 0) 1px; */
   text-align: center;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
 }
 
 .short-td {
@@ -298,7 +249,7 @@ export default {
 }
 
 .input_short {
-  width: 50px;
+  width: 35px;
 }
 
 .long-td {
@@ -308,17 +259,28 @@ export default {
 .input_long {
   width: 110px;
 }
+.input_long {
+  width: 110px;
+}
+
+.input_content{
+  width: 80px;
+}
 
 .div-Content {
-  height: 80px;
+  /* height: 50px; */
   overflow: auto;
   scrollbar-width: none;
   /* firefox */
   -ms-overflow-style: none;
   /* IE 10+ */
+   display: flex;
+  flex-direction:row;
 }
 
 .div-item {
   display: flex;
+  flex-direction:column;
+  
 }
 </style>
