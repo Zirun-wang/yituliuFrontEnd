@@ -272,7 +272,6 @@ export default {
       this.packsPPRData = [];
       this.packsPPRDataSort = [];
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
-
         this.packsPPRData.push(this.packPPRResponse[i]);
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
@@ -287,9 +286,12 @@ export default {
     },
 
     sortPackByPPR() {
+      this.initData();
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
-          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
+          console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
+          // console.log(this.packsPPRDataSort[j+1].packName,this.packsPPRDataSort[j+1].packRmbPerDraw)
+          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw &&this.packsPPRDataSort[j+1].packRmbPerDraw !=null) {
             const temp = this.packsPPRDataSort[j];
             this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
             this.packsPPRDataSort[j + 1] = temp;
@@ -302,10 +304,29 @@ export default {
         this.packsPPRData.push(this.packsPPRDataSort[i])
       }
     },
+
+
     sortPackByPrice() {
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
-          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
+          if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
+            const temp = this.packsPPRDataSort[j];
+            this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
+            this.packsPPRDataSort[j + 1] = temp;
+          }
+        }
+      }
+
+      this.packsPPRData = []
+      for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
+        this.packsPPRData.push(this.packsPPRDataSort[i])
+      }
+    },
+
+     sortPackById() {
+      for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
+        for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
+          if (this.packsPPRDataSort[j].packID > this.packsPPRDataSort[j + 1].packID) {
             const temp = this.packsPPRDataSort[j];
             this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
             this.packsPPRDataSort[j + 1] = temp;
@@ -334,7 +355,7 @@ export default {
     getPackPic(img, type) {
       
       if (type === 'limited') {
-        console.log(img)
+       
        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 00% 100% / cover no-repeat,#444444;");
       } 
       else
