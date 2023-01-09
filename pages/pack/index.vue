@@ -23,7 +23,10 @@
           性价比排序(总价值)
         </div>
         <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(['once'])">
-          隐藏礼包
+          隐藏一次性礼包
+        </div>
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(['permanent','year'])">
+          隐藏除普通648的源石档位
         </div>
         <div class="tab_text">
           *点击图片查看礼包内容
