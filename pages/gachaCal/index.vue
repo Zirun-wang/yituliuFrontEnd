@@ -15,9 +15,9 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.29)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(预计3月)"  style="width: 33%"  disabled
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  
             ></el-radio-button>
-            <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
+            <el-radio-button label="4周年(5.15)"  style="width: 33%"  
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
@@ -623,7 +623,7 @@
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
-              <el-checkbox-button :label="index" v-show="singlePack.plans<plans">
+              <el-checkbox-button :label="index" v-show="ExpirationSchedule.includes(singlePack.plans)">
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ singlePack.packName }}
                 </div>
@@ -653,7 +653,7 @@
             </div>
           </el-checkbox-group>
           <div v-for="(act, index) in gacha_actReward" :key="index">
-            <div class="gacha_unit_child" v-show="act.plans<plans">
+            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(act.plans)">
               <div class="gacha_unit_child_title">{{ act.packName }}</div>
               <!-- 一个通用的资源显示模块 -->
               <div class="gacha_resources_unit" style="width: 234px">
@@ -679,28 +679,28 @@
 
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
-            <div class="gacha_unit_child" v-show="other.plans>plans-3&&other.plans<plans">
+            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(other.plans)">
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.packName }}
               </div>
               <div class="gacha_resources_unit" style="width: 234px">
                 <div style="width: 40px" v-show="other.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='产业合作洽谈会'" >
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='幸运墙'" >
                   {{ other.gachaOrundum }}
                 </div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='产业合作洽谈会'" >
-                  {{ other.gachaOrundum-countDown*660 }}
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='幸运墙'" >
+                  {{ other.gachaOrundum-poolCountDown*660 }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
                   {{ other.gachaOriginium }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)" ></div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName!=='限定池每日赠送寻访凭证'">
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('每日赠送寻访凭证') === -1">
                   {{ other.gachaPermit }}
                 </div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName==='限定池每日赠送寻访凭证'" >
-                  {{ other.gachaPermit-countDown }}
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('每日赠送寻访凭证') !== -1" >
+                  {{ other.gachaPermit-poolCountDown }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
@@ -816,12 +816,14 @@
         pageTheme: "light",
         itemList: [],
         checkBox: ["0", "1", "2", "7"],
+        ExpirationSchedule:[-1,1],
         endTime: [],
         startDate: "", //开始时间
-        endDate: "2023/01/29 03:59:00", //结束时间
+        endDate: "2023/01/31 03:59:00", //结束时间
         start_TimeStamp: "",
         end_TimeStamp: "",
-        plans:2,
+       
+        plans_end:1,
         timeSelector:"春节限定(1.29)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
@@ -894,11 +896,11 @@
 
         daysRemaining: 0, //剩余天数
         weeksRemaining: 0, //剩余周数
-        monthsRemaining: 2, //剩余月数
+        monthsRemaining: 1, //剩余月数
         MonthsSignInRemaining: 0, // 剩余签到次数
 
-        countDown: 0, //限定池每日送抽倒计时
-        countDown2: 0, //限定池每日送抽倒计时
+        poolCountDown: 0, //限定池每日送抽倒计时
+      
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
         weeklyStageRewards: 1800, //剿灭奖励
@@ -923,14 +925,14 @@
       this.getInterval();
       this.getEveryreWard();
       this.getCountDown();
-
+      this.checkEndDate()
 
     },
     mounted() {
       // this.updateVisits();
       this.compute();
       this.pieChart(this.pieData);
-      this.openNotification();
+      // this.openNotification();
     },
     methods: {
       updateVisits() {
@@ -945,11 +947,13 @@
         });
       },
 
+//获取雪碧图
       getSpriteImg(packName, index) {
         if (index === 0) return "bg-" + packName + " sprite_gacha";
         return "bg-" + packName;
       },
 
+//获取当天日期
       getDate() {
         var date = new Date();
         var y = date.getFullYear(); //年
@@ -961,25 +965,22 @@
         this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
         //  this.time = '2022-08-11'
       },
+
       //获取限定池和红包倒计时
       getCountDown() {
-        var num = parseInt(
-          (this.end_TimeStamp - this.start_TimeStamp) / 86400000
-        );
-        if (num < 14) {
-          this.countDown = 14-num;
-        }
-        console.log("限定池持续了" + this.countDown + "天");
+        var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
+        if (num < 14) {  //少于14天扣除每日赠送抽卡资源
+          this.poolCountDown = 14-num;  
+          }
+        console.log("限定池开始了" + this.poolCountDown + "天");
       },
 
       //获取还有多少天
       getInterval() {
         console.log("今天是", this.startDate);
-        this.weeksRemaining = 0;
-
-        this.MonthsSignInRemaining = 0;
+        this.weeksRemaining = 0;  //剩余剿灭次数
+        this.MonthsSignInRemaining = 0;  //剩余签到次数
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
-
 
         if(this.end_TimeStamp<13){
            this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
@@ -988,11 +989,11 @@
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);
 
         for (let i = 1; i < num + 1; i++) {
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {  //判断接下来还有多少个星期一
             this.weeksRemaining++;
           }
 
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {
+          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
             this.MonthsSignInRemaining++;
           }
         }
@@ -1001,18 +1002,22 @@
       },
 
       checkEndDate() {
+        this.cookieInit=0;
         if(this.timeSelector==='春节限定(1.29)'){
-          this.end_TimeStamp = 1675108800000;
-          this.cookieInit=0;
+          this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
-          this.countDown2 = 0;
-          this.plans =2;
-        }else{
-          this.end_TimeStamp = 1684094400000;
-          this.cookieInit=0;
+          this.ExpirationSchedule = [-1,1];
+        
+        }else if(this.timeSelector==='联动池(3月)'){
+          this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
-          this.countDown2 = 14-this.countDown;
-          this.plans =3;
+          this.ExpirationSchedule = [-2,1,2];
+          
+        }else if(this.timeSelector==='4周年(5.15)'){
+          this.end_TimeStamp = 1684094340000;
+          this.monthsRemaining = 5;
+          this.ExpirationSchedule = [-3,1,2,3];
+          
         }
 
         this.getInterval();
@@ -1068,12 +1073,8 @@
 
 
         //库存计算（共计）
-        this.originium =
-          parseInt(this.originium) + parseInt(this.originium_exist);
-        this.orundum =
-          parseInt(this.orundum) +
-          parseInt(this.orundum_exist) +
-          parseInt(this.customValue);
+        this.originium = parseInt(this.originium) + parseInt(this.originium_exist);
+        this.orundum = parseInt(this.orundum) + parseInt(this.orundum_exist) + parseInt(this.customValue);
         this.permit = parseInt(this.permit) + parseInt(this.permit_exist);
         this.permit10 = parseInt(this.permit10) + parseInt(this.permit10_exist);
 
@@ -1154,46 +1155,19 @@
               Math.ceil(this.daysRemaining / 30) * 6;
 
           } else {
-            this.originium =
-              parseInt(this.originium) +
-              parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium
-              );
-            this.orundum =
-              parseInt(this.orundum) +
-              parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum
-              );
-            this.sellsCount =
-              parseInt(this.sellsCount) +
-              parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
+            this.originium = parseInt(this.originium) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
+            this.orundum = parseInt(this.orundum) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+            this.sellsCount = parseInt(this.sellsCount) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
           }
 
-          this.permit_gacha =
-            parseInt(this.permit_gacha) +
-            parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
-          this.permit10_gacha =
-            parseInt(this.permit10_gacha) +
-            parseInt(
-              this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10
-            );
+          this.permit_gacha = parseInt(this.permit_gacha) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
+          this.permit10_gacha = parseInt(this.permit10_gacha) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
           if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
-            this.orundum_gacha =
-              parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
-            this.originium_gacha =
-              parseInt(this.originium_gacha) +
-              Math.ceil(this.daysRemaining / 30) * 6;
+            this.orundum_gacha = parseInt(this.orundum_gacha) + parseInt(this.daysRemaining) * 200;
+            this.originium_gacha = parseInt(this.originium_gacha) + Math.ceil(this.daysRemaining / 30) * 6;
           } else {
-            this.orundum_gacha =
-              parseInt(this.orundum_gacha) +
-              parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum
-              );
-            this.originium_gacha =
-              parseInt(this.originium_gacha) +
-              parseInt(
-                this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium
-              );
+            this.orundum_gacha = parseInt(this.orundum_gacha) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+            this.originium_gacha = parseInt(this.originium_gacha) + parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
           }
         }
 
@@ -1238,31 +1212,15 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
-          this.originium =
-            parseInt(this.originium) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
-          this.orundum =
-            parseInt(this.orundum) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
-          this.permit =
-            parseInt(this.permit) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
-          this.permit10 =
-            parseInt(this.permit10) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
+          this.originium = parseInt(this.originium) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
+          this.orundum = parseInt(this.orundum) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
+          this.permit = parseInt(this.permit) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
+          this.permit10 = parseInt(this.permit10) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
-          this.originium_daily =
-            parseInt(this.originium_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
-          this.orundum_daily =
-            parseInt(this.orundum_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
-          this.permit_daily =
-            parseInt(this.permit_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
-          this.permit10_daily =
-            parseInt(this.permit10_daily) +
-            parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
+          this.originium_daily = parseInt(this.originium_daily) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOriginium);
+          this.orundum_daily = parseInt(this.orundum_daily) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaOrundum);
+          this.permit_daily = parseInt(this.permit_daily) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
+          this.permit10_daily = parseInt(this.permit10_daily) + parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
         }
 
         //日常资源抽卡次数(单项)
@@ -1289,57 +1247,31 @@
         //活动抽卡计算（共计）
 
         for (let i = 0; i < this.gacha_actReward.length; i++) {
-          if (this.gacha_actReward[i].plans<this.plans) {
-            this.originium =
-              parseInt(this.originium) +
-              parseInt(this.gacha_actReward[i].gachaOriginium);
-            this.orundum =
-              parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
-            this.permit =
-              parseInt(this.permit) + parseInt(this.gacha_actReward[i].gachaPermit);
-            this.permit10 =
-              parseInt(this.permit10) +
-              parseInt(this.gacha_actReward[i].gachaPermit10);
-            this.originium_act =
-              parseInt(this.originium_act) +
-              parseInt(this.gacha_actReward[i].gachaOriginium);
-            this.orundum_act =
-              parseInt(this.orundum_act) +
-              parseInt(this.gacha_actReward[i].gachaOrundum);
-            this.permit_act =
-              parseInt(this.permit_act) +
-              parseInt(this.gacha_actReward[i].gachaPermit);
-            this.permit10_act =
-              parseInt(this.permit10_act) +
-              parseInt(this.gacha_actReward[i].gachaPermit10);
+          
+          if (this.ExpirationSchedule.includes(this.gacha_actReward[i].plans)) {
+              console.log('活动资源:', this.gacha_actReward[i].packName);
+            this.originium = parseInt(this.originium) + parseInt(this.gacha_actReward[i].gachaOriginium);
+            this.orundum = parseInt(this.orundum) + parseInt(this.gacha_actReward[i].gachaOrundum);
+            this.permit = parseInt(this.permit) + parseInt(this.gacha_actReward[i].gachaPermit);
+            this.permit10 = parseInt(this.permit10) + parseInt(this.gacha_actReward[i].gachaPermit10);
+          
+            this.originium_act = parseInt(this.originium_act) + parseInt(this.gacha_actReward[i].gachaOriginium);
+            this.orundum_act = parseInt(this.orundum_act) + parseInt(this.gacha_actReward[i].gachaOrundum);
+            this.permit_act = parseInt(this.permit_act) + parseInt(this.gacha_actReward[i].gachaPermit);
+            this.permit10_act = parseInt(this.permit10_act) + parseInt(this.gacha_actReward[i].gachaPermit10);
           }
         }
 
         for (let i = 0; i < this.gacha_actReList.length; i++) {
-          this.originium =
-            parseInt(this.originium) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
-          this.orundum =
-            parseInt(this.orundum) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
-          this.permit =
-            parseInt(this.permit) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
-          this.permit10 =
-            parseInt(this.permit10) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
-          this.originium_act =
-            parseInt(this.originium_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
-          this.orundum_act =
-            parseInt(this.orundum_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
-          this.permit_act =
-            parseInt(this.permit_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
-          this.permit10_act =
-            parseInt(this.permit10_act) +
-            parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+          this.originium = parseInt(this.originium) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
+          this.orundum = parseInt(this.orundum) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
+          this.permit = parseInt(this.permit) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
+          this.permit10 = parseInt(this.permit10) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+          
+          this.originium_act = parseInt(this.originium_act) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
+          this.orundum_act = parseInt(this.orundum_act) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
+          this.permit_act = parseInt(this.permit_act) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
+          this.permit10_act = parseInt(this.permit10_act) + parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
         }
 
         //活动抽卡次数（单项）
@@ -1351,30 +1283,17 @@
 
         //其他抽卡计算
         for (let i = 0; i < this.gacha_honeyCake.length; i++) {
-          if (this.gacha_honeyCake[i].plans<this.plans ) {
-            this.originium =
-              parseInt(this.originium) +
-              parseInt(this.gacha_honeyCake[i].gachaOriginium);
-            this.orundum =
-              parseInt(this.orundum) + parseInt(this.gacha_honeyCake[i].gachaOrundum);
-            this.permit =
-              parseInt(this.permit) + parseInt(this.gacha_honeyCake[i].gachaPermit);
+          if (this.ExpirationSchedule.includes(this.gacha_honeyCake[i].plans)) {
+            console.log('其他资源:', this.gacha_honeyCake[i].packName);
+            this.originium = parseInt(this.originium) + parseInt(this.gacha_honeyCake[i].gachaOriginium);
+            this.orundum = parseInt(this.orundum) + parseInt(this.gacha_honeyCake[i].gachaOrundum);
+            this.permit = parseInt(this.permit) + parseInt(this.gacha_honeyCake[i].gachaPermit);
+            this.permit10 = parseInt(this.permit10) + parseInt(this.gacha_honeyCake[i].gachaPermit10);
 
-            this.permit10 =
-              parseInt(this.permit10) +
-              parseInt(this.gacha_honeyCake[i].gachaPermit10);
-            this.originium_other =
-              parseInt(this.originium_other) +
-              parseInt(this.gacha_honeyCake[i].gachaOriginium);
-            this.orundum_other =
-              parseInt(this.orundum_other) +
-              parseInt(this.gacha_honeyCake[i].gachaOrundum);
-            this.permit_other =
-              parseInt(this.permit_other) +
-              parseInt(this.gacha_honeyCake[i].gachaPermit);
-            this.permit10_other =
-              parseInt(this.permit10_other) +
-              parseInt(this.gacha_honeyCake[i].gachaPermit10);
+            this.originium_other = parseInt(this.originium_other) + parseInt(this.gacha_honeyCake[i].gachaOriginium);
+            this.orundum_other = parseInt(this.orundum_other) + parseInt(this.gacha_honeyCake[i].gachaOrundum);
+            this.permit_other = parseInt(this.permit_other) + parseInt(this.gacha_honeyCake[i].gachaPermit);
+            this.permit10_other = parseInt(this.permit10_other) + parseInt(this.gacha_honeyCake[i].gachaPermit10);
           }
         }
 
@@ -1385,23 +1304,19 @@
           parseInt(this.orundum) +
           parseInt(this.weekTaskValue) * 500 +
           parseInt(this.weekStageValue) * 1800 -
-          parseInt(this.countDown) * 660 ;
+          parseInt(this.poolCountDown) * 660 ;
 
 
         this.orundum_other =
           parseInt(this.orundum_other) +
           parseInt(this.weekTaskValue) * 500 +
           parseInt(this.weekStageValue) * 1800 -
-          parseInt(this.countDown) * 660 ;
+          parseInt(this.poolCountDown) * 660 ;
 
           //寻访记录=减去倒计时
-        this.permit_other =
-          parseInt(this.permit_other) - parseInt(this.countDown)
-          - parseInt(this.countDown2);
+        this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
 
-        this.permit =
-          parseInt(this.permit) - parseInt(this.countDown)
-          - parseInt(this.countDown2);
+        this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
 
 
         //其他抽卡次数

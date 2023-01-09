@@ -356,10 +356,10 @@ export default {
       
       if (type === 'limited') {
        
-       return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 00% 100% / cover no-repeat,#444444;");
+       return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } 
       else
-        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 00% 100% / cover no-repeat,#444444;");
+        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
         
     },
     getContentId(id, type) {
