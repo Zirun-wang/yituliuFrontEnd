@@ -22,11 +22,11 @@
         <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPrice()">
           性价比排序(总价值)
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(['once'])">
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(1)">
           隐藏一次性礼包
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(['permanent','year'])">
-          隐藏除普通648的源石档位
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(2)">
+          隐藏除普通648外源石档位
         </div>
         <div class="tab_text">
           *点击图片查看礼包内容
@@ -248,7 +248,9 @@ export default {
       packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
-      FilterCriteria :[]
+      FilterCriteria :[],
+      filter1:true,
+      filter2:true,
     };
   },
   created() {
@@ -266,8 +268,25 @@ export default {
       this.opETextTheme = "op_title_etext_" + theme;
     },
      
-    packfilterByType(list){
-      this.FilterCriteria = list;
+    packfilterByType(filter){
+      this.FilterCriteria = [];
+      let filter1List = [];
+      let filter2List = [];
+        if(filter===1&&this.filter1){
+           filter1List =['once'];
+          this.filter1= false;
+        }else{
+          this.filter1= true;
+        }
+        if(filter===2&&this.filter2){
+           filter2List =['permanent','year'];
+          this.filter2= false;
+        }else{
+          this.filter2= true;
+        }
+
+        this.FilterCriteria.push.apply(this.FilterCriteria,filter1List);
+        this.FilterCriteria.push.apply(this.FilterCriteria,filter2List)
     },
     getStorePackData() {
       storeApi.findPackStore().then((response) => {
@@ -280,7 +299,7 @@ export default {
     initData() {
       this.packsPPRData = [];
       this.packsPPRDataSort = [];
-      this.FilterCriteria = [];
+     
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         this.packsPPRData.push(this.packPPRResponse[i]);
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
@@ -289,12 +308,12 @@ export default {
 
     sortPackByType() {
       this.initData();
-      this.FilterCriteria = [];
+      
     },
 
     sortPackByPPR() {
       this.initData();
-      this.FilterCriteria = [];
+     
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
@@ -316,7 +335,7 @@ export default {
 
     sortPackByPrice() {
       this.initData();
-      this.FilterCriteria = [];
+      
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
