@@ -6,14 +6,14 @@
         <template slot="title">
           <div class="gacha_title_icon" style="background: chocolate"></div>
           <span class="collapse-item_title" style="color: purple">
-            共计{{ getFixed(gachaTimes_total) }}抽，氪金{{ sellsCount }}元
+            共计{{ getFixed(gachaTimes_total,0) }}抽，氪金{{ sellsCount }}元
           </span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
-            <el-radio-button label="春节限定(1.29)" type="primary" style="width: 33%"
+            <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="联动池(3月)"  style="width: 33%"  
             ></el-radio-button>
@@ -28,32 +28,32 @@
               <tbody>
               <tr class="gacha_total_table_tr">
                 <td>现有</td>
-                <td>{{ getFixed(gachaTimes_exist) }}</td>
+                <td>{{ getFixed(gachaTimes_exist,0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>日常</td>
-                <td>{{ getFixed(gachaTimes_daily) }}</td>
+                <td>{{ getFixed(gachaTimes_daily,0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>潜在</td>
-                <td>{{ getFixed(gachaTimes_potential) }}</td>
+                <td>{{ getFixed(gachaTimes_potential,0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>氪金</td>
-                <td>{{ getFixed(gachaTimes_gacha) }}</td>
+                <td>{{ getFixed(gachaTimes_gacha,0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>活动(估算)</td>
-                <td>{{ getFixed(gachaTimes_activity) }}</td>
+                <td>{{ getFixed(gachaTimes_activity,0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>其它(估算)</td>
-                <td>{{ getFixed(gachaTimes_other) }}</td>
+                <td>{{ getFixed(gachaTimes_other,0) }}</td>
                 <td>抽</td>
               </tr>
               </tbody>
@@ -65,16 +65,16 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                {{ getFixed(orundum) }}
+                {{ getFixed(orundum,0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ (getFixed(orundum)/600).toFixed(2) }})
+                 &nbsp;({{ (getFixed(orundum,0)/600).toFixed(2) }})
                 </span>
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
-                {{ getFixed(originium) }}
+                {{ getFixed(originium,0) }}
                 <span style="font-size: 14px;">
                  &nbsp;({{ (gachaTimes_originium).toFixed(2) }})
                 </span>
@@ -83,15 +83,15 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                {{ getFixed(permit) }}
+                {{ getFixed(permit,0) }}
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                {{ getFixed(permit10) }}
+                {{ getFixed(permit10,0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ getFixed(permit10)*10 }})
+                 &nbsp;({{ getFixed(permit10,0)*10 }})
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist) }}抽</span
+          >现有库存 {{ getFixed(gachaTimes_exist,0) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="wallet">
@@ -224,7 +224,7 @@
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily) }}抽</span>
+          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily,0) }}抽</span>
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
@@ -361,7 +361,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >潜在资源 {{ getFixed(gachaTimes_potential) }}抽</span
+          >潜在资源 {{ getFixed(gachaTimes_potential,0) }}抽</span
           >
         </template>
 
@@ -441,7 +441,7 @@
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha) }}抽</span>
+          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha,0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="charge">
@@ -457,19 +457,19 @@
           <el-checkbox-group v-model="gacha_storePacksList">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index"  >
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 192px">
-                  <div style="width: 40px" v-show="singlePack.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOrundum !== '0'">{{ singlePack.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'"> {{ singlePack.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaPermit !== '0'"> {{ singlePack.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaPermit10 !== '0'"> {{ singlePack.gachaPermit10 }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum !== 0" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum !== 0">{{ singlePack.gachaOrundum }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== 0"> {{ singlePack.gachaOriginium }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit !== 0" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit !== 0"> {{ singlePack.gachaPermit }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== 0" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 !== 0"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
             </div>
@@ -479,9 +479,9 @@
             <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'newbie'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
@@ -504,15 +504,15 @@
             <img class="gacha_img_small" src="/img/website/ex.png" />源石首充
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'first'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'year'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ singlePack.packRmbPerDraw }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 102px">
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'">{{ singlePack.gachaOriginium }}
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== 0">{{ singlePack.gachaOriginium }}
                   </div>
                 </div>
               </el-checkbox-button>
@@ -533,7 +533,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_648 * 185) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_648 * 185,0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -546,7 +546,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_328 * 90) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_328 * 90,0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -559,7 +559,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_198 * 50) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_198 * 50,0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -572,7 +572,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_98 * 24) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_98 * 24,0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -585,7 +585,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_30 * 7) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_30 * 7,0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -598,7 +598,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_6 * 1) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_6 * 1,0) }}</div>
             </div>
           </div>
 
@@ -609,7 +609,7 @@
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity) }}抽</span>
+          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity,0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="activity">
@@ -674,7 +674,7 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other) }}抽</span>
+          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other,0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
@@ -824,7 +824,7 @@
         end_TimeStamp: "",
        
         plans_end:1,
-        timeSelector:"春节限定(1.29)",
+        timeSelector:"春节限定(1.31)",
 
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
@@ -947,6 +947,11 @@
         });
       },
 
+    getFixed(num, acc) {
+      acc = (typeof acc !== 'undefined') ? acc : 2;
+      return parseFloat(num).toFixed(acc);
+    },
+
 //获取雪碧图
       getSpriteImg(packName, index) {
         if (index === 0) return "bg-" + packName + " sprite_gacha";
@@ -1003,7 +1008,7 @@
 
       checkEndDate() {
         this.cookieInit=0;
-        if(this.timeSelector==='春节限定(1.29)'){
+        if(this.timeSelector==='春节限定(1.31)'){
           this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
@@ -1034,11 +1039,10 @@
       },
 
       compute() {
-        // console.log("计算开始", this.checkBox);
+      
         //初始化
-
         this.valueInit();
-        console.log("初始化数值");
+        console.log("初始化变量");
 
         //判断是否用源石抽卡
         var flag_originium = 0;
@@ -1360,8 +1364,8 @@
             this.originium_gacha +
             this.originium_daily +
             this.originium_act +
-            this.originium_other
-            - parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
+            this.originium_other -
+            parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
 
 
         this.pieData = [];
@@ -1432,6 +1436,8 @@
           this.paradox = cookie.get("paradox");
           this.greenStoreFlag = cookie.get("greenStoreFlag");
         }
+
+        
         this.cookieInit++;
 
         if (this.originium_exist === "" || this.originium_exist === undefined ||
@@ -1511,9 +1517,7 @@
         return "gacha_packPpr_t3"
       },
 
-      getFixed(num) {
-        return parseInt(num);
-      },
+ 
 
       getInteger(num) {
         return parseInt(parseInt(num / 100) * 100);

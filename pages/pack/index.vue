@@ -22,6 +22,9 @@
         <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPrice()">
           性价比排序(总价值)
         </div>
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(['once'])">
+          隐藏礼包
+        </div>
         <div class="tab_text">
           *点击图片查看礼包内容
         </div>
@@ -34,7 +37,7 @@
         <!-- 仅计抽卡 -->
         <div id="pack_left">
           <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list">
-            <div v-show="pack2.packState == 1" class="pack_unit">
+            <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit">
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)"
                    @click="switchPackContent(pack2.packID, 'draw')">
@@ -62,13 +65,13 @@
               <!-- 表格部分 -->
               <div class="pack_info">
                 <div class="pack_info_text">
-                  共{{ getEfficiency(pack2.packDraw, 1) }}抽 <br>￥{{ getEfficiency(pack2.packRmbPerDraw, 1) }}/抽
+                  共{{ getFixed(pack2.packDraw, 1) }}抽 <br>￥{{ getFixed(pack2.packRmbPerDraw, 1) }}/抽
                 </div>
                 <div class="pack_chart">
                   <div class="pack_chart_unit" v-show="pack2.packPPRDraw >= 1.57">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack2.packPPRDraw*100,0.75)">
-                      {{ getEfficiency(pack2.packPPRDraw * 100, 0) }}%
+                      {{ getFixed(pack2.packPPRDraw * 100, 0) }}%
                     </div>
                   </div>
                   <div class="pack_chart_unit">
@@ -78,7 +81,7 @@
                   <div class="pack_chart_unit" v-show="pack2.packPPRDraw < 1.57 && pack2.packPPRDraw >= 1">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack2.packPPRDraw*100,0.75)">
-                      {{ getEfficiency(pack2.packPPRDraw * 100, 0) }}%
+                      {{ getFixed(pack2.packPPRDraw * 100, 0) }}%
                     </div>
                   </div>
                   <div class="pack_chart_unit">
@@ -88,7 +91,7 @@
                   <div class="pack_chart_unit" v-show="pack2.packPPRDraw < 1">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack2.packPPRDraw*100,0.75)">
-                      {{ getEfficiency(pack2.packPPRDraw * 100, 0) }}%
+                      {{ getFixed(pack2.packPPRDraw * 100, 0) }}%
                     </div>
                   </div>
                 </div>
@@ -129,7 +132,7 @@
         <!-- 材料折合源石 -->
         <div id="pack_right">
           <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list">
-            <div v-show="pack3.packState == 1" class="pack_unit">
+            <div v-show="pack3.packState == 1&&!FilterCriteria.includes(pack3.packType)" class="pack_unit">
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)"
                    @click="switchPackContent(pack3.packID, 'all')">
@@ -155,13 +158,13 @@
               <!-- 表格部分 -->
               <div class="pack_info">
                 <div class="pack_info_text">
-                  {{ getEfficiency(pack3.packOriginium, 1) }}源石 <br>￥{{ getEfficiency(pack3.packRmbPerOriginium, 1) }}/石
+                  {{ getFixed(pack3.packOriginium, 1) }}源石 <br>￥{{ getFixed(pack3.packRmbPerOriginium, 1) }}/石
                 </div>
                 <div class="pack_chart">
                   <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                      {{ getFixed(pack3.packPPROriginium * 100, 0) }}%
                     </div>
                   </div>
                   <div class="pack_chart_unit">
@@ -171,7 +174,7 @@
                   <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1.57 && pack3.packPPROriginium >= 1">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                      {{ getFixed(pack3.packPPROriginium * 100, 0) }}%
                     </div>
                   </div>
                   <div class="pack_chart_unit">
@@ -181,7 +184,7 @@
                   <div class="pack_chart_unit" v-show="pack3.packPPROriginium < 1">
                     <div class="pack_chart_unit_text">本礼包</div>
                     <div class="pack_chart_unit_ppr bg_red" :style="getWidth(pack3.packPPROriginium*100,0.75)">
-                      {{ getEfficiency(pack3.packPPROriginium * 100, 0) }}%
+                      {{ getFixed(pack3.packPPROriginium * 100, 0) }}%
                     </div>
                   </div>
                 </div>
@@ -242,7 +245,7 @@ export default {
       packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
-
+      FilterCriteria :[]
     };
   },
   created() {
@@ -259,7 +262,10 @@ export default {
       console.log('pack', theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
-
+     
+    packfilterByType(list){
+      this.FilterCriteria = list;
+    },
     getStorePackData() {
       storeApi.findPackStore().then((response) => {
         this.packPPRResponse = response.data;
@@ -271,6 +277,7 @@ export default {
     initData() {
       this.packsPPRData = [];
       this.packsPPRDataSort = [];
+      this.FilterCriteria = [];
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         this.packsPPRData.push(this.packPPRResponse[i]);
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
@@ -278,15 +285,13 @@ export default {
     },
 
     sortPackByType() {
-      this.packsPPRData = [];
-      // this.packPPRResponse.push(packsPPR[0]);
-      for (let i = 0; i < this.packPPRResponse.length; i += 1) {
-        this.packsPPRData.push(this.packPPRResponse[i])
-      }
+      this.initData();
+      this.FilterCriteria = [];
     },
 
     sortPackByPPR() {
       this.initData();
+      this.FilterCriteria = [];
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
@@ -307,6 +312,8 @@ export default {
 
 
     sortPackByPrice() {
+      this.initData();
+      this.FilterCriteria = [];
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
@@ -343,7 +350,7 @@ export default {
     getWidth(num, scale) {
       return "width:" + num * scale + "px";
     },
-    getEfficiency(num, acc) {
+    getFixed(num, acc) {
       acc = (typeof acc !== 'undefined') ? acc : 2;
       return parseFloat(num).toFixed(acc);
     },
