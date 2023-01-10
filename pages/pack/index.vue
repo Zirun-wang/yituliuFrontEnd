@@ -424,7 +424,12 @@ export default {
 
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
-        this.packsPPRData.push(this.packPPRResponse[i]);
+        
+        if('limited'===this.packPPRResponse[i].packType){
+          this.packsPPRData.unshift(this.packPPRResponse[i]);
+        }else{
+          this.packsPPRData.push(this.packPPRResponse[i]);
+        }
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
     },
