@@ -16,17 +16,17 @@
         <div id="pack_switch_to_type" class="op_tag_0" @click="sortPackByType()">
           礼包类型排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPR()">
-          性价比排序(仅抽卡)
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPRPerDraw()">
+          抽卡性价比排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPrice()">
-          性价比排序(总价值)
+        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPRPerOri()">
+          总价值性价比排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(1)">
+        <div id="pack_show_once" class="op_tag_0" @click="switchPacks('once')">
           隐藏一次性礼包
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(2)">
-          隐藏除普通648外源石档位
+        <div id="pack_show_ori" class="op_tag_0" @click="switchPacks('ori')">
+          源石只显示648
         </div>
         <div class="tab_text">
           *点击图片查看礼包内容
@@ -39,8 +39,9 @@
       <div id="pack_content" style="display:flex;">
         <!-- 仅计抽卡 -->
         <div id="pack_left">
-          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list">
-            <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit">
+          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayState(pack2.packState, pack2.packType, pack2.packPrice, packFilter)">
+            <div class="pack_unit">
+            <!-- <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit"> -->
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)"
                    @click="switchPackContent(pack2.packID, 'draw')">
@@ -251,6 +252,7 @@ export default {
       FilterCriteria :[],
       filter1:true,
       filter2:true,
+      packFilter:11,
     };
   },
   created() {
@@ -267,7 +269,56 @@ export default {
       console.log('pack', theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
-     
+    getOne(){
+      return 1;
+    },
+    switchPacks(packs){
+      if (packs == "once"){
+        if (this.packFilter < 5){
+          this.packFilter = this.packFilter + 10;
+          document.getElementById("pack_show_once").className="op_tag_0";
+        }else{
+          this.packFilter = this.packFilter - 10;
+          document.getElementById("pack_show_once").className="op_tag_1";
+        }
+      }else{
+        if (this.packFilter == 10 || this.packFilter == 0){
+          this.packFilter = this.packFilter + 1;
+          document.getElementById("pack_show_ori").className="op_tag_0";
+        }else{
+          this.packFilter = this.packFilter - 1;
+          document.getElementById("pack_show_ori").className="op_tag_1";
+        }
+      }
+    },
+
+    getDisplayState(packState, packType, packPrice, packFilter) {
+      if (packState == 0){
+        return 'display: none;';   //状态不对一票否决
+      }else{
+        if (packFilter == 11){
+          return '';   //都显示
+        }else if(packFilter == 10){ //隐藏源石
+          if (packType == "year" || packType == "permanent"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }else if(packFilter == 1){ //隐藏一次性
+          if (packType == "once"){
+            return 'display: none;';
+          }
+        }else if(packFilter == 0){ //都隐藏
+          if (packType == "year" || packType == "permanent" ||packType == "once"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }        
+      }
+    },
     packfilterByType(filter){
       this.FilterCriteria = [];
       let filter1List = [];
@@ -308,12 +359,15 @@ export default {
 
     sortPackByType() {
       this.initData();
-      
+      document.getElementById("pack_left").style.display="block";
+      document.getElementById("pack_right").style.display="block";
     },
 
-    sortPackByPPR() {
+    sortPackByPPRPerDraw() {
       this.initData();
-     
+      document.getElementById("pack_left").style.display="block";
+      document.getElementById("pack_right").style.display="none";
+      document.getElementById("pack_right").style.display="none";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
@@ -333,9 +387,10 @@ export default {
     },
 
 
-    sortPackByPrice() {
+    sortPackByPPRPerOri() {
       this.initData();
-      
+      document.getElementById("pack_left").style.display="none";
+      document.getElementById("pack_right").style.display="block";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
