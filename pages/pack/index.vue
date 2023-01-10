@@ -13,14 +13,16 @@
         </div>
       </div>
       <div class="op_title_tag">
-        <div id="pack_switch_to_type" class="op_tag_0" @click="sortPackByType()">
+        <div id="pack_sort_by_type" class="op_tag_1" @click="sortPackByType()">
           礼包类型排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPRPerDraw()">
+        <div id="pack_sort_by_drawPpr" class="op_tag_0" @click="sortPackByPPRPerDraw()">
           抽卡性价比排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPRPerOri()">
+        <div id="pack_sort_by_oriPpr" class="op_tag_0" @click="sortPackByPPRPerOri()">
           总价值性价比排序
+        </div>
+          <div class="op_tag_0" style="padding:1px;">
         </div>
         <div id="pack_show_once" class="op_tag_0" @click="switchPacks('once')">
           隐藏一次性礼包
@@ -135,7 +137,8 @@
 
         <!-- 材料折合源石 -->
         <div id="pack_right">
-          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list">
+          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayState(pack3.packState, pack3.packType, pack3.packPrice, packFilter)">
+          <!-- <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list"> -->
             <div v-show="pack3.packState == 1&&!FilterCriteria.includes(pack3.packType)" class="pack_unit">
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)"
@@ -161,7 +164,7 @@
 
               <!-- 表格部分 -->
               <div class="pack_info">
-                <div class="pack_info_text">
+                <div class="pack_info_text" style="color:#ff8f6e;">
                   {{ getFixed(pack3.packOriginium, 1) }}源石 <br>￥{{ getFixed(pack3.packRmbPerOriginium, 1) }}/石
                 </div>
                 <div class="pack_chart">
@@ -360,13 +363,20 @@ export default {
       this.initData();
       document.getElementById("pack_left").style.display="block";
       document.getElementById("pack_right").style.display="block";
+
+      document.getElementById("pack_sort_by_type").className="op_tag_1";
+      document.getElementById("pack_sort_by_drawPpr").className="op_tag_0";
+      document.getElementById("pack_sort_by_oriPpr").className="op_tag_0";
     },
 
     sortPackByPPRPerDraw() {
       this.initData();
       document.getElementById("pack_left").style.display="block";
       document.getElementById("pack_right").style.display="none";
-      document.getElementById("pack_right").style.display="none";
+
+      document.getElementById("pack_sort_by_type").className="op_tag_0";
+      document.getElementById("pack_sort_by_drawPpr").className="op_tag_1";
+      document.getElementById("pack_sort_by_oriPpr").className="op_tag_0";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           console.log(this.packsPPRDataSort[j].packName, this.packsPPRDataSort[j].packRmbPerDraw, this.packsPPRDataSort[j].packRmbPerDraw != 'null')
@@ -390,6 +400,10 @@ export default {
       this.initData();
       document.getElementById("pack_left").style.display="none";
       document.getElementById("pack_right").style.display="block";
+
+      document.getElementById("pack_sort_by_type").className="op_tag_0";
+      document.getElementById("pack_sort_by_drawPpr").className="op_tag_0";
+      document.getElementById("pack_sort_by_oriPpr").className="op_tag_1";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
@@ -463,6 +477,8 @@ export default {
 
 #pack {
   background-color: #eeeeee;
+  max-width: 1080px;
+  margin: auto;
 }
 
 #pack_content {
@@ -530,7 +546,7 @@ export default {
 }
 
 .pack_info_text {
-  width: 96px;
+  width: 100px;
   padding: 18px 0px 18px 4px;
   font-size: 20px;
   text-align: center;
