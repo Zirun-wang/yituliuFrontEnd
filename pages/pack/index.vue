@@ -321,24 +321,22 @@ export default {
     },
     packfilterByType(filter){
       this.FilterCriteria = [];
-      let filter1List = [];
-      let filter2List = [];
-        if(filter===1&&this.filter1){
-           filter1List =['once'];
-          this.filter1= false;
-        }else{
-          this.filter1= true;
-        }
-        if(filter===2&&this.filter2){
-           filter2List =['permanent','year'];
-          this.filter2= false;
-        }else{
-          this.filter2= true;
-        }
-
-        this.FilterCriteria.push.apply(this.FilterCriteria,filter1List);
-        this.FilterCriteria.push.apply(this.FilterCriteria,filter2List)
+      let filter1List,filter2List = [];
+      document.getElementById("button3").className = "op_tag_0";
+      document.getElementById("button4").className = "op_tag_0";
+        if (this.filter1) {
+          filter1List = ['once'];
+          document.getElementById("button3").className = "op_tag_1";
+        } 
+        if (this.filter2) {
+          filter2List = ['permanent', 'year'];
+          document.getElementById("button4").className = "op_tag_1";
+        } 
+      this.FilterCriteria.push.apply(this.FilterCriteria, filter1List);
+      this.FilterCriteria.push.apply(this.FilterCriteria, filter2List)
     },
+
+
     getStorePackData() {
       storeApi.findPackStore().then((response) => {
         this.packPPRResponse = response.data;
@@ -350,8 +348,9 @@ export default {
     initData() {
       this.packsPPRData = [];
       this.packsPPRDataSort = [];
-     
+
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
+        if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
         this.packsPPRData.push(this.packPPRResponse[i]);
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
@@ -370,9 +369,9 @@ export default {
       document.getElementById("pack_right").style.display="none";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
-          console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
+          console.log(this.packsPPRDataSort[j].packName, this.packsPPRDataSort[j].packRmbPerDraw, this.packsPPRDataSort[j].packRmbPerDraw != 'null')
           // console.log(this.packsPPRDataSort[j+1].packName,this.packsPPRDataSort[j+1].packRmbPerDraw)
-          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw &&this.packsPPRDataSort[j+1].packRmbPerDraw !=null) {
+          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
             const temp = this.packsPPRDataSort[j];
             this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
             this.packsPPRDataSort[j + 1] = temp;
@@ -407,7 +406,7 @@ export default {
       }
     },
 
-     sortPackById() {
+    sortPackById() {
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packID > this.packsPPRDataSort[j + 1].packID) {
@@ -437,14 +436,13 @@ export default {
 
 
     getPackPic(img, type) {
-      
+
       if (type === 'limited') {
-       
-       return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
-      } 
-      else
+
+        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+      } else
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
-        
+
     },
     getContentId(id, type) {
       return (type + "_" + id)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button @click="creatdJson">生成json</el-button>
-   
+
     <table border="0" class="pack-table">
       <tbody>
       <tr class="title—tr">
@@ -24,7 +24,7 @@
         <td class="long-short">十连</td>
         <td >礼包内容</td>
       </tr>
-      <tr v-for="index in packPPRDataLength" :key="index" class="title—tr">
+      <tr v-for="index in packPPRDataLength" :key="index" class="title—tr" >
         <td><input type="text" class="input_long" v-model="packName[index-1]"/></td>
         <td><input type="text" class="input_long" v-model="packShowName[index-1]"/></td>
         <td><input type="text" class="input_long" v-model="packImg[index-1]"/></td>
@@ -90,12 +90,8 @@ export default {
       gachaOriginium: [],
       gachaPermit: [],
       gachaPermit10: [],
-      packContent_item: [
-       
-      ],
-      packContent_count: [
-        
-      ],
+      packContent_item: [],
+      packContent_count: [],
       packJson: {}
     };
   },
@@ -122,7 +118,7 @@ export default {
 
     async creatdJson() {
       this.setJson();
-      await this.sleep(1500);
+      await this.sleep(700);
       toolApi.createStorePackJson(this.packJson).then((response) => {
         this.$message({
           message: '创建成功',
@@ -281,6 +277,6 @@ export default {
 .div-item {
   display: flex;
   flex-direction:column;
-  
+
 }
 </style>
