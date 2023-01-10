@@ -271,33 +271,23 @@ export default {
     packfilterByType(filter) {
       if(filter ===1) this.filter1 = !this.filter1;
       if(filter ===2) this.filter2 = !this.filter2;
-
       this.FilterCriteria = [];
-
-      let filter1List = [];
-      let filter2List = [];
+      let filter1List,filter2List = [];
       document.getElementById("button3").className = "op_tag_0";
       document.getElementById("button4").className = "op_tag_0";
-
-     
         if (this.filter1) {
           filter1List = ['once'];
           document.getElementById("button3").className = "op_tag_1";
         } 
-    
         if (this.filter2) {
           filter2List = ['permanent', 'year'];
           document.getElementById("button4").className = "op_tag_1";
         } 
-
-
-     
-
-      console.log(this.FilterCriteria.toString())
-
       this.FilterCriteria.push.apply(this.FilterCriteria, filter1List);
       this.FilterCriteria.push.apply(this.FilterCriteria, filter2List)
     },
+
+
     getStorePackData() {
       storeApi.findPackStore().then((response) => {
         this.packPPRResponse = response.data;
