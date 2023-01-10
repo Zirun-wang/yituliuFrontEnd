@@ -16,16 +16,16 @@
         <div id="pack_switch_to_type" class="op_tag_0" @click="sortPackByType()">
           礼包类型排序
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPPR()">
+        <div id="button1" class="op_tag_0" @click="sortPackByPPR()">
           性价比排序(仅抽卡)
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="sortPackByPrice()">
+        <div id="button2" class="op_tag_0" @click="sortPackByPrice()">
           性价比排序(总价值)
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(1)">
+        <div id="button3" class="op_tag_0" @click="packfilterByType(1)">
           隐藏一次性礼包
         </div>
-        <div id="pack_switch_to_ppr" class="op_tag_0" @click="packfilterByType(2)">
+        <div id="button4" class="op_tag_0" @click="packfilterByType(2)">
           隐藏除普通648外源石档位
         </div>
         <div class="tab_text">
@@ -248,9 +248,9 @@ export default {
       packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
-      FilterCriteria :[],
-      filter1:true,
-      filter2:true,
+      FilterCriteria: [],
+      filter1: false,
+      filter2: false,
     };
   },
   created() {
@@ -267,26 +267,36 @@ export default {
       console.log('pack', theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
-     
-    packfilterByType(filter){
+
+    packfilterByType(filter) {
+      if(filter ===1) this.filter1 = !this.filter1;
+      if(filter ===2) this.filter2 = !this.filter2;
+
       this.FilterCriteria = [];
+
       let filter1List = [];
       let filter2List = [];
-        if(filter===1&&this.filter1){
-           filter1List =['once'];
-          this.filter1= false;
-        }else{
-          this.filter1= true;
-        }
-        if(filter===2&&this.filter2){
-           filter2List =['permanent','year'];
-          this.filter2= false;
-        }else{
-          this.filter2= true;
-        }
+      document.getElementById("button3").className = "op_tag_0";
+      document.getElementById("button4").className = "op_tag_0";
 
-        this.FilterCriteria.push.apply(this.FilterCriteria,filter1List);
-        this.FilterCriteria.push.apply(this.FilterCriteria,filter2List)
+     
+        if (this.filter1) {
+          filter1List = ['once'];
+          document.getElementById("button3").className = "op_tag_1";
+        } 
+    
+        if (this.filter2) {
+          filter2List = ['permanent', 'year'];
+          document.getElementById("button4").className = "op_tag_1";
+        } 
+
+
+     
+
+      console.log(this.FilterCriteria.toString())
+
+      this.FilterCriteria.push.apply(this.FilterCriteria, filter1List);
+      this.FilterCriteria.push.apply(this.FilterCriteria, filter2List)
     },
     getStorePackData() {
       storeApi.findPackStore().then((response) => {
@@ -299,8 +309,9 @@ export default {
     initData() {
       this.packsPPRData = [];
       this.packsPPRDataSort = [];
-     
+
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
+        if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
         this.packsPPRData.push(this.packPPRResponse[i]);
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
@@ -308,17 +319,17 @@ export default {
 
     sortPackByType() {
       this.initData();
-      
+
     },
 
     sortPackByPPR() {
       this.initData();
-     
+
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
-          console.log(this.packsPPRDataSort[j].packName,this.packsPPRDataSort[j].packRmbPerDraw,this.packsPPRDataSort[j].packRmbPerDraw!='null')
+          console.log(this.packsPPRDataSort[j].packName, this.packsPPRDataSort[j].packRmbPerDraw, this.packsPPRDataSort[j].packRmbPerDraw != 'null')
           // console.log(this.packsPPRDataSort[j+1].packName,this.packsPPRDataSort[j+1].packRmbPerDraw)
-          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw &&this.packsPPRDataSort[j+1].packRmbPerDraw !=null) {
+          if (this.packsPPRDataSort[j].packRmbPerDraw > this.packsPPRDataSort[j + 1].packRmbPerDraw) {
             const temp = this.packsPPRDataSort[j];
             this.packsPPRDataSort[j] = this.packsPPRDataSort[j + 1];
             this.packsPPRDataSort[j + 1] = temp;
@@ -335,7 +346,7 @@ export default {
 
     sortPackByPrice() {
       this.initData();
-      
+
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
@@ -352,7 +363,7 @@ export default {
       }
     },
 
-     sortPackById() {
+    sortPackById() {
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packID > this.packsPPRDataSort[j + 1].packID) {
@@ -382,14 +393,13 @@ export default {
 
 
     getPackPic(img, type) {
-      
+
       if (type === 'limited') {
-       
-       return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
-      } 
-      else
+
+        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+      } else
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
-        
+
     },
     getContentId(id, type) {
       return (type + "_" + id)
