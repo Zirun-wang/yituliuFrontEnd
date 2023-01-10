@@ -194,7 +194,7 @@
               预留皮肤(18石/件)
             </div>
             <el-slider
-              v-model="skinFlag"
+              v-model="skinValue"
               :step="1"
               :min="0"
               :max="10"
@@ -264,12 +264,12 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ weeksRemaining + weekStageValue }} 周
+              剿灭 {{ weeksRemaining + AnnihilationStageValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px">
-                {{ weeklyStageRewards + weekStageValue * 1800 }}
+                {{ weeklyStageRewards + AnnihilationStageValue * 1800 }}
               </div>
             </div>
             <div
@@ -288,20 +288,20 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              绿票商店 {{ monthsRemaining - greenF1Value }} 月
+              绿票商店 {{ monthsRemaining - storeF1AndF2Value }} 月
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px">
-                {{ (monthsRemaining - greenF1Value) * 600 }}
+                {{ (monthsRemaining - storeF1AndF2Value) * 600 }}
               </div>
               <div
                 style="width: 40px"
                 :class="getSpriteImg('7003icon', 0)"></div>
               <div style="width: 28px">
-                {{ (monthsRemaining - greenF1Value) * 4 }}
+                {{ (monthsRemaining - storeF1AndF2Value) * 4 }}
               </div>
             </div>
             <div
@@ -909,14 +909,13 @@
         weekStageFlag: true, //是否完成剿灭
         weekTaskFlag: true, //是否完成周常
         greenStoreFlag: false, //是否兑换绿票商店
-        skinFlag: 0, //购买皮肤的数量
-        originiumValue: true,
-        weekStageValue: true,
-        weekTaskValue: true,
-        greenF1Value: 0,
-        skinValue: 0,
+     
+        AnnihilationStageValue: true,
+        weekTaskValue: true,   //每周任务的合成玉数量
+        storeF1AndF2Value: 0,  //绿票商店抽数
+        skinValue: 0,   //皮肤消耗源石数量
         customValue: 0, //自定义值
-        cookieInit: 0,
+        cookieInit: 0,   //cookie是否获取标志
         pieData: [],
       };
     },
@@ -925,8 +924,7 @@
       this.getInterval();
       this.getEveryreWard();
       this.getCountDown();
-      this.checkEndDate()
-
+      this.checkEndDate();
     },
     mounted() {
       // this.updateVisits();
@@ -1007,7 +1005,7 @@
       },
 
       checkEndDate() {
-        this.cookieInit=0;
+        // this.cookieInit=true;
         if(this.timeSelector==='春节限定(1.31)'){
           this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
@@ -1057,13 +1055,13 @@
         }
 
         //判断是否完成剿灭
-        this.weekStageValue = 1;
+        this.AnnihilationStageValue = 1;
         if (this.weekStageFlag) {
-          this.weekStageValue = 0;
+          this.AnnihilationStageValue = 0;
         }
 
 
-        this.greenF1Value = 0;
+        this.storeF1AndF2Value = 0;
 
         if(typeof this.greenStoreFlag ==='string' ){
            if(this.greenStoreFlag ==="false") this.greenStoreFlag = false;
@@ -1071,7 +1069,7 @@
         }
 
         if (this.greenStoreFlag) {
-          this.greenF1Value = 1;
+          this.storeF1AndF2Value = 1;
 
         }
 
@@ -1205,13 +1203,13 @@
         this.orundum =
           parseInt(this.orundum) +
           parseInt(this.dailyRewards) +
-          parseInt(this.monthsRemaining - this.greenF1Value) * 600 +
+          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600 +
           parseInt(this.weeklyTaskRewards) +
           parseInt(this.weeklyStageRewards);
 
         this.permit =
           parseInt(this.permit) +
-          parseInt(this.monthsRemaining - this.greenF1Value) * 4 +
+          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
           parseInt(this.MonthsSignInRemaining);
 
         //黄票商店38抽计算
@@ -1234,12 +1232,12 @@
           parseInt(this.weeklyTaskRewards) +
           parseInt(this.weeklyStageRewards) +
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800 +
-          parseInt(this.monthsRemaining - this.greenF1Value) * 600;
+          parseInt(this.AnnihilationStageValue) * 1800 +
+          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600;
 
         this.permit_daily =
           parseInt(this.permit_daily) +
-          parseInt(this.monthsRemaining - this.greenF1Value) * 4 +
+          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
           parseInt(this.MonthsSignInRemaining);
 
         this.gachaTimes_daily =
@@ -1307,14 +1305,14 @@
         this.orundum =
           parseInt(this.orundum) +
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800 -
+          parseInt(this.AnnihilationStageValue) * 1800 -
           parseInt(this.poolCountDown) * 660 ;
 
 
         this.orundum_other =
           parseInt(this.orundum_other) +
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.weekStageValue) * 1800 -
+          parseInt(this.AnnihilationStageValue) * 1800 -
           parseInt(this.poolCountDown) * 660 ;
 
           //寻访记录=减去倒计时
@@ -1331,11 +1329,9 @@
           parseInt(this.permit10_other) * 10
 
 
-        if (parseInt(this.originium - parseInt(this.skinFlag) * 18) < 0) {
+        if (parseInt(this.originium - parseInt(this.skinValue) * 18) < 0) {
          this.$message.error("你的源石不足");
         }
-
-        this.skinValue = this.skinFlag;
 
         this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
 
@@ -1408,9 +1404,11 @@
 
 
 
-        if (this.cookieInit > 1) {
+        if (this.cookieInit>1) {
           this.pieChart(this.pieData);
         }
+
+
         // console.log(this.permit_exist);
         // console.log(this.permit_potential);
         // console.log(this.permit_daily);
@@ -1421,23 +1419,23 @@
       },
 
       valueInit() {
-        if (this.cookieInit !== 0) {
-          cookie.set("originium_exist", this.originium_exist, { expires: 30 });
-          cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
-          cookie.set("permit_exist", this.permit_exist, { expires: 30 });
-          cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
-          cookie.set("paradox", this.paradox, { expires: 30 });
-          cookie.set("greenStoreFlag", this.greenStoreFlag, { expires: 30 });
-        } else {
+        if (this.cookieInit===0) {
           this.originium_exist = cookie.get("originium_exist");
           this.orundum_exist = cookie.get("orundum_exist");
           this.permit_exist = cookie.get("permit_exist");
           this.permit10_exist = cookie.get("permit10_exist");
           this.paradox = cookie.get("paradox");
           this.greenStoreFlag = cookie.get("greenStoreFlag");
+          
+        } else {
+         cookie.set("originium_exist", this.originium_exist, { expires: 30 });
+          cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
+          cookie.set("permit_exist", this.permit_exist, { expires: 30 });
+          cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
+          cookie.set("paradox", this.paradox, { expires: 30 });
+          cookie.set("greenStoreFlag", this.greenStoreFlag, { expires: 30 });
         }
 
-        
         this.cookieInit++;
 
         if (this.originium_exist === "" || this.originium_exist === undefined ||
