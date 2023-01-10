@@ -269,9 +269,7 @@ export default {
       console.log('pack', theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
-    getOne(){
-      return 1;
-    },
+
     switchPacks(packs){
       if (packs == "once"){
         if (this.packFilter < 5){
