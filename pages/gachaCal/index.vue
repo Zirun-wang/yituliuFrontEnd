@@ -8,6 +8,7 @@
           <span class="collapse-item_title" style="color: purple">
             共计{{ getFixed(gachaTimes_total,0) }}抽，氪金{{ sellsCount }}元
           </span>
+          <span style="font-size: 20px;color: rgb(136 136 136 / 69%);margin-left: 16px;">yituliu.site</span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
@@ -15,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"  
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  disabled
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -475,12 +476,37 @@
               </el-checkbox-button>
             </div>
           </el-checkbox-group>
-          <!-- 限时、一次性礼包 -->
+          <!-- 限时礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包
+            <img class="gacha_img_small" src="/img/website/ex.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+              <el-checkbox-button :label="index">
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+                <div class="gacha_unit_child_title" style="width: 168px">
+                  {{ singlePack.packName }}
+                </div>
+                <!-- 一个通用的资源显示模块 -->
+                <div class="gacha_resources_unit" style="width: 279px;">
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{ singlePack.gachaOriginium }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
+                </div>
+              </el-checkbox-button>
+            </div>
+          </el-checkbox-group>
+          <!-- 新人礼包 -->
+          <div class="gacha_unit_fold">
+            <img class="gacha_img_small" src="/img/website/ex.png">新人礼包
+          </div>
+          <el-checkbox-group v-model="gacha_storePacksList" class="">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">

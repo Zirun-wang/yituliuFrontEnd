@@ -15,10 +15,11 @@
       <el-menu-item v-show="menu_pc" index="1" @click="mainSite()">材料一图流</el-menu-item>
       <el-menu-item v-show="menu_pc" index="2" @click="gachaCal()">攒抽规划</el-menu-item>
       <el-menu-item v-show="menu_pc" index="3" @click="schedule()">排班生成器</el-menu-item>
-      <el-submenu v-show="menu_pc" index="4">
+      <el-menu-item v-show="menu_pc" index="4" @click="pack()">礼包性价比</el-menu-item>
+      <!-- <el-submenu v-show="menu_pc" index="4">
         <template slot="title">其它工具</template>
         <el-menu-item index="4-1" @click="recruit()">公开招募</el-menu-item>
-      </el-submenu>
+      </el-submenu> -->
       <el-menu-item 
         v-show="('/' === routePath || '/recruit/' === routePath)&&menu_pc"
         index="5"
@@ -156,6 +157,9 @@ export default {
     },
     schedule() {
       window.location.href = "/riicCal/";
+    },
+    pack() {
+      window.location.href = "/pack/";
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
