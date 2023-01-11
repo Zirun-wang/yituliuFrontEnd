@@ -132,15 +132,17 @@ export default {
 <style scoped>
 
 .image_size {
-  width: 820px;
+   margin: 10%;
+  width: 640px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .pack_table {
-  margin: 10%;
+ 
   text-align: center;
   font-weight: 700;
   border-collapse: collapse;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
 }
 
 .pack_limited {
