@@ -130,7 +130,7 @@ export default {
         this.activeIndex = "4";
         this.updateVisits("index");
       }
-      if ("/expCal/" === this.routePath) {
+      if ("/pack/" === this.routePath) {
         this.activeIndex = "4";
         this.updateVisits("index");
       }
