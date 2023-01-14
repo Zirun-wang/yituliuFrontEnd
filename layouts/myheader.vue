@@ -132,7 +132,7 @@ export default {
       }
       if ("/pack/" === this.routePath) {
         this.activeIndex = "4";
-        this.updateVisits("index");
+        this.updateVisits("pack");
       }
       if ("/maaRecruitData/" === this.routePath) {
         this.activeIndex = "4";
