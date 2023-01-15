@@ -465,7 +465,13 @@ export default {
 
       this.packsPPRData = []
       for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
-        this.packsPPRData.push(this.packsPPRDataSort[i])
+        if(this.packsPPRDataSort[i].packRmbPerDraw===0) continue;
+        this.packsPPRData.push(this.packsPPRDataSort[i]);
+      }
+
+      for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
+        if(this.packsPPRDataSort[i].packRmbPerDraw!==0) break;
+        this.packsPPRData.push(this.packsPPRDataSort[i]);
       }
     },
 
