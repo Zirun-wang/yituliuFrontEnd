@@ -415,7 +415,7 @@ export default {
             }
             return 'display: none;';
           }
-        }        
+        }
       }
     },
     packfilterByType(filter){
@@ -426,11 +426,11 @@ export default {
         if (this.filter1) {
           filter1List = ['once'];
           document.getElementById("button3").className = "op_tag_1";
-        } 
+        }
         if (this.filter2) {
           filter2List = ['permanent', 'year'];
           document.getElementById("button4").className = "op_tag_1";
-        } 
+        }
       this.FilterCriteria.push.apply(this.FilterCriteria, filter1List);
       this.FilterCriteria.push.apply(this.FilterCriteria, filter2List)
     },
@@ -450,7 +450,7 @@ export default {
 
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
-        
+
         if('limited'===this.packPPRResponse[i].packType){
           this.packsPPRData.unshift(this.packPPRResponse[i]);
         }else{
@@ -492,7 +492,13 @@ export default {
 
       this.packsPPRData = []
       for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
-        this.packsPPRData.push(this.packsPPRDataSort[i])
+        if(this.packsPPRDataSort[i].packRmbPerDraw===0) continue;
+        this.packsPPRData.push(this.packsPPRDataSort[i]);
+      }
+
+      for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
+        if(this.packsPPRDataSort[i].packRmbPerDraw!==0) break;
+        this.packsPPRData.push(this.packsPPRDataSort[i]);
       }
     },
 
