@@ -50,7 +50,7 @@
       <div id="pack_content" style="display:flex;">
         <!-- 仅计抽卡 -->
         <div id="pack_left" style="margin-top: -8px;">
-          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayState(pack2.packState, pack2.packType, pack2.packPrice, packFilter)">
+          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayStateDrawOnly(pack2.packState, pack2.packType, pack2.packPrice, packFilter,pack2.packPPRDraw)">
             <div class="pack_unit">
             <!-- <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit"> -->
               <!-- 图片部分 -->
@@ -364,6 +364,33 @@ export default {
       }
     },
 
+    getDisplayStateDrawOnly(packState, packType, packPrice, packFilter, packPPRDraw) {
+      if (packState == 0 ||packPPRDraw < 0.1){
+        return 'display: none;';   //状态不对一票否决
+      }else{
+        if (packFilter == 11){
+          return '';   //都显示
+        }else if(packFilter == 10){ //隐藏源石
+          if (packType == "year" || packType == "permanent"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }else if(packFilter == 1){ //隐藏一次性
+          if (packType == "once"){
+            return 'display: none;';
+          }
+        }else if(packFilter == 0){ //都隐藏
+          if (packType == "year" || packType == "permanent" ||packType == "once"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }        
+      }
+    },
     getDisplayState(packState, packType, packPrice, packFilter) {
       if (packState == 0){
         return 'display: none;';   //状态不对一票否决
