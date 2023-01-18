@@ -19,8 +19,8 @@ export default {
     return {
       itemName: [],
       itemCost: [],
-      
-      imgUrl:[]
+
+      imgUrl: [],
     };
   },
   created() {
@@ -32,13 +32,13 @@ export default {
     },
 
     async show() {
-      await this.sleep(1000)
-      for(let i=0;i<itemCount.length;i++){
-           await this.sleep(2000)
-          itemId.unshift(itemCount[i].itemName);
-          this.itemName.unshift(itemCount[i].itemId)
-          this.itemCost.unshift(itemCount[i].itemCount)
-          this.barChart()
+      await this.sleep(1000);
+      for (let i = 0; i < itemCount.length; i++) {
+        await this.sleep(2000);
+        itemId.unshift(itemCount[i].itemName);
+        this.itemName.unshift(itemCount[i].itemId);
+        this.itemCost.unshift(itemCount[i].itemCount);
+        this.barChart();
       }
 
       //   await this.sleep(2000)
@@ -60,7 +60,6 @@ export default {
       //   this.itemName.unshift(apCost[i].charId);
       //   this.itemCost.unshift(apCost[i].apCost.toFixed(2));
       //   this.barChart();
-        
 
       //   if (this.itemName.length > 10) {
       //     itemId = itemId.slice(0, itemId.length - 1);
@@ -73,7 +72,7 @@ export default {
       var myChart = echarts.init(document.getElementById("chart2"));
       console.log(this.xData);
       var option = {
-        color: "#4ba6f1",
+        color: "#ffffffffffffff",
 
         // backgroundColor: "black",
         // tooltip: {
@@ -109,23 +108,22 @@ export default {
                 fontSize: 26,
                 color: "#FFFFFFFF",
                 textBorderWidth: 10,
-                  textBorderColor:'#000000'
+                textBorderColor: "#000000",
               },
-              formatter: function (value,index) {
+              formatter: function (value, index) {
                 //判断是否要显示预警
-                console.log("拿到的内容",  itemId[index]);
+                // console.log("拿到的内容",  itemId[index]);
                 // return value;
-                return itemId[index]+"{"+value+"|}";
+                return itemId[index] + "{" + value + "|}";
               },
-              rich: imageUrl
+              rich: imageUrl,
             },
             axisLine: {
               lineStyle: {
-                width:4,
+                width: 4,
                 color: "#FFFFFFFF",
               },
             },
-           
           },
         ],
         xAxis: [
@@ -140,7 +138,6 @@ export default {
               textStyle: {
                 fontSize: 24,
                 color: "#ffffff",
-                
               },
             },
             axisLine: {
@@ -148,7 +145,6 @@ export default {
                 color: "#ffffff",
               },
             },
-           
           },
         ],
         series: [
@@ -156,8 +152,6 @@ export default {
             name: [],
             type: "bar",
             barWidth: 30,
-           
-
             data: this.itemCost,
             label: {
               normal: {
@@ -168,14 +162,36 @@ export default {
                   fontSize: 26,
                   // margin: 20,
                   textBorderWidth: 10,
-                  textBorderColor:'#000000'
+                  textBorderColor: "#000000",
                 },
               },
             },
 
             itemStyle: {
               normal: {
-                barBorderRadius:[20,20,20,20]
+                color: function (params) {
+                  console.log("配置颜色:", params);
+                
+                  if ("30013" === params.name) return "#CDB288";
+                  if ("30043" === params.name) return "#149DCF";
+                  if ("30063" === params.name) return "#CF3F3F";
+                  if ("30053" === params.name) return "#9CCFE0";
+                  if ("30083" === params.name) return "#5C5B8F";
+                  if ("30023" === params.name) return "#D3BDB0";
+                  if ("30073" === params.name) return "#E87600";
+                  if ("30103" === params.name) return "#FFF9D0";
+                  if ("30093" === params.name) return "#E9B6BF";
+                  if ("30033" === params.name) return "#B1D632";
+                  if ("31023" === params.name) return "#DBDFE3";
+                  if ("31013" === params.name) return "#12BEFC";
+                  if ("31033" === params.name) return "#399382";
+                  if ("31053" === params.name) return "#02BEFF";
+                  if ("31043" === params.name) return "#EB94C0";
+                  if ("31063" === params.name) return "#FFFFFF";
+
+                  return "#FCCE10";
+                },
+                barBorderRadius: [20, 20, 20, 20],
               },
             },
           },
@@ -183,7 +199,6 @@ export default {
       };
       myChart.setOption(option);
     },
-    
   },
 };
 </script>

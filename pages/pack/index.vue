@@ -307,7 +307,7 @@
 
 <script>
 import cookie from "js-cookie";
-import packsPPR from "static/json/pack_packsPPR.json";
+import packsPPR from "static/RecycleBin/pack_packsPPR_demo.json";
 import storeApi from "@/api/store";
 
 
@@ -319,7 +319,7 @@ export default {
       // packsPPR:原始数据
       // packsPPRDataSort:排序用缓冲区
       opETextTheme: "op_title_etext_light",
-      packPPRResponse: [],
+      packPPRResponse: packsPPR.data,
       packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
@@ -331,8 +331,8 @@ export default {
   },
   created() {
     this.getCookies();
-
-    this.getStorePackData();
+     this.initData();
+    // this.getStorePackData();
   },
   methods: {
     getCookies() {
@@ -391,6 +391,8 @@ export default {
         }
       }
     },
+
+
     packfilterByType(filter){
       this.FilterCriteria = [];
       let filter1List,filter2List = [];
