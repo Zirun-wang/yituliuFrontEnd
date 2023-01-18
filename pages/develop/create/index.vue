@@ -22,6 +22,7 @@
         <td class="long-short">源石</td>
         <td class="long-short">单抽</td>
         <td class="long-short">十连</td>
+        <td class="">备注</td>
         <td >礼包内容</td>
       </tr>
       <tr v-for="index in packPPRDataLength" :key="index" class="title—tr" >
@@ -42,6 +43,7 @@
         <td><input type="text" class="input_short" v-model.number="gachaOriginium[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit[index-1]"/></td>
         <td><input type="text" class="input_short" v-model.number="gachaPermit10[index-1]"/></td>
+        <td><input type="text" class="" v-model="packTag[index-1]"/></td>
         <td>
           <div class="div-Content">
             <div v-for="count in 12" :key="count" class="div-item">
@@ -90,6 +92,7 @@ export default {
       gachaOriginium: [],
       gachaPermit: [],
       gachaPermit10: [],
+      packTag:[],
       packContent_item: [],
       packContent_count: [],
       packJson: {}
@@ -152,7 +155,7 @@ export default {
         map.gachaOriginium = parseInt(this.gachaOriginium[i]);
         map.gachaPermit = parseInt(this.gachaPermit[i]);
         map.gachaPermit10 = parseInt(this.gachaPermit10[i]);
-
+        map.packTag = this.packTag[i];
 
         let content = [];
         for (let j = 0; j < this.packContent_item[i].length; j++) {
@@ -206,6 +209,7 @@ export default {
         this.gachaOriginium[i] = this.packPPRData[i].gachaOriginium;
         this.gachaPermit[i] = this.packPPRData[i].gachaPermit;
         this.gachaPermit10[i] = this.packPPRData[i].gachaPermit10;
+        this.packTag[i] = this.packPPRData[i].packTag;
         console.log(this.packPPRData[i].packContent == undefined)
         if (this.packPPRData[i].packContent != undefined) {
           let content = this.packPPRData[i].packContent;
