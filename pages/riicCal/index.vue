@@ -1770,7 +1770,7 @@
         this.$notify({
           title: '2022-11-26更新',
           dangerouslyUseHTMLString: true,
-          message: '<strong> Bug修复：<br>修复了不指定换班时间生成时可能为空字串的问题 </strong>',
+          message: '<strong> 干员追加：<br>增加了登临意活动干员 </strong>',
           duration: 12000
         });
       },
