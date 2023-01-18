@@ -176,7 +176,7 @@
                 <div class="pack_info_text" style="color:#ff8f6e;">
                   {{ getFixed(pack3.packOriginium, 1) }}源石 <br>￥{{ getFixed(pack3.packRmbPerOriginium, 1) }}/石
                 </div>
-                <div class="pack_info_alert" v-show="pack3.packImg !== '' ">
+                <div class="pack_info_alert" v-show="!pack3.packTag == '' ">
                   含难以估价内容，点击图片查看
                 </div>
                 <div class="pack_chart">
@@ -215,7 +215,7 @@
 
               <!-- 详情部分 -->
               <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
-                <div class="pack_contents_note" v-show="pack3.packImg !== '' ">{{pack3.packImg}}</div>
+                <div class="pack_contents_note">{{pack3.packTag}}</div>
                 <div class="pack_content_unit0" style="width:112px;">
                   <div style="width:56px;">源石</div>
                   <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
