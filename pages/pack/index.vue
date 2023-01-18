@@ -176,6 +176,9 @@
                 <div class="pack_info_text" style="color:#ff8f6e;">
                   {{ getFixed(pack3.packOriginium, 1) }}源石 <br>￥{{ getFixed(pack3.packRmbPerOriginium, 1) }}/石
                 </div>
+                <div class="pack_info_alert" v-show="pack3.packImg !== '' ">
+                  含难以估价内容，点击图片查看
+                </div>
                 <div class="pack_chart">
                   <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
                     <div class="pack_chart_unit_text">本礼包</div>
@@ -212,6 +215,7 @@
 
               <!-- 详情部分 -->
               <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
+                <div class="pack_contents_note" v-show="pack3.packImg !== '' ">{{pack3.packImg}}</div>
                 <div class="pack_content_unit0" style="width:112px;">
                   <div style="width:56px;">源石</div>
                   <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
@@ -652,6 +656,7 @@ export default {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+
 .pack_info_text {
   width: 100px;
   padding: 18px 0px 18px 4px;
@@ -662,6 +667,14 @@ export default {
   display: inline-block;
   line-height: 36px;
   vertical-align: top;
+}
+
+.pack_info_alert{
+  position: absolute;
+  margin-top: -15px;
+  background: chocolate;
+  border-radius: 21px;
+  padding: 0px 4px;
 }
 
 .t1 {
@@ -725,7 +738,11 @@ export default {
   box-shadow: 1px 1px 4px rgb(0 0 0 / 30%);
   vertical-align: bottom;
 }
-
+.pack_contents_note{
+  display: block;
+  width: 100%;
+  line-height: 32px;
+}
 .pack_content_unit0 {
   width: 116px;
   height: 32px;
