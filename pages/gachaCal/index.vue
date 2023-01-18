@@ -450,7 +450,7 @@
           <div class="gacha_unit_child_instruction" style="padding: 4px 16px;font-size: 18px;color: brown;">
             标签内为每抽价格(元)，颜色用于区分性价比<br>
             仅计入礼包内抽卡资源，紫色高于648，橙色高于大月卡<br>
-            <a href="https://yituliu.site#packPpr">点击查看礼包完整性价比</a>
+            <a href="https://yituliu.site/pack">点击跳转礼包完整性价比</a>
           </div>
           <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
