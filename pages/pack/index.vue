@@ -25,20 +25,20 @@
           <div class="op_tag_0" style="padding:1px;">
         </div>
         <div style="margin-top: 8px;display: inline-block;">
-        <div id="pack_show_once" class="op_tag_0" @click="switchPacks('once')">
-          隐藏一次性礼包
-        </div>
-        <div id="pack_show_ori" class="op_tag_0" @click="switchPacks('ori')">
-          源石只显示648
-        </div>
-        <div class="tab_text">
-          *点击图片查看礼包内容
-        </div>
+          <div id="pack_show_once" class="op_tag_0" @click="switchPacks('once')">
+            隐藏一次性礼包
+          </div>
+          <div id="pack_show_ori" class="op_tag_0" @click="switchPacks('ori')">
+            源石只显示648
+          </div>
+          <!-- <div class="tab_text">
+            *点击图片查看礼包内容
+          </div> -->
         </div>
       </div>
       <div class="stage_hint">
         <div class="stage_hint_t5">
-          注意区分“仅抽卡”/“折合成源石”
+          点击图片可查看礼包内容，注意区分"仅抽卡"/"折合成源石"
         </div>
         <div class="stage_hint_t5">
           “折合成源石”即将材料的理智价值按135：1换算成源石
@@ -50,7 +50,7 @@
       <div id="pack_content" style="display:flex;">
         <!-- 仅计抽卡 -->
         <div id="pack_left" style="margin-top: -8px;">
-          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayState(pack2.packState, pack2.packType, pack2.packPrice, packFilter)">
+          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayStateDrawOnly(pack2.packState, pack2.packType, pack2.packPrice, packFilter,pack2.packPPRDraw)">
             <div class="pack_unit">
             <!-- <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit"> -->
               <!-- 图片部分 -->
@@ -176,6 +176,9 @@
                 <div class="pack_info_text" style="color:#ff8f6e;">
                   {{ getFixed(pack3.packOriginium, 1) }}源石 <br>￥{{ getFixed(pack3.packRmbPerOriginium, 1) }}/石
                 </div>
+                <div class="pack_info_alert" v-show="pack3.packImg !== '' ">
+                  含难以估价内容，点击图片查看
+                </div>
                 <div class="pack_chart">
                   <div class="pack_chart_unit" v-show="pack3.packPPROriginium >= 1.57">
                     <div class="pack_chart_unit_text">本礼包</div>
@@ -212,6 +215,7 @@
 
               <!-- 详情部分 -->
               <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
+                <div class="pack_contents_note" v-show="pack3.packImg !== '' ">{{pack3.packImg}}</div>
                 <div class="pack_content_unit0" style="width:112px;">
                   <div style="width:56px;">源石</div>
                   <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
@@ -364,6 +368,33 @@ export default {
       }
     },
 
+    getDisplayStateDrawOnly(packState, packType, packPrice, packFilter, packPPRDraw) {
+      if (packState == 0 ||packPPRDraw < 0.1){
+        return 'display: none;';   //状态不对一票否决
+      }else{
+        if (packFilter == 11){
+          return '';   //都显示
+        }else if(packFilter == 10){ //隐藏源石
+          if (packType == "year" || packType == "permanent"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }else if(packFilter == 1){ //隐藏一次性
+          if (packType == "once"){
+            return 'display: none;';
+          }
+        }else if(packFilter == 0){ //都隐藏
+          if (packType == "year" || packType == "permanent" ||packType == "once"){
+            if (packPrice == 648 && packType == "permanent"){
+              return '';
+            }
+            return 'display: none;';
+          }
+        }        
+      }
+    },
     getDisplayState(packState, packType, packPrice, packFilter) {
       if (packState == 0){
         return 'display: none;';   //状态不对一票否决
@@ -627,6 +658,7 @@ export default {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+
 .pack_info_text {
   width: 100px;
   padding: 18px 0px 18px 4px;
@@ -637,6 +669,14 @@ export default {
   display: inline-block;
   line-height: 36px;
   vertical-align: top;
+}
+
+.pack_info_alert{
+  position: absolute;
+  margin-top: -15px;
+  background: chocolate;
+  border-radius: 21px;
+  padding: 0px 4px;
 }
 
 .t1 {
@@ -700,7 +740,11 @@ export default {
   box-shadow: 1px 1px 4px rgb(0 0 0 / 30%);
   vertical-align: bottom;
 }
-
+.pack_contents_note{
+  display: block;
+  width: 100%;
+  line-height: 32px;
+}
 .pack_content_unit0 {
   width: 116px;
   height: 32px;
