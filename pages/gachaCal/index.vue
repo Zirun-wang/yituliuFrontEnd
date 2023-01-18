@@ -850,7 +850,7 @@
         endDate: "2023/01/31 03:59:00", //结束时间
         start_TimeStamp: "",   //开始时间戳
         end_TimeStamp: "",     //结束时间戳
-       
+
         plans_end:1,
         timeSelector:"春节限定(1.31)",
 
@@ -868,57 +868,57 @@
 
         //计算结果
 
-        // originium: 0, //源石
-        // orundum: 0, //合成玉
-        // permit: 0, //寻访
-        // permit10: 0, //十连寻访
-        // sellsCount: 0, //总氪金总和
-        // gachaTimes_total: 0, //总抽卡次数
+        originium: 0, //源石
+        orundum: 0, //合成玉
+        permit: 0, //寻访
+        permit10: 0, //十连寻访
+        sellsCount: 0, //总氪金总和
+        gachaTimes_total: 0, //总抽卡次数
 
-        // gachaTimes_originium: 0, //总抽卡次数（源石部分）
+        gachaTimes_originium: 0, //总抽卡次数（源石部分）
 
-        // gachaTimes_exist: 0, //库存抽卡次数
-        // gachaTimes_potential: 0, //潜在抽卡次数
-        // gachaTimes_daily: 0, //日常抽卡次数
-        // gachaTimes_gacha: 0, //氪金抽卡次数
-        // gachaTimes_activity: 0, //活动抽卡次数
-        // gachaTimes_other: 0, //其他抽卡次数
+        gachaTimes_exist: 0, //库存抽卡次数
+        gachaTimes_potential: 0, //潜在抽卡次数
+        gachaTimes_daily: 0, //日常抽卡次数
+        gachaTimes_gacha: 0, //氪金抽卡次数
+        gachaTimes_activity: 0, //活动抽卡次数
+        gachaTimes_other: 0, //其他抽卡次数
 
-        // originium_exist: 0, //库存源石
-        // orundum_exist: 0, //库存合成玉
-        // permit_exist: 0, //库存寻访券
-        // permit10_exist: 0, //库存十连寻访
+        originium_exist: 0, //库存源石
+        orundum_exist: 0, //库存合成玉
+        permit_exist: 0, //库存寻访券
+        permit10_exist: 0, //库存十连寻访
 
-        // originium_potential: 0, //常驻源石
-        // orundum_potential: 0, //常驻合成玉
-        // permit_potential: 0, //常驻寻访券
-        // permit10_potential: 0, //常驻十连寻访
-        // paradox: 0, //悖论模拟
+        originium_potential: 0, //常驻源石
+        orundum_potential: 0, //常驻合成玉
+        permit_potential: 0, //常驻寻访券
+        permit10_potential: 0, //常驻十连寻访
+        paradox: 0, //悖论模拟
 
-        // originium_daily: 0, //日常源石
-        // orundum_daily: 0, //日常合成玉
-        // permit_daily: 0, //日常寻访券
-        // permit10_daily: 0, //日常十连寻访
+        originium_daily: 0, //日常源石
+        orundum_daily: 0, //日常合成玉
+        permit_daily: 0, //日常寻访券
+        permit10_daily: 0, //日常十连寻访
 
-        // originium_gacha: 0, //氪金源石
-        // orundum_gacha: 0, //氪金合成玉
-        // permit_gacha: 0, //氪金寻访券
-        // permit10_gacha: 0, //氪金十连寻访
+        originium_gacha: 0, //氪金源石
+        orundum_gacha: 0, //氪金合成玉
+        permit_gacha: 0, //氪金寻访券
+        permit10_gacha: 0, //氪金十连寻访
 
-        // originium_act: 0, //活动源石
-        // orundum_act: 0, //活动合成玉
-        // permit_act: 0, //活动寻访券
-        // permit10_act: 0, //活动十连寻访
+        originium_act: 0, //活动源石
+        orundum_act: 0, //活动合成玉
+        permit_act: 0, //活动寻访券
+        permit10_act: 0, //活动十连寻访
 
-        // originium_other: 0, //其他源石
-        // orundum_other: 0, //其他合成玉
-        // permit_other: 0, //其他寻访券
-        // permit10_other: 0, //其他十连寻访
+        originium_other: 0, //其他源石
+        orundum_other: 0, //其他合成玉
+        permit_other: 0, //其他寻访券
+        permit10_other: 0, //其他十连寻访
 
-        // daysRemaining: 0, //剩余天数
-        // weeksRemaining: 0, //剩余周数
-        // monthsRemaining: 1, //剩余月数
-        // MonthsSignInRemaining: 0, // 剩余签到次数
+        daysRemaining: 0, //剩余天数
+        weeksRemaining: 0, //剩余周数
+        monthsRemaining: 1, //剩余月数
+        MonthsSignInRemaining: 0, // 剩余签到次数
 
         originium_648: 0, //普通源石648
         originium_328: 0, //普通源石328
@@ -926,12 +926,8 @@
         originium_98: 0, //普通源石98
         originium_30: 0, //普通源石30
         originium_6: 0, //普通源石6
-
-
-       
-
         poolCountDown: 0, //限定池每日送抽倒计时
-      
+
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
         weeklyStageRewards: 1800, //剿灭奖励
@@ -940,7 +936,7 @@
         weekStageFlag: true, //是否完成剿灭
         weekTaskFlag: true, //是否完成周常
         greenStoreFlag: false, //是否兑换绿票商店
-     
+
         AnnihilationStageValue: true,
         weekTaskValue: true,   //每周任务的合成玉数量
         storeF1AndF2Value: 0,  //绿票商店抽数
@@ -957,7 +953,7 @@
       this.getEveryreWard();
       this.getCountDown();
       this.checkEndDate();
-      
+
     },
     mounted() {
       // this.updateVisits();
@@ -966,7 +962,7 @@
       // this.openNotification();
     },
     methods: {
-     
+
       updateVisits() {
         toolApi.updateVisits("gacha").then((response) => {});
       },
@@ -1007,7 +1003,7 @@
       getCountDown() {
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
         if (num < 14) {  //少于14天扣除每日赠送抽卡资源
-          this.poolCountDown = 14-num;  
+          this.poolCountDown = 14-num;
           }
         console.log("限定池开始了" + this.poolCountDown + "天");
       },
@@ -1044,17 +1040,17 @@
           this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
-        
+
         }else if(this.timeSelector==='联动池(3月)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
           this.ExpirationSchedule = [-2,1,2];
-          
+
         }else if(this.timeSelector==='4周年(5.15)'){
           this.end_TimeStamp = 1684094340000;
           this.monthsRemaining = 5;
           this.ExpirationSchedule = [-3,1,2,3];
-          
+
         }
 
         this.getInterval();
@@ -1071,7 +1067,7 @@
       },
 
       compute() {
-      
+
         //初始化
         this.valueInit();
         console.log("初始化变量");
@@ -1109,7 +1105,7 @@
 
         //库存计算（共计）
         this.originium += parseInt(this.originium_exist);
-        
+
         this.orundum +=  parseInt(this.orundum_exist) + parseInt(this.customValue);
         this.permit += parseInt(this.permit_exist);
         this.permit10 +=  parseInt(this.permit10_exist);
@@ -1126,10 +1122,10 @@
         for (let i = 0; i < this.gacha_potentialList.length; i++) {
           this.originium += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
           this.orundum += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
-        
+
           this.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
           this.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
-         
+
         }
 
         //悖论模拟
@@ -1241,14 +1237,14 @@
         //活动抽卡计算（共计）
 
         for (let i = 0; i < this.gacha_actReward.length; i++) {
-          
+
           if (this.ExpirationSchedule.includes(this.gacha_actReward[i].plans)) {
               console.log('活动资源:', this.gacha_actReward[i].packName);
             this.originium +=  parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit +=   parseInt(this.gacha_actReward[i].gachaPermit);
             this.permit10 +=  parseInt(this.gacha_actReward[i].gachaPermit10);
-          
+
             this.originium_act +=  parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum_act +=  parseInt(this.gacha_actReward[i].gachaOrundum);
             this.permit_act +=  parseInt(this.gacha_actReward[i].gachaPermit);
@@ -1261,7 +1257,7 @@
           this.orundum +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
           this.permit +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
           this.permit10 +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
-          
+
           this.originium_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
           this.orundum_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
           this.permit_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
@@ -1415,7 +1411,7 @@
           this.permit10_exist = cookie.get("permit10_exist");
           this.paradox = cookie.get("paradox");
           this.greenStoreFlag = cookie.get("greenStoreFlag");
-          
+
         } else {
          cookie.set("originium_exist", this.originium_exist, { expires: 30 });
           cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
@@ -1504,7 +1500,7 @@
         return "gacha_packPpr_t3"
       },
 
- 
+
 
       getInteger(num) {
         return parseInt(parseInt(num / 100) * 100);
