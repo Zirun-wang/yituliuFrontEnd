@@ -1768,7 +1768,7 @@
     methods: {
       openNotification() {
         this.$notify({
-          title: '2022-11-26更新',
+          title: '2023-01-18更新',
           dangerouslyUseHTMLString: true,
           message: '<strong> 干员追加：<br>增加了登临意活动干员 </strong>',
           duration: 12000
