@@ -673,10 +673,12 @@ export default {
 
 .pack_info_alert{
   position: absolute;
-  margin-top: -15px;
+  color: white;
+  margin-top: -14px;
+  margin-left: 14px;
   background: chocolate;
   border-radius: 21px;
-  padding: 0px 4px;
+  padding: 2px 6px;
 }
 
 .t1 {
