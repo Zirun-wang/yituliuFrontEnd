@@ -951,7 +951,7 @@
       this.getDate();
       this.getInterval();
       this.getEveryreWard();
-      this.getCountDown();
+      
       this.checkEndDate();
 
     },
@@ -996,7 +996,8 @@
         var mm = date.getMinutes().toString().padStart(2, "0"); //分
         var s = date.getSeconds().toString().padStart(2, "0"); //秒
         this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
-        //  this.time = '2022-08-11'
+        
+        this.getCountDown();
       },
 
       //获取限定池和红包倒计时
@@ -1015,8 +1016,9 @@
         this.MonthsSignInRemaining = 0;  //剩余签到次数
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
 
-        if(this.end_TimeStamp<13){
+        if(this.end_TimeStamp.length<13){
            this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
+           console.log(this.end_TimeStamp)
         }
 
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);
