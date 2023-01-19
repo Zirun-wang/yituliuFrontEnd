@@ -804,6 +804,7 @@
         </div>
       </el-collapse-item>
     </el-collapse>
+    <foot></foot>
   </div>
 </template>
 
@@ -818,6 +819,8 @@
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
   let echarts = require("echarts");
+  import foot from "@/layouts/gachafootmini.vue";
+
 
   export default {
     layout: "defaultGacha",
@@ -837,6 +840,10 @@
         },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
+    components: {
+      foot
+ 
     },
     data() {
       return {
