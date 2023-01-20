@@ -16,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"  
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  disabled
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -743,68 +743,106 @@
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon" style="background: #337fcb"></div>
-          <span class="collapse-item_title">致谢</span>
+          <span class="collapse-item_title">开发信息</span>
         </template>
+        <div id="extra" style="max-width: 1080px;margin: auto;">
 
-        <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              B站发布:
-              <a href="https://space.bilibili.com/688411531">罗德岛基建BETA<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
+          <div id="foot_main" style="background: white;">
+            <!-- <div id="foot_left"> -->
+              <div class="foot_unit">
+                <p class="foot_unit_title">-开发信息-</p>
+                <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
+                  <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
+                    <img class="foot_unit_pic" src="/img/website/github.png"/>
+                    前端
+                  </div>
+                </a>
+                <a href="https://github.com/yamasakura/yituliuBackEnd">
+                  <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
+                    <img class="foot_unit_pic" src="/img/website/github.png"/>
+                    后端
+                  </div>
+                </a>
+                <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
+                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                    开发群 938710832
+                  </div>
+                </a>
+                <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
+                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                    <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
+                    本站财政状况
+                  </div>
+                </a>
+              </div>
+              <div class="foot_unit">
+                <p class="foot_unit_title">-本页开发-</p>
+                <a href="https://space.bilibili.com/39109412">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
+                    山桜
+                  </div>
+                </a>
+                <a href="https://space.bilibili.com/10057492">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4"/>
+                    Zirunwang
+                  </div>
+                </a>
+              </div>
+            <!-- </div> -->
+            <!-- <div id="foot_right"> -->
+              <div class="foot_unit">
+                <p class="foot_unit_title">-数据支持-</p>
+                <a href="https://space.bilibili.com/8412516">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
+                  </div>
+                </a>
+                <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
+                  </div>
+                </a>
+                <a href="https://yituliu.site/">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
+                  </div>
+                </a>
+                <a href="https://space.bilibili.com/22606843">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
+                  </div>
+                </a>
+              </div>
+              <div class="foot_unit">
+                <p class="foot_unit_title">-B站发布-</p>
+                <a href="https://space.bilibili.com/688411531">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
+                    罗德岛基建BETA
+                  </div>
+                </a>
+                <p class="foot_unit_title">-粉丝群/反馈-</p>
+                <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                    罗德岛数据文献馆
+                  </div>
+                </a>
+              </div>
+            <!-- </div> -->
           </div>
-        <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              QQ群:
-              <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">罗德岛数据文献馆<img class="gacha_img_small" src="/img/website/el.png"></a>
-            </div>
-          </div>
-        <div class="gacha_unit" id="direction">
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              活动排期:
-              <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              搓玉计算:
-              <a href="https://space.bilibili.com/22606843">公孙长乐<img class="gacha_img_small" src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              数据参考:
-              <a href="https://prts.wiki">prts.wiki<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              项目地址:
-              <a href="https://github.com/Zirun-wang/yituliuFrontEnd">Github页面<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx">攒抽规划反馈表<img class="gacha_img_small" src="/img/website/el.png"></a>
-            </div>
+          <div style="padding: 8px 16px 8px 16px;max-width: 1080px;margin: auto;">
+            本页采用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">知识共享 署名-非商业性使用
+            4.0 国际 许可协议</a>进行许可。转载、公开或以任何形式复制、发行、再传播本页任何内容时，必须注明从明日方舟一图流转载，并提供版权标识、许可协议标识、免责标识和作品链接；且未经许可，不得将本站内容或由其衍生作品用于商业目的。<br>
+            本项目为无偿开源项目，致力于方便明日方舟玩家。如有开发/数据分析/设计/美工经验，欢迎来开发群一叙。
           </div>
         </div>
       </el-collapse-item>
     </el-collapse>
-    <foot1></foot1>
+    <!-- <foot></foot> -->
   </div>
 </template>
 
@@ -819,11 +857,11 @@
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
   let echarts = require("echarts");
-  import foot1 from "@/layouts/gachafootmini.vue";
+  // import foot from "@/layouts/gachafootmini.vue";
 
 
   export default {
-    // layout: "defaultGacha",
+    layout: "defaultGacha",
     head: {
       title: "一图流攒抽计算器 yituliu.site",
       meta: [
@@ -841,10 +879,7 @@
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
-    components: {
-      foot1
- 
-    },
+
     data() {
       return {
         pageTheme: "light",
@@ -1589,6 +1624,14 @@
 
 
 <style scoped>
+
+  .foot_unit{
+    font-size: 16px;
+  }
+
+  .foot_unit_title{
+    margin: 4px 0px;
+  }
   .el-collapse-item {
     color: #222222;
     margin: 12px;
