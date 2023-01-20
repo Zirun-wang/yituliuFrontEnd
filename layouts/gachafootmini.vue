@@ -113,12 +113,12 @@ export default {
 </script>
 
 <style>
-#extra {
+/* #extra {
   background-color: #dededede;
   margin-top: -2px;
-  /* padding: 12px 0px; */
+
   color: gray;
-}
+} */
 
 .extra_popver_p {
   margin: 4px 8px;

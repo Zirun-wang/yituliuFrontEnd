@@ -11,11 +11,11 @@
     </div>
 
     <div class="title-image">
-      <span>全干员</span><br>
+      <span>3.5周年至今全干员</span><br>
       <span><a class="title1"> 蓝材料</a>需求统计</span><br>
-      <span>截止照我以火</span>
+      <span>截止登临意</span>
     </div>
-    <div class="char-image"> <img src="/img/back/char_1020_reed2_1b.png" ></div>
+    <div class="char-image"> <img class="" src="/img/back/char_4080_lin_1b.png" ></div>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
   height: 720px;
   margin: 5%;
   flex-wrap: wrap;
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(~static/img/back/ep11.png) no-repeat 50% 50% /cover;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(~static/img/back/登临意.png) no-repeat 50% 50% /cover;
   background-size: 1300px;
   /* opacity: 0.7; */
 }
@@ -86,8 +86,15 @@ export default {
 
 .char-image{
   position: relative;
+  width: 200px;
   z-index: 90;
-  margin-top: -650px;
-  margin-left: 500px;
+  margin-top: -500px;
+  margin-left: 800px;
+}
+
+.char-image img{
+  
+  width: 800px;
+
 }
 </style>

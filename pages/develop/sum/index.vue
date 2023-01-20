@@ -1,26 +1,31 @@
 <template>
   <div>
-    <div class="pie_all" id="chart2" ref="chart2"></div>
-    <div class="title"><br /></div>
+    <div class="pie_all" id="myChart" ref="myChart"></div>
+    <div class="title1">统计范围：叙拉古人至登临意<br/></div>
+    <div class="title2">{{ chapter }}<br/></div>
   </div>
 </template>
 
 <script>
 import * as echarts from "echarts";
-import itemCount from "static/bar/itemCount.json";
-import itemCount2 from "static/bar/itemCount2.json";
+import itemCount202301 from "static/bar/itemCount202301.json";
+import itemCount202212 from "static/bar/itemCount202212.json";
+import itemCount202211 from "static/bar/itemCount202211.json";
 import apCost from "static/bar/apCost.json";
 import imageUrl from "static/bar/imageUrl.json";
 
 let itemId = [];
+let itemCostContent = [];
+let itemIndex = 0;
+let myChart = "";
 export default {
   layout: "poster",
   data() {
     return {
       itemName: [],
       itemCost: [],
-
       imgUrl: [],
+      chapter: '叙拉古人',
     };
   },
   created() {
@@ -32,66 +37,78 @@ export default {
     },
 
     async show() {
-      await this.sleep(1000);
-      for (let i = 0; i < itemCount.length; i++) {
-        await this.sleep(2000);
-        itemId.unshift(itemCount[i].itemName);
-        this.itemName.unshift(itemCount[i].itemId);
-        this.itemCost.unshift(itemCount[i].itemCount);
+      var chapters = ["叙拉古人", "照我以火", "登临意"];
+      document.getElementById("myChart").style.background = "url(/img/back/" + chapters[0] + ".png)"
+      document.getElementById("myChart").style.backgroundSize = "2000px"
+      await this.sleep(4000);
+      for (let i = 0; i < itemCount202211.length; i++) {
+
+
+        itemId.unshift(itemCount202211[i].itemName);
+        this.itemName.unshift(itemCount202211[i].itemId);
+        var costContent = itemCount202211[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202211[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        itemCostContent.unshift(costContent);
+        this.itemCost.unshift(itemCount202211[i].itemCount);
+        await this.sleep(1500);
+        itemIndex = itemCount202211[i].itemId;
+        this.chapter = chapters[0];
+        this.barChart();
+
+      }
+
+      await this.sleep(4000);
+      for (let i = 0; i < itemCount202212.length; i++) {
+        var costContent = itemCount202212[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202212[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        itemCostContent[15 - i] = costContent;
+        this.itemName[15 - i] = itemCount202212[i].itemId;
+        this.itemCost[15 - i] = itemCount202212[i].itemCount;
+        itemIndex = itemCount202211[i].itemId;
+        await this.sleep(1500);
+        this.chapter = chapters[1];
+        document.getElementById("myChart").style.background = "url(/img/back/" + chapters[1] + ".png)"
+        document.getElementById("myChart").style.backgroundSize = "2000px"
         this.barChart();
       }
 
-      //   await this.sleep(2000)
-      //     this.itemName = []
-      //     this.itemCost = []
-      //     itemId = []
-      //   for(let i=0;i<itemCount2.length;i++){
-      //      await this.sleep(2000)
-      //     itemId.unshift(itemCount2[i].itemName);
-      //     this.itemName.unshift(itemCount2[i].itemId)
-      //     this.itemCost.unshift(itemCount2[i].itemCount)
-      //     this.barChart()
-      // }
-      // await this.sleep(1000);
-      // // for(let i=0;i<apCost.length;i++){
-      // for (let i = 0; i < apCost.length; i++) {
-      //   await this.sleep(10);
-      //   itemId.unshift(apCost[i].name);
-      //   this.itemName.unshift(apCost[i].charId);
-      //   this.itemCost.unshift(apCost[i].apCost.toFixed(2));
-      //   this.barChart();
+      await this.sleep(4000);
+      for (let i = 0; i < itemCount202301.length; i++) {
+        var costContent = itemCount202301[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202301[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        itemCostContent[15 - i] = costContent;
+        this.itemName[15 - i] = itemCount202301[i].itemId;
+        this.itemCost[15 - i] = itemCount202301[i].itemCount;
+        itemIndex = itemCount202211[i].itemId;
+        await this.sleep(1500);
+        this.chapter = chapters[2];
+        document.getElementById("myChart").style.background = "url(/img/back/" + chapters[2] + ".png)"
+        document.getElementById("myChart").style.backgroundSize = ""
+        this.barChart();
+      }
 
-      //   if (this.itemName.length > 10) {
-      //     itemId = itemId.slice(0, itemId.length - 1);
-      //     this.itemName = this.itemName.slice(0, this.itemName.length - 1);
-      //     this.itemCost = this.itemCost.slice(0, this.itemCost.length - 1);
-      //   }
-      // }
+    },
+
+    async getUpdateNumber(newData, oldData) {
+      for (let i = 0; i < (newData - oldData); i++) {
+        await this.sleep(10);
+        return oldData++;
+      }
+    },
+    getIncreaseRatio(newData, oldData) {
+      let ratio = (newData / oldData - 1) * 100;
+      return parseFloat(ratio).toFixed(1);
     },
     barChart() {
-      var myChart = echarts.init(document.getElementById("chart2"));
-      console.log(this.xData);
+      // echarts.init(document.getElementById("chart2")).dispose;
+      if (myChart == "") {
+        myChart = echarts.init(document.getElementById("myChart"));
+      }
       var option = {
-        color: "#ffffffffffffff",
-
-        // backgroundColor: "black",
-        // tooltip: {
-        //   trigger: "axis",
-        //   formatter: "{b}:{c}个",
-        //   backgroundColor: "rgba(255,255,255)",
-        //   extraCssText: "box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);",
-        //   textStyle: {
-        //     color: "#6a717b",
-        //   },
-        // },
+        color: "rgb(255, 255, 255)",
 
         grid: {
           left: 200,
-          right: 100,
-
-          // bottom: 20,
+          right: 130,
           top: 110,
-          // containLabel: true
+
         },
         yAxis: [
           {
@@ -99,21 +116,23 @@ export default {
             data: this.itemName,
             inverse: true,
             axisTick: {
-              alignWithLabel: true,
+              alignWithLabel: false,
             },
-
             axisLabel: {
               margin: 0,
-              textStyle: {
-                fontSize: 26,
-                color: "#FFFFFFFF",
-                textBorderWidth: 10,
-                textBorderColor: "#000000",
+              fontSize: 26,
+              color: function (params) {
+                if (itemIndex === params) return "rgb(253, 72, 0)";
+                return "rgb(255, 255, 255)";
               },
+              textBorderWidth: 10,
+              textBorderColor: "#000000",
+
               formatter: function (value, index) {
                 //判断是否要显示预警
                 // console.log("拿到的内容",  itemId[index]);
-                // return value;
+                // console.log("Y轴返回内容",  itemId[index] + "{" + value + "|}");
+
                 return itemId[index] + "{" + value + "|}";
               },
               rich: imageUrl,
@@ -133,12 +152,8 @@ export default {
             axisLabel: {
               margin: 0,
               interval: 1, //横轴信息全部显示
-              minInterval: 1,
-              // rotate: -30, //-15度角倾斜显示
-              textStyle: {
-                fontSize: 24,
-                color: "#ffffff",
-              },
+              fontSize: 24,
+              color: "#ffffff",
             },
             axisLine: {
               lineStyle: {
@@ -151,48 +166,43 @@ export default {
           {
             name: [],
             type: "bar",
-            barWidth: 30,
+            barWidth: 40,
             data: this.itemCost,
-            label: {
-              normal: {
-                show: true,
-                position: "right",
-                textStyle: {
-                  color: "#ffffff", //color of value
-                  fontSize: 26,
-                  // margin: 20,
-                  textBorderWidth: 10,
-                  textBorderColor: "#000000",
-                },
-              },
-            },
-
             itemStyle: {
-              normal: {
-                color: function (params) {
-                  console.log("配置颜色:", params);
-                
-                  if ("30013" === params.name) return "#CDB288";
-                  if ("30043" === params.name) return "#149DCF";
-                  if ("30063" === params.name) return "#CF3F3F";
-                  if ("30053" === params.name) return "#9CCFE0";
-                  if ("30083" === params.name) return "#5C5B8F";
-                  if ("30023" === params.name) return "#D3BDB0";
-                  if ("30073" === params.name) return "#E87600";
-                  if ("30103" === params.name) return "#FFF9D0";
-                  if ("30093" === params.name) return "#E9B6BF";
-                  if ("30033" === params.name) return "#B1D632";
-                  if ("31023" === params.name) return "#DBDFE3";
-                  if ("31013" === params.name) return "#12BEFC";
-                  if ("31033" === params.name) return "#399382";
-                  if ("31053" === params.name) return "#02BEFF";
-                  if ("31043" === params.name) return "#EB94C0";
-                  if ("31063" === params.name) return "#FFFFFF";
-
-                  return "#FCCE10";
-                },
-                barBorderRadius: [20, 20, 20, 20],
+              color: function (params) {
+                if ("30013" === params.name) return "#CDB288";
+                if ("30043" === params.name) return "#149DCF";
+                if ("30063" === params.name) return "#CF3F3F";
+                if ("30053" === params.name) return "#9CCFE0";
+                if ("30083" === params.name) return "#5C5B8F";
+                if ("30023" === params.name) return "#D3BDB0";
+                if ("30073" === params.name) return "#E87600";
+                if ("30103" === params.name) return "#FFF9D0";
+                if ("30093" === params.name) return "#E9B6BF";
+                if ("30033" === params.name) return "#B1D632";
+                if ("31023" === params.name) return "#DBDFE3";
+                if ("31013" === params.name) return "#12BEFC";
+                if ("31033" === params.name) return "#399382";
+                if ("31053" === params.name) return "#02BEFF";
+                if ("31043" === params.name) return "#EB94C0";
+                if ("31063" === params.name) return "#FFFFFF";
+                return "#FCCE10";
               },
+              barBorderRadius: [10, 10, 10, 10],
+
+            },
+            label: {
+              show: true,
+              position: "right",
+              color: "rgb(255, 255, 255)",
+              fontSize: 26,
+              // margin: 20,
+              textBorderWidth: 10,
+              textBorderColor: "#000000",
+              formatter: function (value, index) {
+                return itemCostContent[value.dataIndex];
+              },
+
             },
           },
         ],
@@ -207,19 +217,34 @@ export default {
 .pie_all {
   width: 1920px;
   height: 1080px;
-  background: url(~static/img/back/ep11.png);
+  background: url(~static/img/back/叙拉古人.png);
   background-size: 2000px;
   /* border:solid red 1px; */
   color: #4ba6f1;
   /* margin-top:10px ; */
 }
 
-.title {
+.title1 {
   position: absolute;
-  left: 1100px;
-  top: 800px;
-  color: white;
-  font-size: 28px;
+  left: 100px;
+  top: 0px;
+  color: rgb(255, 208, 0);
+  font-weight: 900;
+  font-size: 64px;
   text-align: right;
+  -webkit-text-stroke: 2px #000000;
+  /* color: rgb(253, 72, 0); */
+}
+
+.title2 {
+  position: absolute;
+  left: 1400px;
+  top: 900px;
+  color: rgb(255, 208, 0);
+  font-weight: 900;
+  font-size: 100px;
+  text-align: right;
+  -webkit-text-stroke: 5px #000000;
+  /* color: rgb(253, 72, 0); */
 }
 </style>

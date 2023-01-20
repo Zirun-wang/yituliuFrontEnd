@@ -16,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"  disabled
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -804,7 +804,7 @@
         </div>
       </el-collapse-item>
     </el-collapse>
-    <foot></foot>
+    <foot1></foot1>
   </div>
 </template>
 
@@ -819,11 +819,11 @@
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
   let echarts = require("echarts");
-  import foot from "@/layouts/gachafootmini.vue";
+  import foot1 from "@/layouts/gachafootmini.vue";
 
 
   export default {
-    layout: "defaultGacha",
+    // layout: "defaultGacha",
     head: {
       title: "一图流攒抽计算器 yituliu.site",
       meta: [
@@ -842,7 +842,7 @@
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     components: {
-      foot
+      foot1
  
     },
     data() {
@@ -934,6 +934,7 @@
         originium_30: 0, //普通源石30
         originium_6: 0, //普通源石6
         poolCountDown: 0, //限定池每日送抽倒计时
+        poolCountDownFlag: true, //限定池每日送抽倒计时
 
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
@@ -943,6 +944,8 @@
         weekStageFlag: true, //是否完成剿灭
         weekTaskFlag: true, //是否完成周常
         greenStoreFlag: false, //是否兑换绿票商店
+
+
 
         AnnihilationStageValue: true,
         weekTaskValue: true,   //每周任务的合成玉数量
@@ -958,7 +961,7 @@
       this.getDate();
       this.getInterval();
       this.getEveryreWard();
-      
+      this.getPoolCountDown();
       this.checkEndDate();
 
     },
@@ -1003,12 +1006,10 @@
         var mm = date.getMinutes().toString().padStart(2, "0"); //分
         var s = date.getSeconds().toString().padStart(2, "0"); //秒
         this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
-        
-        this.getCountDown();
       },
 
       //获取限定池和红包倒计时
-      getCountDown() {
+      getPoolCountDown() {
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
         if (num < 14) {  //少于14天扣除每日赠送抽卡资源
           this.poolCountDown = 14-num;
@@ -1049,17 +1050,17 @@
           this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
-
+          this.poolCountDownFlag = true;
         }else if(this.timeSelector==='联动池(3月)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
           this.ExpirationSchedule = [-2,1,2];
-
+          this.poolCountDownFlag = false;
         }else if(this.timeSelector==='4周年(5.15)'){
           this.end_TimeStamp = 1684094340000;
           this.monthsRemaining = 5;
           this.ExpirationSchedule = [-3,1,2,3];
-
+          this.poolCountDownFlag = false;
         }
 
         this.getInterval();
@@ -1311,10 +1312,11 @@
           parseInt(this.poolCountDown) * 660 ;
 
           //寻访记录=减去倒计时
+
+        if( this.poolCountDownFlag){
         this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
-
         this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
-
+        }
 
         //其他抽卡次数
         this.gachaTimes_other =
