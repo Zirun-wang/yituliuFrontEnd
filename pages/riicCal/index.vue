@@ -1573,10 +1573,10 @@
   import buildingApi from "@/api/building";
   import cookie from "js-cookie";
   import toolApi from "@/api/tool";
-  import TRADINGJson from "static/json/TRADING.json";
-  import MANUFACTUREJson from "static/json/MANUFACTURE.json";
-  import CONTROLJson from "static/json/CONTROL.json";
-  import POWERJson from "static/json/POWER.json";
+  import TRADINGJson from "static/json/build/TRADING.json";
+  import MANUFACTUREJson from "static/json/build/MANUFACTURE.json";
+  import CONTROLJson from "static/json/build/CONTROL.json";
+  import POWERJson from "static/json/build/POWER.json";
 
 
   export default {
@@ -1781,7 +1781,7 @@
         oInput.select(); // 模拟鼠标选中
         document.execCommand("Copy"); // 执行浏览器复制命令（相当于ctrl+c）
         oInput.style.display = "none";  //只是用一下input标签的特性，实际并不需要显示，所以这里要隐藏掉
-        this.message.success('复制成功');
+        this.$message.success('复制成功');
       },
 
       updateVisits() {

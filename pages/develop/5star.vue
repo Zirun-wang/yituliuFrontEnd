@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-  import t5data from "static/json/5star.json";
+  // import t5data from "static/json/5star.json";
 
     export default {
       data(){

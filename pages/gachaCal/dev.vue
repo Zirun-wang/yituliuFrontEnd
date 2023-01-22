@@ -8,6 +8,7 @@
           <span class="collapse-item_title" style="color: purple">
             共计{{ getFixed(gachaTimes_total,0) }}抽，氪金{{ sellsCount }}元
           </span>
+          <span style="font-size: 20px;color: rgb(136 136 136 / 69%);margin-left: 16px;">yituliu.site</span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
@@ -15,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  disabled
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -184,7 +185,8 @@
               搓玉比例:1理智=1.09玉(1-7)
               <a href="/?item=Orundum" style="margin: 0px 20px;">查看备选搓玉关卡</a>
               <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
-                如何安排搓玉？<img class="gacha_img_small" src="/img/website/el.png"/>
+                如何安排搓玉？
+                <!-- <img class="gacha_img_small" src="/img/website/el.png"/> -->
               </a>
             </div>
           </div>
@@ -384,7 +386,7 @@
           </div>
           <!-- 主线 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />
+            <!-- <img class="gacha_img_small" src="/img/website/ex.png" /> -->
             主线、突袭、绝境
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
@@ -448,7 +450,7 @@
           <div class="gacha_unit_child_instruction" style="padding: 4px 16px;font-size: 18px;color: brown;">
             标签内为每抽价格(元)，颜色用于区分性价比<br>
             仅计入礼包内抽卡资源，紫色高于648，橙色高于大月卡<br>
-            <a href="https://yituliu.site#packPpr">点击查看礼包完整性价比</a>
+            <a href="https://yituliu.site/pack">点击跳转礼包完整性价比</a>
           </div>
           <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
@@ -474,12 +476,37 @@
               </el-checkbox-button>
             </div>
           </el-checkbox-group>
-          <!-- 限时、一次性礼包 -->
+          <!-- 限时礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">限时/一次性礼包
+            <img class="gacha_img_small" src="/img/website/ex.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited' || singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+              <el-checkbox-button :label="index">
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+                <div class="gacha_unit_child_title" style="width: 168px">
+                  {{ singlePack.packName }}
+                </div>
+                <!-- 一个通用的资源显示模块 -->
+                <div class="gacha_resources_unit" style="width: 279px;">
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{ singlePack.gachaOriginium }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
+                </div>
+              </el-checkbox-button>
+            </div>
+          </el-checkbox-group>
+          <!-- 新人礼包 -->
+          <div class="gacha_unit_fold">
+            <img class="gacha_img_small" src="/img/website/ex.png">新人礼包
+          </div>
+          <el-checkbox-group v-model="gacha_storePacksList" class="">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
                 <div class="gacha_unit_child_title" style="width: 168px">
@@ -716,67 +743,106 @@
       <el-collapse-item class="collapse-item" name="7" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon" style="background: #337fcb"></div>
-          <span class="collapse-item_title">致谢</span>
+          <span class="collapse-item_title">开发信息</span>
         </template>
+        <div id="extra" style="max-width: 1080px;margin: auto;">
 
-        <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              B站发布:
-              <a href="https://space.bilibili.com/688411531">罗德岛基建BETA<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
+          <div id="foot_main" style="background: white;">
+            <!-- <div id="foot_left"> -->
+              <div class="foot_unit">
+                <p class="foot_unit_title">-开发信息-</p>
+                <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
+                  <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
+                    <img class="foot_unit_pic" src="/img/website/github.png"/>
+                    前端
+                  </div>
+                </a>
+                <a href="https://github.com/yamasakura/yituliuBackEnd">
+                  <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
+                    <img class="foot_unit_pic" src="/img/website/github.png"/>
+                    后端
+                  </div>
+                </a>
+                <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
+                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                    开发群 938710832
+                  </div>
+                </a>
+                <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
+                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                    <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
+                    本站财政状况
+                  </div>
+                </a>
+              </div>
+              <div class="foot_unit">
+                <p class="foot_unit_title">-本页开发-</p>
+                <a href="https://space.bilibili.com/39109412">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
+                    山桜
+                  </div>
+                </a>
+                <a href="https://space.bilibili.com/10057492">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4"/>
+                    Zirunwang
+                  </div>
+                </a>
+              </div>
+            <!-- </div> -->
+            <!-- <div id="foot_right"> -->
+              <div class="foot_unit">
+                <p class="foot_unit_title">-数据支持-</p>
+                <a href="https://space.bilibili.com/8412516">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
+                  </div>
+                </a>
+                <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
+                  </div>
+                </a>
+                <a href="https://yituliu.site/">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
+                  </div>
+                </a>
+                <a href="https://space.bilibili.com/22606843">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                    class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
+                  </div>
+                </a>
+              </div>
+              <div class="foot_unit">
+                <p class="foot_unit_title">-B站发布-</p>
+                <a href="https://space.bilibili.com/688411531">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
+                    罗德岛基建BETA
+                  </div>
+                </a>
+                <p class="foot_unit_title">-粉丝群/反馈-</p>
+                <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
+                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                    罗德岛数据文献馆
+                  </div>
+                </a>
+              </div>
+            <!-- </div> -->
           </div>
-        <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              QQ群:
-              <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">罗德岛数据文献馆<img class="gacha_img_small" src="/img/website/el.png"></a>
-            </div>
-          </div>
-        <div class="gacha_unit" id="direction">
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              活动排期:
-              <a href="https://space.bilibili.com/8412516">罗德岛蜜饼工坊<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              搓玉计算:
-              <a href="https://space.bilibili.com/22606843">公孙长乐<img class="gacha_img_small" src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              数据参考:
-              <a href="https://prts.wiki">prts.wiki<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              项目地址:
-              <a href="https://github.com/Zirun-wang/yituliuFrontEnd">Github页面<img
-                class="gacha_img_small"
-                src="/img/website/el.png"
-              /></a>
-            </div>
-          </div>
-          <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 280px">
-              <a href="https://www.wjx.cn/vm/QXIrwfN.aspx">攒抽规划反馈表<img class="gacha_img_small" src="/img/website/el.png"></a>
-            </div>
+          <div style="padding: 8px 16px 8px 16px;max-width: 1080px;margin: auto;">
+            本页采用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">知识共享 署名-非商业性使用
+            4.0 国际 许可协议</a>进行许可。转载、公开或以任何形式复制、发行、再传播本页任何内容时，必须注明从明日方舟一图流转载，并提供版权标识、许可协议标识、免责标识和作品链接；且未经许可，不得将本站内容或由其衍生作品用于商业目的。<br>
+            本项目为无偿开源项目，致力于方便明日方舟玩家。如有开发/数据分析/设计/美工经验，欢迎来开发群一叙。
           </div>
         </div>
       </el-collapse-item>
     </el-collapse>
+    <!-- <foot></foot> -->
   </div>
 </template>
 
@@ -791,6 +857,8 @@
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
   let echarts = require("echarts");
+  // import foot from "@/layouts/gachafootmini.vue";
+
 
   export default {
     layout: "defaultGacha",
@@ -811,6 +879,7 @@
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
+
     data() {
       return {
         pageTheme: "light",
@@ -888,20 +957,19 @@
         permit_other: 0, //其他寻访券
         permit10_other: 0, //其他十连寻访
 
+        daysRemaining: 0, //剩余天数
+        weeksRemaining: 0, //剩余周数
+        monthsRemaining: 1, //剩余月数
+        MonthsSignInRemaining: 0, // 剩余签到次数
+
         originium_648: 0, //普通源石648
         originium_328: 0, //普通源石328
         originium_198: 0, //普通源石198
         originium_98: 0, //普通源石98
         originium_30: 0, //普通源石30
         originium_6: 0, //普通源石6
-        monthlyCardNum: 0,  //月卡数量
-
-        daysRemaining: 0, //剩余天数
-        weeksRemaining: 0, //剩余周数
-        monthsRemaining: 1, //剩余月数
-        MonthsSignInRemaining: 0, // 剩余签到次数
-
         poolCountDown: 0, //限定池每日送抽倒计时
+        poolCountDownFlag: true, //限定池每日送抽倒计时
 
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
@@ -911,6 +979,8 @@
         weekStageFlag: true, //是否完成剿灭
         weekTaskFlag: true, //是否完成周常
         greenStoreFlag: false, //是否兑换绿票商店
+
+
 
         AnnihilationStageValue: true,
         weekTaskValue: true,   //每周任务的合成玉数量
@@ -926,7 +996,7 @@
       this.getDate();
       this.getInterval();
       this.getEveryreWard();
-      this.getCountDown();
+      this.getPoolCountDown();
       this.checkEndDate();
 
     },
@@ -971,11 +1041,10 @@
         var mm = date.getMinutes().toString().padStart(2, "0"); //分
         var s = date.getSeconds().toString().padStart(2, "0"); //秒
         this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
-        //  this.time = '2022-08-11'
       },
 
       //获取限定池和红包倒计时
-      getCountDown() {
+      getPoolCountDown() {
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
         if (num < 14) {  //少于14天扣除每日赠送抽卡资源
           this.poolCountDown = 14-num;
@@ -990,8 +1059,9 @@
         this.MonthsSignInRemaining = 0;  //剩余签到次数
         this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
 
-        if(this.end_TimeStamp<13){
+        if(this.end_TimeStamp.length<13){
            this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
+           console.log(this.end_TimeStamp)
         }
 
         var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);
@@ -1015,17 +1085,17 @@
           this.end_TimeStamp = 1675108740000;
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
-
+          this.poolCountDownFlag = true;
         }else if(this.timeSelector==='联动池(3月)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
           this.ExpirationSchedule = [-2,1,2];
-
+          this.poolCountDownFlag = false;
         }else if(this.timeSelector==='4周年(5.15)'){
           this.end_TimeStamp = 1684094340000;
           this.monthsRemaining = 5;
           this.ExpirationSchedule = [-3,1,2,3];
-
+          this.poolCountDownFlag = false;
         }
 
         this.getInterval();
@@ -1075,7 +1145,6 @@
 
         if (this.greenStoreFlag) {
           this.storeF1AndF2Value = 1;
-
         }
 
 
@@ -1278,10 +1347,11 @@
           parseInt(this.poolCountDown) * 660 ;
 
           //寻访记录=减去倒计时
+
+        if( this.poolCountDownFlag){
         this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
-
         this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
-
+        }
 
         //其他抽卡次数
         this.gachaTimes_other =
@@ -1554,6 +1624,14 @@
 
 
 <style scoped>
+
+  .foot_unit{
+    font-size: 16px;
+  }
+
+  .foot_unit_title{
+    margin: 4px 0px;
+  }
   .el-collapse-item {
     color: #222222;
     margin: 12px;

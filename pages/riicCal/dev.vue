@@ -1218,10 +1218,10 @@
 import buildingApi from "@/api/building";
 import cookie from "js-cookie";
 import toolApi from "@/api/tool";
-import TRADINGJson from "static/json/TRADING.json";
-import MANUFACTUREJson from "static/json/MANUFACTURE.json";
-import CONTROLJson from "static/json/CONTROL.json";
-import POWERJson from "static/json/POWER.json";
+import TRADINGJson from "static/json/build/TRADING.json";
+import MANUFACTUREJson from "static/json/build/MANUFACTURE.json";
+import CONTROLJson from "static/json/build/CONTROL.json";
+import POWERJson from "static/json/build/POWER.json";
 
 
 

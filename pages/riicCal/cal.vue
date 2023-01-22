@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import building_data_trade from "static/json/building_data_trade.json";
-import building_data_manu from "static/json/building_data_manu.json";
-import auto243 from "static/json/243.json";
+import building_data_trade from "static/json/build/building_data_trade.json";
+import building_data_manu from "static/json/build/building_data_manu.json";
+import auto243 from "static/json/build/243.json";
 
 export default {
   layout: "poster",

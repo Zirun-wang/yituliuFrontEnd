@@ -251,7 +251,7 @@
 
 <script>
 import cookie from "js-cookie";
-import packsPPR from "static/RecycleBin/pack_packsPPR_demo.json";
+import packsPPR from "static/json/pack_packsPPR_demo.json";
 import storeApi from "@/api/store";
 import foot from "@/layouts/footmini.vue";
 
