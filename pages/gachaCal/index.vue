@@ -1253,6 +1253,10 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
+          if(this.monthsRemaining < this.gacha_store258[this.gacha_store258List[i]].month)
+          {
+              continue;
+          }
           this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
@@ -1673,4 +1677,3 @@
       position: static;
         } */
 </style>
-
