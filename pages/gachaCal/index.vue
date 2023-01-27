@@ -16,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3.14)"  style="width: 33%"  
+            <el-radio-button label="联动池(3.14)"  style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -1253,6 +1253,10 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
+          if(this.monthsRemaining < this.gacha_store258[this.gacha_store258List[i]].month)
+          {
+              continue;
+          }
           this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
@@ -1673,4 +1677,3 @@
       position: static;
         } */
 </style>
-
