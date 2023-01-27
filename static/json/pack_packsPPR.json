@@ -552,24 +552,5 @@
     "gachaOriginium": 0,
     "packName": "新春养成组合包",
     "gachaOrundum": 4500
-  },
-  {
-    "packShowName": "新年组合包",
-    "packType": "limited",
-    "packDraw": 28.966666666666665,
-    "packPPRDraw": 1.708108108108108,
-    "packPPROriginium": 1.7067901234567904,
-    "packImg": "新年组合包",
-    "packPrice": 198,
-    "packID": 64,
-    "packRmbPerOriginium": 2.050632911392405,
-    "gachaPermit": 0,
-    "packState": 1,
-    "packOriginium": 96.55555555555556,
-    "packRmbPerDraw": 6.8354430379746836,
-    "gachaPermit10": 1,
-    "gachaOriginium": 51,
-    "packName": "新年组合包",
-    "gachaOrundum": 2200
   }
 ]

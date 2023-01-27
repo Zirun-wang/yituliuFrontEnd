@@ -16,9 +16,9 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"  disabled
+            <el-radio-button label="联动池(3月)"  style="width: 33%"  
             ></el-radio-button>
-            <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
+            <el-radio-button label="4周年(5.15)"  style="width: 33%"  
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
@@ -723,10 +723,10 @@
                   {{ other.gachaOriginium }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)" ></div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('每日赠送寻访凭证') === -1">
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') === -1">
                   {{ other.gachaPermit }}
                 </div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('每日赠送寻访凭证') !== -1" >
+                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') !== -1" >
                   {{ other.gachaPermit-poolCountDown }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
