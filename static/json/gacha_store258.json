@@ -1,8 +1,8 @@
 [
-  
-    {"packName":"1月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"},
-    {"packName":"2月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"},
-    {"packName":"3月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"},
-    {"packName":"4月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"},
-    {"packName":"5月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38"}
+
+    {"packName":"1月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","month":1},
+    {"packName":"2月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","month":2},
+    {"packName":"3月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","month":3},
+    {"packName":"4月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","month":4},
+    {"packName":"5月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","month":5}
 ]
