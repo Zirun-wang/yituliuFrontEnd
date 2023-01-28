@@ -46,7 +46,7 @@
       </div>
       <!-- 标题区域end -->
 
-      <div class="pack_simple">
+      <div class="pack_simple" style="display:none">
         <table>
           <tbody>
           <tr class="pack_simple_tr_title">
@@ -299,7 +299,7 @@ export default {
       filter1: true,
       filter2: true,
       packFilter: 11,
-      showFlag:true,
+      showFlag:false,
     };
   },
   components: {
@@ -737,7 +737,6 @@ export default {
 
 .pack_simple {
   width: 100%;
-  border: solid 1px rgb(255, 0, 0);
 
 }
 
