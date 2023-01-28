@@ -16,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="怪猎联动(3.14)"  style="width: 33%" 
+            <el-radio-button label="怪猎联动(3.14)"  style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
             ></el-radio-button>
@@ -850,7 +850,6 @@
   import gacha_potentialJson from "static/json/gacha_potential.json";
   import gacha_actReJson from "static/json/gacha_actRe.json";
   import gacha_storePacksJson from "static/json/gacha_storePacks.json";
-  import gacha_store258Json from "static/json/gacha_store258.json";
   import gacha_actRewardJson from "static/json/gacha_actReward.json";
   import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
   import "~/assets/css/gacha.css";
@@ -903,7 +902,7 @@
         gacha_storePacks: gacha_storePacksJson, //商店礼包
         gacha_storePacksList: [],
 
-        gacha_store258: gacha_store258Json, //黄票兑换38抽
+        gacha_store258: [], //黄票兑换38抽
         gacha_store258List: [],
         gacha_actReward: gacha_actRewardJson,
         gacha_honeyCake: gacha_honeyCakeJson,
@@ -1098,6 +1097,19 @@
           this.poolCountDownFlag = false;
         }
 
+        //黄票258：条目动态添加，取决于当前计算池子的剩余月数和电脑时间
+        this.gacha_store258.length = 0;
+        var date = new Date();
+        var y = date.getFullYear(); //年
+        var m = date.getMonth() + 1; //月
+        for (var i = 0; i < this.monthsRemaining; i++) {
+            this.gacha_store258.push({"packName": m + "月黄票换抽","packPrice":"0","gachaOriginium":"0","gachaOrundum":"0","gachaPermit":"8","gachaPermit10":"3","price":"0.00","packType":"store","times":"38","year":y,"month":m});
+            m++;
+            y += Math.floor((m - 1) / 12);
+            m = (m - 1) % 12 + 1;
+        }
+
+
         this.getInterval();
         this.getEveryreWard();
         this.compute();
@@ -1253,7 +1265,11 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
-
+          //黄票258：判断已选中项是否是这个池子之后月份被隐藏的黄票选项
+          if(this.gacha_store258List[i] >= this.gacha_store258.length)
+          {
+            continue;
+          }
           this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
