@@ -38,6 +38,14 @@ export default {
             data:data
         })
     },
+
+
+    findPoolDataByUid(uid){
+        return request({
+            url: `${api_name}/pool/find/${uid}`,
+            method: 'get'
+        })
+    },
     
    
     

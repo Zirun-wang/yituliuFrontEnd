@@ -1004,7 +1004,7 @@
       // this.updateVisits();
       this.compute();
       this.pieChart(this.pieData);
-      // this.openNotification();
+      this.openNotification();
     },
     methods: {
 
@@ -1013,9 +1013,9 @@
       },
       openNotification() {
         this.$notify({
-          title: '炸服公告',
+          title: '',
           dangerouslyUseHTMLString: true,
-          message: '<strong> 因服务器带宽问题，8号直播当晚可能会出现人数过多导致的无法访问页面的问题，请多谅解 </strong>',
+          message: '<strong> 怪猎联动攒抽计算已开放，点击标签切换 </strong>',
           duration: 12000
         });
       },
@@ -1562,10 +1562,10 @@
       },
 
       pieChart(data) {
-        var chartDom = document.getElementById("gacha_total_pie");
-        var myChart = echarts.init(chartDom);
+        let chartDom = document.getElementById("gacha_total_pie");
+        let myChart = echarts.init(chartDom);
 
-        var option = {
+        let option = {
           tooltip: {
             formatter: "{a} {b} : {c}抽,占 ({d}%)",
             position: "inner",
