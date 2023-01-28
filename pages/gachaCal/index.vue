@@ -333,7 +333,7 @@
             <div
               v-for="(singlePack, index) in gacha_store258"
               :key="index"
-              v-show="singlePack.packType == 'store'"
+              v-show="singlePack.packType == 'store'&&index<monthsRemaining"
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
@@ -1086,7 +1086,7 @@
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
           this.poolCountDownFlag = true;
-        }else if(this.timeSelector==='联动池(3.14)'){
+        }else if(this.timeSelector==='怪猎联动(3.14)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
           this.ExpirationSchedule = [-2,1,2];
@@ -1253,10 +1253,7 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
-          if(this.monthsRemaining < this.gacha_store258[this.gacha_store258List[i]].month)
-          {
-              continue;
-          }
+
           this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 

@@ -22,7 +22,7 @@
         <div id="pack_sort_by_oriPpr" class="op_tag_0" @click="sortPackByPPRPerOri()">
           总价值性价比
         </div>
-          <div class="op_tag_0" style="padding:1px;">
+        <div class="op_tag_0" style="padding:1px;">
         </div>
         <div style="margin-top: 8px;display: inline-block;">
           <div id="pack_show_once" class="op_tag_0" @click="switchPacks('once')">
@@ -46,13 +46,39 @@
       </div>
       <!-- 标题区域end -->
 
+      <div class="pack_simple">
+        <table>
+          <tbody>
+          <tr class="pack_simple_tr_title">
+            <td>礼包名称</td>
+            <td>类型</td>
+            <td>礼包价格</td>
+            <td>抽数</td>
+            <td class="pack_simple_packPPRDraw_td">抽卡性价比</td>
+            <td>综合性价比</td>
+            <td>每抽价格</td>
+          </tr>
+          <tr v-for="(pack_simple, index) in packsPPRData" :key="index"
+           :style="getDisplayStateDrawOnly(pack_simple.packState, pack_simple.packType, pack_simple.packPrice, packFilter,pack_simple.packPPRDraw)">
+            <td>{{ pack_simple.packName }}</td>
+            <td>{{ pack_simple.packType }}</td>
+            <td>{{ pack_simple.packPrice }}</td>
+            <td>{{ getFixed(pack_simple.packDraw, 1) }}抽</td>
+            <td class="pack_simple_packPPRDraw_td">{{ getFixed(pack_simple.packPPRDraw * 100, 0) }}%</td>
+            <td> {{ getFixed(pack_simple.packPPROriginium * 100, 0) }}%</td>
+            <td>{{ getFixed(pack_simple.packRmbPerDraw, 1) }}元/抽</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div id="pack_content" style="display:flex;">
         <!-- 仅计抽卡 -->
         <div id="pack_left" style="margin-top: -8px;">
-          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayStateDrawOnly(pack2.packState, pack2.packType, pack2.packPrice, packFilter,pack2.packPPRDraw)">
+          <div v-for="(pack2, index) in packsPPRData" :key="index" class="pack_unit_list"
+               :style="getDisplayStateDrawOnly(pack2.packState, pack2.packType, pack2.packPrice, packFilter,pack2.packPPRDraw)">
             <div class="pack_unit">
-            <!-- <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit"> -->
+              <!-- <div v-show="pack2.packState == 1&&!FilterCriteria.includes(pack2.packType)" class="pack_unit"> -->
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack2.packImg, pack2.packType)"
                    @click="switchPackContent(pack2.packID, 'draw')">
@@ -146,8 +172,9 @@
 
         <!-- 材料折合源石 -->
         <div id="pack_right" style="margin-top: -8px;">
-          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list" :style="getDisplayState(pack3.packState, pack3.packType, pack3.packPrice, packFilter)">
-          <!-- <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list"> -->
+          <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list"
+               :style="getDisplayState(pack3.packState, pack3.packType, pack3.packPrice, packFilter)">
+            <!-- <div v-for="(pack3, index) in packsPPRData" :key="index" class="pack_unit_list"> -->
             <div v-show="pack3.packState == 1&&!FilterCriteria.includes(pack3.packType)" class="pack_unit">
               <!-- 图片部分 -->
               <div class="pack_img" :style="getPackPic(pack3.packImg, pack3.packType)"
@@ -215,7 +242,7 @@
 
               <!-- 详情部分 -->
               <div class="pack_contents" :id="getContentId(pack3.packID, 'all')" style="display:none;">
-                <div class="pack_contents_note">{{pack3.packTag}}</div>
+                <div class="pack_contents_note">{{ pack3.packTag }}</div>
                 <div class="pack_content_unit0" style="width:112px;">
                   <div style="width:56px;">源石</div>
                   <div style="width:56px;">x{{ pack3.gachaOriginium }}</div>
@@ -245,7 +272,7 @@
       </div>
     </div>
 
-<foot></foot>
+    <foot></foot>
   </div>
 </template>
 
@@ -254,7 +281,6 @@ import cookie from "js-cookie";
 import packsPPR from "static/json/pack_packsPPR_demo.json";
 import storeApi from "@/api/store";
 import foot from "@/layouts/footmini.vue";
-
 
 
 export default {
@@ -269,19 +295,20 @@ export default {
       packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
-      FilterCriteria :[],
-      filter1:true,
-      filter2:true,
-      packFilter:11,
+      FilterCriteria: [],
+      filter1: true,
+      filter2: true,
+      packFilter: 11,
+      showFlag:true,
     };
   },
-components: {
+  components: {
     foot
-   
+
   },
   created() {
     this.getCookies();
-     this.initData();
+    this.initData();
     // this.getStorePackData();
   },
   methods: {
@@ -294,73 +321,46 @@ components: {
       this.opETextTheme = "op_title_etext_" + theme;
     },
 
-    switchPacks(packs){
-      if (packs == "once"){
-        if (this.packFilter < 5){
+    switchPacks(packs) {
+      if (packs == "once") {
+        if (this.packFilter < 5) {
           this.packFilter = this.packFilter + 10;
-          document.getElementById("pack_show_once").className="op_tag_0";
-        }else{
+          document.getElementById("pack_show_once").className = "op_tag_0";
+        } else {
           this.packFilter = this.packFilter - 10;
-          document.getElementById("pack_show_once").className="op_tag_1";
+          document.getElementById("pack_show_once").className = "op_tag_1";
         }
-      }else{
-        if (this.packFilter == 10 || this.packFilter == 0){
+      } else {
+        if (this.packFilter == 10 || this.packFilter == 0) {
           this.packFilter = this.packFilter + 1;
-          document.getElementById("pack_show_ori").className="op_tag_0";
-        }else{
+          document.getElementById("pack_show_ori").className = "op_tag_0";
+        } else {
           this.packFilter = this.packFilter - 1;
-          document.getElementById("pack_show_ori").className="op_tag_1";
+          document.getElementById("pack_show_ori").className = "op_tag_1";
         }
       }
     },
 
     getDisplayStateDrawOnly(packState, packType, packPrice, packFilter, packPPRDraw) {
-      if (packState == 0 ||packPPRDraw < 0.1){
+      if (packState == 0 || packPPRDraw < 0.1) {
         return 'display: none;';   //状态不对一票否决
-      }else{
-        if (packFilter == 11){
+      } else {
+        if (packFilter == 11) {
           return '';   //都显示
-        }else if(packFilter == 10){ //隐藏源石
-          if (packType == "year" || packType == "permanent"){
-            if (packPrice == 648 && packType == "permanent"){
+        } else if (packFilter == 10) { //隐藏源石
+          if (packType == "year" || packType == "permanent") {
+            if (packPrice == 648 && packType == "permanent") {
               return '';
             }
             return 'display: none;';
           }
-        }else if(packFilter == 1){ //隐藏一次性
-          if (packType == "once"){
+        } else if (packFilter == 1) { //隐藏一次性
+          if (packType == "once") {
             return 'display: none;';
           }
-        }else if(packFilter == 0){ //都隐藏
-          if (packType == "year" || packType == "permanent" ||packType == "once"){
-            if (packPrice == 648 && packType == "permanent"){
-              return '';
-            }
-            return 'display: none;';
-          }
-        }        
-      }
-    },
-    getDisplayState(packState, packType, packPrice, packFilter) {
-      if (packState == 0){
-        return 'display: none;';   //状态不对一票否决
-      }else{
-        if (packFilter == 11){
-          return '';   //都显示
-        }else if(packFilter == 10){ //隐藏源石
-          if (packType == "year" || packType == "permanent"){
-            if (packPrice == 648 && packType == "permanent"){
-              return '';
-            }
-            return 'display: none;';
-          }
-        }else if(packFilter == 1){ //隐藏一次性
-          if (packType == "once"){
-            return 'display: none;';
-          }
-        }else if(packFilter == 0){ //都隐藏
-          if (packType == "year" || packType == "permanent" ||packType == "once"){
-            if (packPrice == 648 && packType == "permanent"){
+        } else if (packFilter == 0) { //都隐藏
+          if (packType == "year" || packType == "permanent" || packType == "once") {
+            if (packPrice == 648 && packType == "permanent") {
               return '';
             }
             return 'display: none;';
@@ -368,23 +368,32 @@ components: {
         }
       }
     },
-
-
-    packfilterByType(filter){
-      this.FilterCriteria = [];
-      let filter1List,filter2List = [];
-      document.getElementById("button3").className = "op_tag_0";
-      document.getElementById("button4").className = "op_tag_0";
-        if (this.filter1) {
-          filter1List = ['once'];
-          document.getElementById("button3").className = "op_tag_1";
+    getDisplayState(packState, packType, packPrice, packFilter) {
+      if (packState == 0) {
+        return 'display: none;';   //状态不对一票否决
+      } else {
+        if (packFilter == 11) {
+          return '';   //都显示
+        } else if (packFilter == 10) { //隐藏源石
+          if (packType == "year" || packType == "permanent") {
+            if (packPrice == 648 && packType == "permanent") {
+              return '';
+            }
+            return 'display: none;';
+          }
+        } else if (packFilter == 1) { //隐藏一次性
+          if (packType == "once") {
+            return 'display: none;';
+          }
+        } else if (packFilter == 0) { //都隐藏
+          if (packType == "year" || packType == "permanent" || packType == "once") {
+            if (packPrice == 648 && packType == "permanent") {
+              return '';
+            }
+            return 'display: none;';
+          }
         }
-        if (this.filter2) {
-          filter2List = ['permanent', 'year'];
-          document.getElementById("button4").className = "op_tag_1";
-        }
-      this.FilterCriteria.push.apply(this.FilterCriteria, filter1List);
-      this.FilterCriteria.push.apply(this.FilterCriteria, filter2List)
+      }
     },
 
 
@@ -403,33 +412,35 @@ components: {
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
 
-        if('limited'===this.packPPRResponse[i].packType){
+        if ('limited' === this.packPPRResponse[i].packType) {
           this.packsPPRData.unshift(this.packPPRResponse[i]);
-        }else{
+        } else {
           this.packsPPRData.push(this.packPPRResponse[i]);
         }
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
+
+      // this.sortPackByPPRPerDraw();
     },
 
     sortPackByType() {
       this.initData();
-      document.getElementById("pack_left").style.display="block";
-      document.getElementById("pack_right").style.display="block";
+      document.getElementById("pack_left").style.display = "block";
+      document.getElementById("pack_right").style.display = "block";
 
-      document.getElementById("pack_sort_by_type").className="op_tag_1";
-      document.getElementById("pack_sort_by_drawPpr").className="op_tag_0";
-      document.getElementById("pack_sort_by_oriPpr").className="op_tag_0";
+      document.getElementById("pack_sort_by_type").className = "op_tag_1";
+      document.getElementById("pack_sort_by_drawPpr").className = "op_tag_0";
+      document.getElementById("pack_sort_by_oriPpr").className = "op_tag_0";
     },
 
     sortPackByPPRPerDraw() {
       this.initData();
-      document.getElementById("pack_left").style.display="block";
-      document.getElementById("pack_right").style.display="none";
+      document.getElementById("pack_left").style.display = "block";
+      document.getElementById("pack_right").style.display = "none";
 
-      document.getElementById("pack_sort_by_type").className="op_tag_0";
-      document.getElementById("pack_sort_by_drawPpr").className="op_tag_1";
-      document.getElementById("pack_sort_by_oriPpr").className="op_tag_0";
+      document.getElementById("pack_sort_by_type").className = "op_tag_0";
+      document.getElementById("pack_sort_by_drawPpr").className = "op_tag_1";
+      document.getElementById("pack_sort_by_oriPpr").className = "op_tag_0";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           console.log(this.packsPPRDataSort[j].packName, this.packsPPRDataSort[j].packRmbPerDraw, this.packsPPRDataSort[j].packRmbPerDraw != 'null')
@@ -444,12 +455,12 @@ components: {
 
       this.packsPPRData = []
       for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
-        if(this.packsPPRDataSort[i].packRmbPerDraw===0) continue;
+        if (this.packsPPRDataSort[i].packRmbPerDraw === 0) continue;
         this.packsPPRData.push(this.packsPPRDataSort[i]);
       }
 
       for (let i = 0; i < this.packsPPRDataSort.length; i += 1) {
-        if(this.packsPPRDataSort[i].packRmbPerDraw!==0) break;
+        if (this.packsPPRDataSort[i].packRmbPerDraw !== 0) break;
         this.packsPPRData.push(this.packsPPRDataSort[i]);
       }
     },
@@ -457,12 +468,12 @@ components: {
 
     sortPackByPPRPerOri() {
       this.initData();
-      document.getElementById("pack_left").style.display="none";
-      document.getElementById("pack_right").style.display="block";
+      document.getElementById("pack_left").style.display = "none";
+      document.getElementById("pack_right").style.display = "block";
 
-      document.getElementById("pack_sort_by_type").className="op_tag_0";
-      document.getElementById("pack_sort_by_drawPpr").className="op_tag_0";
-      document.getElementById("pack_sort_by_oriPpr").className="op_tag_1";
+      document.getElementById("pack_sort_by_type").className = "op_tag_0";
+      document.getElementById("pack_sort_by_drawPpr").className = "op_tag_0";
+      document.getElementById("pack_sort_by_oriPpr").className = "op_tag_1";
       for (let i = 0; i < this.packsPPRDataSort.length - 1; i += 1) {
         for (let j = 0; j < this.packsPPRDataSort.length - 1 - i; j += 1) {
           if (this.packsPPRDataSort[j].packRmbPerOriginium > this.packsPPRDataSort[j + 1].packRmbPerOriginium) {
@@ -509,9 +520,9 @@ components: {
 
 
     getPackPic(img, type) {
-
+      if(true ===this.showFlag) return '';
+      console.log(true ===this.showFlag);  
       if (type === 'limited') {
-
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } else
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
@@ -617,7 +628,7 @@ components: {
   vertical-align: top;
 }
 
-.pack_info_alert{
+.pack_info_alert {
   position: absolute;
   color: white;
   margin-top: -14px;
@@ -688,11 +699,13 @@ components: {
   box-shadow: 1px 1px 4px rgb(0 0 0 / 30%);
   vertical-align: bottom;
 }
-.pack_contents_note{
+
+.pack_contents_note {
   display: block;
   width: 100%;
   line-height: 32px;
 }
+
 .pack_content_unit0 {
   width: 116px;
   height: 32px;
@@ -722,8 +735,25 @@ components: {
   background-color: rgb(250, 83, 83);
 }
 
+.pack_simple {
+  width: 100%;
+  border: solid 1px rgb(255, 0, 0);
 
-	
+}
 
+.pack_simple table {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.pack_simple_packPPRDraw_td {
+  background: #fde4e4;
+}
+
+.pack_simple_tr_title{
+ font-weight: 700;
+}
 </style>
 

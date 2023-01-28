@@ -16,7 +16,7 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
             <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="联动池(3月)"  style="width: 33%"  
+            <el-radio-button label="怪猎联动(3.14)"  style="width: 33%" 
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  
             ></el-radio-button>
@@ -333,7 +333,7 @@
             <div
               v-for="(singlePack, index) in gacha_store258"
               :key="index"
-              v-show="singlePack.packType == 'store'"
+              v-show="singlePack.packType == 'store'&&index<monthsRemaining"
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
@@ -1004,7 +1004,7 @@
       // this.updateVisits();
       this.compute();
       this.pieChart(this.pieData);
-      // this.openNotification();
+      this.openNotification();
     },
     methods: {
 
@@ -1013,9 +1013,9 @@
       },
       openNotification() {
         this.$notify({
-          title: '炸服公告',
+          title: '',
           dangerouslyUseHTMLString: true,
-          message: '<strong> 因服务器带宽问题，8号直播当晚可能会出现人数过多导致的无法访问页面的问题，请多谅解 </strong>',
+          message: '<strong> 怪猎联动攒抽计算已开放，点击标签切换 </strong>',
           duration: 12000
         });
       },
@@ -1086,7 +1086,7 @@
           this.monthsRemaining = 1;
           this.ExpirationSchedule = [-1,1];
           this.poolCountDownFlag = true;
-        }else if(this.timeSelector==='联动池(3月)'){
+        }else if(this.timeSelector==='怪猎联动(3.14)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
           this.ExpirationSchedule = [-2,1,2];
@@ -1253,6 +1253,7 @@
 
         //黄票商店38抽计算
         for (let i = 0; i < this.gacha_store258List.length; i++) {
+
           this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
 
@@ -1562,10 +1563,10 @@
       },
 
       pieChart(data) {
-        var chartDom = document.getElementById("gacha_total_pie");
-        var myChart = echarts.init(chartDom);
+        let chartDom = document.getElementById("gacha_total_pie");
+        let myChart = echarts.init(chartDom);
 
-        var option = {
+        let option = {
           tooltip: {
             formatter: "{a} {b} : {c}抽,占 ({d}%)",
             position: "inner",
@@ -1673,4 +1674,3 @@
       position: static;
         } */
 </style>
-
