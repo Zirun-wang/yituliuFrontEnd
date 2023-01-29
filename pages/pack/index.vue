@@ -46,7 +46,7 @@
       </div>
       <!-- 标题区域end -->
 
-      <div class="pack_simple" style="display:none">
+      <div class="pack_simple" style="display:">
         <table>
           <tbody>
           <tr class="pack_simple_tr_title">
@@ -54,17 +54,18 @@
             <td>类型</td>
             <td>礼包价格</td>
             <td>抽数</td>
-            <td class="pack_simple_packPPRDraw_td">抽卡性价比</td>
+            <td class="">抽卡性价比</td>
             <td>综合性价比</td>
             <td>每抽价格</td>
           </tr>
           <tr v-for="(pack_simple, index) in packsPPRData" :key="index"
-           :style="getDisplayStateDrawOnly(pack_simple.packState, pack_simple.packType, pack_simple.packPrice, packFilter,pack_simple.packPPRDraw)">
+           :style="getDisplayStateDrawOnly(pack_simple.packState, pack_simple.packType, pack_simple.packPrice, packFilter,pack_simple.packPPRDraw)"
+           :class="getBackColor(index)">
             <td>{{ pack_simple.packName }}</td>
             <td>{{ pack_simple.packType }}</td>
             <td>{{ pack_simple.packPrice }}</td>
             <td>{{ getFixed(pack_simple.packDraw, 1) }}抽</td>
-            <td class="pack_simple_packPPRDraw_td">{{ getFixed(pack_simple.packPPRDraw * 100, 0) }}%</td>
+            <td class="">{{ getFixed(pack_simple.packPPRDraw * 100, 0) }}%</td>
             <td> {{ getFixed(pack_simple.packPPROriginium * 100, 0) }}%</td>
             <td>{{ getFixed(pack_simple.packRmbPerDraw, 1) }}元/抽</td>
           </tr>
@@ -321,6 +322,12 @@ export default {
       this.opETextTheme = "op_title_etext_" + theme;
     },
 
+    getBackColor(index){
+      console.log(index);
+      if(index%2!==0)  return "pack_simple_tr_back";
+      
+    },
+
     switchPacks(packs) {
       if (packs == "once") {
         if (this.packFilter < 5) {
@@ -368,6 +375,8 @@ export default {
         }
       }
     },
+
+
     getDisplayState(packState, packType, packPrice, packFilter) {
       if (packState == 0) {
         return 'display: none;';   //状态不对一票否决
@@ -410,13 +419,21 @@ export default {
       this.packsPPRDataSort = [];
 
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
-        if (this.packPPRResponse[i].packRmbPerDraw === null) this.packPPRResponse[i].packRmbPerDraw = 0;
-
+        if(0===this.packPPRResponse[i].packState) {
+          console.log('弹出：',this.packPPRResponse[i].packName);
+          continue
+        };
+         console.log('正常：',this.packPPRResponse[i].packName);
+        if (this.packPPRResponse[i].packRmbPerDraw === null) {
+          this.packPPRResponse[i].packRmbPerDraw = 0;
+        }
+      
         if ('limited' === this.packPPRResponse[i].packType) {
           this.packsPPRData.unshift(this.packPPRResponse[i]);
         } else {
           this.packsPPRData.push(this.packPPRResponse[i]);
         }
+        
         this.packsPPRDataSort.push(this.packPPRResponse[i]);
       }
 
@@ -747,8 +764,9 @@ export default {
   border-collapse: collapse;
 }
 
-.pack_simple_packPPRDraw_td {
-  background: #fde4e4;
+
+.pack_simple_tr_back {
+  background: rgb(225, 225, 225);
 }
 
 .pack_simple_tr_title{
