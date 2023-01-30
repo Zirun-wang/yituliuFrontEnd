@@ -14,11 +14,12 @@
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
-            <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
-            ></el-radio-button>
+            
             <el-radio-button label="怪猎联动(3.14)"  style="width: 33%" 
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
+            ></el-radio-button>
+            <el-radio-button label="夏活限定" type="primary" style="width: 33%" disabled
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
@@ -650,7 +651,7 @@
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
-              <el-checkbox-button :label="index" v-show="ExpirationSchedule.includes(singlePack.plans)">
+              <el-checkbox-button :label="index" v-show=" activityPlan .includes(singlePack.plans)">
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ singlePack.packName }}
                 </div>
@@ -680,7 +681,7 @@
             </div>
           </el-checkbox-group>
           <div v-for="(act, index) in gacha_actReward" :key="index">
-            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(act.plans)">
+            <div class="gacha_unit_child" v-show=" activityPlan .includes(act.plans)">
               <div class="gacha_unit_child_title">{{ act.packName }}</div>
               <!-- 一个通用的资源显示模块 -->
               <div class="gacha_resources_unit" style="width: 234px">
@@ -706,7 +707,7 @@
 
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
-            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(other.plans)">
+            <div class="gacha_unit_child" v-show=" activityPlan .includes(other.plans)">
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.packName }}
               </div>
@@ -716,7 +717,7 @@
                   {{ other.gachaOrundum }}
                 </div>
                 <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='幸运墙'" >
-                  {{ other.gachaOrundum-poolCountDown*660 }}
+                  {{ other.gachaOrundum-poolCountDown*600 }}
                 </div>
                 <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
@@ -886,16 +887,14 @@
         itemList: [],
         checkBox: ["0", "1", "2", "7"],
         // checkBox: ["1","7"],
-        ExpirationSchedule:[-1,1],
+        activityPlan :[],
         endTime: [],
         startDate: "", //开始时间
-        endDate: "2023/01/31 03:59:00", //结束时间
+        endDate: "2023/03/14 03:59:00", //结束时间
         start_TimeStamp: "",   //开始时间戳
         end_TimeStamp: "",     //结束时间戳
-
         plans_end:1,
-        timeSelector:"春节限定(1.31)",
-
+        timeSelector:"怪猎联动(3.14)",
         gacha_potential: gacha_potentialJson, //常驻活动和主线
         gacha_potentialList: [],
         gacha_actRe: gacha_actReJson, //复刻活动
@@ -969,7 +968,8 @@
         originium_30: 0, //普通源石30
         originium_6: 0, //普通源石6
         poolCountDown: 0, //限定池每日送抽倒计时
-        poolCountDownFlag: true, //限定池每日送抽倒计时
+        poolCountDownFlag_permit: true, //限定池每日送抽倒计时
+        poolCountDownFlag_orundum: true, //限定池每日送抽倒计时
 
         dailyRewards: 100, //每日奖励
         weeklyTaskRewards: 500, //周常奖励
@@ -1079,23 +1079,21 @@
         this.daysRemaining = num;
       },
 
+ // 选择时间节点
       checkEndDate() {
         // this.cookieInit=true;
-        if(this.timeSelector==='春节限定(1.31)'){
-          this.end_TimeStamp = 1675108740000;
-          this.monthsRemaining = 1;
-          this.ExpirationSchedule = [-1,1];
-          this.poolCountDownFlag = true;
-        }else if(this.timeSelector==='怪猎联动(3.14)'){
+        if(this.timeSelector==='怪猎联动(3.14)'){
           this.end_TimeStamp = 1678737540000;
           this.monthsRemaining = 3;
-          this.ExpirationSchedule = [-2,1,2];
-          this.poolCountDownFlag = false;
+          this. activityPlan  = [-1,1];    //非日常奖励根据json内每条游戏福利编号判断
+          this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+          this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         }else if(this.timeSelector==='4周年(5.15)'){
           this.end_TimeStamp = 1684094340000;
           this.monthsRemaining = 5;
-          this.ExpirationSchedule = [-3,1,2,3];
-          this.poolCountDownFlag = false;
+          this. activityPlan  = [-2,2];
+          this.poolCountDownFlag_permit = false;
+          this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         }
 
         this.getInterval();
@@ -1103,8 +1101,9 @@
         this.compute();
       },
 
+
+    //  计算日常奖励
       getEveryreWard() {
-        // console.log("运行了")
         this.dailyRewards = 100 * parseInt(this.daysRemaining);
         this.weeklyTaskRewards = 500 * parseInt(this.weeksRemaining);
         this.weeklyStageRewards = 1800 * parseInt(this.weeksRemaining);
@@ -1284,7 +1283,7 @@
 
         for (let i = 0; i < this.gacha_actReward.length; i++) {
 
-          if (this.ExpirationSchedule.includes(this.gacha_actReward[i].plans)) {
+          if (this. activityPlan .includes(this.gacha_actReward[i].plans)) {
               console.log('活动资源:', this.gacha_actReward[i].packName);
             this.originium +=  parseInt(this.gacha_actReward[i].gachaOriginium);
             this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
@@ -1319,7 +1318,7 @@
 
         //其他抽卡计算
         for (let i = 0; i < this.gacha_honeyCake.length; i++) {
-          if (this.ExpirationSchedule.includes(this.gacha_honeyCake[i].plans)) {
+          if (this. activityPlan .includes(this.gacha_honeyCake[i].plans)) {
             console.log('其他资源:', this.gacha_honeyCake[i].packName);
             this.originium +=  parseInt(this.gacha_honeyCake[i].gachaOriginium);
             this.orundum +=  parseInt(this.gacha_honeyCake[i].gachaOrundum);
@@ -1338,18 +1337,21 @@
         //合成玉=—周常—剿灭—幸运墙
         this.orundum +=
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.AnnihilationStageValue) * 1800 -
-          parseInt(this.poolCountDown) * 660 ;
-
+          parseInt(this.AnnihilationStageValue) * 1800 ;
 
         this.orundum_other +=
           parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.AnnihilationStageValue) * 1800 -
-          parseInt(this.poolCountDown) * 660 ;
+          parseInt(this.AnnihilationStageValue) * 1800 ;
 
-          //寻访记录=减去倒计时
+       //减去红包墙/矿区已经赠送过的合成玉
+        if( this.poolCountDownFlag_orundum){
+        this.orundum = parseInt(this.orundum) - parseInt(this.poolCountDown) *600;
+        this.orundum_other = parseInt(this.orundum_other) - parseInt(this.poolCountDown) *600;
+        }
 
-        if( this.poolCountDownFlag){
+
+        //减去限定池已经赠送过的单抽
+        if( this.poolCountDownFlag_permit){
         this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
         this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
         }
@@ -1370,6 +1372,7 @@
 
         this.originium = parseInt(this.originium) * parseInt(flag_originium);
 
+
         this.sellsCount +=
           648 * parseInt(this.originium_648) +
           328 * parseInt(this.originium_328) +
@@ -1387,7 +1390,7 @@
 
         //源石抽卡次数
         this.gachaTimes_originium =
-        (this.originium_exist +
+            (this.originium_exist +
             this.originium_potential +
             this.originium_gacha +
             this.originium_daily +
@@ -1397,7 +1400,7 @@
 
 
         this.pieData = [];
-        var chartFan = {};
+        let chartFan = {};
         if (this.gachaTimes_exist > 0) {
           chartFan.value = parseInt(this.gachaTimes_exist);
           chartFan.name = "现有";
