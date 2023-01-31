@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import * as echarts from "echarts";
 import itemCount202301 from "static/bar/itemCount202301.json";
 import itemCount202212 from "static/bar/itemCount202212.json";
 import itemCount202211 from "static/bar/itemCount202211.json";
 import imageUrl from "static/bar/imageUrl.json";
+  import * as echarts from "echarts";
 
 let itemId = [];
 let itemName = [];
@@ -216,7 +216,7 @@ export default {
 .pie_all {
   width: 1920px;
   height: 1080px;
-  background: url(~static/img/back/叙拉古人.png);
+  /* background: url(~static/img/back/叙拉古人.png); */
   background-size: 2000px;
   /* border:solid red 1px; */
   color: #4ba6f1;

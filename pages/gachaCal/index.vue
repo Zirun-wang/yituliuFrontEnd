@@ -189,7 +189,7 @@
               <a href="/?item=Orundum" style="margin: 0px 20px;">查看备选搓玉关卡</a>
               <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
                 如何安排搓玉？
-                <!-- <img class="gacha_img_small" src="/img/website/el.png"/> -->
+                <!-- <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/el.png"/> -->
               </a>
             </div>
           </div>
@@ -389,7 +389,7 @@
           </div>
           <!-- 主线 -->
           <div class="gacha_unit_fold">
-            <!-- <img class="gacha_img_small" src="/img/website/ex.png" /> -->
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png" />
             主线、突袭、绝境
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
@@ -418,7 +418,7 @@
           </el-checkbox-group>
           <!-- Sidestory -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png"/>支线、别传
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>支线、别传
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
@@ -457,7 +457,7 @@
           </div>
           <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">月常礼包
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">月常礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'"
@@ -491,7 +491,7 @@
           </el-checkbox-group>
           <!-- 限时礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">限时礼包
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'"
@@ -526,7 +526,7 @@
           </el-checkbox-group>
           <!-- 新人礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png">新人礼包
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">新人礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'"
@@ -561,7 +561,7 @@
           </el-checkbox-group>
           <!-- 首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png"/>源石首充
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>源石首充
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'year'"
@@ -584,7 +584,7 @@
           </el-checkbox-group>
           <!-- 非首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png"/>非首充
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>非首充
           </div>
 
           <div class="gacha_unit_child">
@@ -796,25 +796,25 @@
               <p class="foot_unit_title">-开发信息-</p>
               <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
                 <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
-                  <img class="foot_unit_pic" src="/img/website/github.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
                   前端
                 </div>
               </a>
               <a href="https://github.com/yamasakura/yituliuBackEnd">
                 <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
-                  <img class="foot_unit_pic" src="/img/website/github.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
                   后端
                 </div>
               </a>
               <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
                 <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png"/>
                   开发群 938710832
                 </div>
               </a>
               <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
                 <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                  <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/图标_源石.png"/>
                   本站财政状况
                 </div>
               </a>
@@ -840,22 +840,22 @@
               <p class="foot_unit_title">-数据支持-</p>
               <a href="https://space.bilibili.com/8412516">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
+                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/honeycake.webp"/>罗德岛蜜饼工坊
                 </div>
               </a>
               <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
+                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/prts.png"/>PRTS
                 </div>
               </a>
               <a href="https://yituliu.site/">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
+                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ico64.png"/>一图流主站
                 </div>
               </a>
               <a href="https://space.bilibili.com/22606843">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
+                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/公孙长乐.webp"/>公孙长乐
                 </div>
               </a>
             </div>
@@ -863,14 +863,14 @@
               <p class="foot_unit_title">-B站发布-</p>
               <a href="https://space.bilibili.com/688411531">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                  <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/bilibili.png"/>
                   罗德岛基建BETA
                 </div>
               </a>
               <p class="foot_unit_title">-粉丝群/反馈-</p>
               <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png"/>
                   罗德岛数据文献馆
                 </div>
               </a>
@@ -899,10 +899,7 @@ import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
 import "~/assets/css/gacha.css";
 import toolApi from "@/api/tool";
 import cookie from "js-cookie";
-
-let echarts = require("echarts");
-// import foot from "@/layouts/gachafootmini.vue";
-
+  import * as echarts from "echarts";
 
 export default {
   layout: "defaultGacha",
@@ -921,6 +918,8 @@ export default {
         content: "一图流-感谢庆典攒抽规划",
       },
     ],
+
+
     link: [{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}],
   },
 
