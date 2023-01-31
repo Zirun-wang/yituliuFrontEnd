@@ -11,10 +11,10 @@ import * as echarts from "echarts";
 import itemCount202301 from "static/bar/itemCount202301.json";
 import itemCount202212 from "static/bar/itemCount202212.json";
 import itemCount202211 from "static/bar/itemCount202211.json";
-import apCost from "static/bar/apCost.json";
 import imageUrl from "static/bar/imageUrl.json";
 
 let itemId = [];
+let itemName = [];
 let itemCostContent = [];
 let itemIndex = 0;
 let myChart = "";
@@ -22,9 +22,8 @@ export default {
   layout: "poster",
   data() {
     return {
-      itemName: [],
       itemCost: [],
-      imgUrl: [],
+
       chapter: '叙拉古人',
     };
   },
@@ -42,43 +41,43 @@ export default {
       document.getElementById("myChart").style.backgroundSize = "2000px"
       await this.sleep(4000);
       for (let i = 0; i < itemCount202211.length; i++) {
-
-
-        itemId.unshift(itemCount202211[i].itemName);
-        this.itemName.unshift(itemCount202211[i].itemId);
-        var costContent = itemCount202211[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202211[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        itemName.unshift(itemCount202211[i].itemName);
+        itemId.unshift(itemCount202211[i].itemId);
+        var costContent = itemCount202211[i].itemCount + "(+ " + (itemCount202211[i].itemCount-itemCount202211[i].itemCount) +")";
         itemCostContent.unshift(costContent);
         this.itemCost.unshift(itemCount202211[i].itemCount);
-        await this.sleep(1500);
+        // await this.sleep(1500);
         itemIndex = itemCount202211[i].itemId;
         this.chapter = chapters[0];
         this.barChart();
-
       }
 
       await this.sleep(4000);
+      this.chapter = chapters[1];
       for (let i = 0; i < itemCount202212.length; i++) {
-        var costContent = itemCount202212[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202212[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        var costContent = itemCount202212[i].itemCount + "(+ " + (itemCount202212[i].itemCount-itemCount202211[i].itemCount) + ")";
         itemCostContent[15 - i] = costContent;
-        this.itemName[15 - i] = itemCount202212[i].itemId;
+        itemName[15 - i] = itemCount202212[i].itemName;
+        itemId[15 - i] = itemCount202212[i].itemId;
         this.itemCost[15 - i] = itemCount202212[i].itemCount;
         itemIndex = itemCount202211[i].itemId;
-        await this.sleep(1500);
-        this.chapter = chapters[1];
+        // await this.sleep(1500);
         document.getElementById("myChart").style.background = "url(/img/back/" + chapters[1] + ".png)"
         document.getElementById("myChart").style.backgroundSize = "2000px"
         this.barChart();
       }
 
       await this.sleep(4000);
+      this.chapter = chapters[2];
       for (let i = 0; i < itemCount202301.length; i++) {
-        var costContent = itemCount202301[i].itemCount + "(↑ " + this.getIncreaseRatio(itemCount202301[i].itemCount, itemCount202211[i].itemCount) + "%)";
+        var costContent = itemCount202301[i].itemCount + "(+ " + (itemCount202301[i].itemCount-itemCount202211[i].itemCount) + ")";
         itemCostContent[15 - i] = costContent;
-        this.itemName[15 - i] = itemCount202301[i].itemId;
+        itemName[15 - i] = itemCount202301[i].itemName;
+        itemId[15 - i] = itemCount202301[i].itemId;
         this.itemCost[15 - i] = itemCount202301[i].itemCount;
         itemIndex = itemCount202211[i].itemId;
         await this.sleep(1500);
-        this.chapter = chapters[2];
+        
         document.getElementById("myChart").style.background = "url(/img/back/" + chapters[2] + ".png)"
         document.getElementById("myChart").style.backgroundSize = ""
         this.barChart();
@@ -113,7 +112,7 @@ export default {
         yAxis: [
           {
             type: "category",
-            data: this.itemName,
+            data: itemId,
             inverse: true,
             axisTick: {
               alignWithLabel: false,
@@ -131,9 +130,9 @@ export default {
               formatter: function (value, index) {
                 //判断是否要显示预警
                 // console.log("拿到的内容",  itemId[index]);
-                // console.log("Y轴返回内容",  itemId[index] + "{" + value + "|}");
+                console.log("Y轴返回内容：", index,  itemName[index] + "{" + value + "|}");
 
-                return itemId[index] + "{" + value + "|}";
+                return itemName[index] + "{" + value + "|}";
               },
               rich: imageUrl,
             },
@@ -164,7 +163,7 @@ export default {
         ],
         series: [
           {
-            name: [],
+            
             type: "bar",
             barWidth: 40,
             data: this.itemCost,

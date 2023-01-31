@@ -46,7 +46,7 @@
       </div>
       <!-- 标题区域end -->
 
-      <div class="pack_simple" style="display:">
+      <div class="pack_simple" style="display:none">
         <table>
           <tbody>
           <tr class="pack_simple_tr_title">
@@ -537,8 +537,8 @@ export default {
 
 
     getPackPic(img, type) {
-      if(true ===this.showFlag) return '';
-      console.log(true ===this.showFlag);  
+      // if(true ===this.showFlag) return '';
+      // console.log(true ===this.showFlag);  
       if (type === 'limited') {
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } else
@@ -766,7 +766,7 @@ export default {
 
 
 .pack_simple_tr_back {
-  background: rgb(225, 225, 225);
+  background: rgb(213, 219, 224);
 }
 
 .pack_simple_tr_title{

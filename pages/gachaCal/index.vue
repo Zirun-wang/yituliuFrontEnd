@@ -6,55 +6,58 @@
         <template slot="title">
           <div class="gacha_title_icon" style="background: chocolate"></div>
           <span class="collapse-item_title" style="color: purple">
-            共计{{ getFixed(gachaTimes_total,0) }}抽，氪金{{ sellsCount }}元
+            共计{{ getFixed(gachaTimes_total, 0) }}抽，氪金{{ sellsCount }}元
           </span>
           <span style="font-size: 20px;color: rgb(136 136 136 / 69%);margin-left: 16px;">yituliu.site</span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
-            <el-radio-button label="春节限定(1.31)" type="primary" style="width: 33%"
+          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector"
+                          @change="checkEndDate(timeSelector)">
+
+            <el-radio-button label="怪猎联动(3.14)" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="怪猎联动(3.14)"  style="width: 33%"
+            <el-radio-button label="4周年(5.15)" style="width: 33%" disabled
             ></el-radio-button>
-            <el-radio-button label="4周年(5.15)"  style="width: 33%"  disabled
+            <el-radio-button label="夏活限定" type="primary" style="width: 33%" disabled
             ></el-radio-button>
             <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
           </el-radio-group>
           <!-- <el-divider></el-divider> -->
           <div id="gacha_total_chart">
-            <div id="gacha_total_pie" ref="gacha_total_pie" style="vertical-align: top; height: 200px; width: 300px; display: inline-block; top: 10px;"></div>
+            <div id="gacha_total_pie" ref="gacha_total_pie"
+                 style="vertical-align: top; height: 200px; width: 300px; display: inline-block; top: 10px;"></div>
             <table id="gacha_total_table">
               <tbody>
               <tr class="gacha_total_table_tr">
                 <td>现有</td>
-                <td>{{ getFixed(gachaTimes_exist,0) }}</td>
+                <td>{{ getFixed(gachaTimes_exist, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>日常</td>
-                <td>{{ getFixed(gachaTimes_daily,0) }}</td>
+                <td>{{ getFixed(gachaTimes_daily, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>潜在</td>
-                <td>{{ getFixed(gachaTimes_potential,0) }}</td>
+                <td>{{ getFixed(gachaTimes_potential, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>氪金</td>
-                <td>{{ getFixed(gachaTimes_gacha,0) }}</td>
+                <td>{{ getFixed(gachaTimes_gacha, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>活动(估算)</td>
-                <td>{{ getFixed(gachaTimes_activity,0) }}</td>
+                <td>{{ getFixed(gachaTimes_activity, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>其它(估算)</td>
-                <td>{{ getFixed(gachaTimes_other,0) }}</td>
+                <td>{{ getFixed(gachaTimes_other, 0) }}</td>
                 <td>抽</td>
               </tr>
               </tbody>
@@ -66,16 +69,16 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                {{ getFixed(orundum,0) }}
+                {{ getFixed(orundum, 0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ (getFixed(orundum,0)/600).toFixed(2) }})
+                 &nbsp;({{ (getFixed(orundum, 0) / 600).toFixed(2) }})
                 </span>
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
-                {{ getFixed(originium,0) }}
+                {{ getFixed(originium, 0) }}
                 <span style="font-size: 14px;">
                  &nbsp;({{ (gachaTimes_originium).toFixed(2) }})
                 </span>
@@ -84,15 +87,15 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                {{ getFixed(permit,0) }}
+                {{ getFixed(permit, 0) }}
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                {{ getFixed(permit10,0) }}
+                {{ getFixed(permit10, 0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ getFixed(permit10,0)*10 }})
+                 &nbsp;({{ getFixed(permit10, 0) * 10 }})
                 </span>
               </div>
             </div>
@@ -104,7 +107,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist,0) }}抽</span
+          >现有库存 {{ getFixed(gachaTimes_exist, 0) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="wallet">
@@ -226,7 +229,7 @@
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily,0) }}抽</span>
+          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily, 0) }}抽</span>
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
@@ -363,7 +366,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >潜在资源 {{ getFixed(gachaTimes_potential,0) }}抽</span
+          >潜在资源 {{ getFixed(gachaTimes_potential, 0) }}抽</span
           >
         </template>
 
@@ -415,7 +418,7 @@
           </el-checkbox-group>
           <!-- Sidestory -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />支线、别传
+            <img class="gacha_img_small" src="/img/website/ex.png"/>支线、别传
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
@@ -443,7 +446,7 @@
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha,0) }}抽</span>
+          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="charge">
@@ -457,20 +460,30 @@
             <img class="gacha_img_small" src="/img/website/ex.png">月常礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'" class="gacha_unit_child" @change="compute(singlePack.packName)">
-              <el-checkbox-button :label="index"  >
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'"
+                 class="gacha_unit_child" @change="compute(singlePack.packName)">
+              <el-checkbox-button :label="index">
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
+                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 192px">
-                  <div style="width: 40px" v-show="singlePack.gachaOrundum !== 0" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum !== 0"
+                       :class="getSpriteImg('4003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaOrundum !== 0">{{ singlePack.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== 0"> {{ singlePack.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit !== 0" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0"
+                       :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium !== 0"> {{
+                      singlePack.gachaOriginium
+                    }}
+                  </div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit !== 0"
+                       :class="getSpriteImg('7003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit !== 0"> {{ singlePack.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== 0" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== 0"
+                       :class="getSpriteImg('7004icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit10 !== 0"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
@@ -481,21 +494,31 @@
             <img class="gacha_img_small" src="/img/website/ex.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'"
+                 class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
+                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <!-- 一个通用的资源显示模块 -->
                 <div class="gacha_resources_unit" style="width: 279px;">
-                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1"
+                       :class="getSpriteImg('4003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{ singlePack.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1"
+                       :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{
+                      singlePack.gachaOriginium
+                    }}
+                  </div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1"
+                       :class="getSpriteImg('7003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1"
+                       :class="getSpriteImg('7004icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
@@ -506,21 +529,31 @@
             <img class="gacha_img_small" src="/img/website/ex.png">新人礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'"
+                 class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
+                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <!-- 一个通用的资源显示模块 -->
                 <div class="gacha_resources_unit" style="width: 279px;">
-                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1" :class="getSpriteImg('4003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1"
+                       :class="getSpriteImg('4003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1" :class="getSpriteImg('4002icon', 0)"></div>
-                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{ singlePack.gachaOriginium }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1" :class="getSpriteImg('7003icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1"
+                       :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{
+                      singlePack.gachaOriginium
+                    }}
+                  </div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1"
+                       :class="getSpriteImg('7003icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1" :class="getSpriteImg('7004icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1"
+                       :class="getSpriteImg('7004icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>
@@ -528,17 +561,21 @@
           </el-checkbox-group>
           <!-- 首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />源石首充
+            <img class="gacha_img_small" src="/img/website/ex.png"/>源石首充
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'year'" class="gacha_unit_child" @change="compute(singlePack.packName)">
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'year'"
+                 class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
-                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>{{ getFixed(singlePack.packRmbPerDraw,2) }}</div>
+                <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
+                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
                 </div>
                 <div class="gacha_resources_unit" style="width: 102px">
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0" :class="getSpriteImg('4002icon', 0)"></div>
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== 0"
+                       :class="getSpriteImg('4002icon', 0)"></div>
                   <div style="width: 54px" v-show="singlePack.gachaOriginium !== 0">{{ singlePack.gachaOriginium }}
                   </div>
                 </div>
@@ -547,7 +584,7 @@
           </el-checkbox-group>
           <!-- 非首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="/img/website/ex.png" />非首充
+            <img class="gacha_img_small" src="/img/website/ex.png"/>非首充
           </div>
 
           <div class="gacha_unit_child">
@@ -560,7 +597,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_648 * 185,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_648 * 185, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -573,7 +610,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_328 * 90,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_328 * 90, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -586,7 +623,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_198 * 50,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_198 * 50, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -599,7 +636,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_98 * 24,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_98 * 24, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -612,7 +649,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_30 * 7,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_30 * 7, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -625,7 +662,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_6 * 1,0) }}</div>
+              <div style="width: 54px">{{ getFixed(originium_6 * 1, 0) }}</div>
             </div>
           </div>
 
@@ -636,12 +673,12 @@
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity,0) }}抽</span>
+          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="activity">
 
-           <div class="gacha_unit_child" >复刻活动</div>
+          <div class="gacha_unit_child">复刻活动</div>
           <el-checkbox-group v-model="gacha_actReList" class="">
             <div
               v-for="(singlePack, index) in gacha_actRe"
@@ -650,7 +687,7 @@
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
-              <el-checkbox-button :label="index" v-show="ExpirationSchedule.includes(singlePack.plans)">
+              <el-checkbox-button :label="index" v-show=" activityPlan .includes(singlePack.plans)">
                 <div class="gacha_unit_child_title" style="width: 200px">
                   {{ singlePack.packName }}
                 </div>
@@ -660,7 +697,8 @@
                   <div style="width: 54px" v-show="singlePack.gachaOrundum !== '0'">
                     {{ singlePack.gachaOrundum }}
                   </div>
-                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"
+                  <div style="width: 40px" v-show="singlePack.gachaOriginium !== '0'"
+                       :class="getSpriteImg('4002icon', 0)"
                   ></div>
                   <div style="width: 54px" v-show="singlePack.gachaOriginium !== '0'">
                     {{ singlePack.gachaOriginium }}
@@ -670,7 +708,8 @@
                   <div style="width: 54px" v-show="singlePack.gachaPermit !== '0'">
                     {{ singlePack.gachaPermit }}
                   </div>
-                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"
+                  <div style="width: 40px" v-show="singlePack.gachaPermit10 !== '0'"
+                       :class="getSpriteImg('7004icon', 0)"
                   ></div>
                   <div style="width: 54px" v-show="singlePack.gachaPermit10 !== '0'">
                     {{ singlePack.gachaPermit10 }}
@@ -680,7 +719,7 @@
             </div>
           </el-checkbox-group>
           <div v-for="(act, index) in gacha_actReward" :key="index">
-            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(act.plans)">
+            <div class="gacha_unit_child" v-show=" activityPlan .includes(act.plans)">
               <div class="gacha_unit_child_title">{{ act.packName }}</div>
               <!-- 一个通用的资源显示模块 -->
               <div class="gacha_resources_unit" style="width: 234px">
@@ -701,35 +740,39 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other,0) }}抽</span>
+          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, index) in gacha_honeyCake" :key="index">
-            <div class="gacha_unit_child" v-show="ExpirationSchedule.includes(other.plans)">
+            <div class="gacha_unit_child" v-show=" activityPlan .includes(other.plans)">
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ other.packName }}
               </div>
               <div class="gacha_resources_unit" style="width: 234px">
                 <div style="width: 40px" v-show="other.gachaOrundum !== '0'" :class="getSpriteImg('4003icon', 0)"></div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='幸运墙'" >
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName!=='幸运墙'">
                   {{ other.gachaOrundum }}
                 </div>
-                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='幸运墙'" >
-                  {{ other.gachaOrundum-poolCountDown*660 }}
+                <div style="width: 54px" v-show="other.gachaOrundum !== '0'&&other.packName==='幸运墙'">
+                  {{ other.gachaOrundum - poolCountDown * 600 }}
                 </div>
-                <div style="width: 40px" v-show="other.gachaOriginium !== '0'" :class="getSpriteImg('4002icon', 0)"></div>
+                <div style="width: 40px" v-show="other.gachaOriginium !== '0'"
+                     :class="getSpriteImg('4002icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaOriginium !== '0'">
                   {{ other.gachaOriginium }}
                 </div>
-                <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)" ></div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') === -1">
+                <div style="width: 40px" v-show="other.gachaPermit !== '0'" :class="getSpriteImg('7003icon', 0)"></div>
+                <div style="width: 54px"
+                     v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') === -1">
                   {{ other.gachaPermit }}
                 </div>
-                <div style="width: 54px" v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') !== -1" >
-                  {{ other.gachaPermit-poolCountDown }}
+                <div style="width: 54px"
+                     v-show="other.gachaPermit !== '0'&&other.packName.indexOf('春节池每日赠送寻访凭证') !== -1">
+                  {{ other.gachaPermit - poolCountDown }}
                 </div>
-                <div style="width: 40px" v-show="other.gachaPermit10 !== '0'" :class="getSpriteImg('7004icon', 0)"></div>
+                <div style="width: 40px" v-show="other.gachaPermit10 !== '0'"
+                     :class="getSpriteImg('7004icon', 0)"></div>
                 <div style="width: 54px" v-show="other.gachaPermit10 !== '0'">
                   {{ other.gachaPermit10 }}
                 </div>
@@ -749,89 +792,89 @@
 
           <div id="foot_main" style="background: white;">
             <!-- <div id="foot_left"> -->
-              <div class="foot_unit">
-                <p class="foot_unit_title">-开发信息-</p>
-                <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
-                  <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
-                    <img class="foot_unit_pic" src="/img/website/github.png"/>
-                    前端
-                  </div>
-                </a>
-                <a href="https://github.com/yamasakura/yituliuBackEnd">
-                  <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
-                    <img class="foot_unit_pic" src="/img/website/github.png"/>
-                    后端
-                  </div>
-                </a>
-                <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
-                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
-                    开发群 938710832
-                  </div>
-                </a>
-                <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
-                  <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                    <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
-                    本站财政状况
-                  </div>
-                </a>
-              </div>
-              <div class="foot_unit">
-                <p class="foot_unit_title">-本页开发-</p>
-                <a href="https://space.bilibili.com/39109412">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
-                    山桜
-                  </div>
-                </a>
-                <a href="https://space.bilibili.com/10057492">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                    <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4"/>
-                    Zirunwang
-                  </div>
-                </a>
-              </div>
+            <div class="foot_unit">
+              <p class="foot_unit_title">-开发信息-</p>
+              <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
+                <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
+                  <img class="foot_unit_pic" src="/img/website/github.png"/>
+                  前端
+                </div>
+              </a>
+              <a href="https://github.com/yamasakura/yituliuBackEnd">
+                <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
+                  <img class="foot_unit_pic" src="/img/website/github.png"/>
+                  后端
+                </div>
+              </a>
+              <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
+                <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                  开发群 938710832
+                </div>
+              </a>
+              <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
+                <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
+                  <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
+                  本站财政状况
+                </div>
+              </a>
+            </div>
+            <div class="foot_unit">
+              <p class="foot_unit_title">-本页开发-</p>
+              <a href="https://space.bilibili.com/39109412">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84258011?v=4">
+                  山桜
+                </div>
+              </a>
+              <a href="https://space.bilibili.com/10057492">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4"/>
+                  Zirunwang
+                </div>
+              </a>
+            </div>
             <!-- </div> -->
             <!-- <div id="foot_right"> -->
-              <div class="foot_unit">
-                <p class="foot_unit_title">-数据支持-</p>
-                <a href="https://space.bilibili.com/8412516">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                    class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
-                  </div>
-                </a>
-                <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                    class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
-                  </div>
-                </a>
-                <a href="https://yituliu.site/">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                    class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
-                  </div>
-                </a>
-                <a href="https://space.bilibili.com/22606843">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                    class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
-                  </div>
-                </a>
-              </div>
-              <div class="foot_unit">
-                <p class="foot_unit_title">-B站发布-</p>
-                <a href="https://space.bilibili.com/688411531">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                    <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
-                    罗德岛基建BETA
-                  </div>
-                </a>
-                <p class="foot_unit_title">-粉丝群/反馈-</p>
-                <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
-                  <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                    <img class="foot_unit_pic" src="/img/website/qq.png"/>
-                    罗德岛数据文献馆
-                  </div>
-                </a>
-              </div>
+            <div class="foot_unit">
+              <p class="foot_unit_title">-数据支持-</p>
+              <a href="https://space.bilibili.com/8412516">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                  class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
+                </div>
+              </a>
+              <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                  class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
+                </div>
+              </a>
+              <a href="https://yituliu.site/">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                  class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
+                </div>
+              </a>
+              <a href="https://space.bilibili.com/22606843">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
+                  class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
+                </div>
+              </a>
+            </div>
+            <div class="foot_unit">
+              <p class="foot_unit_title">-B站发布-</p>
+              <a href="https://space.bilibili.com/688411531">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
+                  罗德岛基建BETA
+                </div>
+              </a>
+              <p class="foot_unit_title">-粉丝群/反馈-</p>
+              <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
+                  罗德岛数据文献馆
+                </div>
+              </a>
+            </div>
             <!-- </div> -->
           </div>
           <div style="padding: 8px 16px 8px 16px;max-width: 1080px;margin: auto;">
@@ -858,7 +901,6 @@
   let echarts = require("echarts");
   // import foot from "@/layouts/gachafootmini.vue";
 
-
   export default {
     layout: "defaultGacha",
     head: {
@@ -870,154 +912,153 @@
           content:
             "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
         },
-        {
-          hid: "description",
-          name: "description",
-          content: "一图流-感谢庆典攒抽规划",
-        },
-      ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    },
-
-    data() {
-      return {
-        pageTheme: "light",
-        itemList: [],
-        checkBox: ["0", "1", "2", "7"],
-        // checkBox: ["1","7"],
-        ExpirationSchedule:[-1,1],
-        endTime: [],
-        startDate: "", //开始时间
-        endDate: "2023/01/31 03:59:00", //结束时间
-        start_TimeStamp: "",   //开始时间戳
-        end_TimeStamp: "",     //结束时间戳
-
-        plans_end:1,
-        timeSelector:"春节限定(1.31)",
-
-        gacha_potential: gacha_potentialJson, //常驻活动和主线
-        gacha_potentialList: [],
-        gacha_actRe: gacha_actReJson, //复刻活动
-        gacha_actReList: [],
-        gacha_storePacks: gacha_storePacksJson, //商店礼包
-        gacha_storePacksList: [],
-
-        gacha_store258: [], //黄票兑换38抽
-        gacha_store258List: [],
-        gacha_actReward: gacha_actRewardJson,
-        gacha_honeyCake: gacha_honeyCakeJson,
-
-        //计算结果
-
-        originium: 0, //源石
-        orundum: 0, //合成玉
-        permit: 0, //寻访
-        permit10: 0, //十连寻访
-        sellsCount: 0, //总氪金总和
-        gachaTimes_total: 0, //总抽卡次数
-
-        gachaTimes_originium: 0, //总抽卡次数（源石部分）
-
-        gachaTimes_exist: 0, //库存抽卡次数
-        gachaTimes_potential: 0, //潜在抽卡次数
-        gachaTimes_daily: 0, //日常抽卡次数
-        gachaTimes_gacha: 0, //氪金抽卡次数
-        gachaTimes_activity: 0, //活动抽卡次数
-        gachaTimes_other: 0, //其他抽卡次数
-
-        originium_exist: 0, //库存源石
-        orundum_exist: 0, //库存合成玉
-        permit_exist: 0, //库存寻访券
-        permit10_exist: 0, //库存十连寻访
-
-        originium_potential: 0, //常驻源石
-        orundum_potential: 0, //常驻合成玉
-        permit_potential: 0, //常驻寻访券
-        permit10_potential: 0, //常驻十连寻访
-        paradox: 0, //悖论模拟
-
-        originium_daily: 0, //日常源石
-        orundum_daily: 0, //日常合成玉
-        permit_daily: 0, //日常寻访券
-        permit10_daily: 0, //日常十连寻访
-
-        originium_gacha: 0, //氪金源石
-        orundum_gacha: 0, //氪金合成玉
-        permit_gacha: 0, //氪金寻访券
-        permit10_gacha: 0, //氪金十连寻访
-
-        originium_act: 0, //活动源石
-        orundum_act: 0, //活动合成玉
-        permit_act: 0, //活动寻访券
-        permit10_act: 0, //活动十连寻访
-
-        originium_other: 0, //其他源石
-        orundum_other: 0, //其他合成玉
-        permit_other: 0, //其他寻访券
-        permit10_other: 0, //其他十连寻访
-
-        daysRemaining: 0, //剩余天数
-        weeksRemaining: 0, //剩余周数
-        monthsRemaining: 1, //剩余月数
-        MonthsSignInRemaining: 0, // 剩余签到次数
-
-        originium_648: 0, //普通源石648
-        originium_328: 0, //普通源石328
-        originium_198: 0, //普通源石198
-        originium_98: 0, //普通源石98
-        originium_30: 0, //普通源石30
-        originium_6: 0, //普通源石6
-        poolCountDown: 0, //限定池每日送抽倒计时
-        poolCountDownFlag: true, //限定池每日送抽倒计时
-
-        dailyRewards: 100, //每日奖励
-        weeklyTaskRewards: 500, //周常奖励
-        weeklyStageRewards: 1800, //剿灭奖励
-        gachaWall: 8500, //幸运墙奖励
-        originiumFlag: true, //是否源石抽卡
-        weekStageFlag: true, //是否完成剿灭
-        weekTaskFlag: true, //是否完成周常
-        greenStoreFlag: false, //是否兑换绿票商店
-
-
-
-        AnnihilationStageValue: true,
-        weekTaskValue: true,   //每周任务的合成玉数量
-        storeF1AndF2Value: 0,  //绿票商店抽数
-        skinValue: 0,   //皮肤消耗源石数量
-        customValue: 0, //自定义值
-        cookieInit: 0,   //cookie是否获取标志
-        pieData: [],
-        number:1,
-      };
-    },
-    created() {
-      this.getDate();
-      this.getInterval();
-      this.getEveryreWard();
-      this.getPoolCountDown();
-      this.checkEndDate();
-
-    },
-    mounted() {
-      // this.updateVisits();
-      this.compute();
-      this.pieChart(this.pieData);
-      this.openNotification();
-    },
-    methods: {
-
-      updateVisits() {
-        toolApi.updateVisits("gacha").then((response) => {});
+      {
+        hid: "description",
+        name: "description",
+        content: "一图流-感谢庆典攒抽规划",
       },
-      openNotification() {
-        this.$notify({
-          title: '',
-          dangerouslyUseHTMLString: true,
-          message: '<strong> 怪猎联动攒抽计算已开放，点击标签切换 </strong>',
-          duration: 12000
-        });
-      },
+    ],
+    link: [{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}],
+  },
+
+  data() {
+    return {
+      pageTheme: "light",
+      itemList: [],
+      checkBox: ["0", "1", "2", "7"],
+      // checkBox: ["1","7"],
+      activityPlan: [],
+      endTime: [],
+      startDate: "", //开始时间
+      endDate: "2023/03/14 03:59:00", //结束时间
+      start_TimeStamp: "",   //开始时间戳
+      end_TimeStamp: "",     //结束时间戳
+      plans_end: 1,
+      timeSelector: "怪猎联动(3.14)",
+      gacha_potential: gacha_potentialJson, //常驻活动和主线
+      gacha_potentialList: [],
+      gacha_actRe: gacha_actReJson, //复刻活动
+      gacha_actReList: [],
+      gacha_storePacks: gacha_storePacksJson, //商店礼包
+      gacha_storePacksList: [],
+
+      gacha_store258: gacha_store258Json, //黄票兑换38抽
+      gacha_store258List: [],
+      gacha_actReward: gacha_actRewardJson,
+      gacha_honeyCake: gacha_honeyCakeJson,
+
+      //计算结果
+
+      originium: 0, //源石
+      orundum: 0, //合成玉
+      permit: 0, //寻访
+      permit10: 0, //十连寻访
+      sellsCount: 0, //总氪金总和
+      gachaTimes_total: 0, //总抽卡次数
+
+      gachaTimes_originium: 0, //总抽卡次数（源石部分）
+
+      gachaTimes_exist: 0, //库存抽卡次数
+      gachaTimes_potential: 0, //潜在抽卡次数
+      gachaTimes_daily: 0, //日常抽卡次数
+      gachaTimes_gacha: 0, //氪金抽卡次数
+      gachaTimes_activity: 0, //活动抽卡次数
+      gachaTimes_other: 0, //其他抽卡次数
+
+      originium_exist: 0, //库存源石
+      orundum_exist: 0, //库存合成玉
+      permit_exist: 0, //库存寻访券
+      permit10_exist: 0, //库存十连寻访
+
+      originium_potential: 0, //常驻源石
+      orundum_potential: 0, //常驻合成玉
+      permit_potential: 0, //常驻寻访券
+      permit10_potential: 0, //常驻十连寻访
+      paradox: 0, //悖论模拟
+
+      originium_daily: 0, //日常源石
+      orundum_daily: 0, //日常合成玉
+      permit_daily: 0, //日常寻访券
+      permit10_daily: 0, //日常十连寻访
+
+      originium_gacha: 0, //氪金源石
+      orundum_gacha: 0, //氪金合成玉
+      permit_gacha: 0, //氪金寻访券
+      permit10_gacha: 0, //氪金十连寻访
+
+      originium_act: 0, //活动源石
+      orundum_act: 0, //活动合成玉
+      permit_act: 0, //活动寻访券
+      permit10_act: 0, //活动十连寻访
+
+      originium_other: 0, //其他源石
+      orundum_other: 0, //其他合成玉
+      permit_other: 0, //其他寻访券
+      permit10_other: 0, //其他十连寻访
+
+      daysRemaining: 0, //剩余天数
+      weeksRemaining: 0, //剩余周数
+      monthsRemaining: 1, //剩余月数
+      MonthsSignInRemaining: 0, // 剩余签到次数
+
+      originium_648: 0, //普通源石648
+      originium_328: 0, //普通源石328
+      originium_198: 0, //普通源石198
+      originium_98: 0, //普通源石98
+      originium_30: 0, //普通源石30
+      originium_6: 0, //普通源石6
+      poolCountDown: 0, //限定池每日送抽倒计时
+      poolCountDownFlag_permit: true, //限定池每日送抽倒计时
+      poolCountDownFlag_orundum: true, //限定池每日送抽倒计时
+
+      dailyRewards: 100, //每日奖励
+      weeklyTaskRewards: 500, //周常奖励
+      weeklyStageRewards: 1800, //剿灭奖励
+      gachaWall: 8500, //幸运墙奖励
+      originiumFlag: true, //是否源石抽卡
+      weekStageFlag: true, //是否完成剿灭
+      weekTaskFlag: true, //是否完成周常
+      greenStoreFlag: false, //是否兑换绿票商店
+
+
+      AnnihilationStageValue: true,
+      weekTaskValue: true,   //每周任务的合成玉数量
+      storeF1AndF2Value: 0,  //绿票商店抽数
+      skinValue: 0,   //皮肤消耗源石数量
+      customValue: 0, //自定义值
+      cookieInit: 0,   //cookie是否获取标志
+      pieData: [],
+      number: 1,
+    };
+  },
+  created() {
+    this.getDate();
+    this.getInterval();
+    this.getEveryreWard();
+    this.getPoolCountDown();
+    this.checkEndDate();
+
+  },
+  mounted() {
+    // this.updateVisits();
+    this.compute();
+    this.pieChart(this.pieData);
+    this.openNotification();
+  },
+  methods: {
+
+    updateVisits() {
+      toolApi.updateVisits("gacha").then((response) => {
+      });
+    },
+    openNotification() {
+      this.$notify({
+        title: '',
+        dangerouslyUseHTMLString: true,
+        message: '<strong> 怪猎联动攒抽计算已开放，点击标签切换 </strong>',
+        duration: 12000
+      });
+    },
 
     getFixed(num, acc) {
       acc = (typeof acc !== 'undefined') ? acc : 2;
@@ -1025,10 +1066,10 @@
     },
 
 //获取雪碧图
-      getSpriteImg(packName, index) {
-        if (index === 0) return "bg-" + packName + " sprite_gacha";
-        return "bg-" + packName;
-      },
+    getSpriteImg(packName, index) {
+      if (index === 0) return "bg-" + packName + " sprite_gacha";
+      return "bg-" + packName;
+    },
 
 //获取当天日期
       getDate() {
@@ -1077,25 +1118,27 @@
         console.log("距离活动还有" + num + "天");
         this.daysRemaining = num;
       },
+    // 选择时间节点
+    checkEndDate() {
+      // this.cookieInit=true;
+      if (this.timeSelector === '怪猎联动(3.14)') {
+        this.end_TimeStamp = 1678737540000;
+        this.monthsRemaining = 3;
+        this.activityPlan = [-1, 1];    //非日常奖励根据json内每条游戏福利编号判断
+        this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+        this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+      } else if (this.timeSelector === '4周年(5.15)') {
+        this.end_TimeStamp = 1684094340000;
+        this.monthsRemaining = 5;
+        this.activityPlan = [-2, 2];
+        this.poolCountDownFlag_permit = false;
+        this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+      }
 
-      checkEndDate() {
-        // this.cookieInit=true;
-        if(this.timeSelector==='春节限定(1.31)'){
-          this.end_TimeStamp = 1675108740000;
-          this.monthsRemaining = 1;
-          this.ExpirationSchedule = [-1,1];
-          this.poolCountDownFlag = true;
-        }else if(this.timeSelector==='怪猎联动(3.14)'){
-          this.end_TimeStamp = 1678737540000;
-          this.monthsRemaining = 3;
-          this.ExpirationSchedule = [-2,1,2];
-          this.poolCountDownFlag = false;
-        }else if(this.timeSelector==='4周年(5.15)'){
-          this.end_TimeStamp = 1684094340000;
-          this.monthsRemaining = 5;
-          this.ExpirationSchedule = [-3,1,2,3];
-          this.poolCountDownFlag = false;
-        }
+      this.getInterval();
+      this.getEveryreWard();
+      this.compute();
+    },
 
         //黄票258：条目动态添加，取决于当前计算池子的剩余月数和电脑时间
         this.gacha_store258.length = 0;
@@ -1108,13 +1151,11 @@
             y += Math.floor((m - 1) / 12);
             m = (m - 1) % 12 + 1;
         }
-
-
         this.getInterval();
         this.getEveryreWard();
         this.compute();
       },
-
+    //  计算日常奖励
       getEveryreWard() {
         // console.log("运行了")
         this.dailyRewards = 100 * parseInt(this.daysRemaining);
@@ -1135,98 +1176,83 @@
           flag_originium = 1;
         }
 
-        //判断是否完成周常日常
-        this.weekTaskValue = 1;
-        if (this.weekTaskFlag) {
-          this.weekTaskValue = 0;
-        }
 
-        //判断是否完成剿灭
-        this.AnnihilationStageValue = 1;
-        if (this.weekStageFlag) {
-          this.AnnihilationStageValue = 0;
-        }
+      //判断是否完成周常日常
+      this.weekTaskValue = 1;
+      if (this.weekTaskFlag) {
+        this.weekTaskValue = 0;
+      }
 
-
-        this.storeF1AndF2Value = 0;
-
-        if(typeof this.greenStoreFlag ==='string' ){
-           if(this.greenStoreFlag ==="false") this.greenStoreFlag = false;
-           if(this.greenStoreFlag ==="true") this.greenStoreFlag = true;
-        }
-
-        if (this.greenStoreFlag) {
-          this.storeF1AndF2Value = 1;
-        }
+      //判断是否完成剿灭
+      this.AnnihilationStageValue = 1;
+      if (this.weekStageFlag) {
+        this.AnnihilationStageValue = 0;
+      }
 
 
-        //库存计算（共计）
-        this.originium += parseInt(this.originium_exist);
+      this.storeF1AndF2Value = 0;
 
-        this.orundum +=  parseInt(this.orundum_exist) + parseInt(this.customValue);
-        this.permit += parseInt(this.permit_exist);
-        this.permit10 +=  parseInt(this.permit10_exist);
-        // console.log(this.permit += this.permit + parseInt(this.permit_exist));
-        //库存抽卡次数（单项）
-        this.gachaTimes_exist =
-          parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_exist) / 600 +
-          parseInt(this.permit_exist) +
-          parseInt(this.permit10_exist) * 10 +
-          parseInt(this.customValue) / 600;
+      if (typeof this.greenStoreFlag === 'string') {
+        if (this.greenStoreFlag === "false") this.greenStoreFlag = false;
+        if (this.greenStoreFlag === "true") this.greenStoreFlag = true;
+      }
 
-        //主线和常驻活动计算（共计）
-        for (let i = 0; i < this.gacha_potentialList.length; i++) {
-          this.originium += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
-          this.orundum += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
+      if (this.greenStoreFlag) {
+        this.storeF1AndF2Value = 1;
+      }
 
-          this.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
-          this.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
 
-        }
+      //库存计算（共计）
+      this.originium += parseInt(this.originium_exist);
 
-        //悖论模拟
-        this.orundum += parseInt(this.paradox * 200);
+      this.orundum += parseInt(this.orundum_exist) + parseInt(this.customValue);
+      this.permit += parseInt(this.permit_exist);
+      this.permit10 += parseInt(this.permit10_exist);
+      // console.log(this.permit += this.permit + parseInt(this.permit_exist));
+      //库存抽卡次数（单项）
+      this.gachaTimes_exist =
+        parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_exist) / 600 +
+        parseInt(this.permit_exist) +
+        parseInt(this.permit10_exist) * 10 +
+        parseInt(this.customValue) / 600;
 
-        this.orundum_potential += parseInt(this.paradox * 200);
+      //主线和常驻活动计算（共计）
+      for (let i = 0; i < this.gacha_potentialList.length; i++) {
+        this.originium += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
+        this.orundum += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
 
-        //主线和常驻活动抽卡次数（单项）
-        this.gachaTimes_potential =
-          parseInt(this.originium_potential) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_potential) / 600 +
-          parseInt(this.permit_potential) +
-          parseInt(this.permit10_potential) * 10;
+        this.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
+        this.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
 
-        //氪金项目计算（共计）
-        for (let i = 0; i < this.gacha_storePacksList.length; i++) {
-          this.permit += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
-          this.permit10 += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
-          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
-            console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
-            this.orundum += parseInt(this.daysRemaining) * 200;
-            this.originium += Math.ceil(this.daysRemaining / 30) * 6;
-            this.sellsCount += Math.ceil(this.daysRemaining / 30) * 30;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum =
-              parseInt(this.daysRemaining) * 200;
-            this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium =
-              Math.ceil(this.daysRemaining / 30) * 6;
+      }
 
-          } else {
-            this.originium +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
-            this.orundum +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
-            this.sellsCount +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
-          }
+      //悖论模拟
+      this.orundum += parseInt(this.paradox * 200);
 
-          this.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
-          this.permit10_gacha +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
-          if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
-            this.orundum_gacha +=  parseInt(this.daysRemaining) * 200;
-            this.originium_gacha +=  Math.ceil(this.daysRemaining / 30) * 6;
-          } else {
-            this.orundum_gacha +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
-            this.originium_gacha +=  parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
-          }
-        }
+      this.orundum_potential += parseInt(this.paradox * 200);
+
+      //主线和常驻活动抽卡次数（单项）
+      this.gachaTimes_potential =
+        parseInt(this.originium_potential) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_potential) / 600 +
+        parseInt(this.permit_potential) +
+        parseInt(this.permit10_potential) * 10;
+
+      //氪金项目计算（共计）
+      for (let i = 0; i < this.gacha_storePacksList.length; i++) {
+        this.permit += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
+        this.permit10 += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
+          console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
+          this.orundum += parseInt(this.daysRemaining) * 200;
+          this.originium += Math.ceil(this.daysRemaining / 30) * 6;
+          this.sellsCount += Math.ceil(this.daysRemaining / 30) * 30;
+          this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum =
+            parseInt(this.daysRemaining) * 200;
+          this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium =
+            Math.ceil(this.daysRemaining / 30) * 6;
+
 
         //普通648
         this.originium +=
@@ -1275,418 +1301,437 @@
 
           this.permit_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
           this.permit10_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
-        }
-
-        //日常资源抽卡次数(单项)
-        this.orundum_daily +=
-          parseInt(this.dailyRewards) +
-          parseInt(this.weeklyTaskRewards) +
-          parseInt(this.weeklyStageRewards) +
-          parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.AnnihilationStageValue) * 1800 +
-          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600;
-
-        this.permit_daily +=
-          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
-          parseInt(this.MonthsSignInRemaining);
-
-        this.gachaTimes_daily =
-          parseInt(this.originium_daily) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_daily) / 600 +
-          parseInt(this.permit_daily) +
-          parseInt(this.permit10_daily) * 10;
-
-        //活动抽卡计算（共计）
-
-        for (let i = 0; i < this.gacha_actReward.length; i++) {
-
-          if (this.ExpirationSchedule.includes(this.gacha_actReward[i].plans)) {
-              console.log('活动资源:', this.gacha_actReward[i].packName);
-            this.originium +=  parseInt(this.gacha_actReward[i].gachaOriginium);
-            this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
-            this.permit +=   parseInt(this.gacha_actReward[i].gachaPermit);
-            this.permit10 +=  parseInt(this.gacha_actReward[i].gachaPermit10);
-
-            this.originium_act +=  parseInt(this.gacha_actReward[i].gachaOriginium);
-            this.orundum_act +=  parseInt(this.gacha_actReward[i].gachaOrundum);
-            this.permit_act +=  parseInt(this.gacha_actReward[i].gachaPermit);
-            this.permit10_act +=  parseInt(this.gacha_actReward[i].gachaPermit10);
-          }
-        }
-
-        for (let i = 0; i < this.gacha_actReList.length; i++) {
-          this.originium +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
-          this.orundum +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
-          this.permit +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
-          this.permit10 +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
-
-          this.originium_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
-          this.orundum_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
-          this.permit_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
-          this.permit10_act +=  parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
-        }
-
-        //活动抽卡次数（单项）
-        this.gachaTimes_activity =
-          parseInt(this.originium_act) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_act) / 600 +
-          parseInt(this.permit_act) +
-          parseInt(this.permit10_act) * 10;
-
-        //其他抽卡计算
-        for (let i = 0; i < this.gacha_honeyCake.length; i++) {
-          if (this.ExpirationSchedule.includes(this.gacha_honeyCake[i].plans)) {
-            console.log('其他资源:', this.gacha_honeyCake[i].packName);
-            this.originium +=  parseInt(this.gacha_honeyCake[i].gachaOriginium);
-            this.orundum +=  parseInt(this.gacha_honeyCake[i].gachaOrundum);
-            this.permit +=  parseInt(this.gacha_honeyCake[i].gachaPermit);
-            this.permit10 +=  parseInt(this.gacha_honeyCake[i].gachaPermit10);
-
-            this.originium_other +=  parseInt(this.gacha_honeyCake[i].gachaOriginium);
-            this.orundum_other +=  parseInt(this.gacha_honeyCake[i].gachaOrundum);
-            this.permit_other +=  parseInt(this.gacha_honeyCake[i].gachaPermit);
-            this.permit10_other +=  parseInt(this.gacha_honeyCake[i].gachaPermit10);
-          }
-        }
-
-
-         //自动扣除部分{
-        //合成玉=—周常—剿灭—幸运墙
-        this.orundum +=
-          parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.AnnihilationStageValue) * 1800 -
-          parseInt(this.poolCountDown) * 660 ;
-
-
-        this.orundum_other +=
-          parseInt(this.weekTaskValue) * 500 +
-          parseInt(this.AnnihilationStageValue) * 1800 -
-          parseInt(this.poolCountDown) * 660 ;
-
-          //寻访记录=减去倒计时
-
-        if( this.poolCountDownFlag){
-        this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
-        this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
-        }
-
-        //其他抽卡次数
-        this.gachaTimes_other =
-          parseInt(this.originium_other) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_other) / 600 +
-          parseInt(this.permit_other) +
-          parseInt(this.permit10_other) * 10
-
-
-        if (parseInt(this.originium - parseInt(this.skinValue) * 18) < 0) {
-         this.$message.error("你的源石不足");
-        }
-
-        this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
-
-        this.originium = parseInt(this.originium) * parseInt(flag_originium);
-
-        this.sellsCount +=
-          648 * parseInt(this.originium_648) +
-          328 * parseInt(this.originium_328) +
-          198 * parseInt(this.originium_198) +
-          98 * parseInt(this.originium_98) +
-          30 * parseInt(this.originium_30) +
-          6 * parseInt(this.originium_6);
-
-        //抽卡次数
-        this.gachaTimes_total =
-          parseInt(this.originium) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum) / 600 +
-          parseInt(this.permit) +
-          parseInt(this.permit10) * 10;
-
-        //源石抽卡次数
-        this.gachaTimes_originium =
-        (this.originium_exist +
-            this.originium_potential +
-            this.originium_gacha +
-            this.originium_daily +
-            this.originium_act +
-            this.originium_other -
-            parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
-
-
-        this.pieData = [];
-        var chartFan = {};
-        if (this.gachaTimes_exist > 0) {
-          chartFan.value = parseInt(this.gachaTimes_exist);
-          chartFan.name = "现有";
-          this.pieData.push(chartFan);
-        }
-        if (this.gachaTimes_potential > 0) {
-          chartFan = {};
-          chartFan.value = parseInt(this.gachaTimes_potential);
-          chartFan.name = "潜在";
-          this.pieData.push(chartFan);
-        }
-        if (this.gachaTimes_daily > 0) {
-          chartFan = {};
-          chartFan.value = parseInt(this.gachaTimes_daily);
-          chartFan.name = "日常";
-          this.pieData.push(chartFan);
-        }
-        if (this.gachaTimes_gacha > 0) {
-          chartFan = {};
-          chartFan.value = parseInt(this.gachaTimes_gacha);
-          chartFan.name = "氪金";
-          this.pieData.push(chartFan);
-        }
-        if (this.gachaTimes_activity > 0) {
-          chartFan = {};
-          chartFan.value = parseInt(this.gachaTimes_activity);
-          chartFan.name = "活动";
-          this.pieData.push(chartFan);
-        }
-        if (this.gachaTimes_other > 0) {
-          chartFan = {};
-          chartFan.value = parseInt(this.gachaTimes_other);
-          chartFan.name = "其它";
-          this.pieData.push(chartFan);
-        }
-
-
-
-        if (this.cookieInit>1) {
-          this.pieChart(this.pieData);
-        }
-
-
-        // console.log(this.permit_exist);
-        // console.log(this.permit_potential);
-        // console.log(this.permit_daily);
-        // console.log(this.permit_gacha);
-        // console.log(this.permit_act);
-        // console.log(this.permit_other);
-
-      },
-
-      valueInit() {
-        if (this.cookieInit===0) {
-          this.originium_exist = cookie.get("originium_exist");
-          this.orundum_exist = cookie.get("orundum_exist");
-          this.permit_exist = cookie.get("permit_exist");
-          this.permit10_exist = cookie.get("permit10_exist");
-          this.paradox = cookie.get("paradox");
-          this.greenStoreFlag = cookie.get("greenStoreFlag");
 
         } else {
-         cookie.set("originium_exist", this.originium_exist, { expires: 30 });
-          cookie.set("orundum_exist", this.orundum_exist, { expires: 30 });
-          cookie.set("permit_exist", this.permit_exist, { expires: 30 });
-          cookie.set("permit10_exist", this.permit10_exist, { expires: 30 });
-          cookie.set("paradox", this.paradox, { expires: 30 });
-          cookie.set("greenStoreFlag", this.greenStoreFlag, { expires: 30 });
+          this.originium += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
+          this.orundum += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+          this.sellsCount += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
+
         }
 
-        this.cookieInit++;
-
-        if (this.originium_exist === "" || this.originium_exist === undefined ||
-          typeof this.originium_exist == "undefined") this.originium_exist = 0;
-        if (this.orundum_exist === "" || this.orundum_exist === undefined ||
-          typeof this.orundum_exist == "undefined") this.orundum_exist = 0;
-        if (this.permit_exist === "" || this.permit_exist === undefined ||
-          typeof this.permit_exist == "undefined") this.permit_exist = 0;
-        if (this.permit10_exist === "" || this.permit10_exist === undefined ||
-          typeof this.permit10_exist == "undefined") this.permit10_exist = 0;
-        if (this.paradox === "" || this.paradox === undefined ||
-          typeof this.paradox == "undefined") this.paradox = 0;
-
-
-        if (this.originium_648 === "") this.originium_648 = 0;
-        if (this.originium_328 === "") this.originium_328 = 0;
-        if (this.originium_198 === "") this.originium_198 = 0;
-        if (this.originium_98 === "") this.originium_98 = 0;
-        if (this.originium_30 === "") this.originium_30 = 0;
-        if (this.originium_6 === "") this.originium_6 = 0;
-        if (this.customValue === "") this.customValue = 0;
-
-        this.originium_exist = parseInt(this.originium_exist);
-        this.orundum_exist = parseInt(this.orundum_exist);
-        this.permit_exist = parseInt(this.permit_exist);
-        this.permit10_exist = parseInt(this.permit10_exist);
-        this.paradox = parseInt(this.paradox);
-        this.originium_648 = parseInt(this.originium_648);
-        this.originium_328 = parseInt(this.originium_328);
-        this.originium_198 = parseInt(this.originium_198);
-        this.originium_98 = parseInt(this.originium_98);
-        this.originium_30 = parseInt(this.originium_30);
-        this.originium_6 = parseInt(this.originium_6);
-        this.customValue = parseInt(this.customValue);
-
-        this.originium = 0;
-        this.orundum = 0;
-        this.permit = 0;
-        this.permit10 = 0;
-        this.sellsCount = 0;
-        this.gachaTimes = 0;
-
-        this.originium_potential = 0;
-        this.orundum_potential = 0;
-        this.permit_potential = 0;
-        this.permit10_potential = 0;
-
-        this.originium_daily = 0;
-        this.orundum_daily = 0;
-        this.permit_daily = 0;
-        this.permit10_daily = 0;
-
-        this.originium_gacha = 0;
-        this.orundum_gacha = 0;
-        this.permit_gacha = 0;
-        this.permit10_gacha = 0;
-
-        this.originium_act = 0;
-        this.orundum_act = 0;
-        this.permit_act = 0;
-        this.permit10_act = 0;
-
-        this.originium_other = 0;
-        this.orundum_other = 0;
-        this.permit_other = 0;
-        this.permit10_other = 0;
-      },
-
-      getChapterWidth(index) {
-        if (index % 2 === 0) return "width:200px;";
-        else return "width:60px;";
-      },
-
-      getPprLabel(ppr) {
-        if (ppr < 7.5) return "gacha_packPpr_t1"
-        if (ppr < 11.7) return "gacha_packPpr_t2"
-        return "gacha_packPpr_t3"
-      },
-
-
-
-      getInteger(num) {
-        return parseInt(parseInt(num / 100) * 100);
-      },
-
-      getTitleWord(index) {
-        for (let i in this.checkBox) {
-          if (index === this.checkBox[i]) {
-            return "收起";
-          }
+        this.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
+        this.permit10_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
+          this.orundum_gacha += parseInt(this.daysRemaining) * 200;
+          this.originium_gacha += Math.ceil(this.daysRemaining / 30) * 6;
+        } else {
+          this.orundum_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+          this.originium_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
         }
-        return "展开";
-      },
+      }
 
-      pieChart(data) {
-        let chartDom = document.getElementById("gacha_total_pie");
-        let myChart = echarts.init(chartDom);
 
-        let option = {
-          tooltip: {
-            formatter: "{a} {b} : {c}抽,占 ({d}%)",
-            position: "inner",
-          },
+      //日常资源抽卡次数(单项)
+      this.orundum_daily +=
+        parseInt(this.dailyRewards) +
+        parseInt(this.weeklyTaskRewards) +
+        parseInt(this.weeklyStageRewards) +
+        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.AnnihilationStageValue) * 1800 +
+        parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600;
 
-          series: [
-            {
-              name: "攒抽占比",
-              type: "pie",
-              radius: "70%",
-              center: ["50%", "50%"],
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    textStyle: { color: "#000000", fontSize: "16" },
-                    formatter: function (val) {
-                      //让series 中的文字进行换行
-                      return val.name.split("-").join("\n");
-                    },
+      this.permit_daily +=
+        parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
+        parseInt(this.MonthsSignInRemaining);
+
+      this.gachaTimes_daily =
+        parseInt(this.originium_daily) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_daily) / 600 +
+        parseInt(this.permit_daily) +
+        parseInt(this.permit10_daily) * 10;
+
+      //活动抽卡计算（共计）
+
+      for (let i = 0; i < this.gacha_actReward.length; i++) {
+
+        if (this.activityPlan.includes(this.gacha_actReward[i].plans)) {
+          console.log('活动资源:', this.gacha_actReward[i].packName);
+          this.originium += parseInt(this.gacha_actReward[i].gachaOriginium);
+          this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
+          this.permit += parseInt(this.gacha_actReward[i].gachaPermit);
+          this.permit10 += parseInt(this.gacha_actReward[i].gachaPermit10);
+
+          this.originium_act += parseInt(this.gacha_actReward[i].gachaOriginium);
+          this.orundum_act += parseInt(this.gacha_actReward[i].gachaOrundum);
+          this.permit_act += parseInt(this.gacha_actReward[i].gachaPermit);
+          this.permit10_act += parseInt(this.gacha_actReward[i].gachaPermit10);
+        }
+      }
+
+      for (let i = 0; i < this.gacha_actReList.length; i++) {
+        this.originium += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
+        this.orundum += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
+        this.permit += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
+        this.permit10 += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+
+        this.originium_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
+        this.orundum_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
+        this.permit_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
+        this.permit10_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+      }
+
+      //活动抽卡次数（单项）
+      this.gachaTimes_activity =
+        parseInt(this.originium_act) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_act) / 600 +
+        parseInt(this.permit_act) +
+        parseInt(this.permit10_act) * 10;
+
+      //其他抽卡计算
+      for (let i = 0; i < this.gacha_honeyCake.length; i++) {
+        if (this.activityPlan.includes(this.gacha_honeyCake[i].plans)) {
+          console.log('其他资源:', this.gacha_honeyCake[i].packName);
+          this.originium += parseInt(this.gacha_honeyCake[i].gachaOriginium);
+          this.orundum += parseInt(this.gacha_honeyCake[i].gachaOrundum);
+          this.permit += parseInt(this.gacha_honeyCake[i].gachaPermit);
+          this.permit10 += parseInt(this.gacha_honeyCake[i].gachaPermit10);
+
+          this.originium_other += parseInt(this.gacha_honeyCake[i].gachaOriginium);
+          this.orundum_other += parseInt(this.gacha_honeyCake[i].gachaOrundum);
+          this.permit_other += parseInt(this.gacha_honeyCake[i].gachaPermit);
+          this.permit10_other += parseInt(this.gacha_honeyCake[i].gachaPermit10);
+        }
+      }
+
+      //自动扣除部分{
+      //合成玉=—周常—剿灭—幸运墙
+      this.orundum +=
+        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.AnnihilationStageValue) * 1800;
+
+      this.orundum_other +=
+        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.AnnihilationStageValue) * 1800;
+
+      //减去红包墙/矿区已经赠送过的合成玉
+      if (this.poolCountDownFlag_orundum) {
+        this.orundum = parseInt(this.orundum) - parseInt(this.poolCountDown) * 600;
+        this.orundum_other = parseInt(this.orundum_other) - parseInt(this.poolCountDown) * 600;
+      }
+
+      //减去限定池已经赠送过的单抽
+      if (this.poolCountDownFlag_permit) {
+        this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
+        this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
+      }
+
+      //其他抽卡次数
+      this.gachaTimes_other =
+        parseInt(this.originium_other) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_other) / 600 +
+        parseInt(this.permit_other) +
+        parseInt(this.permit10_other) * 10
+
+
+      if (parseInt(this.originium - parseInt(this.skinValue) * 18) < 0) {
+        this.$message.error("你的源石不足");
+      }
+
+      this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
+
+      this.originium = parseInt(this.originium) * parseInt(flag_originium);
+
+
+      this.sellsCount +=
+        648 * parseInt(this.originium_648) +
+        328 * parseInt(this.originium_328) +
+        198 * parseInt(this.originium_198) +
+        98 * parseInt(this.originium_98) +
+        30 * parseInt(this.originium_30) +
+        6 * parseInt(this.originium_6);
+
+      //抽卡次数
+      this.gachaTimes_total =
+        parseInt(this.originium) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum) / 600 +
+        parseInt(this.permit) +
+        parseInt(this.permit10) * 10;
+
+      //源石抽卡次数
+      this.gachaTimes_originium =
+        (this.originium_exist +
+          this.originium_potential +
+          this.originium_gacha +
+          this.originium_daily +
+          this.originium_act +
+          this.originium_other -
+          parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
+
+
+      this.pieData = [];
+      let chartFan = {};
+      if (this.gachaTimes_exist > 0) {
+        chartFan.value = parseInt(this.gachaTimes_exist);
+        chartFan.name = "现有";
+        this.pieData.push(chartFan);
+      }
+      if (this.gachaTimes_potential > 0) {
+        chartFan = {};
+        chartFan.value = parseInt(this.gachaTimes_potential);
+        chartFan.name = "潜在";
+        this.pieData.push(chartFan);
+      }
+      if (this.gachaTimes_daily > 0) {
+        chartFan = {};
+        chartFan.value = parseInt(this.gachaTimes_daily);
+        chartFan.name = "日常";
+        this.pieData.push(chartFan);
+      }
+      if (this.gachaTimes_gacha > 0) {
+        chartFan = {};
+        chartFan.value = parseInt(this.gachaTimes_gacha);
+        chartFan.name = "氪金";
+        this.pieData.push(chartFan);
+      }
+      if (this.gachaTimes_activity > 0) {
+        chartFan = {};
+        chartFan.value = parseInt(this.gachaTimes_activity);
+        chartFan.name = "活动";
+        this.pieData.push(chartFan);
+      }
+      if (this.gachaTimes_other > 0) {
+        chartFan = {};
+        chartFan.value = parseInt(this.gachaTimes_other);
+        chartFan.name = "其它";
+        this.pieData.push(chartFan);
+      }
+
+
+      if (this.cookieInit > 1) {
+        this.pieChart(this.pieData);
+      }
+
+
+      // console.log(this.permit_exist);
+      // console.log(this.permit_potential);
+      // console.log(this.permit_daily);
+      // console.log(this.permit_gacha);
+      // console.log(this.permit_act);
+      // console.log(this.permit_other);
+
+    },
+
+    valueInit() {
+      if (this.cookieInit === 0) {
+        this.originium_exist = cookie.get("originium_exist");
+        this.orundum_exist = cookie.get("orundum_exist");
+        this.permit_exist = cookie.get("permit_exist");
+        this.permit10_exist = cookie.get("permit10_exist");
+        this.paradox = cookie.get("paradox");
+        this.greenStoreFlag = cookie.get("greenStoreFlag");
+
+      } else {
+        cookie.set("originium_exist", this.originium_exist, {expires: 30});
+        cookie.set("orundum_exist", this.orundum_exist, {expires: 30});
+        cookie.set("permit_exist", this.permit_exist, {expires: 30});
+        cookie.set("permit10_exist", this.permit10_exist, {expires: 30});
+        cookie.set("paradox", this.paradox, {expires: 30});
+        cookie.set("greenStoreFlag", this.greenStoreFlag, {expires: 30});
+      }
+
+      this.cookieInit++;
+
+      if (this.originium_exist === "" || this.originium_exist === undefined ||
+        typeof this.originium_exist == "undefined") this.originium_exist = 0;
+      if (this.orundum_exist === "" || this.orundum_exist === undefined ||
+        typeof this.orundum_exist == "undefined") this.orundum_exist = 0;
+      if (this.permit_exist === "" || this.permit_exist === undefined ||
+        typeof this.permit_exist == "undefined") this.permit_exist = 0;
+      if (this.permit10_exist === "" || this.permit10_exist === undefined ||
+        typeof this.permit10_exist == "undefined") this.permit10_exist = 0;
+      if (this.paradox === "" || this.paradox === undefined ||
+        typeof this.paradox == "undefined") this.paradox = 0;
+
+
+      if (this.originium_648 === "") this.originium_648 = 0;
+      if (this.originium_328 === "") this.originium_328 = 0;
+      if (this.originium_198 === "") this.originium_198 = 0;
+      if (this.originium_98 === "") this.originium_98 = 0;
+      if (this.originium_30 === "") this.originium_30 = 0;
+      if (this.originium_6 === "") this.originium_6 = 0;
+      if (this.customValue === "") this.customValue = 0;
+
+      this.originium_exist = parseInt(this.originium_exist);
+      this.orundum_exist = parseInt(this.orundum_exist);
+      this.permit_exist = parseInt(this.permit_exist);
+      this.permit10_exist = parseInt(this.permit10_exist);
+      this.paradox = parseInt(this.paradox);
+      this.originium_648 = parseInt(this.originium_648);
+      this.originium_328 = parseInt(this.originium_328);
+      this.originium_198 = parseInt(this.originium_198);
+      this.originium_98 = parseInt(this.originium_98);
+      this.originium_30 = parseInt(this.originium_30);
+      this.originium_6 = parseInt(this.originium_6);
+      this.customValue = parseInt(this.customValue);
+
+      this.originium = 0;
+      this.orundum = 0;
+      this.permit = 0;
+      this.permit10 = 0;
+      this.sellsCount = 0;
+      this.gachaTimes = 0;
+
+      this.originium_potential = 0;
+      this.orundum_potential = 0;
+      this.permit_potential = 0;
+      this.permit10_potential = 0;
+
+      this.originium_daily = 0;
+      this.orundum_daily = 0;
+      this.permit_daily = 0;
+      this.permit10_daily = 0;
+
+      this.originium_gacha = 0;
+      this.orundum_gacha = 0;
+      this.permit_gacha = 0;
+      this.permit10_gacha = 0;
+
+      this.originium_act = 0;
+      this.orundum_act = 0;
+      this.permit_act = 0;
+      this.permit10_act = 0;
+
+      this.originium_other = 0;
+      this.orundum_other = 0;
+      this.permit_other = 0;
+      this.permit10_other = 0;
+    },
+
+    getChapterWidth(index) {
+      if (index % 2 === 0) return "width:200px;";
+      else return "width:60px;";
+    },
+
+    getPprLabel(ppr) {
+      if (ppr < 7.5) return "gacha_packPpr_t1"
+      if (ppr < 11.7) return "gacha_packPpr_t2"
+      return "gacha_packPpr_t3"
+    },
+
+
+    getInteger(num) {
+      return parseInt(parseInt(num / 100) * 100);
+    },
+
+    getTitleWord(index) {
+      for (let i in this.checkBox) {
+        if (index === this.checkBox[i]) {
+          return "收起";
+        }
+      }
+      return "展开";
+    },
+
+    pieChart(data) {
+      let chartDom = document.getElementById("gacha_total_pie");
+      let myChart = echarts.init(chartDom);
+
+      let option = {
+        tooltip: {
+          formatter: "{a} {b} : {c}抽,占 ({d}%)",
+          position: "inner",
+        },
+
+        series: [
+          {
+            name: "攒抽占比",
+            type: "pie",
+            radius: "70%",
+            center: ["50%", "50%"],
+            itemStyle: {
+              normal: {
+                label: {
+                  show: true,
+                  textStyle: {color: "#000000", fontSize: "16"},
+                  formatter: function (val) {
+                    //让series 中的文字进行换行
+                    return val.name.split("-").join("\n");
                   },
-                  labelLine: {
-                    show: true,
-                    lineStyle: { color: "#000000" },
-                  }, //线条颜色
-                }, //基本样式
-                emphasis: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: "rgba(0, 0, 0, 0.5)", //鼠标放在区域边框颜色
-                  textColor: "#000",
-                }, //鼠标放在各个区域的样式
-              },
-              data: data,
-              emphasis: {
-                itemStyle: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: "rgba(0, 0, 0, 0.5)",
                 },
+                labelLine: {
+                  show: true,
+                  lineStyle: {color: "#000000"},
+                }, //线条颜色
+              }, //基本样式
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)", //鼠标放在区域边框颜色
+                textColor: "#000",
+              }, //鼠标放在各个区域的样式
+            },
+            data: data,
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)",
               },
             },
-          ],
-        };
-        myChart.setOption(option);
-      },
-
-      handleChange(val) {
-        console.log(val);
-      },
+          },
+        ],
+      };
+      myChart.setOption(option);
     },
-  };
+
+    handleChange(val) {
+      console.log(val);
+    },
+  },
+};
 </script>
-
-
 
 
 <style scoped>
 
-  .foot_unit{
-    font-size: 16px;
-  }
+.foot_unit {
+  font-size: 16px;
+}
 
-  .foot_unit_title{
-    margin: 4px 0px;
-  }
-  .el-collapse-item {
-    color: #222222;
-    margin: 12px;
-    background-color: #d8d8d8;
-    border-radius: 8px;
-    font-size: 20px;
-    box-shadow: 0px 2px 6px #a0a0a0b0;
-    overflow: hidden;
-  }
-  .collapse-item_title {
-    font-size: 24px;
-    padding: 8px 0px;
-    font-weight: 600;
-  }
+.foot_unit_title {
+  margin: 4px 0px;
+}
 
-  .el-collapse-item__wrap {
-    margin: 6px;
-    margin-left: 8px;
-    vertical-align: middle;
-    display: inline-block;
-    will-change: height;
-    border-bottom: 0px;
-    background-color: #d8d8d8;
-  }
+.el-collapse-item {
+  color: #222222;
+  margin: 12px;
+  background-color: #d8d8d8;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0px 2px 6px #a0a0a0b0;
+  overflow: hidden;
+}
 
-  .el-collapse-item__content {
-    padding-bottom: 0px;
-  }
+.collapse-item_title {
+  font-size: 24px;
+  padding: 8px 0px;
+  font-weight: 600;
+}
 
-  .el-collapse-item__header {
-    background-color: #d8d8d8;
-  }
+.el-collapse-item__wrap {
+  margin: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  will-change: height;
+  border-bottom: 0px;
+  background-color: #d8d8d8;
+}
 
-  .el-divider--horizontal {
-    margin: 2px 6px;
-    width: calc(100% - 12px);
-  }
-  /* .el-switch__core{
-      position: static;
-        } */
+.el-collapse-item__content {
+  padding-bottom: 0px;
+}
+
+.el-collapse-item__header {
+  background-color: #d8d8d8;
+}
+
+.el-divider--horizontal {
+  margin: 2px 6px;
+  width: calc(100% - 12px);
+}
+
+/* .el-switch__core{
+    position: static;
+      } */
 </style>
