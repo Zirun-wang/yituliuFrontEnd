@@ -104,13 +104,17 @@
 
 <script>
 import toolApi from "@/api/tool";
-import * as echarts from "echarts";
-
+  import * as echarts from "echarts";
 let myChart = "";
 let myChart_bar = "";
 
 export default {
   layout: "poster",
+  // head: {
+    // script:[{
+    //   src:"https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/js/echarts.min.js"
+  // }],
+  // },
   data() {
     return {
       poolData: [],

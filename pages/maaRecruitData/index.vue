@@ -152,10 +152,9 @@
 </template>
 
 <script>
-  import { createDecipheriv } from "crypto";
-  import * as echarts from "echarts";
   import toolApi from "@/api/tool";
-
+  import * as echarts from "echarts";
+  
   export default {
     layout: "poster",
 
@@ -191,6 +190,8 @@
           content: "一图流 x Maa公开招募大数据",
         },
       ],
+
+
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     methods: {

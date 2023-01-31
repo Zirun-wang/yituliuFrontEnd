@@ -156,15 +156,15 @@
 		<div class="foot_unit" style="width:436px;">
 			<p class="foot_unit_title" style="margin-bottom: 11px;">-开发-</p>
 			<a href="https://github.com/Zirun-wang/yituliuFrontEnd"><div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
-			<img class="foot_unit_pic" src="/img/website/github.png"/>
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
 			前端</div>
 			</a>
 			<a href="https://github.com/yamasakura/yituliuBackEnd"><div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
-			<img class="foot_unit_pic" src="/img/website/github.png"/>
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
 			后端</div>
 			</a>
 			<a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F"><div class="foot_unit_button uni_shadow_2" style="width: 186px;display: inline-block;">
-			<img class="foot_unit_pic" src="/img/website/qq.png" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png" />
 			开发群938710832</div>
 			</a>
 			<div style="line-height: 28px;padding-left: 6px;">
@@ -172,7 +172,7 @@
 				如有开发/数据分析/设计/美工经验，欢迎来开发群一叙
 			</div>
 			<a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe"><div class="foot_unit_button uni_shadow_2" style="width: 202px;display: inline-block;">
-			<img class="foot_unit_pic" src="/img/website/图标_源石.png" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/图标_源石.png" />
 			查看财政状况/捐助</div>
 			</a>
 		</div>
@@ -193,7 +193,7 @@
 			</a>
 			<a href="https://space.bilibili.com/12786648">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/wmm.jpg" />
+					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/wmm.jpg" />
 					無冕Crownless
 				</div>
 			</a>
@@ -231,14 +231,14 @@
 			<a href="https://ak.hypergryph.com/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="https://ak.hypergryph.com/favicon.ico"/>明日方舟</div></a>
 
 			<p class="foot_unit_title">-数据源-</p>
-			<a href="https://penguin-stats.cn/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="/img/website/penguin_stats_logo.png"/>企鹅物流</div></a>
+			<a href="https://penguin-stats.cn/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/penguin_stats_logo.png"/>企鹅物流</div></a>
 		</div>
 
 		<div class="foot_unit" id="suanfa">
 			<p class="foot_unit_title">-效率算法-</p>
 			<a href="https://www.bilibili.com/video/BV1pZ4y1g7QN">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/Erit_Lux.webp" >
+					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/Erit_Lux.webp" >
 					Erit_Lux
 				</div>
 			</a>
@@ -256,7 +256,7 @@
 			</a>
 			<a href="https://www.bilibili.com/video/BV1yL4y1P7K1">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="/img/website/shaobing.jpg" />
+					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/shaobing.jpg" />
 					一个资深的烧饼
 				</div>
 			</a>
@@ -264,17 +264,17 @@
 		<div class="foot_unit">
 			<p class="foot_unit_title">-B站发布-</p>
 			<a href="https://space.bilibili.com/688411531"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="/img/website/bilibili.png" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/bilibili.png" />
 			罗德岛基建BETA</div></a>
 			<p class="foot_unit_title">-粉丝群-</p>
 			<a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="/img/website/qq.png" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png" />
 			罗德岛数据文献馆</div></a>
 		</div>
 		<div class="foot_unit">
 			<p class="foot_unit_title">-友情链接-</p>
 			<a href="https://viktorlab.cn/akdata"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="/img/website/akdps.jpg" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/akdps.jpg" />
 			DPS计算器</div></a>
 
 			<a href="https://arkgacha.kwer.top/"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
@@ -286,7 +286,7 @@
 			MAA小助手</div></a>
 
 			<a href="https://apps.apple.com/cn/app/id1632810611"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="/img/website/rhodes_asst.jpg" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/rhodes_asst.jpg" />
 			罗德岛助理(iOS)</div></a>
 		</div>
 	</div>

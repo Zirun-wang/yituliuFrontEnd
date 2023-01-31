@@ -857,8 +857,7 @@
   import "~/assets/css/gacha.css";
   import toolApi from "@/api/tool";
   import cookie from "js-cookie";
-  let echarts = require("echarts");
-  // import foot from "@/layouts/gachafootmini.vue";
+  import * as echarts from "echarts";
 
 
   export default {
@@ -878,6 +877,7 @@
           content: "一图流-感谢庆典攒抽规划",
         },
       ],
+       
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
 

@@ -12,7 +12,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    
+
   },
 
   loading: { color: '#3B8070' },
@@ -27,7 +27,7 @@ module.exports = {
 
 
   build: {
- 
+
 
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
@@ -42,6 +42,6 @@ module.exports = {
     // vendor: ['axios'] //为防止重复打包
   },
 
-  
+
 }
 

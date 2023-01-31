@@ -8,7 +8,7 @@ module.exports = {
     name: {
       'type': 'string',
       'required': true,
-      'message': 'Project name'
+      'message': '明日方舟一图流 攒抽规划 攒抽计算器'
     },
     description: {
       'type': 'string',

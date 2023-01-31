@@ -41,7 +41,7 @@
 <script>
 import gacha_storePacksJson from "static/json/gacha_storePacks.json";
 import storeApi from "@/api/store";
-import html2canvas from "html2canvas";
+// import html2canvas from "html2canvas";
 
 export default {
   layout: "poster",
@@ -108,22 +108,6 @@ export default {
         this.packsPPRData.push(this.packsPPRDataSort[i]);
       }
     },
-
-    downloadImage() {
-      const ref = this.$refs.content; // 截图区域
-
-      html2canvas(ref, {
-        backgroundColor: null,
-        useCORS: true, // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
-      }).then((canvas) => {
-        const dataURL = canvas.toDataURL("image/png");
-        const creatDom = document.createElement("a");
-        document.body.appendChild(creatDom);
-        creatDom.href = dataURL;
-        creatDom.download = "测试图片";
-        creatDom.click();
-      });
-    }
   },
 };
 </script>
