@@ -152,8 +152,8 @@
 </template>
 
 <script>
-  import toolApi from "@/api/tool";
-  import * as echarts from "echarts";
+import toolApi from "@/api/tool";
+import echarts from "static/js/echarts.min.js"
   
   export default {
     layout: "poster",

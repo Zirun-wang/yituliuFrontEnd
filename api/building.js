@@ -17,10 +17,10 @@ export default {
         return request({
             url: `${api_name}/building/schedule/retrieve/${id}`,
             method: 'get',
-            
+
         })
     },
-   
+
 
 
 

@@ -193,7 +193,7 @@
 			</a>
 			<a href="https://space.bilibili.com/12786648">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/wmm.jpg" />
+					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/wmm.png" />
 					無冕Crownless
 				</div>
 			</a>
@@ -256,7 +256,7 @@
 			</a>
 			<a href="https://www.bilibili.com/video/BV1yL4y1P7K1">
 				<div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/shaobing.jpg" />
+					<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/shaobing.png" />
 					一个资深的烧饼
 				</div>
 			</a>
@@ -286,7 +286,7 @@
 			MAA小助手</div></a>
 
 			<a href="https://apps.apple.com/cn/app/id1632810611"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/rhodes_asst.jpg" />
+			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/rhodes_asst.png" />
 			罗德岛助理(iOS)</div></a>
 		</div>
 	</div>

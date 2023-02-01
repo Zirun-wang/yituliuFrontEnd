@@ -5,7 +5,7 @@
     <el-footer style="z-index: 100;height:40px;padding:0px;background-color: rgb(52 68 104);"><myfooter /></el-footer>
   </el-container>
 
- 
+
 </template>
 <script>
 

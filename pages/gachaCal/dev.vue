@@ -848,17 +848,16 @@
 </template>
 
 <script>
-  import gacha_potentialJson from "static/json/gacha_potential.json";
-  import gacha_actReJson from "static/json/gacha_actRe.json";
-  import gacha_storePacksJson from "static/json/gacha_storePacks.json";
-  import gacha_store258Json from "static/json/gacha_store258.json";
-  import gacha_actRewardJson from "static/json/gacha_actReward.json";
-  import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
-  import "~/assets/css/gacha.css";
-  import toolApi from "@/api/tool";
-  import cookie from "js-cookie";
-  import * as echarts from "echarts";
-
+import gacha_potentialJson from "static/json/gacha_potential.json";
+import gacha_actReJson from "static/json/gacha_actRe.json";
+import gacha_storePacksJson from "static/json/gacha_storePacks.json";
+import gacha_store258Json from "static/json/gacha_store258.json";
+import gacha_actRewardJson from "static/json/gacha_actReward.json";
+import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
+import "~/assets/css/gacha.css";
+import toolApi from "@/api/tool";
+import cookie from "js-cookie";
+import echarts from "static/js/echarts.min.js"
 
   export default {
     layout: "defaultGacha",

@@ -16,7 +16,6 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/proxy": "^2.1.0",
     "axios": "^0.19.2",
-    "echarts": "^5.0.0",
     "element-ui": "^2.13.2",
     "js-cookie": "^2.2.1",
     "nuxt": "^2.0.0",

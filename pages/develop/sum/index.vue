@@ -11,7 +11,8 @@ import itemCount202301 from "static/bar/itemCount202301.json";
 import itemCount202212 from "static/bar/itemCount202212.json";
 import itemCount202211 from "static/bar/itemCount202211.json";
 import imageUrl from "static/bar/imageUrl.json";
-  import * as echarts from "echarts";
+import echarts from "static/js/echarts.min.js";
+
 
 let itemId = [];
 let itemName = [];

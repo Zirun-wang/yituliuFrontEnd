@@ -899,7 +899,8 @@ import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
 import "~/assets/css/gacha.css";
 import toolApi from "@/api/tool";
 import cookie from "js-cookie";
-  import * as echarts from "echarts";
+// import * as echarts from "echarts";
+import echarts from "static/js/echarts.min.js"
 
 export default {
   layout: "defaultGacha",
@@ -1000,7 +1001,7 @@ export default {
 
       daysRemaining: 0, //剩余天数
       weeksRemaining: 0, //剩余周数
-      monthsRemaining: 1, //剩余月数
+      monthsRemaining: 2, //剩余月数
       MonthsSignInRemaining: 0, // 剩余签到次数
 
       originium_648: 0, //普通源石648
@@ -1126,13 +1127,13 @@ export default {
       // this.cookieInit=true;
       if (this.timeSelector === '怪猎联动(3.14)') {
         this.end_TimeStamp = 1678737540000;
-        this.monthsRemaining = 3;
+        this.monthsRemaining = 2;
         this.activityPlan = [-1, 1];    //非日常奖励根据json内每条游戏福利编号判断
         this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
       } else if (this.timeSelector === '4周年(5.15)') {
         this.end_TimeStamp = 1684094340000;
-        this.monthsRemaining = 5;
+        this.monthsRemaining = 4;
         this.activityPlan = [-2, 2];
         this.poolCountDownFlag_permit = false;
         this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）

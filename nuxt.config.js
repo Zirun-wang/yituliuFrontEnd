@@ -10,25 +10,25 @@ module.exports = {
       { hid: 'description', name: 'keywords', content: '素材获取,一图流,明日方舟,攒抽计算器,公招招募计算,基建排班生成器,刷图推荐,性价比,公开招募,掉率' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:"stylesheet", href: 'https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/js/element-ui.index.css' },
     ],
 
   },
 
+  
+
   loading: { color: '#3B8070' },
 
-  plugins: [{
-    src: '~plugins/myPlugin',
-    ssr: true,
-  }],
-  css: [
-    'element-ui/lib/theme-chalk/index.css'
+  plugins: [ 
+    {src: '~plugins/myPlugin',ssr: true},
   ],
+  // css: [
+  //   'element-ui/lib/theme-chalk/index.css'
+  // ],
 
 
   build: {
-
-
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -39,7 +39,8 @@ module.exports = {
         })
       }
     },
-    // vendor: ['axios'] //为防止重复打包
+    // analyze: true,
+    // vendor: ['axios','element-ui'],//为防止重复打包
   },
 
 
