@@ -199,7 +199,7 @@
               预留皮肤(18石/件)
             </div>
             <el-slider
-              v-model="skinValue"
+              v-model="skinNumValue"
               :step="1"
               :min="0"
               :max="10"
@@ -246,12 +246,12 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              周常 {{ RemainingWeekBattle + weekTaskValue }} 周
+              周常 {{ remainingWeekBattle + weeklyTaskValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px">
-                {{ weeklyTaskRewards + weekTaskValue * 500 }}
+                {{ weeklyTaskRewards + weeklyTaskValue * 500 }}
               </div>
             </div>
             <div
@@ -260,7 +260,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="weekTaskFlag"
+                v-model="weeklyTaskFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本周已完成
@@ -269,12 +269,12 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ RemainingWeekBattle + AnnihilationStageValue }} 周
+              剿灭 {{ remainingWeekBattle + AnnihilationStageValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px">
-                {{ weekBattleRewards + AnnihilationStageValue * 1800 }}
+                {{ EXTERMINATIONRewards + AnnihilationStageValue * 1800 }}
               </div>
             </div>
             <div
@@ -283,7 +283,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="weekBattleFlag"
+                v-model="EXTERMINATIONFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本周已完成
@@ -293,20 +293,20 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              绿票商店 {{ remainingMonths - storeF1AndF2Value }} 月
+              绿票商店 {{ remainingMonths - certificateStoreValue }} 月
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px">
-                {{ (remainingMonths - storeF1AndF2Value) * 600 }}
+                {{ (remainingMonths - certificateStoreValue) * 600 }}
               </div>
               <div
                 style="width: 40px"
                 :class="getSpriteImg('7003icon', 0)"></div>
               <div style="width: 28px">
-                {{ (remainingMonths - storeF1AndF2Value) * 4 }}
+                {{ (remainingMonths - certificateStoreValue) * 4 }}
               </div>
             </div>
             <div
@@ -315,7 +315,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="greenStoreFlag"
+                v-model="certificateStoreFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本月已换
@@ -890,11 +890,11 @@
 </template>
 
 <script>
-import gacha_potentialJson from "static/json/gacha_potential.json";
-import gacha_actReJson from "static/json/gacha_actRe.json";
-import gacha_storePacksJson from "static/json/gacha_storePacks.json";
-import gacha_actRewardJson from "static/json/gacha_actReward.json";
-import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
+import gacha_potentialJson from "static/json/gacha_potential.json";  //常驻活动和主线数据
+import gacha_actReJson from "static/json/gacha_actRe.json";     //复刻活动数据
+import gacha_storePacksJson from "static/json/gacha_storePacks.json";  //商店礼包数据
+import gacha_actRewardJson from "static/json/gacha_actReward.json";  //活动奖励数据
+import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";  //其他奖励数据
 import "~/assets/css/gacha.css";
 import toolApi from "@/api/tool";
 import cookie from "js-cookie";
@@ -912,7 +912,6 @@ export default {
         content:
           "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
       },
-
       {
         hid: "description",
         name: "description",
@@ -928,29 +927,24 @@ export default {
     return {
       pageTheme: "light",
       itemList: [],
-      checkBox: ["0", "1", "2", "7"],
+      checkBox: ["0", "1", "2", "7"],  //折叠栏绑定数组
       // checkBox: ["1","7"],
-      activityPlan: [],
-      endTime: [],
+      activityPlan: [],  //活动计划
       startDate: "", //开始时间
       endDate: "2023/03/14 03:59:00", //结束时间
       start_TimeStamp: "",   //开始时间戳
       end_TimeStamp: "",     //结束时间戳
-      plans_end: 1,
-      timeSelector: "怪猎联动(3.14)",
+      timeSelector: "怪猎联动(3.14)",  //活动时间节点选择框的绑定对象
       gacha_potential: gacha_potentialJson, //常驻活动和主线
       gacha_potentialList: [],
       gacha_actRe: gacha_actReJson, //复刻活动
       gacha_actReList: [],
       gacha_storePacks: gacha_storePacksJson, //商店礼包
       gacha_storePacksList: [],
-
       gacha_store258: [], //黄票兑换38抽
       gacha_store258List: [],
-      gacha_actReward: gacha_actRewardJson,
-      gacha_honeyCake: gacha_honeyCakeJson,
-
-      //计算结果
+      gacha_actReward: gacha_actRewardJson,  //活动奖励数据
+      gacha_honeyCake: gacha_honeyCakeJson, //其他奖励数据
 
       originium: 0, //源石
       orundum: 0, //合成玉
@@ -959,15 +953,16 @@ export default {
       sellsCount: 0, //总氪金总和
       gachaTimes_total: 0, //总抽卡次数
 
+      //计算结果 
+      gachaTimesInfo:{    
       gachaTimes_originium: 0, //总抽卡次数（源石部分）
-
       gachaTimes_exist: 0, //库存抽卡次数
       gachaTimes_potential: 0, //潜在抽卡次数
       gachaTimes_daily: 0, //日常抽卡次数
       gachaTimes_gacha: 0, //氪金抽卡次数
       gachaTimes_activity: 0, //活动抽卡次数
       gachaTimes_other: 0, //其他抽卡次数
-
+    
       originium_exist: 0, //库存源石
       orundum_exist: 0, //库存合成玉
       permit_exist: 0, //库存寻访券
@@ -993,14 +988,21 @@ export default {
       orundum_act: 0, //活动合成玉
       permit_act: 0, //活动寻访券
       permit10_act: 0, //活动十连寻访
+ 
+       originium_other: 0, //其他源石
+       orundum_other: 0, //其他合成玉
+       permit_other: 0, //其他寻访券
+       permit10_other: 0, //其他十连寻访
+      },
 
-      originium_other: 0, //其他源石
-      orundum_other: 0, //其他合成玉
-      permit_other: 0, //其他寻访券
-      permit10_other: 0, //其他十连寻访
+
+     
+
+ 
+
 
       remainingDays: 0, //剩余天数
-      RemainingWeekBattle: 0, //剩余周数
+      remainingWeekBattle: 0, //剩余周数
       remainingMonths: 0, //剩余月数
       remainingCheckinTimes: 0, // 剩余签到次数
 
@@ -1016,20 +1018,19 @@ export default {
 
       dailyRewards: 100, //每日奖励
       weeklyTaskRewards: 500, //周常奖励
-      weekBattleRewards: 1800, //剿灭奖励
-      gachaWall: 8500, //幸运墙奖励
+      EXTERMINATIONRewards: 1800, //剿灭奖励
       originiumFlag: true, //是否源石抽卡
-      weekBattleFlag: true, //是否完成剿灭
-      weekTaskFlag: true, //是否完成周常
-      greenStoreFlag: false, //是否兑换绿票商店
+      EXTERMINATIONFlag: true, //是否完成剿灭
+      weeklyTaskFlag: true, //是否完成周常
+      certificateStoreFlag: false, //是否兑换绿票商店
       AnnihilationStageValue: true,
-      weekTaskValue: true,   //每周任务的合成玉数量
-      storeF1AndF2Value: 0,  //绿票商店抽数
-      skinValue: 0,   //皮肤消耗源石数量
+      weeklyTaskValue: true,   //每周任务的合成玉数量
+      certificateStoreValue: 0,  //绿票商店抽数
+      skinNumValue: 0,   //皮肤消耗源石数量
       customValue: 0, //自定义值
       cookieInit: 0,   //cookie是否获取标志
       pieData: [],
-      number: 1,
+
     };
   },
   created() {
@@ -1120,7 +1121,7 @@ export default {
     //获取还有多少天
     getInterval() {
       console.log("今天是", this.startDate);
-      this.RemainingWeekBattle = 0;  //剩余剿灭次数
+      this.remainingWeekBattle = 0;  //剩余剿灭次数
       this.remainingCheckinTimes = 0;  //剩余签到次数
 
       this.start_TimeStamp = Date.parse(new Date(this.startDate)); //今日日期的时间戳
@@ -1131,14 +1132,14 @@ export default {
       for (let i = 1; i < days + 1; i++) {
         var date = new Date(this.start_TimeStamp + 86400000 * i);
         if (date.getDay() === 1) {  //判断接下来还有多少个星期一
-          this.RemainingWeekBattle++;
+          this.remainingWeekBattle++;
         }
         if (date.getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
           this.remainingCheckinTimes++;
         }
       }
       this.remainingDays = days;
-      console.log("距离活动还有：", this.remainingMonths + "月，", this.RemainingWeekBattle + "周，", this.remainingDays + "天");
+      console.log("距离活动还有：", this.remainingMonths + "月，", this.remainingWeekBattle + "周，", this.remainingDays + "天");
     },
 
     // 设置258黄票商店兑换抽卡券
@@ -1164,8 +1165,8 @@ export default {
     //  计算日常奖励
     getEveryreWard() {
       this.dailyRewards = 100 * parseInt(this.remainingDays);
-      this.weeklyTaskRewards = 500 * parseInt(this.RemainingWeekBattle);
-      this.weekBattleRewards = 1800 * parseInt(this.RemainingWeekBattle);
+      this.weeklyTaskRewards = 500 * parseInt(this.remainingWeekBattle);
+      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeekBattle);
     },
 
     compute() {
@@ -1179,26 +1180,26 @@ export default {
       }
 
       //判断是否完成周常日常
-      this.weekTaskValue = 1;
-      if (this.weekTaskFlag) {
-        this.weekTaskValue = 0;
+      this.weeklyTaskValue = 1;
+      if (this.weeklyTaskFlag) {
+        this.weeklyTaskValue = 0;
       }
 
       //判断是否完成剿灭
       this.AnnihilationStageValue = 1;
-      if (this.weekBattleFlag) {
+      if (this.EXTERMINATIONFlag) {
         this.AnnihilationStageValue = 0;
       }
 
-      this.storeF1AndF2Value = 0;
+      this.certificateStoreValue = 0;
 
-      if (typeof this.greenStoreFlag === 'string') {
-        if (this.greenStoreFlag === "false") this.greenStoreFlag = false;
-        if (this.greenStoreFlag === "true") this.greenStoreFlag = true;
+      if (typeof this.certificateStoreFlag === 'string') {
+        if (this.certificateStoreFlag === "false") this.certificateStoreFlag = false;
+        if (this.certificateStoreFlag === "true") this.certificateStoreFlag = true;
       }
 
-      if (this.greenStoreFlag) {
-        this.storeF1AndF2Value = 1;
+      if (this.certificateStoreFlag) {
+        this.certificateStoreValue = 1;
       }
 
 
@@ -1243,6 +1244,7 @@ export default {
       for (let i = 0; i < this.gacha_storePacksList.length; i++) {
         this.permit += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
         this.permit10 += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        //月卡单独判断
         if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
           console.log("买的月卡个数", Math.ceil(this.remainingDays / 30));
           this.orundum += parseInt(this.remainingDays) * 200;
@@ -1257,8 +1259,10 @@ export default {
           this.orundum += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
           this.sellsCount += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
         }
+
         this.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
         this.permit10_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        //月卡单独判断
         if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
           this.orundum_gacha += parseInt(this.remainingDays) * 200;
           this.originium_gacha += Math.ceil(this.remainingDays / 30) * 6;
@@ -1295,12 +1299,12 @@ export default {
       //日常部分计算(总)
       this.orundum +=
         parseInt(this.dailyRewards) +
-        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 600 +
+        parseInt(this.remainingMonths - this.certificateStoreValue) * 600 +
         parseInt(this.weeklyTaskRewards) +
-        parseInt(this.weekBattleRewards);
+        parseInt(this.EXTERMINATIONRewards);
 
       this.permit +=
-        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 4 +
+        parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
         parseInt(this.remainingCheckinTimes);
 
       //黄票商店38抽计算
@@ -1315,13 +1319,13 @@ export default {
       this.orundum_daily +=
         parseInt(this.dailyRewards) +
         parseInt(this.weeklyTaskRewards) +
-        parseInt(this.weekBattleRewards) +
-        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.EXTERMINATIONRewards) +
+        parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800 +
-        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 600;
+        parseInt(this.remainingMonths - this.certificateStoreValue) * 600;
 
       this.permit_daily +=
-        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 4 +
+        parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
         parseInt(this.remainingCheckinTimes);
 
       this.gachaTimes_daily =
@@ -1388,11 +1392,11 @@ export default {
       //自动扣除部分{
       //合成玉=—周常—剿灭—幸运墙
       this.orundum +=
-        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800;
 
       this.orundum_other +=
-        parseInt(this.weekTaskValue) * 500 +
+        parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800;
 
       //减去红包墙/矿区已经赠送过的合成玉
@@ -1415,11 +1419,11 @@ export default {
         parseInt(this.permit10_other) * 10
 
 
-      if (parseInt(this.originium - parseInt(this.skinValue) * 18) < 0) {
+      if (parseInt(this.originium - parseInt(this.skinNumValue) * 18) < 0) {
         this.$message.error("你的源石不足");
       }
 
-      this.originium = parseInt(this.originium) - parseInt(this.skinValue) * 18;
+      this.originium = parseInt(this.originium) - parseInt(this.skinNumValue) * 18;
 
       this.originium = parseInt(this.originium) * parseInt(flag_originium);
 
@@ -1447,7 +1451,7 @@ export default {
           this.originium_daily +
           this.originium_act +
           this.originium_other -
-          parseInt(this.skinValue) * 18) * 0.3 * parseInt(flag_originium)
+          parseInt(this.skinNumValue) * 18) * 0.3 * parseInt(flag_originium)
 
 
       this.pieData = [];
@@ -1509,7 +1513,7 @@ export default {
         this.permit_exist = cookie.get("permit_exist");
         this.permit10_exist = cookie.get("permit10_exist");
         this.paradox = cookie.get("paradox");
-        this.greenStoreFlag = cookie.get("greenStoreFlag");
+        this.certificateStoreFlag = cookie.get("certificateStoreFlag");
 
       } else {
         cookie.set("originium_exist", this.originium_exist, {expires: 30});
@@ -1517,7 +1521,7 @@ export default {
         cookie.set("permit_exist", this.permit_exist, {expires: 30});
         cookie.set("permit10_exist", this.permit10_exist, {expires: 30});
         cookie.set("paradox", this.paradox, {expires: 30});
-        cookie.set("greenStoreFlag", this.greenStoreFlag, {expires: 30});
+        cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
       }
 
       this.cookieInit++;
@@ -1560,7 +1564,6 @@ export default {
       this.permit = 0;
       this.permit10 = 0;
       this.sellsCount = 0;
-      this.gachaTimes = 0;
 
       this.originium_potential = 0;
       this.orundum_potential = 0;
