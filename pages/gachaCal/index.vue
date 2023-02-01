@@ -234,7 +234,7 @@
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              日常 {{ daysRemaining }} 天
+              日常 {{ remainingDays }} 天
             </div>
             <div class="gacha_resources_unit" style="width: 174px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -246,7 +246,7 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              周常 {{ weeksRemaining + weekTaskValue }} 周
+              周常 {{ RemainingWeekBattle + weekTaskValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -269,12 +269,12 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ weeksRemaining + AnnihilationStageValue }} 周
+              剿灭 {{ RemainingWeekBattle + AnnihilationStageValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px">
-                {{ weeklyStageRewards + AnnihilationStageValue * 1800 }}
+                {{ weekBattleRewards + AnnihilationStageValue * 1800 }}
               </div>
             </div>
             <div
@@ -283,7 +283,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="weekStageFlag"
+                v-model="weekBattleFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本周已完成
@@ -293,20 +293,20 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              绿票商店 {{ monthsRemaining - storeF1AndF2Value }} 月
+              绿票商店 {{ remainingMonths - storeF1AndF2Value }} 月
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px">
-                {{ (monthsRemaining - storeF1AndF2Value) * 600 }}
+                {{ (remainingMonths - storeF1AndF2Value) * 600 }}
               </div>
               <div
                 style="width: 40px"
                 :class="getSpriteImg('7003icon', 0)"></div>
               <div style="width: 28px">
-                {{ (monthsRemaining - storeF1AndF2Value) * 4 }}
+                {{ (remainingMonths - storeF1AndF2Value) * 4 }}
               </div>
             </div>
             <div
@@ -323,11 +323,11 @@
           </div>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              每月签到 {{ MonthsSignInRemaining }} 月
+              每月签到 {{ remainingCheckinTimes }} 月
             </div>
             <div class="gacha_resources_unit" style="width: 174px">
               <div :class="getSpriteImg('7003icon', 0)"></div>
-              <div style="width: 32px">{{ MonthsSignInRemaining }}</div>
+              <div style="width: 32px">{{ remainingCheckinTimes }}</div>
             </div>
           </div>
           <!-- 258分界线 -->
@@ -336,7 +336,7 @@
             <div
               v-for="(singlePack, index) in gacha_store258"
               :key="index"
-              v-show="singlePack.packType == 'store'&&index<monthsRemaining"
+              v-show="singlePack.packType == 'store'"
               class="gacha_unit_child"
               @change="compute(singlePack.packName)"
             >
@@ -389,7 +389,7 @@
           </div>
           <!-- 主线 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png" />
+            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>
             主线、突袭、绝境
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
@@ -893,7 +893,6 @@
 import gacha_potentialJson from "static/json/gacha_potential.json";
 import gacha_actReJson from "static/json/gacha_actRe.json";
 import gacha_storePacksJson from "static/json/gacha_storePacks.json";
-import gacha_store258Json from "static/json/gacha_store258.json";
 import gacha_actRewardJson from "static/json/gacha_actReward.json";
 import gacha_honeyCakeJson from "static/json/gacha_honeyCake.json";
 import "~/assets/css/gacha.css";
@@ -902,17 +901,17 @@ import cookie from "js-cookie";
 // import * as echarts from "echarts";
 import echarts from "static/js/echarts.min.js"
 
-  export default {
-    layout: "defaultGacha",
-    head: {
-      title: "一图流攒抽计算器 yituliu.site",
-      meta: [
-        { charset: "utf-8" },
-        {
-          name: "viewport",
-          content:
-            "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
-        },
+export default {
+  layout: "defaultGacha",
+  head: {
+    title: "一图流攒抽计算器 yituliu.site",
+    meta: [
+      {charset: "utf-8"},
+      {
+        name: "viewport",
+        content:
+          "width=device-width, initial-scale=0.68, maximum-scale=0.68, user-scalable=no",
+      },
 
       {
         hid: "description",
@@ -946,7 +945,7 @@ import echarts from "static/js/echarts.min.js"
       gacha_storePacks: gacha_storePacksJson, //商店礼包
       gacha_storePacksList: [],
 
-      gacha_store258: gacha_store258Json, //黄票兑换38抽
+      gacha_store258: [], //黄票兑换38抽
       gacha_store258List: [],
       gacha_actReward: gacha_actRewardJson,
       gacha_honeyCake: gacha_honeyCakeJson,
@@ -1000,10 +999,10 @@ import echarts from "static/js/echarts.min.js"
       permit_other: 0, //其他寻访券
       permit10_other: 0, //其他十连寻访
 
-      daysRemaining: 0, //剩余天数
-      weeksRemaining: 0, //剩余周数
-      monthsRemaining: 2, //剩余月数
-      MonthsSignInRemaining: 0, // 剩余签到次数
+      remainingDays: 0, //剩余天数
+      RemainingWeekBattle: 0, //剩余周数
+      remainingMonths: 0, //剩余月数
+      remainingCheckinTimes: 0, // 剩余签到次数
 
       originium_648: 0, //普通源石648
       originium_328: 0, //普通源石328
@@ -1017,14 +1016,12 @@ import echarts from "static/js/echarts.min.js"
 
       dailyRewards: 100, //每日奖励
       weeklyTaskRewards: 500, //周常奖励
-      weeklyStageRewards: 1800, //剿灭奖励
+      weekBattleRewards: 1800, //剿灭奖励
       gachaWall: 8500, //幸运墙奖励
       originiumFlag: true, //是否源石抽卡
-      weekStageFlag: true, //是否完成剿灭
+      weekBattleFlag: true, //是否完成剿灭
       weekTaskFlag: true, //是否完成周常
       greenStoreFlag: false, //是否兑换绿票商店
-
-
       AnnihilationStageValue: true,
       weekTaskValue: true,   //每周任务的合成玉数量
       storeF1AndF2Value: 0,  //绿票商店抽数
@@ -1037,17 +1034,15 @@ import echarts from "static/js/echarts.min.js"
   },
   created() {
     this.getDate();
-    this.getInterval();
-    this.getEveryreWard();
-    this.getPoolCountDown();
+    // this.getInterval();
+    // this.getEveryreWard();
+    // this.getPoolCountDown();
     this.checkEndDate();
 
   },
   mounted() {
-    // this.updateVisits();
-    this.compute();
     this.pieChart(this.pieData);
-    this.openNotification();
+    // this.openNotification();
   },
   methods: {
 
@@ -1055,13 +1050,39 @@ import echarts from "static/js/echarts.min.js"
       toolApi.updateVisits("gacha").then((response) => {
       });
     },
+
+    //公告通知
     openNotification() {
       this.$notify({
-        title: '',
+        title: '侠客警告',
         dangerouslyUseHTMLString: true,
-        message: '<strong> 怪猎联动攒抽计算已开放，点击标签切换 </strong>',
+        message: '<strong> 限定池还有'+ this.poolCountDown + '天,结束</strong>',
+        //
         duration: 12000
       });
+    },
+
+    // 选择攒计算的时间节点
+    checkEndDate() {
+      // this.cookieInit=true;
+      if (this.timeSelector === '怪猎联动(3.14)') {
+        this.endDate = '2023/03/14 03:59:00';
+        this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断
+        this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+        this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+      } else if (this.timeSelector === '4周年(5.15)') {
+        this.endDate = "2023/05/15 03:59:00";
+        this.activityPlan = [-2, 2, 3, 4];
+        this.poolCountDownFlag_permit = false;
+        this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+      }
+
+      this.getInterval();
+      this.getEveryreWard();
+      this.getPoolCountDown();
+      this.setGacha_store258();
+      this.compute();
+
     },
 
     getFixed(num, acc) {
@@ -1069,102 +1090,93 @@ import echarts from "static/js/echarts.min.js"
       return parseFloat(num).toFixed(acc);
     },
 
-//获取雪碧图
+    //获取雪碧图
     getSpriteImg(packName, index) {
       if (index === 0) return "bg-" + packName + " sprite_gacha";
       return "bg-" + packName;
     },
 
-//获取当天日期
-      getDate() {
-        var date = new Date();
-        var y = date.getFullYear(); //年
-        var m = (date.getMonth() + 1).toString().padStart(2, "0"); //月
-        var d = date.getDate().toString().padStart(2, "0"); //日
-        var h = date.getHours().toString().padStart(2, "0"); //时
-        var mm = date.getMinutes().toString().padStart(2, "0"); //分
-        var s = date.getSeconds().toString().padStart(2, "0"); //秒
-        this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
-      },
-
-      //获取限定池和红包倒计时
-      getPoolCountDown() {
-        var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
-        if (num < 14) {  //少于14天扣除每日赠送抽卡资源
-          this.poolCountDown = 14-num;
-          }
-        console.log("限定池开始了" + this.poolCountDown + "天");
-      },
-
-      //获取还有多少天
-      getInterval() {
-        console.log("今天是", this.startDate);
-        this.weeksRemaining = 0;  //剩余剿灭次数
-        this.MonthsSignInRemaining = 0;  //剩余签到次数
-        this.start_TimeStamp = Date.parse(new Date(this.startDate)); //1642471535000
-
-        if(this.end_TimeStamp.length<13){
-           this.end_TimeStamp = Date.parse(this.endDate); //1642471500000
-           console.log(this.end_TimeStamp)
-        }
-
-        var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);
-
-        for (let i = 1; i < num + 1; i++) {
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDay() === 1) {  //判断接下来还有多少个星期一
-            this.weeksRemaining++;
-          }
-
-          if (new Date(this.start_TimeStamp + 86400000 * i).getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
-            this.MonthsSignInRemaining++;
-          }
-        }
-        console.log("距离活动还有" + num + "天");
-        this.daysRemaining = num;
-      },
-    // 选择时间节点
-    checkEndDate() {
-      // this.cookieInit=true;
-      if (this.timeSelector === '怪猎联动(3.14)') {
-        this.end_TimeStamp = 1678737540000;
-        this.monthsRemaining = 2;
-        this.activityPlan = [-1, 1];    //非日常奖励根据json内每条游戏福利编号判断
-        this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
-        this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
-      } else if (this.timeSelector === '4周年(5.15)') {
-        this.end_TimeStamp = 1684094340000;
-        this.monthsRemaining = 4;
-        this.activityPlan = [-2, 2];
-        this.poolCountDownFlag_permit = false;
-        this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
-      }
-
-      this.getInterval();
-      this.getEveryreWard();
-      this.compute();
+    //获取当天日期
+    getDate() {
+      var date = new Date();
+      var y = date.getFullYear(); //年
+      var m = (date.getMonth() + 1).toString().padStart(2, "0"); //月
+      var d = date.getDate().toString().padStart(2, "0"); //日
+      var h = date.getHours().toString().padStart(2, "0"); //时
+      var mm = date.getMinutes().toString().padStart(2, "0"); //分
+      var s = date.getSeconds().toString().padStart(2, "0"); //秒
+      this.startDate = `${y}/${m}/${d} ${h}:${mm}:${s}`;
     },
 
+    //获取限定池和红包倒计时
+    getPoolCountDown() {
+      var num = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000); //计算距离限定池还有多少天
+      if (num < 14) {  //少于14天扣除每日赠送抽卡资源
+        this.poolCountDown = 14 - num;
+      }
+      console.log("限定池还有" + this.poolCountDown + "天,结束");
+    },
+
+    //获取还有多少天
+    getInterval() {
+      console.log("今天是", this.startDate);
+      this.RemainingWeekBattle = 0;  //剩余剿灭次数
+      this.remainingCheckinTimes = 0;  //剩余签到次数
+
+      this.start_TimeStamp = Date.parse(new Date(this.startDate)); //今日日期的时间戳
+      this.end_TimeStamp = Date.parse(this.endDate); //结束日期的时间戳
+      var days = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);  //计算距离活动还有多少天
+
+      this.remainingMonths = new Date(this.endDate).getMonth() - new Date(this.startDate).getMonth() + 1;  //剩余月数
+      for (let i = 1; i < days + 1; i++) {
+        var date = new Date(this.start_TimeStamp + 86400000 * i);
+        if (date.getDay() === 1) {  //判断接下来还有多少个星期一
+          this.RemainingWeekBattle++;
+        }
+        if (date.getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
+          this.remainingCheckinTimes++;
+        }
+      }
+      this.remainingDays = days;
+      console.log("距离活动还有：", this.remainingMonths + "月，", this.RemainingWeekBattle + "周，", this.remainingDays + "天");
+    },
+
+    // 设置258黄票商店兑换抽卡券
+    setGacha_store258() {
+      var m = new Date().getMonth() + 1; //月
+      this.gacha_store258 = [];
+      for (var i = 0; i < this.remainingMonths; i++) {
+        this.gacha_store258.push({
+          "packName": m + "月黄票换抽",
+          "packPrice": "0",
+          "gachaOriginium": "0",
+          "gachaOrundum": "0",
+          "gachaPermit": "8",
+          "gachaPermit10": "3",
+          "price": "0.00",
+          "packType": "store"
+        });
+        m++;
+        m = (m - 1) % 12 + 1;
+      }
+    },
 
     //  计算日常奖励
     getEveryreWard() {
-      this.dailyRewards = 100 * parseInt(this.daysRemaining);
-      this.weeklyTaskRewards = 500 * parseInt(this.weeksRemaining);
-      this.weeklyStageRewards = 1800 * parseInt(this.weeksRemaining);
-      console.log("距离活动还有" + this.weeksRemaining, "周");
+      this.dailyRewards = 100 * parseInt(this.remainingDays);
+      this.weeklyTaskRewards = 500 * parseInt(this.RemainingWeekBattle);
+      this.weekBattleRewards = 1800 * parseInt(this.RemainingWeekBattle);
     },
 
-      compute() {
+    compute() {
+      //初始化各种对象
+      this.valueInit();
 
-        //初始化
-        this.valueInit();
-        console.log("初始化变量");
-
-        //判断是否用源石抽卡
-        var flag_originium = 0;
-        if (this.originiumFlag) {
-          flag_originium = 1;
-        }
-
+      //判断是否用源石抽卡
+      var flag_originium = 0;
+      if (this.originiumFlag) {
+        flag_originium = 1;
+      }
 
       //判断是否完成周常日常
       this.weekTaskValue = 1;
@@ -1174,10 +1186,9 @@ import echarts from "static/js/echarts.min.js"
 
       //判断是否完成剿灭
       this.AnnihilationStageValue = 1;
-      if (this.weekStageFlag) {
+      if (this.weekBattleFlag) {
         this.AnnihilationStageValue = 0;
       }
-
 
       this.storeF1AndF2Value = 0;
 
@@ -1217,9 +1228,9 @@ import echarts from "static/js/echarts.min.js"
       }
 
       //悖论模拟
-      this.orundum += parseInt(this.paradox * 200);
+      this.orundum += parseInt(this.paradox) * 200;
 
-      this.orundum_potential += parseInt(this.paradox * 200);
+      this.orundum_potential += parseInt(this.paradox) * 200;
 
       //主线和常驻活动抽卡次数（单项）
       this.gachaTimes_potential =
@@ -1233,57 +1244,69 @@ import echarts from "static/js/echarts.min.js"
         this.permit += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
         this.permit10 += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
         if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
-          console.log("买的月卡个数", Math.ceil(this.daysRemaining / 30));
-          this.orundum += parseInt(this.daysRemaining) * 200;
-          this.originium += Math.ceil(this.daysRemaining / 30) * 6;
-          this.sellsCount += Math.ceil(this.daysRemaining / 30) * 30;
+          console.log("买的月卡个数", Math.ceil(this.remainingDays / 30));
+          this.orundum += parseInt(this.remainingDays) * 200;
+          this.originium += Math.ceil(this.remainingDays / 30) * 6;
+          this.sellsCount += Math.ceil(this.remainingDays / 30) * 30;
           this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum =
-            parseInt(this.daysRemaining) * 200;
+            parseInt(this.remainingDays) * 200;
           this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium =
-            Math.ceil(this.daysRemaining / 30) * 6;
+            Math.ceil(this.remainingDays / 30) * 6;
+        } else {
+          this.originium += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
+          this.orundum += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+          this.sellsCount += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
+        }
+        this.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
+        this.permit10_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
+          this.orundum_gacha += parseInt(this.remainingDays) * 200;
+          this.originium_gacha += Math.ceil(this.remainingDays / 30) * 6;
+        } else {
+          this.orundum_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+          this.originium_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
+        }
+      }
 
+      //普通648
+      this.originium +=
+        parseInt(this.originium_648) * 185 +
+        parseInt(this.originium_328) * 90 +
+        parseInt(this.originium_198) * 50 +
+        parseInt(this.originium_98) * 24 +
+        parseInt(this.originium_30) * 7 +
+        parseInt(this.originium_6);
 
-        //普通648
-        this.originium +=
-          parseInt(this.originium_648) * 185 +
-          parseInt(this.originium_328) * 90 +
-          parseInt(this.originium_198) * 50 +
-          parseInt(this.originium_98) * 24 +
-          parseInt(this.originium_30) * 7 +
-          parseInt(this.originium_6);
+      //氪金项目抽卡次数（单项）
+      this.originium_gacha +=
+        parseInt(this.originium_648) * 185 +
+        parseInt(this.originium_328) * 90 +
+        parseInt(this.originium_198) * 50 +
+        parseInt(this.originium_98) * 24 +
+        parseInt(this.originium_30) * 7 +
+        parseInt(this.originium_6);
 
-        //氪金项目抽卡次数（单项）
-        this.originium_gacha +=
-          parseInt(this.originium_648) * 185 +
-          parseInt(this.originium_328) * 90 +
-          parseInt(this.originium_198) * 50 +
-          parseInt(this.originium_98) * 24 +
-          parseInt(this.originium_30) * 7 +
-          parseInt(this.originium_6);
+      this.gachaTimes_gacha =
+        parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.orundum_gacha) / 600 +
+        parseInt(this.permit_gacha) +
+        parseInt(this.permit10_gacha) * 10;
 
-        this.gachaTimes_gacha =
-          parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
-          parseInt(this.orundum_gacha) / 600 +
-          parseInt(this.permit_gacha) +
-          parseInt(this.permit10_gacha) * 10;
+      //日常部分计算(总)
+      this.orundum +=
+        parseInt(this.dailyRewards) +
+        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 600 +
+        parseInt(this.weeklyTaskRewards) +
+        parseInt(this.weekBattleRewards);
 
-        //日常部分计算(总)
-        this.orundum +=
-          parseInt(this.dailyRewards) +
-          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600 +
-          parseInt(this.weeklyTaskRewards) +
-          parseInt(this.weeklyStageRewards);
-
-        this.permit +=
-          parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
-          parseInt(this.MonthsSignInRemaining);
+      this.permit +=
+        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 4 +
+        parseInt(this.remainingCheckinTimes);
 
       //黄票商店38抽计算
       for (let i = 0; i < this.gacha_store258List.length; i++) {
-
         this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
         this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
-
         this.permit_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
         this.permit10_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
       }
@@ -1292,14 +1315,14 @@ import echarts from "static/js/echarts.min.js"
       this.orundum_daily +=
         parseInt(this.dailyRewards) +
         parseInt(this.weeklyTaskRewards) +
-        parseInt(this.weeklyStageRewards) +
+        parseInt(this.weekBattleRewards) +
         parseInt(this.weekTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800 +
-        parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 600;
+        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 600;
 
       this.permit_daily +=
-        parseInt(this.monthsRemaining - this.storeF1AndF2Value) * 4 +
-        parseInt(this.MonthsSignInRemaining);
+        parseInt(this.remainingMonths - this.storeF1AndF2Value) * 4 +
+        parseInt(this.remainingCheckinTimes);
 
       this.gachaTimes_daily =
         parseInt(this.originium_daily) * 0.3 * parseInt(flag_originium) +
@@ -1308,11 +1331,11 @@ import echarts from "static/js/echarts.min.js"
         parseInt(this.permit10_daily) * 10;
 
       //活动抽卡计算（共计）
-
+          // console.log('---------活动资源计算如下：-----------');
       for (let i = 0; i < this.gacha_actReward.length; i++) {
-
         if (this.activityPlan.includes(this.gacha_actReward[i].plans)) {
-          console.log('活动资源:', this.gacha_actReward[i].packName);
+          // console.log("源石+",this.gacha_actReward[i].gachaOriginium,",合成玉+",this.gacha_actReward[i].gachaOrundum,
+          // ",单抽+",this.gacha_actReward[i].gachaPermit,'---by',this.gacha_honeyCake[i].packName,);
           this.originium += parseInt(this.gacha_actReward[i].gachaOriginium);
           this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
           this.permit += parseInt(this.gacha_actReward[i].gachaPermit);
@@ -1345,9 +1368,11 @@ import echarts from "static/js/echarts.min.js"
         parseInt(this.permit10_act) * 10;
 
       //其他抽卡计算
+      // console.log('---------其他资源计算如下：-----------');
       for (let i = 0; i < this.gacha_honeyCake.length; i++) {
         if (this.activityPlan.includes(this.gacha_honeyCake[i].plans)) {
-          console.log('其他资源:', this.gacha_honeyCake[i].packName);
+          //  console.log("源石+",this.gacha_honeyCake[i].gachaOriginium,",合成玉+",this.gacha_honeyCake[i].gachaOrundum,
+          // ",单抽+",this.gacha_honeyCake[i].gachaPermit,",十连+",this.gacha_honeyCake[i].gachaPermit10,'---by',this.gacha_honeyCake[i].packName,);
           this.originium += parseInt(this.gacha_honeyCake[i].gachaOriginium);
           this.orundum += parseInt(this.gacha_honeyCake[i].gachaOrundum);
           this.permit += parseInt(this.gacha_honeyCake[i].gachaPermit);
@@ -1475,7 +1500,6 @@ import echarts from "static/js/echarts.min.js"
       // console.log(this.permit_gacha);
       // console.log(this.permit_act);
       // console.log(this.permit_other);
-
     },
 
     valueInit() {
