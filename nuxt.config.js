@@ -11,16 +11,16 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:"stylesheet", href: 'https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/js/element-ui.index.css' },
+      { rel: "stylesheet", href: 'https://unpkg.com/element-ui/lib/theme-chalk/index.css' },
     ],
 
   },
 
-  
+
 
   loading: { color: '#3B8070' },
 
-  plugins: [ 
+  plugins: [
     {src: '~plugins/myPlugin',ssr: true},
   ],
   // css: [
@@ -39,8 +39,20 @@ module.exports = {
         })
       }
     },
-    // analyze: true,
-    // vendor: ['axios','element-ui'],//为防止重复打包
+    vendor: ['element-ui'],
+    // transpile: [/^element-ui/],
+    // babel: {
+    //   plugins: [
+    //     [
+    //       'component',
+    //       {
+    //         libraryName: 'element-ui',
+    //         styleLibraryName: 'theme-chalk'
+    //       }
+    //     ]
+    //   ]
+    // },
+
   },
 
 

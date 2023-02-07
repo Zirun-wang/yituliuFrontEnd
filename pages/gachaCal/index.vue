@@ -6,15 +6,14 @@
         <template slot="title">
           <div class="gacha_title_icon" style="background: chocolate"></div>
           <span class="collapse-item_title" style="color: purple">
-            共计{{ getFixed(gachaTimes_total, 0) }}抽，氪金{{ sellsCount }}元
+            共计{{ toFixedByAcc(gachaTimes_total, 0) }}抽，氪金{{ sellsCount }}元
           </span>
           <span style="font-size: 20px;color: rgb(136 136 136 / 69%);margin-left: 16px;">yituliu.site</span>
         </template>
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector"
-                          @change="checkEndDate(timeSelector)">
+          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
 
             <el-radio-button label="怪猎联动(3.14)" style="width: 33%"
             ></el-radio-button>
@@ -32,32 +31,32 @@
               <tbody>
               <tr class="gacha_total_table_tr">
                 <td>现有</td>
-                <td>{{ getFixed(gachaTimes_exist, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_exist, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>日常</td>
-                <td>{{ getFixed(gachaTimes_daily, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_daily, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>潜在</td>
-                <td>{{ getFixed(gachaTimes_potential, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_potential, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>氪金</td>
-                <td>{{ getFixed(gachaTimes_gacha, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_gacha, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>活动(估算)</td>
-                <td>{{ getFixed(gachaTimes_activity, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_activity, 0) }}</td>
                 <td>抽</td>
               </tr>
               <tr class="gacha_total_table_tr">
                 <td>其它(估算)</td>
-                <td>{{ getFixed(gachaTimes_other, 0) }}</td>
+                <td>{{ toFixedByAcc(gachaTimesInfo.gachaTimes_other, 0) }}</td>
                 <td>抽</td>
               </tr>
               </tbody>
@@ -69,16 +68,16 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4003icon', 0)"></div>
-                {{ getFixed(orundum, 0) }}
+                {{ toFixedByAcc(orundum, 0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ (getFixed(orundum, 0) / 600).toFixed(2) }})
+                 &nbsp;({{ (toFixedByAcc(orundum, 0) / 600).toFixed(2) }})
                 </span>
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('4002icon', 0)"></div>
-                {{ getFixed(originium, 0) }}
+                {{ toFixedByAcc(originium, 0) }}
                 <span style="font-size: 14px;">
                  &nbsp;({{ (gachaTimes_originium).toFixed(2) }})
                 </span>
@@ -87,15 +86,15 @@
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7003icon', 0)"></div>
-                {{ getFixed(permit, 0) }}
+                {{ toFixedByAcc(permit, 0) }}
               </div>
             </div>
             <div class="gacha_unit_child_title">
               <div style="display: flex">
                 <div :class="getSpriteImg('7004icon', 0)"></div>
-                {{ getFixed(permit10, 0) }}
+                {{ toFixedByAcc(permit10, 0) }}
                 <span style="font-size: 14px;">
-                 &nbsp;({{ getFixed(permit10, 0) * 10 }})
+                 &nbsp;({{ toFixedByAcc(permit10, 0) * 10 }})
                 </span>
               </div>
             </div>
@@ -107,7 +106,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >现有库存 {{ getFixed(gachaTimes_exist, 0) }}抽</span
+          >现有库存 {{ toFixedByAcc(gachaTimesInfo.gachaTimes_exist, 0) }}抽</span
           >
         </template>
         <div class="gacha_unit" id="wallet">
@@ -119,7 +118,7 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model="orundum_exist"
+                  v-model.number="gachaTimesInfo.orundum_exist"
                 />
               </div>
             </div>
@@ -130,7 +129,7 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model="originium_exist"
+                  v-model.number="gachaTimesInfo.originium_exist"
                 />
               </div>
             </div>
@@ -141,7 +140,7 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model="permit_exist"
+                  v-model.number="gachaTimesInfo.permit_exist"
                 />
               </div>
             </div>
@@ -152,7 +151,7 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model="permit10_exist"
+                  v-model.number="gachaTimesInfo.permit10_exist"
                 />
               </div>
             </div>
@@ -173,14 +172,14 @@
               class="gacha_unit_child_inputbox"
               type="text"
               @change="compute()"
-              v-model="customValue"
+              v-model.number="customValue"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
               自定义修正值（例如搓玉）
             </div>
             <div class="gacha_resources_unit" style="width: 135px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>
-              {{ customValue * 1 }}
+              {{ toFixedByAcc(customValue * 1.09,2)  }}
             </div>
           </div>
           <div class="gacha_unit_child">
@@ -229,7 +228,7 @@
       <el-collapse-item class="collapse-item" name="2" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">日常积累 {{ getFixed(gachaTimes_daily, 0) }}抽</span>
+          <span class="collapse-item_title">日常积累 {{ toFixedByAcc(gachaTimesInfo.gachaTimes_daily, 0) }}抽</span>
         </template>
         <div class="gacha_unit" id="daily">
           <div class="gacha_unit_child">
@@ -246,7 +245,7 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              周常 {{ remainingWeekBattle + weeklyTaskValue }} 周
+              周常 {{ remainingWeekly + weeklyTaskValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -269,7 +268,7 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ remainingWeekBattle + AnnihilationStageValue }} 周
+              剿灭 {{ remainingWeekly + AnnihilationStageValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -366,7 +365,7 @@
         <template slot="title">
           <div class="gacha_title_icon"></div>
           <span class="collapse-item_title"
-          >潜在资源 {{ getFixed(gachaTimes_potential, 0) }}抽</span
+          >潜在资源 {{ toFixedByAcc(gachaTimesInfo.gachaTimes_potential, 0) }}抽</span
           >
         </template>
 
@@ -377,7 +376,7 @@
               class="gacha_unit_child_inputbox"
               type="text"
               @change="compute()"
-              v-model="paradox"
+              v-model.number="paradox"
             />
             <div class="gacha_unit_child_title" style="width: 120px">
               个悖论模拟
@@ -446,7 +445,7 @@
       <el-collapse-item class="collapse-item" name="4" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">氪金资源 {{ getFixed(gachaTimes_gacha, 0) }}抽</span>
+          <span class="collapse-item_title">氪金资源 {{ toFixedByAcc(gachaTimesInfo.gachaTimes_gacha, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="charge">
@@ -464,7 +463,7 @@
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
-                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                  {{ toFixedByAcc(singlePack.packRmbPerDraw, 2) }}
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
@@ -498,7 +497,7 @@
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
-                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                  {{ toFixedByAcc(singlePack.packRmbPerDraw, 2) }}
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
@@ -533,7 +532,7 @@
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
-                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                  {{ toFixedByAcc(singlePack.packRmbPerDraw, 2) }}
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
@@ -568,7 +567,7 @@
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
-                  {{ getFixed(singlePack.packRmbPerDraw, 2) }}
+                  {{ toFixedByAcc(singlePack.packRmbPerDraw, 2) }}
                 </div>
                 <div class="gacha_unit_child_title" style="width: 168px">
                   {{ singlePack.packName }}
@@ -588,7 +587,7 @@
           </div>
 
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_648">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_648">
             <div class="gacha_packPpr" :class=getPprLabel(11.68)>11.68</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石648元
@@ -597,11 +596,11 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_648 * 185, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_648 * 185, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_328">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_328">
             <div class="gacha_packPpr" :class=getPprLabel(12.15)>12.15</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石328元
@@ -610,11 +609,11 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_328 * 90, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_328 * 90, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_198">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_198">
             <div class="gacha_packPpr" :class=getPprLabel(13.20)>13.20</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石198元
@@ -623,11 +622,11 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_198 * 50, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_198 * 50, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_98">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_98">
             <div class="gacha_packPpr" :class=getPprLabel(13.61)>13.61</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石98元
@@ -636,11 +635,11 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_98 * 24, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_98 * 24, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_30">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_30">
             <div class="gacha_packPpr" :class=getPprLabel(14.29)>14.29</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石30元
@@ -649,11 +648,11 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_30 * 7, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_30 * 7, 0) }}</div>
             </div>
           </div>
           <div class="gacha_unit_child">
-            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model="originium_6">
+            <input class="gacha_unit_child_inputbox" type="text" @change="compute()" v-model.number="originium_6">
             <div class="gacha_packPpr" :class=getPprLabel(20.00)>20.00</div>
             <div class="gacha_unit_child_title" style="width: 225px">
               普通源石6元
@@ -662,7 +661,7 @@
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4002icon', 0)"></div>
-              <div style="width: 54px">{{ getFixed(originium_6 * 1, 0) }}</div>
+              <div style="width: 54px">{{ toFixedByAcc(originium_6 * 1, 0) }}</div>
             </div>
           </div>
 
@@ -673,7 +672,7 @@
       <el-collapse-item class="collapse-item" name="5" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">活动获得（估算）{{ getFixed(gachaTimes_activity, 0) }}抽</span>
+          <span class="collapse-item_title">活动获得（估算）{{ toFixedByAcc(gachaTimesInfo.gachaTimes_activity, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="activity">
@@ -740,7 +739,7 @@
       <el-collapse-item class="collapse-item" name="6" style="display: block">
         <template slot="title">
           <div class="gacha_title_icon"></div>
-          <span class="collapse-item_title">其它资源（估算）{{ getFixed(gachaTimes_other, 0) }}抽</span>
+          <span class="collapse-item_title">其它资源（估算）{{ toFixedByAcc(gachaTimesInfo.gachaTimes_other, 0) }}抽</span>
         </template>
 
         <div class="gacha_unit" id="otherRes">
@@ -953,56 +952,12 @@ export default {
       sellsCount: 0, //总氪金总和
       gachaTimes_total: 0, //总抽卡次数
 
-      //计算结果 
-      gachaTimesInfo:{    
-      gachaTimes_originium: 0, //总抽卡次数（源石部分）
-      gachaTimes_exist: 0, //库存抽卡次数
-      gachaTimes_potential: 0, //潜在抽卡次数
-      gachaTimes_daily: 0, //日常抽卡次数
-      gachaTimes_gacha: 0, //氪金抽卡次数
-      gachaTimes_activity: 0, //活动抽卡次数
-      gachaTimes_other: 0, //其他抽卡次数
-    
-      originium_exist: 0, //库存源石
-      orundum_exist: 0, //库存合成玉
-      permit_exist: 0, //库存寻访券
-      permit10_exist: 0, //库存十连寻访
-
-      originium_potential: 0, //常驻源石
-      orundum_potential: 0, //常驻合成玉
-      permit_potential: 0, //常驻寻访券
-      permit10_potential: 0, //常驻十连寻访
-      paradox: 0, //悖论模拟
-
-      originium_daily: 0, //日常源石
-      orundum_daily: 0, //日常合成玉
-      permit_daily: 0, //日常寻访券
-      permit10_daily: 0, //日常十连寻访
-
-      originium_gacha: 0, //氪金源石
-      orundum_gacha: 0, //氪金合成玉
-      permit_gacha: 0, //氪金寻访券
-      permit10_gacha: 0, //氪金十连寻访
-
-      originium_act: 0, //活动源石
-      orundum_act: 0, //活动合成玉
-      permit_act: 0, //活动寻访券
-      permit10_act: 0, //活动十连寻访
- 
-       originium_other: 0, //其他源石
-       orundum_other: 0, //其他合成玉
-       permit_other: 0, //其他寻访券
-       permit10_other: 0, //其他十连寻访
-      },
-
-
-     
-
- 
-
-
+      
+      gachaTimesInfo:{},   //攒抽计算的各种结果 
+      
+      paradox:0,
       remainingDays: 0, //剩余天数
-      remainingWeekBattle: 0, //剩余周数
+      remainingWeekly: 0, //剩余周数
       remainingMonths: 0, //剩余月数
       remainingCheckinTimes: 0, // 剩余签到次数
 
@@ -1068,7 +1023,10 @@ export default {
       // this.cookieInit=true;
       if (this.timeSelector === '怪猎联动(3.14)') {
         this.endDate = '2023/03/14 03:59:00';
-        this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断
+        this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断,
+        //例如: 比如json中某条福利编号为1,数组中填写1即可,如果另一个攒抽时间节点不需要该条福利则不在数组写写入1
+
+
         this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
       } else if (this.timeSelector === '4周年(5.15)') {
@@ -1086,7 +1044,7 @@ export default {
 
     },
 
-    getFixed(num, acc) {
+    toFixedByAcc(num, acc) {
       acc = (typeof acc !== 'undefined') ? acc : 2;
       return parseFloat(num).toFixed(acc);
     },
@@ -1121,25 +1079,28 @@ export default {
     //获取还有多少天
     getInterval() {
       console.log("今天是", this.startDate);
-      this.remainingWeekBattle = 0;  //剩余剿灭次数
+      this.remainingWeekly = 0;  //剩余剿灭次数
       this.remainingCheckinTimes = 0;  //剩余签到次数
 
       this.start_TimeStamp = Date.parse(new Date(this.startDate)); //今日日期的时间戳
       this.end_TimeStamp = Date.parse(this.endDate); //结束日期的时间戳
       var days = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);  //计算距离活动还有多少天
 
-      this.remainingMonths = new Date(this.endDate).getMonth() - new Date(this.startDate).getMonth() + 1;  //剩余月数
+      //剩余月数,这是个有bug的写法,指不跨年勉强能用,回头修,
+      
+      this.remainingMonths = new Date(this.endDate).getMonth() - new Date(this.startDate).getMonth() + 1;  
+      
       for (let i = 1; i < days + 1; i++) {
         var date = new Date(this.start_TimeStamp + 86400000 * i);
         if (date.getDay() === 1) {  //判断接下来还有多少个星期一
-          this.remainingWeekBattle++;
+          this.remainingWeekly++;
         }
         if (date.getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
           this.remainingCheckinTimes++;
         }
       }
       this.remainingDays = days;
-      console.log("距离活动还有：", this.remainingMonths + "月，", this.remainingWeekBattle + "周，", this.remainingDays + "天");
+      console.log("距离活动还有：", this.remainingMonths + "月，", this.remainingWeekly + "周，", this.remainingDays + "天");
     },
 
     // 设置258黄票商店兑换抽卡券
@@ -1165,8 +1126,8 @@ export default {
     //  计算日常奖励
     getEveryreWard() {
       this.dailyRewards = 100 * parseInt(this.remainingDays);
-      this.weeklyTaskRewards = 500 * parseInt(this.remainingWeekBattle);
-      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeekBattle);
+      this.weeklyTaskRewards = 500 * parseInt(this.remainingWeekly);
+      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeekly);
     },
 
     compute() {
@@ -1191,31 +1152,33 @@ export default {
         this.AnnihilationStageValue = 0;
       }
 
-      this.certificateStoreValue = 0;
 
+      this.certificateStoreValue = 0;
+      // 这个值可能是从cookie拿到,要转换一下类型
       if (typeof this.certificateStoreFlag === 'string') {
         if (this.certificateStoreFlag === "false") this.certificateStoreFlag = false;
         if (this.certificateStoreFlag === "true") this.certificateStoreFlag = true;
       }
 
+      //判断是否兑换完本月绿票商店
       if (this.certificateStoreFlag) {
         this.certificateStoreValue = 1;
       }
 
-
+      
       //库存计算（共计）
-      this.originium += parseInt(this.originium_exist);
-
-      this.orundum += parseInt(this.orundum_exist) + parseInt(this.customValue);
-      this.permit += parseInt(this.permit_exist);
-      this.permit10 += parseInt(this.permit10_exist);
-      // console.log(this.permit += this.permit + parseInt(this.permit_exist));
+      this.originium += parseInt(this.gachaTimesInfo.originium_exist);
+      this.orundum += parseInt(this.gachaTimesInfo.orundum_exist) + parseInt(this.customValue);
+      this.permit += parseInt(this.gachaTimesInfo.permit_exist);
+      this.permit10 += parseInt(this.gachaTimesInfo.permit10_exist);
+      // console.log(this.permit += this.permit + parseInt(this.gachaTimesInfo.permit_exist));
       //库存抽卡次数（单项）
-      this.gachaTimes_exist =
-        parseInt(this.originium_exist) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_exist) / 600 +
-        parseInt(this.permit_exist) +
-        parseInt(this.permit10_exist) * 10 +
+
+      this.gachaTimesInfo.gachaTimes_exist =
+        parseInt(this.gachaTimesInfo.originium_exist) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_exist) / 600 +
+        parseInt(this.gachaTimesInfo.permit_exist) +
+        parseInt(this.gachaTimesInfo.permit10_exist) * 10 +
         parseInt(this.customValue) / 600;
 
       //主线和常驻活动计算（共计）
@@ -1223,22 +1186,20 @@ export default {
         this.originium += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
         this.orundum += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
 
-        this.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
-        this.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
+        this.gachaTimesInfo.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
+        this.gachaTimesInfo.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
 
       }
 
       //悖论模拟
       this.orundum += parseInt(this.paradox) * 200;
 
-      this.orundum_potential += parseInt(this.paradox) * 200;
+      this.gachaTimesInfo.orundum_potential += parseInt(this.paradox) * 200;
 
       //主线和常驻活动抽卡次数（单项）
-      this.gachaTimes_potential =
-        parseInt(this.originium_potential) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_potential) / 600 +
-        parseInt(this.permit_potential) +
-        parseInt(this.permit10_potential) * 10;
+      this.gachaTimesInfo.gachaTimes_potential =
+        parseInt(this.gachaTimesInfo.originium_potential) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_potential) / 600;
 
       //氪金项目计算（共计）
       for (let i = 0; i < this.gacha_storePacksList.length; i++) {
@@ -1260,19 +1221,21 @@ export default {
           this.sellsCount += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].packPrice);
         }
 
-        this.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
-        this.permit10_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+        this.gachaTimesInfo.permit_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit);
+        this.gachaTimesInfo.permit10_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaPermit10);
+
+
         //月卡单独判断
         if ("月卡" === this.gacha_storePacks[this.gacha_storePacksList[i]].packName) {
-          this.orundum_gacha += parseInt(this.remainingDays) * 200;
-          this.originium_gacha += Math.ceil(this.remainingDays / 30) * 6;
+          this.gachaTimesInfo.orundum_gacha += parseInt(this.remainingDays) * 200;
+          this.gachaTimesInfo.originium_gacha += Math.ceil(this.remainingDays / 30) * 6;
         } else {
-          this.orundum_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
-          this.originium_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
+          this.gachaTimesInfo.orundum_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOrundum);
+          this.gachaTimesInfo.originium_gacha += parseInt(this.gacha_storePacks[this.gacha_storePacksList[i]].gachaOriginium);
         }
       }
 
-      //普通648
+      //普通源石部分购买数量
       this.originium +=
         parseInt(this.originium_648) * 185 +
         parseInt(this.originium_328) * 90 +
@@ -1281,20 +1244,21 @@ export default {
         parseInt(this.originium_30) * 7 +
         parseInt(this.originium_6);
 
-      //氪金项目抽卡次数（单项）
-      this.originium_gacha +=
+      //普通源石部分购买次数记录
+      this.gachaTimesInfo.originium_gacha +=
         parseInt(this.originium_648) * 185 +
         parseInt(this.originium_328) * 90 +
         parseInt(this.originium_198) * 50 +
         parseInt(this.originium_98) * 24 +
         parseInt(this.originium_30) * 7 +
         parseInt(this.originium_6);
-
-      this.gachaTimes_gacha =
-        parseInt(this.originium_gacha) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_gacha) / 600 +
-        parseInt(this.permit_gacha) +
-        parseInt(this.permit10_gacha) * 10;
+        
+      //氪金项目抽卡次数（单项）
+      this.gachaTimesInfo.gachaTimes_gacha =
+        parseInt(this.gachaTimesInfo.originium_gacha) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_gacha) / 600 +
+        parseInt(this.gachaTimesInfo.permit_gacha) +
+        parseInt(this.gachaTimesInfo.permit10_gacha) * 10;
 
       //日常部分计算(总)
       this.orundum +=
@@ -1303,6 +1267,7 @@ export default {
         parseInt(this.weeklyTaskRewards) +
         parseInt(this.EXTERMINATIONRewards);
 
+        
       this.permit +=
         parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
         parseInt(this.remainingCheckinTimes);
@@ -1311,12 +1276,12 @@ export default {
       for (let i = 0; i < this.gacha_store258List.length; i++) {
         this.permit += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
         this.permit10 += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
-        this.permit_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
-        this.permit10_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
+        this.gachaTimesInfo.permit_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit);
+        this.gachaTimesInfo.permit10_daily += parseInt(this.gacha_store258[this.gacha_store258List[i]].gachaPermit10);
       }
 
       //日常资源抽卡次数(单项)
-      this.orundum_daily +=
+      this.gachaTimesInfo.orundum_daily +=
         parseInt(this.dailyRewards) +
         parseInt(this.weeklyTaskRewards) +
         parseInt(this.EXTERMINATIONRewards) +
@@ -1324,52 +1289,56 @@ export default {
         parseInt(this.AnnihilationStageValue) * 1800 +
         parseInt(this.remainingMonths - this.certificateStoreValue) * 600;
 
-      this.permit_daily +=
+      this.gachaTimesInfo.permit_daily +=
         parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
         parseInt(this.remainingCheckinTimes);
 
-      this.gachaTimes_daily =
-        parseInt(this.originium_daily) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_daily) / 600 +
-        parseInt(this.permit_daily) +
-        parseInt(this.permit10_daily) * 10;
+      this.gachaTimesInfo.gachaTimes_daily =
+        parseInt(this.gachaTimesInfo.originium_daily) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_daily) / 600 +
+        parseInt(this.gachaTimesInfo.permit_daily) +
+        parseInt(this.gachaTimesInfo.permit10_daily) * 10;
 
       //活动抽卡计算（共计）
           // console.log('---------活动资源计算如下：-----------');
       for (let i = 0; i < this.gacha_actReward.length; i++) {
         if (this.activityPlan.includes(this.gacha_actReward[i].plans)) {
           // console.log("源石+",this.gacha_actReward[i].gachaOriginium,",合成玉+",this.gacha_actReward[i].gachaOrundum,
-          // ",单抽+",this.gacha_actReward[i].gachaPermit,'---by',this.gacha_honeyCake[i].packName,);
+          // ",单抽+",this.gacha_actReward[i].gachaPermit,'---by',this.gacha_actReward[i].packName,);
           this.originium += parseInt(this.gacha_actReward[i].gachaOriginium);
           this.orundum += parseInt(this.gacha_actReward[i].gachaOrundum);
           this.permit += parseInt(this.gacha_actReward[i].gachaPermit);
           this.permit10 += parseInt(this.gacha_actReward[i].gachaPermit10);
 
-          this.originium_act += parseInt(this.gacha_actReward[i].gachaOriginium);
-          this.orundum_act += parseInt(this.gacha_actReward[i].gachaOrundum);
-          this.permit_act += parseInt(this.gacha_actReward[i].gachaPermit);
-          this.permit10_act += parseInt(this.gacha_actReward[i].gachaPermit10);
+          this.gachaTimesInfo.originium_act += parseInt(this.gacha_actReward[i].gachaOriginium);
+          this.gachaTimesInfo.orundum_act += parseInt(this.gacha_actReward[i].gachaOrundum);
+          this.gachaTimesInfo.permit_act += parseInt(this.gacha_actReward[i].gachaPermit);
+          this.gachaTimesInfo.permit10_act += parseInt(this.gacha_actReward[i].gachaPermit10);
         }
       }
 
+
+
       for (let i = 0; i < this.gacha_actReList.length; i++) {
+        // console.log("源石+",this.gacha_actReList[i].gachaOriginium,",合成玉+",this.gacha_actReList[i].gachaOrundum,
+          // ",单抽+",this.gacha_actReList[i].gachaPermit,'---by',this.gacha_actReList[i].packName,);
         this.originium += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
         this.orundum += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
         this.permit += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
         this.permit10 += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
 
-        this.originium_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
-        this.orundum_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
-        this.permit_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
-        this.permit10_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+        this.gachaTimesInfo.originium_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
+        this.gachaTimesInfo.orundum_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
+        this.gachaTimesInfo.permit_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
+        this.gachaTimesInfo.permit10_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
       }
 
       //活动抽卡次数（单项）
-      this.gachaTimes_activity =
-        parseInt(this.originium_act) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_act) / 600 +
-        parseInt(this.permit_act) +
-        parseInt(this.permit10_act) * 10;
+      this.gachaTimesInfo.gachaTimes_activity =
+        parseInt(this.gachaTimesInfo.originium_act) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_act) / 600 +
+        parseInt(this.gachaTimesInfo.permit_act) +
+        parseInt(this.gachaTimesInfo.permit10_act) * 10;
 
       //其他抽卡计算
       // console.log('---------其他资源计算如下：-----------');
@@ -1382,43 +1351,45 @@ export default {
           this.permit += parseInt(this.gacha_honeyCake[i].gachaPermit);
           this.permit10 += parseInt(this.gacha_honeyCake[i].gachaPermit10);
 
-          this.originium_other += parseInt(this.gacha_honeyCake[i].gachaOriginium);
-          this.orundum_other += parseInt(this.gacha_honeyCake[i].gachaOrundum);
-          this.permit_other += parseInt(this.gacha_honeyCake[i].gachaPermit);
-          this.permit10_other += parseInt(this.gacha_honeyCake[i].gachaPermit10);
+          this.gachaTimesInfo.originium_other += parseInt(this.gacha_honeyCake[i].gachaOriginium);
+          this.gachaTimesInfo.orundum_other += parseInt(this.gacha_honeyCake[i].gachaOrundum);
+          this.gachaTimesInfo.permit_other += parseInt(this.gacha_honeyCake[i].gachaPermit);
+          this.gachaTimesInfo.permit10_other += parseInt(this.gacha_honeyCake[i].gachaPermit10);
         }
       }
 
-      //自动扣除部分{
-      //合成玉=—周常—剿灭—幸运墙
+     
+      //合成玉=周常+剿灭
       this.orundum +=
         parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800;
 
-      this.orundum_other +=
+      this.gachaTimesInfo.orundum_other +=
         parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800;
 
+
+      //自动扣除部分 ↓
       //减去红包墙/矿区已经赠送过的合成玉
       if (this.poolCountDownFlag_orundum) {
         this.orundum = parseInt(this.orundum) - parseInt(this.poolCountDown) * 600;
-        this.orundum_other = parseInt(this.orundum_other) - parseInt(this.poolCountDown) * 600;
+        this.gachaTimesInfo.orundum_other = parseInt(this.gachaTimesInfo.orundum_other) - parseInt(this.poolCountDown) * 600;
       }
 
       //减去限定池已经赠送过的单抽
       if (this.poolCountDownFlag_permit) {
-        this.permit_other = parseInt(this.permit_other) - parseInt(this.poolCountDown);
+        this.gachaTimesInfo.permit_other = parseInt(this.gachaTimesInfo.permit_other) - parseInt(this.poolCountDown);
         this.permit = parseInt(this.permit) - parseInt(this.poolCountDown);
       }
 
       //其他抽卡次数
-      this.gachaTimes_other =
-        parseInt(this.originium_other) * 0.3 * parseInt(flag_originium) +
-        parseInt(this.orundum_other) / 600 +
-        parseInt(this.permit_other) +
-        parseInt(this.permit10_other) * 10
+      this.gachaTimesInfo.gachaTimes_other =
+        parseInt(this.gachaTimesInfo.originium_other) * 0.3 * parseInt(flag_originium) +
+        parseInt(this.gachaTimesInfo.orundum_other) / 600 +
+        parseInt(this.gachaTimesInfo.permit_other) +
+        parseInt(this.gachaTimesInfo.permit10_other) * 10
 
-
+      //计算皮肤消耗
       if (parseInt(this.originium - parseInt(this.skinNumValue) * 18) < 0) {
         this.$message.error("你的源石不足");
       }
@@ -1428,6 +1399,8 @@ export default {
       this.originium = parseInt(this.originium) * parseInt(flag_originium);
 
 
+
+      // 计算购买的普通源石的价格
       this.sellsCount +=
         648 * parseInt(this.originium_648) +
         328 * parseInt(this.originium_328) +
@@ -1436,7 +1409,7 @@ export default {
         30 * parseInt(this.originium_30) +
         6 * parseInt(this.originium_6);
 
-      //抽卡次数
+      //总抽卡次数
       this.gachaTimes_total =
         parseInt(this.originium) * 0.3 * parseInt(flag_originium) +
         parseInt(this.orundum) / 600 +
@@ -1445,98 +1418,96 @@ export default {
 
       //源石抽卡次数
       this.gachaTimes_originium =
-        (this.originium_exist +
-          this.originium_potential +
-          this.originium_gacha +
-          this.originium_daily +
-          this.originium_act +
-          this.originium_other -
-          parseInt(this.skinNumValue) * 18) * 0.3 * parseInt(flag_originium)
+        (this.gachaTimesInfo.originium_exist +
+          this.gachaTimesInfo.originium_potential +
+          this.gachaTimesInfo.originium_gacha +
+          this.gachaTimesInfo.originium_daily +
+          this.gachaTimesInfo.originium_act +
+          this.gachaTimesInfo.originium_other -
+          parseInt(this.skinNumValue) * 18) * 0.3 * parseInt(flag_originium);
+      
 
 
+      // 设置饼图的数据内容
       this.pieData = [];
       let chartFan = {};
-      if (this.gachaTimes_exist > 0) {
-        chartFan.value = parseInt(this.gachaTimes_exist);
+      if (this.gachaTimesInfo.gachaTimes_exist > 0) {
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_exist);
         chartFan.name = "现有";
         this.pieData.push(chartFan);
       }
-      if (this.gachaTimes_potential > 0) {
+      if (this.gachaTimesInfo.gachaTimes_potential > 0) {
         chartFan = {};
-        chartFan.value = parseInt(this.gachaTimes_potential);
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_potential);
         chartFan.name = "潜在";
         this.pieData.push(chartFan);
       }
-      if (this.gachaTimes_daily > 0) {
+      if (this.gachaTimesInfo.gachaTimes_daily > 0) {
         chartFan = {};
-        chartFan.value = parseInt(this.gachaTimes_daily);
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_daily);
         chartFan.name = "日常";
         this.pieData.push(chartFan);
       }
-      if (this.gachaTimes_gacha > 0) {
+      if (this.gachaTimesInfo.gachaTimes_gacha > 0) {
         chartFan = {};
-        chartFan.value = parseInt(this.gachaTimes_gacha);
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_gacha);
         chartFan.name = "氪金";
         this.pieData.push(chartFan);
       }
-      if (this.gachaTimes_activity > 0) {
+      if (this.gachaTimesInfo.gachaTimes_activity > 0) {
         chartFan = {};
-        chartFan.value = parseInt(this.gachaTimes_activity);
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_activity);
         chartFan.name = "活动";
         this.pieData.push(chartFan);
       }
-      if (this.gachaTimes_other > 0) {
+      if (this.gachaTimesInfo.gachaTimes_other > 0) {
         chartFan = {};
-        chartFan.value = parseInt(this.gachaTimes_other);
+        chartFan.value = parseInt(this.gachaTimesInfo.gachaTimes_other);
         chartFan.name = "其它";
         this.pieData.push(chartFan);
       }
-
+      
+      console.log(this.gachaTimesInfo);
 
       if (this.cookieInit > 1) {
         this.pieChart(this.pieData);
       }
-
-
-      // console.log(this.permit_exist);
-      // console.log(this.permit_potential);
-      // console.log(this.permit_daily);
-      // console.log(this.permit_gacha);
-      // console.log(this.permit_act);
-      // console.log(this.permit_other);
     },
 
+
+    //初始化信息
     valueInit() {
+
+       //首次打开页面读取cookie
       if (this.cookieInit === 0) {
-        this.originium_exist = cookie.get("originium_exist");
-        this.orundum_exist = cookie.get("orundum_exist");
-        this.permit_exist = cookie.get("permit_exist");
-        this.permit10_exist = cookie.get("permit10_exist");
+        this.gachaTimesInfo.originium_exist = cookie.get("originium_exist");
+        this.gachaTimesInfo.orundum_exist = cookie.get("orundum_exist");
+        this.gachaTimesInfo.permit_exist = cookie.get("permit_exist");
+        this.gachaTimesInfo.permit10_exist = cookie.get("permit10_exist");
         this.paradox = cookie.get("paradox");
         this.certificateStoreFlag = cookie.get("certificateStoreFlag");
+      } 
 
-      } else {
-        cookie.set("originium_exist", this.originium_exist, {expires: 30});
-        cookie.set("orundum_exist", this.orundum_exist, {expires: 30});
-        cookie.set("permit_exist", this.permit_exist, {expires: 30});
-        cookie.set("permit10_exist", this.permit10_exist, {expires: 30});
-        cookie.set("paradox", this.paradox, {expires: 30});
-        cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
-      }
+      // console.log(this.gachaTimesInfo.originium_exist ===undefined||this.gachaTimesInfo.originium_exist == "undefined");
+      
+      //没有cookie记录值强制赋值0
+      if(this.gachaTimesInfo.originium_exist ==""||this.gachaTimesInfo.originium_exist ===undefined||this.gachaTimesInfo.originium_exist == "undefined") this.gachaTimesInfo.originium_exist = 0;
+      if(this.gachaTimesInfo.orundum_exist ==""||this.gachaTimesInfo.orundum_exist ===undefined||this.gachaTimesInfo.orundum_exist == "undefined") this.gachaTimesInfo.orundum_exist = 0;
+      if(this.gachaTimesInfo.permit_exist ==""||this.gachaTimesInfo.permit_exist ===undefined||this.gachaTimesInfo.permit_exist == "undefined") this.gachaTimesInfo.permit_exist = 0;
+      if(this.gachaTimesInfo.permit10_exist ==""||this.gachaTimesInfo.permit10_exist ===undefined||this.gachaTimesInfo.permit10_exist == "undefined") this.gachaTimesInfo.permit10_exist = 0;
+      if(this.paradox ==""||this.paradox ===undefined||this.paradox == "undefined") this.paradox = 0;
+      if(this.certificateStoreFlag ===undefined||this.certificateStoreFlag == "undefined") this.certificateStoreFlag = true;
 
+      //保存cookie
+      cookie.set("originium_exist", this.gachaTimesInfo.originium_exist, {expires: 30});
+      cookie.set("orundum_exist", this.gachaTimesInfo.orundum_exist, {expires: 30});
+      cookie.set("permit_exist", this.gachaTimesInfo.permit_exist, {expires: 30});
+      cookie.set("permit10_exist", this.gachaTimesInfo.permit10_exist, {expires: 30});
+      cookie.set("paradox", this.paradox, {expires: 30});
+      cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
+
+      
       this.cookieInit++;
-
-      if (this.originium_exist === "" || this.originium_exist === undefined ||
-        typeof this.originium_exist == "undefined") this.originium_exist = 0;
-      if (this.orundum_exist === "" || this.orundum_exist === undefined ||
-        typeof this.orundum_exist == "undefined") this.orundum_exist = 0;
-      if (this.permit_exist === "" || this.permit_exist === undefined ||
-        typeof this.permit_exist == "undefined") this.permit_exist = 0;
-      if (this.permit10_exist === "" || this.permit10_exist === undefined ||
-        typeof this.permit10_exist == "undefined") this.permit10_exist = 0;
-      if (this.paradox === "" || this.paradox === undefined ||
-        typeof this.paradox == "undefined") this.paradox = 0;
-
 
       if (this.originium_648 === "") this.originium_648 = 0;
       if (this.originium_328 === "") this.originium_328 = 0;
@@ -1546,10 +1517,6 @@ export default {
       if (this.originium_6 === "") this.originium_6 = 0;
       if (this.customValue === "") this.customValue = 0;
 
-      this.originium_exist = parseInt(this.originium_exist);
-      this.orundum_exist = parseInt(this.orundum_exist);
-      this.permit_exist = parseInt(this.permit_exist);
-      this.permit10_exist = parseInt(this.permit10_exist);
       this.paradox = parseInt(this.paradox);
       this.originium_648 = parseInt(this.originium_648);
       this.originium_328 = parseInt(this.originium_328);
@@ -1559,36 +1526,41 @@ export default {
       this.originium_6 = parseInt(this.originium_6);
       this.customValue = parseInt(this.customValue);
 
+      this.gachaTimesInfo.originium_exist = parseInt(this.gachaTimesInfo.originium_exist);
+      this.gachaTimesInfo.orundum_exist = parseInt(this.gachaTimesInfo.orundum_exist);
+      this.gachaTimesInfo.permit_exist = parseInt(this.gachaTimesInfo.permit_exist);
+      this.gachaTimesInfo.permit10_exist = parseInt(this.gachaTimesInfo.permit10_exist);
+
       this.originium = 0;
       this.orundum = 0;
       this.permit = 0;
       this.permit10 = 0;
       this.sellsCount = 0;
+       
+      this.gachaTimesInfo.originium_potential = 0;
+      this.gachaTimesInfo.orundum_potential = 0;
+      this.gachaTimesInfo.permit_potential = 0;
+      this.gachaTimesInfo.permit10_potential = 0;
 
-      this.originium_potential = 0;
-      this.orundum_potential = 0;
-      this.permit_potential = 0;
-      this.permit10_potential = 0;
+      this.gachaTimesInfo.originium_daily = 0;
+      this.gachaTimesInfo.orundum_daily = 0;
+      this.gachaTimesInfo.permit_daily = 0;
+      this.gachaTimesInfo.permit10_daily = 0;
 
-      this.originium_daily = 0;
-      this.orundum_daily = 0;
-      this.permit_daily = 0;
-      this.permit10_daily = 0;
+      this.gachaTimesInfo.originium_gacha = 0;
+      this.gachaTimesInfo.orundum_gacha = 0;
+      this.gachaTimesInfo.permit_gacha = 0;
+      this.gachaTimesInfo.permit10_gacha = 0;
 
-      this.originium_gacha = 0;
-      this.orundum_gacha = 0;
-      this.permit_gacha = 0;
-      this.permit10_gacha = 0;
+      this.gachaTimesInfo.originium_act = 0;
+      this.gachaTimesInfo.orundum_act = 0;
+      this.gachaTimesInfo.permit_act = 0;
+      this.gachaTimesInfo.permit10_act = 0;
 
-      this.originium_act = 0;
-      this.orundum_act = 0;
-      this.permit_act = 0;
-      this.permit10_act = 0;
-
-      this.originium_other = 0;
-      this.orundum_other = 0;
-      this.permit_other = 0;
-      this.permit10_other = 0;
+      this.gachaTimesInfo.originium_other = 0;
+      this.gachaTimesInfo.orundum_other = 0;
+      this.gachaTimesInfo.permit_other = 0;
+      this.gachaTimesInfo.permit10_other = 0;
     },
 
     getChapterWidth(index) {
@@ -1669,7 +1641,7 @@ export default {
     },
 
     handleChange(val) {
-      console.log(val);
+      // console.log(val);
     },
   },
 };

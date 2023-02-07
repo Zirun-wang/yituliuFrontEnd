@@ -1,0 +1,2942 @@
+[
+    {
+        "apCost": 2141.7241,
+        "charId": "char_112_siege",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 9,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 6,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "推进之王",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2149.6837,
+        "charId": "char_427_vigil",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 11,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 5,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 3,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 4,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "伺夜",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2210.0184,
+        "charId": "char_2013_cerber",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 5,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "刻俄柏",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2230.7916999999998,
+        "charId": "char_291_aglina",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 4,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "糖聚块",
+                    "count": 5,
+                    "id": "30024"
+                }
+            ]
+        ],
+        "name": "安洁莉娜",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2234.9729,
+        "charId": "char_377_gdglow",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 7,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "三水锰矿",
+                    "count": 5,
+                    "id": "30084"
+                }
+            ]
+        ],
+        "name": "澄闪",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2263.2554,
+        "charId": "char_1026_gvial2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 6,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "百炼嘉维尔",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2265.6092,
+        "charId": "char_1012_skadi2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "五水研磨石",
+                    "count": 5,
+                    "id": "30094"
+                }
+            ]
+        ],
+        "name": "浊心斯卡蒂",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2280.5087,
+        "charId": "char_202_demkni",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 5,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "三水锰矿",
+                    "count": 5,
+                    "id": "30084"
+                }
+            ]
+        ],
+        "name": "塞雷娅",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2286.5402,
+        "charId": "char_362_saga",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 6,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 6,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "嵯峨",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2291.2726,
+        "charId": "char_103_angel",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "糖聚块",
+                    "count": 5,
+                    "id": "30024"
+                }
+            ]
+        ],
+        "name": "能天使",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2295.0136,
+        "charId": "char_472_pasngr",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 5,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 5,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "异客",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2296.9262,
+        "charId": "char_1013_chen2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 6,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 6,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "假日威龙陈",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2299.4262,
+        "charId": "char_2024_chyue",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 5,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "重岳",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2303.116,
+        "charId": "char_136_hsguma",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 11,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 5,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "五水研磨石",
+                    "count": 5,
+                    "id": "30094"
+                }
+            ]
+        ],
+        "name": "星熊",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2305.2245000000003,
+        "charId": "char_180_amgoat",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 7,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 5,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 5,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "艾雅法拉",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2309.0000999999997,
+        "charId": "char_300_phenxi",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 6,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 4,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 3,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "五水研磨石",
+                    "count": 6,
+                    "id": "30094"
+                }
+            ]
+        ],
+        "name": "菲亚梅塔",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2310.6693,
+        "charId": "char_2023_ling",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 10,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 3,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "晶体电路",
+                    "count": 5,
+                    "id": "31034"
+                }
+            ]
+        ],
+        "name": "令",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2323.7078,
+        "charId": "char_420_flamtl",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 9,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "焰尾",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2326.1784,
+        "charId": "char_456_ash",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 11,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 5,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 6,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "灰烬",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2328.7383999999997,
+        "charId": "char_010_chen",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "白马醇",
+                    "count": 6,
+                    "id": "30074"
+                }
+            ]
+        ],
+        "name": "陈",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2329.5833000000002,
+        "charId": "char_332_archet",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 7,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 5,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 8,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "空弦",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2333.9016,
+        "charId": "char_4064_mlynar",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 8,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 5,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "玛恩纳",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2337.5584,
+        "charId": "char_197_poca",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 6,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "早露",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2342.8065,
+        "charId": "char_4072_ironmn",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 7,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 5,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "精炼溶剂",
+                    "count": 6,
+                    "id": "31044"
+                }
+            ]
+        ],
+        "name": "白铁",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2342.996,
+        "charId": "char_4055_bgsnow",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 9,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 3,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 9,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "鸿雪",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2349.6945,
+        "charId": "char_416_zumama",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 7,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "森蚺",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2350.8570999999997,
+        "charId": "char_350_surtr",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "酮阵列",
+                    "count": 5,
+                    "id": "30054"
+                }
+            ]
+        ],
+        "name": "史尔特尔",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2358.4986,
+        "charId": "char_391_rosmon",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 9,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "酮阵列",
+                    "count": 5,
+                    "id": "30054"
+                }
+            ]
+        ],
+        "name": "迷迭香",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2365.9016,
+        "charId": "char_172_svrash",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "白马醇",
+                    "count": 6,
+                    "id": "30074"
+                }
+            ]
+        ],
+        "name": "银灰",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2368.8772,
+        "charId": "char_147_shining",
+        "itemCost": [
+            [
+                {
+                    "itemName": "医疗芯片",
+                    "count": 5,
+                    "id": "3261"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 6,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "医疗双芯片",
+                    "count": 4,
+                    "id": "3263"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 5,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "闪灵",
+        "profession": "MEDIC"
+    },
+    {
+        "apCost": 2386.7108,
+        "charId": "char_430_fartth",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 4,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "切削原液",
+                    "count": 7,
+                    "id": "31054"
+                }
+            ]
+        ],
+        "name": "远牙",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2387.7273,
+        "charId": "char_213_mostma",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 4,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "五水研磨石",
+                    "count": 7,
+                    "id": "30094"
+                }
+            ]
+        ],
+        "name": "莫斯提马",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2392.3062,
+        "charId": "char_248_mgllan",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 7,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 4,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "三水锰矿",
+                    "count": 6,
+                    "id": "30084"
+                }
+            ]
+        ],
+        "name": "麦哲伦",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2393.1313,
+        "charId": "char_222_bpipe",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 10,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 3,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 9,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "风笛",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2397.2232999999997,
+        "charId": "char_206_gnosis",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 5,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 3,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 7,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "灵知",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2399.0528,
+        "charId": "char_340_shwaz",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 6,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 5,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "黑",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2399.5394,
+        "charId": "char_1020_reed2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "医疗芯片",
+                    "count": 5,
+                    "id": "3261"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 5,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "医疗双芯片",
+                    "count": 4,
+                    "id": "3263"
+                },
+                {
+                    "itemName": "烧结核凝晶",
+                    "count": 3,
+                    "id": "30155"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 9,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "焰影苇草",
+        "profession": "MEDIC"
+    },
+    {
+        "apCost": 2432.6894,
+        "charId": "char_188_helage",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 10,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 6,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "聚酸酯块",
+                    "count": 7,
+                    "id": "30034"
+                }
+            ]
+        ],
+        "name": "赫拉格",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2447.7893999999997,
+        "charId": "char_437_mizuki",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 10,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 6,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "晶体电路",
+                    "count": 6,
+                    "id": "31034"
+                }
+            ]
+        ],
+        "name": "水月",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2451.0398999999998,
+        "charId": "char_4009_irene",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 4,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "RMA70-24",
+                    "count": 7,
+                    "id": "30104"
+                }
+            ]
+        ],
+        "name": "艾丽妮",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2454.3374000000003,
+        "charId": "char_113_cqbw",
+        "itemCost": [
+            [
+                {
+                    "itemName": "狙击芯片",
+                    "count": 5,
+                    "id": "3241"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 5,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "狙击双芯片",
+                    "count": 4,
+                    "id": "3243"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "酮阵列",
+                    "count": 7,
+                    "id": "30054"
+                }
+            ]
+        ],
+        "name": "W",
+        "profession": "SNIPER"
+    },
+    {
+        "apCost": 2460.0394,
+        "charId": "char_4080_lin",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 5,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "切削原液",
+                    "count": 8,
+                    "id": "31054"
+                }
+            ]
+        ],
+        "name": "林",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2461.9662,
+        "charId": "char_263_skadi",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "提纯源岩",
+                    "count": 9,
+                    "id": "30014"
+                }
+            ]
+        ],
+        "name": "斯卡蒂",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2463.4081,
+        "charId": "char_4046_ebnhlz",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "精炼溶剂",
+                    "count": 7,
+                    "id": "31044"
+                }
+            ]
+        ],
+        "name": "黑键",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2470.7619999999997,
+        "charId": "char_017_huang",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 6,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "煌",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2476.7716,
+        "charId": "char_2014_nian",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 7,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "年",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2485.8742,
+        "charId": "char_134_ifrit",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 8,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "聚酸酯块",
+                    "count": 7,
+                    "id": "30034"
+                }
+            ]
+        ],
+        "name": "伊芙利特",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2489.8644,
+        "charId": "char_1014_nearl2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 8,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "耀骑士临光",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2491.2228,
+        "charId": "char_225_haak",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 5,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 7,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "阿",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2496.5774,
+        "charId": "char_1023_ghost2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "酮阵列",
+                    "count": 6,
+                    "id": "30054"
+                }
+            ]
+        ],
+        "name": "归溟幽灵鲨",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2500.8747999999996,
+        "charId": "char_4048_doroth",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 7,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "切削原液",
+                    "count": 8,
+                    "id": "31054"
+                }
+            ]
+        ],
+        "name": "多萝西",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2507.0777,
+        "charId": "char_293_thorns",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 3,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 6,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "棘刺",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2511.6695999999997,
+        "charId": "char_400_weedy",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 6,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 4,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "三水锰矿",
+                    "count": 6,
+                    "id": "30084"
+                }
+            ]
+        ],
+        "name": "温蒂",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2512.4683,
+        "charId": "char_426_billro",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "RMA70-24",
+                    "count": 7,
+                    "id": "30104"
+                }
+            ]
+        ],
+        "name": "卡涅利安",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2530.1748,
+        "charId": "char_4065_judge",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 6,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 3,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "白马醇",
+                    "count": 8,
+                    "id": "30074"
+                }
+            ]
+        ],
+        "name": "斥罪",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2532.3307999999997,
+        "charId": "char_179_cgbird",
+        "itemCost": [
+            [
+                {
+                    "itemName": "医疗芯片",
+                    "count": 5,
+                    "id": "3261"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 6,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 3,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "医疗双芯片",
+                    "count": 4,
+                    "id": "3263"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "酮阵列",
+                    "count": 6,
+                    "id": "30054"
+                }
+            ]
+        ],
+        "name": "夜莺",
+        "profession": "MEDIC"
+    },
+    {
+        "apCost": 2546.0615,
+        "charId": "char_423_blemsh",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 5,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 7,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "RMA70-24",
+                    "count": 7,
+                    "id": "30104"
+                }
+            ]
+        ],
+        "name": "瑕光",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2559.3737,
+        "charId": "char_003_kalts",
+        "itemCost": [
+            [
+                {
+                    "itemName": "医疗芯片",
+                    "count": 5,
+                    "id": "3261"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 8,
+                    "id": "30022"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 5,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "医疗双芯片",
+                    "count": 4,
+                    "id": "3263"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 4,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "凯尔希",
+        "profession": "MEDIC"
+    },
+    {
+        "apCost": 2567.3675999999996,
+        "charId": "char_311_mudrok",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 4,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "炽合金块",
+                    "count": 5,
+                    "id": "31024"
+                }
+            ]
+        ],
+        "name": "泥岩",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2571.6316,
+        "charId": "char_358_lisa",
+        "itemCost": [
+            [
+                {
+                    "itemName": "辅助芯片",
+                    "count": 5,
+                    "id": "3271"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 4,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "辅助双芯片",
+                    "count": 4,
+                    "id": "3273"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "五水研磨石",
+                    "count": 8,
+                    "id": "30094"
+                }
+            ]
+        ],
+        "name": "铃兰",
+        "profession": "SUPPORT"
+    },
+    {
+        "apCost": 2586.9719999999998,
+        "charId": "char_1028_texas2",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 6,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 5,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "双极纳米片",
+                    "count": 4,
+                    "id": "30125"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 7,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "缄默德克萨斯",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2599.7064,
+        "charId": "char_485_pallas",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "白马醇",
+                    "count": 6,
+                    "id": "30074"
+                }
+            ]
+        ],
+        "name": "帕拉斯",
+        "profession": "WARRIOR"
+    },
+    {
+        "apCost": 2607.047,
+        "charId": "char_479_sleach",
+        "itemCost": [
+            [
+                {
+                    "itemName": "先锋芯片",
+                    "count": 5,
+                    "id": "3211"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 7,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 4,
+                    "id": "30032"
+                }
+            ],
+            [
+                {
+                    "itemName": "先锋双芯片",
+                    "count": 4,
+                    "id": "3213"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "精炼溶剂",
+                    "count": 6,
+                    "id": "31044"
+                }
+            ]
+        ],
+        "name": "琴柳",
+        "profession": "PIONEER"
+    },
+    {
+        "apCost": 2608.5271,
+        "charId": "char_250_phatom",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 7,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 9,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "傀影",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2622.8796,
+        "charId": "char_322_lmlee",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 3,
+                    "id": "30062"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "聚合剂",
+                    "count": 4,
+                    "id": "30115"
+                },
+                {
+                    "itemName": "白马醇",
+                    "count": 9,
+                    "id": "30074"
+                }
+            ]
+        ],
+        "name": "老鲤",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2638.6339,
+        "charId": "char_474_glady",
+        "itemCost": [
+            [
+                {
+                    "itemName": "特种芯片",
+                    "count": 5,
+                    "id": "3281"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 7,
+                    "id": "30052"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 4,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "特种双芯片",
+                    "count": 4,
+                    "id": "3283"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 6,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "歌蕾蒂娅",
+        "profession": "SPECIAL"
+    },
+    {
+        "apCost": 2645.5303,
+        "charId": "char_4039_horn",
+        "itemCost": [
+            [
+                {
+                    "itemName": "重装芯片",
+                    "count": 5,
+                    "id": "3231"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 12,
+                    "id": "30012"
+                },
+                {
+                    "itemName": "糖",
+                    "count": 5,
+                    "id": "30022"
+                }
+            ],
+            [
+                {
+                    "itemName": "重装双芯片",
+                    "count": 4,
+                    "id": "3233"
+                },
+                {
+                    "itemName": "D32钢",
+                    "count": 4,
+                    "id": "30135"
+                },
+                {
+                    "itemName": "异铁块",
+                    "count": 7,
+                    "id": "30044"
+                }
+            ]
+        ],
+        "name": "号角",
+        "profession": "TANK"
+    },
+    {
+        "apCost": 2651.6803,
+        "charId": "char_4042_lumen",
+        "itemCost": [
+            [
+                {
+                    "itemName": "医疗芯片",
+                    "count": 5,
+                    "id": "3261"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 8,
+                    "id": "30042"
+                },
+                {
+                    "itemName": "酮凝集",
+                    "count": 3,
+                    "id": "30052"
+                }
+            ],
+            [
+                {
+                    "itemName": "医疗双芯片",
+                    "count": 4,
+                    "id": "3263"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "改量装置",
+                    "count": 5,
+                    "id": "30064"
+                }
+            ]
+        ],
+        "name": "流明",
+        "profession": "MEDIC"
+    },
+    {
+        "apCost": 2668.7866,
+        "charId": "char_2015_dusk",
+        "itemCost": [
+            [
+                {
+                    "itemName": "术师芯片",
+                    "count": 5,
+                    "id": "3251"
+                },
+                {
+                    "itemName": "装置",
+                    "count": 6,
+                    "id": "30062"
+                },
+                {
+                    "itemName": "异铁",
+                    "count": 3,
+                    "id": "30042"
+                }
+            ],
+            [
+                {
+                    "itemName": "术师双芯片",
+                    "count": 4,
+                    "id": "3253"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "三水锰矿",
+                    "count": 6,
+                    "id": "30084"
+                }
+            ]
+        ],
+        "name": "夕",
+        "profession": "CASTER"
+    },
+    {
+        "apCost": 2759.8181999999997,
+        "charId": "char_264_f12yin",
+        "itemCost": [
+            [
+                {
+                    "itemName": "近卫芯片",
+                    "count": 5,
+                    "id": "3221"
+                },
+                {
+                    "itemName": "聚酸酯",
+                    "count": 8,
+                    "id": "30032"
+                },
+                {
+                    "itemName": "固源岩",
+                    "count": 8,
+                    "id": "30012"
+                }
+            ],
+            [
+                {
+                    "itemName": "近卫双芯片",
+                    "count": 4,
+                    "id": "3223"
+                },
+                {
+                    "itemName": "晶体电子单元",
+                    "count": 4,
+                    "id": "30145"
+                },
+                {
+                    "itemName": "聚合凝胶",
+                    "count": 8,
+                    "id": "31014"
+                }
+            ]
+        ],
+        "name": "山",
+        "profession": "WARRIOR"
+    }
+]

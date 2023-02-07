@@ -290,14 +290,15 @@ export default {
 
 
   created() {
+  
+  },
+
+  mounted() {
     this.getStageResultDateT3();
     this.getStageResultDateT2();
     this.getStageResultDateOrundum();
     this.getStageResultDateClosed();
     this.getRoute();
-  },
-
-  mounted() {
   },
   methods: {
     getCookies() {
@@ -305,7 +306,7 @@ export default {
       if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
-     console.log('stage',theme);
+    //  console.log('stage',theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
     sleep(d) {
@@ -313,9 +314,9 @@ export default {
     },
     async getRoute(){
         var item = this.$route.query.item;
-        console.log("获取的参数：",item);
+        if(item!=undefined) console.log("要展示的材料：",item);
         for(let i=0;i<40;i++){
-          await this.sleep(500)
+          await this.sleep(500);
            if(this.stageRankT3.length>5){
                 if("全新装置"===item) this.showPopup(0);
                 if("异铁组"===item) this.showPopup(1);

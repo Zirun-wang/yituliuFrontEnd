@@ -23,18 +23,21 @@ import "~/assets/css/item.css";
 import "~/assets/css/recruit.css";
 
 
-
-
 import myheader from './myheader'
 import myfooter from './myfooter'
 import myheaderDev from './myheaderDev'
 
+
 export default {
+    
  components: {
       myheader,myfooter,myheaderDev
     }
 };
 </script>
+
+
+
 
 <style scoped>
   .el-main {

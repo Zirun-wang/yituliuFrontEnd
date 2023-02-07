@@ -51,7 +51,7 @@ export default {
         theme = "light";
         cookie.set("theme", theme, { expires: 30 });
       }
-      console.log("index", theme);
+      // console.log("index", theme);
       this.pageTheme = theme;
     },
   },
