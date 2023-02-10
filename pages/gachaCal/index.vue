@@ -15,9 +15,9 @@
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
 
-            <el-radio-button label="怪猎联动(3.14)" style="width: 33%"
+            <el-radio-button label="怪猎联动(3.27)" style="width: 33%"
             ></el-radio-button>
-            <el-radio-button label="4周年(5.15)" style="width: 33%" disabled
+            <el-radio-button label="4周年(5.15)" style="width: 33%" 
             ></el-radio-button>
             <el-radio-button label="夏活限定" type="primary" style="width: 33%" disabled
             ></el-radio-button>
@@ -245,7 +245,7 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              周常 {{ remainingWeekly + weeklyTaskValue }} 周
+              周常 {{ remainingWeeks + weeklyTaskValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -268,7 +268,7 @@
 
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              剿灭 {{ remainingWeekly + AnnihilationStageValue }} 周
+              剿灭 {{ remainingWeeks + AnnihilationStageValue }} 周
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
@@ -493,7 +493,8 @@
             <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'limited'"
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" 
+                 v-show="singlePack.packType == 'limited'&&1==singlePack.packState"
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
@@ -930,15 +931,15 @@ export default {
       // checkBox: ["1","7"],
       activityPlan: [],  //活动计划
       startDate: "", //开始时间
-      endDate: "2023/03/14 03:59:00", //结束时间
+      endDate: "2023/03/27 03:59:00", //结束时间
       start_TimeStamp: "",   //开始时间戳
       end_TimeStamp: "",     //结束时间戳
-      timeSelector: "怪猎联动(3.14)",  //活动时间节点选择框的绑定对象
+      timeSelector: "怪猎联动(3.27)",  //活动时间节点选择框的绑定对象
       gacha_potential: gacha_potentialJson, //常驻活动和主线
       gacha_potentialList: [],
       gacha_actRe: gacha_actReJson, //复刻活动
       gacha_actReList: [],
-      gacha_storePacks: gacha_storePacksJson, //商店礼包
+      gacha_storePacks: gacha_storePacksJson.data, //商店礼包
       gacha_storePacksList: [],
       gacha_store258: [], //黄票兑换38抽
       gacha_store258List: [],
@@ -957,7 +958,7 @@ export default {
       
       paradox:0,
       remainingDays: 0, //剩余天数
-      remainingWeekly: 0, //剩余周数
+      remainingWeeks: 0, //剩余周数
       remainingMonths: 0, //剩余月数
       remainingCheckinTimes: 0, // 剩余签到次数
 
@@ -998,7 +999,7 @@ export default {
   },
   mounted() {
     this.pieChart(this.pieData);
-    // this.openNotification();
+    this.openNotification();
   },
   methods: {
 
@@ -1010,10 +1011,10 @@ export default {
     //公告通知
     openNotification() {
       this.$notify({
-        title: '侠客警告',
+        title: '更新公告',
         dangerouslyUseHTMLString: true,
-        message: '<strong> 限定池还有'+ this.poolCountDown + '天,结束</strong>',
-        //
+        // message: '<strong> 限定池还有'+ this.poolCountDown + '天,结束</strong>',
+        message: '<strong> 四周年攒抽规划已开放<br>点击扇形图上方标签切换攒抽时间节点</strong>',
         duration: 12000
       });
     },
@@ -1021,8 +1022,8 @@ export default {
     // 选择攒计算的时间节点
     checkEndDate() {
       // this.cookieInit=true;
-      if (this.timeSelector === '怪猎联动(3.14)') {
-        this.endDate = '2023/03/14 03:59:00';
+      if (this.timeSelector === '怪猎联动(3.27)') {
+        this.endDate = '2023/03/27 03:59:00';
         this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断,
         //例如: 比如json中某条福利编号为1,数组中填写1即可,如果另一个攒抽时间节点不需要该条福利则不在数组写写入1
 
@@ -1079,28 +1080,35 @@ export default {
     //获取还有多少天
     getInterval() {
       console.log("今天是", this.startDate);
-      this.remainingWeekly = 0;  //剩余剿灭次数
+      this.remainingWeeks = 0;  //剩余剿灭次数
       this.remainingCheckinTimes = 0;  //剩余签到次数
-
+      this.remainingMonths = 1;
       this.start_TimeStamp = Date.parse(new Date(this.startDate)); //今日日期的时间戳
       this.end_TimeStamp = Date.parse(this.endDate); //结束日期的时间戳
-      var days = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);  //计算距离活动还有多少天
+      var timeInterval = parseInt((this.end_TimeStamp - this.start_TimeStamp) / 86400000);  //计算距离活动还有多少天
 
       //剩余月数,这是个有bug的写法,指不跨年勉强能用,回头修,
       
-      this.remainingMonths = new Date(this.endDate).getMonth() - new Date(this.startDate).getMonth() + 1;  
+      // this.remainingMonths = new Date(this.endDate).getMonth() - new Date(this.startDate).getMonth() + 1; 
+      let month_now =  new Date(this.startDate).getMonth();
       
-      for (let i = 1; i < days + 1; i++) {
+      for (let i = 1; i < timeInterval + 1; i++) {
         var date = new Date(this.start_TimeStamp + 86400000 * i);
         if (date.getDay() === 1) {  //判断接下来还有多少个星期一
-          this.remainingWeekly++;
+          this.remainingWeeks++;
         }
         if (date.getDate() === 17) {  //判断接下来还有17号，17号签到有抽卡券
           this.remainingCheckinTimes++;
         }
+        if(month_now!=new Date(date).getMonth()) {
+          console.log(month_now,"==",new Date(date).getMonth())
+          month_now = new Date(date).getMonth();
+          
+          this.remainingMonths ++;
+        }
       }
-      this.remainingDays = days;
-      console.log("距离活动还有：", this.remainingMonths + "月，", this.remainingWeekly + "周，", this.remainingDays + "天");
+      this.remainingDays = timeInterval;
+      console.log("距离活动还有：", this.remainingMonths + "月，", this.remainingWeeks + "周，", this.remainingDays + "天");
     },
 
     // 设置258黄票商店兑换抽卡券
@@ -1126,8 +1134,8 @@ export default {
     //  计算日常奖励
     getEveryreWard() {
       this.dailyRewards = 100 * parseInt(this.remainingDays);
-      this.weeklyTaskRewards = 500 * parseInt(this.remainingWeekly);
-      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeekly);
+      this.weeklyTaskRewards = 500 * parseInt(this.remainingWeeks);
+      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeeks);
     },
 
     compute() {
@@ -1695,6 +1703,7 @@ export default {
 .el-divider--horizontal {
   margin: 2px 6px;
   width: calc(100% - 12px);
+
 }
 
 /* .el-switch__core{

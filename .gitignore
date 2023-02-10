@@ -14,3 +14,5 @@ dist
 .idea
 /.nuxt.zip
 
+/static/skin/
+/static/avatar/
