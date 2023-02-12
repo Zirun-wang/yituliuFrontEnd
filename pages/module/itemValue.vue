@@ -119,7 +119,7 @@ export default {
       if (typeof theme == "undefined" || theme === undefined) {
         theme = "op_title_etext_light";
       }
-      console.log('item',theme);
+      // console.log('item',theme);
       this.opETextTheme = "op_title_etext_" + theme;
     },
     findAllItemValue() {

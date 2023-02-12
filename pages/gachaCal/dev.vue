@@ -13,8 +13,7 @@
         <!-- <el-divider></el-divider> -->
         <div class="gacha_unit" id="total">
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
-          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector"
-                          @change="checkEndDate(timeSelector)">
+          <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
 
             <el-radio-button label="怪猎联动(3.14)" style="width: 33%"
             ></el-radio-button>
@@ -946,8 +945,6 @@ export default {
       gacha_actReward: gacha_actRewardJson,  //活动奖励数据
       gacha_honeyCake: gacha_honeyCakeJson, //其他奖励数据
 
-
-
       originium: 0, //源石
       orundum: 0, //合成玉
       permit: 0, //寻访
@@ -955,8 +952,8 @@ export default {
       sellsCount: 0, //总氪金总和
       gachaTimes_total: 0, //总抽卡次数
 
-      //计算结果 
-      gachaTimesInfo:{},
+      
+      gachaTimesInfo:{},   //攒抽计算的各种结果 
       
       paradox:0,
       remainingDays: 0, //剩余天数
@@ -1450,7 +1447,7 @@ export default {
         this.pieData.push(chartFan);
       }
       
-      // console.log(this.gachaTimesInfo)
+      console.log(this.gachaTimesInfo);
 
       if (this.cookieInit > 1) {
         this.pieChart(this.pieData);
@@ -1469,13 +1466,16 @@ export default {
         this.certificateStoreFlag = cookie.get("certificateStoreFlag");
       } 
 
+      console.log(this.gachaTimesInfo.originium_exist ===undefined||this.gachaTimesInfo.originium_exist == "undefined");
+
       if(this.gachaTimesInfo.originium_exist ===undefined||this.gachaTimesInfo.originium_exist == "undefined") this.gachaTimesInfo.originium_exist = 0;
       if(this.gachaTimesInfo.orundum_exist ===undefined||this.gachaTimesInfo.orundum_exist == "undefined") this.gachaTimesInfo.orundum_exist = 0;
       if(this.gachaTimesInfo.permit_exist ===undefined||this.gachaTimesInfo.permit_exist == "undefined") this.gachaTimesInfo.permit_exist = 0;
       if(this.gachaTimesInfo.permit10_exist ===undefined||this.gachaTimesInfo.permit10_exist == "undefined") this.gachaTimesInfo.permit10_exist = 0;
       if(this.paradox ===undefined||this.paradox == "undefined") this.paradox = 0;
       if(this.certificateStoreFlag ===undefined||this.certificateStoreFlag == "undefined") this.certificateStoreFlag = true;
-    
+
+      
       cookie.set("originium_exist", this.gachaTimesInfo.originium_exist, {expires: 30});
       cookie.set("orundum_exist", this.gachaTimesInfo.orundum_exist, {expires: 30});
       cookie.set("permit_exist", this.gachaTimesInfo.permit_exist, {expires: 30});
@@ -1483,7 +1483,7 @@ export default {
       cookie.set("paradox", this.paradox, {expires: 30});
       cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
 
-      console.log(this.gachaTimesInfo.permit10_exist ===undefined||this.gachaTimesInfo.permit10_exist == "undefined");
+      
       this.cookieInit++;
 
       if (this.originium_648 === "") this.originium_648 = 0;

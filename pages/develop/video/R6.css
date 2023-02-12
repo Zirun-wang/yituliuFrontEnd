@@ -1,0 +1,67 @@
+.box {
+    width: 1980px;
+    height: 1080px;
+    /* border: 1px solid #ccc; */
+    background: url(~static/img/back/登临意.png);
+    /* 加载三张图片 */
+    background-repeat: no-repeat;  /*不重复*/
+    background-size: 100%, 100%, 100%; /*设定图片显示尺寸，保障充满整个div */
+    background-position: 0 0, -500px -500px, -500px -500px; /*设置三个图片的偏移量 */
+    border: solid red 1px;
+    color: rgb(0, 0, 0);
+    
+    /* text-shadow:10px 10px 10px #000000; */
+    /* -webkit-text-stroke: 3px #000000; */
+    /* text-shadow: 0 5px rgb(0, 0, 0), 5px 0 rgb(0, 0, 0), -5px 0 rgb(0, 0, 0), 0 -5px rgb(0, 0, 0); */
+}
+
+.bak_color{
+    width: 1980px;
+    height: 1080px;
+    background-color: rgba(255, 255, 255, 0.397) ;
+}
+
+.char_image {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    left: 900px;
+    /* margin: auto; */
+    /* border: solid 1px blue; */
+}
+
+.apCost{
+    height: 180px;
+}
+
+.ap_image{
+    margin-bottom: -20px;
+    /* margin-top: -10px; */
+}
+
+.itemCostTable{
+    font-size: 40px;
+    font-weight: 900;
+    position: absolute;
+    left: 1000px;
+    top:600px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6) ;
+}
+
+
+.item_image{
+    width: 120px;
+    height: 120px;
+    margin-bottom:-20px;
+}
+
+#myChart{
+    width: 800px;
+    height:1080px;
+    background-color: none;
+    /* border: solid 1px red; */
+    color: rgb(215, 255, 70);
+}
+
+/* ['rgb(255, 80, 70)','rgb(255, 105, 70)','rgb(255, 130, 70)','rgb(255, 155, 70)','rgb(255, 180, 70)','rgb(255, 205, 70)','rgb(255, 230, 70)','rgb(230, 255, 70)','rgb(205, 255, 70)','rgb(205, 180, 70)' ] */

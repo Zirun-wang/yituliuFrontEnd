@@ -1,0 +1,422 @@
+{
+    "char_112_siege": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_112_siege.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_427_vigil": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_427_vigil.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_2013_cerber": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_2013_cerber.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_291_aglina": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_291_aglina.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_377_gdglow": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_377_gdglow.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1026_gvial2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1026_gvial2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1012_skadi2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1012_skadi2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_202_demkni": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_202_demkni.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_362_saga": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_362_saga.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_103_angel": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_103_angel.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_472_pasngr": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_472_pasngr.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1013_chen2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1013_chen2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_2024_chyue": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_2024_chyue.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_136_hsguma": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_136_hsguma.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_180_amgoat": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_180_amgoat.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_300_phenxi": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_300_phenxi.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_2023_ling": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_2023_ling.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_420_flamtl": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_420_flamtl.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_456_ash": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_456_ash.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_010_chen": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_010_chen.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_332_archet": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_332_archet.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4064_mlynar": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4064_mlynar.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_197_poca": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_197_poca.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4072_ironmn": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4072_ironmn.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4055_bgsnow": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4055_bgsnow.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_416_zumama": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_416_zumama.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_350_surtr": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_350_surtr.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_391_rosmon": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_391_rosmon.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_172_svrash": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_172_svrash.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_147_shining": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_147_shining.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_430_fartth": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_430_fartth.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_213_mostma": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_213_mostma.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_248_mgllan": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_248_mgllan.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_222_bpipe": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_222_bpipe.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_206_gnosis": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_206_gnosis.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_340_shwaz": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_340_shwaz.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1020_reed2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1020_reed2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_188_helage": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_188_helage.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_437_mizuki": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_437_mizuki.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4009_irene": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4009_irene.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_113_cqbw": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_113_cqbw.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4080_lin": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4080_lin.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_263_skadi": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_263_skadi.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4046_ebnhlz": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4046_ebnhlz.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_017_huang": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_017_huang.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_2014_nian": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_2014_nian.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_134_ifrit": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_134_ifrit.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1014_nearl2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1014_nearl2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_225_haak": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_225_haak.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1023_ghost2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1023_ghost2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4048_doroth": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4048_doroth.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_293_thorns": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_293_thorns.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_400_weedy": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_400_weedy.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_426_billro": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_426_billro.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4065_judge": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4065_judge.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_179_cgbird": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_179_cgbird.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_423_blemsh": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_423_blemsh.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_003_kalts": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_003_kalts.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_311_mudrok": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_311_mudrok.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_358_lisa": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_358_lisa.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_1028_texas2": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_1028_texas2.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_485_pallas": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_485_pallas.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_479_sleach": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_479_sleach.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_250_phatom": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_250_phatom.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_322_lmlee": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_322_lmlee.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_474_glady": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_474_glady.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4039_horn": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4039_horn.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_4042_lumen": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_4042_lumen.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_2015_dusk": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_2015_dusk.png"
+        },
+        "height": 50,"margin": -5
+    },
+    "char_264_f12yin": {
+        "backgroundColor": {
+            "image": "http://127.0.0.1:4000/avatar/char_264_f12yin.png"
+        },
+        "height": 50,"margin": -5
+    }
+}
