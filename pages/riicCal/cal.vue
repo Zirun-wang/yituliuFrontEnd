@@ -61,6 +61,8 @@ export default {
         let Flametail = false;
         let Amiya = 0;
         let Kaltsit = 0;
+
+        
         //控制中枢
         let control_rooms = rooms.control;
         for (let c = 0; c < control_rooms.length; c++) {
@@ -369,7 +371,7 @@ export default {
           if (manu_spd_item > parseFloat(char_skill_variable[i].skillLimit)) {
             manu_spd_item = 0.4
           }
-          ;
+          
           info = {info: char_skill_variable[i].name + "—提供制造效率", value: manu_spd_item};
           this.infoList.push(info);
           manu_spd = manu_spd + manu_spd_item;
@@ -452,63 +454,54 @@ export default {
           if (trading[i] === building_data_trade[j].name) {
             // ************基建变量**************
 
-            if ("limit" === building_data_trade[j].skillName) {
+            if ("加容量" === building_data_trade[j].skillName) {
               orderLimit = orderLimit + building_data_trade[j].ordLimit;
             }
 
             // ************干员技能**************
             //标准技能
-            if ("trade_spd" === building_data_trade[j].skillName) {
+            if ("基建效率" === building_data_trade[j].skillName) {
               trade_spd =
                 trade_spd + parseFloat(building_data_trade[j].skillData);
-              info = {
-                info: building_data_trade[j].name + "—提供贸易效率",
-                value: parseFloat(building_data_trade[j].skillData)
-              };
+              info = { info: building_data_trade[j].name + "—提供贸易效率", value: parseFloat(building_data_trade[j].skillData) };
               this.infoList.push(info);
             }
 
             // 订单上限增加
-            if ("trade_spd&limit" === building_data_trade[j].skillName) {
+            if ("基建效率&加容量" === building_data_trade[j].skillName) {
               orderLimit =
                 orderLimit + parseInt(building_data_trade[j].ordLimit);
               trade_spd =
                 trade_spd + parseFloat(building_data_trade[j].skillData);
-              info = {
-                info: building_data_trade[j].name + "—提供贸易效率",
-                value: parseFloat(building_data_trade[j].skillData)
-              };
+              info = { info: building_data_trade[j].name + "—提供贸易效率", value: parseFloat(building_data_trade[j].skillData) };
               this.infoList.push(info);
             }
 
             //  龙舌兰
-            if ("long" === building_data_trade[j].skillName) {
+            if ("龙舌兰" === building_data_trade[j].skillName) {
               trade_spdMagnification = 1.24;
               info = {info: building_data_trade[j].name + "—提供贸易效率倍率", value: trade_spdMagnification};
               this.infoList.push(info);
             }
 
             // 但书
-            if ("against" === building_data_trade[j].skillName) {
+            if ("但书" === building_data_trade[j].skillName) {
               trade_spdMagnification = 1.55;
               info = {info: building_data_trade[j].name + "—提供贸易效率倍率", value: trade_spdMagnification};
               this.infoList.push(info);
             }
 
             //  空弦
-            if ("trade_spd&dorm&lv" === building_data_trade[j].skillName) {
+            if ("基建效率_根据宿舍" === building_data_trade[j].skillName) {
               trade_spd =
                 trade_spd +
                 dormLv * parseFloat(building_data_trade[j].skillDataSp);
-              info = {
-                info: building_data_trade[j].name + "—提供贸易效率",
-                value: dormLv * parseFloat(building_data_trade[j].skillDataSp)
-              };
+              info = { info: building_data_trade[j].name + "—提供贸易效率", value: dormLv * parseFloat(building_data_trade[j].skillDataSp) };
               this.infoList.push(info);
             }
 
             // 黑键
-            if ("trade_spd_bd" === building_data_trade[j].skillName) {
+            if ("基建效率_感知信息" === building_data_trade[j].skillName) {
               console.log(ChainLink, parseFloat(building_data_trade[j].variable))
               var trade_spd_v =
                 ChainLink / parseFloat(building_data_trade[j].variable) * parseFloat(building_data_trade[j].skillDataSp);
@@ -518,7 +511,7 @@ export default {
             }
 
             // 伺夜
-            if ("trade_spd&meet" === building_data_trade[j].skillName) {
+            if ("基建效率_根据会议室" === building_data_trade[j].skillName) {
               var trade_spd_v =
                 parseFloat(building_data_trade[j].skillData) +
                 meetLv * parseFloat(building_data_trade[j].skillDataSp);
@@ -528,17 +521,17 @@ export default {
             }
 
             // 德克萨斯
-            if ("trade_spd&char" === building_data_trade[j].skillName) {
+            if ("基建效率_德克萨斯" === building_data_trade[j].skillName) {
               char_skill_sp.push(building_data_trade[j]);
             }
 
             // 孑
-            if ("limit_diff" === building_data_trade[j].skillName) {
+            if ("基建效率_孑" === building_data_trade[j].skillName) {
               char_skill_variable.push(building_data_trade[j]);
             }
 
             //  雪雉
-            if ("trade_spd&variable" === building_data_trade[j].skillName) {
+            if ("基建效率_根据效率" === building_data_trade[j].skillName) {
               char_skill_variable.push(building_data_trade[j]);
             }
 
@@ -555,7 +548,7 @@ export default {
       for (let i = 0; i < char_skill_sp.length; i++) {
         let char_trade_spd = 0;
         //  德克萨斯
-        if ("trade_spd&char" === char_skill_sp[i].skillName) {
+        if ("基建效率_德克萨斯" === char_skill_sp[i].skillName) {
           if (LapplandFlag) {
             char_trade_spd = parseFloat(char_skill_sp[i].skillDataSp);
           }
@@ -571,7 +564,7 @@ export default {
       for (let i = 0; i < char_skill_variable.length; i++) {
         let char_trade_spd = 0;
         //雪雉
-        if ("trade_spd&variable" === char_skill_variable[i].skillName) {
+        if ("基建效率_根据效率" === char_skill_variable[i].skillName) {
           char_trade_spd =
             (trade_spd / parseFloat(char_skill_variable[i].variable)) *
             parseFloat(char_skill_variable[i].skillDataSp);
@@ -585,7 +578,7 @@ export default {
         }
 
         //  孑
-        if ("limit_diff" === char_skill_variable[i].skillName) {
+        if ("基建效率_孑" === char_skill_variable[i].skillName) {
           if (true) {
             orderLimit = orderLimit - parseInt(trade_spd / 0.1);
 
