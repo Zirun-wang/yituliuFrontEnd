@@ -267,9 +267,9 @@
 			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/bilibili.png" />
 			罗德岛基建BETA</div></a>
 			<p class="foot_unit_title">-粉丝群-</p>
-			<a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+			<a href="https://jq.qq.com/?_wv=1027&k=q1z3p9Yj"><div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
 			<img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png" />
-			罗德岛数据文献馆</div></a>
+			阿戈尔数据文献馆</div></a>
 		</div>
 		<div class="foot_unit">
 			<p class="foot_unit_title">-友情链接-</p>

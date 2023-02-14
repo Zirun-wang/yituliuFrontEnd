@@ -868,10 +868,10 @@
                 </div>
               </a>
               <p class="foot_unit_title">-粉丝群/反馈-</p>
-              <a href="https://jq.qq.com/?_wv=1027&k=YoiC6RWw">
+              <a href="https://jq.qq.com/?_wv=1027&k=q1z3p9Yj">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
                   <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png"/>
-                  罗德岛数据文献馆
+                  阿戈尔数据文献馆
                 </div>
               </a>
             </div>
