@@ -106,7 +106,7 @@ export default {
       tag_class_green: "yituliu_title_moudule_button",
       tag_class_sanity: "yituliu_title_moudule_button",
       opETextTheme: "op_title_etext_light",
-      valueVerison:"auto0.625"
+      valueVerison:0.625
     };
   },
   created() {

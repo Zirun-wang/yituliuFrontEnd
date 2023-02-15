@@ -1026,17 +1026,17 @@ export default {
         this.endDate = '2023/03/27 03:59:00';
         this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断,
         //例如: 比如json中某条福利编号为1,数组中填写1即可,如果另一个攒抽时间节点不需要该条福利则不在数组写写入1
-
-
         this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+        this.gacha_store258List=[];
       } else if (this.timeSelector === '4周年(5.15)') {
         this.endDate = "2023/05/15 03:59:00";
         this.activityPlan = [-2, 2, 3, 4];
         this.poolCountDownFlag_permit = false;
         this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
       }
-
+      
+      
       this.getInterval();
       this.getEveryreWard();
       this.getPoolCountDown();
@@ -1330,6 +1330,7 @@ export default {
       for (let i = 0; i < this.gacha_actReList.length; i++) {
         // console.log("源石+",this.gacha_actReList[i].gachaOriginium,",合成玉+",this.gacha_actReList[i].gachaOrundum,
           // ",单抽+",this.gacha_actReList[i].gachaPermit,'---by',this.gacha_actReList[i].packName,);
+          if (this.activityPlan.includes(this.gacha_actReList[i].plans)) {
         this.originium += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
         this.orundum += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
         this.permit += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
@@ -1339,6 +1340,7 @@ export default {
         this.gachaTimesInfo.orundum_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
         this.gachaTimesInfo.permit_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);
         this.gachaTimesInfo.permit10_act += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit10);
+          }
       }
 
       //活动抽卡次数（单项）

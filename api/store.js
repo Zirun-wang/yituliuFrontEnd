@@ -5,9 +5,9 @@ const api_name = `/api`
 export default {
 
     //查询所有材料价值
-    findAllItem(version) {
+    findAllItem(expCoefficient) {
         return request({
-            url: `${api_name}/find/item/value/${version}`,
+            url: `${api_name}/find/item/value?expCoefficient=${expCoefficient}`,
             method: 'get',
         })
     },

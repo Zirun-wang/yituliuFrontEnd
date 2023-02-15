@@ -282,7 +282,7 @@ export default {
       updateTime:'2000-01-01 00:00:00',
       itemId:'',
       opETextTheme: "op_title_etext_light",
-      stageVersion:"auto062",
+      stageVersion:0.625,
       activeName:['1'],
     };
   },
@@ -506,7 +506,7 @@ export default {
 
 
     getStageResultDateT3(){
-      stageApi.findStageDateByTypeOrderByEfficiencyDesc(500,this.stageVersion).then((response) => {
+      stageApi.findStageDateByTypeOrderByEfficiencyDesc(this.stageVersion).then((response) => {
         this.stageRankT3 = [];
         this.stageRankT3 = response.data;
         this.updateTime = response.data[0][0].updateTime;
@@ -527,7 +527,7 @@ export default {
       });
     },
     getStageResultDateOrundum(){
-    stageApi.findStageDataOfOrundum("Ordinary").then((response) => {
+    stageApi.findStageDataOfOrundum().then((response) => {
         this.stageRankOrundum = [];
         this.stageRankOrundum = response.data;
       });
