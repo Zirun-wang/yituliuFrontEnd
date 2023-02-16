@@ -84,6 +84,23 @@ export default {
         this.barChart();
       }
 
+
+      await this.sleep(4000);
+      this.chapter = chapters[2];
+      for (let i = 0; i < itemCount202301.length; i++) {
+        var costContent = itemCount202301[i].itemCount + "(+ " + (itemCount202301[i].itemCount-itemCount202211[i].itemCount) + ")";
+        itemCostContent[15 - i] = costContent;
+        itemName[15 - i] = itemCount202301[i].itemName;
+        itemId[15 - i] = itemCount202301[i].itemId;
+        this.itemCost[15 - i] = itemCount202301[i].itemCount;
+        itemIndex = itemCount202211[i].itemId;
+        // await this.sleep(1500);
+        
+        document.getElementById("myChart").style.background = "url(/img/back/" + chapters[2] + ".png)"
+        document.getElementById("myChart").style.backgroundSize = ""
+        this.barChart();
+      }
+
     },
 
     async getUpdateNumber(newData, oldData) {

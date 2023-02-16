@@ -15,7 +15,7 @@
           <!-- 如果有4个选项则修改为 style="width:98%;margin:0 1%;"，子项宽度25% -->
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector" @change="checkEndDate(timeSelector)">
 
-            <el-radio-button label="怪猎联动(3.27)" style="width: 33%"
+            <el-radio-button label="怪猎联动(3.21)" style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="4周年(5.15)" style="width: 33%" 
             ></el-radio-button>
@@ -188,7 +188,7 @@
               <a href="/?item=Orundum" style="margin: 0px 20px;">查看备选搓玉关卡</a>
               <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
                 如何安排搓玉？
-                <!-- <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/el.png"/> -->
+                <!-- <img class="gacha_img_small" src="/img/website/el.png"/> -->
               </a>
             </div>
           </div>
@@ -388,7 +388,7 @@
           </div>
           <!-- 主线 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>
             主线、突袭、绝境
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
@@ -417,7 +417,7 @@
           </el-checkbox-group>
           <!-- Sidestory -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>支线、别传
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>支线、别传
           </div>
           <el-checkbox-group v-model="gacha_potentialList" class="">
             <div
@@ -456,7 +456,7 @@
           </div>
           <!-- 月常礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">月常礼包
+            <img class="gacha_img_small" src="/img/website/ex-icon.png">月常礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'"
@@ -490,7 +490,7 @@
           </el-checkbox-group>
           <!-- 限时礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">限时礼包
+            <img class="gacha_img_small" src="/img/website/ex-icon.png">限时礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" 
@@ -526,7 +526,7 @@
           </el-checkbox-group>
           <!-- 新人礼包 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png">新人礼包
+            <img class="gacha_img_small" src="/img/website/ex-icon.png">新人礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'once'"
@@ -561,7 +561,7 @@
           </el-checkbox-group>
           <!-- 首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>源石首充
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>源石首充
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'year'"
@@ -584,7 +584,7 @@
           </el-checkbox-group>
           <!-- 非首充 -->
           <div class="gacha_unit_fold">
-            <img class="gacha_img_small" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ex-icon.png"/>非首充
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>非首充
           </div>
 
           <div class="gacha_unit_child">
@@ -796,25 +796,25 @@
               <p class="foot_unit_title">-开发信息-</p>
               <a href="https://github.com/Zirun-wang/yituliuFrontEnd">
                 <div class="foot_unit_button uni_shadow_2" id="foot_frontEnd">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
+                  <img class="foot_unit_pic" src="/img/website/github.png"/>
                   前端
                 </div>
               </a>
               <a href="https://github.com/yamasakura/yituliuBackEnd">
                 <div class="foot_unit_button uni_shadow_2" id="foot_backEnd">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/github.png"/>
+                  <img class="foot_unit_pic" src="/img/website/github.png"/>
                   后端
                 </div>
               </a>
               <a href="https://jq.qq.com/?_wv=1027&k=ZmORnr5F">
                 <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png"/>
+                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
                   开发群 938710832
                 </div>
               </a>
               <a href="https://shimo.im/sheets/dPkpKP1zQmc1PvqO/7mSBe">
                 <div class="foot_unit_button uni_shadow_2" style="width: 198px;">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/图标_源石.png"/>
+                  <img class="foot_unit_pic" src="/img/website/图标_源石.png"/>
                   本站财政状况
                 </div>
               </a>
@@ -840,22 +840,22 @@
               <p class="foot_unit_title">-数据支持-</p>
               <a href="https://space.bilibili.com/8412516">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/honeycake.webp"/>罗德岛蜜饼工坊
+                  class="foot_unit_pic" src="/img/website/honeycake.webp"/>罗德岛蜜饼工坊
                 </div>
               </a>
               <a href="https://prts.wiki/w/%E9%A6%96%E9%A1%B5">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/prts.png"/>PRTS
+                  class="foot_unit_pic" src="/img/website/prts.png"/>PRTS
                 </div>
               </a>
               <a href="https://yituliu.site/">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/ico64.png"/>一图流主站
+                  class="foot_unit_pic" src="/img/website/ico64.png"/>一图流主站
                 </div>
               </a>
               <a href="https://space.bilibili.com/22606843">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle;color:gray;"><img
-                  class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/公孙长乐.webp"/>公孙长乐
+                  class="foot_unit_pic" src="/img/website/公孙长乐.webp"/>公孙长乐
                 </div>
               </a>
             </div>
@@ -863,14 +863,14 @@
               <p class="foot_unit_title">-B站发布-</p>
               <a href="https://space.bilibili.com/688411531">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/bilibili.png"/>
+                  <img class="foot_unit_pic" src="/img/website/bilibili.png"/>
                   罗德岛基建BETA
                 </div>
               </a>
               <p class="foot_unit_title">-粉丝群/反馈-</p>
               <a href="https://jq.qq.com/?_wv=1027&k=q1z3p9Yj">
                 <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
-                  <img class="foot_unit_pic" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/qq.png"/>
+                  <img class="foot_unit_pic" src="/img/website/qq.png"/>
                   阿戈尔数据文献馆
                 </div>
               </a>
@@ -931,10 +931,10 @@ export default {
       // checkBox: ["1","7"],
       activityPlan: [],  //活动计划
       startDate: "", //开始时间
-      endDate: "2023/03/27 03:59:00", //结束时间
+      endDate: "2023/03/21 03:59:00", //结束时间
       start_TimeStamp: "",   //开始时间戳
       end_TimeStamp: "",     //结束时间戳
-      timeSelector: "怪猎联动(3.27)",  //活动时间节点选择框的绑定对象
+      timeSelector: "怪猎联动(3.21)",  //活动时间节点选择框的绑定对象
       gacha_potential: gacha_potentialJson, //常驻活动和主线
       gacha_potentialList: [],
       gacha_actRe: gacha_actReJson, //复刻活动
@@ -1022,8 +1022,8 @@ export default {
     // 选择攒计算的时间节点
     checkEndDate() {
       // this.cookieInit=true;
-      if (this.timeSelector === '怪猎联动(3.27)') {
-        this.endDate = '2023/03/27 03:59:00';
+      if (this.timeSelector === '怪猎联动(3.21)') {
+        this.endDate = '2023/03/21 03:59:00';
         this.activityPlan = [-1, 1, 3];    //非日常奖励根据json内每条游戏福利编号判断,
         //例如: 比如json中某条福利编号为1,数组中填写1即可,如果另一个攒抽时间节点不需要该条福利则不在数组写写入1
         this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
@@ -1330,7 +1330,8 @@ export default {
       for (let i = 0; i < this.gacha_actReList.length; i++) {
         // console.log("源石+",this.gacha_actReList[i].gachaOriginium,",合成玉+",this.gacha_actReList[i].gachaOrundum,
           // ",单抽+",this.gacha_actReList[i].gachaPermit,'---by',this.gacha_actReList[i].packName,);
-          if (this.activityPlan.includes(this.gacha_actReList[i].plans)) {
+          if (this.activityPlan.includes(this.gacha_actRe[this.gacha_actReList[i]].plans)) {
+            console.log(this.gacha_actRe[this.gacha_actReList[i]].packName)
         this.originium += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOriginium);
         this.orundum += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaOrundum);
         this.permit += parseInt(this.gacha_actRe[this.gacha_actReList[i]].gachaPermit);

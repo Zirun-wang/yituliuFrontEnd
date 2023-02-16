@@ -279,7 +279,7 @@
 
 <script>
 import cookie from "js-cookie";
-import packsPPR from "static/json/pack_packsPPR_demo.json";
+// import packsPPR from "static/json/pack_packsPPR_demo.json";
 import storeApi from "@/api/store";
 import foot from "@/layouts/footmini.vue";
 
@@ -292,8 +292,9 @@ export default {
       // packsPPR:原始数据
       // packsPPRDataSort:排序用缓冲区
       opETextTheme: "op_title_etext_light",
-      packPPRResponse: packsPPR.data,
-      packsPPRJson: packsPPR,
+      // packPPRResponse: packsPPR.data,
+      packPPRResponse:[],
+      // packsPPRJson: packsPPR,
       packsPPRData: [],
       packsPPRDataSort: [],
       FilterCriteria: [],
@@ -309,8 +310,8 @@ export default {
   },
   created() {
     this.getCookies();
-    this.initData();
-    // this.getStorePackData();
+    // this.initData();
+    this.getStorePackData();
   },
   methods: {
     getCookies() {
