@@ -1712,4 +1712,24 @@ export default {
 /* .el-switch__core{
     position: static;
       } */
+
+@media (min-width: 1080px) and (orientation: landscape) {
+  #totalTable {
+    position: absolute ! important;
+    top: 0 ! important;
+    left: 0;
+    width: 540px;
+  }
+
+  .el-collapse {
+    padding-left: 550px;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  #gacha {
+    max-width: 1200px;
+    height: calc(100vh - 85px);
+  }
+}
 </style>
