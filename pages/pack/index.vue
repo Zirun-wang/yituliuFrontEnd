@@ -46,7 +46,7 @@
       </div>
       <!-- 标题区域end -->
 
-      <div class="pack_simple" style="display:none">
+      <!-- <div class="pack_simple" style="display:none">
         <table>
           <tbody>
           <tr class="pack_simple_tr_title">
@@ -71,7 +71,7 @@
           </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
 
       <div id="pack_content" style="display:flex;">
         <!-- 仅计抽卡 -->
@@ -326,7 +326,6 @@ export default {
     getBackColor(index){
       console.log(index);
       if(index%2!==0)  return "pack_simple_tr_back";
-      
     },
 
     switchPacks(packs) {
@@ -421,10 +420,10 @@ export default {
 
       for (let i = 0; i < this.packPPRResponse.length; i += 1) {
         if(0===this.packPPRResponse[i].packState) {
-          console.log('弹出：',this.packPPRResponse[i].packName);
+          // console.log('弹出：',this.packPPRResponse[i].packName);
           continue
         };
-         console.log('正常：',this.packPPRResponse[i].packName);
+        //  console.log('正常：',this.packPPRResponse[i].packName);
         if (this.packPPRResponse[i].packRmbPerDraw === null) {
           this.packPPRResponse[i].packRmbPerDraw = 0;
         }
@@ -544,7 +543,6 @@ export default {
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } else
         return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
-
     },
     getContentId(id, type) {
       return (type + "_" + id)

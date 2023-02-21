@@ -1,22 +1,22 @@
 <template>
-  <div>
+<div class="main">
+  <div class="cover">
+    <div class="title">
+      <span>&emsp;&emsp;&nbsp;新材料加入后</span><br />
+      <span>截止《春分》</span><br />
+      <span>全干员</span>
+      <span><a class="title1"> 蓝材料</a>需求统计</span><br />
+    </div>
+    <img class="item_size1" :src="getImage('转质盐组')" alt="" />
     <div class="item_card">
-      <div
-        v-for="(item, index) in itemList"
-        :key="index"
-        v-show="item.cardNum < 8 && item.cardNum > 1"
-      >
+      <div v-for="(item, index) in itemList.slice(0, 15)" :key="index">
         <img class="item_size" :src="getImage(item.itemName)" alt="" />
       </div>
     </div>
 
-    <div class="title-image">
-      <span>3.5周年至今全干员</span><br>
-      <span><a class="title1"> 蓝材料</a>需求统计</span><br>
-      <span>截止登临意</span>
-    </div>
     <!-- <div class="char-image"> <img class="" src="/img/back/char_4080_lin_1b.png" ></div> -->
   </div>
+    </div>
 </template>
 
 <script>
@@ -34,9 +34,9 @@ export default {
   },
   methods: {
     findAllItemValue() {
-      storeApi.findAllItem('auto0.625').then((response) => {
+      storeApi.findAllItem(0.625).then((response) => {
         this.itemList = [];
-        this.itemList = response.data;
+        this.itemList = response.data.filter((item) => item.cardNum == 3);
       });
     },
     getImage(name) {
@@ -47,44 +47,69 @@ export default {
 </script>
 
 <style scoped>
-.item_card {
-  display: flex;
-  background-color: white;
-  width: 1280px;
-  height: 720px;
-  margin: 5%;
-  flex-wrap: wrap;
-  /* background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(~static/img/back/登临意.png) no-repeat 50% 50% /cover; */
-  background-size: 1300px;
-  /* opacity: 0.7; */
+
+.main{
+  width: 2376px;
+  height: 1296px;
+  border: solid 1px red;
 }
-.item_size {
-  margin: 5px;
-  width: 105px;
-  opacity: 0.7;
+.cover {
+  width: 1980px;
+  height: 1280px;
+  margin: auto;
+  border: solid 1px red;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    ),
+    url(~static/img/back/春分.png) no-repeat 50% 50% / cover;
+  background-size: 2400px;
 }
 
-.title-image {
-  /* background-color: rgb(180, 180, 180); */
-  color: #F7AD41;
-  margin-top: -700px;
-  margin-left: 120px;
-  width: 990px;
-  font-size: 96px;
+.item_size {
+  margin: 5px;
+  width: 150px;
+}
+
+.item_size1 {
+  width: 300px;
+  position: absolute;
+  left: 350px;
+  top: 430px;
+}
+
+.item_card {
+  display: flex;
+  /* border: solid 1px red; */
+  width: 500px;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 1550px;
+  top: 170px;
+}
+
+.title {
+  color: #f7ad41;
+  position: absolute;
+  left: 380px;
+  top: 560px;
+  width: 1300px;
+  font-size: 120px;
   text-shadow: 10px 10px 10px #000000;
   -webkit-text-stroke: 4px #000000;
   letter-spacing: 1px;
   font-weight: 700;
   /* font-family: STXingkai; */
-  position: relative;
+
   z-index: 99;
+  /* background: rgb(255, 255, 255,0.7); */
 }
 
-.title1{
-  color: rgb(0, 132, 255);
+.title1 {
+  color: rgb(0, 191, 255);
 }
 
-.char-image{
+.char-image {
   position: relative;
   width: 200px;
   z-index: 90;
@@ -92,9 +117,7 @@ export default {
   margin-left: 800px;
 }
 
-.char-image img{
-  
+.char-image img {
   width: 800px;
-
 }
 </style>
