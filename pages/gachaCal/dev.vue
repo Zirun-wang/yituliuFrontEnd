@@ -890,7 +890,7 @@
 </template>
 
 <script>
-import gacha_potentialJson from "static/json/gacha_potentialNew.json";  //常驻活动和主线数据
+import gacha_potentialJson from "static/json/gacha_potential.json";  //常驻活动和主线数据
 import gacha_actReJson from "static/json/gacha_actRe.json";     //复刻活动数据
 import gacha_storePacksJson from "static/json/gacha_storePacks.json";  //商店礼包数据
 import gacha_actRewardJson from "static/json/gacha_actReward.json";  //活动奖励数据
@@ -1058,8 +1058,9 @@ export default {
     //判断奖励是否在时间段内
     isDuringDate(start,end){
       // console.log(end,' : ',Date.parse(new Date(end)),' <= ',this.end_TimeStamp, Date.parse(new Date(end))<=this.end_TimeStamp)
-       if(Date.parse(new Date(end))<=this.end_TimeStamp) return true;
+       if(Date.parse(new Date(start))>=this.start_TimeStamp ||Date.parse(new Date(end))<=this.end_TimeStamp) return true;
        return false;
+      
     },
     //获取当天日期
     getDate() {
@@ -1162,6 +1163,7 @@ export default {
       if (typeof this.certificateStoreFlag === 'string') {
         if (this.certificateStoreFlag === "false") this.certificateStoreFlag = false;
         if (this.certificateStoreFlag === "true") this.certificateStoreFlag = true;
+        
       }
       
       //判断是否兑换完本月绿票商店
@@ -1187,7 +1189,7 @@ export default {
 
       //主线和常驻活动计算（共计）
       
-      
+    
       
       for (let i = 0; i < this.gacha_potentialList.length; i++) {
         this.originium += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
@@ -1195,14 +1197,16 @@ export default {
         this.calResults.originium_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOriginium);
         this.calResults.orundum_potential += parseInt(this.gacha_potential[this.gacha_potentialList[i]].gachaOrundum);
       }
+     
+    
 
       //悖论模拟
-      this.orundum += parseInt(this.paradox) * 200;
+      this.orundum += parseInt(this.paradox) * 200; 
+      
 
       this.calResults.orundum_potential += parseInt(this.paradox) * 200;
 
 
-    
       //主线和常驻活动抽卡次数（单项）
       this.calResults.gachaTimes_potential =
         parseInt(this.calResults.originium_potential) * 0.3 * parseInt(flag_originium) +
@@ -1332,16 +1336,17 @@ export default {
            }*/
        
 
-      Object.entries(this.gacha_honeyCake)      //转为一个list<list>   举例为[[奖励名称,奖励内容],[奖励名称,奖励内容]]
-      //过滤条件   不在当前选择的时间段内的奖励 &&  （公共的奖励||只可当期使用的奖励）  
-      .filter((list)=>this.isDuringDate(list[1].start,list[1].end)&&("公共"==list[1].rewardType||this.rewardType==list[1].rewardType))   
+      Object.entries(this.gacha_honeyCake)      //转为一个list<list>   结构为[[奖励名称,奖励内容],[奖励名称,奖励内容]]
+      //过滤条件   不在当前选择的时间段内的奖励   &&   （公共的奖励||只可当期使用的奖励）  
+      .filter((list)=>this.isDuringDate(list[1].start,list[1].end)
+               &&("公共"==list[1].rewardType||this.rewardType==list[1].rewardType))   
       .forEach(list=>{                                             //循环list<list>， list为[奖励名称,奖励内容] 
-        if('honeyCake'===list[1].module){    //这里是计算一些杂项奖励        
+        if('honeyCake'===list[1].module){    //这里是计算其他奖励        
           this.calResults.originium_other += list[1].originium;  //xxxxx_other格式的属性  其他奖励的的各项奖励数量，下同
           this.calResults.orundum_other += list[1].orundum;
           this.calResults.permit_other += list[1].permit;
           this.calResults.permit10_other += list[1].permit10;
-          console.log(list[0])
+          // console.log(list[0])
         }else if('act'===list[1].module){        //这里是计算活动奖励
           this.calResults.originium_act += list[1].originium;     //xxxx_act格式的属性 活动奖励的各项奖励数量，下同
           this.calResults.orundum_act += list[1].orundum;

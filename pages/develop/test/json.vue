@@ -15,6 +15,7 @@ import gacha_actRewardJson from "static/json/gacha_actReward.json"; //活动奖�
 
 import building_data_trade from "static/json/build/building_data_trade.json"; //这是贸易站的数据
 import building_data_manu from "static/json/build/building_data_manu.json"; //这是制造站的数据
+import zones from "static/RecycleBin/zones.json"; //这是制造站的数据
 
 export default {
   layout: "poster",
@@ -24,7 +25,7 @@ export default {
     };
   },
   created() {
-    this.jsonFormat();
+    this.jsonFormat1();
   },
   methods: {
     jsonFormat() {
@@ -53,6 +54,14 @@ export default {
             capacityLimit: json.prodLimit,
           };
         });
+    },
+    jsonFormat1() {
+      zones
+        .filter((json) => true)
+        .forEach((json) => {
+          this.newJson[json.zoneId] =json.zoneName ;
+        });
+        // this.newJson = JSON.stringify(JSON.parse(this.newJson), null, '\t')
     },
   },
 };
