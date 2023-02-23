@@ -1730,6 +1730,13 @@ export default {
   #gacha {
     max-width: 1200px;
     height: calc(100vh - 85px);
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+  }
+
+  #gacha::-webkit-scrollbar{
+    width:0 !important
   }
 }
 </style>
