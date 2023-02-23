@@ -226,7 +226,7 @@
               class="gacha_unit_child_inputbox"
               type="text"
               @change="compute()"
-              v-model.number="orundum_sanity"
+              v-model.number="orundum_ap"
             />
             用于搓玉的理智 X 
             <input
@@ -239,7 +239,7 @@
             搓玉系数 = 
             <div class="gacha_resources_unit">
               <div :class="getSpriteImg('4003icon', 0)"></div>
-              {{ toFixedByAcc(orundum_sanity * orundum_rate,2)  }}
+              {{ toFixedByAcc(orundum_ap * orundum_rate,2)  }}
             </div>
           </div>
           <div class="gacha_unit_info">
@@ -300,7 +300,7 @@
             <div class="gacha_resources_unit" style="width: 192px">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 75px">
-                {{ EXTERMINATIONRewards + AnnihilationStageValue * 1800 }}
+                {{ annihilationRewards + AnnihilationStageValue * 1800 }}
               </div>
             </div>
             <div
@@ -309,7 +309,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="EXTERMINATIONFlag"
+                v-model="annihilationFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本周已完成
@@ -319,20 +319,20 @@
           <el-divider></el-divider>
           <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 150px">
-              绿票商店 {{ remainingMonths - certificateStoreValue }} 月
+              绿票商店 {{ remainingMonths - storeValue }} 月
             </div>
             <div class="gacha_resources_unit" style="width: 192px">
               <div
                 style="width: 40px"
                 :class="getSpriteImg('4003icon', 0)"></div>
               <div style="width: 66px">
-                {{ (remainingMonths - certificateStoreValue) * 600 }}
+                {{ (remainingMonths - storeValue) * 600 }}
               </div>
               <div
                 style="width: 40px"
                 :class="getSpriteImg('7003icon', 0)"></div>
               <div style="width: 28px">
-                {{ (remainingMonths - certificateStoreValue) * 4 }}
+                {{ (remainingMonths - storeValue) * 4 }}
               </div>
             </div>
             <div
@@ -341,7 +341,7 @@
               style="width: 150px; line-height: 32px"
             >
               <el-switch
-                v-model="certificateStoreFlag"
+                v-model="storeFlag"
                 active-color="#13ce66"
                 inactive-color="#ff4949"></el-switch>
               本月已换
@@ -1009,8 +1009,12 @@ export default {
       
       gachaTimesInfo:{},   //攒抽计算的各种结果 
       
-      paradox:0,
-      annihilation:0,
+      paradox:0,  //悖论模拟
+      annihilation:0, //未通过剿灭个数
+      orundum_ap:0,  //用于搓玉的理智数量
+      orundum_rate:0, //搓玉系数
+       
+
       remainingDays: 0, //剩余天数
       remainingWeeks: 0, //剩余周数
       remainingMonths: 0, //剩余月数
@@ -1028,14 +1032,14 @@ export default {
 
       dailyRewards: 100, //每日奖励
       weeklyTaskRewards: 500, //周常奖励
-      EXTERMINATIONRewards: 1800, //剿灭奖励
+      annihilationRewards: 1800, //剿灭奖励
       originiumFlag: true, //是否源石抽卡
-      EXTERMINATIONFlag: true, //是否完成剿灭
+      annihilationFlag: true, //是否完成剿灭
       weeklyTaskFlag: true, //是否完成周常
-      certificateStoreFlag: false, //是否兑换绿票商店
+      storeFlag: false, //是否兑换绿票商店
       AnnihilationStageValue: true,
       weeklyTaskValue: true,   //每周任务的合成玉数量
-      certificateStoreValue: 0,  //绿票商店抽数
+      storeValue: 0,  //绿票商店抽数
       skinNumValue: 0,   //皮肤消耗源石数量
       customValue: 0, //自定义值
       cookieInit: 0,   //cookie是否获取标志
@@ -1189,7 +1193,7 @@ export default {
     getEveryreWard() {
       this.dailyRewards = 100 * parseInt(this.remainingDays);
       this.weeklyTaskRewards = 500 * parseInt(this.remainingWeeks);
-      this.EXTERMINATIONRewards = 1800 * parseInt(this.remainingWeeks);
+      this.annihilationRewards = 1800 * parseInt(this.remainingWeeks);
     },
 
     compute() {
@@ -1210,21 +1214,21 @@ export default {
 
       //判断是否完成剿灭
       this.AnnihilationStageValue = 1;
-      if (this.EXTERMINATIONFlag) {
+      if (this.annihilationFlag) {
         this.AnnihilationStageValue = 0;
       }
 
 
-      this.certificateStoreValue = 0;
+      this.storeValue = 0;
       // 这个值可能是从cookie拿到,要转换一下类型
-      if (typeof this.certificateStoreFlag === 'string') {
-        if (this.certificateStoreFlag === "false") this.certificateStoreFlag = false;
-        if (this.certificateStoreFlag === "true") this.certificateStoreFlag = true;
+      if (typeof this.storeFlag === 'string') {
+        if (this.storeFlag === "false") this.storeFlag = false;
+        if (this.storeFlag === "true") this.storeFlag = true;
       }
 
       //判断是否兑换完本月绿票商店
-      if (this.certificateStoreFlag) {
-        this.certificateStoreValue = 1;
+      if (this.storeFlag) {
+        this.storeValue = 1;
       }
 
       
@@ -1328,13 +1332,13 @@ export default {
       //日常部分计算(总)
       this.orundum +=
         parseInt(this.dailyRewards) +
-        parseInt(this.remainingMonths - this.certificateStoreValue) * 600 +
+        parseInt(this.remainingMonths - this.storeValue) * 600 +
         parseInt(this.weeklyTaskRewards) +
-        parseInt(this.EXTERMINATIONRewards);
+        parseInt(this.annihilationRewards);
 
         
       this.permit +=
-        parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
+        parseInt(this.remainingMonths - this.storeValue) * 4 +
         parseInt(this.remainingCheckinTimes);
 
       //黄票商店38抽计算
@@ -1349,13 +1353,13 @@ export default {
       this.gachaTimesInfo.orundum_daily +=
         parseInt(this.dailyRewards) +
         parseInt(this.weeklyTaskRewards) +
-        parseInt(this.EXTERMINATIONRewards) +
+        parseInt(this.annihilationRewards) +
         parseInt(this.weeklyTaskValue) * 500 +
         parseInt(this.AnnihilationStageValue) * 1800 +
-        parseInt(this.remainingMonths - this.certificateStoreValue) * 600;
+        parseInt(this.remainingMonths - this.storeValue) * 600;
 
       this.gachaTimesInfo.permit_daily +=
-        parseInt(this.remainingMonths - this.certificateStoreValue) * 4 +
+        parseInt(this.remainingMonths - this.storeValue) * 4 +
         parseInt(this.remainingCheckinTimes);
 
       this.gachaTimesInfo.gachaTimes_daily =
@@ -1554,7 +1558,7 @@ export default {
         this.gachaTimesInfo.permit10_exist = cookie.get("permit10_exist");
         this.paradox = cookie.get("paradox");
         this.annihilation = cookie.get("annihilation");
-        this.certificateStoreFlag = cookie.get("certificateStoreFlag");
+        this.storeFlag = cookie.get("storeFlag");
       } 
 
       // console.log(this.gachaTimesInfo.originium_exist ===undefined||this.gachaTimesInfo.originium_exist == "undefined");
@@ -1566,7 +1570,7 @@ export default {
       if(this.gachaTimesInfo.permit10_exist ==""||this.gachaTimesInfo.permit10_exist ===undefined||this.gachaTimesInfo.permit10_exist == "undefined") this.gachaTimesInfo.permit10_exist = 0;
       if(this.paradox ==""||this.paradox ===undefined||this.paradox == "undefined") this.paradox = 0;
       if(this.annihilation ==""||this.annihilation ===undefined||this.annihilation == "undefined") this.annihilation = 0;
-      if(this.certificateStoreFlag ===undefined||this.certificateStoreFlag == "undefined") this.certificateStoreFlag = true;
+      if(this.storeFlag ===undefined||this.storeFlag == "undefined") this.storeFlag = true;
 
       //保存cookie
       cookie.set("originium_exist", this.gachaTimesInfo.originium_exist, {expires: 30});
@@ -1575,7 +1579,7 @@ export default {
       cookie.set("permit10_exist", this.gachaTimesInfo.permit10_exist, {expires: 30});
       cookie.set("paradox", this.paradox, {expires: 30});
       cookie.set("annihilation", this.annihilation, {expires: 30});
-      cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
+      cookie.set("storeFlag", this.storeFlag, {expires: 30});
 
       
       this.cookieInit++;
