@@ -80,6 +80,14 @@
   vertical-align: top;
   line-height: 36px;
 }
+.gacha_unit_info {
+  margin-left: 12px;
+  vertical-align: top;
+  line-height: 20px;
+  font-style: italic;
+  font-size: 16px;
+  color: cornflowerblue;
+}
 
 .gacha_unit_child_title {
   width: 192px;
