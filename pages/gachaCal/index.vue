@@ -886,6 +886,24 @@
                   Zirunwang
                 </div>
               </a>
+              <a href="https://github.com/Yanstory">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/5153875?v=4"/>
+                  Yanstory
+                </div>
+              </a>
+              <a href="https://github.com/DSLM">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/12635058?v=4"/>
+                  DSLM
+                </div>
+              </a>
+              <a href="https://github.com/ZhaoZuohong">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/34163622?v=4"/>
+                  ZhaoZuohong
+                </div>
+              </a>
             </div>
             <!-- </div> -->
             <!-- <div id="foot_right"> -->
