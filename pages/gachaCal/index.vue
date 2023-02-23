@@ -109,7 +109,9 @@
           >现有库存 {{ toFixedByAcc(gachaTimesInfo.gachaTimes_exist, 0) }}抽</span
           >
         </template>
+        <!-- 内容区 -->
         <div class="gacha_unit" id="wallet">
+          <!-- 现有资源 -->
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
               <div style="display: flex">
@@ -156,7 +158,7 @@
               </div>
             </div>
           </div>
-
+          <!-- 源石是否抽卡 -->
           <div class="gacha_unit_child" style="display: flex">
             <div @click="compute()">
               <el-switch
@@ -167,6 +169,7 @@
             </div>
           </div>
           <el-divider></el-divider>
+          <!-- 自定义修正值 -->
           <div class="gacha_unit_child">
             <input
               class="gacha_unit_child_inputbox"
@@ -175,24 +178,27 @@
               v-model.number="customValue"
             />
             <div class="gacha_unit_child_title" style="width: 270px;">
-              自定义修正值（例如搓玉）
+              自定义修正值(合成玉)
             </div>
-            <div class="gacha_resources_unit" style="width: 135px;">
+            <!-- <div class="gacha_resources_unit" style="width: 135px;">
               <div :class="getSpriteImg('4003icon', 0)"></div>
               {{ toFixedByAcc(customValue * 1.09,2)  }}
-            </div>
+            </div> -->
           </div>
-          <div class="gacha_unit_child">
+          <div class="gacha_unit_info">
+              例如给轮换池预留、其它来源等，可填负数
+          </div>
+          <!-- <div class="gacha_unit_child">
             <div class="gacha_unit_child_title" style="width: 100%;">
               搓玉比例:1理智=1.09玉(1-7)
               <a href="/?item=Orundum" style="margin: 0px 20px;">查看备选搓玉关卡</a>
               <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;">
                 如何安排搓玉？
-                <!-- <img class="gacha_img_small" src="/img/website/el.png"/> -->
+                <img class="gacha_img_small" src="/img/website/el.png"/>
               </a>
             </div>
-          </div>
-          <!-- 填空模块End -->
+          </div> -->
+          <!-- 预留皮肤 -->
           <div class="gacha_unit_child" style="display: flex">
             <div class="gacha_unit_child_title">
               预留皮肤(18石/件)
@@ -210,18 +216,39 @@
             >
             </el-slider>
           </div>
-          <!--
+          <!-- 搓玉计算 -->
+          <div class="gacha_unit_fold">
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>
+            搓玉计算
+          </div>
           <div class="gacha_unit_child">
-            <div class="gacha_unit_child_title" style="width: 153px;">
-              搓玉 xxxxx 理智
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model.number="orundum_sanity"
+            />
+            用于搓玉的理智 X 
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model.number="orundum_rate"
+              style="width: 45px;"
+            />
+            搓玉系数 = 
+            <div class="gacha_resources_unit">
+              <div :class="getSpriteImg('4003icon', 0)"></div>
+              {{ toFixedByAcc(orundum_sanity * orundum_rate,2)  }}
             </div>
-            <div class="gacha_resources_unit" style="width: 105px;">
-              <div style="display: flex">
-                <div :class="getSpriteImg('4003icon', 0)"></div>
-                {{ paradox * 200 }}
-              </div>
-            </div>
-          </div> -->
+          </div>
+          <div class="gacha_unit_info">
+            搓玉系数：1-7(1.09)，GA-4(0.83)
+          </div>
+          <div class="gacha_unit_child">
+            <a href="/?item=Orundum" style="margin: 0px 24px 0px 0px;">查看其它可搓玉关卡</a>
+            <a href="https://www.bilibili.com/video/BV1XT411F7m4" style="display: inline-block;"> 搓玉教程<img class="gacha_img_small" src="/img/website/el.png"/></a>
+          </div>
         </div>
       </el-collapse-item>
       <!-- 日常积累 -->
@@ -370,7 +397,11 @@
         </template>
 
         <div class="gacha_unit" id="potential">
-          <!-- 悖论模拟 -->
+          <!-- 悖论模拟 剿灭战模拟-->
+          <div class="gacha_unit_fold">
+            <img class="gacha_img_small" src="/img/website/ex-icon.png"/>
+            悖论模拟/剿灭战模拟
+          </div>
           <div class="gacha_unit_child">
             <input
               class="gacha_unit_child_inputbox"
@@ -385,6 +416,28 @@
               <div :class="getSpriteImg('4003icon', 0)"></div>
               {{ paradox * 200 }}
             </div>
+          </div>
+          <!-- 剿灭战模拟 -->
+          <div class="gacha_unit_child">
+            <input
+              class="gacha_unit_child_inputbox"
+              type="text"
+              @change="compute()"
+              v-model.number="annihilation"
+            />
+            <div class="gacha_unit_child_title" style="width: 120px">
+              个剿灭战模拟
+            </div>
+            <div class="gacha_resources_unit" style="width: 105px">
+              <div :class="getSpriteImg('4003icon', 0)"></div>
+              {{ annihilation * 1500 }}
+            </div>
+          </div>
+          <div class="gacha_unit_info">
+              剿灭战模拟并非常驻，可前往prts.wiki查看开放历史
+              <a href="https://prts.wiki/w/%E5%85%B3%E5%8D%A1%E4%B8%80%E8%A7%88/%E5%B8%B8%E6%80%81%E4%BA%8B%E5%8A%A1" style="display: inline-block;">
+                点我跳转<img class="gacha_img_small" src="/img/website/el.png"/>
+              </a>
           </div>
           <!-- 主线 -->
           <div class="gacha_unit_fold">
@@ -957,6 +1010,7 @@ export default {
       gachaTimesInfo:{},   //攒抽计算的各种结果 
       
       paradox:0,
+      annihilation:0,
       remainingDays: 0, //剩余天数
       remainingWeeks: 0, //剩余周数
       remainingMonths: 0, //剩余月数
@@ -1014,7 +1068,7 @@ export default {
         title: '更新公告',
         dangerouslyUseHTMLString: true,
         // message: '<strong> 限定池还有'+ this.poolCountDown + '天,结束</strong>',
-        message: '<strong> 四周年攒抽规划已开放<br>点击扇形图上方标签切换攒抽时间节点</strong>',
+        message: '<strong> 新增 剿灭战模拟战计算<br>调整搓玉计算模块</strong>',
         duration: 12000
       });
     },
@@ -1201,8 +1255,11 @@ export default {
 
       //悖论模拟
       this.orundum += parseInt(this.paradox) * 200;
-
       this.gachaTimesInfo.orundum_potential += parseInt(this.paradox) * 200;
+
+      //剿灭战模拟
+      this.orundum += parseInt(this.annihilation) * 1500;
+      this.gachaTimesInfo.orundum_potential += parseInt(this.annihilation) * 1500;
 
       //主线和常驻活动抽卡次数（单项）
       this.gachaTimesInfo.gachaTimes_potential =
@@ -1496,6 +1553,7 @@ export default {
         this.gachaTimesInfo.permit_exist = cookie.get("permit_exist");
         this.gachaTimesInfo.permit10_exist = cookie.get("permit10_exist");
         this.paradox = cookie.get("paradox");
+        this.annihilation = cookie.get("annihilation");
         this.certificateStoreFlag = cookie.get("certificateStoreFlag");
       } 
 
@@ -1507,6 +1565,7 @@ export default {
       if(this.gachaTimesInfo.permit_exist ==""||this.gachaTimesInfo.permit_exist ===undefined||this.gachaTimesInfo.permit_exist == "undefined") this.gachaTimesInfo.permit_exist = 0;
       if(this.gachaTimesInfo.permit10_exist ==""||this.gachaTimesInfo.permit10_exist ===undefined||this.gachaTimesInfo.permit10_exist == "undefined") this.gachaTimesInfo.permit10_exist = 0;
       if(this.paradox ==""||this.paradox ===undefined||this.paradox == "undefined") this.paradox = 0;
+      if(this.annihilation ==""||this.annihilation ===undefined||this.annihilation == "undefined") this.annihilation = 0;
       if(this.certificateStoreFlag ===undefined||this.certificateStoreFlag == "undefined") this.certificateStoreFlag = true;
 
       //保存cookie
@@ -1515,6 +1574,7 @@ export default {
       cookie.set("permit_exist", this.gachaTimesInfo.permit_exist, {expires: 30});
       cookie.set("permit10_exist", this.gachaTimesInfo.permit10_exist, {expires: 30});
       cookie.set("paradox", this.paradox, {expires: 30});
+      cookie.set("annihilation", this.annihilation, {expires: 30});
       cookie.set("certificateStoreFlag", this.certificateStoreFlag, {expires: 30});
 
       
@@ -1529,6 +1589,7 @@ export default {
       if (this.customValue === "") this.customValue = 0;
 
       this.paradox = parseInt(this.paradox);
+      this.annihilation = parseInt(this.annihilation);
       this.originium_648 = parseInt(this.originium_648);
       this.originium_328 = parseInt(this.originium_328);
       this.originium_198 = parseInt(this.originium_198);
