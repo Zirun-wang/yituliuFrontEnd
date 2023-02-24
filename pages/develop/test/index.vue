@@ -58,11 +58,11 @@ export default {
   height: 1280px;
   margin: auto;
   border: solid 1px red;
-  background: linear-gradient(
+  /* background: linear-gradient(
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0.1)
     ),
-    url(~static/img/back/春分.png) no-repeat 50% 50% / cover;
+    url(~static/img/back/春分.png) no-repeat 50% 50% / cover; */
   background-size: 2400px;
 }
 

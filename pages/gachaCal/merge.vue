@@ -119,7 +119,8 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model.number="calResults.orundum_exist"
+                  v-model.number="calResults.orundum_exist" 
+                  oninput="value=value.replace(/[^\d]/g, '')"
                 />
               </div>
             </div>
@@ -131,6 +132,7 @@
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
                   v-model.number="calResults.originium_exist"
+                  oninput="value=value.replace(/[^\d]/g, '')"
                 />
               </div>
             </div>
@@ -142,6 +144,7 @@
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
                   v-model.number="calResults.permit_exist"
+                  oninput="value=value.replace(/[^\d]/g, '')"
                 />
               </div>
             </div>
@@ -153,6 +156,7 @@
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
                   v-model.number="calResults.permit10_exist"
+                  oninput="value=value.replace(/[^\d]/g, '')"
                 />
               </div>
             </div>
@@ -175,6 +179,7 @@
               type="text"
               @change="compute()"
               v-model.number="customValue"
+              oninput="value=value.replace(/[^\d]/g, '')"
             />
             <div class="gacha_unit_child_title" style="width: 330px;">
               自定义修正值(合成玉)
@@ -226,6 +231,7 @@
               type="text"
               @change="compute()"
               v-model.number="orundum_ap"
+              oninput="value=value.replace(/[^\d]/g, '')"
             />
             用于搓玉的理智 X
             <input
@@ -233,6 +239,7 @@
               type="text"
               @change="compute()"
               v-model.number="orundum_rate"
+              oninput="value=value.replace(/[^\d]/g, '')"
               style="width: 45px;"
             />
             搓玉系数 =
@@ -408,6 +415,7 @@
               type="text"
               @change="compute()"
               v-model.number="paradox"
+              oninput="value=value.replace(/[^\d]/g, '')"
             />
             <div class="gacha_unit_child_title" style="width: 120px">
               个悖论模拟
@@ -424,6 +432,7 @@
               type="text"
               @change="compute()"
               v-model.number="annihilation"
+              oninput="value=value.replace(/[^\d]/g, '')"
             />
             <div class="gacha_unit_child_title" style="width: 120px">
               个剿灭战模拟
@@ -800,7 +809,8 @@
 
         <div class="gacha_unit" id="otherRes">
           <div v-for="(other, key) in gacha_honeyCake" :key="key">
-            <div class="gacha_unit_child" v-show="isDuringDate(other.start,other.end)&&'honeyCake'==other.module">
+            <!-- 只显示当前选择的时间段内的奖励&&(公共的奖励||只可当期使用的奖励) -->
+            <div class="gacha_unit_child" v-show="isDuringDate(other.start,other.end)&& ('公共' == other.rewardType|| rewardType == other.rewardType) &&'honeyCake'==other.module">
               <div class="gacha_unit_child_title" style="width: 240px">
                 {{ key }}
               </div>
@@ -980,7 +990,7 @@ export default {
     return {
       pageTheme: "light",
       itemList: [],
-      checkBox: ["0", "1", "4", "7"],  //折叠栏绑定数组
+      checkBox: ["0", "1","2", "4", "7"],  //折叠栏绑定数组
       // checkBox: ["1","7"],
       rewardType: '联动限定',  //奖励的类型
       startDate: "", //开始时间
@@ -1045,6 +1055,7 @@ export default {
     };
   },
   created() {
+    this.TimeStampFormat();
     this.getDate();
     // this.getInterval();
     // this.getEveryreWard();
@@ -1072,6 +1083,13 @@ export default {
         message: '<strong> 新增 剿灭战模拟战计算<br>调整搓玉计算模块</strong>',
         duration: 12000
       });
+    },
+
+    TimeStampFormat(){
+      Object.entries(this.gacha_honeyCake).forEach(list=>{
+         list[1].start = Date.parse(new Date(list[1].start));
+         list[1].end = Date.parse(new Date(list[1].end));
+      })
     },
 
     // 选择攒计算的时间节点
@@ -1113,7 +1131,7 @@ export default {
     //判断奖励是否在时间段内
     isDuringDate(start, end) {
       // console.log(Date.parse(new Date(start))>=this.start_TimeStamp ||Date.parse(new Date(end))<=this.end_TimeStamp)
-      if (Date.parse(new Date(start)) >= this.start_TimeStamp && Date.parse(new Date(end)) <= this.end_TimeStamp) return true;
+      if (start >= this.start_TimeStamp && end <= this.end_TimeStamp) return true;
       return false;
 
     },
@@ -1502,7 +1520,7 @@ export default {
       this.originium_6 = parseInt(this.originium_6);
       this.customValue = parseInt(this.customValue);
       this.orundum_ap = parseInt(this.orundum_ap);
-      this.orundum_rate = parseInt(this.orundum_rate);
+      this.orundum_rate = parseFloat(this.orundum_rate);
 
       this.calResults.originium_exist = parseInt(this.calResults.originium_exist);
       this.calResults.orundum_exist = parseInt(this.calResults.orundum_exist);

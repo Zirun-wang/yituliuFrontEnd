@@ -2,7 +2,7 @@
     width: 1980px;
     height: 1080px;
     /* border: 1px solid #ccc; */
-    background: url(~static/img/back/登临意.png);
+    /* background: url(~static/img/back/登临意.png); */
     /* 加载三张图片 */
     background-repeat: no-repeat;  /*不重复*/
     background-size: 100%, 100%, 100%; /*设定图片显示尺寸，保障充满整个div */
