@@ -119,7 +119,7 @@
                   type="text"
                   @change="compute()"
                   class="gacha_unit_child_inputbox"
-                  v-model.number="calResults.orundum_exist" 
+                  v-model.number="calResults.orundum_exist"
                   oninput="value=value.replace(/[^\d]/g, '')"
                 />
               </div>
@@ -231,14 +231,14 @@
               type="text"
               @change="compute()"
               v-model.number="orundum_ap"
-              
+
             />
             用于搓玉的理智 X
             <input
               class="gacha_unit_child_inputbox"
               type="text"
               @change="compute()"
-              v-model.number="orundum_rate" 
+              v-model.number="orundum_rate"
               oninput="value=value.replace(/[^0-9.]+/g, '')"
               style="width: 45px;"
             />
