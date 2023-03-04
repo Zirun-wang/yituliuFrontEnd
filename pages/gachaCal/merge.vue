@@ -16,6 +16,15 @@
           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector"  @change="checkEndDate(timeSelector)">
             <el-radio-button label="怪猎联动(3.21)" style="width: 33%"
             ></el-radio-button>
+            <el-radio-button label="怪猎联动(3.23)" style="width: 33%"
+            ></el-radio-button>
+            <el-radio-button label="怪猎联动(3.28)" type="primary" style="width: 33%" 
+            ></el-radio-button>
+            <!-- <el-radio-button label="????" disabled style="width:32%;"></el-radio-button> -->
+          </el-radio-group>
+           <el-radio-group size="small" style="width: 90%; margin: 6px 5%" v-model="timeSelector"  @change="checkEndDate(timeSelector)">
+            <el-radio-button label="怪猎联动(3.30)" style="width: 33%"
+            ></el-radio-button>
             <el-radio-button label="4周年(5.15)" style="width: 33%"
             ></el-radio-button>
             <el-radio-button label="夏活限定" type="primary" style="width: 33%" disabled
@@ -231,15 +240,15 @@
               type="text"
               @change="compute()"
               v-model.number="orundum_ap"
-              oninput="value=value.replace(/[^\d]/g, '')"
+              
             />
             用于搓玉的理智 X
             <input
               class="gacha_unit_child_inputbox"
               type="text"
               @change="compute()"
-              v-model.number="orundum_rate"
-              oninput="value=value.replace(/[^\d]/g, '')"
+              v-model.number="orundum_rate" 
+              oninput="value=value.replace(/[^0-9.]+/g, '')"
               style="width: 45px;"
             />
             搓玉系数 =
@@ -522,7 +531,8 @@
             <img class="gacha_img_small" src="/img/website/ex-icon.png">月常礼包
           </div>
           <el-checkbox-group v-model="gacha_storePacksList">
-            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'"
+            <div v-for="(singlePack, index) in gacha_storePacks" :key="index" v-show="singlePack.packType == 'monthly'&&
+            singlePack.packRmbPerDraw>0"
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
@@ -557,7 +567,7 @@
           </div>
           <el-checkbox-group v-model="gacha_storePacksList" class="">
             <div v-for="(singlePack, index) in gacha_storePacks" :key="index"
-                 v-show="singlePack.packType == 'limited'&&1==singlePack.packState"
+                 v-show="singlePack.packType == 'limited'&&1==singlePack.packState&&singlePack.packRmbPerDraw>0"
                  class="gacha_unit_child" @change="compute(singlePack.packName)">
               <el-checkbox-button :label="index">
                 <div class="gacha_packPpr" :class=getPprLabel(singlePack.packRmbPerDraw)>
@@ -897,6 +907,23 @@
                   <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/84625349?v=4"/>
                   Zirunwang
                 </div>
+              </a>  <a href="https://github.com/Yanstory">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/5153875?v=4"/>
+                  Yanstory
+                </div>
+              </a>
+              <a href="https://github.com/DSLM">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/12635058?v=4"/>
+                  DSLM
+                </div>
+              </a>
+              <a href="https://github.com/ZhaoZuohong">
+                <div class="foot_unit_button uni_shadow_2" style="vertical-align:middle">
+                  <img class="foot_unit_pic" src="https://avatars.githubusercontent.com/u/34163622?v=4"/>
+                  ZhaoZuohong
+                </div>
               </a>
             </div>
             <!-- </div> -->
@@ -1095,17 +1122,33 @@ export default {
     // 选择攒计算的时间节点
     checkEndDate() {
       // this.cookieInit=true;
+      console.log(this.timeSelector)
       if (this.timeSelector === '怪猎联动(3.21)') {
         this.endDate = '2023/03/21 03:59:00';
         this.rewardType = "联动限定";   //这里是切换奖励类型，具体看下面的注释，搜索 奖励类型
         this.poolCountDownFlag_permit = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         this.poolCountDownFlag_orundum = false;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
         this.gacha_store258List = [];
-      } else if (this.timeSelector === '4周年(5.15)') {
+      } else if (this.timeSelector === '怪猎联动(3.23)') {
+        this.endDate = "2023/03/23 03:59:00";
+        this.rewardType = "联动限定";
+        this.poolCountDownFlag_permit = false;
+        this.poolCountDownFlag_orundum = false;  
+      }else if (this.timeSelector === '怪猎联动(3.28)') {
+        this.endDate = "2023/03/28 03:59:00";
+        this.rewardType = "联动限定";
+        this.poolCountDownFlag_permit = false;
+        this.poolCountDownFlag_orundum = false;  
+      }else if (this.timeSelector === '怪猎联动(3.30)') {
+        this.endDate = "2023/03/30 03:59:00";
+        this.rewardType = "联动限定";
+        this.poolCountDownFlag_permit = false;
+        this.poolCountDownFlag_orundum = false;  
+      }else if (this.timeSelector === '4周年(5.15)') {
         this.endDate = "2023/05/15 03:59:00";
         this.rewardType = "周年限定";
         this.poolCountDownFlag_permit = false;
-        this.poolCountDownFlag_orundum = true;  //是否要计算限定池倒计时（主要用于计算每日赠送合成玉和单抽）
+        this.poolCountDownFlag_orundum = true;  
       }
 
 
@@ -1251,7 +1294,7 @@ export default {
       //库存抽卡次数（单项）
       this.calResults.gachaTimes_exist =
         this.calResults.originium_exist * 0.3 * flag_originium +
-        this.calResults.orundum_exist / 600 + custom_exist / 600
+        this.calResults.orundum_exist / 600 + custom_exist / 600+
       this.calResults.permit_exist +
       this.calResults.permit10_exist * 10;
 
