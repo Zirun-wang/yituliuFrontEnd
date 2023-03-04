@@ -1729,7 +1729,7 @@ export default {
   .el-collapse {
     padding-left: 550px;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 
   #gacha {
