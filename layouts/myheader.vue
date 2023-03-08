@@ -118,23 +118,20 @@ export default {
         this.activeIndex = "1";
         this.updateVisits("index");
       }
-      if ("/gachaCal/" === this.routePath) {
+      console.log(this.routePath.indexOf("pack"))
+      if (this.routePath.indexOf("gachaCal")!=-1) {
         this.activeIndex = "2";
         this.updateVisits("gacha");
       }
-      if ("/riicCal/" === this.routePath) {
+      if (this.routePath.indexOf("riicCal")!=-1) {
         this.activeIndex = "3";
         this.updateVisits("building");
       }
-      if ("/recruit/" === this.routePath) {
-        this.activeIndex = "4";
-        this.updateVisits("index");
-      }
-      if ("/pack/" === this.routePath) {
+      if (this.routePath.indexOf("pack")!=-1) {
         this.activeIndex = "4";
         this.updateVisits("pack");
       }
-      if ("/maaRecruitData/" === this.routePath) {
+      if (this.routePath.indexOf("maaRecruitData")!=-1) {
         this.activeIndex = "4";
         this.updateVisits("index");
       }
