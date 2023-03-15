@@ -1768,9 +1768,9 @@
     methods: {
       openNotification() {
         this.$notify({
-          title: '2023-01-18更新',
+          title: '2023-03-13更新',
           dangerouslyUseHTMLString: true,
-          message: '<strong> 干员追加：<br>增加了登临意活动干员 </strong>',
+          message: '<strong> 干员追加：<br>增加了落叶逐火活动干员 <br>BUG相关：  <br>由于存储服务重写的问题<br>如果遇到导入为空的情况可加Q群539600566</strong>',
           duration: 12000
         });
       },
@@ -1790,7 +1790,7 @@
       },
       setExportUrl() {
         this.exportUrl ="https://backend.yituliu.site/tool/building/schedule/export?schedule_id=" + this.uid;
-          // this.exportUrl ="http://127.0.0.1:10012/tool/building/schedule/export?schedule_id=" + this.uid;
+          // this.exportUrl ="http://127.0.0.1:10011/tool/building/schedule/export?schedule_id=" + this.uid;
         this.maaUrl = "maa://infra.yituliu/" + this.uid;
       },
       maaBuildingJsonCreated() {
