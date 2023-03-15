@@ -114,7 +114,7 @@ export default {
   layout: "poster",
   // head: {
     // script:[{
-    //   src:"https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/js/echarts.min.js"
+    //   src:"https://image.yituliu.site/js/echarts.min.js"
   // }],
   // },
   data() {

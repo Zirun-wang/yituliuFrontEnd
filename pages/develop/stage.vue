@@ -404,9 +404,9 @@ export default {
     getImgUrl(img, source){
       source = (typeof source !== 'undefined') ?  type : 1;
       if (source > 2.1)
-        return("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/ activity_picture /" + img + ".png");
+        return("https://image.yituliu.site/ activity_picture /" + img + ".png");
       if (source > 1.1)
-        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/" + img + ".png");
+        return ("https://image.yituliu.site/item/" + img + ".png");
       else if (source >0.1)
         return ("/img/materials/" + img + ".png");
       else

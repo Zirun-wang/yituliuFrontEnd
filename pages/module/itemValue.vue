@@ -203,7 +203,7 @@ export default {
       img = typeof img !== "undefined" ? img : 1;
 
       return (
-        "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/" + img + ".png"
+        "https://image.yituliu.site/item/" + img + ".png"
       );
     },
   },

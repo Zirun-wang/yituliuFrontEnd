@@ -85,18 +85,18 @@ export default {
       // console.log(true ===this.showFlag);
       if (type === "limited") {
         return (
-          "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" +
+          "https://image.yituliu.site/pack/limited/" +
           img +
           ".png"
         );
-        // return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+        // return ("background:url(https://image.yituliu.site/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } else
         return (
-          "https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" +
+          "https://image.yituliu.site/pack/" +
           img +
           ".png"
         );
-      // return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+      // return ("background:url(https://image.yituliu.site/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
     },
 
     initData() {

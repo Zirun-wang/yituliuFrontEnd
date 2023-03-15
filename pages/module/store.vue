@@ -35,7 +35,7 @@
         <div class="store_unit">
            <div :class="getSpriteImg(4005,0)" ></div>
         </div>
-        <div v-for="(m_data, index) in storeList[0]" class="store_unit" :key="index">
+        <div v-for="(m_data, index) in storeList['green']" class="store_unit" :key="index">
           <!-- <img class="store_unit_pic" alt="" title=""	:src="getImgUrl(m_data.itemName)" >	 -->
           <div :class="getSpriteImg(m_data.itemId,1)" ></div>
           <p class="store_unit_text" :class="getColor(m_data.costPer, 1, 0.03)">{{getEfficiency(m_data.costPer, 2)}}</p>
@@ -61,7 +61,7 @@
         <div class="store_unit">
           <div :class="getSpriteImg(4004,0)" ></div>
         </div>
-        <div v-for="(m_data, index) in storeList[3]" class="store_unit" :key="index">
+        <div v-for="(m_data, index) in storeList['yellow']" class="store_unit" :key="index">
          <div :class="getSpriteImg(m_data.itemId,1)" ></div>
           <p class="store_unit_text" :class="getColor(m_data.costPer, 12, 3)">{{getEfficiency(m_data.costPer, 2)}}</p>
         </div>
@@ -87,7 +87,7 @@
           <!-- <img class="store_unit_pic store_unit_icon" alt="" title=""	:src="getImgUrl('寻访参数模型' ,4)">	 -->
           <div :class="getSpriteImg('EPGS_COIN',0)" ></div>
         </div>
-        <div v-for="(m_data, index) in storeList[1]" class="store_unit" :key="index">
+        <div v-for="(m_data, index) in storeList['orange']" class="store_unit" :key="index">
          <div :class="getSpriteImg(m_data.itemId,1)" ></div>
           <p class="store_unit_text" :class="getColor(m_data.costPer, 1.6, 0.1)">{{getEfficiency(m_data.costPer, 2)}}</p>
         </div>
@@ -112,7 +112,7 @@
         <div class="store_unit">
            <div :class="getSpriteImg('REP_COIN',0)" ></div>
         </div>
-        <div v-for="(m_data, index) in storeList[2]" class="store_unit" :key="index">
+        <div v-for="(m_data, index) in storeList['purple']" class="store_unit" :key="index">
          <div :class="getSpriteImg(m_data.itemId,1)" ></div>
           <p class="store_unit_text" :class="getColor(m_data.costPer, 2, 0.4)">{{getEfficiency(m_data.costPer, 2)}}</p>
         </div>
@@ -137,7 +137,7 @@
         <div class="store_unit">
             <div :class="getSpriteImg('SOCIAL_PT',0)" ></div>
         </div>
-        <div v-for="(m_data, index) in storeList[4]" class="store_unit" :key="index">
+        <div v-for="(m_data, index) in storeList['grey']" class="store_unit" :key="index">
          <div :class="getSpriteImg(m_data.itemId,1)" ></div>
           <p class="store_unit_text" :class="getColor(m_data.costPer, 8, 2)">{{getEfficiency(m_data.costPer, 2)}}</p>
         </div>
@@ -361,9 +361,9 @@ export default {
       else if (source > 3.1)
       return ("/img/icon/图标_" + img + ".png");
       else if (source > 2.1)
-        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/ activity_picture /" + img + ".png");
+        return ("https://image.yituliu.site/ activity_picture /" + img + ".png");
       else if (source > 1.1)
-        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/" + img + ".png");
+        return ("https://image.yituliu.site/item/" + img + ".png");
       else if (source >0.1)
         return ("/img/materials/" + img + ".png");
       else

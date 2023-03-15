@@ -14,7 +14,7 @@
               <td class="description"> <div>{{feedback.description}}</div></td>
               <td style="width:130px">{{feedback.scheduleId}}</td>
               <td style="width:170px">{{feedback.createdTime}}</td>
-              <td style="width:100px"><img style="width:50px" src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/feedback/test.png" alt=""></td>
+              <td style="width:100px"><img style="width:50px" src="https://image.yituliu.site/feedback/test.png" alt=""></td>
             </tr>
           </tbody>
         </table>

@@ -33,7 +33,7 @@ export default {
     //根据关卡ID查询已结束活动
     findClosedActivStageByStageId(expCoefficient){
         return request({
-            url: `${api_name}/find/stage/closedStage?expCoefficient=${expCoefficient}`,
+            url: `${api_name}/find/stage/closed?expCoefficient=${expCoefficient}`,
             method: 'get',            
         })
     },

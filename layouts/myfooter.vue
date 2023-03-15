@@ -1,6 +1,6 @@
 <template>
   <div class="op_footer" style="bottom:0px;color:#ffffff;">
-    <img src="https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/foot/备案图标.png" style="width:20px;height:20px">
+    <img src="https://image.yituliu.site/foot/备案图标.png" style="width:20px;height:20px">
     <a style="color:#ffffff;" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011502000732" target="_blank">
       津公网安备 12011502000732号
     </a>

@@ -51,7 +51,12 @@ export default {
         
         var costContent = itemCount202210[i].itemCount + "(+ " + 0 +")";
         itemCostContent.unshift(costContent);
-        this.itemCost.unshift(itemCount202210[i].itemCount);
+        if(itemCount202210[i].itemName=="固源岩组"){
+          this.itemCost.unshift(itemCount202210[i].itemCount*0.7);
+        }else{
+          this.itemCost.unshift(itemCount202210[i].itemCount);
+        }
+        
         await this.sleep(1500);
         itemIndex = itemCount202210[i].itemId;
         this.barChart();
@@ -85,6 +90,7 @@ export default {
         itemName[15 - i] = newData[i].itemName;
         itemId[15 - i] = newData[i].itemId;
         this.itemCost[15 - i] = newData[i].itemCount;
+        if(itemCount202210[i].itemName=="固源岩组") this.itemCost[15 - i] = newData[i].itemCount*0.7;
         itemIndex = newData[i].itemId;
         await this.sleep(1000);
 

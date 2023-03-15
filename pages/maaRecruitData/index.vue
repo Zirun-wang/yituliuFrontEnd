@@ -200,6 +200,7 @@ import echarts from "static/js/echarts.min.js"
         console.log("api方法");
         toolApi.maaStatistical().then((response) => {
           this.maaData = response.data;
+          if(this.maaData.maaTagsDataCount==null) this.maaData.maaTagsDataCount = this.maaData.maaRecruitDataCount
           this.pieData[0].value = this.maaData.topOperator;
           this.pieData[1].value = this.maaData.seniorOperatorCount;
           this.pieData[2].value = this.maaData.rareOperatorCount;

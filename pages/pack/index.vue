@@ -540,9 +540,9 @@ export default {
       // if(true ===this.showFlag) return '';
       // console.log(true ===this.showFlag);  
       if (type === 'limited') {
-        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+        return ("background:url(https://image.yituliu.site/pack/limited/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
       } else
-        return ("background:url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
+        return ("background:url(https://image.yituliu.site/pack/" + img + ".png) 0% 0% / cover no-repeat,#444444;");
     },
     getContentId(id, type) {
       return (type + "_" + id)
