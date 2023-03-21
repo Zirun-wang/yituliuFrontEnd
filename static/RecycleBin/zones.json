@@ -1,1 +1,4016 @@
-[{"zoneId":"main_0","zoneIndex":0,"type":"MAINLINE","subType":"AWAKENING_HOUR","zoneName":"序章","zoneName_i18n":{"en":"Prologue","ja":"序章","ko":"프롤로그","zh":"序章"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/main_0.jpg","stages":["main_00-01","main_00-02","main_00-03","main_00-04","main_00-05","main_00-06","main_00-07","main_00-08","main_00-09","main_00-10","main_00-11"]},{"zoneId":"main_1","zoneIndex":1,"type":"MAINLINE","subType":"AWAKENING_HOUR","zoneName":"第一章","zoneName_i18n":{"en":"Episode 1","ja":"第一章","ko":"에피소드 1","zh":"第一章"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/main_1.jpg","stages":["main_01-01","main_01-02","main_01-03","main_01-04","main_01-05","main_01-06","main_01-07","main_01-08","main_01-09","main_01-10","main_01-11","main_01-12"]},{"zoneId":"main_2","zoneIndex":2,"type":"MAINLINE","subType":"AWAKENING_HOUR","zoneName":"第二章","zoneName_i18n":{"en":"Episode 2","ja":"第二章","ko":"에피소드 2","zh":"第二章"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/main_2.jpg","stages":["main_02-01","main_02-02","main_02-03","main_02-04","main_02-05","main_02-06","main_02-07","main_02-08","main_02-09","main_02-10","sub_02-01","sub_02-02","sub_02-03","sub_02-04","sub_02-05","sub_02-06","sub_02-07","sub_02-08","sub_02-09","sub_02-10","sub_02-11","sub_02-12"]},{"zoneId":"main_3","zoneIndex":3,"type":"MAINLINE","subType":"AWAKENING_HOUR","zoneName":"第三章","zoneName_i18n":{"en":"Episode 3","ja":"第三章","ko":"에피소드 3","zh":"第三章"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/main_3.jpg","stages":["main_03-01","main_03-02","main_03-03","main_03-04","main_03-05","main_03-06","main_03-07","main_03-08","sub_03-1-1","sub_03-1-2","sub_03-2-1","sub_03-2-2","sub_03-2-3","sub_03-3-1","sub_03-3-2"]},{"zoneId":"main_4","zoneIndex":4,"type":"MAINLINE","subType":"VISION_SHATTER","zoneName":"第四章","zoneName_i18n":{"en":"Episode 4","ja":"第四章","ko":"에피소드 4","zh":"第四章"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/main_4.jpg","stages":["main_04-01","main_04-02","main_04-03","main_04-04","main_04-05","main_04-06","main_04-07","main_04-08","main_04-09","main_04-10","sub_04-1-1","sub_04-1-2","sub_04-1-3","sub_04-2-1","sub_04-2-2","sub_04-2-3","sub_04-3-1","sub_04-3-2","sub_04-3-3","sub_04-4-1"]},{"zoneId":"1stact_zone1","zoneIndex":1001,"type":"ACTIVITY","subType":null,"zoneName":"骑兵与猎人","zoneName_i18n":{"en":"The Knight \u0026 The Hunters","ja":"騎兵と狩人","ko":"기병과 사냥꾼","zh":"骑兵与猎人"},"existence":{"CN":{"exist":true,"openTime":1559181600000,"closeTime":1560369599000},"JP":{"exist":true,"openTime":1580864400000,"closeTime":1582052400000},"KR":{"exist":true,"openTime":1580864400000,"closeTime":1582052400000},"US":{"exist":true,"openTime":1580922000000,"closeTime":1582110000000}},"background":"/backgrounds/zones/A001_zone1.jpg","stages":["a001_01","a001_02","a001_03","a001_04","a001_05","a001_06"]},{"zoneId":"weekly_8","zoneIndex":104,"type":"WEEKLY","subType":null,"zoneName":"资源保障","zoneName_i18n":{"en":"Resource Search","ja":"資源確保","ko":"자원 보장","zh":"资源保障"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["wk_armor_1","wk_armor_2","wk_armor_3","wk_armor_4","wk_armor_5"]},{"zoneId":"weekly_6","zoneIndex":103,"type":"WEEKLY","subType":null,"zoneName":"空中威胁","zoneName_i18n":{"en":"Aerial Threat","ja":"空軍迎撃","ko":"공중 위협","zh":"空中威胁"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["wk_fly_1","wk_fly_2","wk_fly_3","wk_fly_4","wk_fly_5"]},{"zoneId":"main_5","zoneIndex":5,"type":"MAINLINE","subType":"VISION_SHATTER","zoneName":"第五章","zoneName_i18n":{"en":"Episode 5","ja":"第五章","ko":"에피소드 5","zh":"第五章"},"existence":{"CN":{"exist":true,"openTime":1562659200000},"JP":{"exist":true,"openTime":1582700400000},"KR":{"exist":true,"openTime":1582700400000},"US":{"exist":true,"openTime":1582736400000}},"background":"/backgrounds/zones/main_5.jpg","stages":["main_05-01","main_05-02","main_05-03","main_05-04","main_05-05","main_05-06","main_05-07","main_05-08","main_05-09","main_05-10","sub_05-1-1","sub_05-1-2","sub_05-2-1","sub_05-2-2","sub_05-3-1","sub_05-3-2","sub_05-4-1","sub_05-4-2","sub_05-4-3"]},{"zoneId":"act3d0_zone1","zoneIndex":1002,"type":"ACTIVITY","subType":null,"zoneName":"火蓝之心","zoneName_i18n":{"en":"Heart of Surging Flame","ja":"青く燃ゆる心","ko":"파란 불꽃의 마음","zh":"火蓝之心"},"existence":{"CN":{"exist":true,"openTime":1566892800000,"closeTime":1568664000000},"JP":{"exist":true,"openTime":1588143600000,"closeTime":1589914800000},"KR":{"exist":true,"openTime":1588143600000,"closeTime":1589914800000},"US":{"exist":true,"openTime":1588179600000,"closeTime":1589972400000}},"background":"/backgrounds/zones/A003_zone1.jpg","stages":["a003_01","a003_02","a003_03","a003_04","a003_05","a003_06","a003_07","a003_08","a003_f01","a003_f02","a003_f03","a003_f04","gachabox6"]},{"zoneId":"act4d0_zone1","zoneIndex":1003,"type":"ACTIVITY","subType":null,"zoneName":"战地秘闻","zoneName_i18n":{"en":"Operational Intelligence","ja":"戦地の逸話","ko":"전장의 비화","zh":"战地秘闻"},"existence":{"CN":{"exist":true,"openTime":1571126400000,"closeTime":1571687999000},"JP":{"exist":true,"openTime":1585098000000,"closeTime":1586286000000},"KR":{"exist":true,"openTime":1585098000000,"closeTime":1586286000000},"US":{"exist":true,"openTime":1585155600000,"closeTime":1586343600000}},"background":"/backgrounds/zones/main_e0.jpg","stages":["act4d0_01","act4d0_02","act4d0_03","act4d0_04","act4d0_05"]},{"zoneId":"act5d0_zone1","zoneIndex":1004,"type":"ACTIVITY","subType":null,"zoneName":"喧闹法则","zoneName_i18n":{"en":"Code of Brawl","ja":"喧騒の掟","ko":"소란의 법칙","zh":"喧闹法则"},"existence":{"CN":{"exist":true,"openTime":1574150400000,"closeTime":1575316799000},"JP":{"exist":true,"openTime":1590562800000,"closeTime":1591729200000},"KR":{"exist":true,"openTime":1590562800000,"closeTime":1591729200000},"US":{"exist":true,"openTime":1590598800000,"closeTime":1591786800000}},"background":"/backgrounds/zones/act5d0_zone1.jpg","stages":["act5d0_01","act5d0_02","act5d0_03","act5d0_04","act5d0_05","act5d0_06","act5d0_07","act5d0_08","act5d0_09","act5d0_10"]},{"zoneId":"main_6","zoneIndex":6,"type":"MAINLINE","subType":"VISION_SHATTER","zoneName":"第六章","zoneName_i18n":{"en":"Episode 6","ja":"第六章","ko":"에피소드 6","zh":"第六章"},"existence":{"CN":{"exist":true,"openTime":1577174400000},"JP":{"exist":true,"openTime":1593500400000},"KR":{"exist":true,"openTime":1593500400000},"US":{"exist":true,"openTime":1593536400000}},"background":"/backgrounds/zones/main_6.jpg","stages":["main_06-01","main_06-02","main_06-03","main_06-04","main_06-05","main_06-06","main_06-07","main_06-08","main_06-09","main_06-10","main_06-11","main_06-12","main_06-13","main_06-14","main_06-15","sub_06-1-1","sub_06-1-2","sub_06-2-1","sub_06-2-2"]},{"zoneId":"gachabox","zoneIndex":0,"type":"GACHABOX","subType":null,"zoneName":"物资补给","zoneName_i18n":{"en":"Supplies","ja":"補給物資","ko":"보급물자","zh":"物资补给"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":"/backgrounds/zones/gachabox.jpg","stages":["randomMaterial_1","randomMaterialRune_0","randomMaterial_2","randomMaterial_3","randomMaterialRune_1","randomMaterialRune_2","randomMaterial_4","randomMaterial_7","randomMaterialRune_4","randomMaterialRune_5","randomMaterialRune_6","randomMaterialRune_7","randomMaterialRune_8","randomMaterial_5","randomMaterialRune_11","randomMaterial_6","randomMaterialRune_9","randomMaterialRune_3","randomMaterialRune_10"]},{"zoneId":"act6d5_zone1","zoneIndex":1005,"type":"ACTIVITY","subType":null,"zoneName":"洪炉示岁","zoneName_i18n":{"en":"Ancient Forge","ja":"洪炉示歳","ko":"에인션트 포지","zh":"洪炉示岁"},"existence":{"CN":{"exist":true,"openTime":1578513600000,"closeTime":1579118399000},"JP":{"exist":true,"openTime":1596006000000,"closeTime":1597172400000},"KR":{"exist":true,"openTime":1596006000000,"closeTime":1597172400000},"US":{"exist":true,"openTime":1596042000000,"closeTime":1597230000000}},"background":"/backgrounds/zones/act6d5_zone1.jpg","stages":["act6d5_01","act6d5_02","act6d5_03","act6d5_04","act6d5_05","act6d5_06","act6d5_07","act6d5_08"]},{"zoneId":"weekly_9","zoneIndex":105,"type":"WEEKLY","subType":null,"zoneName":"货物运送","zoneName_i18n":{"en":"Cargo Escort","ja":"貨物輸送","ko":"화물 운송","zh":"货物运送"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["wk_melee_1","wk_melee_2","wk_melee_3","wk_melee_4","wk_melee_5","wk_melee_6"]},{"zoneId":"weekly_5","zoneIndex":102,"type":"WEEKLY","subType":null,"zoneName":"粉碎防御","zoneName_i18n":{"en":"Tough Siege","ja":"防御突破","ko":"방어 분쇄","zh":"粉碎防御"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["wk_toxic_1","wk_toxic_2","wk_toxic_3","wk_toxic_4","wk_toxic_5"]},{"zoneId":"act7d5_zone1","zoneIndex":1006,"type":"ACTIVITY","subType":null,"zoneName":"午间逸话","zoneName_i18n":{"en":"Stories of Afternoon","ja":"午後の逸話","ko":"오후의 일화","zh":"午间逸话"},"existence":{"CN":{"exist":true,"openTime":1582617600000,"closeTime":1583179199000},"JP":{"exist":true,"openTime":1598425200000,"closeTime":1599591600000},"KR":{"exist":true,"openTime":1598425200000,"closeTime":1599591600000},"US":{"exist":true,"openTime":1598461200000,"closeTime":1599649200000}},"background":"/backgrounds/zones/act7d5_zone1.jpg","stages":["act7d5_01","act7d5_02","act7d5_03","act7d5_04","act7d5_05","act7d5_06"]},{"zoneId":"act9d0_zone1","zoneIndex":1007,"type":"ACTIVITY","subType":null,"zoneName":"生于黑夜","zoneName_i18n":{"en":"Darknights Memoir","ja":"闇夜に生きる","ko":"흑야의 회고록","zh":"生于黑夜"},"existence":{"CN":{"exist":true,"openTime":1587456000000,"closeTime":1589486400000},"JP":{"exist":true,"openTime":1607583600000,"closeTime":1609354800000},"KR":{"exist":true,"openTime":1607583600000,"closeTime":1609354800000},"US":{"exist":true,"openTime":1607619600000,"closeTime":1609412400000}},"background":"/backgrounds/zones/act9d0_zone1.jpg","stages":["act9d0_01","act9d0_02","act9d0_03","act9d0_04","act9d0_05","act9d0_06","act9d0_07","act9d0_08"]},{"zoneId":"main_7","zoneIndex":7,"type":"MAINLINE","subType":"VISION_SHATTER","zoneName":"第七章","zoneName_i18n":{"en":"Episode 7","ja":"第七章","ko":"에피소드 7","zh":"第七章"},"existence":{"CN":{"exist":true,"openTime":1588320000000},"JP":{"exist":true,"openTime":1609311600000},"KR":{"exist":true,"openTime":1609311600000},"US":{"exist":true,"openTime":1609347600000}},"background":"/backgrounds/zones/main_7.jpg","stages":["main_07-01","main_07-02","main_07-03","main_07-04","main_07-05","main_07-06","main_07-07","main_07-08","main_07-09","main_07-10","main_07-11","main_07-12","main_07-13","main_07-14","main_07-15","main_07-16","sub_07-1-1","sub_07-1-2"]},{"zoneId":"weekly_1","zoneIndex":106,"type":"WEEKLY","subType":null,"zoneName":"芯片搜索","zoneName_i18n":{"en":"Chips","ja":"SoC捜索","ko":"칩탐색","zh":"芯片搜索"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["pro_a_1","pro_a_2","pro_b_1","pro_b_2","pro_c_1","pro_c_2","pro_d_1","pro_d_2"]},{"zoneId":"weekly_7","zoneIndex":101,"type":"WEEKLY","subType":null,"zoneName":"战术演习","zoneName_i18n":{"en":"Tactical Drill","ja":"戦術演習","ko":"전술 연습","zh":"战术演习"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["wk_kc_1","wk_kc_2","wk_kc_3","wk_kc_4","wk_kc_5","wk_kc_6"]},{"zoneId":"act10d5_zone1","zoneIndex":1008,"type":"ACTIVITY","subType":null,"zoneName":"乌萨斯的孩子们","zoneName_i18n":{"en":"Children of Ursus","ja":"ウルサスの子供たち","ko":"우르수스의 아이들","zh":"乌萨斯的孩子们"},"existence":{"CN":{"exist":true,"openTime":1592467200000,"closeTime":1593028800000},"JP":{"exist":true,"openTime":1601362800000,"closeTime":1602183600000},"KR":{"exist":true,"openTime":1601362800000,"closeTime":1602183600000},"US":{"exist":true,"openTime":1601398800000,"closeTime":1602241200000}},"background":"/backgrounds/zones/act10d5_zone1.jpg","stages":["act10d5_01","act10d5_02","act10d5_03","act10d5_04","act10d5_05","act10d5_06","act10d5_07"]},{"zoneId":"act11d0_zone1","zoneIndex":1009,"type":"ACTIVITY","subType":null,"zoneName":"沃伦姆德的薄暮","zoneName_i18n":{"en":"Twilight of Wolumonde","ja":"ウォルモンドの薄暮","ko":"월루몽드의 황혼","zh":"沃伦姆德的薄暮"},"existence":{"CN":{"exist":true,"openTime":1594281600000,"closeTime":1595448000000},"JP":{"exist":true,"openTime":1603868400000,"closeTime":1605034800000},"KR":{"exist":true,"openTime":1603868400000,"closeTime":1605034800000},"US":{"exist":true,"openTime":1603904400000,"closeTime":1605092400000}},"background":"/backgrounds/zones/act11d0_zone1.jpg","stages":["act11d0_01","act11d0_02","act11d0_03","act11d0_04","act11d0_05","act11d0_06","act11d0_07","act11d0_08"]},{"zoneId":"act12d0_zone1","zoneIndex":1010,"type":"ACTIVITY","subType":null,"zoneName":"密林悍将归来","zoneName_i18n":{"en":"The Great Chief Returns","ja":"帰還！密林の長","ko":"위대한 족장 가비알: 리턴즈","zh":"密林悍将归来"},"existence":{"CN":{"exist":true,"openTime":1598342400000,"closeTime":1599508800000},"JP":{"exist":true,"openTime":1614236400000,"closeTime":1615410000000},"KR":{"exist":true,"openTime":1614236400000,"closeTime":1615410000000},"US":{"exist":true,"openTime":1614272400000,"closeTime":1615460400000}},"background":"/backgrounds/zones/act12d0_zone1.jpg","stages":["act12d0_01","act12d0_02","act12d0_03","act12d0_04","act12d0_05","act12d0_06","act12d0_07","act12d0_08"]},{"zoneId":"act13d0_zone1","zoneIndex":1011,"type":"ACTIVITY","subType":null,"zoneName":"踏寻往昔之风","zoneName_i18n":{"en":"Rewinding Breeze","ja":"在りし日の風を求めて","ko":"리와인딩 브리즈","zh":"踏寻往昔之风"},"existence":{"CN":{"exist":true,"openTime":1600934400000,"closeTime":1601496000000},"JP":{"exist":true,"openTime":1616655600000,"closeTime":1617217200000},"KR":{"exist":true,"openTime":1616655600000,"closeTime":1617217200000},"US":{"exist":true,"openTime":1616691600000,"closeTime":1617274800000}},"background":"/backgrounds/zones/act13d0_zone1.jpg","stages":["act13d0_01","act13d0_02","act13d0_03","act13d0_04","act13d0_05","act13d0_06","act13d0_07","act13d0_08"]},{"zoneId":"act13d2_zone1","zoneIndex":1012,"type":"ACTIVITY","subType":null,"zoneName":"骑兵与猎人・复刻","zoneName_i18n":{"en":"The Knight \u0026 The Hunters - Rerun","ja":"騎兵と狩人・復刻","ko":"기병과 사냥꾼 재개방","zh":"骑兵与猎人・复刻"},"existence":{"CN":{"exist":true,"openTime":1601539200000,"closeTime":1602360000000},"JP":{"exist":true,"openTime":1606374000000,"closeTime":1607194800000},"KR":{"exist":true,"openTime":1606374000000,"closeTime":1607194800000},"US":{"exist":true,"openTime":1606410000000,"closeTime":1607252400000}},"background":"/backgrounds/zones/A001_zone1.jpg","stages":["a001_01_rep","a001_02_rep","a001_03_rep","a001_04_rep","a001_05_rep","a001_06_rep"]},{"zoneId":"act13d5_zone1","zoneIndex":1013,"type":"ACTIVITY","subType":null,"zoneName":"玛莉娅・临光","zoneName_i18n":{"en":"Maria Nearl","ja":"マリア・ニアール","ko":"마리아 니어","zh":"玛莉娅・临光"},"existence":{"CN":{"exist":true,"openTime":1602748800000,"closeTime":1603915200000},"JP":{"exist":true,"openTime":1617865200000,"closeTime":1619031600000},"KR":{"exist":true,"openTime":1617865200000,"closeTime":1619031600000},"US":{"exist":true,"openTime":1617901200000,"closeTime":1619089200000}},"background":"/backgrounds/zones/act13d5_zone1.jpg","stages":["act13d5_01","act13d5_02","act13d5_03","act13d5_04","act13d5_05","act13d5_06","act13d5_07","act13d5_08"]},{"zoneId":"main_8","zoneIndex":8,"type":"MAINLINE","subType":"VISION_SHATTER","zoneName":"第八章","zoneName_i18n":{"en":"Episode 8","ja":"第八章","ko":"에피소드 8","zh":"第八章"},"existence":{"CN":{"exist":true,"openTime":1604217600000},"JP":{"exist":true,"openTime":1619766000000},"KR":{"exist":true,"openTime":1619766000000},"US":{"exist":true,"openTime":1619802000000}},"background":"/backgrounds/zones/main_8.jpg","stages":["main_08-07","main_08-01","main_08-02","main_08-03","main_08-04","main_08-05","main_08-06","main_08-08","main_08-09","main_08-10","main_08-11","main_08-12","main_08-13","main_08-14","main_08-15","main_08-16","main_08-17"]},{"zoneId":"act14d7_zone1","zoneIndex":1014,"type":"ACTIVITY","subType":null,"zoneName":"喧闹法则・复刻","zoneName_i18n":{"en":"Code of Brawl - Rerun","ja":"喧騒の掟・復刻","ko":"소란의 법칙 재개방","zh":"喧闹法则・复刻"},"existence":{"CN":{"exist":true,"openTime":1606809600000,"closeTime":1607630400000},"JP":{"exist":true,"openTime":1620975600000,"closeTime":1621796400000},"KR":{"exist":true,"openTime":1620975600000,"closeTime":1621796400000},"US":{"exist":true,"openTime":1621011600000,"closeTime":1621854000000}},"background":"/backgrounds/zones/act5d0_zone1.jpg","stages":["act5d0_01_rep","act5d0_02_rep","act5d0_03_rep","act5d0_04_rep","act5d0_05_rep","act5d0_06_rep","act5d0_07_rep","act5d0_08_rep","act5d0_09_rep","act5d0_10_rep"]},{"zoneId":"act15d0_zone1","zoneIndex":1015,"type":"ACTIVITY","subType":null,"zoneName":"孤岛风云","zoneName_i18n":{"en":"Mansfield Break","ja":"孤島激震","ko":"맨스필드 브레이크","zh":"孤岛风云"},"existence":{"CN":{"exist":true,"openTime":1608192000000,"closeTime":1609358400000},"JP":{"exist":true,"openTime":1624345200000,"closeTime":1625511600000},"KR":{"exist":true,"openTime":1624345200000,"closeTime":1625511600000},"US":{"exist":true,"openTime":1624381200000,"closeTime":1625569200000}},"background":"/backgrounds/zones/act15d0_zone1.jpg","stages":["act15d0_01","act15d0_02","act15d0_03","act15d0_04","act15d0_05","act15d0_06","act15d0_07","act15d0_08"]},{"zoneId":"act15d5_zone1","zoneIndex":1016,"type":"ACTIVITY","subType":null,"zoneName":"此地之外","zoneName_i18n":{"en":"Beyond Here","ja":"彼方を望む","ko":"비욘드 히어","zh":"此地之外"},"existence":{"CN":{"exist":true,"openTime":1609833600000,"closeTime":1610395200000},"JP":{"exist":true,"openTime":1625554800000,"closeTime":1626116400000},"KR":{"exist":true,"openTime":1625554800000,"closeTime":1626116400000},"US":{"exist":true,"openTime":1625590800000,"closeTime":1626174000000}},"background":"/backgrounds/zones/act15d5_zone1.jpg","stages":["act15d5_01","act15d5_02","act15d5_03","act15d5_04","act15d5_05","act15d5_06","act15d5_07","act15d5_08"]},{"zoneId":"act16d5_zone1","zoneIndex":1017,"type":"ACTIVITY","subType":null,"zoneName":"画中人","zoneName_i18n":{"en":"Who Is Real","ja":"画中人","ko":"화중인","zh":"画中人"},"existence":{"CN":{"exist":true,"openTime":1612512000000,"closeTime":1613678400000},"JP":{"exist":true,"openTime":1627628400000,"closeTime":1628794800000},"KR":{"exist":true,"openTime":1627628400000,"closeTime":1628794800000},"US":{"exist":true,"openTime":1627664400000,"closeTime":1628852400000}},"background":"/backgrounds/zones/act16d5_zone1.jpg","stages":["act16d5_01","act16d5_02","act16d5_03","act16d5_04","act16d5_05","act16d5_06","act16d5_07","act16d5_08","act16d5_09","act16d5_10"]},{"zoneId":"act17d0_zone1","zoneIndex":1018,"type":"ACTIVITY","subType":null,"zoneName":"源石尘行动","zoneName_i18n":{"en":"Operation Originium Dust","ja":"オペレーション オリジニウムダスト","ko":"오리지늄 더스트","zh":"源石尘行动"},"existence":{"CN":{"exist":true,"openTime":1615276800000,"closeTime":1616443200000},"JP":{"exist":true,"openTime":1629270000000,"closeTime":1630436400000},"KR":{"exist":true,"openTime":1629270000000,"closeTime":1630436400000},"US":{"exist":true,"openTime":1629306000000,"closeTime":1630494000000}},"background":"/backgrounds/zones/act17d0_zone1.jpg","stages":["act17d0_01","act17d0_02","act17d0_03","act17d0_04","act17d0_05","act17d0_06","act17d0_07","act17d0_08"]},{"zoneId":"act17d5_zone1","zoneIndex":1019,"type":"ACTIVITY","subType":null,"zoneName":"生于黑夜・复刻","zoneName_i18n":{"en":"Darknights Memoir - Rerun","ja":"闇夜に生きる・復刻","ko":"흑야의 회고록 재개방","zh":"生于黑夜・复刻"},"existence":{"CN":{"exist":true,"openTime":1617091200000,"closeTime":1617912000000},"JP":{"exist":true,"openTime":1630998000000,"closeTime":1631818800000},"KR":{"exist":true,"openTime":1630998000000,"closeTime":1631818800000},"US":{"exist":true,"openTime":1631034000000,"closeTime":1631876400000}},"background":"/backgrounds/zones/act9d0_zone1.jpg","stages":["act9d0_01_rep","act9d0_02_rep","act9d0_03_rep","act9d0_04_rep","act9d0_05_rep","act9d0_06_rep","act9d0_07_rep","act9d0_08_rep"]},{"zoneId":"act18d0_zone1","zoneIndex":1020,"type":"ACTIVITY","subType":null,"zoneName":"遗尘漫步","zoneName_i18n":{"en":"A Walk in The Dust","ja":"遺塵の道を","ko":"워크 인 더 더스트","zh":"遗尘漫步"},"existence":{"CN":{"exist":true,"openTime":1618473600000,"closeTime":1619640000000},"JP":{"exist":true,"openTime":1632985200000,"closeTime":1634151600000},"KR":{"exist":true,"openTime":1632985200000,"closeTime":1634151600000},"US":{"exist":true,"openTime":1633021200000,"closeTime":1634209200000}},"background":"/backgrounds/zones/act18d0_zone1.jpg","stages":["act18d0_01","act18d0_02","act18d0_03","act18d0_04","act18d0_05","act18d0_06","act18d0_07","act18d0_08"]},{"zoneId":"act18d3_zone1","zoneIndex":1021,"type":"ACTIVITY","subType":null,"zoneName":"覆潮之下","zoneName_i18n":{"en":"Under Tides","ja":"潮汐の下","ko":"언더 타이즈","zh":"覆潮之下"},"existence":{"CN":{"exist":true,"openTime":1619856000000,"closeTime":1621022400000},"JP":{"exist":true,"openTime":1634799600000,"closeTime":1635966000000},"KR":{"exist":true,"openTime":1634799600000,"closeTime":1635966000000},"US":{"exist":true,"openTime":1634835600000,"closeTime":1636023600000}},"background":"/backgrounds/zones/act18d3_zone1.jpg","stages":["act18d3_01","act18d3_02","act18d3_03","act18d3_04","act18d3_05","act18d3_06","act18d3_07","act18d3_08","act18d3_09"]},{"zoneId":"permanent_sub_1_zone1","zoneIndex":2001,"type":"ACTIVITY_PERMANENT","subType":"INTERLUDE","zoneName":"生于黑夜・插曲","zoneName_i18n":{"en":"Darknights Memoir - Intermezzi","ja":"闇夜に生きる・エピソード","ko":"흑야의 회고록 에피소드","zh":"生于黑夜・插曲"},"existence":{"CN":{"exist":true,"openTime":1618473600000},"JP":{"exist":true,"openTime":1632967200000},"KR":{"exist":true,"openTime":1632967200000},"US":{"exist":true,"openTime":1633003200000}},"background":"/backgrounds/zones/act9d0_zone1.jpg","stages":["act9d0_01_perm","act9d0_02_perm","act9d0_03_perm","act9d0_04_perm","act9d0_05_perm","act9d0_06_perm","act9d0_07_perm","act9d0_08_perm"]},{"zoneId":"permanent_sidestory_1_zone1","zoneIndex":3001,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"骑兵与猎人・别传","zoneName_i18n":{"en":"The Knight \u0026 The Hunters - Side Story","ja":"騎兵と狩人・サイドストーリー","ko":"기병과 사냥꾼 사이드","zh":"骑兵与猎人・别传"},"existence":{"CN":{"exist":true,"openTime":1618473600000},"JP":{"exist":true,"openTime":1632967200000},"KR":{"exist":true,"openTime":1632967200000},"US":{"exist":true,"openTime":1633003200000}},"background":"/backgrounds/zones/A001_zone1.jpg","stages":["a001_01_perm","a001_02_perm","a001_03_perm","a001_04_perm","a001_05_perm","a001_06_perm"]},{"zoneId":"permanent_sidestory_2_zone1","zoneIndex":3002,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"火蓝之心・别传","zoneName_i18n":{"en":"Heart of Surging Flame - Side Story","ja":"青く燃ゆる心・サイドストーリー","ko":"파란 불꽃의 마음 사이드","zh":"火蓝之心・别传"},"existence":{"CN":{"exist":true,"openTime":1618473600000},"JP":{"exist":true,"openTime":1632967200000},"KR":{"exist":true,"openTime":1632967200000},"US":{"exist":true,"openTime":1633003200000}},"background":"/backgrounds/zones/A003_zone1.jpg","stages":["a003_f02_perm","a003_f01_perm","a003_f03_perm","a003_f04_perm"]},{"zoneId":"permanent_sub_2_zone1","zoneIndex":2002,"type":"ACTIVITY_PERMANENT","subType":"INTERLUDE","zoneName":"遗尘漫步・插曲","zoneName_i18n":{"en":"A Walk in The Dust - Intermezzi","ja":"遺塵の道を・エピソード","ko":"워크 인 더 더스트 에피소드","zh":"遗尘漫步・插曲"},"existence":{"CN":{"exist":true,"openTime":1620244800000},"JP":{"exist":true,"openTime":1634756400000},"KR":{"exist":true,"openTime":1634756400000},"US":{"exist":true,"openTime":1634814000000}},"background":"/backgrounds/zones/act18d0_zone1.jpg","stages":["act18d0_01_perm","act18d0_02_perm","act18d0_03_perm","act18d0_04_perm","act18d0_05_perm","act18d0_06_perm","act18d0_07_perm","act18d0_08_perm"]},{"zoneId":"permanent_sub_3_zone1","zoneIndex":2003,"type":"ACTIVITY_PERMANENT","subType":"INTERLUDE","zoneName":"覆潮之下・插曲","zoneName_i18n":{"en":"Under Tides - Intermezzi","ja":"潮汐の下・エピソード","ko":"언더 타이즈 에피소드","zh":"覆潮之下・插曲"},"existence":{"CN":{"exist":true,"openTime":1621627200000},"JP":{"exist":true,"openTime":1636570800000},"KR":{"exist":true,"openTime":1636570800000},"US":{"exist":true,"openTime":1636628400000}},"background":"/backgrounds/zones/act18d3_zone1.jpg","stages":["act18d3_01_perm","act18d3_02_perm","act18d3_03_perm","act18d3_04_perm","act18d3_05_perm","act18d3_06_perm","act18d3_07_perm","act18d3_08_perm","act18d3_09_perm"]},{"zoneId":"act7mini_zone1","zoneIndex":1022,"type":"ACTIVITY","subType":null,"zoneName":"灯火序曲","zoneName_i18n":{"en":"Preluding Lights","ja":"灯火序曲","ko":"프렐류딩 라이츠","zh":"灯火序曲"},"existence":{"CN":{"exist":true,"openTime":1622534400000,"closeTime":1623096000000},"JP":{"exist":true,"openTime":1639033200000,"closeTime":1639594800000},"KR":{"exist":true,"openTime":1639033200000,"closeTime":1639594800000},"US":{"exist":true,"openTime":1639069200000,"closeTime":1639652400000}},"background":"/backgrounds/zones/act7mini_zone1.jpg","stages":["act7mini_01","act7mini_02","act7mini_03","act7mini_04","act7mini_05"]},{"zoneId":"act5sre_zone1","zoneIndex":1023,"type":"ACTIVITY","subType":null,"zoneName":"沃伦姆德的薄暮・复刻","zoneName_i18n":{"en":"Twilight of Wolumonde - Rerun","ja":"ウォルモンドの薄暮・復刻","ko":"월루몽드의 황혼 재개방","zh":"沃伦姆德的薄暮・复刻"},"existence":{"CN":{"exist":true,"openTime":1623916800000,"closeTime":1624737600000},"JP":{"exist":true,"openTime":1639724400000,"closeTime":1640545200000},"KR":{"exist":true,"openTime":1639724400000,"closeTime":1640545200000},"US":{"exist":true,"openTime":1639760400000,"closeTime":1640602800000}},"background":"/backgrounds/zones/act11d0_zone1.jpg","stages":["act11d0_01_rep","act11d0_02_rep","act11d0_03_rep","act11d0_04_rep","act11d0_05_rep","act11d0_06_rep","act11d0_07_rep","act11d0_08_rep"]},{"zoneId":"permanent_sidestory_4_zone1","zoneIndex":3003,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"沃伦姆德的薄暮・别传","zoneName_i18n":{"en":"Twilight of Wolumonde - Side Story","ja":"ウォルモンドの薄暮・サイドストーリー","ko":"월루몽드의 황혼 사이드","zh":"沃伦姆德的薄暮・别传"},"existence":{"CN":{"exist":true,"openTime":1625083200000},"JP":{"exist":true,"openTime":1640890800000},"KR":{"exist":true,"openTime":1640890800000},"US":{"exist":true,"openTime":1640948400000}},"background":"/backgrounds/zones/act11d0_zone1.jpg","stages":["act11d0_01_perm","act11d0_02_perm","act11d0_04_perm","act11d0_03_perm","act11d0_06_perm","act11d0_05_perm","act11d0_08_perm","act11d0_07_perm"]},{"zoneId":"act8mini_zone1","zoneIndex":1024,"type":"ACTIVITY","subType":null,"zoneName":"如我所见","zoneName_i18n":{"en":"Vigilo","ja":"VIGILO -我が眼に映るまま-","ko":"비질로: 내 눈에 비치는 대로","zh":"如我所见"},"existence":{"CN":{"exist":true,"openTime":1626163200000,"closeTime":1626724800000},"JP":{"exist":true,"openTime":1645081200000,"closeTime":1645642800000},"KR":{"exist":true,"openTime":1645081200000,"closeTime":1645642800000},"US":{"exist":true,"openTime":1645117200000,"closeTime":1645700400000}},"background":"/backgrounds/zones/act8mini_zone1.jpg","stages":["act8mini_07","act8mini_01","act8mini_02","act8mini_03","act8mini_04","act8mini_05","act8mini_06"]},{"zoneId":"act6sre_zone1","zoneIndex":1025,"type":"ACTIVITY","subType":null,"zoneName":"密林悍将归来・复刻","zoneName_i18n":{"en":"The Great Chief Returns - Rerun","ja":"帰還！密林の長・復刻","ko":"위대한 족장 가비알: 리턴즈 재개방","zh":"密林悍将归来・复刻"},"existence":{"CN":{"exist":true,"openTime":1626768000000,"closeTime":1627588800000},"JP":{"exist":true,"openTime":1643958000000,"closeTime":1644778800000},"KR":{"exist":true,"openTime":1643958000000,"closeTime":1644778800000},"US":{"exist":true,"openTime":1643994000000,"closeTime":1644836400000}},"background":"/backgrounds/zones/act12d0_zone1.jpg","stages":["act12d0_01_rep","act12d0_02_rep","act12d0_03_rep","act12d0_04_rep","act12d0_05_rep","act12d0_06_rep","act12d0_07_rep","act12d0_08_rep"]},{"zoneId":"act12side_zone1","zoneIndex":1026,"type":"ACTIVITY","subType":null,"zoneName":"多索雷斯假日","zoneName_i18n":{"en":"Dossoles Holiday","ja":"ドッソレスホリデー","ko":"홀리데이 스타","zh":"多索雷斯假日"},"existence":{"CN":{"exist":true,"openTime":1627977600000,"closeTime":1629748800000},"JP":{"exist":true,"openTime":1642143600000,"closeTime":1643914800000},"KR":{"exist":true,"openTime":1642143600000,"closeTime":1643914800000},"US":{"exist":true,"openTime":1642179600000,"closeTime":1643972400000}},"background":"/backgrounds/zones/act12side_zone1.jpg","stages":["act12side_01","act12side_02","act12side_03","act12side_04","act12side_05","act12side_06","act12side_07","act12side_08","act12side_09"]},{"zoneId":"permanent_sidestory_5_zone1","zoneIndex":3004,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"密林悍将归来・别传","zoneName_i18n":{"en":"The Great Chief Returns - Side Story","ja":"帰還！密林の長・サイドストーリー","ko":"위대한 족장 가비알: 리턴즈 사이드","zh":"密林悍将归来・别传"},"existence":{"CN":{"exist":true,"openTime":1627934400000},"JP":{"exist":true,"openTime":1645124400000},"KR":{"exist":true,"openTime":1645124400000},"US":{"exist":true,"openTime":1645182000000}},"background":"/backgrounds/zones/act12d0_zone1.jpg","stages":["act12d0_08_perm","act12d0_07_perm","act12d0_09_perm","act12d0_01_perm","act12d0_02_perm","act12d0_04_perm","act12d0_03_perm","act12d0_06_perm","act12d0_05_perm"]},{"zoneId":"main_9","zoneIndex":9,"type":"MAINLINE","subType":"DYING_SUN","zoneName":"第九章","zoneName_i18n":{"en":"Episode 9","ja":"第九章","ko":"에피소드 9","zh":"第九章"},"existence":{"CN":{"exist":true,"openTime":1631865600000},"JP":{"exist":true,"openTime":1647500400000},"KR":{"exist":true,"openTime":1647500400000},"US":{"exist":true,"openTime":1647536400000}},"background":"/backgrounds/zones/main_9.jpg","stages":["sub_09-1-2","main_09-17","main_09-02","main_09-03","main_09-04","main_09-05","main_09-07","main_09-16","sub_09-1-1","main_09-06","main_09-01","main_09-09","main_09-08","main_09-11","main_09-10","main_09-13","main_09-12","main_09-15","main_09-14"]},{"zoneId":"act7sre_zone1","zoneIndex":1027,"type":"ACTIVITY","subType":null,"zoneName":"玛莉娅・临光・复刻","zoneName_i18n":{"en":"Maria Nearl - Rerun","ja":"マリア・ニアール・復刻","ko":"마리아 니어 재개방","zh":"玛莉娅・临光・复刻"},"existence":{"CN":{"exist":true,"openTime":1633075200000,"closeTime":1633896000000},"JP":{"exist":true,"openTime":1648710000000,"closeTime":1649530800000},"KR":{"exist":true,"openTime":1648710000000,"closeTime":1649530800000},"US":{"exist":true,"openTime":1648746000000,"closeTime":1649588400000}},"background":"/backgrounds/zones/act13d5_zone1.jpg","stages":["act13d5_03_rep","act13d5_06_rep","act13d5_05_rep","act13d5_08_rep","act13d5_07_rep","act13d5_02_rep","act13d5_01_rep","act13d5_04_rep"]},{"zoneId":"act9mini_zone1","zoneIndex":1028,"type":"ACTIVITY","subType":null,"zoneName":"红松林","zoneName_i18n":{"en":"Pinus Sylvestris","ja":"赤松林","ko":"피누스 실베스트리스","zh":"红松林"},"existence":{"CN":{"exist":true,"openTime":1634284800000,"closeTime":1634846400000},"JP":{"exist":true,"openTime":1649919600000,"closeTime":1650481200000},"KR":{"exist":true,"openTime":1649919600000,"closeTime":1650481200000},"US":{"exist":true,"openTime":1649955600000,"closeTime":1650538800000}},"background":"/backgrounds/zones/act9mini_zone1.jpg","stages":["act9mini_01","act9mini_02","act9mini_03","act9mini_04","act9mini_05","act9mini_06"]},{"zoneId":"permanent_sidestory_6_zone1","zoneIndex":3005,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"玛莉娅・临光・别传","zoneName_i18n":{"en":"Maria Nearl - Side Story","ja":"マリア・ニアール・サイドストーリー","ko":"마리아 니어 사이드","zh":"玛莉娅・临光・别传"},"existence":{"CN":{"exist":true,"openTime":1634241600000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act13d5_zone1.jpg","stages":["act13d5_01_perm","act13d5_02_perm","act13d5_03_perm","act13d5_04_perm","act13d5_05_perm","act13d5_06_perm","act13d5_07_perm","act13d5_08_perm"]},{"zoneId":"act13side_zone1","zoneIndex":1029,"type":"ACTIVITY","subType":null,"zoneName":"长夜临光","zoneName_i18n":{"en":"Near Light","ja":"ニアーライト","ko":"니어 라이트","zh":"长夜临光"},"existence":{"CN":{"exist":true,"openTime":1635753600000,"closeTime":1637524800000},"JP":{"exist":true,"openTime":1651129200000,"closeTime":1652900400000},"KR":{"exist":true,"openTime":1651129200000,"closeTime":1652900400000},"US":{"exist":true,"openTime":1651165200000,"closeTime":1652958000000}},"background":"/backgrounds/zones/act13side_zone1.jpg","stages":["act13side_01","act13side_02","act13side_10","act13side_03","act13side_05","act13side_04","act13side_07","act13side_06","act13side_09","act13side_08"]},{"zoneId":"act8sre_zone1","zoneIndex":1030,"type":"ACTIVITY","subType":null,"zoneName":"孤岛风云・复刻","zoneName_i18n":{"en":"Mansfield Break - Rerun","ja":"孤島激震・復刻","ko":"맨스필드 브레이크 재개방","zh":"孤岛风云・复刻"},"existence":{"CN":{"exist":true,"openTime":1638864000000,"closeTime":1639684800000},"JP":{"exist":true,"openTime":1653548400000,"closeTime":1654369200000},"KR":{"exist":true,"openTime":1653548400000,"closeTime":1654369200000},"US":{"exist":true,"openTime":1653584400000,"closeTime":1654772400000}},"background":"/backgrounds/zones/act15d0_zone1.jpg","stages":["act15d0_01_rep","act15d0_02_rep","act15d0_07_rep","act15d0_03_rep","act15d0_04_rep","act15d0_06_rep","act15d0_05_rep","act15d0_08_rep"]},{"zoneId":"act14side_zone1","zoneIndex":1031,"type":"ACTIVITY","subType":null,"zoneName":"风雪过境","zoneName_i18n":{"en":"Break The Ice","ja":"風雪一過","ko":"브레이크 디 아이스","zh":"风雪过境"},"existence":{"CN":{"exist":true,"openTime":1640073600000,"closeTime":1641240000000},"JP":{"exist":true,"openTime":1656572400000,"closeTime":1657738800000},"KR":{"exist":true,"openTime":1656572400000,"closeTime":1657738800000},"US":{"exist":true,"openTime":1656608400000,"closeTime":1657796400000}},"background":"/backgrounds/zones/act14side_zone1.jpg","stages":["act14side_01","act14side_04","act14side_06","act14side_07","act14side_08","act14side_03","act14side_02","act14side_05"]},{"zoneId":"permanent_sidestory_7_zone1","zoneIndex":3006,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"孤岛风云・别传","zoneName_i18n":{"en":"Mansfield Break - Side Story","ja":"孤島激震・サイドストーリー","ko":"맨스필드 브레이크 사이드","zh":"孤岛风云・别传"},"existence":{"CN":{"exist":true,"openTime":1640030400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act15d0_zone1.jpg","stages":["act15d0_04_perm","act15d0_01_perm","act15d0_02_perm","act15d0_03_perm","act15d0_05_perm","act15d0_06_perm","act15d0_07_perm","act15d0_08_perm"]},{"zoneId":"act9sre_zone1","zoneIndex":1032,"type":"ACTIVITY","subType":null,"zoneName":"画中人・复刻","zoneName_i18n":{"en":"Who Is Real - Rerun","ja":"画中人・復刻","ko":"화중인 재개방","zh":"画中人・复刻"},"existence":{"CN":{"exist":true,"openTime":1641801600000,"closeTime":1642622400000},"JP":{"exist":true,"openTime":1657782000000,"closeTime":1658602800000},"KR":{"exist":true,"openTime":1657782000000,"closeTime":1658602800000},"US":{"exist":true,"openTime":1657818000000,"closeTime":1658660400000}},"background":"/backgrounds/zones/act16d5_zone1.jpg","stages":["act16d5_03_rep","act16d5_02_rep","act16d5_07_rep","act16d5_06_rep","act16d5_09_rep","act16d5_04_rep","act16d5_10_rep","act16d5_05_rep","act16d5_01_rep","act16d5_08_rep"]},{"zoneId":"act15side_zone1","zoneIndex":1033,"type":"ACTIVITY","subType":null,"zoneName":"将进酒","zoneName_i18n":{"en":"Invitation to Wine","ja":"将進酒","ko":"장진주","zh":"将进酒"},"existence":{"CN":{"exist":true,"openTime":1643097600000,"closeTime":1644264000000},"JP":{"exist":true,"openTime":1659078000000,"closeTime":1660244400000},"KR":{"exist":true,"openTime":1659078000000,"closeTime":1660244400000},"US":{"exist":true,"openTime":1659114000000,"closeTime":1660302000000}},"background":"/backgrounds/zones/act15side_zone1.jpg","stages":["act15side_01","act15side_02","act15side_03","act15side_05","act15side_08","act15side_09","act15side_04","act15side_07","act15side_06"]},{"zoneId":"act10mini_zone1","zoneIndex":1034,"type":"ACTIVITY","subType":null,"zoneName":"阴云火花","zoneName_i18n":{"en":"A Light Spark In Darkness","ja":"闇散らす火花","ko":"어 라이트 스파크 인 다크니스","zh":"阴云火花"},"existence":{"CN":{"exist":true,"openTime":1644912000000,"closeTime":1645473600000},"JP":{"exist":true,"openTime":1660806000000,"closeTime":1661367600000},"KR":{"exist":true,"openTime":1660806000000,"closeTime":1661367600000},"US":{"exist":true,"openTime":1660842000000,"closeTime":1661425200000}},"background":"/backgrounds/zones/act10mini_zone1.jpg","stages":["act10mini_01","act10mini_02","act10mini_06","act10mini_03","act10mini_04","act10mini_05","act10mini_07","act10mini_08","act10mini_10","act10mini_09"]},{"zoneId":"permanent_sidestory_8_zone1","zoneIndex":3007,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"画中人・别传","zoneName_i18n":{"en":"Who Is Real - Side Story","ja":"画中人・サイドストーリー","ko":"화중인 사이드","zh":"画中人・别传"},"existence":{"CN":{"exist":true,"openTime":1642968000000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act16d5_zone1.jpg","stages":["act16d5_01_perm","act16d5_02_perm","act16d5_03_perm","act16d5_04_perm","act16d5_05_perm","act16d5_06_perm","act16d5_07_perm","act16d5_08_perm","act16d5_09_perm","act16d5_10_perm"]},{"zoneId":"act16side_zone1","zoneIndex":1035,"type":"ACTIVITY","subType":null,"zoneName":"吾导先路","zoneName_i18n":{"en":"Guide Ahead","ja":"吾れ先導者たらん","ko":"가이딩 어헤드","zh":"吾导先路"},"existence":{"CN":{"exist":true,"openTime":1647331200000,"closeTime":1648497600000},"JP":{"exist":true,"openTime":1663311600000,"closeTime":1664478000000},"KR":{"exist":true,"openTime":1663311600000,"closeTime":1664478000000},"US":{"exist":true,"openTime":1663347600000,"closeTime":1664535600000}},"background":"/backgrounds/zones/act16side_zone1.jpg","stages":["act16side_01","act16side_04","act16side_05","act16side_06","act16side_07","act16side_08","act16side_02","act16side_03"]},{"zoneId":"act10sre_zone1","zoneIndex":1036,"type":"ACTIVITY","subType":null,"zoneName":"遗尘漫步・复刻","zoneName_i18n":{"en":"A Walk in The Dust - Rerun","ja":"遺塵の道を・復刻","ko":"워크 인 더 더스트","zh":"遗尘漫步・复刻"},"existence":{"CN":{"exist":true,"openTime":1648540800000,"closeTime":1649361600000},"JP":{"exist":true,"openTime":1664866800000,"closeTime":1665687600000},"KR":{"exist":true,"openTime":1664866800000,"closeTime":1665687600000},"US":{"exist":true,"openTime":1664902800000,"closeTime":1665745200000}},"background":"/backgrounds/zones/act18d0_zone1.jpg","stages":["act18d0_08_rep","act18d0_02_rep","act18d0_03_rep","act18d0_01_rep","act18d0_05_rep","act18d0_04_rep","act18d0_07_rep","act18d0_06_rep"]},{"zoneId":"main_10","zoneIndex":10,"type":"MAINLINE","subType":"DYING_SUN","zoneName":"第十章 (标准)","zoneName_i18n":{"en":"Episode 10 (Standard)","ja":"第十章 (通常)","ko":"에피소드 10 (Standard)","zh":"第十章 (标准)"},"existence":{"CN":{"exist":true,"openTime":1649923200000},"JP":{"exist":true,"openTime":1666162800000},"KR":{"exist":true,"openTime":1666162800000},"US":{"exist":true,"openTime":1666198800000}},"background":"/backgrounds/zones/main_10.jpg","stages":["main_10-08","main_10-01","main_10-02","main_10-03","main_10-04","main_10-05","main_10-07","main_10-09","main_10-10","main_10-12","main_10-13","main_10-14","main_10-15","main_10-11","main_10-06"]},{"zoneId":"main_10_tough","zoneIndex":11,"type":"MAINLINE","subType":"DYING_SUN","zoneName":"第十章 (磨难)","zoneName_i18n":{"en":"Episode 10 (Tough)","ja":"第十章 (厄難)","ko":"에피소드 10 (Tough)","zh":"第十章 (磨难)"},"existence":{"CN":{"exist":true,"openTime":1649923200000},"JP":{"exist":true,"openTime":1666162800000},"KR":{"exist":true,"openTime":1666162800000},"US":{"exist":true,"openTime":1666198800000}},"background":"/backgrounds/zones/main_10.jpg","stages":["tough_10-02","tough_10-01","tough_10-03","tough_10-09","tough_10-12","tough_10-08","tough_10-11","tough_10-10","tough_10-07","tough_10-06","tough_10-05","tough_10-04","tough_10-14","tough_10-15","tough_10-13"]},{"zoneId":"act17side_zone1","zoneIndex":1037,"type":"ACTIVITY","subType":null,"zoneName":"愚人号","zoneName_i18n":{"en":"Stultifera Navis","ja":"狂人号","ko":"스툴티페라 나비스","zh":"愚人号"},"existence":{"CN":{"exist":true,"openTime":1651392000000,"closeTime":1653163200000},"JP":{"exist":true,"openTime":1667458800000,"closeTime":1669230000000},"KR":{"exist":true,"openTime":1667458800000,"closeTime":1669230000000},"US":{"exist":true,"openTime":1667494800000,"closeTime":1669287600000}},"background":"/backgrounds/zones/act17side_zone1.jpg","stages":["act17side_02","act17side_01","act17side_04","act17side_03","act17side_06","act17side_05","act17side_08","act17side_07","act17side_10","act17side_09"]},{"zoneId":"permanent_sub_4_zone1","zoneIndex":2004,"type":"ACTIVITY_PERMANENT","subType":"INTERLUDE","zoneName":"愚人号・插曲","zoneName_i18n":{"en":"Stultifera Navis - Intermezzi","ja":"狂人号・エピソード","ko":"스툴티페라 나비스 에피소드","zh":"愚人号・插曲"},"existence":{"CN":{"exist":true,"openTime":1653768000000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act17side_zone1.jpg","stages":["act17side_02_perm","act17side_03_perm","act17side_04_perm","act17side_05_perm","act17side_06_perm","act17side_07_perm","act17side_08_perm","act17side_09_perm","act17side_10_perm","act17side_01_perm"]},{"zoneId":"act11sre_zone1","zoneIndex":1038,"type":"ACTIVITY","subType":null,"zoneName":"覆潮之下・复刻","zoneName_i18n":{"en":"Under Tides - Rerun","ja":"潮汐の下・復刻","ko":"언더 타이즈 재개방","zh":"覆潮之下・复刻"},"existence":{"CN":{"exist":true,"openTime":1653897600000,"closeTime":1654718400000},"JP":{"exist":true,"openTime":1669359600000,"closeTime":1670180400000},"KR":{"exist":true,"openTime":1669359600000,"closeTime":1670180400000},"US":{"exist":true,"openTime":1669395600000,"closeTime":1670238000000}},"background":"/backgrounds/zones/act18d3_zone1.jpg","stages":["act18d3_09_rep","act18d3_08_rep","act18d3_07_rep","act18d3_06_rep","act18d3_01_rep","act18d3_02_rep","act18d3_03_rep","act18d3_04_rep","act18d3_05_rep"]},{"zoneId":"act18side_zone1","zoneIndex":1039,"type":"ACTIVITY","subType":null,"zoneName":"尘影余音","zoneName_i18n":{"en":"Lingering Echoes","ja":"塵影に交わる残響","ko":"링거링 에코스","zh":"尘影余音"},"existence":{"CN":{"exist":true,"openTime":1654761600000,"closeTime":1655928000000},"JP":{"exist":true,"openTime":1672124400000,"closeTime":1673290800000},"KR":{"exist":true,"openTime":1672124400000,"closeTime":1673290800000},"US":{"exist":true,"openTime":1672160400000,"closeTime":1673348400000}},"background":"/backgrounds/zones/act18side_zone1.jpg","stages":["act18side_06","act18side_04","act18side_01","act18side_08","act18side_03","act18side_07","act18side_05","act18side_02"]},{"zoneId":"act19side_zone1","zoneIndex":1040,"type":"ACTIVITY","subType":null,"zoneName":"绿野幻梦","zoneName_i18n":{"en":"绿野幻梦","ja":"绿野幻梦","ko":"绿野幻梦","zh":"绿野幻梦"},"existence":{"CN":{"exist":true,"openTime":1657008000000,"closeTime":1658174400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act19side_zone1.jpg","stages":["act19side_01","act19side_02","act19side_03","act19side_04","act19side_05","act19side_06","act19side_07","act19side_08"]},{"zoneId":"act11mini_zone1","zoneIndex":1041,"type":"ACTIVITY","subType":null,"zoneName":"未尽篇章","zoneName_i18n":{"en":"To Be Continued","ja":"未完の断章","ko":"투 비 컨티뉴","zh":"未尽篇章"},"existence":{"CN":{"exist":true,"openTime":1658217600000,"closeTime":1658779200000},"JP":{"exist":true,"openTime":1676617200000,"closeTime":1677178800000},"KR":{"exist":true,"openTime":1676617200000,"closeTime":1677178800000},"US":{"exist":true,"openTime":1676653200000,"closeTime":1677236400000}},"background":"/backgrounds/zones/act11mini_zone1.jpg","stages":["act11mini_06","act11mini_08","act11mini_03","act11mini_01","act11mini_02","act11mini_04","act11mini_05","act11mini_07"]},{"zoneId":"act12sre_zone1","zoneIndex":1042,"type":"ACTIVITY","subType":null,"zoneName":"多索雷斯假日・复刻","zoneName_i18n":{"en":"Dossoles Holiday - Rerun","ja":"ドッソレスホリデー・復刻","ko":"홀리데이 스타 재개방","zh":"多索雷斯假日・复刻"},"existence":{"CN":{"exist":true,"openTime":1658822400000,"closeTime":1659643200000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act12side_zone1.jpg","stages":["act12side_01_rep","act12side_02_rep","act12side_03_rep","act12side_04_rep","act12side_05_rep","act12side_06_rep","act12side_07_rep","act12side_08_rep","act12side_09_rep"]},{"zoneId":"permanent_sidestory_9_zone1","zoneIndex":3008,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"多索雷斯假日・别传","zoneName_i18n":{"en":"Dossoles Holiday - Side Story","ja":"ドッソレスホリデー・サイドストーリー","ko":"홀리데이 스타 사이드","zh":"多索雷斯假日・别传"},"existence":{"CN":{"exist":true,"openTime":1659988800000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act12side_zone1.jpg","stages":["act12side_01_perm","act12side_02_perm","act12side_03_perm","act12side_04_perm","act12side_05_perm","act12side_06_perm","act12side_07_perm","act12side_08_perm","act12side_09_perm"]},{"zoneId":"act20side_zone1","zoneIndex":1043,"type":"ACTIVITY","subType":null,"zoneName":"理想城：长夏狂欢季","zoneName_i18n":{"en":"Ideal City: Endless Carnival","ja":"理想都市 -エンドレスカーニバル-","ko":"이상적인 도시: 엔드리스 카니발","zh":"理想城：长夏狂欢季"},"existence":{"CN":{"exist":true,"openTime":1660204800000,"closeTime":1661976000000},"JP":{"exist":true,"openTime":1673593200000,"closeTime":1675364400000},"KR":{"exist":true,"openTime":1673593200000,"closeTime":1675364400000},"US":{"exist":true,"openTime":1673629200000,"closeTime":1675422000000}},"background":"/backgrounds/zones/act20side_zone1.jpg","stages":["act20side_04","act20side_02","act20side_09","act20side_08","act20side_07","act20side_01","act20side_03","act20side_06","act20side_05"]},{"zoneId":"recruit","zoneIndex":0,"type":"RECRUIT","subType":null,"zoneName":"公开招募","zoneName_i18n":{"en":"Recruit","ja":"公開求人","ko":"공개모집","zh":"公开招募"},"existence":{"CN":{"exist":true},"JP":{"exist":true},"KR":{"exist":true},"US":{"exist":true}},"background":null,"stages":["recruit"]},{"zoneId":"act12mini_zone1","zoneIndex":1044,"type":"ACTIVITY","subType":null,"zoneName":"日暮寻路","zoneName_i18n":{"en":"日暮寻路","ja":"日暮寻路","ko":"日暮寻路","zh":"日暮寻路"},"existence":{"CN":{"exist":true,"openTime":1662624000000,"closeTime":1663185600000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act12mini_zone1.jpg","stages":["act12mini_01","act12mini_02","act12mini_03","act12mini_04","act12mini_05","act12mini_06","act12mini_07","act12mini_08"]},{"zoneId":"act13mini_zone1","zoneIndex":1045,"type":"ACTIVITY","subType":null,"zoneName":"好久不见","zoneName_i18n":{"en":"好久不见","ja":"好久不见","ko":"好久不见","zh":"好久不见"},"existence":{"CN":{"exist":true,"openTime":1663228800000,"closeTime":1663790400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act13mini_zone1.jpg","stages":["act13mini_01","act13mini_02","act13mini_03","act13mini_04","act13mini_05","act13mini_06","act13mini_07","act13mini_08"]},{"zoneId":"act13sre_zone1","zoneIndex":1046,"type":"ACTIVITY","subType":null,"zoneName":"长夜临光・复刻","zoneName_i18n":{"en":"Near Light - Rerun","ja":"ニアーライト・復刻","ko":"니어 라이트 재개방","zh":"长夜临光・复刻"},"existence":{"CN":{"exist":true,"openTime":1663833600000,"closeTime":1664654400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act13side_zone1.jpg","stages":["act13side_01_rep","act13side_02_rep","act13side_03_rep","act13side_04_rep","act13side_05_rep","act13side_06_rep","act13side_07_rep","act13side_08_rep","act13side_09_rep","act13side_10_rep"]},{"zoneId":"main_11","zoneIndex":12,"type":"MAINLINE","subType":"DYING_SUN","zoneName":"第十一章 (标准)","zoneName_i18n":{"en":"Episode 11 (Standard)","ja":"第十一章 (通常)","ko":"에피소드 11 (Standard)","zh":"第十一章 (标准)"},"existence":{"CN":{"exist":true,"openTime":1665475200000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/main_11.jpg","stages":["main_11-02","main_11-03","main_11-04","main_11-05","main_11-06","main_11-07","main_11-08","main_11-09","main_11-10","main_11-11","main_11-12","main_11-13","main_11-14","main_11-16","main_11-01","main_11-17","main_11-18","main_11-15"]},{"zoneId":"main_11_tough","zoneIndex":13,"type":"MAINLINE","subType":"DYING_SUN","zoneName":"第十一章 (磨难)","zoneName_i18n":{"en":"Episode 11 (Tough)","ja":"第十一章 (厄難)","ko":"에피소드 11 (Tough)","zh":"第十一章 (磨难)"},"existence":{"CN":{"exist":true,"openTime":1665475200000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/main_11.jpg","stages":["tough_11-07","tough_11-04","tough_11-03","tough_11-16","tough_11-02","tough_11-13","tough_11-10","tough_11-01","tough_11-09","tough_11-08","tough_11-06","tough_11-05","tough_11-18","tough_11-12","tough_11-14","tough_11-11"]},{"zoneId":"act21side_zone1","zoneIndex":1047,"type":"ACTIVITY","subType":null,"zoneName":"叙拉古人","zoneName_i18n":{"en":"叙拉古人","ja":"叙拉古人","ko":"叙拉古人","zh":"叙拉古人"},"existence":{"CN":{"exist":true,"openTime":1667289600000,"closeTime":1669060800000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act21side_zone1.jpg","stages":["act21side_01","act21side_02","act21side_03","act21side_04","act21side_05","act21side_06","act21side_07","act21side_08","act21side_09","act21side_10"]},{"zoneId":"permanent_sidestory_10_zone1","zoneIndex":3009,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"长夜临光・别传","zoneName_i18n":{"en":"Near Light - Side Story","ja":"ニアーライト・サイドストーリー","ko":"니어 라이트 사이드","zh":"长夜临光・别传"},"existence":{"CN":{"exist":true,"openTime":1665000000000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act13side_zone1.jpg","stages":["act13side_01_perm","act13side_02_perm","act13side_03_perm","act13side_04_perm","act13side_05_perm","act13side_06_perm","act13side_07_perm","act13side_08_perm","act13side_09_perm","act13side_10_perm"]},{"zoneId":"act14sre_zone1","zoneIndex":1048,"type":"ACTIVITY","subType":null,"zoneName":"风雪过境・复刻","zoneName_i18n":{"en":"Break The Ice - Rerun","ja":"風雪一過・復刻","ko":"브레이크 디 아이스 재개방","zh":"风雪过境・复刻"},"existence":{"CN":{"exist":true,"openTime":1669881600000,"closeTime":1670702400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act14side_zone1.jpg","stages":["act14side_01_rep","act14side_02_rep","act14side_03_rep","act14side_04_rep","act14side_05_rep","act14side_06_rep","act14side_07_rep","act14side_08_rep"]},{"zoneId":"act22side_zone1","zoneIndex":1049,"type":"ACTIVITY","subType":null,"zoneName":"照我以火","zoneName_i18n":{"en":"照我以火","ja":"照我以火","ko":"照我以火","zh":"照我以火"},"existence":{"CN":{"exist":true,"openTime":1671091200000,"closeTime":1672257600000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act22side_zone1.jpg","stages":["act22side_01","act22side_02","act22side_03","act22side_04","act22side_05","act22side_06","act22side_07","act22side_08"]},{"zoneId":"act15sre_zone1","zoneIndex":1050,"type":"ACTIVITY","subType":null,"zoneName":"将进酒・复刻","zoneName_i18n":{"en":"Invitation to Wine - Rerun","ja":"将進酒・復刻","ko":"장진주 재개방","zh":"将进酒・复刻"},"existence":{"CN":{"exist":true,"openTime":1672560000000,"closeTime":1673380800000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act15side_zone1.jpg","stages":["act15side_01_rep","act15side_02_rep","act15side_03_rep","act15side_04_rep","act15side_05_rep","act15side_06_rep","act15side_07_rep","act15side_08_rep","act15side_09_rep"]},{"zoneId":"act23side_zone1","zoneIndex":1051,"type":"ACTIVITY","subType":null,"zoneName":"登临意","zoneName_i18n":{"en":"登临意","ja":"登临意","ko":"登临意","zh":"登临意"},"existence":{"CN":{"exist":true,"openTime":1673942400000,"closeTime":1675108800000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act23side_zone1.jpg","stages":["act23side_01","act23side_02","act23side_03","act23side_04","act23side_05","act23side_06","act23side_07","act23side_08","act23side_09"]},{"zoneId":"permanent_sidestory_11_zone1","zoneIndex":3010,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"风雪过境・别传","zoneName_i18n":{"en":"Break The Ice - Side Story","ja":"風雪一過・サイドストーリー","ko":"브레이크 디 아이스 재개방 사이드","zh":"风雪过境・别传"},"existence":{"CN":{"exist":true,"openTime":1671048000000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act14side_zone1.jpg","stages":["act14side_02_perm","act14side_03_perm","act14side_06_perm","act14side_04_perm","act14side_07_perm","act14side_01_perm","act14side_05_perm","act14side_08_perm"]},{"zoneId":"permanent_sidestory_12_zone1","zoneIndex":3011,"type":"ACTIVITY_PERMANENT","subType":"SIDESTORY","zoneName":"将进酒・别传","zoneName_i18n":{"en":"Invitation to Wine - Side Story","ja":"将進酒・サイドストーリー","ko":"장진주 사이드","zh":"将进酒・别传"},"existence":{"CN":{"exist":true,"openTime":1673726400000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act15side_zone1.jpg","stages":["act15side_01_perm","act15side_02_perm","act15side_09_perm","act15side_04_perm","act15side_05_perm","act15side_06_perm","act15side_03_perm","act15side_08_perm","act15side_07_perm"]},{"zoneId":"act14mini_zone1","zoneIndex":1052,"type":"ACTIVITY","subType":null,"zoneName":"春分","zoneName_i18n":{"en":"春分","ja":"春分","ko":"春分","zh":"春分"},"existence":{"CN":{"exist":true,"openTime":1676361600000,"closeTime":1676923200000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act14mini_zone1.jpg","stages":["act14mini_01","act14mini_02","act14mini_03","act14mini_04","act14mini_05","act14mini_06","act14mini_07","act14mini_08"]},{"zoneId":"act16sre_zone1","zoneIndex":0,"type":"ACTIVITY","subType":null,"zoneName":"吾导先路・复刻","zoneName_i18n":{"en":"Guide Ahead - Rerun","ja":"吾れ先導者たらん・復刻","ko":"가이딩 어헤드 재개방","zh":"吾导先路・复刻"},"existence":{"CN":{"exist":true,"openTime":1676966400000,"closeTime":1677787200000},"JP":{"exist":false},"KR":{"exist":false},"US":{"exist":false}},"background":"/backgrounds/zones/act16side_zone1.jpg","stages":["act16side_01_rep","act16side_02_rep","act16side_03_rep","act16side_04_rep","act16side_05_rep","act16side_06_rep","act16side_07_rep","act16side_08_rep"]}]
+[
+    {
+        "zoneId": "main_0",
+        "zoneIndex": 0,
+        "type": "MAINLINE",
+        "subType": "AWAKENING_HOUR",
+        "zoneName": "序章",
+        "zoneName_i18n": {
+            "en": "Prologue",
+            "ja": "序章",
+            "ko": "프롤로그",
+            "zh": "序章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/main_0.jpg",
+        "stages": [
+            "main_00-01",
+            "main_00-02",
+            "main_00-03",
+            "main_00-04",
+            "main_00-05",
+            "main_00-06",
+            "main_00-07",
+            "main_00-08",
+            "main_00-09",
+            "main_00-10",
+            "main_00-11"
+        ]
+    },
+    {
+        "zoneId": "main_1",
+        "zoneIndex": 1,
+        "type": "MAINLINE",
+        "subType": "AWAKENING_HOUR",
+        "zoneName": "第一章",
+        "zoneName_i18n": {
+            "en": "Episode 1",
+            "ja": "第一章",
+            "ko": "에피소드 1",
+            "zh": "第一章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/main_1.jpg",
+        "stages": [
+            "main_01-01",
+            "main_01-02",
+            "main_01-03",
+            "main_01-04",
+            "main_01-05",
+            "main_01-06",
+            "main_01-07",
+            "main_01-08",
+            "main_01-09",
+            "main_01-10",
+            "main_01-11",
+            "main_01-12"
+        ]
+    },
+    {
+        "zoneId": "main_2",
+        "zoneIndex": 2,
+        "type": "MAINLINE",
+        "subType": "AWAKENING_HOUR",
+        "zoneName": "第二章",
+        "zoneName_i18n": {
+            "en": "Episode 2",
+            "ja": "第二章",
+            "ko": "에피소드 2",
+            "zh": "第二章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/main_2.jpg",
+        "stages": [
+            "main_02-01",
+            "main_02-02",
+            "main_02-03",
+            "main_02-04",
+            "main_02-05",
+            "main_02-06",
+            "main_02-07",
+            "main_02-08",
+            "main_02-09",
+            "main_02-10",
+            "sub_02-01",
+            "sub_02-02",
+            "sub_02-03",
+            "sub_02-04",
+            "sub_02-05",
+            "sub_02-06",
+            "sub_02-07",
+            "sub_02-08",
+            "sub_02-09",
+            "sub_02-10",
+            "sub_02-11",
+            "sub_02-12"
+        ]
+    },
+    {
+        "zoneId": "main_3",
+        "zoneIndex": 3,
+        "type": "MAINLINE",
+        "subType": "AWAKENING_HOUR",
+        "zoneName": "第三章",
+        "zoneName_i18n": {
+            "en": "Episode 3",
+            "ja": "第三章",
+            "ko": "에피소드 3",
+            "zh": "第三章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/main_3.jpg",
+        "stages": [
+            "main_03-01",
+            "main_03-02",
+            "main_03-03",
+            "main_03-04",
+            "main_03-05",
+            "main_03-06",
+            "main_03-07",
+            "main_03-08",
+            "sub_03-1-1",
+            "sub_03-1-2",
+            "sub_03-2-1",
+            "sub_03-2-2",
+            "sub_03-2-3",
+            "sub_03-3-1",
+            "sub_03-3-2"
+        ]
+    },
+    {
+        "zoneId": "main_4",
+        "zoneIndex": 4,
+        "type": "MAINLINE",
+        "subType": "VISION_SHATTER",
+        "zoneName": "第四章",
+        "zoneName_i18n": {
+            "en": "Episode 4",
+            "ja": "第四章",
+            "ko": "에피소드 4",
+            "zh": "第四章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/main_4.jpg",
+        "stages": [
+            "main_04-01",
+            "main_04-02",
+            "main_04-03",
+            "main_04-04",
+            "main_04-05",
+            "main_04-06",
+            "main_04-07",
+            "main_04-08",
+            "main_04-09",
+            "main_04-10",
+            "sub_04-1-1",
+            "sub_04-1-2",
+            "sub_04-1-3",
+            "sub_04-2-1",
+            "sub_04-2-2",
+            "sub_04-2-3",
+            "sub_04-3-1",
+            "sub_04-3-2",
+            "sub_04-3-3",
+            "sub_04-4-1"
+        ]
+    },
+    {
+        "zoneId": "1stact_zone1",
+        "zoneIndex": 1001,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "骑兵与猎人",
+        "zoneName_i18n": {
+            "en": "The Knight \u0026 The Hunters",
+            "ja": "騎兵と狩人",
+            "ko": "기병과 사냥꾼",
+            "zh": "骑兵与猎人"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1559181600000,
+                "closeTime": 1560369599000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1580864400000,
+                "closeTime": 1582052400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1580864400000,
+                "closeTime": 1582052400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1580922000000,
+                "closeTime": 1582110000000
+            }
+        },
+        "background": "/backgrounds/zones/A001_zone1.jpg",
+        "stages": [
+            "a001_01",
+            "a001_02",
+            "a001_03",
+            "a001_04",
+            "a001_05",
+            "a001_06"
+        ]
+    },
+    {
+        "zoneId": "weekly_8",
+        "zoneIndex": 104,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "资源保障",
+        "zoneName_i18n": {
+            "en": "Resource Search",
+            "ja": "資源確保",
+            "ko": "자원 보장",
+            "zh": "资源保障"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "wk_armor_1",
+            "wk_armor_2",
+            "wk_armor_3",
+            "wk_armor_4",
+            "wk_armor_5"
+        ]
+    },
+    {
+        "zoneId": "weekly_6",
+        "zoneIndex": 103,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "空中威胁",
+        "zoneName_i18n": {
+            "en": "Aerial Threat",
+            "ja": "空軍迎撃",
+            "ko": "공중 위협",
+            "zh": "空中威胁"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "wk_fly_1",
+            "wk_fly_2",
+            "wk_fly_3",
+            "wk_fly_4",
+            "wk_fly_5"
+        ]
+    },
+    {
+        "zoneId": "main_5",
+        "zoneIndex": 5,
+        "type": "MAINLINE",
+        "subType": "VISION_SHATTER",
+        "zoneName": "第五章",
+        "zoneName_i18n": {
+            "en": "Episode 5",
+            "ja": "第五章",
+            "ko": "에피소드 5",
+            "zh": "第五章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1562659200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1582700400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1582700400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1582736400000
+            }
+        },
+        "background": "/backgrounds/zones/main_5.jpg",
+        "stages": [
+            "main_05-01",
+            "main_05-02",
+            "main_05-03",
+            "main_05-04",
+            "main_05-05",
+            "main_05-06",
+            "main_05-07",
+            "main_05-08",
+            "main_05-09",
+            "main_05-10",
+            "sub_05-1-1",
+            "sub_05-1-2",
+            "sub_05-2-1",
+            "sub_05-2-2",
+            "sub_05-3-1",
+            "sub_05-3-2",
+            "sub_05-4-1",
+            "sub_05-4-2",
+            "sub_05-4-3"
+        ]
+    },
+    {
+        "zoneId": "act3d0_zone1",
+        "zoneIndex": 1002,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "火蓝之心",
+        "zoneName_i18n": {
+            "en": "Heart of Surging Flame",
+            "ja": "青く燃ゆる心",
+            "ko": "파란 불꽃의 마음",
+            "zh": "火蓝之心"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1566892800000,
+                "closeTime": 1568664000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1588143600000,
+                "closeTime": 1589914800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1588143600000,
+                "closeTime": 1589914800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1588179600000,
+                "closeTime": 1589972400000
+            }
+        },
+        "background": "/backgrounds/zones/A003_zone1.jpg",
+        "stages": [
+            "a003_01",
+            "a003_02",
+            "a003_03",
+            "a003_04",
+            "a003_05",
+            "a003_06",
+            "a003_07",
+            "a003_08",
+            "a003_f01",
+            "a003_f02",
+            "a003_f03",
+            "a003_f04",
+            "gachabox6"
+        ]
+    },
+    {
+        "zoneId": "act4d0_zone1",
+        "zoneIndex": 1003,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "战地秘闻",
+        "zoneName_i18n": {
+            "en": "Operational Intelligence",
+            "ja": "戦地の逸話",
+            "ko": "전장의 비화",
+            "zh": "战地秘闻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1571126400000,
+                "closeTime": 1571687999000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1585098000000,
+                "closeTime": 1586286000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1585098000000,
+                "closeTime": 1586286000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1585155600000,
+                "closeTime": 1586343600000
+            }
+        },
+        "background": "/backgrounds/zones/main_e0.jpg",
+        "stages": [
+            "act4d0_01",
+            "act4d0_02",
+            "act4d0_03",
+            "act4d0_04",
+            "act4d0_05"
+        ]
+    },
+    {
+        "zoneId": "act5d0_zone1",
+        "zoneIndex": 1004,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "喧闹法则",
+        "zoneName_i18n": {
+            "en": "Code of Brawl",
+            "ja": "喧騒の掟",
+            "ko": "소란의 법칙",
+            "zh": "喧闹法则"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1574150400000,
+                "closeTime": 1575316799000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1590562800000,
+                "closeTime": 1591729200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1590562800000,
+                "closeTime": 1591729200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1590598800000,
+                "closeTime": 1591786800000
+            }
+        },
+        "background": "/backgrounds/zones/act5d0_zone1.jpg",
+        "stages": [
+            "act5d0_01",
+            "act5d0_02",
+            "act5d0_03",
+            "act5d0_04",
+            "act5d0_05",
+            "act5d0_06",
+            "act5d0_07",
+            "act5d0_08",
+            "act5d0_09",
+            "act5d0_10"
+        ]
+    },
+    {
+        "zoneId": "main_6",
+        "zoneIndex": 6,
+        "type": "MAINLINE",
+        "subType": "VISION_SHATTER",
+        "zoneName": "第六章",
+        "zoneName_i18n": {
+            "en": "Episode 6",
+            "ja": "第六章",
+            "ko": "에피소드 6",
+            "zh": "第六章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1577174400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1593500400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1593500400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1593536400000
+            }
+        },
+        "background": "/backgrounds/zones/main_6.jpg",
+        "stages": [
+            "main_06-01",
+            "main_06-02",
+            "main_06-03",
+            "main_06-04",
+            "main_06-05",
+            "main_06-06",
+            "main_06-07",
+            "main_06-08",
+            "main_06-09",
+            "main_06-10",
+            "main_06-11",
+            "main_06-12",
+            "main_06-13",
+            "main_06-14",
+            "main_06-15",
+            "sub_06-1-1",
+            "sub_06-1-2",
+            "sub_06-2-1",
+            "sub_06-2-2"
+        ]
+    },
+    {
+        "zoneId": "gachabox",
+        "zoneIndex": 0,
+        "type": "GACHABOX",
+        "subType": null,
+        "zoneName": "物资补给",
+        "zoneName_i18n": {
+            "en": "Supplies",
+            "ja": "補給物資",
+            "ko": "보급물자",
+            "zh": "物资补给"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": "/backgrounds/zones/gachabox.jpg",
+        "stages": [
+            "randomMaterial_1",
+            "randomMaterialRune_0",
+            "randomMaterial_2",
+            "randomMaterial_3",
+            "randomMaterialRune_1",
+            "randomMaterialRune_2",
+            "randomMaterial_4",
+            "randomMaterial_7",
+            "randomMaterialRune_4",
+            "randomMaterialRune_5",
+            "randomMaterialRune_6",
+            "randomMaterialRune_7",
+            "randomMaterialRune_8",
+            "randomMaterial_5",
+            "randomMaterialRune_11",
+            "randomMaterial_6",
+            "randomMaterialRune_9",
+            "randomMaterialRune_3",
+            "randomMaterialRune_10"
+        ]
+    },
+    {
+        "zoneId": "act6d5_zone1",
+        "zoneIndex": 1005,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "洪炉示岁",
+        "zoneName_i18n": {
+            "en": "Ancient Forge",
+            "ja": "洪炉示歳",
+            "ko": "에인션트 포지",
+            "zh": "洪炉示岁"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1578513600000,
+                "closeTime": 1579118399000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1596006000000,
+                "closeTime": 1597172400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1596006000000,
+                "closeTime": 1597172400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1596042000000,
+                "closeTime": 1597230000000
+            }
+        },
+        "background": "/backgrounds/zones/act6d5_zone1.jpg",
+        "stages": [
+            "act6d5_01",
+            "act6d5_02",
+            "act6d5_03",
+            "act6d5_04",
+            "act6d5_05",
+            "act6d5_06",
+            "act6d5_07",
+            "act6d5_08"
+        ]
+    },
+    {
+        "zoneId": "weekly_9",
+        "zoneIndex": 105,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "货物运送",
+        "zoneName_i18n": {
+            "en": "Cargo Escort",
+            "ja": "貨物輸送",
+            "ko": "화물 운송",
+            "zh": "货物运送"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "wk_melee_1",
+            "wk_melee_2",
+            "wk_melee_3",
+            "wk_melee_4",
+            "wk_melee_5",
+            "wk_melee_6"
+        ]
+    },
+    {
+        "zoneId": "weekly_5",
+        "zoneIndex": 102,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "粉碎防御",
+        "zoneName_i18n": {
+            "en": "Tough Siege",
+            "ja": "防御突破",
+            "ko": "방어 분쇄",
+            "zh": "粉碎防御"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "wk_toxic_1",
+            "wk_toxic_2",
+            "wk_toxic_3",
+            "wk_toxic_4",
+            "wk_toxic_5"
+        ]
+    },
+    {
+        "zoneId": "act7d5_zone1",
+        "zoneIndex": 1006,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "午间逸话",
+        "zoneName_i18n": {
+            "en": "Stories of Afternoon",
+            "ja": "午後の逸話",
+            "ko": "오후의 일화",
+            "zh": "午间逸话"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1582617600000,
+                "closeTime": 1583179199000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1598425200000,
+                "closeTime": 1599591600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1598425200000,
+                "closeTime": 1599591600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1598461200000,
+                "closeTime": 1599649200000
+            }
+        },
+        "background": "/backgrounds/zones/act7d5_zone1.jpg",
+        "stages": [
+            "act7d5_01",
+            "act7d5_02",
+            "act7d5_03",
+            "act7d5_04",
+            "act7d5_05",
+            "act7d5_06"
+        ]
+    },
+    {
+        "zoneId": "act9d0_zone1",
+        "zoneIndex": 1007,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "生于黑夜",
+        "zoneName_i18n": {
+            "en": "Darknights Memoir",
+            "ja": "闇夜に生きる",
+            "ko": "흑야의 회고록",
+            "zh": "生于黑夜"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1587456000000,
+                "closeTime": 1589486400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1607583600000,
+                "closeTime": 1609354800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1607583600000,
+                "closeTime": 1609354800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1607619600000,
+                "closeTime": 1609412400000
+            }
+        },
+        "background": "/backgrounds/zones/act9d0_zone1.jpg",
+        "stages": [
+            "act9d0_01",
+            "act9d0_02",
+            "act9d0_03",
+            "act9d0_04",
+            "act9d0_05",
+            "act9d0_06",
+            "act9d0_07",
+            "act9d0_08"
+        ]
+    },
+    {
+        "zoneId": "main_7",
+        "zoneIndex": 7,
+        "type": "MAINLINE",
+        "subType": "VISION_SHATTER",
+        "zoneName": "第七章",
+        "zoneName_i18n": {
+            "en": "Episode 7",
+            "ja": "第七章",
+            "ko": "에피소드 7",
+            "zh": "第七章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1588320000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1609311600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1609311600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1609347600000
+            }
+        },
+        "background": "/backgrounds/zones/main_7.jpg",
+        "stages": [
+            "main_07-01",
+            "main_07-02",
+            "main_07-03",
+            "main_07-04",
+            "main_07-05",
+            "main_07-06",
+            "main_07-07",
+            "main_07-08",
+            "main_07-09",
+            "main_07-10",
+            "main_07-11",
+            "main_07-12",
+            "main_07-13",
+            "main_07-14",
+            "main_07-15",
+            "main_07-16",
+            "sub_07-1-1",
+            "sub_07-1-2"
+        ]
+    },
+    {
+        "zoneId": "weekly_1",
+        "zoneIndex": 106,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "芯片搜索",
+        "zoneName_i18n": {
+            "en": "Chips",
+            "ja": "SoC捜索",
+            "ko": "칩탐색",
+            "zh": "芯片搜索"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "pro_a_1",
+            "pro_a_2",
+            "pro_b_1",
+            "pro_b_2",
+            "pro_c_1",
+            "pro_c_2",
+            "pro_d_1",
+            "pro_d_2"
+        ]
+    },
+    {
+        "zoneId": "weekly_7",
+        "zoneIndex": 101,
+        "type": "WEEKLY",
+        "subType": null,
+        "zoneName": "战术演习",
+        "zoneName_i18n": {
+            "en": "Tactical Drill",
+            "ja": "戦術演習",
+            "ko": "전술 연습",
+            "zh": "战术演习"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "wk_kc_1",
+            "wk_kc_2",
+            "wk_kc_3",
+            "wk_kc_4",
+            "wk_kc_5",
+            "wk_kc_6"
+        ]
+    },
+    {
+        "zoneId": "act10d5_zone1",
+        "zoneIndex": 1008,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "乌萨斯的孩子们",
+        "zoneName_i18n": {
+            "en": "Children of Ursus",
+            "ja": "ウルサスの子供たち",
+            "ko": "우르수스의 아이들",
+            "zh": "乌萨斯的孩子们"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1592467200000,
+                "closeTime": 1593028800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1601362800000,
+                "closeTime": 1602183600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1601362800000,
+                "closeTime": 1602183600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1601398800000,
+                "closeTime": 1602241200000
+            }
+        },
+        "background": "/backgrounds/zones/act10d5_zone1.jpg",
+        "stages": [
+            "act10d5_01",
+            "act10d5_02",
+            "act10d5_03",
+            "act10d5_04",
+            "act10d5_05",
+            "act10d5_06",
+            "act10d5_07"
+        ]
+    },
+    {
+        "zoneId": "act11d0_zone1",
+        "zoneIndex": 1009,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "沃伦姆德的薄暮",
+        "zoneName_i18n": {
+            "en": "Twilight of Wolumonde",
+            "ja": "ウォルモンドの薄暮",
+            "ko": "월루몽드의 황혼",
+            "zh": "沃伦姆德的薄暮"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1594281600000,
+                "closeTime": 1595448000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1603868400000,
+                "closeTime": 1605034800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1603868400000,
+                "closeTime": 1605034800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1603904400000,
+                "closeTime": 1605092400000
+            }
+        },
+        "background": "/backgrounds/zones/act11d0_zone1.jpg",
+        "stages": [
+            "act11d0_01",
+            "act11d0_02",
+            "act11d0_03",
+            "act11d0_04",
+            "act11d0_05",
+            "act11d0_06",
+            "act11d0_07",
+            "act11d0_08"
+        ]
+    },
+    {
+        "zoneId": "act12d0_zone1",
+        "zoneIndex": 1010,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "密林悍将归来",
+        "zoneName_i18n": {
+            "en": "The Great Chief Returns",
+            "ja": "帰還！密林の長",
+            "ko": "위대한 족장 가비알: 리턴즈",
+            "zh": "密林悍将归来"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1598342400000,
+                "closeTime": 1599508800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1614236400000,
+                "closeTime": 1615410000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1614236400000,
+                "closeTime": 1615410000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1614272400000,
+                "closeTime": 1615460400000
+            }
+        },
+        "background": "/backgrounds/zones/act12d0_zone1.jpg",
+        "stages": [
+            "act12d0_01",
+            "act12d0_02",
+            "act12d0_03",
+            "act12d0_04",
+            "act12d0_05",
+            "act12d0_06",
+            "act12d0_07",
+            "act12d0_08"
+        ]
+    },
+    {
+        "zoneId": "act13d0_zone1",
+        "zoneIndex": 1011,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "踏寻往昔之风",
+        "zoneName_i18n": {
+            "en": "Rewinding Breeze",
+            "ja": "在りし日の風を求めて",
+            "ko": "리와인딩 브리즈",
+            "zh": "踏寻往昔之风"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1600934400000,
+                "closeTime": 1601496000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1616655600000,
+                "closeTime": 1617217200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1616655600000,
+                "closeTime": 1617217200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1616691600000,
+                "closeTime": 1617274800000
+            }
+        },
+        "background": "/backgrounds/zones/act13d0_zone1.jpg",
+        "stages": [
+            "act13d0_01",
+            "act13d0_02",
+            "act13d0_03",
+            "act13d0_04",
+            "act13d0_05",
+            "act13d0_06",
+            "act13d0_07",
+            "act13d0_08"
+        ]
+    },
+    {
+        "zoneId": "act13d2_zone1",
+        "zoneIndex": 1012,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "骑兵与猎人・复刻",
+        "zoneName_i18n": {
+            "en": "The Knight \u0026 The Hunters - Rerun",
+            "ja": "騎兵と狩人・復刻",
+            "ko": "기병과 사냥꾼 재개방",
+            "zh": "骑兵与猎人・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1601539200000,
+                "closeTime": 1602360000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1606374000000,
+                "closeTime": 1607194800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1606374000000,
+                "closeTime": 1607194800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1606410000000,
+                "closeTime": 1607252400000
+            }
+        },
+        "background": "/backgrounds/zones/A001_zone1.jpg",
+        "stages": [
+            "a001_01_rep",
+            "a001_02_rep",
+            "a001_03_rep",
+            "a001_04_rep",
+            "a001_05_rep",
+            "a001_06_rep"
+        ]
+    },
+    {
+        "zoneId": "act13d5_zone1",
+        "zoneIndex": 1013,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "玛莉娅・临光",
+        "zoneName_i18n": {
+            "en": "Maria Nearl",
+            "ja": "マリア・ニアール",
+            "ko": "마리아 니어",
+            "zh": "玛莉娅・临光"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1602748800000,
+                "closeTime": 1603915200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1617865200000,
+                "closeTime": 1619031600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1617865200000,
+                "closeTime": 1619031600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1617901200000,
+                "closeTime": 1619089200000
+            }
+        },
+        "background": "/backgrounds/zones/act13d5_zone1.jpg",
+        "stages": [
+            "act13d5_01",
+            "act13d5_02",
+            "act13d5_03",
+            "act13d5_04",
+            "act13d5_05",
+            "act13d5_06",
+            "act13d5_07",
+            "act13d5_08"
+        ]
+    },
+    {
+        "zoneId": "main_8",
+        "zoneIndex": 8,
+        "type": "MAINLINE",
+        "subType": "VISION_SHATTER",
+        "zoneName": "第八章",
+        "zoneName_i18n": {
+            "en": "Episode 8",
+            "ja": "第八章",
+            "ko": "에피소드 8",
+            "zh": "第八章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1604217600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1619766000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1619766000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1619802000000
+            }
+        },
+        "background": "/backgrounds/zones/main_8.jpg",
+        "stages": [
+            "main_08-07",
+            "main_08-01",
+            "main_08-02",
+            "main_08-03",
+            "main_08-04",
+            "main_08-05",
+            "main_08-06",
+            "main_08-08",
+            "main_08-09",
+            "main_08-10",
+            "main_08-11",
+            "main_08-12",
+            "main_08-13",
+            "main_08-14",
+            "main_08-15",
+            "main_08-16",
+            "main_08-17"
+        ]
+    },
+    {
+        "zoneId": "act14d7_zone1",
+        "zoneIndex": 1014,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "喧闹法则・复刻",
+        "zoneName_i18n": {
+            "en": "Code of Brawl - Rerun",
+            "ja": "喧騒の掟・復刻",
+            "ko": "소란의 법칙 재개방",
+            "zh": "喧闹法则・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1606809600000,
+                "closeTime": 1607630400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1620975600000,
+                "closeTime": 1621796400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1620975600000,
+                "closeTime": 1621796400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1621011600000,
+                "closeTime": 1621854000000
+            }
+        },
+        "background": "/backgrounds/zones/act5d0_zone1.jpg",
+        "stages": [
+            "act5d0_01_rep",
+            "act5d0_02_rep",
+            "act5d0_03_rep",
+            "act5d0_04_rep",
+            "act5d0_05_rep",
+            "act5d0_06_rep",
+            "act5d0_07_rep",
+            "act5d0_08_rep",
+            "act5d0_09_rep",
+            "act5d0_10_rep"
+        ]
+    },
+    {
+        "zoneId": "act15d0_zone1",
+        "zoneIndex": 1015,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "孤岛风云",
+        "zoneName_i18n": {
+            "en": "Mansfield Break",
+            "ja": "孤島激震",
+            "ko": "맨스필드 브레이크",
+            "zh": "孤岛风云"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1608192000000,
+                "closeTime": 1609358400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1624345200000,
+                "closeTime": 1625511600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1624345200000,
+                "closeTime": 1625511600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1624381200000,
+                "closeTime": 1625569200000
+            }
+        },
+        "background": "/backgrounds/zones/act15d0_zone1.jpg",
+        "stages": [
+            "act15d0_01",
+            "act15d0_02",
+            "act15d0_03",
+            "act15d0_04",
+            "act15d0_05",
+            "act15d0_06",
+            "act15d0_07",
+            "act15d0_08"
+        ]
+    },
+    {
+        "zoneId": "act15d5_zone1",
+        "zoneIndex": 1016,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "此地之外",
+        "zoneName_i18n": {
+            "en": "Beyond Here",
+            "ja": "彼方を望む",
+            "ko": "비욘드 히어",
+            "zh": "此地之外"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1609833600000,
+                "closeTime": 1610395200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1625554800000,
+                "closeTime": 1626116400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1625554800000,
+                "closeTime": 1626116400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1625590800000,
+                "closeTime": 1626174000000
+            }
+        },
+        "background": "/backgrounds/zones/act15d5_zone1.jpg",
+        "stages": [
+            "act15d5_01",
+            "act15d5_02",
+            "act15d5_03",
+            "act15d5_04",
+            "act15d5_05",
+            "act15d5_06",
+            "act15d5_07",
+            "act15d5_08"
+        ]
+    },
+    {
+        "zoneId": "act16d5_zone1",
+        "zoneIndex": 1017,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "画中人",
+        "zoneName_i18n": {
+            "en": "Who Is Real",
+            "ja": "画中人",
+            "ko": "화중인",
+            "zh": "画中人"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1612512000000,
+                "closeTime": 1613678400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1627628400000,
+                "closeTime": 1628794800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1627628400000,
+                "closeTime": 1628794800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1627664400000,
+                "closeTime": 1628852400000
+            }
+        },
+        "background": "/backgrounds/zones/act16d5_zone1.jpg",
+        "stages": [
+            "act16d5_01",
+            "act16d5_02",
+            "act16d5_03",
+            "act16d5_04",
+            "act16d5_05",
+            "act16d5_06",
+            "act16d5_07",
+            "act16d5_08",
+            "act16d5_09",
+            "act16d5_10"
+        ]
+    },
+    {
+        "zoneId": "act17d0_zone1",
+        "zoneIndex": 1018,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "源石尘行动",
+        "zoneName_i18n": {
+            "en": "Operation Originium Dust",
+            "ja": "オペレーション オリジニウムダスト",
+            "ko": "오리지늄 더스트",
+            "zh": "源石尘行动"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1615276800000,
+                "closeTime": 1616443200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1629270000000,
+                "closeTime": 1630436400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1629270000000,
+                "closeTime": 1630436400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1629306000000,
+                "closeTime": 1630494000000
+            }
+        },
+        "background": "/backgrounds/zones/act17d0_zone1.jpg",
+        "stages": [
+            "act17d0_01",
+            "act17d0_02",
+            "act17d0_03",
+            "act17d0_04",
+            "act17d0_05",
+            "act17d0_06",
+            "act17d0_07",
+            "act17d0_08"
+        ]
+    },
+    {
+        "zoneId": "act17d5_zone1",
+        "zoneIndex": 1019,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "生于黑夜・复刻",
+        "zoneName_i18n": {
+            "en": "Darknights Memoir - Rerun",
+            "ja": "闇夜に生きる・復刻",
+            "ko": "흑야의 회고록 재개방",
+            "zh": "生于黑夜・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1617091200000,
+                "closeTime": 1617912000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1630998000000,
+                "closeTime": 1631818800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1630998000000,
+                "closeTime": 1631818800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1631034000000,
+                "closeTime": 1631876400000
+            }
+        },
+        "background": "/backgrounds/zones/act9d0_zone1.jpg",
+        "stages": [
+            "act9d0_01_rep",
+            "act9d0_02_rep",
+            "act9d0_03_rep",
+            "act9d0_04_rep",
+            "act9d0_05_rep",
+            "act9d0_06_rep",
+            "act9d0_07_rep",
+            "act9d0_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act18d0_zone1",
+        "zoneIndex": 1020,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "遗尘漫步",
+        "zoneName_i18n": {
+            "en": "A Walk in The Dust",
+            "ja": "遺塵の道を",
+            "ko": "워크 인 더 더스트",
+            "zh": "遗尘漫步"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1618473600000,
+                "closeTime": 1619640000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1632985200000,
+                "closeTime": 1634151600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1632985200000,
+                "closeTime": 1634151600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1633021200000,
+                "closeTime": 1634209200000
+            }
+        },
+        "background": "/backgrounds/zones/act18d0_zone1.jpg",
+        "stages": [
+            "act18d0_01",
+            "act18d0_02",
+            "act18d0_03",
+            "act18d0_04",
+            "act18d0_05",
+            "act18d0_06",
+            "act18d0_07",
+            "act18d0_08"
+        ]
+    },
+    {
+        "zoneId": "act18d3_zone1",
+        "zoneIndex": 1021,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "覆潮之下",
+        "zoneName_i18n": {
+            "en": "Under Tides",
+            "ja": "潮汐の下",
+            "ko": "언더 타이즈",
+            "zh": "覆潮之下"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1619856000000,
+                "closeTime": 1621022400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1634799600000,
+                "closeTime": 1635966000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1634799600000,
+                "closeTime": 1635966000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1634835600000,
+                "closeTime": 1636023600000
+            }
+        },
+        "background": "/backgrounds/zones/act18d3_zone1.jpg",
+        "stages": [
+            "act18d3_01",
+            "act18d3_02",
+            "act18d3_03",
+            "act18d3_04",
+            "act18d3_05",
+            "act18d3_06",
+            "act18d3_07",
+            "act18d3_08",
+            "act18d3_09"
+        ]
+    },
+    {
+        "zoneId": "permanent_sub_1_zone1",
+        "zoneIndex": 2001,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "INTERLUDE",
+        "zoneName": "生于黑夜・插曲",
+        "zoneName_i18n": {
+            "en": "Darknights Memoir - Intermezzi",
+            "ja": "闇夜に生きる・エピソード",
+            "ko": "흑야의 회고록 에피소드",
+            "zh": "生于黑夜・插曲"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1618473600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1633003200000
+            }
+        },
+        "background": "/backgrounds/zones/act9d0_zone1.jpg",
+        "stages": [
+            "act9d0_01_perm",
+            "act9d0_02_perm",
+            "act9d0_03_perm",
+            "act9d0_04_perm",
+            "act9d0_05_perm",
+            "act9d0_06_perm",
+            "act9d0_07_perm",
+            "act9d0_08_perm"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_1_zone1",
+        "zoneIndex": 3001,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "骑兵与猎人・别传",
+        "zoneName_i18n": {
+            "en": "The Knight \u0026 The Hunters - Side Story",
+            "ja": "騎兵と狩人・サイドストーリー",
+            "ko": "기병과 사냥꾼 사이드",
+            "zh": "骑兵与猎人・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1618473600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1633003200000
+            }
+        },
+        "background": "/backgrounds/zones/A001_zone1.jpg",
+        "stages": [
+            "a001_01_perm",
+            "a001_02_perm",
+            "a001_03_perm",
+            "a001_04_perm",
+            "a001_05_perm",
+            "a001_06_perm"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_2_zone1",
+        "zoneIndex": 3002,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "火蓝之心・别传",
+        "zoneName_i18n": {
+            "en": "Heart of Surging Flame - Side Story",
+            "ja": "青く燃ゆる心・サイドストーリー",
+            "ko": "파란 불꽃의 마음 사이드",
+            "zh": "火蓝之心・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1618473600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1632967200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1633003200000
+            }
+        },
+        "background": "/backgrounds/zones/A003_zone1.jpg",
+        "stages": [
+            "a003_f02_perm",
+            "a003_f01_perm",
+            "a003_f03_perm",
+            "a003_f04_perm"
+        ]
+    },
+    {
+        "zoneId": "permanent_sub_2_zone1",
+        "zoneIndex": 2002,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "INTERLUDE",
+        "zoneName": "遗尘漫步・插曲",
+        "zoneName_i18n": {
+            "en": "A Walk in The Dust - Intermezzi",
+            "ja": "遺塵の道を・エピソード",
+            "ko": "워크 인 더 더스트 에피소드",
+            "zh": "遗尘漫步・插曲"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1620244800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1634756400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1634756400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1634814000000
+            }
+        },
+        "background": "/backgrounds/zones/act18d0_zone1.jpg",
+        "stages": [
+            "act18d0_01_perm",
+            "act18d0_02_perm",
+            "act18d0_03_perm",
+            "act18d0_04_perm",
+            "act18d0_05_perm",
+            "act18d0_06_perm",
+            "act18d0_07_perm",
+            "act18d0_08_perm"
+        ]
+    },
+    {
+        "zoneId": "permanent_sub_3_zone1",
+        "zoneIndex": 2003,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "INTERLUDE",
+        "zoneName": "覆潮之下・插曲",
+        "zoneName_i18n": {
+            "en": "Under Tides - Intermezzi",
+            "ja": "潮汐の下・エピソード",
+            "ko": "언더 타이즈 에피소드",
+            "zh": "覆潮之下・插曲"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1621627200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1636570800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1636570800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1636628400000
+            }
+        },
+        "background": "/backgrounds/zones/act18d3_zone1.jpg",
+        "stages": [
+            "act18d3_01_perm",
+            "act18d3_02_perm",
+            "act18d3_03_perm",
+            "act18d3_04_perm",
+            "act18d3_05_perm",
+            "act18d3_06_perm",
+            "act18d3_07_perm",
+            "act18d3_08_perm",
+            "act18d3_09_perm"
+        ]
+    },
+    {
+        "zoneId": "act7mini_zone1",
+        "zoneIndex": 1022,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "灯火序曲",
+        "zoneName_i18n": {
+            "en": "Preluding Lights",
+            "ja": "灯火序曲",
+            "ko": "프렐류딩 라이츠",
+            "zh": "灯火序曲"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1622534400000,
+                "closeTime": 1623096000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1639033200000,
+                "closeTime": 1639594800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1639033200000,
+                "closeTime": 1639594800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1639069200000,
+                "closeTime": 1639652400000
+            }
+        },
+        "background": "/backgrounds/zones/act7mini_zone1.jpg",
+        "stages": [
+            "act7mini_01",
+            "act7mini_02",
+            "act7mini_03",
+            "act7mini_04",
+            "act7mini_05"
+        ]
+    },
+    {
+        "zoneId": "act5sre_zone1",
+        "zoneIndex": 1023,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "沃伦姆德的薄暮・复刻",
+        "zoneName_i18n": {
+            "en": "Twilight of Wolumonde - Rerun",
+            "ja": "ウォルモンドの薄暮・復刻",
+            "ko": "월루몽드의 황혼 재개방",
+            "zh": "沃伦姆德的薄暮・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1623916800000,
+                "closeTime": 1624737600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1639724400000,
+                "closeTime": 1640545200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1639724400000,
+                "closeTime": 1640545200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1639760400000,
+                "closeTime": 1640602800000
+            }
+        },
+        "background": "/backgrounds/zones/act11d0_zone1.jpg",
+        "stages": [
+            "act11d0_01_rep",
+            "act11d0_02_rep",
+            "act11d0_03_rep",
+            "act11d0_04_rep",
+            "act11d0_05_rep",
+            "act11d0_06_rep",
+            "act11d0_07_rep",
+            "act11d0_08_rep"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_4_zone1",
+        "zoneIndex": 3003,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "沃伦姆德的薄暮・别传",
+        "zoneName_i18n": {
+            "en": "Twilight of Wolumonde - Side Story",
+            "ja": "ウォルモンドの薄暮・サイドストーリー",
+            "ko": "월루몽드의 황혼 사이드",
+            "zh": "沃伦姆德的薄暮・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1625083200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1640890800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1640890800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1640948400000
+            }
+        },
+        "background": "/backgrounds/zones/act11d0_zone1.jpg",
+        "stages": [
+            "act11d0_01_perm",
+            "act11d0_02_perm",
+            "act11d0_04_perm",
+            "act11d0_03_perm",
+            "act11d0_06_perm",
+            "act11d0_05_perm",
+            "act11d0_08_perm",
+            "act11d0_07_perm"
+        ]
+    },
+    {
+        "zoneId": "act8mini_zone1",
+        "zoneIndex": 1024,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "如我所见",
+        "zoneName_i18n": {
+            "en": "Vigilo",
+            "ja": "VIGILO -我が眼に映るまま-",
+            "ko": "비질로: 내 눈에 비치는 대로",
+            "zh": "如我所见"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1626163200000,
+                "closeTime": 1626724800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1645081200000,
+                "closeTime": 1645642800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1645081200000,
+                "closeTime": 1645642800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1645117200000,
+                "closeTime": 1645700400000
+            }
+        },
+        "background": "/backgrounds/zones/act8mini_zone1.jpg",
+        "stages": [
+            "act8mini_07",
+            "act8mini_01",
+            "act8mini_02",
+            "act8mini_03",
+            "act8mini_04",
+            "act8mini_05",
+            "act8mini_06"
+        ]
+    },
+    {
+        "zoneId": "act6sre_zone1",
+        "zoneIndex": 1025,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "密林悍将归来・复刻",
+        "zoneName_i18n": {
+            "en": "The Great Chief Returns - Rerun",
+            "ja": "帰還！密林の長・復刻",
+            "ko": "위대한 족장 가비알: 리턴즈 재개방",
+            "zh": "密林悍将归来・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1626768000000,
+                "closeTime": 1627588800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1643958000000,
+                "closeTime": 1644778800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1643958000000,
+                "closeTime": 1644778800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1643994000000,
+                "closeTime": 1644836400000
+            }
+        },
+        "background": "/backgrounds/zones/act12d0_zone1.jpg",
+        "stages": [
+            "act12d0_01_rep",
+            "act12d0_02_rep",
+            "act12d0_03_rep",
+            "act12d0_04_rep",
+            "act12d0_05_rep",
+            "act12d0_06_rep",
+            "act12d0_07_rep",
+            "act12d0_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act12side_zone1",
+        "zoneIndex": 1026,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "多索雷斯假日",
+        "zoneName_i18n": {
+            "en": "Dossoles Holiday",
+            "ja": "ドッソレスホリデー",
+            "ko": "홀리데이 스타",
+            "zh": "多索雷斯假日"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1627977600000,
+                "closeTime": 1629748800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1642143600000,
+                "closeTime": 1643914800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1642143600000,
+                "closeTime": 1643914800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1642179600000,
+                "closeTime": 1643972400000
+            }
+        },
+        "background": "/backgrounds/zones/act12side_zone1.jpg",
+        "stages": [
+            "act12side_01",
+            "act12side_02",
+            "act12side_03",
+            "act12side_04",
+            "act12side_05",
+            "act12side_06",
+            "act12side_07",
+            "act12side_08",
+            "act12side_09"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_5_zone1",
+        "zoneIndex": 3004,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "密林悍将归来・别传",
+        "zoneName_i18n": {
+            "en": "The Great Chief Returns - Side Story",
+            "ja": "帰還！密林の長・サイドストーリー",
+            "ko": "위대한 족장 가비알: 리턴즈 사이드",
+            "zh": "密林悍将归来・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1627934400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1645124400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1645124400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1645182000000
+            }
+        },
+        "background": "/backgrounds/zones/act12d0_zone1.jpg",
+        "stages": [
+            "act12d0_08_perm",
+            "act12d0_07_perm",
+            "act12d0_09_perm",
+            "act12d0_01_perm",
+            "act12d0_02_perm",
+            "act12d0_04_perm",
+            "act12d0_03_perm",
+            "act12d0_06_perm",
+            "act12d0_05_perm"
+        ]
+    },
+    {
+        "zoneId": "main_9",
+        "zoneIndex": 9,
+        "type": "MAINLINE",
+        "subType": "DYING_SUN",
+        "zoneName": "第九章",
+        "zoneName_i18n": {
+            "en": "Episode 9",
+            "ja": "第九章",
+            "ko": "에피소드 9",
+            "zh": "第九章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1631865600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1647500400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1647500400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1647536400000
+            }
+        },
+        "background": "/backgrounds/zones/main_9.jpg",
+        "stages": [
+            "sub_09-1-2",
+            "main_09-17",
+            "main_09-02",
+            "main_09-03",
+            "main_09-04",
+            "main_09-05",
+            "main_09-07",
+            "main_09-16",
+            "sub_09-1-1",
+            "main_09-06",
+            "main_09-01",
+            "main_09-09",
+            "main_09-08",
+            "main_09-11",
+            "main_09-10",
+            "main_09-13",
+            "main_09-12",
+            "main_09-15",
+            "main_09-14"
+        ]
+    },
+    {
+        "zoneId": "act7sre_zone1",
+        "zoneIndex": 1027,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "玛莉娅・临光・复刻",
+        "zoneName_i18n": {
+            "en": "Maria Nearl - Rerun",
+            "ja": "マリア・ニアール・復刻",
+            "ko": "마리아 니어 재개방",
+            "zh": "玛莉娅・临光・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1633075200000,
+                "closeTime": 1633896000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1648710000000,
+                "closeTime": 1649530800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1648710000000,
+                "closeTime": 1649530800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1648746000000,
+                "closeTime": 1649588400000
+            }
+        },
+        "background": "/backgrounds/zones/act13d5_zone1.jpg",
+        "stages": [
+            "act13d5_03_rep",
+            "act13d5_06_rep",
+            "act13d5_05_rep",
+            "act13d5_08_rep",
+            "act13d5_07_rep",
+            "act13d5_02_rep",
+            "act13d5_01_rep",
+            "act13d5_04_rep"
+        ]
+    },
+    {
+        "zoneId": "act9mini_zone1",
+        "zoneIndex": 1028,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "红松林",
+        "zoneName_i18n": {
+            "en": "Pinus Sylvestris",
+            "ja": "赤松林",
+            "ko": "피누스 실베스트리스",
+            "zh": "红松林"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1634284800000,
+                "closeTime": 1634846400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1649919600000,
+                "closeTime": 1650481200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1649919600000,
+                "closeTime": 1650481200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1649955600000,
+                "closeTime": 1650538800000
+            }
+        },
+        "background": "/backgrounds/zones/act9mini_zone1.jpg",
+        "stages": [
+            "act9mini_01",
+            "act9mini_02",
+            "act9mini_03",
+            "act9mini_04",
+            "act9mini_05",
+            "act9mini_06"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_6_zone1",
+        "zoneIndex": 3005,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "玛莉娅・临光・别传",
+        "zoneName_i18n": {
+            "en": "Maria Nearl - Side Story",
+            "ja": "マリア・ニアール・サイドストーリー",
+            "ko": "마리아 니어 사이드",
+            "zh": "玛莉娅・临光・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1634241600000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act13d5_zone1.jpg",
+        "stages": [
+            "act13d5_01_perm",
+            "act13d5_02_perm",
+            "act13d5_03_perm",
+            "act13d5_04_perm",
+            "act13d5_05_perm",
+            "act13d5_06_perm",
+            "act13d5_07_perm",
+            "act13d5_08_perm"
+        ]
+    },
+    {
+        "zoneId": "act13side_zone1",
+        "zoneIndex": 1029,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "长夜临光",
+        "zoneName_i18n": {
+            "en": "Near Light",
+            "ja": "ニアーライト",
+            "ko": "니어 라이트",
+            "zh": "长夜临光"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1635753600000,
+                "closeTime": 1637524800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1651129200000,
+                "closeTime": 1652900400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1651129200000,
+                "closeTime": 1652900400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1651165200000,
+                "closeTime": 1652958000000
+            }
+        },
+        "background": "/backgrounds/zones/act13side_zone1.jpg",
+        "stages": [
+            "act13side_01",
+            "act13side_02",
+            "act13side_10",
+            "act13side_03",
+            "act13side_05",
+            "act13side_04",
+            "act13side_07",
+            "act13side_06",
+            "act13side_09",
+            "act13side_08"
+        ]
+    },
+    {
+        "zoneId": "act8sre_zone1",
+        "zoneIndex": 1030,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "孤岛风云・复刻",
+        "zoneName_i18n": {
+            "en": "Mansfield Break - Rerun",
+            "ja": "孤島激震・復刻",
+            "ko": "맨스필드 브레이크 재개방",
+            "zh": "孤岛风云・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1638864000000,
+                "closeTime": 1639684800000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1653548400000,
+                "closeTime": 1654369200000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1653548400000,
+                "closeTime": 1654369200000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1653584400000,
+                "closeTime": 1654772400000
+            }
+        },
+        "background": "/backgrounds/zones/act15d0_zone1.jpg",
+        "stages": [
+            "act15d0_01_rep",
+            "act15d0_02_rep",
+            "act15d0_07_rep",
+            "act15d0_03_rep",
+            "act15d0_04_rep",
+            "act15d0_06_rep",
+            "act15d0_05_rep",
+            "act15d0_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act14side_zone1",
+        "zoneIndex": 1031,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "风雪过境",
+        "zoneName_i18n": {
+            "en": "Break The Ice",
+            "ja": "風雪一過",
+            "ko": "브레이크 디 아이스",
+            "zh": "风雪过境"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1640073600000,
+                "closeTime": 1641240000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1656572400000,
+                "closeTime": 1657738800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1656572400000,
+                "closeTime": 1657738800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1656608400000,
+                "closeTime": 1657796400000
+            }
+        },
+        "background": "/backgrounds/zones/act14side_zone1.jpg",
+        "stages": [
+            "act14side_01",
+            "act14side_04",
+            "act14side_06",
+            "act14side_07",
+            "act14side_08",
+            "act14side_03",
+            "act14side_02",
+            "act14side_05"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_7_zone1",
+        "zoneIndex": 3006,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "孤岛风云・别传",
+        "zoneName_i18n": {
+            "en": "Mansfield Break - Side Story",
+            "ja": "孤島激震・サイドストーリー",
+            "ko": "맨스필드 브레이크 사이드",
+            "zh": "孤岛风云・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1640030400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act15d0_zone1.jpg",
+        "stages": [
+            "act15d0_04_perm",
+            "act15d0_01_perm",
+            "act15d0_02_perm",
+            "act15d0_03_perm",
+            "act15d0_05_perm",
+            "act15d0_06_perm",
+            "act15d0_07_perm",
+            "act15d0_08_perm"
+        ]
+    },
+    {
+        "zoneId": "act9sre_zone1",
+        "zoneIndex": 1032,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "画中人・复刻",
+        "zoneName_i18n": {
+            "en": "Who Is Real - Rerun",
+            "ja": "画中人・復刻",
+            "ko": "화중인 재개방",
+            "zh": "画中人・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1641801600000,
+                "closeTime": 1642622400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1657782000000,
+                "closeTime": 1658602800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1657782000000,
+                "closeTime": 1658602800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1657818000000,
+                "closeTime": 1658660400000
+            }
+        },
+        "background": "/backgrounds/zones/act16d5_zone1.jpg",
+        "stages": [
+            "act16d5_03_rep",
+            "act16d5_02_rep",
+            "act16d5_07_rep",
+            "act16d5_06_rep",
+            "act16d5_09_rep",
+            "act16d5_04_rep",
+            "act16d5_10_rep",
+            "act16d5_05_rep",
+            "act16d5_01_rep",
+            "act16d5_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act15side_zone1",
+        "zoneIndex": 1033,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "将进酒",
+        "zoneName_i18n": {
+            "en": "Invitation to Wine",
+            "ja": "将進酒",
+            "ko": "장진주",
+            "zh": "将进酒"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1643097600000,
+                "closeTime": 1644264000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1659078000000,
+                "closeTime": 1660244400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1659078000000,
+                "closeTime": 1660244400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1659114000000,
+                "closeTime": 1660302000000
+            }
+        },
+        "background": "/backgrounds/zones/act15side_zone1.jpg",
+        "stages": [
+            "act15side_01",
+            "act15side_02",
+            "act15side_03",
+            "act15side_05",
+            "act15side_08",
+            "act15side_09",
+            "act15side_04",
+            "act15side_07",
+            "act15side_06"
+        ]
+    },
+    {
+        "zoneId": "act10mini_zone1",
+        "zoneIndex": 1034,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "阴云火花",
+        "zoneName_i18n": {
+            "en": "A Light Spark In Darkness",
+            "ja": "闇散らす火花",
+            "ko": "어 라이트 스파크 인 다크니스",
+            "zh": "阴云火花"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1644912000000,
+                "closeTime": 1645473600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1660806000000,
+                "closeTime": 1661367600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1660806000000,
+                "closeTime": 1661367600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1660842000000,
+                "closeTime": 1661425200000
+            }
+        },
+        "background": "/backgrounds/zones/act10mini_zone1.jpg",
+        "stages": [
+            "act10mini_01",
+            "act10mini_02",
+            "act10mini_06",
+            "act10mini_03",
+            "act10mini_04",
+            "act10mini_05",
+            "act10mini_07",
+            "act10mini_08",
+            "act10mini_10",
+            "act10mini_09"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_8_zone1",
+        "zoneIndex": 3007,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "画中人・别传",
+        "zoneName_i18n": {
+            "en": "Who Is Real - Side Story",
+            "ja": "画中人・サイドストーリー",
+            "ko": "화중인 사이드",
+            "zh": "画中人・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1642968000000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act16d5_zone1.jpg",
+        "stages": [
+            "act16d5_01_perm",
+            "act16d5_02_perm",
+            "act16d5_03_perm",
+            "act16d5_04_perm",
+            "act16d5_05_perm",
+            "act16d5_06_perm",
+            "act16d5_07_perm",
+            "act16d5_08_perm",
+            "act16d5_09_perm",
+            "act16d5_10_perm"
+        ]
+    },
+    {
+        "zoneId": "act16side_zone1",
+        "zoneIndex": 1035,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "吾导先路",
+        "zoneName_i18n": {
+            "en": "Guide Ahead",
+            "ja": "吾れ先導者たらん",
+            "ko": "가이딩 어헤드",
+            "zh": "吾导先路"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1647331200000,
+                "closeTime": 1648497600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1663311600000,
+                "closeTime": 1664478000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1663311600000,
+                "closeTime": 1664478000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1663347600000,
+                "closeTime": 1664535600000
+            }
+        },
+        "background": "/backgrounds/zones/act16side_zone1.jpg",
+        "stages": [
+            "act16side_01",
+            "act16side_04",
+            "act16side_05",
+            "act16side_06",
+            "act16side_07",
+            "act16side_08",
+            "act16side_02",
+            "act16side_03"
+        ]
+    },
+    {
+        "zoneId": "act10sre_zone1",
+        "zoneIndex": 1036,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "遗尘漫步・复刻",
+        "zoneName_i18n": {
+            "en": "A Walk in The Dust - Rerun",
+            "ja": "遺塵の道を・復刻",
+            "ko": "워크 인 더 더스트",
+            "zh": "遗尘漫步・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1648540800000,
+                "closeTime": 1649361600000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1664866800000,
+                "closeTime": 1665687600000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1664866800000,
+                "closeTime": 1665687600000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1664902800000,
+                "closeTime": 1665745200000
+            }
+        },
+        "background": "/backgrounds/zones/act18d0_zone1.jpg",
+        "stages": [
+            "act18d0_08_rep",
+            "act18d0_02_rep",
+            "act18d0_03_rep",
+            "act18d0_01_rep",
+            "act18d0_05_rep",
+            "act18d0_04_rep",
+            "act18d0_07_rep",
+            "act18d0_06_rep"
+        ]
+    },
+    {
+        "zoneId": "main_10",
+        "zoneIndex": 10,
+        "type": "MAINLINE",
+        "subType": "DYING_SUN",
+        "zoneName": "第十章 (标准)",
+        "zoneName_i18n": {
+            "en": "Episode 10 (Standard)",
+            "ja": "第十章 (通常)",
+            "ko": "에피소드 10 (Standard)",
+            "zh": "第十章 (标准)"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1649923200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1666162800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1666162800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1666198800000
+            }
+        },
+        "background": "/backgrounds/zones/main_10.jpg",
+        "stages": [
+            "main_10-08",
+            "main_10-01",
+            "main_10-02",
+            "main_10-03",
+            "main_10-04",
+            "main_10-05",
+            "main_10-07",
+            "main_10-09",
+            "main_10-10",
+            "main_10-12",
+            "main_10-13",
+            "main_10-14",
+            "main_10-15",
+            "main_10-11",
+            "main_10-06"
+        ]
+    },
+    {
+        "zoneId": "main_10_tough",
+        "zoneIndex": 11,
+        "type": "MAINLINE",
+        "subType": "DYING_SUN",
+        "zoneName": "第十章 (磨难)",
+        "zoneName_i18n": {
+            "en": "Episode 10 (Tough)",
+            "ja": "第十章 (厄難)",
+            "ko": "에피소드 10 (Tough)",
+            "zh": "第十章 (磨难)"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1649923200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1666162800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1666162800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1666198800000
+            }
+        },
+        "background": "/backgrounds/zones/main_10.jpg",
+        "stages": [
+            "tough_10-02",
+            "tough_10-01",
+            "tough_10-03",
+            "tough_10-09",
+            "tough_10-12",
+            "tough_10-08",
+            "tough_10-11",
+            "tough_10-10",
+            "tough_10-07",
+            "tough_10-06",
+            "tough_10-05",
+            "tough_10-04",
+            "tough_10-14",
+            "tough_10-15",
+            "tough_10-13"
+        ]
+    },
+    {
+        "zoneId": "act17side_zone1",
+        "zoneIndex": 1037,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "愚人号",
+        "zoneName_i18n": {
+            "en": "Stultifera Navis",
+            "ja": "狂人号",
+            "ko": "스툴티페라 나비스",
+            "zh": "愚人号"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1651392000000,
+                "closeTime": 1653163200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1667458800000,
+                "closeTime": 1669230000000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1667458800000,
+                "closeTime": 1669230000000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1667494800000,
+                "closeTime": 1669287600000
+            }
+        },
+        "background": "/backgrounds/zones/act17side_zone1.jpg",
+        "stages": [
+            "act17side_02",
+            "act17side_01",
+            "act17side_04",
+            "act17side_03",
+            "act17side_06",
+            "act17side_05",
+            "act17side_08",
+            "act17side_07",
+            "act17side_10",
+            "act17side_09"
+        ]
+    },
+    {
+        "zoneId": "permanent_sub_4_zone1",
+        "zoneIndex": 2004,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "INTERLUDE",
+        "zoneName": "愚人号・插曲",
+        "zoneName_i18n": {
+            "en": "Stultifera Navis - Intermezzi",
+            "ja": "狂人号・エピソード",
+            "ko": "스툴티페라 나비스 에피소드",
+            "zh": "愚人号・插曲"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1653768000000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act17side_zone1.jpg",
+        "stages": [
+            "act17side_02_perm",
+            "act17side_03_perm",
+            "act17side_04_perm",
+            "act17side_05_perm",
+            "act17side_06_perm",
+            "act17side_07_perm",
+            "act17side_08_perm",
+            "act17side_09_perm",
+            "act17side_10_perm",
+            "act17side_01_perm"
+        ]
+    },
+    {
+        "zoneId": "act11sre_zone1",
+        "zoneIndex": 1038,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "覆潮之下・复刻",
+        "zoneName_i18n": {
+            "en": "Under Tides - Rerun",
+            "ja": "潮汐の下・復刻",
+            "ko": "언더 타이즈 재개방",
+            "zh": "覆潮之下・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1653897600000,
+                "closeTime": 1654718400000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1669359600000,
+                "closeTime": 1670180400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1669359600000,
+                "closeTime": 1670180400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1669395600000,
+                "closeTime": 1670238000000
+            }
+        },
+        "background": "/backgrounds/zones/act18d3_zone1.jpg",
+        "stages": [
+            "act18d3_09_rep",
+            "act18d3_08_rep",
+            "act18d3_07_rep",
+            "act18d3_06_rep",
+            "act18d3_01_rep",
+            "act18d3_02_rep",
+            "act18d3_03_rep",
+            "act18d3_04_rep",
+            "act18d3_05_rep"
+        ]
+    },
+    {
+        "zoneId": "act18side_zone1",
+        "zoneIndex": 1039,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "尘影余音",
+        "zoneName_i18n": {
+            "en": "Lingering Echoes",
+            "ja": "塵影に交わる残響",
+            "ko": "링거링 에코스",
+            "zh": "尘影余音"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1654761600000,
+                "closeTime": 1655928000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1672124400000,
+                "closeTime": 1673290800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1672124400000,
+                "closeTime": 1673290800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1672160400000,
+                "closeTime": 1673348400000
+            }
+        },
+        "background": "/backgrounds/zones/act18side_zone1.jpg",
+        "stages": [
+            "act18side_06",
+            "act18side_04",
+            "act18side_01",
+            "act18side_08",
+            "act18side_03",
+            "act18side_07",
+            "act18side_05",
+            "act18side_02"
+        ]
+    },
+    {
+        "zoneId": "act19side_zone1",
+        "zoneIndex": 1040,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "绿野幻梦",
+        "zoneName_i18n": {
+            "en": "绿野幻梦",
+            "ja": "绿野幻梦",
+            "ko": "绿野幻梦",
+            "zh": "绿野幻梦"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1657008000000,
+                "closeTime": 1658174400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act19side_zone1.jpg",
+        "stages": [
+            "act19side_01",
+            "act19side_02",
+            "act19side_03",
+            "act19side_04",
+            "act19side_05",
+            "act19side_06",
+            "act19side_07",
+            "act19side_08"
+        ]
+    },
+    {
+        "zoneId": "act11mini_zone1",
+        "zoneIndex": 1041,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "未尽篇章",
+        "zoneName_i18n": {
+            "en": "To Be Continued",
+            "ja": "未完の断章",
+            "ko": "투 비 컨티뉴",
+            "zh": "未尽篇章"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1658217600000,
+                "closeTime": 1658779200000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1676617200000,
+                "closeTime": 1677178800000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1676617200000,
+                "closeTime": 1677178800000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1676653200000,
+                "closeTime": 1677236400000
+            }
+        },
+        "background": "/backgrounds/zones/act11mini_zone1.jpg",
+        "stages": [
+            "act11mini_06",
+            "act11mini_08",
+            "act11mini_03",
+            "act11mini_01",
+            "act11mini_02",
+            "act11mini_04",
+            "act11mini_05",
+            "act11mini_07"
+        ]
+    },
+    {
+        "zoneId": "act12sre_zone1",
+        "zoneIndex": 1042,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "多索雷斯假日・复刻",
+        "zoneName_i18n": {
+            "en": "Dossoles Holiday - Rerun",
+            "ja": "ドッソレスホリデー・復刻",
+            "ko": "홀리데이 스타 재개방",
+            "zh": "多索雷斯假日・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1658822400000,
+                "closeTime": 1659643200000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act12side_zone1.jpg",
+        "stages": [
+            "act12side_01_rep",
+            "act12side_02_rep",
+            "act12side_03_rep",
+            "act12side_04_rep",
+            "act12side_05_rep",
+            "act12side_06_rep",
+            "act12side_07_rep",
+            "act12side_08_rep",
+            "act12side_09_rep"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_9_zone1",
+        "zoneIndex": 3008,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "多索雷斯假日・别传",
+        "zoneName_i18n": {
+            "en": "Dossoles Holiday - Side Story",
+            "ja": "ドッソレスホリデー・サイドストーリー",
+            "ko": "홀리데이 스타 사이드",
+            "zh": "多索雷斯假日・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1659988800000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act12side_zone1.jpg",
+        "stages": [
+            "act12side_01_perm",
+            "act12side_02_perm",
+            "act12side_03_perm",
+            "act12side_04_perm",
+            "act12side_05_perm",
+            "act12side_06_perm",
+            "act12side_07_perm",
+            "act12side_08_perm",
+            "act12side_09_perm"
+        ]
+    },
+    {
+        "zoneId": "act20side_zone1",
+        "zoneIndex": 1043,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "理想城：长夏狂欢季",
+        "zoneName_i18n": {
+            "en": "Ideal City: Endless Carnival",
+            "ja": "理想都市 -エンドレスカーニバル-",
+            "ko": "이상적인 도시: 엔드리스 카니발",
+            "zh": "理想城：长夏狂欢季"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1660204800000,
+                "closeTime": 1661976000000
+            },
+            "JP": {
+                "exist": true,
+                "openTime": 1673593200000,
+                "closeTime": 1675364400000
+            },
+            "KR": {
+                "exist": true,
+                "openTime": 1673593200000,
+                "closeTime": 1675364400000
+            },
+            "US": {
+                "exist": true,
+                "openTime": 1673629200000,
+                "closeTime": 1675422000000
+            }
+        },
+        "background": "/backgrounds/zones/act20side_zone1.jpg",
+        "stages": [
+            "act20side_04",
+            "act20side_02",
+            "act20side_09",
+            "act20side_08",
+            "act20side_07",
+            "act20side_01",
+            "act20side_03",
+            "act20side_06",
+            "act20side_05"
+        ]
+    },
+    {
+        "zoneId": "recruit",
+        "zoneIndex": 0,
+        "type": "RECRUIT",
+        "subType": null,
+        "zoneName": "公开招募",
+        "zoneName_i18n": {
+            "en": "Recruit",
+            "ja": "公開求人",
+            "ko": "공개모집",
+            "zh": "公开招募"
+        },
+        "existence": {
+            "CN": {
+                "exist": true
+            },
+            "JP": {
+                "exist": true
+            },
+            "KR": {
+                "exist": true
+            },
+            "US": {
+                "exist": true
+            }
+        },
+        "background": null,
+        "stages": [
+            "recruit"
+        ]
+    },
+    {
+        "zoneId": "act12mini_zone1",
+        "zoneIndex": 1044,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "日暮寻路",
+        "zoneName_i18n": {
+            "en": "日暮寻路",
+            "ja": "日暮寻路",
+            "ko": "日暮寻路",
+            "zh": "日暮寻路"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1662624000000,
+                "closeTime": 1663185600000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act12mini_zone1.jpg",
+        "stages": [
+            "act12mini_01",
+            "act12mini_02",
+            "act12mini_03",
+            "act12mini_04",
+            "act12mini_05",
+            "act12mini_06",
+            "act12mini_07",
+            "act12mini_08"
+        ]
+    },
+    {
+        "zoneId": "act13mini_zone1",
+        "zoneIndex": 1045,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "好久不见",
+        "zoneName_i18n": {
+            "en": "好久不见",
+            "ja": "好久不见",
+            "ko": "好久不见",
+            "zh": "好久不见"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1663228800000,
+                "closeTime": 1663790400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act13mini_zone1.jpg",
+        "stages": [
+            "act13mini_01",
+            "act13mini_02",
+            "act13mini_03",
+            "act13mini_04",
+            "act13mini_05",
+            "act13mini_06",
+            "act13mini_07",
+            "act13mini_08"
+        ]
+    },
+    {
+        "zoneId": "act13sre_zone1",
+        "zoneIndex": 1046,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "长夜临光・复刻",
+        "zoneName_i18n": {
+            "en": "Near Light - Rerun",
+            "ja": "ニアーライト・復刻",
+            "ko": "니어 라이트 재개방",
+            "zh": "长夜临光・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1663833600000,
+                "closeTime": 1664654400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act13side_zone1.jpg",
+        "stages": [
+            "act13side_01_rep",
+            "act13side_02_rep",
+            "act13side_03_rep",
+            "act13side_04_rep",
+            "act13side_05_rep",
+            "act13side_06_rep",
+            "act13side_07_rep",
+            "act13side_08_rep",
+            "act13side_09_rep",
+            "act13side_10_rep"
+        ]
+    },
+    {
+        "zoneId": "main_11",
+        "zoneIndex": 12,
+        "type": "MAINLINE",
+        "subType": "DYING_SUN",
+        "zoneName": "第十一章 (标准)",
+        "zoneName_i18n": {
+            "en": "Episode 11 (Standard)",
+            "ja": "第十一章 (通常)",
+            "ko": "에피소드 11 (Standard)",
+            "zh": "第十一章 (标准)"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1665475200000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/main_11.jpg",
+        "stages": [
+            "main_11-02",
+            "main_11-03",
+            "main_11-04",
+            "main_11-05",
+            "main_11-06",
+            "main_11-07",
+            "main_11-08",
+            "main_11-09",
+            "main_11-10",
+            "main_11-11",
+            "main_11-12",
+            "main_11-13",
+            "main_11-14",
+            "main_11-16",
+            "main_11-01",
+            "main_11-17",
+            "main_11-18",
+            "main_11-15"
+        ]
+    },
+    {
+        "zoneId": "main_11_tough",
+        "zoneIndex": 13,
+        "type": "MAINLINE",
+        "subType": "DYING_SUN",
+        "zoneName": "第十一章 (磨难)",
+        "zoneName_i18n": {
+            "en": "Episode 11 (Tough)",
+            "ja": "第十一章 (厄難)",
+            "ko": "에피소드 11 (Tough)",
+            "zh": "第十一章 (磨难)"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1665475200000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/main_11.jpg",
+        "stages": [
+            "tough_11-07",
+            "tough_11-04",
+            "tough_11-03",
+            "tough_11-16",
+            "tough_11-02",
+            "tough_11-13",
+            "tough_11-10",
+            "tough_11-01",
+            "tough_11-09",
+            "tough_11-08",
+            "tough_11-06",
+            "tough_11-05",
+            "tough_11-18",
+            "tough_11-12",
+            "tough_11-14",
+            "tough_11-11"
+        ]
+    },
+    {
+        "zoneId": "act21side_zone1",
+        "zoneIndex": 1047,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "叙拉古人",
+        "zoneName_i18n": {
+            "en": "叙拉古人",
+            "ja": "叙拉古人",
+            "ko": "叙拉古人",
+            "zh": "叙拉古人"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1667289600000,
+                "closeTime": 1669060800000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act21side_zone1.jpg",
+        "stages": [
+            "act21side_01",
+            "act21side_02",
+            "act21side_03",
+            "act21side_04",
+            "act21side_05",
+            "act21side_06",
+            "act21side_07",
+            "act21side_08",
+            "act21side_09",
+            "act21side_10"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_10_zone1",
+        "zoneIndex": 3009,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "长夜临光・别传",
+        "zoneName_i18n": {
+            "en": "Near Light - Side Story",
+            "ja": "ニアーライト・サイドストーリー",
+            "ko": "니어 라이트 사이드",
+            "zh": "长夜临光・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1665000000000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act13side_zone1.jpg",
+        "stages": [
+            "act13side_01_perm",
+            "act13side_02_perm",
+            "act13side_03_perm",
+            "act13side_04_perm",
+            "act13side_05_perm",
+            "act13side_06_perm",
+            "act13side_07_perm",
+            "act13side_08_perm",
+            "act13side_09_perm",
+            "act13side_10_perm"
+        ]
+    },
+    {
+        "zoneId": "act14sre_zone1",
+        "zoneIndex": 1048,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "风雪过境・复刻",
+        "zoneName_i18n": {
+            "en": "Break The Ice - Rerun",
+            "ja": "風雪一過・復刻",
+            "ko": "브레이크 디 아이스 재개방",
+            "zh": "风雪过境・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1669881600000,
+                "closeTime": 1670702400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act14side_zone1.jpg",
+        "stages": [
+            "act14side_01_rep",
+            "act14side_02_rep",
+            "act14side_03_rep",
+            "act14side_04_rep",
+            "act14side_05_rep",
+            "act14side_06_rep",
+            "act14side_07_rep",
+            "act14side_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act22side_zone1",
+        "zoneIndex": 1049,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "照我以火",
+        "zoneName_i18n": {
+            "en": "照我以火",
+            "ja": "照我以火",
+            "ko": "照我以火",
+            "zh": "照我以火"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1671091200000,
+                "closeTime": 1672257600000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act22side_zone1.jpg",
+        "stages": [
+            "act22side_01",
+            "act22side_02",
+            "act22side_03",
+            "act22side_04",
+            "act22side_05",
+            "act22side_06",
+            "act22side_07",
+            "act22side_08"
+        ]
+    },
+    {
+        "zoneId": "act15sre_zone1",
+        "zoneIndex": 1050,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "将进酒・复刻",
+        "zoneName_i18n": {
+            "en": "Invitation to Wine - Rerun",
+            "ja": "将進酒・復刻",
+            "ko": "장진주 재개방",
+            "zh": "将进酒・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1672560000000,
+                "closeTime": 1673380800000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act15side_zone1.jpg",
+        "stages": [
+            "act15side_01_rep",
+            "act15side_02_rep",
+            "act15side_03_rep",
+            "act15side_04_rep",
+            "act15side_05_rep",
+            "act15side_06_rep",
+            "act15side_07_rep",
+            "act15side_08_rep",
+            "act15side_09_rep"
+        ]
+    },
+    {
+        "zoneId": "act23side_zone1",
+        "zoneIndex": 1051,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "登临意",
+        "zoneName_i18n": {
+            "en": "登临意",
+            "ja": "登临意",
+            "ko": "登临意",
+            "zh": "登临意"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1673942400000,
+                "closeTime": 1675108800000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act23side_zone1.jpg",
+        "stages": [
+            "act23side_01",
+            "act23side_02",
+            "act23side_03",
+            "act23side_04",
+            "act23side_05",
+            "act23side_06",
+            "act23side_07",
+            "act23side_08",
+            "act23side_09"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_11_zone1",
+        "zoneIndex": 3010,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "风雪过境・别传",
+        "zoneName_i18n": {
+            "en": "Break The Ice - Side Story",
+            "ja": "風雪一過・サイドストーリー",
+            "ko": "브레이크 디 아이스 재개방 사이드",
+            "zh": "风雪过境・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1671048000000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act14side_zone1.jpg",
+        "stages": [
+            "act14side_02_perm",
+            "act14side_03_perm",
+            "act14side_06_perm",
+            "act14side_04_perm",
+            "act14side_07_perm",
+            "act14side_01_perm",
+            "act14side_05_perm",
+            "act14side_08_perm"
+        ]
+    },
+    {
+        "zoneId": "permanent_sidestory_12_zone1",
+        "zoneIndex": 3011,
+        "type": "ACTIVITY_PERMANENT",
+        "subType": "SIDESTORY",
+        "zoneName": "将进酒・别传",
+        "zoneName_i18n": {
+            "en": "Invitation to Wine - Side Story",
+            "ja": "将進酒・サイドストーリー",
+            "ko": "장진주 사이드",
+            "zh": "将进酒・别传"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1673726400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act15side_zone1.jpg",
+        "stages": [
+            "act15side_01_perm",
+            "act15side_02_perm",
+            "act15side_09_perm",
+            "act15side_04_perm",
+            "act15side_05_perm",
+            "act15side_06_perm",
+            "act15side_03_perm",
+            "act15side_08_perm",
+            "act15side_07_perm"
+        ]
+    },
+    {
+        "zoneId": "act14mini_zone1",
+        "zoneIndex": 1052,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "春分",
+        "zoneName_i18n": {
+            "en": "春分",
+            "ja": "春分",
+            "ko": "春分",
+            "zh": "春分"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1676361600000,
+                "closeTime": 1676923200000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act14mini_zone1.jpg",
+        "stages": [
+            "act14mini_01",
+            "act14mini_02",
+            "act14mini_03",
+            "act14mini_04",
+            "act14mini_05",
+            "act14mini_06",
+            "act14mini_07",
+            "act14mini_08"
+        ]
+    },
+    {
+        "zoneId": "act16sre_zone1",
+        "zoneIndex": 1053,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "吾导先路・复刻",
+        "zoneName_i18n": {
+            "en": "Guide Ahead - Rerun",
+            "ja": "吾れ先導者たらん・復刻",
+            "ko": "가이딩 어헤드 재개방",
+            "zh": "吾导先路・复刻"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1676966400000,
+                "closeTime": 1677787200000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act16side_zone1.jpg",
+        "stages": [
+            "act16side_01_rep",
+            "act16side_02_rep",
+            "act16side_03_rep",
+            "act16side_04_rep",
+            "act16side_05_rep",
+            "act16side_06_rep",
+            "act16side_07_rep",
+            "act16side_08_rep"
+        ]
+    },
+    {
+        "zoneId": "act24side_zone1",
+        "zoneIndex": 1054,
+        "type": "ACTIVITY",
+        "subType": null,
+        "zoneName": "落叶逐火",
+        "zoneName_i18n": {
+            "en": "落叶逐火",
+            "ja": "落叶逐火",
+            "ko": "落叶逐火",
+            "zh": "落叶逐火"
+        },
+        "existence": {
+            "CN": {
+                "exist": true,
+                "openTime": 1678176000000,
+                "closeTime": 1679342400000
+            },
+            "JP": {
+                "exist": false
+            },
+            "KR": {
+                "exist": false
+            },
+            "US": {
+                "exist": false
+            }
+        },
+        "background": "/backgrounds/zones/act24side_zone1.jpg",
+        "stages": [
+            "act24side_01",
+            "act24side_02",
+            "act24side_03",
+            "act24side_04",
+            "act24side_05",
+            "act24side_06",
+            "act24side_07",
+            "act24side_08",
+            "act24side_09",
+            "act24side_gacha"
+        ]
+    }
+]

@@ -7,6 +7,7 @@ export default {
 
 
 
+
     //根据tag集合和最高星级返回公招结果 
     findAllDataRec(type,tags,rarityMax) {
         return request({
@@ -16,9 +17,9 @@ export default {
     },
 
    
-    updateVisits(domain) {
+    updateVisits(path) {
         return request({
-            url: `${api_name}/visits/${domain}`,
+            url: `${api_name}/visits?path=${path}`,
             method: 'get',
         })
     },

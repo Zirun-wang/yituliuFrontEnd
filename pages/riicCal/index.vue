@@ -84,7 +84,7 @@
               导出到本地
             </el-button>
           </a>
-          <!-- <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;" @click="MAAURLCopy()">
+          <!-- <el-button size="medium" type="primary" round style="width:108px;padding-left:10px;" @click="MaaURLCopy()">
                 导出到MAA
           </el-button> -->
 
@@ -1599,7 +1599,7 @@
     },
     data() {
       return {
-        exportUrl: "https://houduan.yituliu.site/tool/building/schedule/export?uid=1664632307607024",
+        exportUrl: "https://houduan.yituliu.site/tool/building/schedule/export?schedule_id=1664632307607024",
         maaUrl: "maa://infra.yituliu/1664632307607024",
         uid: 12345,
         importId: '',
@@ -1768,13 +1768,13 @@
     methods: {
       openNotification() {
         this.$notify({
-          title: '2023-01-18更新',
+          title: '2023-03-13更新',
           dangerouslyUseHTMLString: true,
-          message: '<strong> 干员追加：<br>增加了登临意活动干员 </strong>',
+          message: '<strong> 干员追加：<br>增加了落叶逐火活动干员 <br>BUG相关：  <br>由于存储服务重写的问题<br>如果遇到导入为空的情况可加Q群539600566</strong>',
           duration: 12000
         });
       },
-      MAAURLCopy() {
+      MaaURLCopy() {
         let oInput = document.createElement("input");   //创建一个input标签
         oInput.value = this.maaUrl;  //将要复制的值赋值给input
         document.body.appendChild(oInput);  //在页面中插入
@@ -1789,8 +1789,8 @@
         });
       },
       setExportUrl() {
-        this.exportUrl =
-          "https://houduan.yituliu.site/tool/building/schedule/export?uid=" + this.uid;
+        this.exportUrl ="https://backend.yituliu.site/tool/building/schedule/export?schedule_id=" + this.uid;
+          // this.exportUrl ="http://127.0.0.1:10011/tool/building/schedule/export?schedule_id=" + this.uid;
         this.maaUrl = "maa://infra.yituliu/" + this.uid;
       },
       maaBuildingJsonCreated() {
@@ -1805,6 +1805,7 @@
           this.uid = response.data.uid;
           this.setExportUrl();
         });
+        this.setExportUrl();
         document.getElementById('export_cover').style.display = 'none'
       },
       retrieveSchedule() {

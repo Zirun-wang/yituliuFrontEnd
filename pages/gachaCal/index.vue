@@ -606,19 +606,19 @@
                 <!-- 一个通用的资源显示模块 -->
                 <div class="gacha_resources_unit" style="width: 279px;">
                   <div style="width: 40px" v-show="singlePack.gachaOrundum > 0.1"
-                       :class="getSpriteImg('4003icon', 0)"></div>
+                       :class="getSpriteImg('4003icon', 0)"/>
                   <div style="width: 54px" v-show="singlePack.gachaOrundum > 0.1">{{ singlePack.gachaOrundum }}</div>
                   <div style="width: 40px" v-show="singlePack.gachaOriginium > 0.1"
-                       :class="getSpriteImg('4002icon', 0)"></div>
+                       :class="getSpriteImg('4002icon', 0)"/>
                   <div style="width: 54px" v-show="singlePack.gachaOriginium > 0.1"> {{
                       singlePack.gachaOriginium
                     }}
                   </div>
                   <div style="width: 40px" v-show="singlePack.gachaPermit > 0.1"
-                       :class="getSpriteImg('7003icon', 0)"></div>
+                       :class="getSpriteImg('7003icon', 0)"/>
                   <div style="width: 54px" v-show="singlePack.gachaPermit > 0.1"> {{ singlePack.gachaPermit }}</div>
                   <div style="width: 40px" v-show="singlePack.gachaPermit10 > 0.1"
-                       :class="getSpriteImg('7004icon', 0)"></div>
+                       :class="getSpriteImg('7004icon', 0)"/>
                   <div style="width: 54px" v-show="singlePack.gachaPermit10 > 0.1"> {{ singlePack.gachaPermit10 }}</div>
                 </div>
               </el-checkbox-button>

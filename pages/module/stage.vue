@@ -50,7 +50,15 @@
         <div class="stage_hint_t2">
           绿：期望最低(短期最优)
         </div>
+         
       </div>
+      <!-- <div class="stage_hint">
+        <div class="stage_hint_t5">
+          当前企鹅物流CF-7数据有污染，正在等待修复，请谨慎参考
+        </div>
+      </div> -->
+
+      
       <!-- <el-collapse v-model="checkBox" @change="handleChange">
         <el-collapse-item name="1" style="display: block">
           <template slot="title">
@@ -68,9 +76,9 @@
       <div class="op_content" id="stage_t3_content">
         <!-- 基础卡 -->
         <div v-for="(materialRankT3, indexAll) in stageRankT3" :key="indexAll" class="stage_card_t3 uni_shadow_2" @click="showPopup(indexAll)">
-          <!-- <div class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div> -->
-          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
-
+          <!-- <div v-show="materialRankT3[0].itemType=='兽之泪'"  class="stage_card_t3_img" :style="getCardBackground(materialRankT3[1].itemType)"></div>  -->
+          <div  class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,'type' )"></div>
+      
           <div class="stage_card_t3_table" >
             <table>
                 <tbody>
@@ -78,7 +86,7 @@
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                     <td>
-                      <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
+                      <div  :class="getSpriteImg(stage.secondaryId, 'sec')"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <!-- <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td> -->
@@ -100,7 +108,7 @@
       <!-- 扩展卡 -->
       <div class="op_content" id="stage_t3_content_plus" style="display:none;">
         <div v-for="(materialRankT3, index) in stageRankT3" :key="index" class="stage_card_t3 uni_shadow_2" :style="judgeActive(index)" @click="showPopup(index)">
-          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,0 )"></div>
+          <div class="stage_card_t3_img" :class="getSpriteImg(materialRankT3[0].itemId,'type' )"></div>
 
           <div class="stage_card_t3_table" >
             <table>
@@ -109,7 +117,7 @@
                     <td class="stage_table_c1">{{ stage.stageCode }}</td>
                     <!-- <td class="stage_table_c2" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
                     <td>
-                      <div  :class="getSpriteImg(stage.secondaryId, 1)"></div>
+                      <div  :class="getSpriteImg(stage.secondaryId, 'sec')"></div>
                     </td>
                     <td class="stage_table_c3">{{getEfficiency(stage.stageEfficiency,1)}}%</td>
                     <!-- <td class="stage_table_c4">{{getBoxEfficiency(stage.stageState, stage.stageEfficiencyEx, stage.stageEfficiency)}}</td> -->
@@ -130,7 +138,7 @@
         <div class="stage_card_t2 uni_shadow_2">
           <div v-for="(materialRankT2, index) in stageRankT2.slice(0, 6)" :key="index" class="stage_card_t2_img">
             <!-- <img :src="getImgUrl(materialRankT2[0].itemName)" :alt="materialRankT2[0].itemName" "> -->
-            <div :class="getSpriteImg(materialRankT2[0].itemId,100)" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
+            <div :class="getSpriteImg(materialRankT2[0].itemId,'t2')" :id="getCardId(index+100)" @click="showPopup(index+100)"></div>
           </div>
         </div>
       </div>
@@ -145,7 +153,7 @@
       <!-- 散装标题Start -->
       <div  class="popup_card" id="popup_card">
         <div class="popup_header" >
-          <div :class="getSpriteImg(itemId, 2)" style="display:inline-block;margin:10px"></div>
+          <div :class="getSpriteImg(itemId, 'title')" style="display:inline-block;margin:10px"></div>
           <div class="popup_header_text">{{itemType}}</div>
           <a :href="getPenguinUrl(itemId)" target="_blank">
             <div class="t3 popup_header_penguin" style="display:flex">
@@ -174,7 +182,7 @@
               <td class="popup_table_c2" style="font-size:14px;">{{shrinkTimes(stage.sampleSize)}}<br>({{stage.sampleConfidence}}%)</td>
               <td class="popup_table_c3">{{getEfficiency(stage.spm, 1)}}</td>
               <!-- <td class="popup_table_c4" ><img class="stage_img_secondary" :src="getImgUrl(stage.secondary)" alt=""></td> -->
-              <td style="padding-left:20px;">  <div :class="getSpriteImg(stage.secondaryId, 3)"></div> </td>
+              <td style="padding-left:20px;">  <div :class="getSpriteImg(stage.secondaryId, 'sec')"></div> </td>
               <td class="popup_table_c5">{{getEfficiency(stage.knockRating*100, 1)}}%</td>
               <td class="popup_table_c6">{{getEfficiency(stage.apExpect)}}</td>
               <td class="popup_table_c7" :style="getUpMark(stage.stageState)">{{getEfficiency(stage.stageEfficiency,1)}}% </td>
@@ -225,8 +233,8 @@
                 <div>{{getEfficiency(stage.lMDCost)}}w</div>
                 <div style="margin-bottom: -8px;" :class="getSpriteImg(4001, 5)" ></div>
               </td>
-              <td class="popup_table_c5" style="width:95px;"> {{stage.stageEfficiency}}%</td>
-              <td class="popup_table_c6" style="width:95px;"> {{stage.orundumPerApEfficiency}}%</td>
+              <td class="popup_table_c5" style="width:95px;"> {{getEfficiency(stage.stageEfficiency)}}%</td>
+              <td class="popup_table_c6" style="width:95px;"> {{getEfficiency(stage.orundumPerApEfficiency)}}%</td>
             </tr>
           </tbody>
         </table>
@@ -241,12 +249,13 @@
       <!-- 往期活动 -->
       <div id="popup_card_history">
         <div v-for="(closedAct, index) in stageActHistory" :key="index" class="popup_card">
-          <div class="history_actName">{{closedAct[0].activityName}}</div>
+          <div v-show="closedAct[0].zoneName!=null" class="history_actName">{{closedAct[0].zoneName}}</div>
+          <div v-show="closedAct[0].zoneName==null" class="history_actName">{{closedAct[0].activityName}}</div>
           <div class="history_actStages">
             <div v-for="(stage, index) in closedAct" :key="index" class="history_stage">
-              <div :class="getSpriteImg(stage.itemId, 2)" style="display:inline-block;"></div>
+              <div :class="getSpriteImg(stage.itemId, 'title')" style="display:inline-block;"></div>
               <div class="history_stage_table">
-                {{stage.stageCode}}<br>{{stage.stageEfficiency}}%
+                {{stage.stageCode}}<br>{{ getEfficiency(stage.stageEfficiency)}}%
               </div>
             </div>
           </div>
@@ -390,23 +399,23 @@ export default {
      getSpriteImg(id, index) {
 
       if(id==='30012'&&index!==100) id = '30013'
-      if (index === 0) return "bg-" + id +"large" + " sprite_type";
-      if (index === 1) return "bg-" + id + " sprite_secondary";
-      if (index === 2) return "bg-" + id + " sprite_title";
+      if (index == 'type') return "bg-" + id +"large" + " sprite_type";
+      if (index === 'sec') return "bg-" + id + " sprite_secondary";
+      if (index === 'title') return "bg-" + id + " sprite_title";
       if (index === 3) return "bg-" + id + " sprite_secondary_dialog";
       if (index === 4) return "bg-" + id + "_icon sprite_icon";
       if (index === 5) return "bg-" + id + "_icon sprite_icon_small";
       if (index === 6) return "bg-" + id + "_icon sprite_icon_up";
       if (index === 7) return "bg-" + id + "_icon sprite_icon_el";
-      if (index === 100) return "bg-" + id + " sprite_T2";
+      if (index === 't2') return "bg-" + id + " sprite_T2";
       return "bg-" + id;
     },
     getImgUrl(img, source){
       source = (typeof source !== 'undefined') ?  type : 1;
       if (source > 2.1)
-        return("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/ activity_picture /" + img + ".png");
+        return("https://image.yituliu.site/ activity_picture /" + img + ".png");
       if (source > 1.1)
-        return ("https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/item/" + img + ".png");
+        return ("https://image.yituliu.site/item/" + img + ".png");
       else if (source >0.1)
         return ("/img/materials/" + img + ".png");
       else
@@ -414,7 +423,7 @@ export default {
     },
 
     getCardBackground(url){
-      return ('background: linear-gradient(rgba(144, 164, 174, 0), rgba(144, 164, 174, 0)), url(\"/img/materials/' + url + '.png\") no-repeat 85% 50% /140%;');
+      return ('background: linear-gradient(rgba(144, 164, 174, 0), rgba(144, 164, 174, 0)), url(https://yygh-atbriup.oss-cn-beijing.aliyuncs.com/sprite/mix.png) no-repeat 85% 50% /100%;margin-left:-32px');
     },
     getEfficiency(num, acc){
       acc = (typeof acc !== 'undefined') ?  acc : 2;

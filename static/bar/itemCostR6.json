@@ -2857,6 +2857,7 @@
     },
     {
         "apCost": 2668.7866,
+        "name": "夕",
         "charId": "char_2015_dusk",
         "itemCost": [
             [
@@ -2894,11 +2895,12 @@
                 }
             ]
         ],
-        "name": "夕",
+       
         "profession": "CASTER"
     },
     {
         "apCost": 2759.8181999999997,
+        "name": "山",
         "charId": "char_264_f12yin",
         "itemCost": [
             [
@@ -2936,7 +2938,7 @@
                 }
             ]
         ],
-        "name": "山",
+        
         "profession": "WARRIOR"
     }
 ]
