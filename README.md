@@ -1,5 +1,9 @@
 # 一图流前端
 明日方舟材料获取一图流的前端仓库<br>
+
+目前已转移至
+https://github.com/Arknights-yituliu/frontend-v2-plus
+
 联系我们：[![](https://img.shields.io/badge/dynamic/json?color=FE7398&label=bilibili&prefix=%E7%B2%89%E4%B8%9D%E6%95%B0%3A&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dbilibili%26queryKey%3D688411531)](https://space.bilibili.com/688411531)
 
 开发群：938710832
